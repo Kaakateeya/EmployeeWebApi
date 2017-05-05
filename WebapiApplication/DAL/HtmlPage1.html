@@ -1,0 +1,390 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="//code.jquery.com/jquery.min.js" type="text/javascript"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            var object = {
+
+                GetDetails
+           : {
+               AgeFromID: "25",
+               AgeFromText: null,
+               AgeToID: "29",
+               AgeToText: null,
+               AnnualIncomefrom: null,
+               AnnualIncometo: null,
+               AnnualincomeID: null,
+               AnnualincomeText: null,
+               ApplicationstatusID: null,
+               ApplicationstatusText: null,
+               BranchID: null,
+               BranchText: null,
+               CountryID: "1",
+               CountryText: null,
+               CustID: 91022,
+               Dateofregfrom: null,
+               Dateofregto: null,
+               EducationID: "1",
+               EducationText: null,
+               GenderID: "1",
+               GenderText: null,
+               HeightFromID: "21",
+               HeightFromText: null,
+               HeightToID: "27",
+               HeightToText: null,
+               LastestLoginsfrom: null,
+               LastestLoginsto: null,
+               MaritalstatusID: "43",
+               MaritalstatusText: null,
+               MothertongueID: "1",
+               MothertongueText: null,
+               OnlyConfidential: 0,
+               ProfessionID: null,
+               ProfessionText: null,
+               ProfileID: null,
+               PropertyValuefrom: null,
+               PropertyValueto: null,
+               RegionID: null,
+               RegionText: null,
+               ReligionID: "1",
+               ReligionText: null,
+               SeriousMatch: null,
+               ShowinprofileText: null,
+               castID: "402,403,402",
+               castIDText: null,
+               slidegride: null
+           },
+                customerpersonaldetails: {
+                    Admin: 1,
+                    CustID: "91022",
+                    EmpID: "2",
+                    EndIndex: 10,
+                    startindex: 1
+
+                }
+
+            }
+
+            var Mobjddd=
+                {
+                    custfamiliyid: 1174407,
+                    MoblieCountryCode: 13,
+                    MobileNumber: "1111111111",
+                    LandCountryCode: 22,
+                    LandAreaCode: null,
+                    LandNumber: "3333333333",
+                    Email: "testing@gmail.com",
+                    intCusID: 111070,
+                    EmpID: "2",
+                    Admin: null,
+                    SibblingFlag: "Parent"
+                }
+
+
+            var object123 = {
+                customerpersonaldetails:
+                    {
+                        FromCustID: "",
+                        EmpID: "141",
+                        emailaddress: "lakshmidevi407@gmail.com"
+                    },
+                GetDetails:
+                 [{
+                     FromProfileID: "310910220",
+                     ToProfileID: "210910352",
+                     EmpID: 141,
+                     ModeofService: 351,
+                     RelationShipID: 39,
+                     Name: "venkata Ramana gggggg ",
+                     TypeOfService: "2",
+                     ProfileType: "1",
+                     Sendsms: 1,
+                     IsRvrSend: 1,
+                     SelectedImages: "img2.jpg,img3.jpg;210910352",
+                     Acceptlink: "",
+                     Rejectlink: "",
+                     EmailAddress: "lakshmidevi407@gmail.com",
+                     RVRAcceptlink: "",
+                     RVRRejectlink: ""
+                 }
+                   , {
+                       FromProfileID: "310910220",
+                       ToProfileID: "210910352",
+                       EmpID: 141,
+                       ModeofService: 351,
+                       RelationShipID: 39,
+                       Name: "venkata Ramana gggggg ",
+                       TypeOfService: "2",
+                       ProfileType: "1",
+                       Sendsms: 1,
+                       IsRvrSend: 1,
+                       SelectedImages: "img2.jpg,img3.jpg;210910352",
+                       Acceptlink: "",
+                       Rejectlink: "",
+                       EmailAddress: "lakshmidevi407@gmail.com",
+                       RVRAcceptlink: "",
+                       RVRRejectlink: ""
+                   }]
+
+            }
+
+            var dd =
+                {
+                    EMPID: "2",
+                    FromCustID: 91022,
+                    FromProfileID: "310910220",
+                    HistoryUpdate: 1,
+                    LTicketID: 1054519,
+                    Notes: "Bride is interested in your profile.",
+                    TicketStatusID: "Accept",
+                    ToProfileID: "110169486",
+                    TocustID: 16948,
+                    profileid: "310910220"
+
+                }
+            var inputobj = {
+
+                strBranch: null,
+                strEmpName: '2',
+                i_isAdmin: 1,
+                i_EmpID: 2,
+                i_PageFrom: 1,
+                i_PageTo: 10,
+                dtFromProceedDate: null,
+                dtToProceedDate: null,
+                i_days: null,
+                i_RegionID: null,
+                v_MarketremindeFlag: 2,
+                v_siblingflag: 0,
+                v_guestticketflag: 0,
+                v_OnlineExprd: 0,
+                v_OfflineExprd: 0,
+                i_TicketId: null,
+                i_EmailId: null,
+                i_PhoneNumber: null,
+                i_Name: null,
+                dt_Opendate: null,
+                i_ProfileId: null,
+                i_Category: null,
+                i_Ticketstatus: null,
+                dt_FromRemainderdate: null,
+                dt_ToReminderdate: null,
+                i_Excelflag: null,
+                V_Notpay: null
+
+            }
+            var Mobj = {
+                ApplicationstatusID
+:
+"54",
+                Assigneddatefromdate
+:
+"",
+                Assigneddatetodate
+    :
+    "",
+                BranchID
+    :
+    null,
+                CasteID
+    :
+    "402",
+                DORFromdate
+    :
+    "",
+                DORTodate
+    :
+    "",
+                Empid
+    :
+    "2",
+                GenderID
+    :
+    "",
+                HavingprofilesID
+    :
+    null,
+                LogoutId
+    :
+    "",
+                MarketingownerID
+    :
+    null,
+                OwneroftheprofileID
+    :
+    "2",
+                TypeofprofileID
+    :
+    "",
+                WebsiteBlocked
+    :
+    "",
+                pagefrom
+    :
+    1,
+                pageto
+    :
+    10,
+                verfiedcontacts
+    :
+    ""
+            };
+            $("#Display").click(function () {
+
+                alert(Mobj);
+
+                $.ajax({
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/MyprofileAllslides',
+                    type: 'POST',
+                    crossDomain: true,
+                    data: JSON.stringify(Mobj),
+                    contentType: 'application/json',
+                    success: function (data, textStatus, xhr) {
+                        alert(JSON.stringify(data));
+                        console.log(data);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log(xhr);
+                    }
+                });
+            });
+
+            $("#test").click(function () {
+
+                alert(1);
+
+                $.ajax({
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/MarketingTicketHistoryInfo',
+                    type: 'POST',
+                    crossDomain: true,
+                    data: JSON.stringify(inputobj),
+                    contentType: 'application/json',
+                    success: function (data, textStatus, xhr) {
+                        alert(JSON.stringify(data));
+                        console.log(data);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log(xhr);
+                    }
+                });
+            });
+
+
+            $("#8070").click(function () {
+                alert(2);
+                $.ajax({
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/getCustShortlist_ProfileBookMarked',
+                    type: 'GET',
+                    crossDomain: true,
+                    data: { CustID: 91022 },
+                    contentType: 'application/json',
+                    success: function (data, textStatus, xhr) {
+                        alert(JSON.stringify(data));
+                        console.log(data);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log(xhr);
+                    }
+                });
+            });
+
+            $("#ClassData1").click(function () {
+                alert(1);
+                $.ajax({
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/getMyProfileBindingsBranch',
+                    type: 'GET',
+                    crossDomain: true,
+                    data: { flag: 'ProfileBranch', ID: 1 },
+                    contentType: 'application/json',
+                    success: function (data, textStatus, xhr) {
+                        alert(JSON.stringify(data));
+                        console.log(data);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log(xhr);
+                    }
+                });
+            });
+
+            $("#ClassData2").click(function () {
+                alert(1);
+                $.ajax({
+                    url: 'http://localhost:63006/Api/CustomerPersonal/getProfileIDPlaybutton',
+                    type: 'GET',
+                    crossDomain: true,
+                    data: { ProfileID: 111111700 },
+                    contentType: 'application/json',
+                    success: function (data, textStatus, xhr) {
+                        alert(JSON.stringify(data));
+                        console.log(data);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log(xhr);
+                    }
+                });
+            });
+
+            $("#Save").click(function () {
+
+                alert(1);
+
+                $.ajax({
+                    url: 'http://localhost:63006/Api/CustomerPersonalUpdate/CustomerContactDetails_Update',
+                    type: 'POST',
+                    crossDomain: true,
+                    data: JSON.stringify(Mobj),
+                    contentType: 'application/json',
+                    success: function (data, textStatus, xhr) {
+                        alert(JSON.stringify(data));
+                        console.log(data);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log(xhr);
+                    }
+                });
+            });
+
+        });
+
+    </script>
+
+    <script type="text/javascript">
+
+        function Host() {
+            alert(2);
+            $.get('http://54.169.133.223:8010/Api/DB/GetTimeUrl/1', function (data) {
+
+                $.each(data, function (i, v) {
+                    $('#result').html($('#result').html() + v.Title + '<br />');
+                });
+            });
+        }
+
+        function yourFunction() {
+            alert(1);
+        }
+
+    </script>
+</head>
+<body>
+
+    <input type="button" id="Save" value="Save Data" />
+    <input type="button" id="Display" value="Display" />
+    <input type="button" id="test" value="Test" />
+    <input type="button" id="ClassData" value="ClassData" />
+    <input type="button" id="ClassData1" value="KKKK" />
+    <input type="button" id="ClassData2" value="Local" />
+    <input type="button" id="8070" value="8070" />
+    <input type="button" id="Display12" value="Display12" />
+
+    <div id="result"></div>
+    <div>
+        Test Display
+        <a onclick="yourFunction(); return false;">One Way</a>
+    </div>
+</body>
+</html>
