@@ -142,11 +142,9 @@ namespace WebapiApplication.ML
         public string previousowner { get; set; }
         public int? verfiedcontacts { get; set; }
         public int? WebsiteBlocked { get; set; }
-
-
-
-
+        public int? intTableType { get; set; }
     }
+
     public class myprofileResponse
     {
         public string Cust_ID { get; set; }
@@ -221,5 +219,40 @@ namespace WebapiApplication.ML
         public string CreatedDate { get; set; }
         public string Primarynumber { get; set; }
         public string Primaryemail { get; set; }
+
+
+        public string ApplicationPhotoPath { get; set; }
+
+        public string DOR { get; set; }
+
+        public string LastLoginDate { get; set; }
+
+        public int? LoginCount { get; set; }
+
+        public int? PaidAmount { get; set; }
+
+        public string ContactNumber { get; set; }
+
+        public string Email { get; set; }
+
+        public int? MybookMarkedProfCount { get; set; }
+
+        public int? WhobookmarkedCount { get; set; }
+
+        public int? RectViewedProfCount { get; set; }
+
+        public int? RectWhoViewedCout { get; set; }
+
+        public int? IgnoreProfileCount { get; set; }
+
+        public int? SentPhotoRequestCount { get; set; }
+
+        public string EmpName { get; set; }
+
+        public string UserName { get; set; }
+        public string HoroscopeImage { get; set; }
     }
 }
+
+
+

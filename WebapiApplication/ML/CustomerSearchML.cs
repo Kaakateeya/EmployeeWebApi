@@ -11,7 +11,7 @@ namespace WebapiApplication.ML
     {
         public string strFirstName { get; set; }
         public string strLastName { get; set; }
-       // public DateTime dtDOB { get; set; }
+        // public DateTime dtDOB { get; set; }
         public string dtDOB { get; set; }
         public int intGenderID { get; set; }
         public int? intReligionID { get; set; }//
@@ -380,7 +380,9 @@ namespace WebapiApplication.ML
         public string fatherProfessiondetails { set; get; }
         public string mothereducationdetails { set; get; }
         public string motherProfessiondetails { set; get; }
+        public int? FatherMobileCountryCode { set; get; }
+        public string FatherMobileNumber { set; get; }
+        public int? MotherMobileCountryCode { set; get; }
+        public string MotherMobileNumber { set; get; }
     }
-
-
 }

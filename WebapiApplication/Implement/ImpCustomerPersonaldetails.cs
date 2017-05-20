@@ -31,20 +31,20 @@ namespace WebapiApplication.Implement
         public ArrayList getRelativeDetailsDisplay(long? CustID) { return customerdetails.DgetRelativeDetailsDisplay(CustID, "[dbo].[usp_Customer_ReletivesPageload]"); }
         public ArrayList getReferenceViewDetailsDisplay(long? CustID) { return customerdetails.DgetReferenceViewDetailsDisplay(CustID, "[dbo].[usp_Customer_RefrencePageload]"); }
         public ArrayList GetphotosofCustomer(string Custid, int? EmpID) { return customerdetails.DGetphotosofCustomer(Custid, EmpID, "[dbo].[Usp_GetphotosofCustomer]"); }
-        public ArrayList getCustomerPersonalMenu(long? CustID, int? iReview, string SectionID) { return customerdetails.CustomerPersonalMenuReview(CustID, iReview, SectionID, "[dbo].[usp_CustomerPersonalMenu]"); }
+        public ArrayList getCustomerPersonalMenu(long? CustID, int? iReview, string SectionID) { return customerdetails.CustomerPersonalMenuReview(CustID, iReview, SectionID, "[dbo].[usp_CustomerPersonalMenu_Emp_NewDesign]"); }
         public ArrayList getCustomerPersonalSpouse_Details(long? CustID) { return customerdetails.CustomerPersonalSpouse_Details(CustID, "[dbo].[usp_ViewMySpouse_Details]"); }
         public ArrayList getCustomerPersonalContact_Details(long? CustID) { return customerdetails.CustomerPersonalContact_Details(CustID, "[dbo].[usp_employyee_allcontacts]"); }
         public ArrayList getCustomerPersonaloffice_purpose(string flag, string ID, string AboutProfile, int? IsConfidential, int? HighConfendential) { return customerdetails.CustomerPersonaloffice_purpose(flag, ID, AboutProfile, IsConfidential, HighConfendential, "[dbo].[usp_Customerlinq]"); }
         public ArrayList CustomerprofilesettingDetails(long? CustID) { return customerdetails.CustomerprofilesettingDetails(CustID, "[dbo].[usp_GetProfileSettings_forcustomer]"); }
         public string getDiscribeYour(string CustID, string AboutYourself, int? flag, string spName) { return customerdetails.DgetDiscribeYour(CustID, AboutYourself, flag, spName); }
         public ArrayList personaldetails_Customer(long? CustID) { return customerdetails.personaldetails_Customer(CustID, "[dbo].[usp_customerpersonaldetails_pageload]"); }
-        public ArrayList ViewAllCustomersSearch(int? intEmpID, string SearchData, string profileStatus, int? StartIndex, int? EndIndex) { return customerdetails.ViewAllCustomersSearch(intEmpID, SearchData, profileStatus,StartIndex,EndIndex ,"[dbo].[usp_emp_searchCustomer_test]"); }
+        public ArrayList ViewAllCustomersSearch(int? intEmpID, string SearchData, string profileStatus, int? StartIndex, int? EndIndex) { return customerdetails.ViewAllCustomersSearch(intEmpID, SearchData, profileStatus,StartIndex,EndIndex ,"[dbo].[usp_emp_searchCustomer_test_NewDesign]"); }
         public ArrayList ViewAllCustomersKMPLProfileID(int? EmpID, string SearchData) { return customerdetails.ViewAllCustomersKMPLProfileID(EmpID, SearchData, "[dbo].[usp_emp_searchKMPLCustomer]"); }
         public int CustomerphotoRequestDisplay(string profileid, int? EMPID, long? ticketIDs) { return customerdetails.CustomerphotoRequestDisplay(profileid, EMPID, ticketIDs, "[dbo].[sp_email_nophotos_Marketslideshow]"); }
         public ArrayList CandidateContactdetailsRelationName(long? CustID, int? PrimaryMobileRel, int? PrimaryEmailRel, int? iflage) { return customerdetails.CandidateContactdetailsRelationName(CustID, PrimaryMobileRel, PrimaryEmailRel, iflage, "[dbo].[Usp_PrimaryMobileEmailRel]"); }
         public int CandidateContactsendmailtoemailverify(long? CustID) { return customerdetails.CandidateContactsendmailtoemailverify(CustID, "[dbo].[Usp_ResendEmailVerficationLink]"); }
-        public ArrayList ProfileIDPlaybutton(string ProfileID) { return customerdetails.ProfileIDPlaybutton(ProfileID, "[dbo].[Usp_GetFullInfoofCustomer]"); }
-        public ArrayList ViewAllCustomersSettledeleteinfo(string CustID, string typeofdata) { return customerdetails.ViewAllCustomersSettledeleteinfo(CustID, typeofdata, "[dbo].[usp_ViewSettleDeleteProfiledsinfo]"); }
+        public ArrayList ProfileIDPlaybutton(string ProfileID) { return customerdetails.ProfileIDPlaybutton(ProfileID, "[dbo].[Usp_GetFullInfoofCustomer_NewDesign]"); }
+        public ArrayList ViewAllCustomersSettledeleteinfo(string CustID, string typeofdata) { return customerdetails.ViewAllCustomersSettledeleteinfo(CustID, typeofdata, "[dbo].[usp_ViewSettleDeleteProfiledsinfo_NewDesign]"); }
         public ArrayList Search_ViewEditProfile(ViewEditProfileSearch Mobj) { return customerdetails.Search_ViewEditProfile(Mobj, "[dbo].[Usp_Search_ViewEditProfile]"); }
 
     }
@@ -73,18 +73,18 @@ namespace WebapiApplication.Implement
         public ArrayList Savephotosofcustomer(UpdatePersonaldetails savePhoto) { return customerdetails.Savephotosofcustomer(savePhoto, "[dbo].[usp_Edit_Photoupload_forCustomer]"); }
         public int PhotoPassword(long? CustID, int? ipassword) { return customerdetails.PhotoPassword(CustID, ipassword, "[dbo].[usp_PhotoPassword]"); }
         public int AstroDetailsUpdateDelete(AstroUploadDelete astroupdate) { return customerdetails.AstroDetailsUpdateDelete(astroupdate, "[dbo].[usp_AstroUpload_Delete]"); }
-        public string GenerateHoroscorpe(int? customerid, string EmpIDQueryString, int? intDay, int? intMonth, int? intYear, int? CityID) { return customerdetails.GenerateHoroscorpe(customerid, EmpIDQueryString, intDay, intMonth, intYear, CityID); }
+        public HoroGeneration GenerateHoroscorpe(int? customerid, string EmpIDQueryString, int? intDay, int? intMonth, int? intYear, int? CityID) { return customerdetails.GenerateHoroscorpe(customerid, EmpIDQueryString, intDay, intMonth, intYear, CityID); }
         public ArrayList Emplanding_counts_Admin(EmployeeLandingCount ecount) { return customerdetails.Emplanding_counts_Admin(ecount, "[dbo].[usp_emplanding_counts_Admin_New]"); }
         public int UpdateSpoucedetails_Customersetails(UpdatePersonaldetails customerpersonaldetails) { return customerdetails.UpdateSpoucedetails_Customersetails(customerpersonaldetails, "[dbo].[usp_edit_Spoucedetails_CustomerEdit]"); }
-        public int UpdateSpouseChildDetails(UpdatePersonaldetails customerpersonaldetails) { return customerdetails.UpdateSpouseChildDetails(customerpersonaldetails, "[dbo].[usp_edit_SpoucedetailsChildern_CustomerEdit]"); }
+        public int UpdateSpouseChildDetails(UpdatePersonaldetails customerpersonaldetails) { return customerdetails.UpdateSpouseChildDetails(customerpersonaldetails, "[dbo].[usp_edit_SpoucedetailsChildern_CustomerEdit_NewDesign]"); }
         public int CustomerContactDetails_Update(ContactDetals Mobj) { return customerdetails.CustomerContactDetails_Update(Mobj, "[dbo].[usp_edit_CustomerContactNumbers_EmployeeEdit]"); }
-        public int CustomerProfileSetting_ProfileSetting(UpdateprofileeMl Mobj) { return customerdetails.CustomerProfileSetting_ProfileSetting(Mobj, "[dbo].[usp_updateprofilesettings_forcustomer]"); }
+        public int CustomerProfileSetting_ProfileSetting(UpdateprofileeMl Mobj) { return customerdetails.CustomerProfileSetting_ProfileSetting(Mobj, "[dbo].[usp_updateprofilesettings_forcustomer_NewDesign]"); }
         public int CustomerProfileSetting_Gradeselection(NoProfileGradingMl Mobj) { return customerdetails.CustomerProfileSetting_Gradeselection(Mobj, "[dbo].[usp_edit_CustomerContactNumbers_EmployeeEdit]"); }
-        public int UpdatePersonalDetails_Customersetails(UpdatePersonaldetails customerpersonaldetails) { return customerdetails.UpdatePersonalDetails_Customersetails(customerpersonaldetails, "[dbo].[usp_edit_Personaldetailsupdate]"); }
+        public int UpdatePersonalDetails_Customersetails(UpdatePersonaldetails customerpersonaldetails) { return customerdetails.UpdatePersonalDetails_Customersetails(customerpersonaldetails, "[dbo].[usp_edit_Personaldetailsupdate_NewDesign]"); }
         public int CustomerSectionsDeletions(string sectioname, long? CustID, long? identityid) { return customerdetails.CustomerSectionsDeletions(sectioname, CustID, identityid, "[dbo].[usp_CustomerSectionsDeletions]"); }
         public NoDataFoundDisplay NoDataInformationLinkDisplay(string ProfileID) { return customerdetails.NoDataInformationLinkDisplay(ProfileID, "[dbo].[usp_Profile_NoDataFound]"); }
         public int UpdateContactdetails_Reference(ContactdetailsRef Mobj) { return customerdetails.UpdateContactdetails_Reference(Mobj, "[dbo].[usp_UpdateContactdetails_Reference]"); }
-        public int UploadsettlementForm(SettlementPaidBalanceDetailsMl settlementForm) { return customerdetails.UploadsettlementForm(settlementForm, "[dbo].[usp_InsertUplaodsettlement]"); }
-
+        public int UploadsettlementForm(SettlementPaidBalanceDetailsMl settlementForm) { return customerdetails.UploadsettlementForm(settlementForm, "[dbo].[usp_InsertUplaodsettlement_NewDesign]"); }
+        public int AstroGenerationS3Update(string Path, string KeyName) { return customerdetails.AstroGenerationUpdate(Path, KeyName); }
     }
 }

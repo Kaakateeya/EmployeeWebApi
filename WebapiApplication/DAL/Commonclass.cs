@@ -201,9 +201,12 @@ namespace WebapiApplication.DAL
             return arraylist;
         }
 
+
         public static ArrayList convertdataTableToArrayListTable(DataSet dtSet)
         {
+
             ArrayList arraylist = new ArrayList();
+
             if (dtSet != null && dtSet.Tables.Count > 0)
             {
                 for (int icount = 0; icount < dtSet.Tables.Count; icount++)
@@ -214,6 +217,7 @@ namespace WebapiApplication.DAL
 
             return arraylist;
         }
+
 
         public static ArrayList convertdataTableToArrayGridbind(DataTable dt)
         {
@@ -393,7 +397,7 @@ namespace WebapiApplication.DAL
                 // 4.Specify advanced settings/options.
                 TransferUtilityUploadRequest fileTransferUtilityRequest = new TransferUtilityUploadRequest
                 {
-                    BucketName = "angularkaknew",
+                    BucketName = "kaakateeyaprod",
                     FilePath = filePath,
                     StorageClass = S3StorageClass.ReducedRedundancy,
                     PartSize = 6291456, // 6 MB.
@@ -476,12 +480,12 @@ namespace WebapiApplication.DAL
                 parm[1].Value = EmailMobile;
                 parm[2] = new SqlParameter("@i_Status", SqlDbType.Int);
                 parm[2].Direction = ParameterDirection.Output;
-                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "[dbo].[usp_EmailMobilenumberexists]", parm);
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "[dbo].[usp_EmailMobilenumberexists_NewDesign]", parm);
                 if (string.Compare(parm[2].Value.ToString(), System.DBNull.Value.ToString()) == 0) { iStatus = 0; } else { iStatus = Convert.ToInt32(parm[2].Value); }
             }
             catch (Exception ex)
             {
-                Commonclass.ApplicationErrorLog("[dbo].[usp_EmailMobilenumberexists]", Convert.ToString(ex.Message), null, null, null);
+                Commonclass.ApplicationErrorLog("[dbo].[usp_EmailMobilenumberexists_NewDesign]", Convert.ToString(ex.Message), null, null, null);
             }
             finally
             {

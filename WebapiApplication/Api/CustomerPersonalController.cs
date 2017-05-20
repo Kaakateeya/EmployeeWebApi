@@ -25,8 +25,7 @@ namespace WebapiApplication.Api
         public ArrayList getReferenceViewDetailsDisplay([FromUri]long? CustID) { return this.ICustomerpersonal.getReferenceViewDetailsDisplay(CustID); }
         public ArrayList GetphotosofCustomer(string Custid, int? EmpID) { return this.ICustomerpersonal.GetphotosofCustomer(Custid, EmpID); }
         public ArrayList getCustomerPersonalMenuReviewStatus([FromUri]long? CustID, int? iReview, string SectionID) { return this.ICustomerpersonal.getCustomerPersonalMenu(CustID, iReview, SectionID); }
-
-
+        
         //New Edit/View
         
         public ArrayList getCustomerPersonalSpouse_Details([FromUri]long? CustID) { return this.ICustomerpersonal.getCustomerPersonalSpouse_Details(CustID); }
@@ -36,8 +35,7 @@ namespace WebapiApplication.Api
         public ArrayList getpersonaldetails_Customer([FromUri]long? CustID) { return this.ICustomerpersonal.personaldetails_Customer(CustID); }
         public ArrayList getViewAllCustomersSearch(int? EmpID, string SearchData, string ProfileIDStatus, int? StartIndex, int? EndIndex) { return this.ICustomerpersonal.ViewAllCustomersSearch(EmpID, string.IsNullOrEmpty(SearchData) ? string.Empty : SearchData, string.IsNullOrEmpty(ProfileIDStatus) ? string.Empty : ProfileIDStatus,StartIndex,EndIndex); }
         public ArrayList Search_ViewEditProfile([FromBody]ViewEditProfileSearch Mobj) { return this.ICustomerpersonal.Search_ViewEditProfile(Mobj); }
-        
-        
+                
         public ArrayList getViewAllCustomersKMPLProfileID(int? EmpID, string SearchData) { return this.ICustomerpersonal.ViewAllCustomersKMPLProfileID(EmpID, SearchData); }
         public int getCustomerphotoRequestDisplay(string profileid, int? EMPID, long? ticketIDs) { return this.ICustomerpersonal.CustomerphotoRequestDisplay(profileid, EMPID, ticketIDs); }
         public ArrayList getCandidateContactdetailsRelationName(long? CustID, int? PrimaryMobileRel, int? PrimaryEmailRel, int? iflage) { return this.ICustomerpersonal.CandidateContactdetailsRelationName(CustID, PrimaryMobileRel, PrimaryEmailRel, iflage); }
@@ -48,9 +46,10 @@ namespace WebapiApplication.Api
 
         //
 
-        public string getEducationProfession_AboutYourself(string CustID, string AboutYourself, int? flag) { return this.ICustomerpersonal.getDiscribeYour(CustID, AboutYourself, flag, "[dbo].[usp_Education_Profession_AboutYourself]"); }
+        public string getEducationProfession_AboutYourself(string CustID, string AboutYourself, int? flag) { return this.ICustomerpersonal.getDiscribeYour(CustID, AboutYourself, flag, "[dbo].[usp_Education_Profession_AboutYourself_NewDesign]"); }
         public string getParents_AboutMyFamily(string CustID, string AboutYourself, int? flag) { return this.ICustomerpersonal.getDiscribeYour(CustID, AboutYourself, flag, "[dbo].[usp_Parents_AboutMyFamily]"); }
         public string getPartnerpreference_DiscribeYourPartner(string CustID, string AboutYourself, int? flag) { return this.ICustomerpersonal.getDiscribeYour(CustID, AboutYourself, flag, "[dbo].[usp_Partnerpreference_DiscribeYourPartner]"); }
+
 
 
     }

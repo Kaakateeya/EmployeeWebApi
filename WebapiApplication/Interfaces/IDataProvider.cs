@@ -110,7 +110,7 @@ namespace WebapiApplication.Interfaces
         int AstroDetailsUpdateDelete(AstroUploadDelete astroupdate);
         int UpdateSpoucedetails_Customersetails(UpdatePersonaldetails customerpersonaldetails);
         int UpdateSpouseChildDetails(UpdatePersonaldetails customerpersonaldetails);
-        string GenerateHoroscorpe(int? customerid, string EmpIDQueryString, int? intDay, int? intMonth, int? intYear, int? CityID);
+        HoroGeneration GenerateHoroscorpe(int? customerid, string EmpIDQueryString, int? intDay, int? intMonth, int? intYear, int? CityID);
         ArrayList Emplanding_counts_Admin(EmployeeLandingCount ecount);
         int CustomerContactDetails_Update(ContactDetals Mobj);
 
@@ -121,6 +121,8 @@ namespace WebapiApplication.Interfaces
         NoDataFoundDisplay NoDataInformationLinkDisplay(string ProfileID);
         int UpdateContactdetails_Reference(ContactdetailsRef Mobj);
         int UploadsettlementForm(SettlementPaidBalanceDetailsMl settlementForm);
+
+        int AstroGenerationS3Update(string Path, string KeyName);
     }
     public interface IStaticPages
     {
@@ -172,6 +174,8 @@ namespace WebapiApplication.Interfaces
         ArrayList Cust_NotificationDetails_Employee(int? EmpID, int? idisplay, int? NotificationID, int? CategoryID, int? CustID);
         int Update_EmailBounce(long? CustID, int? EmailBounceEntryId, string BounceMailid);
 
+
+        int getChangeApplicationStaus(long? ProfileID);
     }
     public interface IDependency
     {
@@ -223,6 +227,15 @@ namespace WebapiApplication.Interfaces
         int ClosedTickets(string ReasonforClose, long? TicketID, long? EmpID);
         int SendNumbersMatchfollowup(long? LFromCustID, long? LToCustID, int? empid, string mailTxt);
         ArrayList MyProfileBindingsBranch(string flag, string ID);
+
+        List<EmpCommunication> EmployeeCommunicationLog(string ProfileID, int? intEmpId);
+        List<GetRegprofilevalidation> RegistrationValidation(Regprofilevalidation RegValidation);
+
+        int EmployeeCommunicationLogSentphotosemail(string Email, string CustID);
+        Tuple<int, List<CommunicationLogResult>> EmployeeCommunicationLogRvrAndResend(RvrRequest Mobj);
+        List<RegprofilevalidationPlaybutton> RegistrationValidation_Playbutton(string Profileid);
+        int EmployeeCommunicationLogSendMarketingMail(CreateEmployeeMl Mobj);
+
     }
 
 }

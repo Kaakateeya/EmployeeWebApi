@@ -264,6 +264,8 @@ namespace WebapiApplication.ML
         public long? ToProfileID { get; set; }
         public string FromName { get; set; }
         public string Toname { get; set; }
+        public string MobileNumber { set; get; }
+
     }
 
     public class MarketingTicketResponse

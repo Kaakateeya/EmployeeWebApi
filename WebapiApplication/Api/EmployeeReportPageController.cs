@@ -15,6 +15,7 @@ namespace WebapiApplication.Api
     public class EmployeeReportPageController : ApiController
     {
         private readonly IEmployeeReportPage IEmployeeReport;
+
         public EmployeeReportPageController() : base() { this.IEmployeeReport = new ImpEmployeeReportPage(); }
 
         public ArrayList getMarketingSldeshowshortlistprofiles(string CustID) { return this.IEmployeeReport.MarketingSldeshowshortlistprofiles(CustID); }
@@ -29,6 +30,7 @@ namespace WebapiApplication.Api
             Mobj.region = Commonclass.getTableData(Mobj.strregion, "region");
             return this.IEmployeeReport.MatchfollowupSlideShowResult(Mobj);
         }
+
         public ArrayList getMyProfileBindingsBranch(string flag, string ID) { return this.IEmployeeReport.MyProfileBindingsBranch(flag, ID); }
 
         public EmployeeMarketingTicketResponse MarketingTicketHistoryInfo([FromBody]EmployeeMarketingTicketRequest Mobj) { return this.IEmployeeReport.GetmarketingTicketHistoryInfo(Mobj); }
@@ -52,12 +54,47 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.MatchFollowupResendMail(ResendMail);
         }
 
-        public int getInsertout_incomingcallCommunicationlogData([FromBody]TicketCallHistory Mobj) { return this.IEmployeeReport.Insertout_incomingcallCommunicationlogData(Mobj); }
+        public int Insertout_incomingcallCommunicationlogData([FromBody]TicketCallHistory Mobj) { return this.IEmployeeReport.Insertout_incomingcallCommunicationlogData(Mobj); }
         public int Insertout_incomingcallData([FromBody]IncomingOutgoing Mobj) { return this.IEmployeeReport.Insertout_incomingcallData(Mobj); }
         public int getReaasignEmployee(long? TicketID, long? AssignedEmpID, long? EmpID, int? StatusID) { return this.IEmployeeReport.ReaasignEmployee(TicketID, AssignedEmpID, EmpID, StatusID); }
         public int getInsertInternalMemo(string Message, long? TicketID, long? EmpID, long? AssignedEmpID) { return this.IEmployeeReport.InsertInternalMemo(Message, TicketID, EmpID, AssignedEmpID); }
         public int getClosedTickets(string ReasonforClose, long? TicketID, long? EmpID) { return this.IEmployeeReport.ClosedTickets(ReasonforClose, TicketID, EmpID); }
         public int getSendNumbersMatchfollowup(long? LFromCustID, long? LToCustID, int? empid, string mailTxt) { return this.IEmployeeReport.SendNumbersMatchfollowup(LFromCustID, LToCustID, empid, mailTxt); }
+
+        //Communication Log  Page
+
+        public List<EmpCommunication> getEmployeeCommunicationLog(string ProfileID, int? intEmpId) { return this.IEmployeeReport.EmployeeCommunicationLog(ProfileID, intEmpId); }
+        public Tuple<int, List<CommunicationLogResult>> EmployeeCommunicationLogRvrAndResend([FromBody]RvrRequest Mobj)
+        {
+            if (Mobj.isRvrflag == "RVR")
+            {
+                Mobj.AcceptLink = Commonclass.ReturnEncryptLink("Accept", (Mobj.TocustID != null && Mobj.TocustID != 0) ? Mobj.TocustID.ToString() : null, (Mobj.FromcustID != null && Mobj.FromcustID != 0) ? (Mobj.FromcustID).ToString() : null);
+                Mobj.RejectLink = Commonclass.ReturnEncryptLink("Reject", (Mobj.TocustID != null && Mobj.TocustID != 0) ? Mobj.TocustID.ToString() : null, (Mobj.FromcustID != null && Mobj.FromcustID != 0) ? (Mobj.FromcustID).ToString() : null);
+            }
+            else
+            {
+                Mobj.AcceptLink = Commonclass.ReturnEncryptLink("Accept", (Mobj.FromcustID != null && Mobj.FromcustID != 0) ? Mobj.FromcustID.ToString() : null, (Mobj.TocustID != null && Mobj.TocustID != 0) ? (Mobj.TocustID).ToString() : null);
+                Mobj.RejectLink = Commonclass.ReturnEncryptLink("Reject", (Mobj.FromcustID != null && Mobj.FromcustID != 0) ? Mobj.FromcustID.ToString() : null, (Mobj.TocustID != null && Mobj.TocustID != 0) ? (Mobj.TocustID).ToString() : null);
+            }
+
+            return this.IEmployeeReport.EmployeeCommunicationLogRvrAndResend(Mobj);
+
+        }
+        
+        public int getEmployeeCommunicationLogSentphotosemail(string Email, string CustID) { return this.IEmployeeReport.EmployeeCommunicationLogSentphotosemail(Email, CustID); }
+      
+        public int EmployeeCommunicationLogSendMarketingMail([FromBody]CreateEmployeeMl Mobj)
+        {
+            Mobj.AcceptLink = Commonclass.ReturnEncryptLink("Accept", (!string.IsNullOrEmpty(Mobj.FromProfileID) ? Mobj.FromProfileID : null), (!string.IsNullOrEmpty(Mobj.ToProfileID) ? Mobj.ToProfileID : null));
+            Mobj.RejectLink = Commonclass.ReturnEncryptLink("Reject", !string.IsNullOrEmpty(Mobj.FromProfileID) ? Mobj.FromProfileID : null, !string.IsNullOrEmpty(Mobj.ToProfileID) ? Mobj.ToProfileID : null);
+            return this.IEmployeeReport.EmployeeCommunicationLogSendMarketingMail(Mobj);
+        }
+
+
+        // RegistrationValidation
+
+        public List<GetRegprofilevalidation> RegistrationValidation([FromBody]Regprofilevalidation RegValidation) { return this.IEmployeeReport.RegistrationValidation(RegValidation); }
+        public List<RegprofilevalidationPlaybutton> getRegistrationValidation_Playbutton(string Profileid) { return this.IEmployeeReport.RegistrationValidation_Playbutton(Profileid); }
 
     }
 }

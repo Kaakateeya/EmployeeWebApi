@@ -233,8 +233,9 @@ namespace WebapiApplication.Api
 
         public int getPhotoPassword([FromUri]Int64? CustID, [FromUri]int? ipassword) { return this.ICustomerpersonalupdate.PhotoPassword(CustID, ipassword); }
         public int AstroDetailsUpdateDelete([FromBody]AstroUploadDelete astroupdate) { return this.ICustomerpersonalupdate.AstroDetailsUpdateDelete(astroupdate); }
-        public string getGenerateHoroscorpe(int? customerid, string EmpIDQueryString, int? intDay, int? intMonth, int? intYear, int? CityID) { return this.ICustomerpersonalupdate.GenerateHoroscorpe(customerid, EmpIDQueryString, intDay, intMonth, intYear, CityID); }
+        public HoroGeneration getGenerateHoroscorpe(int? customerid, string EmpIDQueryString, int? intDay, int? intMonth, int? intYear, int? CityID) { return this.ICustomerpersonalupdate.GenerateHoroscorpe(customerid, EmpIDQueryString, intDay, intMonth, intYear, CityID); }
         public int UploadsettlementForm([FromBody]SettlementPaidBalanceDetailsMl settlementForm) { return this.ICustomerpersonalupdate.UploadsettlementForm(settlementForm); }
+        public int getAstroGenerationS3Update(string Path, string KeyName) { return this.ICustomerpersonalupdate.AstroGenerationS3Update(Path, KeyName); }
     }
 }
 

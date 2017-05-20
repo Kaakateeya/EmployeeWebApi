@@ -664,8 +664,10 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
             }
+
             return iStatus;
         }
+
         public List<ProfileSettings> customerProfilesettings(Int64? CustID, string spName)
         {
             SqlParameter[] param = new SqlParameter[3];
@@ -765,9 +767,7 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+                
             }
             return iStatus;
         }
@@ -1579,12 +1579,12 @@ namespace WebapiApplication.DAL
                 parm[1].Value = CustID;
                 parm[2] = new SqlParameter("@i_Status", SqlDbType.VarChar, 8000);
                 parm[2].Direction = ParameterDirection.Output;
-                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "[dbo].[usp_EmailMobilenumberexists]", parm);
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "[dbo].[usp_EmailMobilenumberexists_NewDesign]", parm);
                 status = parm[2].Value.ToString();
             }
             catch (Exception Ex)
             {
-                Commonclass.ApplicationErrorLog("[dbo].[usp_EmailMobilenumberexists]", Convert.ToString(Ex.Message), Convert.ToInt32(CustID), null, null);
+                Commonclass.ApplicationErrorLog("[dbo].[usp_EmailMobilenumberexists_NewDesign]", Convert.ToString(Ex.Message), Convert.ToInt32(CustID), null, null);
             }
             finally
             {
@@ -1758,12 +1758,12 @@ namespace WebapiApplication.DAL
                             switch (strsubval[0])
                             {
                                 case "FromProfileID":
-                                    strFromCustID = Convert.ToString(EmailMobilenumberexists_String(4, strsubval[1].ToString(), "[dbo].[usp_EmailMobilenumberexists]"));
-                                    FromProfileID = Convert.ToString(EmailMobilenumberexists_String(10, strsubval[1].ToString(), "[dbo].[usp_EmailMobilenumberexists]"));
+                                    strFromCustID = Convert.ToString(EmailMobilenumberexists_String(4, strsubval[1].ToString(), "[dbo].[usp_EmailMobilenumberexists_NewDesign]"));
+                                    FromProfileID = Convert.ToString(EmailMobilenumberexists_String(10, strsubval[1].ToString(), "[dbo].[usp_EmailMobilenumberexists_NewDesign]"));
                                     break;
                                 case "ToProfileID":
-                                    strToCustID = Convert.ToString(EmailMobilenumberexists_String(4, strsubval[1].ToString(), "[dbo].[usp_EmailMobilenumberexists]"));
-                                    ToProfileID = Convert.ToString(EmailMobilenumberexists_String(10, strsubval[1].ToString(), "[dbo].[usp_EmailMobilenumberexists]"));
+                                    strToCustID = Convert.ToString(EmailMobilenumberexists_String(4, strsubval[1].ToString(), "[dbo].[usp_EmailMobilenumberexists_NewDesign]"));
+                                    ToProfileID = Convert.ToString(EmailMobilenumberexists_String(10, strsubval[1].ToString(), "[dbo].[usp_EmailMobilenumberexists_NewDesign]"));
                                     break;
                             }
                         }
@@ -1780,7 +1780,7 @@ namespace WebapiApplication.DAL
                             Mobj.EncriptedText = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + FromProfileID + "&" + "ToProfileID=" + strFromCustID + "&" + "Flag=" + 1);
                             Mobj.strtypeOfReport = AccRejFlag;
 
-                            status = InsertExpressViewTicket(Mobj.FromCustID, Mobj.ToCustID, Mobj.EncriptedText, Mobj.strtypeOfReport, "[dbo].[Usp_InsertExpressViewTicket_new]");
+                            status = InsertExpressViewTicket(Mobj.FromCustID, Mobj.ToCustID, Mobj.EncriptedText, Mobj.strtypeOfReport, "[dbo].[Usp_InsertExpressViewTicket_new_NewDesign]");
                             string strtyofAction = status == 431 ? strAccepted : (status == 432 ? strRejected : string.Empty);
 
                             if ((AccRejFlag == "MailReject" && status == 432))
@@ -1884,7 +1884,7 @@ namespace WebapiApplication.DAL
             catch (Exception EX)
             {
 
-                Commonclass.ApplicationErrorLog("[dbo].[usp_EmailMobilenumberexists]", Convert.ToString(EX.Message), null, null, null);
+                Commonclass.ApplicationErrorLog("[dbo].[usp_EmailMobilenumberexists_NewDesign]", Convert.ToString(EX.Message), null, null, null);
             }
             finally
             {
@@ -2241,7 +2241,7 @@ namespace WebapiApplication.DAL
                 parm[1] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[1].Direction = ParameterDirection.Output;
 
-                ds = SQLHelper.ExecuteDataset(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, "[dbo].[usp_GetSearchDataForShortlistProfiles]", parm);
+                ds = SQLHelper.ExecuteDataset(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, "[dbo].[usp_GetSearchDataForShortlistProfiles_NewDesign]", parm);
 
                 if (string.Compare(parm[1].Value.ToString(), System.DBNull.Value.ToString()) == 0)
                 {
@@ -2254,7 +2254,7 @@ namespace WebapiApplication.DAL
             }
             catch (Exception EX)
             {
-                Commonclass.ApplicationErrorLog("usp_GetSearchDataForShortlistProfiles", Convert.ToString(EX.Message), Convert.ToInt32(CustID), "GetCustShortlistProfilesDal", null);
+                Commonclass.ApplicationErrorLog("usp_GetSearchDataForShortlistProfiles_NewDesign", Convert.ToString(EX.Message), Convert.ToInt32(CustID), "GetCustShortlistProfilesDal", null);
             }
             finally
             {
@@ -2384,7 +2384,49 @@ namespace WebapiApplication.DAL
         }
 
 
+        public int ChangeApplicationStatus(long? ProfileID, string spName)
+        {
+            SqlDataReader reader;
+            Smtpemailsending smtp = new Smtpemailsending();
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            int status = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[4];
+                parm[0] = new SqlParameter("@ProfileID", SqlDbType.BigInt);
+                parm[0].Value = ProfileID;
+                parm[1] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[1].Direction = ParameterDirection.Output;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                if (string.Compare(parm[1].Value.ToString(), System.DBNull.Value.ToString()) == 0)
+                {
+                    status = 0;
+                }
+                else
+                {
+                    status = Convert.ToInt32(parm[1].Value);
+                }
 
+            }
+            catch (Exception ex)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(ex.Message), Convert.ToInt32(ProfileID), null, null);
+            }
+            finally
+            {
+                //SQLHelper.GetSQLConnection().Close();
+                //SqlConnection.ClearAllPools();
+                //SQLHelper.GetSQLConnection().Dispose();
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return status;
+
+        }
     }
 }
 

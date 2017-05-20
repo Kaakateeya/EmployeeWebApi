@@ -617,6 +617,10 @@ namespace WebapiApplication.UserDefinedTable
             dtCustomerHome.Columns.Add("fatherProfessiondetails");
             dtCustomerHome.Columns.Add("mothereducationdetails");
             dtCustomerHome.Columns.Add("motherProfessiondetails");
+            dtCustomerHome.Columns.Add("FatherMobileCountryCode");
+            dtCustomerHome.Columns.Add("FatherMobileNumber");
+            dtCustomerHome.Columns.Add("MotherMobileCountryCode");
+            dtCustomerHome.Columns.Add("MotherMobileNumber");
             return dtCustomerHome;
 
         }

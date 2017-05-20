@@ -34,7 +34,7 @@ namespace WebapiApplication.DAL
                 parm[1] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[1].Direction = ParameterDirection.Output;
 
-                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, "[dbo].[Usp_getcustomerinformation]", parm);
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, "[dbo].[Usp_getcustomerinformation_NewDesign]", parm);
                 if (reader.HasRows)
                 {
                     if (reader.Read())
@@ -67,6 +67,8 @@ namespace WebapiApplication.DAL
                         MobjPersonalsML.MaritalStatusID = (reader["MaritalStatusID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MaritalStatusID")) : iNull;
                         MobjPersonalsML.Mothertongue = (reader["Mothertongue"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Mothertongue")) : null;
                         MobjPersonalsML.ProfilePic = (reader["ProfilePic"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfilePic")) : null;
+                        MobjPersonalsML.GenderID = (reader["GenderID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("GenderID")) : iNull;
+
                     }
                 }
 
@@ -75,7 +77,7 @@ namespace WebapiApplication.DAL
 
             catch (Exception EX)
             {
-                Commonclass.ApplicationErrorLog("[dbo].[Usp_getcustomerinformation]", Convert.ToString(EX.Message), Convert.ToInt64(CustID), null, null);
+                Commonclass.ApplicationErrorLog("[dbo].[Usp_getcustomerinformation_NewDesign]", Convert.ToString(EX.Message), Convert.ToInt64(CustID), null, null);
             }
             finally
             {
@@ -695,6 +697,7 @@ namespace WebapiApplication.DAL
                         ml.Cust_Photos_ID = (reader["Cust_Photos_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_Photos_ID")) : intNull;
                         ml.strModifiedByEmpID = (reader["ModifiedByEmpID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ModifiedByEmpID")) : null;
                         ml.UploadedBy = (reader["UploadedBy"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("UploadedBy")) : null;
+                        ml.GenderID = (reader["GenderID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("GenderID")) : iNull;
                         arrayList.Add(ml);
                     }
                 }
@@ -992,7 +995,7 @@ namespace WebapiApplication.DAL
             return lstgeneaterhoro;
         }
 
-        public string GenerateHoroscorpe(int? customerid, string EmpIDQueryString, int? intDay, int? intMonth, int? intYear, int? CityID)
+        public HoroGeneration GenerateHoroscorpe(int? customerid, string EmpIDQueryString, int? intDay, int? intMonth, int? intYear, int? CityID)
         {
             string accesspathhoro = "~\\access\\Images\\";
             string withouraccesspathhoro = "~\\Images\\";
@@ -1002,6 +1005,8 @@ namespace WebapiApplication.DAL
             li = GeneaterHorosupport(customerid, CityID);
             DateTime myDate = Convert.ToDateTime((li[0].TimeOfBirth).ToString());
             string strTime = myDate.ToString("HH:mm:ss");
+
+            HoroGeneration horogeneration = new HoroGeneration();
 
             if (!string.IsNullOrEmpty(li[0].Longitude) && !string.IsNullOrEmpty(li[0].Latitude))
             {
@@ -1049,22 +1054,49 @@ namespace WebapiApplication.DAL
                             astroupdate.i_flag = 1;
                             AstroDetailsUpdateDelete(astroupdate, "[dbo].[usp_AstroUpload_Delete]");
                         }
+
                         string strCustDtryName = customerid + "_HaroscopeImage";
                         string FileName = customerid + "_HaroscopeImage.html";
-                        string Strpaths3 = (HttpContext.Current.Server.MapPath((string.IsNullOrEmpty(EmpIDQueryString) ? accesspathhoro : withouraccesspathhoro) + "HoroscopeImages\\")) + strCustDtryName + "\\" + FileName;
+
+                        string Strpaths3 = (HttpContext.Current.Server.MapPath(withouraccesspathhoro + "HoroscopeImages\\")) + strCustDtryName + "\\" + FileName;
+
+                        // string Strpaths3 = "http:\\e.kaakateeya.com\\access\\Images\\" + "HoroscopeImages\\" + strCustDtryName + "\\" + FileName;
+
+                        //string Strpaths3 = ("http://e.kaakateeya.com/access" + "HoroscopeImages\\")) + strCustDtryName + "\\" + FileName;
+
                         string Strkeyname = "Images/HoroscopeImages/" + strCustDtryName + "/" + FileName;
-                        if (!string.IsNullOrEmpty(Commonclass.GlobalImgPath))
-                        {
-                            if (Directory.Exists(path))
-                            {
-                                Commonclass.S3upload(Strpaths3, Strkeyname);
-                            }
-                        }
+
+                        // string strPath = null;
+                        //if (Strpaths3.Contains("http://kaakateeya.com/"))
+                        //{
+                        //    strPath = Strpaths3.Replace("http://kaakateeya.com/", "http://e.kaakateeya.com/");
+                        //}
+                        //else
+                        //{
+                        //    strPath = Strpaths3;
+                        //}
+
+                        //if (!string.IsNullOrEmpty(Commonclass.GlobalImgPath))
+                        //{
+                        //    if (Directory.Exists(path))
+                        //    {
+                        //        Commonclass.S3upload(Strpaths3, Strkeyname);
+                        //    }
+                        //}
+
+                        string strHoro = Strkeyname.Replace("/", "\\");
+                        string strPath = "C:\\inetpub\\wwwroot\\access\\" + strHoro;
+                        string strTestPath = System.IO.Path.Combine(System.Environment.CurrentDirectory, strPath);
+                        horogeneration.KeyName = Strkeyname;
+                        horogeneration.Path = Strpaths3;
+                        horogeneration.AstroGeneration = str;
+                        horogeneration.strTestPath = strTestPath;
+
                     }
                 }
             }
 
-            return str;
+            return horogeneration;
         }
 
         // Employee Pages webApi
@@ -1970,6 +2002,9 @@ namespace WebapiApplication.DAL
                         MobjPersonalsML.TotalRows = (reader["TotalRows"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : iNull;
                         MobjPersonalsML.Totalpages = (reader["Totalpages"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Totalpages")) : iNull;
                         MobjPersonalsML.Profession = (reader["Profession"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profession")) : null;
+                        MobjPersonalsML.FamilyID = (reader["FamilyID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("FamilyID")) : intNull;
+                        MobjPersonalsML.MotherTongueName = (reader["MotherTongueName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MotherTongueName")) : null;
+                        MobjPersonalsML.Email = (reader["Email"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Email")) : null;
                         arrayList.Add(MobjPersonalsML);
 
                     }
@@ -2140,7 +2175,7 @@ namespace WebapiApplication.DAL
             SqlParameter[] parm = new SqlParameter[10];
             SqlDataReader reader;
             int? iNull = null;
-
+            Int64? lnull = null;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -2175,7 +2210,8 @@ namespace WebapiApplication.DAL
                         profileplay.OWNER = (reader["OWNER"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("OWNER")) : null;
                         profileplay.HoroPhotoName = (reader["HoroPhotoName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("HoroPhotoName")) : null;
                         profileplay.Settle = (reader["Settle"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Settle")) : null;
-
+                        profileplay.TicketID = (reader["TicketID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TicketID")) : iNull;
+                        profileplay.TicketNumber = (reader["TicketNumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketNumber")) : null;
                         arrayList.Add(profileplay);
 
                     }
@@ -2286,6 +2322,44 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearAllPools();
             }
             return iStatus;
+        }
+
+        public static string PathChange = ConfigurationManager.AppSettings["PathChange"];
+        string withouraccesspathhoro = "~\\Images\\";
+        internal int AstroGenerationUpdate(string Path, string KeyName)
+        {
+            int iresult = 0;
+
+            //string strHoro = KeyName.Replace("/", "\\");
+            string strHoro = KeyName;
+
+            //Path = PathChange + strHoro;
+
+            //Path = "e.kaakateeya.com\\access\\Images\\HoroscopeImages\\91022_HaroscopeImage\\91022_HaroscopeImage.html";
+            //Path = "http:\\e.kaakateeya.com\\access\\" + strHoro;
+            // KeyName = "Images/HoroscopeImages/91022_HaroscopeImage/91022_HaroscopeImage.html";
+
+            //Path = "C:\\91022_HaroscopeImage\\91022_HaroscopeImage.html";
+            //KeyName = "D:\\9_HaroscopeImage\\91022_HaroscopeImage.html";
+            //Path = System.IO.Path(KeyName);
+
+            //  string parentDir = System.IO.Path.GetDirectoryName(Path);
+
+            //  Path = parentDir + "\\91022_HaroscopeImage.html";
+            //  Path = Server.MapPath("~/" + KeyName);
+
+            //Path = "www.e.kaakateeya.com\\access\\Images\\HoroscopeImages\\91022_HaroscopeImage\\91022_HaroscopeImage.html";
+
+            //Path = System.IO.Path.Combine(System.Environment.CurrentDirectory, Path);
+
+
+            if (!string.IsNullOrEmpty(Commonclass.GlobalImgPath))
+            {
+                Commonclass.S3upload(Path, KeyName);
+                iresult = 1;
+            }
+
+            return iresult;
         }
     }
 }

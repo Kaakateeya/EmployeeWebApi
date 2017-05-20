@@ -6,7 +6,7 @@
     <script>
 
         $(document).ready(function () {
-
+            
             var object = {
 
                 GetDetails
@@ -69,7 +69,7 @@
 
             }
 
-            var Mobjddd=
+            var Mobjddd =
                 {
                     custfamiliyid: 1174407,
                     MoblieCountryCode: 13,
@@ -111,24 +111,7 @@
                      RVRAcceptlink: "",
                      RVRRejectlink: ""
                  }
-                   , {
-                       FromProfileID: "310910220",
-                       ToProfileID: "210910352",
-                       EmpID: 141,
-                       ModeofService: 351,
-                       RelationShipID: 39,
-                       Name: "venkata Ramana gggggg ",
-                       TypeOfService: "2",
-                       ProfileType: "1",
-                       Sendsms: 1,
-                       IsRvrSend: 1,
-                       SelectedImages: "img2.jpg,img3.jpg;210910352",
-                       Acceptlink: "",
-                       Rejectlink: "",
-                       EmailAddress: "lakshmidevi407@gmail.com",
-                       RVRAcceptlink: "",
-                       RVRRejectlink: ""
-                   }]
+                  ]
 
             }
 
@@ -177,62 +160,29 @@
                 V_Notpay: null
 
             }
+
             var Mobj = {
-                ApplicationstatusID
-:
-"54",
-                Assigneddatefromdate
-:
-"",
-                Assigneddatetodate
-    :
-    "",
-                BranchID
-    :
-    null,
-                CasteID
-    :
-    "402",
-                DORFromdate
-    :
-    "",
-                DORTodate
-    :
-    "",
-                Empid
-    :
-    "2",
-                GenderID
-    :
-    "",
-                HavingprofilesID
-    :
-    null,
-                LogoutId
-    :
-    "",
-                MarketingownerID
-    :
-    null,
-                OwneroftheprofileID
-    :
-    "2",
-                TypeofprofileID
-    :
-    "",
-                WebsiteBlocked
-    :
-    "",
-                pagefrom
-    :
-    1,
-                pageto
-    :
-    10,
-                verfiedcontacts
-    :
-    ""
+                ApplicationstatusID: "54",
+                Assigneddatefromdate: "",
+                Assigneddatetodate: "",
+                BranchID: null,
+                CasteID: "402",
+                DORFromdate: "",
+                DORTodate: "",
+                Empid: "2",
+                GenderID: "",
+                HavingprofilesID: null,
+                LogoutId: "",
+                MarketingownerID: null,
+                OwneroftheprofileID: "2",
+                TypeofprofileID: "",
+                WebsiteBlocked: "",
+                pagefrom: 1,
+                pageto: 10,
+                verfiedcontacts: "",
+                intTableType:0
             };
+
             $("#Display").click(function () {
 
                 alert(Mobj);
@@ -295,10 +245,10 @@
             $("#ClassData1").click(function () {
                 alert(1);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/getMyProfileBindingsBranch',
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/getMarketingTicketinformation',
                     type: 'GET',
                     crossDomain: true,
-                    data: { flag: 'ProfileBranch', ID: 1 },
+                    data: { Ticketid: 135731, Type: 'H' },
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));
@@ -316,7 +266,7 @@
                     url: 'http://localhost:63006/Api/CustomerPersonal/getProfileIDPlaybutton',
                     type: 'GET',
                     crossDomain: true,
-                    data: { ProfileID: 111111700 },
+                    data: { ProfileID: 310910220 },
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));
@@ -327,16 +277,39 @@
                     }
                 });
             });
+
+            //$("#Save").click(function () {
+
+            //    alert(1);
+
+            //    $.ajax({
+            //        url: 'http://localhost:63006/Api/ExpressInterest/ExpressInterest',
+            //        type: 'POST',
+            //        crossDomain: true,
+            //        data: JSON.stringify(object123),
+            //        contentType: 'application/json',
+            //        success: function (data, textStatus, xhr) {
+            //            alert(JSON.stringify(data));
+            //            console.log(data);
+            //        },
+            //        error: function (xhr, textStatus, errorThrown) {
+            //            console.log(xhr);
+            //        }
+            //    });
+            //});
 
             $("#Save").click(function () {
-
-                alert(1);
-
+                alert(2);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/CustomerPersonalUpdate/CustomerContactDetails_Update',
-                    type: 'POST',
+                    url: 'http://localhost:63006/Api/CustomerPersonalUpdate/getEmplanding_counts_Admin',
+                    type: 'GET',
                     crossDomain: true,
-                    data: JSON.stringify(Mobj),
+                    data: { Branchname:319,
+                        EndIndex:5,
+                OwnerName:2,
+                StartIndex:1,
+                intLoadStatus:0,
+                strTableType:"" },
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));
@@ -347,6 +320,29 @@
                     }
                 });
             });
+            //$("#Save").click(function () {
+            //    alert(111);
+            //    $.ajax({
+            //        url: 'http://localhost:63006/Api/CustomerPersonalUpdate/getAstroGenerationS3Update',
+            //        type: 'GET',
+            //        crossDomain: true,
+            //        data: { Path: "C:\\inetpub\\wwwroot\\access\\Images\\HoroscopeImages\\91022_HaroscopeImage\\91022_HaroscopeImage.html", KeyName: "Images/HoroscopeImages/91022_HaroscopeImage/91022_HaroscopeImage.html" },
+            //        contentType: 'application/json',
+            //        success: function (data, textStatus, xhr) {
+            //            alert(JSON.stringify(data));
+            //            console.log(data);
+            //        },
+            //        error: function (xhr, textStatus, errorThrown) {
+            //            console.log(xhr);
+            //        }
+            //    });
+            //});
+
+
+
+
+
+
 
         });
 

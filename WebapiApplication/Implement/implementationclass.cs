@@ -17,7 +17,7 @@ namespace WebapiApplication.Implement
     {
         public List<userLoginML> DGetLogininformationdetails(CustLoginMl Mobj) { return new UserLoginDAL().DGetLogininformationdetails(Mobj); }
         public Tuple<EmpDetailsMl, List<MenuItem>, List<ScrollText>, List<StarRating>, int> ValidateLoginNew(string LoginName, string Password, string sMAC)  {            string spName = null;
-            if (!string.IsNullOrEmpty(sMAC)) { spName = "[dbo].[usp_Emp_Validate_Mac]"; } else { spName = "[dbo].[usp_Emp_Validate]"; }
+            if (!string.IsNullOrEmpty(sMAC)) { spName = "[dbo].[usp_Emp_Validate_Mac_NewDesign]"; } else { spName = "[dbo].[usp_Emp_Validate_NewDesign]"; }
             return new UserLoginDAL().ValidateLoginNew(LoginName, Password, sMAC, spName);
         }
     }
@@ -40,7 +40,7 @@ namespace WebapiApplication.Implement
         public List<DashboardRequestChats> CustometExpressIntrestDashBoardchats(long? CustID, int? Status, int iStartIndex, int iEndIndex) { return dashboard.DgetCustometExpressIntrestDashBoardchats(CustID, Status, iStartIndex, iEndIndex, "[dbo].[usp_CustomerDashBoard_messages]"); }
         public List<TicketHistoryinfoResponse> GetTicketinformationDal(long? Ticketid, char Type) { return dashboard.GetTicketinformationDal(Ticketid, Type, "[dbo].[Usp_select_MatchFollowupTicketHistory]"); }
         public List<CommunicationHistry> GetCustometMessagesCount(CommunicationHistoryReq Mobj) { return dashboard.GetCustometMessagesCount(Mobj, "[dbo].[usp_GetCustMessageHistory]"); }
-        public int InsertExpressViewTicket(long? FromCustID, long? ToCustID, string EncriptedText, string strtypeOfReport) { return dashboard.InsertExpressViewTicket(FromCustID, ToCustID, EncriptedText, strtypeOfReport, "[dbo].[Usp_InsertExpressViewTicket_new]"); }
+        public int InsertExpressViewTicket(long? FromCustID, long? ToCustID, string EncriptedText, string strtypeOfReport) { return dashboard.InsertExpressViewTicket(FromCustID, ToCustID, EncriptedText, strtypeOfReport, "[dbo].[Usp_InsertExpressViewTicket_new_NewDesign]"); }
         public int InsertCustomerExpressinterest(int? fromcustid, int? tocustid, long? logID, string interstTYpe, int? empid) { return dashboard.InsertCustomerExpressinterest(fromcustid, tocustid, logID, interstTYpe, empid, "[dbo].[usp_insert_customerDashboard_expressinterest]"); }
 
     }
@@ -53,7 +53,7 @@ namespace WebapiApplication.Implement
         public int InsertPaymentDetails(PaymentMasterMl Mobj) { return new PaymentDAL().InsertPaymentDetails(Mobj, "[dbo].[Usp_InsertCustomerPayment]"); }
         public ArrayList ProfilePaymentDetails(long? intProfileID, int? Isonline, int? flag, int? intMembershipID, string taxpaid) { return new PaymentDAL().DgetProfilePaymentDetails(intProfileID, Isonline, flag, intMembershipID, taxpaid); }
         public int CustomerInsertPaymentDetilsInfo(CustomerPaymentML Mobj) { return new PaymentDAL().CustomerInsertPaymentDetilsInfo(Mobj, "[dbo].[Usp_InsertPaymentDetailsInfo]"); }
-        public int CustomerInsertPaymentDetilsInfo_NewDesign(PaymentInsertML Mobj) { return new PaymentDAL().CustomerInsertPaymentDetilsInfo_New(Mobj, "[dbo].[Usp_InsertPaymentDetailsInfo_NewDesign]"); }
+        public int CustomerInsertPaymentDetilsInfo_NewDesign(PaymentInsertML Mobj) { return new PaymentDAL().CustomerInsertPaymentDetilsInfo_New(Mobj, "[dbo].[Usp_InsertPaymentDetailsInfo_NewDesign_NewDesign]"); }
         //Payment New  Table  design 
         public ArrayList ProfilePaymentDetails_Gridview(string intProfileID) { return new PaymentDAL().ProfilePaymentDetails_Gridview(intProfileID, "[dbo].[usp_getSearchMemberShipPackege_NewDesign]"); }
         public ArrayList DgetProfilePaymentDetails_NewDesigns(long? intProfileID) { return new PaymentDAL().DgetProfilePaymentDetails_NewDesigns(intProfileID, "[dbo].[usp_Payment_getProfilePaymentDetails_NewDesigns]"); }

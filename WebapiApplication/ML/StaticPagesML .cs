@@ -279,6 +279,183 @@ namespace WebapiApplication.ML
 
 
     }
+    public class EmpCommunication
+    {
+        public List<CommunicationLogResult> log { get; set; }
+        // public string CustomerName { get; set; }
+        // public string CustID { get; set; }
+
+    }
+    public class CommunicationLogRequest
+    {
+        public string ProfileID { get; set; }
+        public int? FirstTSatus { get; set; }
+        public int? intEmpId { get; set; }
+    }
+    public class CommunicationLogResult
+    {
+        public int? Sno { get; set; }
+        public string ProfileStatus { get; set; }
+        public string ProfileID { get; set; }
+        public string Name { get; set; }
+        public string ServiceDate { get; set; }
+        public string LastName { get; set; }
+        public string ProfileOwner { get; set; }
+        public string TypeOfService { get; set; }
+        public string EmpName { get; set; }
+        public string Branch { get; set; }
+        public string MFPStatus { get; set; }
+        public string MFPStatusDate { get; set; }
+        public string TicketID { get; set; }
+        public string ResendDate { get; set; }
+        public Int64? Emp_FollowupTicket_ID { get; set; }
+        public string Options { get; set; }
+        public int? ProfileStatusID { get; set; }
+        public int? TicketStatusID { get; set; }
+        public int? TotalRows { get; set; }
+        public int? ExpressInterestID { get; set; }
+        public object LogID { get; set; }
+        public object ISRvrSend { get; set; }
+        public object PhotoCount { get; set; }
+        public string numbermail1 { get; set; }
+        public string numbermail2 { get; set; }
+        public string FromCustID { get; set; }
+        public string ToCustID { get; set; }
+        public string MeetingDate { get; set; }
+        public int? PD { get; set; }
+        public int? DPD { get; set; }
+        public int? Viewed { get; set; }
+        public int? NViewed { get; set; }
+        public int? paid { get; set; }
+        public string ServiceExpiryDate { get; set; }
+        public string ServicePoints { get; set; }
+        public int? iFromCustID { get; set; }
+        public string FromName { get; set; }
+        public int? iToCustID { get; set; }
+        public string FromEmail { set; get; }
+    }
 
 
+    public class Regprofilevalidation
+    {
+
+        public string strMFFName { get; set; }
+        public string strFFName { get; set; }
+        public string strMFName { get; set; }
+        public string strMFSurName { get; set; }
+        public string strCustSurName { get; set; }
+        public string strCustName { get; set; }
+        public string strCaste { get; set; }
+        public string strAllPhones { get; set; }
+        public string strAllEmailIds { get; set; }
+        public int? intEmpID { get; set; }
+        public int? i_Startindex { get; set; }
+        public int? i_EndIndex { get; set; }
+        public string strMFFNativePlace { get; set; }
+        public string strFatherName { get; set; }
+        public string strMotherName { get; set; }
+        public int? intAppicationStatusID { get; set; }
+        public int? intGenderID { set; get; }
+    }
+
+    public class RegprofilevalidationPlaybutton
+    {
+        public string Profileid { get; set; }
+        public string Branch_Dor { get; set; }
+        public string paidamount { get; set; }
+        public string paiddate { get; set; }
+        public string sentreceivecount { get; set; }
+        public int? PC { get; set; }
+        public int? PD { get; set; }
+        public int? DPD { get; set; }
+        public int? View { get; set; }
+        public int? Nview { get; set; }
+        public int? BI { get; set; }
+        public int? OppI { get; set; }
+        public string ViewContact { get; set; }
+        public string SA { get; set; }
+        public int? Horo { get; set; }
+        public string Tickets { get; set; }
+        public string ProfileOwner { get; set; }
+        public int? custid { get; set; }
+        public int? empid { get; set; }
+        public int? branchid { get; set; }
+
+    }
+
+
+
+    public class GetRegprofilevalidation
+    {
+        public string ProfileID { get; set; }
+        public string ViewfullProfileID { get; set; }
+        public string playbutton { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Caste { get; set; }
+        public string DOR { get; set; }
+        public string BranchCode { get; set; }
+        public string ProfileOwner { get; set; }
+        public int? TotalRows { get; set; }
+        public int? TotalPages { get; set; }
+        public string ProfileStatusID { get; set; }
+        public int? ActiveCount { get; set; }
+        public int? DeletedCount { get; set; }
+        public int? SettledCount { get; set; }
+        public int? InActiveCount { get; set; }
+        public int? WaitingforSetldAuth { get; set; }
+        public int? WaitingforDeltdAuth { get; set; }
+        public int? MMSerious { get; set; }
+        public long? TicketID { get; set; }
+        public string TicketHistoryID { get; set; }
+        public Int64? Cust_ID { get; set; }
+        public int? paid { get; set; }
+        public int? NoOfBrothers { get; set; }
+        public int? NoOfSisters { get; set; }
+        public int? Age { get; set; }
+        public string DOB { get; set; }
+        public string TOB { get; set; }
+        public string Gothram { get; set; }
+        public string fathercaste { get; set; }
+        public string mothercaste { get; set; }
+        public string maritalstatus { get; set; }
+        public string Star { get; set; }
+        public string Height { get; set; }
+        public string EducationGroup { get; set; }
+        public string EduGroupnamenew { get; set; }
+        public string Profession { get; set; }
+        public string JobLocation { get; set; }
+        public string Color { get; set; }
+        public string Income { get; set; }
+        public string FFNative { get; set; }
+        public string MFNative { get; set; }
+        public string Property { get; set; }
+        public int? PhotoCount { get; set; }
+        public string CustomerFullPhoto { get; set; }
+        public object KMPL { get; set; }
+        public object IsConfidential { get; set; }
+        public object SuperConfidentila { get; set; }
+        public object HoroscopeStatus { get; set; }
+        public string PlaceOfBirth { get; set; }
+        public string Intercaste { get; set; }
+    }
+
+
+    //Resend or rvrsend
+
+    public class RvrRequest
+    {
+        public int? FromcustID { get; set; }
+        public int? TocustID { get; set; }
+        public string AcceptLink { get; set; }
+        public string RejectLink { get; set; }
+        public Int32? ExpressInterestId { get; set; }
+        public Int32? LogID { get; set; }
+        public string isRvrflag { get; set; }
+        public int empid { get; set; }
+        public string strFromProfileID { get; set; }
+        public string strToProfileID { get; set; }
+    }
+
+  
 }

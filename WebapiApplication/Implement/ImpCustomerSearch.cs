@@ -16,7 +16,7 @@ namespace WebapiApplication.Implement
     public class ImpCustomerSearch : ICustomerSearch
     {
 
-        public PrimaryInformationMl Partnerpreferencedetails_CustomerSearch(int? CustID, int? EmpID, Int64? searchresultID) { return new CustomerSearch().DgetPartnerpreferencedetails(CustID, EmpID, searchresultID, "[dbo].[usp_GetCustomerinfo_Forsearches]"); }
+        public PrimaryInformationMl Partnerpreferencedetails_CustomerSearch(int? CustID, int? EmpID, Int64? searchresultID) { return new CustomerSearch().DgetPartnerpreferencedetails(CustID, EmpID, searchresultID, "[dbo].[usp_GetCustomerinfo_Forsearches_NewDesign]"); }
         public List<QuicksearchResultML> ProfileIdsearch(ProfileIDSearch ProfileIDSearch) { return new CustomerSearch().ProfileIdsearch(ProfileIDSearch, "[dbo].[usp_Customers_ProfileSearch_Profor]"); }
         public List<QuicksearchResultML> GeneralandAdvancedSearch(PrimaryInformationMl search) { return new CustomerSearch().GeneralandAdvancedSearch(search, "[dbo].[usp_Customers_GeneralSearch_Perfor]"); }
         public List<QuicksearchResultML> CustomerHomePageSearch(CustomerHomePageSearch search) { return new CustomerSearch().CustomerHomePageSearch(search, "[dbo].[usp_Customers_GeneralSearch_Perfor_HomePage]"); }
@@ -26,9 +26,9 @@ namespace WebapiApplication.Implement
        
         //Employee Search Pages
 
-        public GetPrimaryDataCustomerResponse PrimaryCustomerDataResponse(int? CustID, int? EmpID) { return new CustomerSearch().GetPrimaryInformationDal(CustID, EmpID, "[dbo].[usp_GetCustomerinfo_Forsearches]"); }
-        public List<slideshowNew> ShowDataForEmployeeGeneral(EmployeeSearch employeesearch) { return new CustomerSearch().GetShowDataForGeneral(employeesearch, "[dbo].[usp_get_SearchResultSet1_Test_Profor]"); }
-        public List<slideshowNew> ShowDataForEmployeeAdvanceSearch(EmployeeSearch employeesearch) { return new CustomerSearch().GetShowDataForAdvanced(employeesearch, "[dbo].[usp_get_AdvancedSearchResultSet1_Test_Profor]"); }
+        public GetPrimaryDataCustomerResponse PrimaryCustomerDataResponse(int? CustID, int? EmpID) { return new CustomerSearch().GetPrimaryInformationDal(CustID, EmpID, "[dbo].[usp_GetCustomerinfo_Forsearches_NewDesign]"); }
+        public List<slideshowNew> ShowDataForEmployeeGeneral(EmployeeSearch employeesearch) { return new CustomerSearch().GetShowDataForGeneral(employeesearch, "[dbo].[usp_get_SearchResultSet1_Test_Profor_NewDesign]"); }
+        public List<slideshowNew> ShowDataForEmployeeAdvanceSearch(EmployeeSearch employeesearch) { return new CustomerSearch().GetShowDataForAdvanced(employeesearch, "[dbo].[usp_get_AdvancedSearchResultSet1_Test_Profor_NewDesign]"); }
   
     }
 }

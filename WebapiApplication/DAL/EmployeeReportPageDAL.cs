@@ -79,6 +79,7 @@ namespace WebapiApplication.DAL
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
+
             try
             {
                 parm[0] = new SqlParameter("@custid", SqlDbType.VarChar);
@@ -156,9 +157,11 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
             }
+
             return arrayList;
 
         }
+
         public ArrayList MyProfileBindings(string flag, string ID, string spName)
         {
             ArrayList arrayList = new ArrayList();
@@ -260,6 +263,7 @@ namespace WebapiApplication.DAL
 
             try
             {
+
                 parm[0] = new SqlParameter("@v_dflag", SqlDbType.VarChar);
                 parm[0].Value = flag;
                 parm[1] = new SqlParameter("@ID", SqlDbType.VarChar);
@@ -384,6 +388,10 @@ namespace WebapiApplication.DAL
                 parm[29].Value = Mobj.verfiedcontacts;
                 parm[30] = new SqlParameter("@WebsiteBlocked", SqlDbType.Int);
                 parm[30].Value = Mobj.WebsiteBlocked;
+
+                parm[31] = new SqlParameter("@intTableType", SqlDbType.Int);
+                parm[31].Value = Mobj.intTableType;
+
                 reader = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
 
                 int count = reader.FieldCount;
@@ -394,16 +402,42 @@ namespace WebapiApplication.DAL
                     {
                         myprofile = new myprofileResponse();
                         {
+
+
                             myprofile.Cust_ID = (reader["Cust_ID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Cust_ID")) : empty;
                             myprofile.ProfileID = (reader["ProfileID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileID")) : empty;
-                            myprofile.TotalRows = (reader["TotalRows"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : intnull;
-                            myprofile.Totalpages = (reader["Totalpages"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Totalpages")) : intnull;
                             myprofile.KMPLID = (reader["KMPLID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("KMPLID")) : empty;
+                            myprofile.paid = (reader["paid"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("paid")) : false;
                             myprofile.IsConfidential = (reader["IsConfidential"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("IsConfidential")) : false;
+                            myprofile.SuperConfidentila = (reader["SuperConfidentila"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("SuperConfidentila")) : false;
+
                             myprofile.FirstName = (reader["FirstName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FirstName")) : empty;
                             myprofile.LastName = (reader["LastName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastName")) : empty;
-                            myprofile.GenderID = (reader["Gender"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gender")) : empty;
+                            myprofile.NoOfBrothers = (reader["NoOfBrothers"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfBrothers")) : intnull;
+                            myprofile.NoOfSisters = (reader["NoOfSisters"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfSisters")) : intnull;
                             myprofile.Caste = (reader["Caste"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Caste")) : empty;
+                            myprofile.ProfileGrade = (reader["ProfileGrade"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ProfileGrade")) : intnull;
+                            myprofile.TotalRows = (reader["TotalRows"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : intnull;
+                            myprofile.Totalpages = (reader["Totalpages"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Totalpages")) : intnull;
+                            myprofile.SRCount = (reader["SRCount"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("SRCount")) : empty;
+                            myprofile.ExpiryDate = (reader["ExpiryDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ExpiryDate")) : empty;
+                            myprofile.Points = (reader["Points"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Points")) : empty;
+                            myprofile.CNumberVerStatus = (reader["CNumberVerStatus"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("CNumberVerStatus")) : false;
+                            myprofile.CEmailVerStatus = (reader["CEmailVerStatus"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("CEmailVerStatus")) : false;
+
+                            myprofile.SAForm = (reader["SAForm"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("SAForm")) : empty;
+                            myprofile.TicketID = (reader["TicketID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketID")) : empty;
+                            myprofile.MatchMeetingCount = (reader["MatchMeetingCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MatchMeetingCount")) : intnull;
+                            myprofile.CountryCodeID = (reader["CountryCodeID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("CountryCodeID")) : intnull;
+                            myprofile.Reason4InActive = (reader["Reason4InActive"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Reason4InActive")) : empty;
+                            myprofile.mothertongue = (reader["MotherTongue"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MotherTongue")) : empty;
+                            myprofile.PhotoCount = (reader["PhotoCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PhotoCount")) : intnull;
+                            myprofile.CreatedDate = (reader["CreatedDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CreatedDate")) : empty;
+                            myprofile.Cust_Family_ID = (reader["Cust_Family_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_Family_ID")) : iLong;
+
+                            //if (Mobj.intTableType == 1)
+                            //{
+                            myprofile.GenderID = (reader["Gender"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gender")) : empty;
                             myprofile.SubCaste = (reader["SubCaste"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("SubCaste")) : empty;
                             myprofile.Age = (reader["Age"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Age")) : intnull;
                             myprofile.Height = (reader["Height"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Height")) : empty;
@@ -411,7 +445,6 @@ namespace WebapiApplication.DAL
                             myprofile.EducationGroup = (reader["EducationGroup"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EducationGroup")) : empty;
                             myprofile.Profession = (reader["Profession"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profession")) : empty;
                             myprofile.JobLocation = (reader["JobLocation"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("JobLocation")) : empty;
-                            myprofile.mothertongue = (reader["MotherTongue"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MotherTongue")) : empty;
                             myprofile.countrylivingin = (reader["CountryLivingin"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CountryLivingin")) : empty;
                             myprofile.MaritalStatusID = (reader["MaritalStatus"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MaritalStatus")) : empty;
                             myprofile.Star = (reader["Star"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Star")) : empty;
@@ -425,15 +458,10 @@ namespace WebapiApplication.DAL
                             myprofile.Income = (reader["Income"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Income")) : empty;
                             myprofile.FFNative = (reader["FFNative"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FFNative")) : empty;
                             myprofile.MFNative = (reader["MFNative"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MFNative")) : empty;
-                            myprofile.NoOfBrothers = (reader["NoOfBrothers"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfBrothers")) : intnull;
-                            myprofile.NoOfSisters = (reader["NoOfSisters"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfSisters")) : intnull;
                             myprofile.PlaceOfBirth = (reader["PlaceOfBirth"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PlaceOfBirth")) : empty;
                             myprofile.Photo = (reader["Photo"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Photo")) : empty;
-                            myprofile.PhotoCount = (reader["PhotoCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PhotoCount")) : intnull;
                             myprofile.PhotoNames = (reader["PhotoNames"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PhotoNames")) : empty;
-                            myprofile.HoroscopeStatus = (reader["HoroscopeStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("HoroscopeStatus")) : intnull;
                             myprofile.currency = (reader["currency"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("currency")) : empty;
-                            myprofile.paid = (reader["paid"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("paid")) : false;
                             myprofile.Ownerflag = (reader["Ownerflag"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("Ownerflag")) : false;
                             myprofile.RegistrationDate = (reader["RegistrationDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("RegistrationDate")) : empty;
                             myprofile.UploadedPhotoscount = (reader["UploadedPhotoscount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("UploadedPhotoscount")) : intnull;
@@ -443,31 +471,41 @@ namespace WebapiApplication.DAL
                             myprofile.onlinepaidcls = (reader["onlinepaidcls"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("onlinepaidcls")) : empty;
                             myprofile.offlinepaidcls = (reader["offlinepaidcls"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("offlinepaidcls")) : empty;
                             myprofile.OwnerName = (reader["OwnerName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("OwnerName")) : empty;
-                            myprofile.ProfileGrade = (reader["ProfileGrade"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ProfileGrade")) : intnull;
                             myprofile.DOB = (reader["DOB"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("DOB")) : empty;
                             myprofile.serviceDate = (reader["CreatedDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CreatedDate")) : empty;
                             myprofile.IsConfidential = (reader["IsConfidential"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("IsConfidential")) : false;
-                            myprofile.SuperConfidentila = (reader["SuperConfidentila"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("SuperConfidentila")) : false;
+                            myprofile.HoroscopeStatus = (reader["HoroscopeStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("HoroscopeStatus")) : intnull;
+                            myprofile.Emp_Ticket_ID = (reader["Emp_Ticket_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Emp_Ticket_ID")) : iLong;
+                            myprofile.ProfileOwnername = (reader["ProfileOwnername"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileOwnername")) : empty;
+                            myprofile.EmpUserName = (reader["EmpUserName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpUserName")) : empty;
+                            myprofile.Primaryemail = (reader["email"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("email")) : empty;
+                            myprofile.Primarynumber = (reader["number"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("number")) : empty;
                             myprofile.HoroscopeStatus = (reader["HoroscopeStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("HoroscopeStatus")) : intnull;
                             myprofile.HoroScopeImage = (reader["HoroScope"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("HoroScope")) : empty;
 
-                            myprofile.SRCount = (reader["SRCount"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("SRCount")) : empty;
-                            myprofile.ExpiryDate = (reader["ExpiryDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ExpiryDate")) : empty;
-                            myprofile.Points = (reader["Points"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Points")) : empty;
-                            myprofile.TicketID = (reader["TicketID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketID")) : empty;
-                            myprofile.Emp_Ticket_ID = (reader["Emp_Ticket_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Emp_Ticket_ID")) : iLong;
-                            myprofile.MatchMeetingCount = (reader["MatchMeetingCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MatchMeetingCount")) : intnull;
-                            myprofile.ProfileOwnername = (reader["ProfileOwnername"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileOwnername")) : empty;
-                            myprofile.EmpUserName = (reader["EmpUserName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpUserName")) : empty;
-                            myprofile.SAForm = (reader["SAForm"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("SAForm")) : empty;
-                            myprofile.CNumberVerStatus = (reader["CNumberVerStatus"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("CNumberVerStatus")) : false;
-                            myprofile.CEmailVerStatus = (reader["CEmailVerStatus"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("CEmailVerStatus")) : false;
-                            myprofile.Reason4InActive = (reader["Reason4InActive"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Reason4InActive")) : empty;
-                            myprofile.Cust_Family_ID = (reader["Cust_Family_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_Family_ID")) : iLong;
-                            myprofile.CountryCodeID = (reader["CountryCodeID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("CountryCodeID")) : intnull;
-                            myprofile.CreatedDate = (reader["CreatedDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CreatedDate")) : empty;
-                            myprofile.Primaryemail = (reader["email"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("email")) : empty;
-                            myprofile.Primarynumber = (reader["number"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("number")) : empty;
+                            //}
+
+                            //if (Mobj.intTableType == 0)
+                            //{
+
+                            myprofile.ApplicationPhotoPath = (reader["ApplicationPhotoPath"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ApplicationPhotoPath")) : empty;
+                            myprofile.DOR = (reader["DOR"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("DOR")) : empty;
+                            myprofile.LastLoginDate = (reader["LastLoginDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastLoginDate")) : empty;
+                            // myprofile.LoginCount = (reader["LoginCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("LoginCount")) : intnull;
+                            myprofile.PaidAmount = (reader["Payment"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Payment")) : intnull;
+                            myprofile.ContactNumber = (reader["ContactNumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ContactNumber")) : empty;
+                            //  myprofile.Email = (reader["Email"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Email")) : empty;
+                            // myprofile.MybookMarkedProfCount = (reader["MybookMarkedProfCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MybookMarkedProfCount")) : intnull;
+                            //  myprofile.WhobookmarkedCount = (reader["WhobookmarkedCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("WhobookmarkedCount")) : intnull;
+                            //myprofile.RectViewedProfCount = (reader["RectViewedProfCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("RectViewedProfCount")) : intnull;
+                            //  myprofile.RectWhoViewedCout = (reader["RectWhoViewedCout"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("RectWhoViewedCout")) : intnull;
+                            // myprofile.IgnoreProfileCount = (reader["IgnoreProfileCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("IgnoreProfileCount")) : intnull;
+                            // myprofile.SentPhotoRequestCount = (reader["SentPhotoRequestCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SentPhotoRequestCount")) : intnull;
+                            myprofile.EmpName = (reader["EmpName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpName")) : empty;
+                            myprofile.UserName = (reader["UserName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("UserName")) : empty;
+                            // myprofile.HoroscopeImage = (reader["HoroscopeImage"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("HoroscopeImage")) : empty;
+
+                            //   }
 
                             arrayList.Add(myprofile);
 
@@ -1090,6 +1128,7 @@ namespace WebapiApplication.DAL
                                 sh.ToProfileID = reader["OppProfileID"] != DBNull.Value ? Convert.ToInt64(reader["OppProfileID"]) : Lnull;
                                 sh.FromName = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
                                 sh.Toname = reader["OppName"] != DBNull.Value ? reader["OppName"].ToString() : null;
+                                sh.MobileNumber = reader["MobileNumber"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MobileNumber")) : Snull;
                             }
                             else
                             {
@@ -1103,6 +1142,8 @@ namespace WebapiApplication.DAL
                                 sh.CallResult = reader["CallResult"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CallResult")) : Snull;
                                 sh.TicketInfo = reader["TicketInfo"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketInfo")) : Snull;
                                 sh.TicketCreatedDatehistry = reader["TicketCreated"] != DBNull.Value ? (reader.GetDateTime(reader.GetOrdinal("TicketCreated"))).ToString() : Snull;
+
+
 
                             }
                         }
@@ -1580,9 +1621,678 @@ namespace WebapiApplication.DAL
             return 1;
         }
 
+        #endregion
+
+        // Communication log page
+
+        #region
+
+        public List<EmpCommunication> EmployeeCommunicationLog(string ProfileID, int? intEmpId, string spName)
+        {
+            List<CommunicationLogResult> details1 = new List<CommunicationLogResult>();
+            List<CommunicationLogResult> details2 = new List<CommunicationLogResult>();
+            List<CommunicationLogResult> details3 = new List<CommunicationLogResult>();
+            List<CommunicationLogResult> details4 = new List<CommunicationLogResult>();
+            List<EmpCommunication> logList = new List<EmpCommunication>();
+
+            SqlDataReader reader;
+            int? iNull = null;
+            Int64? LNull = null;
+
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[2];
+
+                parm[0] = new SqlParameter("@ProfielD", SqlDbType.VarChar);
+                parm[0].Value = ProfileID;
+                parm[1] = new SqlParameter("@intEmpId", SqlDbType.Int);
+                parm[1].Value = intEmpId;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        CommunicationLogResult display = new CommunicationLogResult();
+                        {
+
+                            display.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader["ProfileID"]).ToString() : null;
+                            display.Name = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
+                            display.ServiceDate = reader["ServiceDate"] != DBNull.Value ? reader["ServiceDate"].ToString() : null;
+                            display.TypeOfService = reader["TypeOfService"] != DBNull.Value ? reader["TypeOfService"].ToString() : null;
+                            display.EmpName = reader["EmpName"] != DBNull.Value ? reader["EmpName"].ToString() : null;
+                            display.Branch = reader["BranchName"] != DBNull.Value ? reader["BranchName"].ToString() : null;
+                            display.MFPStatus = reader["MFPStatus"] != DBNull.Value ? reader["MFPStatus"].ToString() : null;
+                            display.MFPStatusDate = reader["MFPStatusDate"] != DBNull.Value ? reader["MFPStatusDate"].ToString() : null;
+                            display.TicketID = reader["TicketID"] != DBNull.Value ? reader["TicketID"].ToString() : null;
+                            display.Emp_FollowupTicket_ID = reader["Emp_FollowupTicket_ID"] != DBNull.Value ? Convert.ToInt64(reader["Emp_FollowupTicket_ID"]) : LNull;
+                            display.ProfileStatusID = reader["ProfileStatusID"] != DBNull.Value ? Convert.ToInt32(reader["ProfileStatusID"]) : iNull;
+                            display.TicketStatusID = reader["TicketStatusID"] != DBNull.Value ? Convert.ToInt32(reader["TicketStatusID"]) : iNull;
+                            display.TotalRows = reader["TotalRows"] != DBNull.Value ? Convert.ToInt32(reader["TotalRows"]) : iNull;
+                            display.ProfileOwner = reader["ProfileOwner"] != DBNull.Value ? reader["ProfileOwner"].ToString() : null;
+                            display.ExpressInterestID = reader["ExpressInterestID"] != DBNull.Value ? Convert.ToInt32(reader["ExpressInterestID"]) : iNull;
+                            display.LogID = reader["LogID"] != DBNull.Value ? reader["LogID"] : LNull;
+                            display.ISRvrSend = reader["ISRvrSend"] != DBNull.Value ? reader["ISRvrSend"] : iNull;
+                            display.PD = reader["I"] != DBNull.Value ? Convert.ToInt32(reader["I"]) : iNull;
+                            display.DPD = reader["NI"] != DBNull.Value ? Convert.ToInt32(reader["NI"]) : iNull;
+                            display.Viewed = reader["V"] != DBNull.Value ? Convert.ToInt32(reader["V"]) : iNull;
+                            display.NViewed = reader["NV"] != DBNull.Value ? Convert.ToInt32(reader["NV"]) : iNull;
+                            display.paid = reader["Paid"] != DBNull.Value ? Convert.ToInt32(reader["Paid"]) : iNull;
+                            display.ProfileStatus = reader["ProfileStatus"] != DBNull.Value ? reader["ProfileStatus"].ToString() : null;
+
+                            display.iFromCustID = reader["FromCustID"] != DBNull.Value ? Convert.ToInt32(reader["FromCustID"]) : iNull;
+                            display.FromName = reader["FromName"] != DBNull.Value ? reader["FromName"].ToString() : null;
+                            display.iToCustID = reader["ToCustID"] != DBNull.Value ? Convert.ToInt32(reader["ToCustID"]) : iNull;
+
+                        }
+
+                        details1.Add(display);
+                    }
+
+                }
+
+                logList.Add(new EmpCommunication { log = details1 });
+                reader.NextResult();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        CommunicationLogResult display = new CommunicationLogResult();
+                        {
+                            display.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader["ProfileID"]).ToString() : null;
+                            //display.ServiceID = reader["ServiceID"] != DBNull.Value ? reader["ServiceID"].ToString() : null;
+                            display.Name = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
+                            display.ServiceDate = reader["ServiceDate"] != DBNull.Value ? reader["ServiceDate"].ToString() : null;
+                            display.TypeOfService = reader["TypeOfService"] != DBNull.Value ? reader["TypeOfService"].ToString() : null;
+                            display.EmpName = reader["EmpName"] != DBNull.Value ? reader["EmpName"].ToString() : null;
+                            display.Branch = reader["BranchName"] != DBNull.Value ? reader["BranchName"].ToString() : null;
+                            display.MFPStatus = reader["MFPStatus"] != DBNull.Value ? reader["MFPStatus"].ToString() : null;
+                            display.MFPStatusDate = reader["MFPStatusDate"] != DBNull.Value ? reader["MFPStatusDate"].ToString() : null;
+                            display.TicketID = reader["TicketID"] != DBNull.Value ? reader["TicketID"].ToString() : null;
+                            display.Emp_FollowupTicket_ID = reader["Emp_FollowupTicket_ID"] != DBNull.Value ? Convert.ToInt64(reader["Emp_FollowupTicket_ID"]) : LNull;
+                            display.ProfileStatusID = reader["ProfileStatusID"] != DBNull.Value ? Convert.ToInt32(reader["ProfileStatusID"]) : iNull;
+                            display.TicketStatusID = reader["TicketStatusID"] != DBNull.Value ? Convert.ToInt32(reader["TicketStatusID"]) : iNull;
+                            display.TotalRows = reader["TotalRows"] != DBNull.Value ? Convert.ToInt32(reader["TotalRows"]) : iNull;
+                            display.ProfileOwner = reader["ProfileOwner"] != DBNull.Value ? reader["ProfileOwner"].ToString() : null;
+                            display.ExpressInterestID = reader["ExpressInterestID"] != DBNull.Value ? Convert.ToInt32(reader["ExpressInterestID"]) : iNull;
+                            display.LogID = reader["LogID"] != DBNull.Value ? reader["LogID"] : LNull;
+                            display.ISRvrSend = reader["ISRvrSend"] != DBNull.Value ? reader["ISRvrSend"] : iNull;
+                            display.PhotoCount = reader["PhotoCount"] != DBNull.Value ? reader["PhotoCount"] : iNull;
+                            //
+                            display.PD = reader["I"] != DBNull.Value ? Convert.ToInt32(reader["I"]) : iNull;
+                            display.DPD = reader["NI"] != DBNull.Value ? Convert.ToInt32(reader["NI"]) : iNull;
+                            display.Viewed = reader["V"] != DBNull.Value ? Convert.ToInt32(reader["V"]) : iNull;
+                            display.NViewed = reader["NV"] != DBNull.Value ? Convert.ToInt32(reader["NV"]) : iNull;
+                            display.paid = reader["Paid"] != DBNull.Value ? Convert.ToInt32(reader["Paid"]) : iNull;
+
+                            //
+                            display.ProfileStatus = reader["ProfileStatus"] != DBNull.Value ? reader["ProfileStatus"].ToString() : null;
+                            display.ServiceExpiryDate = reader["ServiceExpiryDate"] != DBNull.Value ? reader["ServiceExpiryDate"].ToString() : null;
+                            display.ServicePoints = reader["ServicePoints"] != DBNull.Value ? reader["ServicePoints"].ToString() : null;
+
+                            display.iFromCustID = reader["FromCustID"] != DBNull.Value ? Convert.ToInt32(reader["FromCustID"]) : iNull;
+                            display.FromName = reader["FromName"] != DBNull.Value ? reader["FromName"].ToString() : null;
+                            display.iToCustID = reader["ToCustID"] != DBNull.Value ? Convert.ToInt32(reader["ToCustID"]) : iNull;
+                            display.FromEmail = reader["FromEmail"] != DBNull.Value ? reader["FromEmail"].ToString() : null;
+                        }
+                        details2.Add(display);
+                    }
+
+                }
+
+                logList.Add(new EmpCommunication { log = details2 });
+                reader.NextResult();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        CommunicationLogResult display = new CommunicationLogResult();
+                        {
+                            display.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader["ProfileID"]).ToString() : null;
+                            display.Name = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
+                            display.ResendDate = reader["ResendDate"] != DBNull.Value ? reader["ResendDate"].ToString() : null;
+                            display.TypeOfService = reader["TypeOfService"] != DBNull.Value ? reader["TypeOfService"].ToString() : null;
+                            display.EmpName = reader["EmpName"] != DBNull.Value ? reader["EmpName"].ToString() : null;
+                            display.Branch = reader["BranchName"] != DBNull.Value ? reader["BranchName"].ToString() : null;
+                            display.ServiceDate = reader["ServiceDate"] != DBNull.Value ? reader["ServiceDate"].ToString() : null;
+                            display.ProfileStatusID = reader["ProfileStatusID"] != DBNull.Value ? Convert.ToInt32(reader["ProfileStatusID"]) : iNull;
+                            display.TotalRows = reader["TotalRows"] != DBNull.Value ? Convert.ToInt32(reader["TotalRows"]) : iNull;
+                            display.paid = reader["Paid"] != DBNull.Value ? Convert.ToInt32(reader["Paid"]) : iNull;
+                            display.ProfileStatus = reader["ProfileStatus"] != DBNull.Value ? reader["ProfileStatus"].ToString() : null;
+
+                            display.iFromCustID = reader["FromCustID"] != DBNull.Value ? Convert.ToInt32(reader["FromCustID"]) : iNull;
+                            display.FromName = reader["FromName"] != DBNull.Value ? reader["FromName"].ToString() : null;
+                            display.iToCustID = reader["ToCustID"] != DBNull.Value ? Convert.ToInt32(reader["ToCustID"]) : iNull;
+
+                        }
+                        details3.Add(display);
+                    }
+
+                }
+
+                logList.Add(new EmpCommunication { log = details3 });
+
+                reader.NextResult();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        CommunicationLogResult display = new CommunicationLogResult();
+                        {
+                            display.Sno = reader["Sno"] != DBNull.Value ? Convert.ToInt32(reader["Sno"]) : iNull;
+                            display.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader["ProfileID"]).ToString() : null;
+                            display.Name = reader["FirstName"] != DBNull.Value ? reader["FirstName"].ToString() : null;
+                            display.LastName = reader["LastName"] != DBNull.Value ? reader["LastName"].ToString() : null;
+                            display.ProfileOwner = reader["EmpName"] != DBNull.Value ? reader["EmpName"].ToString() : null;
+                            display.MeetingDate = reader["MeetingDate"] != DBNull.Value ? reader["MeetingDate"].ToString() : null;
+                            display.TotalRows = reader["TotalRows"] != DBNull.Value ? Convert.ToInt32(reader["TotalRows"]) : iNull;
+                            display.paid = reader["Paid"] != DBNull.Value ? Convert.ToInt32(reader["Paid"]) : iNull;
+                            display.ProfileStatus = reader["ProfileStatus"] != DBNull.Value ? reader["ProfileStatus"].ToString() : null;
+
+                            display.iFromCustID = reader["FromCustID"] != DBNull.Value ? Convert.ToInt32(reader["FromCustID"]) : iNull;
+                            display.FromName = reader["FromName"] != DBNull.Value ? reader["FromName"].ToString() : null;
+                            display.iToCustID = reader["ToCustID"] != DBNull.Value ? Convert.ToInt32(reader["ToCustID"]) : iNull;
+                        }
+
+                        details4.Add(display);
+                    }
+                }
+
+                logList.Add(new EmpCommunication { log = details4 });
+
+                reader.Close();
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return logList;
+        }
+
+        public Tuple<int, List<CommunicationLogResult>> EmployeeCommunicationLogRvrAndResend(RvrRequest Mobj, string spName)
+        {
+
+            SqlParameter[] parm = new SqlParameter[13];
+            List<CommunicationLogResult> details3 = new List<CommunicationLogResult>();
+            int intStatus = 0;
+            int? iNull = null;
+
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            Smtpemailsending smtp = new Smtpemailsending();
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            SqlDataReader reader;
+
+            try
+            {
+                parm[0] = new SqlParameter("@fromcust_id", SqlDbType.Int);
+                parm[0].Value = Mobj.FromcustID;
+
+                parm[1] = new SqlParameter("@Tocust_id", SqlDbType.Int);
+                parm[1].Value = Mobj.TocustID;
+                parm[2] = new SqlParameter("@AcceptLink", SqlDbType.VarChar);
+                parm[2].Value = Mobj.AcceptLink;
+
+                parm[3] = new SqlParameter("@RejectLink", SqlDbType.VarChar);
+                parm[3].Value = Mobj.RejectLink;
+
+                parm[4] = new SqlParameter("@ExpressInterestId", SqlDbType.BigInt);
+                parm[4].Value = Mobj.ExpressInterestId;
+
+                parm[5] = new SqlParameter("@LogID", SqlDbType.BigInt);
+                parm[5].Value = Mobj.LogID;
+
+                parm[6] = new SqlParameter("@isRvrflag", SqlDbType.VarChar);
+                parm[6].Value = Mobj.isRvrflag;
+                parm[7] = new SqlParameter("@i_empid", SqlDbType.Int);
+                parm[7].Value = Mobj.empid;
+
+                parm[8] = new SqlParameter("@i_status", SqlDbType.Int);
+                parm[8].Direction = ParameterDirection.Output;
+
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, "Usp_insert_Rvr_Resend_Log", parm);
+
+                if (Mobj.isRvrflag == "RVR")
+                {
+
+                    if (reader.HasRows)
+                    {
+
+                        while (reader.Read())
+                        {
+
+                            smtp.profile_name = (reader["profile_name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("profile_name")) : string.Empty;
+                            smtp.recipients = (reader["recipients"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("recipients")) : string.Empty;
+                            smtp.body = (reader["body"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body")) : string.Empty;
+                            smtp.subject = (reader["subject"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("subject")) : string.Empty;
+                            smtp.body_format = (reader["body_format"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body_format")) : string.Empty;
+                            smtp.Statusint = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : 0;
+                            li.Add(smtp);
+                        }
+                    }
+                    Commonclass.SendMailSmtpMethod(li, "exp");
+                    intStatus = smtp.Statusint;
+
+                }
+                else if (Mobj.isRvrflag == "RS")
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            CommunicationLogResult display = new CommunicationLogResult();
+                            {
+                                display.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader["ProfileID"]).ToString() : null;
+                                display.Name = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
+                                display.ResendDate = reader["ResendDate"] != DBNull.Value ? reader["ResendDate"].ToString() : null;
+                                display.TypeOfService = reader["TypeOfService"] != DBNull.Value ? reader["TypeOfService"].ToString() : null;
+                                display.EmpName = reader["EmpName"] != DBNull.Value ? reader["EmpName"].ToString() : null;
+                                display.Branch = reader["BranchName"] != DBNull.Value ? reader["BranchName"].ToString() : null;
+                                display.ServiceDate = reader["ServiceDate"] != DBNull.Value ? reader["ServiceDate"].ToString() : null;
+                                display.ProfileStatusID = reader["ProfileStatusID"] != DBNull.Value ? Convert.ToInt32(reader["ProfileStatusID"]) : iNull;
+                                display.TotalRows = reader["TotalRows"] != DBNull.Value ? Convert.ToInt32(reader["TotalRows"]) : iNull;
+                                display.paid = reader["Paid"] != DBNull.Value ? Convert.ToInt32(reader["Paid"]) : iNull;
+                                display.ProfileStatus = reader["ProfileStatus"] != DBNull.Value ? reader["ProfileStatus"].ToString() : null;
+                            }
+                            details3.Add(display);
+                        }
+
+                    }
+                    reader.NextResult();
+                    if (reader.HasRows)
+                    {
+
+                        while (reader.Read())
+                        {
+
+                            smtp.profile_name = (reader["profile_name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("profile_name")) : string.Empty;
+                            smtp.recipients = (reader["recipients"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("recipients")) : string.Empty;
+                            smtp.body = (reader["body"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body")) : string.Empty;
+                            smtp.subject = (reader["subject"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("subject")) : string.Empty;
+                            smtp.body_format = (reader["body_format"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body_format")) : string.Empty;
+                            smtp.Statusint = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : 0;
+                            li.Add(smtp);
+                        }
+                    }
+
+                    Commonclass.SendMailSmtpMethod(li, "exp");
+                    intStatus = smtp.Statusint;
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            if (Mobj.isRvrflag == "RVR")
+            {
+                return new Tuple<int, List<CommunicationLogResult>>(intStatus, null);
+            }
+            else
+            {
+                return new Tuple<int, List<CommunicationLogResult>>(intStatus, details3);
+            }
+        }
+
+        public int EmployeeCommunicationLogSentphotosemail(string Email, string CustID, string spName)
+        {
+            Smtpemailsending smtp = new Smtpemailsending();
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            SqlDataReader reader;
+            SqlParameter[] parm = new SqlParameter[12];
+            int status = 0;
+
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            
+            try
+            {
+                parm[0] = new SqlParameter("@email", SqlDbType.VarChar);
+                parm[0].Value = Email;
+                parm[1] = new SqlParameter("@cust_Id", SqlDbType.VarChar);
+                parm[1].Value = CustID;
+                parm[2] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+                DataSet dsMessages = new DataSet();
+
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, "usp_sentemailwithimages_New", parm);
+
+                if (reader.HasRows)
+                {
+
+                    while (reader.Read())
+                    {
+
+                        smtp.profile_name = (reader["profile_name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("profile_name")) : string.Empty;
+                        smtp.recipients = (reader["recipients"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("recipients")) : string.Empty;
+                        smtp.body = (reader["body"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body")) : string.Empty;
+                        smtp.subject = (reader["subject"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("subject")) : string.Empty;
+                        smtp.body_format = (reader["body_format"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body_format")) : string.Empty;
+                        smtp.Statusint = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : 0;
+                        li.Add(smtp);
+                    }
+                }
+                reader.Close();
+                Commonclass.SendMailSmtpMethod(li, "info");
+                status = smtp.Statusint;
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return status;
+        }
+
+        public int EmployeeCommunicationLogSendMarketingMail(CreateEmployeeMl Mobj, string spName)
+        {
+            int intStatus = 0;
+            int? inull = null;
+            int? Istatus = null;
+            SqlDataReader reader;
+
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            
+            SqlParameter[] parm = new SqlParameter[11];
+            try
+            {
+                parm[0] = new SqlParameter("@v_ProfileID", SqlDbType.VarChar);
+                parm[0].Value = Mobj.profileid;
+                parm[1] = new SqlParameter("@v_mailtext", SqlDbType.VarChar);
+                parm[1].Value = Mobj.Notes;
+                parm[2] = new SqlParameter("@EmpID", SqlDbType.Int);
+                parm[2].Value = Mobj.EMPID;
+                parm[3] = new SqlParameter("@EmpTickeID", SqlDbType.BigInt);
+                parm[3].Value = Mobj.LTicketID;
+                parm[4] = new SqlParameter("@i_HistoryUpdate", SqlDbType.Int);
+                parm[4].Value = Mobj.HistoryUpdate;
+                parm[5] = new SqlParameter("@Acceptlink", SqlDbType.VarChar);
+                parm[5].Value = Mobj.AcceptLink;
+                parm[6] = new SqlParameter("@Rejectlink", SqlDbType.VarChar);
+                parm[6].Value = Mobj.RejectLink;
+                parm[7] = new SqlParameter("@FromCustID", SqlDbType.VarChar);
+                parm[7].Value = Mobj.FromCustID;
+                parm[8] = new SqlParameter("@RevCustID", SqlDbType.VarChar);
+                parm[8].Value = Mobj.TocustID;
+                parm[9] = new SqlParameter("@MatchfollowupStatus", SqlDbType.VarChar);
+                parm[9].Value = Mobj.TicketStatusID;
+                parm[10] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[10].Direction = ParameterDirection.Output;
+               
+                List<Smtpemailsending> li = new List<Smtpemailsending>();
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                if (reader.HasRows)
+                {
+
+                    while (reader.Read())
+                    {
+                        Smtpemailsending smtp = new Smtpemailsending();
+                        {
+                            smtp.profile_name = (reader["profile_name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("profile_name")) : string.Empty;
+                            smtp.recipients = (reader["recipients"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("recipients")) : string.Empty;
+                            smtp.body = (reader["body"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body")) : string.Empty;
+                            smtp.subject = (reader["subject"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("subject")) : string.Empty;
+                            smtp.body_format = (reader["body_format"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body_format")) : string.Empty;
+                            Istatus = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : 0;
+                        }
+                        li.Add(smtp);
+
+                    }
+
+                }
+                intStatus = Istatus != null && Istatus != 0 ? 1 : 0;
+                reader.Close();
+                Commonclass.SendMailSmtpMethod(li, "info");
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return intStatus;
+        }
 
 
         #endregion
+
+        // Reg  Validation
+
+        public List<GetRegprofilevalidation> RegistrationValidation(Regprofilevalidation partnerdata, string spName)
+        {
+            List<GetRegprofilevalidation> details = new List<GetRegprofilevalidation>();
+            SqlDataReader reader;
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+            string Snull = "--";
+            int? inull = null;
+            Int64? Lnull = null;
+            int status = 0;
+
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+
+                SqlParameter[] parm = new SqlParameter[20];
+
+                parm[0] = new SqlParameter("@strMFFNativePlace", SqlDbType.VarChar);
+                parm[0].Value = partnerdata.strMFFNativePlace;
+                parm[1] = new SqlParameter("@strFatherName", SqlDbType.VarChar);
+                parm[1].Value = partnerdata.strFatherName;
+                parm[2] = new SqlParameter("@strMotherName", SqlDbType.VarChar);
+                parm[2].Value = partnerdata.strMotherName;
+                parm[3] = new SqlParameter("@strFFName", SqlDbType.VarChar);
+                parm[3].Value = partnerdata.strFFName;
+                parm[4] = new SqlParameter("@strMFName", SqlDbType.VarChar);
+                parm[4].Value = partnerdata.strMFName;
+                parm[5] = new SqlParameter("@strMFSurName", SqlDbType.VarChar);
+                parm[5].Value = partnerdata.strMFSurName;
+                parm[6] = new SqlParameter("@strCustSurName", SqlDbType.VarChar);
+                parm[6].Value = partnerdata.strCustSurName;
+                parm[7] = new SqlParameter("@strCustName", SqlDbType.VarChar);
+                parm[7].Value = partnerdata.strCustName;
+                parm[8] = new SqlParameter("@strCaste", SqlDbType.VarChar);
+                parm[8].Value = partnerdata.strCaste;
+                parm[9] = new SqlParameter("@strAllPhones", SqlDbType.VarChar);
+                parm[9].Value = partnerdata.strAllPhones;
+                parm[10] = new SqlParameter("@strAllEmailIds", SqlDbType.VarChar);
+                parm[10].Value = partnerdata.strAllEmailIds;
+                parm[11] = new SqlParameter("@intAppicationStatusID", SqlDbType.Int);
+                parm[11].Value = partnerdata.intAppicationStatusID;
+                parm[12] = new SqlParameter("@intEmpID", SqlDbType.Int);
+                parm[12].Value = partnerdata.intEmpID;
+                parm[13] = new SqlParameter("@i_Startindex", SqlDbType.Int);
+                parm[13].Value = partnerdata.i_Startindex;
+                parm[14] = new SqlParameter("@i_EndIndex", SqlDbType.Int);
+                parm[14].Value = partnerdata.i_EndIndex;
+                parm[15] = new SqlParameter("@intGenderID", SqlDbType.Int);
+                parm[15].Value = partnerdata.intGenderID;
+
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        GetRegprofilevalidation sh = new GetRegprofilevalidation();
+                        {
+                            sh.ViewfullProfileID = reader["ProfileID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileID")) : Snull;
+                            sh.ProfileID = reader["ViewfullProfileID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ViewfullProfileID")) : Snull;
+                            sh.FirstName = reader["FirstName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FirstName")) : Snull;
+                            sh.LastName = reader["LastName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastName")) : Snull;
+                            sh.Caste = reader["CasteName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CasteName")) : Snull;
+                            sh.DOR = reader["DOR"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("DOR")) : Snull;
+                            sh.BranchCode = reader["BranchCode"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("BranchCode")) : Snull;
+                            sh.ProfileOwner = reader["ProfileOwner"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileOwner")) : Snull;
+                            sh.TotalRows = reader["TotalRows"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : inull;
+                            sh.TotalPages = reader["TotalPages"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalPages")) : inull;
+                            sh.ProfileStatusID = reader["ProfileStatusID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileStatusID")) : Snull;
+                            sh.ActiveCount = reader["ActiveCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ActiveCount")) : inull;
+                            sh.DeletedCount = reader["DeletedCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DeletedCount")) : inull;
+                            sh.SettledCount = reader["SettledCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SettledCount")) : inull;
+                            sh.InActiveCount = reader["InActiveCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("InActiveCount")) : inull;
+                            sh.MMSerious = reader["MMSerious"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MMSerious")) : inull;
+                            sh.TicketID = reader["TicketID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("TicketID")) : Lnull;
+                            sh.TicketHistoryID = reader["TicketHisID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketHisID")) : Snull;
+                            sh.paid = reader["PaidStatus"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PaidStatus")) : inull;
+                            sh.NoOfBrothers = reader["NoOfBrothers"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfBrothers")) : inull;
+                            sh.NoOfSisters = reader["NoOfSisters"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfSisters")) : inull;
+                            sh.Age = reader["Age"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Age")) : inull;
+                            sh.DOB = reader["DateOfBirth"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("DateOfBirth")) : Snull;
+                            sh.TOB = reader["TimeofBirth"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TimeofBirth")) : Snull;
+                            sh.PlaceOfBirth = reader["PlaceofBirth"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("PlaceofBirth")) : Snull;
+                            sh.Gothram = reader["Gothram"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gothram")) : Snull;
+                            sh.fathercaste = reader["FatherCaste"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FatherCaste")) : Snull;
+                            sh.mothercaste = reader["MotherCaste"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MotherCaste")) : Snull;
+                            sh.maritalstatus = reader["MaritalStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MaritalStatus")) : Snull;
+                            sh.Star = reader["Star"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Star")) : Snull;
+                            sh.Color = reader["Color"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Color")) : Snull;
+                            sh.Height = reader["Height"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Height")) : Snull;
+                            sh.EducationGroup = reader["EducationCategory"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("EducationCategory")) : Snull;
+                            sh.EduGroupnamenew = reader["EducationGroupName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("EducationGroupName")) : Snull;
+                            sh.Profession = reader["ProfessionDetails"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfessionDetails")) : Snull;
+                            sh.JobLocation = reader["JobLocation"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("JobLocation")) : Snull;
+                            sh.Income = reader["MonthlyIncome"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MonthlyIncome")) : Snull;
+                            sh.FFNative = reader["FatherNativePlace"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FatherNativePlace")) : Snull;
+                            sh.MFNative = reader["MotherNativePlace"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MotherNativePlace")) : Snull;
+                            sh.Property = reader["Property"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Property")) : Snull;
+                            sh.PhotoCount = reader["PhotoCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PhotoCount")) : inull;
+                            sh.CustomerFullPhoto = reader["FromApplicationPhoto"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromApplicationPhoto")) : Snull;
+                            sh.KMPL = reader["KMPLID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("KMPLID")) : Snull;
+                            sh.IsConfidential = reader["IsConfidential"] != DBNull.Value ? reader.GetSqlBoolean(reader.GetOrdinal("IsConfidential")).ToString() : Snull;
+                            sh.SuperConfidentila = reader["HighConfendential"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("HighConfendential")) : inull;
+                            sh.HoroscopeStatus = reader["HoroscopeStatus"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("HoroscopeStatus")) : inull;
+                            sh.Cust_ID = reader["cust_id"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("cust_id")) : Lnull;
+                            sh.Intercaste = reader["Intercaste"] != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("Intercaste")).ToString() : Snull;
+                        }
+
+                        details.Add(sh);
+                    }
+                }
+
+                reader.Close();
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            status = 1;
+            return details;
+        }
+
+        public List<RegprofilevalidationPlaybutton> RegistrationValidation_Playbutton(string Profileid, string spName)
+        {
+            List<RegprofilevalidationPlaybutton> details = new List<RegprofilevalidationPlaybutton>();
+            SqlDataReader reader;
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+            string Snull = "--";
+            int? inull = null;
+            int status = 0;
+
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+
+                SqlParameter[] parm = new SqlParameter[2];
+                parm[0] = new SqlParameter("@ProfileID", SqlDbType.VarChar, 200);
+                parm[0].Value = Profileid;
+                parm[1] = new SqlParameter("@flag", SqlDbType.VarChar, 200);
+                parm[1].Value = 1;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        RegprofilevalidationPlaybutton sh = new RegprofilevalidationPlaybutton();
+                        {
+                            sh.Profileid = reader["Profileid"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profileid")) : Snull;
+                            sh.Branch_Dor = reader["RegistrationDate"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("RegistrationDate")) : Snull;
+                            sh.paidamount = reader["paidamount"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("paidamount")) : Snull;
+                            sh.paiddate = reader["paiddate"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("paiddate")) : Snull;
+                            sh.ProfileOwner = reader["OWNER"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("OWNER")) : Snull;
+                            sh.sentreceivecount = reader["sentreceivecount"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("sentreceivecount")) : Snull;
+                            sh.PC = reader["photocount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("photocount")) : inull;
+                            sh.custid = reader["custid"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("custid")) : inull;
+                            sh.empid = reader["empid"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("empid")) : inull;
+                            sh.branchid = reader["branchid"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("branchid")) : inull;
+                            sh.Horo = reader["horoscope"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("horoscope")) : inull;
+                            sh.SA = reader["Settle"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Settle")) : Snull;
+                            sh.PD = reader["PD"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PD")) : inull;
+                            sh.DPD = reader["DPD"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DPD")) : inull;
+                            sh.View = reader["lnkView"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("lnkView")) : inull;
+                            sh.Nview = reader["notview"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("notview")) : inull;
+                            sh.BI = reader["bothinterst"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("bothinterst")) : inull;
+                            sh.OppI = reader["OppI"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("OppI")) : inull;
+
+                        }
+                        details.Add(sh);
+                    }
+                }
+
+                reader.Close();
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            status = 1;
+            return details;
+        }
 
     }
 }

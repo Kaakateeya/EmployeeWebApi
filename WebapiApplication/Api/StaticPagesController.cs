@@ -71,8 +71,7 @@ namespace WebapiApplication.Api
         public ArrayList getEmployeeLoginCoutDetails() { return this.ISuccessStories.EmployeeLoginCoutDetails(); }
         public string getipAddressReturn() { return this.ISuccessStories.ipAddressReturn(); }
         public int getUpdateEmailBounce(Int64? CustID, int? EmailBounceEntryId, string BounceMailid) { return this.ISuccessStories.Update_EmailBounce(CustID, EmailBounceEntryId, BounceMailid); }
-
-
+        public int getChangeApplicationStaus(long? ProfileID) { return this.ISuccessStories.getChangeApplicationStaus(ProfileID); }
     }
 }
 

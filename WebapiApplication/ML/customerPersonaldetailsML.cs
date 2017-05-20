@@ -629,6 +629,7 @@ namespace WebapiApplication.ML
         public int? IsReviewed { get; set; }
         public string ProfileID { get; set; }
         public int? PhotoStatus { get; set; }
+        public int? GenderID { get; set; }
     }
 
     //public class UploadInsertSelect
@@ -705,6 +706,8 @@ namespace WebapiApplication.ML
         public Int64? EmpID { get; set; }
         public Int64? intCusID { get; set; }
         public string ProfilePic { get; set; }
+
+        public int? GenderID { get; set; }
     }
 
     public class ViewAllCustomersSearch
@@ -726,6 +729,12 @@ namespace WebapiApplication.ML
         public int? TotalRows { get; set; }
         public int? Totalpages { get; set; }
         public string Profession { get; set; }
+
+        public long? FamilyID { get; set; }
+
+        public string MotherTongueName { get; set; }
+
+        public string Email { get; set; }
     }
 
     public class ProfilePaymentGridView
@@ -1349,7 +1358,8 @@ namespace WebapiApplication.ML
         public string HoroPhotoName { get; set; }
         public int? PD { get; set; }
         public string Settle { set; get; }
-
+        public int? TicketID { get; set; }
+        public string TicketNumber { get; set; }
     }
 
     public class SettlementPaidBalanceDetailsMl
@@ -1435,5 +1445,11 @@ namespace WebapiApplication.ML
         public int? intEndIndex { get; set; }
         public int? intEmpID { set; get; }
     }
-
+    public class HoroGeneration
+    {
+        public string AstroGeneration { get; set; }
+        public string Path { get; set; }
+        public string KeyName { get; set; }
+        public string strTestPath { get; set; }
+    }
 }
