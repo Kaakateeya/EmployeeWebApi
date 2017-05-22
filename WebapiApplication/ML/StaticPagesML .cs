@@ -438,6 +438,46 @@ namespace WebapiApplication.ML
         public object HoroscopeStatus { get; set; }
         public string PlaceOfBirth { get; set; }
         public string Intercaste { get; set; }
+
+        public string SRCount { get; set; }
+
+        public int? PaidAmount { get; set; }
+
+        public string ExpiryDate { get; set; }
+
+        public string Points { get; set; }
+
+        public long? Emp_Ticket_ID { get; set; }
+
+        public int? MatchMeetingCount { get; set; }
+
+        public string ProfileOwnername { get; set; }
+
+        public string EmpUserName { get; set; }
+
+        public string EmpName { get; set; }
+
+        public string SAForm { get; set; }
+
+        public bool CNumberVerStatus { get; set; }
+
+        public bool CEmailVerStatus { get; set; }
+
+        public string Reason4InActive { get; set; }
+
+        public long? Cust_Family_ID { get; set; }
+
+        public int? CountryCodeID { get; set; }
+
+        public string CreatedDate { get; set; }
+
+        public string Primarynumber { get; set; }
+
+        public string Primaryemail { get; set; }
+
+        public string ContactNumber { get; set; }
+
+        public string UserName { get; set; }
     }
 
 

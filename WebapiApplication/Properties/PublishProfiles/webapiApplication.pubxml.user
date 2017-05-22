@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\Administrator\Desktop\CommunicationLog1234</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Admin\Desktop\ExpressINtrst_Build123</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Api/BindJson .cs">
@@ -73,13 +73,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/05/2016 19:37:08</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
-      <publishTime>09/24/2016 12:02:45</publishTime>
+      <publishTime>05/20/2017 12:06:45</publishTime>
     </File>
     <File Include="bin/AspNet.ScriptManager.jQuery.dll">
-      <publishTime>09/24/2016 12:02:46</publishTime>
+      <publishTime>05/20/2017 12:06:43</publishTime>
     </File>
     <File Include="bin/AspNet.ScriptManager.jQuery.UI.Combined.dll">
-      <publishTime>09/24/2016 12:02:46</publishTime>
+      <publishTime>05/20/2017 12:06:43</publishTime>
     </File>
     <File Include="bin/AWSSDK.Core.dll">
       <publishTime>12/13/2016 11:34:05</publishTime>
@@ -88,22 +88,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/13/2016 11:34:09</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.AspNet.dll">
-      <publishTime>09/24/2016 12:02:48</publishTime>
+      <publishTime>05/20/2017 12:06:43</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.Core.dll">
-      <publishTime>09/24/2016 12:02:46</publishTime>
+      <publishTime>05/20/2017 12:06:43</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.OAuth.Consumer.dll">
-      <publishTime>09/24/2016 12:02:47</publishTime>
+      <publishTime>05/20/2017 12:06:43</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.OAuth.dll">
-      <publishTime>09/24/2016 12:02:47</publishTime>
+      <publishTime>05/20/2017 12:06:43</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.OpenId.dll">
-      <publishTime>09/24/2016 12:02:47</publishTime>
+      <publishTime>05/20/2017 12:06:43</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.OpenId.RelyingParty.dll">
-      <publishTime>09/24/2016 12:02:47</publishTime>
+      <publishTime>05/20/2017 12:06:43</publishTime>
     </File>
     <File Include="bin/EmailVerification3_CSharp.dll">
       <publishTime>03/03/2016 13:13:08</publishTime>
@@ -118,28 +118,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/03/2016 13:13:08</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>09/24/2016 12:02:48</publishTime>
+      <publishTime>05/20/2017 12:06:43</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
-      <publishTime>09/24/2016 12:02:48</publishTime>
+      <publishTime>05/20/2017 12:06:43</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Membership.OpenAuth.dll">
-      <publishTime>09/24/2016 12:02:48</publishTime>
+      <publishTime>05/20/2017 12:06:44</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Web.Optimization.WebForms.dll">
-      <publishTime>09/24/2016 12:02:48</publishTime>
+      <publishTime>05/20/2017 12:06:44</publishTime>
     </File>
     <File Include="bin/Microsoft.ScriptManager.MSAjax.dll">
-      <publishTime>09/24/2016 12:02:46</publishTime>
+      <publishTime>05/20/2017 12:06:44</publishTime>
     </File>
     <File Include="bin/Microsoft.ScriptManager.WebForms.dll">
-      <publishTime>09/24/2016 12:02:46</publishTime>
+      <publishTime>05/20/2017 12:06:44</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>09/24/2016 12:02:46</publishTime>
+      <publishTime>05/20/2017 12:06:44</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>09/24/2016 12:23:53</publishTime>
+      <publishTime>05/20/2017 12:06:45</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>09/24/2016 12:23:54</publishTime>
@@ -151,16 +151,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2016 12:23:55</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>09/24/2016 12:02:46</publishTime>
+      <publishTime>05/20/2017 12:06:44</publishTime>
     </File>
     <File Include="bin/System.Web.Providers.dll">
-      <publishTime>09/24/2016 12:02:45</publishTime>
+      <publishTime>05/20/2017 12:06:44</publishTime>
     </File>
     <File Include="bin/WebapiApplication.dll">
-      <publishTime>05/19/2017 11:21:39</publishTime>
+      <publishTime>05/22/2017 12:13:06</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
-      <publishTime>09/24/2016 12:02:45</publishTime>
+      <publishTime>05/20/2017 12:06:45</publishTime>
     </File>
     <File Include="Customer_new/Employee_new/EmployeeViewFullProfile.aspx">
       <publishTime>02/02/2017 12:45:52</publishTime>
@@ -256,7 +256,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/05/2016 19:28:46</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/17/2017 12:37:42</publishTime>
+      <publishTime>05/22/2017 12:37:20</publishTime>
     </File>
   </ItemGroup>
 </Project>

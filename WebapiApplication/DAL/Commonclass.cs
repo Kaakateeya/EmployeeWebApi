@@ -156,7 +156,7 @@ namespace WebapiApplication.DAL
                     }
                 }
 
-                flag = +1;
+                flag++;
             }
             return dtnew;
         }
