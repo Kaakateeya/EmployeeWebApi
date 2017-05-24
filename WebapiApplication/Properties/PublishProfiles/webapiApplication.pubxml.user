@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\Admin\Desktop\ExpressINtrst_Build123</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Admin\Desktop\reg_vali_issue_24_05_2017</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Api/BindJson .cs">
@@ -157,7 +157,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/20/2017 12:06:44</publishTime>
     </File>
     <File Include="bin/WebapiApplication.dll">
-      <publishTime>05/22/2017 12:13:06</publishTime>
+      <publishTime>05/24/2017 16:07:08</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>05/20/2017 12:06:45</publishTime>
@@ -166,7 +166,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/02/2017 12:45:52</publishTime>
     </File>
     <File Include="DAL/HtmlPage1.html">
-      <publishTime>05/17/2017 14:45:01</publishTime>
+      <publishTime>05/24/2017 15:48:01</publishTime>
     </File>
     <File Include="DAL/TestAngular.html">
       <publishTime>01/13/2017 11:57:44</publishTime>
@@ -256,7 +256,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/05/2016 19:28:46</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/22/2017 12:37:20</publishTime>
+      <publishTime>05/24/2017 15:40:22</publishTime>
     </File>
   </ItemGroup>
 </Project>

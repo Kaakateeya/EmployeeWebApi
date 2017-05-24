@@ -478,6 +478,9 @@ namespace WebapiApplication.ML
         public string ContactNumber { get; set; }
 
         public string UserName { get; set; }
+        public int? ProfileGrade { get; set; }
+        public string mothertongue { get; set; }
+        public string CustomerApplicationPhoto { get; set; }
     }
 
 

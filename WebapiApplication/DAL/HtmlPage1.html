@@ -162,25 +162,7 @@
             }
 
             var Mobj = {
-                ApplicationstatusID: "54",
-                Assigneddatefromdate: "",
-                Assigneddatetodate: "",
-                BranchID: null,
-                CasteID: "402",
-                DORFromdate: "",
-                DORTodate: "",
-                Empid: "2",
-                GenderID: "",
-                HavingprofilesID: null,
-                LogoutId: "",
-                MarketingownerID: null,
-                OwneroftheprofileID: "2",
-                TypeofprofileID: "",
-                WebsiteBlocked: "",
-                pagefrom: 1,
-                pageto: 10,
-                verfiedcontacts: "",
-                intTableType:0
+               "strMFFNativePlace":"","strFatherName":"","strMotherName":"","strFFName":"","strMFName":"","strMFSurName":"","strCustSurName":"","strCustName":"","strCaste":"","strAllPhones":"","strAllEmailIds":"","intAppicationStatusID":55,"intGenderID":"","intEmpID":"2","i_Startindex":1,"i_EndIndex":10
             };
 
             $("#Display").click(function () {
@@ -188,7 +170,7 @@
                 alert(Mobj);
 
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/MyprofileAllslides',
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/RegistrationValidation',
                     type: 'POST',
                     crossDomain: true,
                     data: JSON.stringify(Mobj),
