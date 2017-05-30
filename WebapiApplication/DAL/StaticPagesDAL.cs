@@ -2428,7 +2428,7 @@ namespace WebapiApplication.DAL
 
         }
 
-        public ArrayList CustomerHomePageDesignDataDal(string flag, int? casteID, long? CustID,string Spname)
+        public ArrayList CustomerHomePageDesignDataDal(string flag, int? casteID, long? CustID, int? intStartIndex, int? intEndIndex, int? GenderID, string Spname)
         {
             SqlDataAdapter da = new SqlDataAdapter();
             DataSet dataset = new DataSet();
@@ -2445,6 +2445,11 @@ namespace WebapiApplication.DAL
                 cmd.Parameters.AddWithValue("@v_dflag", flag);
                 cmd.Parameters.AddWithValue("@CasteID", casteID);
                 cmd.Parameters.AddWithValue("@CustID", CustID);
+
+                cmd.Parameters.AddWithValue("@intStartIndex", intStartIndex);
+                cmd.Parameters.AddWithValue("@intEndIndex", intEndIndex);
+                cmd.Parameters.AddWithValue("@GenderID", GenderID);
+
                 da.SelectCommand = cmd;
                 da.Fill(dataset);
 
