@@ -244,6 +244,8 @@ namespace WebapiApplication.Interfaces
         int marketingSendSms(EmployeeMarketslidesendmail SendSms);
 
         int marketingMailSend(MatchFollowupMailSend SendMail);
+
+       
     }
 
 }
