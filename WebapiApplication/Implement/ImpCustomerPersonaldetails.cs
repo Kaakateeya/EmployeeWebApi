@@ -77,7 +77,7 @@ namespace WebapiApplication.Implement
         public ArrayList Emplanding_counts_Admin(EmployeeLandingCount ecount) { return customerdetails.Emplanding_counts_Admin(ecount, "[dbo].[usp_emplanding_counts_Admin_New]"); }
         public int UpdateSpoucedetails_Customersetails(UpdatePersonaldetails customerpersonaldetails) { return customerdetails.UpdateSpoucedetails_Customersetails(customerpersonaldetails, "[dbo].[usp_edit_Spoucedetails_CustomerEdit]"); }
         public int UpdateSpouseChildDetails(UpdatePersonaldetails customerpersonaldetails) { return customerdetails.UpdateSpouseChildDetails(customerpersonaldetails, "[dbo].[usp_edit_SpoucedetailsChildern_CustomerEdit_NewDesign]"); }
-        public int CustomerContactDetails_Update(ContactDetals Mobj) { return customerdetails.CustomerContactDetails_Update(Mobj, "[dbo].[usp_edit_CustomerContactNumbers_EmployeeEdit]"); }
+        public int CustomerContactDetails_Update(ContactDetals Mobj) { return customerdetails.CustomerContactDetails_Update(Mobj, "[dbo].[usp_edit_CustomerContactNumbers_EmployeeEdit_NewDesign]"); }
         public int CustomerProfileSetting_ProfileSetting(UpdateprofileeMl Mobj) { return customerdetails.CustomerProfileSetting_ProfileSetting(Mobj, "[dbo].[usp_updateprofilesettings_forcustomer_NewDesign]"); }
         public int CustomerProfileSetting_Gradeselection(NoProfileGradingMl Mobj) { return customerdetails.CustomerProfileSetting_Gradeselection(Mobj, "[dbo].[usp_edit_CustomerContactNumbers_EmployeeEdit]"); }
         public int UpdatePersonalDetails_Customersetails(UpdatePersonaldetails customerpersonaldetails) { return customerdetails.UpdatePersonalDetails_Customersetails(customerpersonaldetails, "[dbo].[usp_edit_Personaldetailsupdate_NewDesign]"); }

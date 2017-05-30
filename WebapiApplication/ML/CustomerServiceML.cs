@@ -423,6 +423,9 @@ namespace WebapiApplication.ML
         public Int64? LTicketID { get; set; }
         public string marketbothflag { get; set; }
         public int? i_TicketID { get; set; }
+        public Int64? Empid { get; set; }
+        public int? startIndex { get; set; }
+        public int? endIndex { get; set; }
 
     }
 

@@ -8,10 +8,11 @@ using System.Data.SqlClient;
 using System.Collections;
 using System.Configuration;
 using KaakateeyaDAL;
+using WebapiApplication.Abstract;
 
 namespace WebapiApplication.DAL
 {
-    public class EmployeeReportPageDAL
+    public class EmployeeReportPageDAL : CommonAbstract
     {
 
         public int SaveViewedBookmark_Customer(CustSearchMl Mobj, string spName)
@@ -2318,5 +2319,167 @@ namespace WebapiApplication.DAL
             return details;
         }
 
+
+        internal int FeeUpdateDalWithInternalMemoUpdate(FeeUpdateML Mobj,string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[9];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@TicketID", SqlDbType.BigInt);
+                parm[0].Value = Mobj.EmpTicketID;
+                parm[1] = new SqlParameter("@EmpID", SqlDbType.BigInt);
+                parm[1].Value = Mobj.EmpID;
+                parm[2] = new SqlParameter("@Memo", SqlDbType.VarChar);
+                parm[2].Value = Mobj.Message;
+                parm[3] = new SqlParameter("@AssignedEmpID", SqlDbType.BigInt);
+                parm[3].Value = Mobj.AssignedEmpID;
+                parm[4] = new SqlParameter("@FeeValue", SqlDbType.VarChar);
+                parm[4].Value = Mobj.feevalue;
+                parm[5] = new SqlParameter("@CustID", SqlDbType.Int);
+                parm[5].Value = Mobj.CustID;
+                parm[6] = new SqlParameter("@SettlementValue", SqlDbType.VarChar);
+                parm[6].Value = Mobj.SettlementValue;
+                parm[7] = new SqlParameter("@isSiblings", SqlDbType.Char);
+                parm[7].Value = Mobj.isSiblings;
+                parm[8] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[8].Direction = ParameterDirection.Output;
+
+                SqlDataReader reader = null;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[8].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[8].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                throw EX;
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return intStatus;
+        }
+
+        public int createReminderDal(CreateReminderMI Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[12];
+            int intStatus = 0;
+
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@ProfileId", SqlDbType.VarChar, 5000);
+                parm[0].Value = Mobj.ProfileID;
+                parm[1] = new SqlParameter("@ReminderID", SqlDbType.BigInt);
+                parm[1].Value = Mobj.ReminderID;
+                parm[2] = new SqlParameter("@EmpID", SqlDbType.BigInt);
+                parm[2].Value = Mobj.EmpID;
+                parm[3] = new SqlParameter("@TicketID", SqlDbType.VarChar, 5000);
+                parm[3].Value = Mobj.TicketID;
+                parm[4] = new SqlParameter("@DateOfReminder", SqlDbType.VarChar, 5000);
+                parm[4].Value = Mobj.DateOfReminder;
+                parm[5] = new SqlParameter("@ReminderType", SqlDbType.BigInt);
+                parm[5].Value = Mobj.ReminderType1;
+                parm[6] = new SqlParameter("@Body", SqlDbType.VarChar, 5000);
+                parm[6].Value = Mobj.Body;
+                parm[7] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[7].Direction = ParameterDirection.Output;
+                parm[8] = new SqlParameter("@RelationID", SqlDbType.BigInt);
+                parm[8].Value = Mobj.RelationID;
+                parm[9] = new SqlParameter("@Name", SqlDbType.VarChar, 5000);
+                parm[9].Value = Mobj.Name;
+                parm[10] = new SqlParameter("@Category", SqlDbType.Int);
+                parm[10].Value = Mobj.Category;
+                parm[11] = new SqlParameter("@IsFollowup", SqlDbType.Int);
+                parm[11].Value = Mobj.IsFollowup;
+
+                SqlDataReader reader = null;
+                //reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+
+                if (string.Compare(System.DBNull.Value.ToString(), parm[7].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[7].Value);
+                }
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return intStatus;
+        }
+
+        public int marketingSendSmsdal(EmployeeMarketslidesendmail Mobj, string spName)
+        {
+            SqlParameter[] parm = new SqlParameter[6];
+
+            int intStatus = 0;
+
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                parm[0] = new SqlParameter("@Emp_Ticket_ID", SqlDbType.BigInt);
+                parm[0].Value = Mobj.Emp_TicketingCallHistoryID;
+                parm[1] = new SqlParameter("@Body", SqlDbType.VarChar);
+                parm[1].Value = Mobj.strbody;
+                parm[2] = new SqlParameter("@CreatedByEmpID", SqlDbType.BigInt);
+                parm[2].Value = Mobj.Empid;
+                parm[3] = new SqlParameter("@intStartIndex", SqlDbType.Int);
+                parm[3].Value = Mobj.startIndex;
+                parm[4] = new SqlParameter("@intEndIndex", SqlDbType.Int);
+                parm[4].Value = Mobj.endIndex;
+                parm[5] = new SqlParameter("@status", SqlDbType.Int);
+                parm[5].Direction = ParameterDirection.Output;
+
+                SqlDataReader drResult = null;
+                drResult = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[5].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[5].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return intStatus;
+        }
     }
 }

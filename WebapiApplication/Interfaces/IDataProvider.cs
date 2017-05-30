@@ -176,6 +176,8 @@ namespace WebapiApplication.Interfaces
 
 
         int getChangeApplicationStaus(long? ProfileID);
+
+        ArrayList getCustomerHomePageDesignData(string flag, int? casteID, long? CustID);
     }
     public interface IDependency
     {
@@ -236,6 +238,12 @@ namespace WebapiApplication.Interfaces
         List<RegprofilevalidationPlaybutton> RegistrationValidation_Playbutton(string Profileid);
         int EmployeeCommunicationLogSendMarketingMail(CreateEmployeeMl Mobj);
 
+        int FeeUpdate(FeeUpdateML Mobj);
+        int createReminder(CreateReminderMI Mobj);
+
+        int marketingSendSms(EmployeeMarketslidesendmail SendSms);
+
+        int marketingMailSend(MatchFollowupMailSend SendMail);
     }
 
 }

@@ -104,6 +104,7 @@ namespace WebapiApplication.DAL
 
                     while (reader.Read())
                     {
+                        li.Clear();
                         Smtpemailsending smtp = new Smtpemailsending();
                         {
                             smtp.profile_name = (reader["profile_name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("profile_name")) : string.Empty;
@@ -113,7 +114,6 @@ namespace WebapiApplication.DAL
                             smtp.body_format = (reader["body_format"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body_format")) : string.Empty;
                             smtp.Status = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : status;
                         }
-
                         li.Add(smtp);
                         Commonclass.SendMailSmtpMethod(li, "exp");
                     }

@@ -795,14 +795,16 @@ namespace WebapiApplication.ML
         public int? addresstype { get; set; }
         public int? Status { get; set; }
         public string spouseflag { get; set; }
-
         public int? intCusID { get; set; }
-
         public int? Admin { get; set; }
-
         public int? familyID { get; set; }
-
         public string SibblingFlag { get; set; }
+        public int? iflagFF { get; set; }
+        public long? FFLandNumber { get; set; }
+        public long? FFLandAreaCode { get; set; }
+        public int? FFLandLineCountryCodeID { get; set; }
+        public long? FFMobileNumber { get; set; }
+        public int? FFMobileCountryID { get; set; }
     }
 
     public class NoProfileGradingMl

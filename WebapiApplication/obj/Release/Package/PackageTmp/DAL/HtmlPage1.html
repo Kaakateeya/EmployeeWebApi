@@ -6,7 +6,7 @@
     <script>
 
         $(document).ready(function () {
-            
+
             var object = {
 
                 GetDetails
@@ -111,7 +111,7 @@
                      RVRAcceptlink: "",
                      RVRRejectlink: ""
                  }
-                  ]
+                 ]
 
             }
 
@@ -162,7 +162,12 @@
             }
 
             var Mobj = {
-               "strMFFNativePlace":"","strFatherName":"","strMotherName":"","strFFName":"","strMFName":"","strMFSurName":"","strCustSurName":"","strCustName":"","strCaste":"","strAllPhones":"","strAllEmailIds":"","intAppicationStatusID":55,"intGenderID":"","intEmpID":"2","i_Startindex":1,"i_EndIndex":10
+                "customerpersonaldetails":
+                    { "FromCustID": 20556, "EmpID": "2", "emailaddress": "kusumurugopalkrishna@gmail.com,kusumurugopalkrishna@gmail.com,kusumurugopalkrishna@gmail.com" },
+                "GetDetails": [
+                    { "FromProfileID": "010205568", "ToProfileID": "210069845", "EmpID": "2", "ModeofService": 350, "RelationShipID": 40, "Name": "P.CHANDRIKA ", "TypeOfService": 366, "ProfileType": 358, "Sendsms": 0, "IsRvrSend": 1, "SelectedImages": "img3.Jpg,img2.Jpg,img1.Jpg", "Acceptlink": "", "Rejectlink": "", "EmailAddress": "kusumurugopalkrishna@gmail.com,kusumurugopalkrishna@gmail.com,kusumurugopalkrishna@gmail.com", "RVRAcceptlink": "", "RVRRejectlink": "" },
+                    { "FromProfileID": "010205568", "ToProfileID": "210069818", "EmpID": "2", "ModeofService": 350, "RelationShipID": 40, "Name": "P.CHANDRIKA ", "TypeOfService": 366, "ProfileType": 358, "Sendsms": 0, "IsRvrSend": 1, "SelectedImages": "img3.Jpg,img2.Jpg,img1.Jpg", "Acceptlink": "", "Rejectlink": "", "EmailAddress": "kusumurugopalkrishna@gmail.com,kusumurugopalkrishna@gmail.com,kusumurugopalkrishna@gmail.com", "RVRAcceptlink": "", "RVRRejectlink": "" }
+                ]
             };
 
             $("#Display").click(function () {
@@ -170,7 +175,7 @@
                 alert(Mobj);
 
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/RegistrationValidation',
+                    url: 'http://localhost:63006/Api/ExpressInterest/ExpressInterest',
                     type: 'POST',
                     crossDomain: true,
                     data: JSON.stringify(Mobj),
@@ -209,10 +214,10 @@
             $("#8070").click(function () {
                 alert(2);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/getCustShortlist_ProfileBookMarked',
+                    url: 'http://localhost:63006/Api/StaticPages/getCustomerHomePageDesignData',
                     type: 'GET',
                     crossDomain: true,
-                    data: { CustID: 91022 },
+                    data: { flag:null, casteID:null, CustID:null },
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));
@@ -286,12 +291,14 @@
                     url: 'http://localhost:63006/Api/CustomerPersonalUpdate/getEmplanding_counts_Admin',
                     type: 'GET',
                     crossDomain: true,
-                    data: { Branchname:319,
-                        EndIndex:5,
-                OwnerName:2,
-                StartIndex:1,
-                intLoadStatus:0,
-                strTableType:"" },
+                    data: {
+                        Branchname: 319,
+                        EndIndex: 5,
+                        OwnerName: 8,
+                        StartIndex: 1,
+                        intLoadStatus: 0,
+                        strTableType: ""
+                    },
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));

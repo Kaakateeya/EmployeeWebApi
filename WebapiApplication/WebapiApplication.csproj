@@ -236,6 +236,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\CommonAbstract.cs" />
     <Compile Include="Api\BindJson .cs" />
     <Compile Include="Api\CustomerPersonalController.cs" />
     <Compile Include="Api\CustomerPersonalUpdateController.cs" />
@@ -303,6 +304,7 @@
     <Compile Include="UserDefinedTable\PersonaldetailsUDTable.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Code\App_LocalResources\" />
     <Folder Include="App_Data\" />
     <Folder Include="Common\" />
   </ItemGroup>

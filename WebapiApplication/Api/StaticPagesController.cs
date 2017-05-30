@@ -19,8 +19,6 @@ namespace WebapiApplication.Api
     {
 
         private readonly IStaticPages ISuccessStories; public StaticPagesController() : base() { this.ISuccessStories = new ImpStaticPages(); }
-
-
         public HelpMail InsertTicketInfo([FromBody]TicketCreationMl Mobj) { return this.ISuccessStories.ImpInsertTicketInfo(Mobj); }
         public ViewfullProfileML getViewFullProfileMail(string OriginalString) { return this.ISuccessStories.ViewFullProfileMail(OriginalString); }
         public List<Sucessstories> SuccessStoriesdetails([FromBody]SuccessStoryML SML) { return this.ISuccessStories.getSucessstoriesdetails(SML); }
@@ -72,6 +70,9 @@ namespace WebapiApplication.Api
         public string getipAddressReturn() { return this.ISuccessStories.ipAddressReturn(); }
         public int getUpdateEmailBounce(Int64? CustID, int? EmailBounceEntryId, string BounceMailid) { return this.ISuccessStories.Update_EmailBounce(CustID, EmailBounceEntryId, BounceMailid); }
         public int getChangeApplicationStaus(long? ProfileID) { return this.ISuccessStories.getChangeApplicationStaus(ProfileID); }
+        public ArrayList getCustomerHomePageDesignData(string flag, int? casteID, long? CustID) { return this.ISuccessStories.getCustomerHomePageDesignData(flag, casteID, CustID); }
+
+
     }
 }
 

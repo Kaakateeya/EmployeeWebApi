@@ -80,9 +80,9 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.EmployeeCommunicationLogRvrAndResend(Mobj);
 
         }
-        
+
         public int getEmployeeCommunicationLogSentphotosemail(string Email, string CustID) { return this.IEmployeeReport.EmployeeCommunicationLogSentphotosemail(Email, CustID); }
-      
+
         public int EmployeeCommunicationLogSendMarketingMail([FromBody]CreateEmployeeMl Mobj)
         {
             Mobj.AcceptLink = Commonclass.ReturnEncryptLink("Accept", (!string.IsNullOrEmpty(Mobj.FromProfileID) ? Mobj.FromProfileID : null), (!string.IsNullOrEmpty(Mobj.ToProfileID) ? Mobj.ToProfileID : null));
@@ -90,11 +90,32 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.EmployeeCommunicationLogSendMarketingMail(Mobj);
         }
 
-
         // RegistrationValidation
 
         public List<GetRegprofilevalidation> RegistrationValidation([FromBody]Regprofilevalidation RegValidation) { return this.IEmployeeReport.RegistrationValidation(RegValidation); }
         public List<RegprofilevalidationPlaybutton> getRegistrationValidation_Playbutton(string Profileid) { return this.IEmployeeReport.RegistrationValidation_Playbutton(Profileid); }
+
+        public int FeeUpdate(FeeUpdateML mobj) { return this.IEmployeeReport.FeeUpdate(mobj); }
+        public int createReminderInsert(CreateReminderMI mobj) { return this.IEmployeeReport.createReminder(mobj); }
+
+        public int marketingSendSms([FromBody]EmployeeMarketslidesendmail SendSms)
+        {
+            int? inull = null;
+            if (SendSms.i_TicketID != inull && SendSms.i_TicketID != 0)
+            {
+                Commonclass.SendSms_new(SendSms);
+                return this.IEmployeeReport.marketingSendSms(SendSms);
+            }
+            else { return 1; }
+        }
+
+        public int marketingMailSend([FromBody] MatchFollowupMailSend SendMail)
+        {
+            SendMail.AcceptLink = Commonclass.ReturnEncryptLink("Accept", (!string.IsNullOrEmpty(SendMail.FromProfileID) ? SendMail.FromProfileID : null), (!string.IsNullOrEmpty(SendMail.ToProfileID) ? SendMail.ToProfileID : null));
+            SendMail.RejectLink = Commonclass.ReturnEncryptLink("Reject", !string.IsNullOrEmpty(SendMail.FromProfileID) ? SendMail.FromProfileID : null, !string.IsNullOrEmpty(SendMail.ToProfileID) ? SendMail.ToProfileID : null);
+            return this.IEmployeeReport.marketingMailSend(SendMail);
+        }
+
 
     }
 }

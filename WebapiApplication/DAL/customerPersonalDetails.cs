@@ -1389,7 +1389,7 @@ namespace WebapiApplication.DAL
             try
             {
                 DataSet ds = new DataSet();
-                SqlParameter[] parm = new SqlParameter[25];
+                SqlParameter[] parm = new SqlParameter[31];
                 parm[0] = new SqlParameter("@CustID", SqlDbType.Int);
                 parm[0].Value = mobCandidateContact.intCusID;
                 parm[1] = new SqlParameter("@EmpID", SqlDbType.Int);
@@ -1440,6 +1440,20 @@ namespace WebapiApplication.DAL
                 parm[23].Direction = ParameterDirection.Output;
                 parm[24] = new SqlParameter("@spouseflag", SqlDbType.VarChar);
                 parm[24].Value = mobCandidateContact.SibblingFlag;
+
+                parm[25] = new SqlParameter("@FatherMobileCountryID", SqlDbType.Int);
+                parm[25].Value = mobCandidateContact.FFMobileCountryID;
+                parm[26] = new SqlParameter("@FatherMobileNumber", SqlDbType.BigInt);
+                parm[26].Value = mobCandidateContact.FFMobileNumber;
+                parm[27] = new SqlParameter("@FarherLandLineCountryCodeID", SqlDbType.Int);
+                parm[27].Value = mobCandidateContact.FFLandLineCountryCodeID;
+                parm[28] = new SqlParameter("@FatherLandAreaCode", SqlDbType.BigInt);
+                parm[28].Value = mobCandidateContact.FFLandAreaCode;
+                parm[29] = new SqlParameter("@FatherLandNumber", SqlDbType.BigInt);
+                parm[29].Value = mobCandidateContact.FFLandNumber;
+                parm[30] = new SqlParameter("@iflagFF", SqlDbType.Int);
+                parm[30].Value = mobCandidateContact.iflagFF;
+
                 ds = SQLHelper.ExecuteDataset(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, strSpname, parm);
 
                 if (string.Compare(parm[23].Value.ToString(), System.DBNull.Value.ToString()) == 0)

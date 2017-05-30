@@ -2427,6 +2427,40 @@ namespace WebapiApplication.DAL
             return status;
 
         }
+
+        public ArrayList CustomerHomePageDesignDataDal(string flag, int? casteID, long? CustID,string Spname)
+        {
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataSet dataset = new DataSet();
+
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand(Spname, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                cmd.Parameters.AddWithValue("@v_dflag", flag);
+                cmd.Parameters.AddWithValue("@CasteID", casteID);
+                cmd.Parameters.AddWithValue("@CustID", CustID);
+                da.SelectCommand = cmd;
+                da.Fill(dataset);
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(Spname, Convert.ToString(EX.Message), CustID, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Commonclass.convertdataTableToArrayListTable(dataset);
+        }
     }
 }
 

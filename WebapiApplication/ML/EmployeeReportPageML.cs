@@ -252,6 +252,34 @@ namespace WebapiApplication.ML
         public string UserName { get; set; }
         public string HoroscopeImage { get; set; }
     }
+
+    public class FeeUpdateML
+    {
+        public long? EmpTicketID { set; get; }
+        public long? EmpID { set; get; }
+        public string Message { set; get; }
+        public long? AssignedEmpID { set; get; }
+        public string feevalue { set; get; }
+        public int? CustID { set; get; }
+        public string SettlementValue { set; get; }
+        public char isSiblings { set; get; }
+    }
+
+    public class CreateReminderMI
+    {
+        public string ProfileID { get; set; }
+        public Int64? ReminderID { get; set; }
+        public Int64? EmpID { get; set; }
+        public string TicketID { get; set; }
+        public string DateOfReminder { get; set; }
+        public Int64? ReminderType1 { get; set; }
+        public string Body { get; set; }
+        public Int64? RelationID { get; set; }
+        public string Name { get; set; }
+        public int Category { get; set; }
+        public int IsFollowup { get; set; }
+
+    }
 }
 
 
