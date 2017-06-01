@@ -177,7 +177,7 @@ namespace WebapiApplication.Interfaces
 
         int getChangeApplicationStaus(long? ProfileID);
 
-        ArrayList CustomerHomePageDesignData(string flag, int? casteID, long? CustID, int? intStartIndex, int? intEndIndex, int? GenderID);
+        ArrayList CustomerHomePageDesignData(string flag, int? casteID, long? CustID, int? intStartIndex, int? intEndIndex, int? GenderID, int? isActive);
     }
     public interface IDependency
     {
