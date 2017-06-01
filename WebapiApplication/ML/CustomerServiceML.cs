@@ -336,7 +336,9 @@ namespace WebapiApplication.ML
         public string TicketTypeID { get; set; }
         public Int64? ReminderRelationID { get; set; }
         public string ReminderRelationName { get; set; }
+        public string SAPath { get; set; }
 
+        public int? primaryCountryID { get; set; }
     }
 
     public class EmployeeMarketingslideHistory
@@ -424,8 +426,6 @@ namespace WebapiApplication.ML
         public string marketbothflag { get; set; }
         public int? i_TicketID { get; set; }
         public Int64? Empid { get; set; }
-        public int? startIndex { get; set; }
-        public int? endIndex { get; set; }
 
     }
 

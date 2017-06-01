@@ -51,15 +51,15 @@ namespace WebapiApplication.Implement
 
         public List<GetRegprofilevalidation> RegistrationValidation([FromBody]Regprofilevalidation RegValidation) { return new EmployeeReportPageDAL().RegistrationValidation(RegValidation, "[dbo].[Usp_Search_RegistrationBefore]"); }
         public List<RegprofilevalidationPlaybutton> RegistrationValidation_Playbutton(string Profileid) { return new EmployeeReportPageDAL().RegistrationValidation_Playbutton(Profileid, "[dbo].[Usp_GetFullInfoofCustomer]"); }
-        public int FeeUpdate(FeeUpdateML mobj) { return new EmployeeReportPageDAL().FeeUpdateDalWithInternalMemoUpdate(mobj,"USP_InsertInternalMemo_Marketingslide"); }
+        public int FeeUpdate(FeeUpdateML mobj) { return new EmployeeReportPageDAL().FeeUpdateDalWithInternalMemoUpdate(mobj, "USP_InsertInternalMemo_Marketingslide"); }
 
-        public int createReminder(CreateReminderMI mobj) { return new EmployeeReportPageDAL().createReminderDal(mobj,"[dbo].[usp_insertCreateReminder_Marketslide]"); }
+        public int createReminder(CreateReminderMI mobj) { return new EmployeeReportPageDAL().createReminderDal(mobj, "[dbo].[usp_insertCreateReminder_Marketslide]"); }
 
         public int marketingSendSms(EmployeeMarketslidesendmail Mobj) { return new EmployeeReportPageDAL().marketingSendSmsdal(Mobj, "[dbo].[usp_Marketing_sendSms]"); }
 
         public int marketingMailSend(MatchFollowupMailSend Mobj) { return new EmployeeReportPageDAL().MatchFollowupMailSend(Mobj, "[dbo].[sp_Email_TicketHistoryInfo_slide]"); }
     }
 
-    
+
 
 }

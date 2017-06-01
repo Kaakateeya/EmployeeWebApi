@@ -887,7 +887,9 @@ namespace WebapiApplication.DAL
                             TicketTypeID = drReader["TicketTypeID"] != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("TicketTypeID")).ToString() : string.Empty,
                             ReminderRelationName = drReader["ReminderRelationName"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("ReminderRelationName")) : string.Empty,
                             Reminderbody = drReader["ReminderBody"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("ReminderBody")) : string.Empty,
-                            ReminderRelationID = drReader["ReminderRelationID"] != DBNull.Value ? drReader.GetInt64(drReader.GetOrdinal("ReminderRelationID")) : longnull
+                            ReminderRelationID = drReader["ReminderRelationID"] != DBNull.Value ? drReader.GetInt64(drReader.GetOrdinal("ReminderRelationID")) : longnull,
+                            SAPath = drReader["SAFORM"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("SAFORM")) : string.Empty,
+                            primaryCountryID = drReader["PrimaryContactNumberCountyID"] != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("PrimaryContactNumberCountyID")) : intnull
 
                         });
 
@@ -1966,7 +1968,7 @@ namespace WebapiApplication.DAL
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
-            
+
             try
             {
                 parm[0] = new SqlParameter("@email", SqlDbType.VarChar);
@@ -2021,7 +2023,7 @@ namespace WebapiApplication.DAL
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
-            
+
             SqlParameter[] parm = new SqlParameter[11];
             try
             {
@@ -2047,7 +2049,7 @@ namespace WebapiApplication.DAL
                 parm[9].Value = Mobj.TicketStatusID;
                 parm[10] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[10].Direction = ParameterDirection.Output;
-               
+
                 List<Smtpemailsending> li = new List<Smtpemailsending>();
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (reader.HasRows)
@@ -2225,7 +2227,7 @@ namespace WebapiApplication.DAL
                             sh.ProfileGrade = (reader["ProfileGrade"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ProfileGrade")) : inull;
                             sh.mothertongue = (reader["mothertongue"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("mothertongue")) : empty;
                             sh.CustomerApplicationPhoto = (reader["CustomerFullPhoto"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CustomerFullPhoto")) : empty;
-                            
+
 
                         }
 
@@ -2320,7 +2322,7 @@ namespace WebapiApplication.DAL
         }
 
 
-        internal int FeeUpdateDalWithInternalMemoUpdate(FeeUpdateML Mobj,string spname)
+        internal int FeeUpdateDalWithInternalMemoUpdate(FeeUpdateML Mobj, string spname)
         {
             SqlParameter[] parm = new SqlParameter[9];
             int intStatus = 0;
@@ -2435,7 +2437,7 @@ namespace WebapiApplication.DAL
 
         public int marketingSendSmsdal(EmployeeMarketslidesendmail Mobj, string spName)
         {
-            SqlParameter[] parm = new SqlParameter[6];
+            SqlParameter[] parm = new SqlParameter[5];
 
             int intStatus = 0;
 
@@ -2451,22 +2453,18 @@ namespace WebapiApplication.DAL
                 parm[1].Value = Mobj.strbody;
                 parm[2] = new SqlParameter("@CreatedByEmpID", SqlDbType.BigInt);
                 parm[2].Value = Mobj.Empid;
-                parm[3] = new SqlParameter("@intStartIndex", SqlDbType.Int);
-                parm[3].Value = Mobj.startIndex;
-                parm[4] = new SqlParameter("@intEndIndex", SqlDbType.Int);
-                parm[4].Value = Mobj.endIndex;
-                parm[5] = new SqlParameter("@status", SqlDbType.Int);
-                parm[5].Direction = ParameterDirection.Output;
+                parm[3] = new SqlParameter("@status", SqlDbType.Int);
+                parm[3].Direction = ParameterDirection.Output;
 
                 SqlDataReader drResult = null;
                 drResult = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[5].Value.ToString()).Equals(0))
+                if (string.Compare(System.DBNull.Value.ToString(), parm[3].Value.ToString()).Equals(0))
                 {
                     intStatus = 0;
                 }
                 else
                 {
-                    intStatus = Convert.ToInt32(parm[5].Value);
+                    intStatus = Convert.ToInt32(parm[3].Value);
                 }
             }
             catch (Exception EX)
@@ -2481,5 +2479,7 @@ namespace WebapiApplication.DAL
             }
             return intStatus;
         }
+
+       
     }
 }
