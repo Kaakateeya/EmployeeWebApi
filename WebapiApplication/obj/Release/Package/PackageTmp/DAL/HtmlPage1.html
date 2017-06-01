@@ -217,7 +217,7 @@
                     url: 'http://localhost:63006/Api/StaticPages/getCustomerHomePageDesignData',
                     type: 'GET',
                     crossDomain: true,
-                    data: { flag:null, casteID:null, CustID:null },
+                    data: { flag:null, casteID:402, CustID:null ,intStartIndex:1,intEndIndex:4,GenderID:2},
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));

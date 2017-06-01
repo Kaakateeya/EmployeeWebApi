@@ -336,7 +336,9 @@ namespace WebapiApplication.ML
         public string TicketTypeID { get; set; }
         public Int64? ReminderRelationID { get; set; }
         public string ReminderRelationName { get; set; }
+        public string SAPath { get; set; }
 
+        public int? primaryCountryID { get; set; }
     }
 
     public class EmployeeMarketingslideHistory
