@@ -64,9 +64,9 @@ namespace WebapiApplication.Implement
         public string ipAddressReturn() { return new StaticPagesDAL().ipAddressReturn(); }
         public int Update_EmailBounce(long? CustID, int? EmailBounceEntryId, string BounceMailid) { return new StaticPagesDAL().Update_EmailBounce(CustID, EmailBounceEntryId, BounceMailid, "[dbo].[usp_Update_EmailBounce]"); }
         public int getChangeApplicationStaus(long? ProfileID) { return new StaticPagesDAL().ChangeApplicationStatus(ProfileID, "usp_ChangeApplicationStatus"); }
-      
-        
-        public ArrayList CustomerHomePageDesignData(string flag, int? casteID, long? CustID, int? intStartIndex, int? intEndIndex, int? GenderID) { return new StaticPagesDAL().CustomerHomePageDesignDataDal( flag,  casteID,  CustID,  intStartIndex,  intEndIndex,  GenderID, "[dbo].[CustomerDesign_SEO]"); }
+
+
+        public ArrayList CustomerHomePageDesignData(string flag, int? casteID, long? CustID, int? intStartIndex, int? intEndIndex, int? GenderID, int? isActive) { return new StaticPagesDAL().CustomerHomePageDesignDataDal(flag, casteID, CustID, intStartIndex, intEndIndex, GenderID,isActive, "[dbo].[CustomerDesign_SEO]"); }
    
     
     }
