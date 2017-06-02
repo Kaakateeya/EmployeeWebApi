@@ -214,10 +214,15 @@
             $("#8070").click(function () {
                 alert(2);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/StaticPages/getCustomerHomePageDesignData',
+                    url: 'http://localhost:63006/Api/StaticPages/getResendmobile',
                     type: 'GET',
                     crossDomain: true,
-                    data: { flag:null, casteID:402, CustID:null ,intStartIndex:1,intEndIndex:4,GenderID:2},
+                    data: {
+                        CustContactNumbersID: 566350,
+                        MobileNumber: 8985201371,
+                        iCCode: 91,
+                        iCountryID: 1
+                    },
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));
