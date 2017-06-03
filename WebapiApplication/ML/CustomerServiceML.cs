@@ -243,7 +243,7 @@ namespace WebapiApplication.ML
 
     public class EmployeeMarketingTicketResponse
     {
-        
+
         public List<EmployeeMarketingslideticket> Marketingslideticket { get; set; }
         public List<EmployeeMarketingslideHistory> MarketingslideHistory { get; set; }
 
@@ -650,7 +650,7 @@ namespace WebapiApplication.ML
         public int? RelationID { get; set; }
 
     }
-  
+
     public class IncomingOutgoing
     {
         public int? CallType { get; set; }
@@ -681,6 +681,234 @@ namespace WebapiApplication.ML
         public int? ReferenceID { get; set; }
         public string Profileidnew { get; set; }
     }
-   
+    public class BothsideInterestObjs
+    {
+
+        public List<BothsideInterestserveice> BothsideInterest { get; set; }
+
+
+    }
+    public class BothsideInterestserveice
+    {
+        public Int64? RowID { get; set; }
+
+        public Int64? fromcust_id { get; set; }
+        public Int64? tocustid { get; set; }
+        public int PhotoCount { get; set; }
+        public int PhotoCountnew { get; set; }
+        public string FromProfileid { get; set; }
+        public string Toprofileid { get; set; }
+        public string FromName { get; set; }
+        public string ToName { get; set; }
+        public string fromticketid { get; set; }
+        public string Toticketid { get; set; }
+        public int? fromMatchFollowUpStatus { get; set; }
+        public int? toMatchFollowUpStatus { get; set; }
+        public string fromempname { get; set; }
+        public string toempname { get; set; }
+        public string Viewedcustid { get; set; }
+        public string Fromtickethistory { get; set; }
+        public string totickethistory { get; set; }
+        public int TotalRows { get; set; }
+        public int TotalPages { get; set; }
+        public int CurrentPage { get; set; }
+
+        public string Photo { get; set; }
+        public string Photonew { get; set; }
+
+        public string fromemp { get; set; }
+        public string toemp { get; set; }
+
+        public Int64? ToTicket { get; set; }
+        public string ToTicketStatus { get; set; }
+        public string ToTicketOpenedOn { get; set; }
+        public string ToTicketCategory { get; set; }
+        public string ToTicketAssignedEmpID { get; set; }
+        public string ToTicketPendingWith { get; set; }
+        public string ToTicketSubject { get; set; }
+        public int? ToticketStatusID { get; set; }
+        public string ToTicketCreated { get; set; }
+        public Int64? FromTicket { get; set; }
+        public string FromTicketStatus { get; set; }
+        public string FromTicketOpenedOn { get; set; }
+        public string FromTicketCategory { get; set; }
+        public string FromTicketAssignedEmpID { get; set; }
+        public string FromTicketPendingWith { get; set; }
+        public string FromTicketSubject { get; set; }
+        public int? FromticketStatusID { get; set; }
+        public string FromTicketCreated { get; set; }
+        public string FromTicketHisoryType { get; set; }
+        public string FromTicketHisoryDatenew { get; set; }
+        public string FromTicketHisoryNAME { get; set; }
+        public string FromTicketHisoryReplyDesc { get; set; }
+        public string FromTicketHisoryCallStatus { get; set; }
+        public string FromTicketHisoryCallReceivedBy { get; set; }
+        public string FromTicketHisoryCallDiscussion { get; set; }
+        public string FromTicketHisoryCreatedBy { get; set; }
+        public string ToTicketHisoryType { get; set; }
+        public string ToTicketHisoryDatenew { get; set; }
+        public string ToTicketHisoryNAME { get; set; }
+        public string ToTicketHisoryReplyDesc { get; set; }
+        public string ToTicketHisoryCallStatus { get; set; }
+        public string ToTicketHisoryCallReceivedBy { get; set; }
+        public string ToTicketHisoryCallDiscussion { get; set; }
+        public string ToTicketHisoryCreatedBy { get; set; }
+        public string ServiceDate { get; set; }
+
+
+
+        public string FromTicketHisoryRelationShip { get; set; }
+
+        public string ToTicketHisoryRelationShip { get; set; }
+
+        public string FromTicketNoofdays { get; set; }
+
+        public string ToTicketNoofdays { get; set; }
+
+        public string FromTicketMatchmeetingStatus { get; set; }
+
+        public string ToTicketMatchmeetingStatus { get; set; }
+
+        public string FromTicketMatchMeetingReason { get; set; }
+
+        public string ToTicketMatchMeetingReason { get; set; }
+        public string BranchCode { get; set; }
+        public string fromcustidNumber { get; set; }
+        public string tocustidNumber { get; set; }
+        public string fromcustidEmail { get; set; }
+        public string tocustidEmail { get; set; }
+        public string FromonlinePayment { get; set; }
+        public string FromofflinePayment { get; set; }
+        public string ToonlinePayment { get; set; }
+        public string ToofflinePayment { get; set; }
+
+        public int? FromExpressCount { get; set; }
+
+        public int? ToExpressCount { get; set; }
+
+        public string FromBranchCode { get; set; }
+
+        public string ToBranchCode { get; set; }
+
+        public string FromMobileNumber { get; set; }
+
+        public string FromMobileCountryCode { get; set; }
+
+        public string ToMobileCountryCode { get; set; }
+
+        public string FromEmail { get; set; }
+
+        public string ToMobileNumber { get; set; }
+
+        public string TOEmail { get; set; }
+
+        public string ToSaPath { get; set; }
+
+        public string FromSaPath { get; set; }
+
+        public string FromticketStatusIDb { get; set; }
+        public string ToticketStatusIDb { get; set; }
+
+        public string FromTicketInfo { get; set; }
+        public string ToTicketInfo { get; set; }
+
+
+        public int? FRomSerivceCount { get; set; }
+
+        public int? ToSerivceCount { get; set; }
+
+        public int? ExpressInterestID { get; set; }
+
+        public string FromApplicationPhoto { get; set; }
+
+        public string ToApplicationPhoto { get; set; }
+
+        public int? FROMNEW { get; set; }
+
+        public int? TONEW { get; set; }
+
+        public string DOB { get; set; }
+
+        public string ToB { get; set; }
+
+        public string CustPhoto { get; set; }
+
+        public string mothercaste { get; set; }
+
+        public string fathercaste { get; set; }
+
+        public Boolean? Intercaste { get; set; }
+
+        public double? Property { get; set; }
+
+        public string FFNative { get; set; }
+
+        public string Income { get; set; }
+
+        public string PlaceOfBirth { get; set; }
+
+        public string Caste { get; set; }
+
+        public string MFNative { get; set; }
+
+        public string JobLocation { get; set; }
+
+        public string Gothram { get; set; }
+        public string maritalstatus { get; set; }
+        public string Color { get; set; }
+        public string Star { get; set; }
+        public string Height { get; set; }
+        public string EducationGroup { get; set; }
+        public string EduGroupnamenew { get; set; }
+        public string Profession { get; set; }
+
+        public string paid { get; set; }
+
+        public Boolean? IsConfidential { get; set; }
+
+        public int? HoroscopeStatus { get; set; }
+
+        public int? SuperConfidentila { get; set; }
+
+        public string KMPLID { get; set; }
+
+        public string ApplicationPhoto { get; set; }
+
+        public Int64? Logid { get; set; }
+
+        public int? genderid { get; set; }
+
+        public string FromCust_InterestStatus { get; set; }
+
+        public string ToCust_InterestStatus { get; set; }
+
+        public int? ISRvrSend { get; set; }
+
+        public string PaidStatus { get; set; }
+
+        public string FromofflineDetails { get; set; }
+        public string FromonlineDetails { get; set; }
+        public string TofflineDetails { get; set; }
+        public string ToonlineDetails { get; set; }
+
+
+        public string FromOfflineExpiryDate { get; set; }
+
+        public string FromOnlineMembershipExpiryDate { get; set; }
+
+        public string ToOfflineExpiryDate { get; set; }
+
+        public string ToonlineExpiryDate { get; set; }
+    }
+
+    public class Servicesslideslideshowbasedonprofile
+    {
+        public string v_profileid { get; set; }
+        public int i_empid { get; set; }
+        public string c_intersttype { get; set; }
+        public string c_oppintersttype { get; set; }
+        public int pagefrom { get; set; }
+        public int pageto { get; set; }
+    }
 }
 
