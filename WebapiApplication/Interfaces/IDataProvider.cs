@@ -177,10 +177,13 @@ namespace WebapiApplication.Interfaces
 
         int getChangeApplicationStaus(long? ProfileID);
 
+
         ArrayList CustomerHomePageDesignData(string flag, int? casteID, long? CustID, int? intStartIndex, int? intEndIndex, int? GenderID, int? isActive);
+
 
         Tuple<string, int> ViewSettlementform(string Profileid);
         int CheckprofileIDSelect(string Profileid);
+
     }
     public interface IDependency
     {
@@ -248,6 +251,11 @@ namespace WebapiApplication.Interfaces
 
         int marketingMailSend(MatchFollowupMailSend SendMail);
 
+
+
+        int uploadSettlementForm(uploadFormMl mobj);
+
+        Tuple<int?, int?> checkSettlementProfileID(string profileID);
 
     }
 

@@ -666,6 +666,21 @@ namespace WebapiApplication.ML
         public long? EmpID { get; set; }
     }
 
+
+    public class uploadFormMl
+    {
+        public Int64? CreatedByEmpID { get; set; }
+        public string CreatedDate { get; set; }
+        public Int64? ModifiedByEmpID { get; set; }
+        public string ModifiedEmpDate { get; set; }
+        public int SettlementAgreedAmount { get; set; }
+        public string Notes { get; set; }
+        public int? isActive { get; set; }
+        public string Settlementfrompath { get; set; }
+        public int? isassigned { get; set; }
+        public int? ReferenceID { get; set; }
+        public string Profileidnew { get; set; }
+    }
    
 }
 
