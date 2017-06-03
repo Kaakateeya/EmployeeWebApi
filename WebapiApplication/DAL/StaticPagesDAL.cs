@@ -2467,6 +2467,34 @@ namespace WebapiApplication.DAL
             }
             return Commonclass.convertdataTableToArrayListTable(dataset);
         }
+
+        public ArrayList ViewSettlementform(string Profileid, string Spname)
+        {
+            DataSet dset = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[3];
+                parm[0] = new SqlParameter("@Profileid", SqlDbType.VarChar, 5000);
+                parm[0].Value = Profileid;
+                parm[1] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[1].Direction = ParameterDirection.Output;
+                dset = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Spname, parm);
+            }
+            catch (Exception ex)
+            {
+                Commonclass.ApplicationErrorLog(Spname, Convert.ToString(ex.Message), Convert.ToInt32(Profileid), null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Commonclass.convertdataTableToArrayList(dset);
+        }
     }
 }
 

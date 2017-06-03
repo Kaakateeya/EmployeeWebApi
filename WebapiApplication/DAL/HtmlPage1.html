@@ -264,6 +264,25 @@
                     }
                 });
             });
+            $("#80000").click(function () {
+                alert(2);
+                $.ajax({
+                    url: 'http://localhost:63006/Api/StaticPages/getViewSettlementform',
+                    type: 'GET',
+                    crossDomain: true,
+                    data: {
+                        Profileid: 111111540
+                                        },
+                    contentType: 'application/json',
+                    success: function (data, textStatus, xhr) {
+                        alert(JSON.stringify(data));
+                        console.log(data);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log(xhr);
+                    }
+                });
+            });
 
             $("#ClassData1").click(function() {
                 alert(1);
@@ -404,6 +423,7 @@
     <input type="button" id="ClassData2" value="Local" />
     <input type="button" id="8070" value="8070" />
     <input type="button" id="Display12" value="Display12" />
+    <input type="button" id="80000" value="Display12" />
 
     <div id="result"></div>
     <div>

@@ -178,6 +178,8 @@ namespace WebapiApplication.Interfaces
         int getChangeApplicationStaus(long? ProfileID);
 
         ArrayList CustomerHomePageDesignData(string flag, int? casteID, long? CustID, int? intStartIndex, int? intEndIndex, int? GenderID, int? isActive);
+
+        ArrayList ViewSettlementform(string Profileid);
     }
     public interface IDependency
     {
