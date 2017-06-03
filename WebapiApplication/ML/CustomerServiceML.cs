@@ -339,6 +339,8 @@ namespace WebapiApplication.ML
         public string SAPath { get; set; }
 
         public int? primaryCountryID { get; set; }
+
+        public string FatherName { get; set; }
     }
 
     public class EmployeeMarketingslideHistory

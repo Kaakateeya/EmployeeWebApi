@@ -890,6 +890,7 @@ namespace WebapiApplication.DAL
                             ReminderRelationID = drReader["ReminderRelationID"] != DBNull.Value ? drReader.GetInt64(drReader.GetOrdinal("ReminderRelationID")) : longnull,
                             SAPath = drReader["SAFORM"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("SAFORM")) : string.Empty,
                             primaryCountryID = drReader["PrimaryContactNumberCountyID"] != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("PrimaryContactNumberCountyID")) : intnull
+                            FatherName = drReader["FatherName"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("FatherName")) : string.Empty,
 
                         });
 
