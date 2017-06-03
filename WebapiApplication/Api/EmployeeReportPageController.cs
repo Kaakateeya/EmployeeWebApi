@@ -101,7 +101,7 @@ namespace WebapiApplication.Api
         public int marketingSendSms([FromBody]EmployeeMarketslidesendmail SendSms)
         {
             int? inull = null;
-            if (SendSms.i_TicketID != inull && SendSms.i_TicketID != 0)
+            if (SendSms.Emp_TicketingCallHistoryID != inull && SendSms.Emp_TicketingCallHistoryID != 0)
             {
                 Commonclass.SendSms_new(SendSms);
                 return this.IEmployeeReport.marketingSendSms(SendSms);
