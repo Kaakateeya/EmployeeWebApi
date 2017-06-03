@@ -767,7 +767,7 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
-                
+
             }
             return iStatus;
         }
@@ -2428,7 +2428,7 @@ namespace WebapiApplication.DAL
 
         }
 
-        public ArrayList CustomerHomePageDesignDataDal(string flag, int? casteID, long? CustID, int? intStartIndex, int? intEndIndex, int? GenderID,int? isActive, string Spname)
+        public ArrayList CustomerHomePageDesignDataDal(string flag, int? casteID, long? CustID, int? intStartIndex, int? intEndIndex, int? GenderID, int? isActive, string Spname)
         {
             SqlDataAdapter da = new SqlDataAdapter();
             DataSet dataset = new DataSet();
@@ -2468,12 +2468,14 @@ namespace WebapiApplication.DAL
             return Commonclass.convertdataTableToArrayListTable(dataset);
         }
 
-        public ArrayList ViewSettlementform(string Profileid, string Spname)
+        public Tuple<string, int> ViewSettlementform(string Profileid, string Spname)
         {
             DataSet dset = new DataSet();
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
+            int intStatus = 0;
+            string imageUrl = "";
             try
             {
                 SqlParameter[] parm = new SqlParameter[3];
@@ -2481,7 +2483,26 @@ namespace WebapiApplication.DAL
                 parm[0].Value = Profileid;
                 parm[1] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[1].Direction = ParameterDirection.Output;
+                SqlDataReader reader = null;
+
                 dset = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Spname, parm);
+
+
+                if (dset.Tables.Count > 0 && dset.Tables[0].Rows.Count > 0)
+                {
+                    imageUrl = dset.Tables[0].Rows[0][0].ToString();
+                }
+
+                if (string.Compare(System.DBNull.Value.ToString(), Convert.ToString(parm[1].Value)) == 0)
+                {
+                    intStatus = 0;
+
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[1].Value);
+
+                }
             }
             catch (Exception ex)
             {
@@ -2493,7 +2514,45 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
             }
-            return Commonclass.convertdataTableToArrayListTable(dset);
+            return new Tuple<string, int>(imageUrl, intStatus);
+        }
+
+        public int CheckprofileIDSelect(string Profileid, string spname)
+        {
+            DataSet dset = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            int intStatus = 0;
+
+            try
+            {
+                SqlParameter[] Parm = new SqlParameter[3];
+                Parm[0] = new SqlParameter("@ProfileID", SqlDbType.VarChar, 5000);
+                Parm[0].Value = Profileid;
+                Parm[1] = new SqlParameter("@Status", SqlDbType.Int);
+                Parm[1].Direction = ParameterDirection.Output;
+                dset = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, Parm);
+                if (dset.Tables.Count > 0)
+                {
+                    intStatus = 1;
+                }
+                else
+                {
+                    intStatus = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(ex.Message), Convert.ToInt32(Profileid), null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return intStatus;
         }
     }
 }

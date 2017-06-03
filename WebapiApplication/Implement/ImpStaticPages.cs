@@ -67,8 +67,9 @@ namespace WebapiApplication.Implement
 
 
         public ArrayList CustomerHomePageDesignData(string flag, int? casteID, long? CustID, int? intStartIndex, int? intEndIndex, int? GenderID, int? isActive) { return new StaticPagesDAL().CustomerHomePageDesignDataDal(flag, casteID, CustID, intStartIndex, intEndIndex, GenderID,isActive, "[dbo].[CustomerDesign_SEO]"); }
-        public ArrayList ViewSettlementform(string Profileid) { return new StaticPagesDAL().ViewSettlementform(Profileid, "USP_Getimageurl_Viewsettlement"); }
+        public Tuple<string,int> ViewSettlementform(string Profileid) { return new StaticPagesDAL().ViewSettlementform(Profileid, "USP_Getimageurl_Viewsettlement"); }
 
+        public int CheckprofileIDSelect(string Profileid) { return new StaticPagesDAL().CheckprofileIDSelect(Profileid, "usp_SelectProfileID"); }
     
     }
 }
