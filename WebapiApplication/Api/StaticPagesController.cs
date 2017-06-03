@@ -72,6 +72,7 @@ namespace WebapiApplication.Api
         public int getChangeApplicationStaus(long? ProfileID) { return this.ISuccessStories.getChangeApplicationStaus(ProfileID); }
         public ArrayList getCustomerHomePageDesignData(string flag, int? casteID, long? CustID, int? intStartIndex, int? intEndIndex, int? GenderID, int? isActive) { return this.ISuccessStories.CustomerHomePageDesignData(flag, casteID, CustID, intStartIndex, intEndIndex, GenderID, isActive); }
 
+        public ArrayList getViewSettlementform(string Profileid) { return this.ISuccessStories.ViewSettlementform(Profileid); }
 
     }
 }
