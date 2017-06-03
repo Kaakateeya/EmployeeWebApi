@@ -179,7 +179,8 @@ namespace WebapiApplication.Interfaces
 
         ArrayList CustomerHomePageDesignData(string flag, int? casteID, long? CustID, int? intStartIndex, int? intEndIndex, int? GenderID, int? isActive);
 
-        ArrayList ViewSettlementform(string Profileid);
+        Tuple<string, int> ViewSettlementform(string Profileid);
+        int CheckprofileIDSelect(string Profileid);
     }
     public interface IDependency
     {
@@ -247,7 +248,7 @@ namespace WebapiApplication.Interfaces
 
         int marketingMailSend(MatchFollowupMailSend SendMail);
 
-       
+
     }
 
 }

@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\build_files\Viewsettlemnetform03_06_2017</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\build_files\Viewsettlemnetform_Apiss</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Api/BindJson .cs">
@@ -157,7 +157,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/20/2017 12:21:10</publishTime>
     </File>
     <File Include="bin/WebapiApplication.dll">
-      <publishTime>06/03/2017 12:03:08</publishTime>
+      <publishTime>06/03/2017 14:58:24</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>05/20/2017 12:21:10</publishTime>
@@ -166,7 +166,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="DAL/HtmlPage1.html">
-      <publishTime>06/03/2017 11:47:33</publishTime>
+      <publishTime>06/03/2017 14:27:53</publishTime>
     </File>
     <File Include="DAL/TestAngular.html">
       <publishTime>05/20/2017 12:21:09</publishTime>
