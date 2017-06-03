@@ -58,6 +58,16 @@ namespace WebapiApplication.Implement
         public int marketingSendSms(EmployeeMarketslidesendmail Mobj) { return new EmployeeReportPageDAL().marketingSendSmsdal(Mobj, "[dbo].[usp_Marketing_sendSms]"); }
 
         public int marketingMailSend(MatchFollowupMailSend Mobj) { return new EmployeeReportPageDAL().MatchFollowupMailSend(Mobj, "[dbo].[sp_Email_TicketHistoryInfo_slide]"); }
+
+        public int uploadSettlementForm(uploadFormMl Mobj) { return new EmployeeReportPageDAL().uploadSettlementFormDal(Mobj, "usp_InsertUplaodsettlement"); }
+
+        public Tuple<int?,int?> checkSettlementProfileID(string profileID) {
+            EmployeeReportPageDAL obj = new EmployeeReportPageDAL();
+            int profileExistence = obj.checkSettlementProfileID(profileID, "usp_SelectProfileID");
+            int settlementProfileIDExistence = obj.checkSettlementProfileID(profileID, "usp_existence_profile_Settlement");
+            return new Tuple<int?, int?>(profileExistence, settlementProfileIDExistence);
+        }
+
     }
 
 

@@ -115,6 +115,11 @@ namespace WebapiApplication.Api
             SendMail.RejectLink = Commonclass.ReturnEncryptLink("Reject", !string.IsNullOrEmpty(SendMail.FromProfileID) ? SendMail.FromProfileID : null, !string.IsNullOrEmpty(SendMail.ToProfileID) ? SendMail.ToProfileID : null);
             return this.IEmployeeReport.marketingMailSend(SendMail);
         }
+
+        public int uploadSettlementForm(uploadFormMl mobj) { return this.IEmployeeReport.uploadSettlementForm(mobj); }
+
+        public Tuple<int?, int?> getcheckSettlementProfileID(string profileID) { return this.IEmployeeReport.checkSettlementProfileID(profileID); }
+
     }
 }
 
