@@ -63,8 +63,9 @@ namespace WebapiApplication.Implement
 
         public Tuple<int?,int?> checkSettlementProfileID(string profileID) {
             EmployeeReportPageDAL obj = new EmployeeReportPageDAL();
-            int profileExistence = obj.checkSettlementProfileID(profileID, "usp_SelectProfileID");
-            int settlementProfileIDExistence = obj.checkSettlementProfileID(profileID, "usp_existence_profile_Settlement");
+            int intStatus = 0;
+            int profileExistence = new EmployeeReportPageDAL().checkSettlementProfileID(profileID, "usp_SelectProfileID", out intStatus);
+            int settlementProfileIDExistence = new EmployeeReportPageDAL().checkSettlementProfileID(profileID, "usp_existence_profile_Settlement", out intStatus);
             return new Tuple<int?, int?>(profileExistence, settlementProfileIDExistence);
         }
 

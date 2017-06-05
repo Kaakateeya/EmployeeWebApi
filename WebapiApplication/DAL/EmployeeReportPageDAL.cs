@@ -2548,22 +2548,22 @@ namespace WebapiApplication.DAL
             return intStatus;
         }
 
-        public int checkSettlementProfileID(string profileID, string spname)
+        public int checkSettlementProfileID(string profileID, string spname,out int intStatus)
         {
             SqlParameter[] Parm = new SqlParameter[2];
-            int intStatus = 0;
+          
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
-
+            intStatus = 0;
             try
             {
                 Parm[0] = new SqlParameter("@ProfileID", SqlDbType.VarChar, 5000);
                 Parm[0].Value = profileID;
                 Parm[1] = new SqlParameter("@Status", SqlDbType.Int);
                 Parm[1].Direction = ParameterDirection.Output;
-                SqlDataReader dr = null;
-                dr = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, Parm);
+                DataSet ds = new DataSet();
+                ds= SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, Parm);
 
                 if (string.Compare(System.DBNull.Value.ToString(), Convert.ToString(Parm[1].Value)) == 0)
                 {
