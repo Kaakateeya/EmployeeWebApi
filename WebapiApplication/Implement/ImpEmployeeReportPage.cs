@@ -68,6 +68,10 @@ namespace WebapiApplication.Implement
             int settlementProfileIDExistence = new EmployeeReportPageDAL().checkSettlementProfileID(profileID, "usp_existence_profile_Settlement", out intStatus);
             return new Tuple<int?, int?>(profileExistence, settlementProfileIDExistence);
         }
+        public List<BothsideInterestObjs> ServiceSlideshowdata(Servicesslideslideshowbasedonprofile Mobj)
+        {
+            return new EmployeeReportPageDAL().ServiceSlideshowdata(Mobj, "usp_select_ServiceSlideshowBasedOnProfileID");
+        }
 
     }
 

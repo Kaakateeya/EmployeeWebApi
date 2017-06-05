@@ -120,6 +120,9 @@ namespace WebapiApplication.Api
 
         public Tuple<int?, int?> getcheckSettlementProfileID(string profileID) { return this.IEmployeeReport.checkSettlementProfileID(profileID); }
 
+        public List<BothsideInterestObjs> ServiceSlideshowdata([FromBody]Servicesslideslideshowbasedonprofile Mobj) { return this.IEmployeeReport.ServiceSlideshowdata(Mobj); }
+
+
     }
 }
 
