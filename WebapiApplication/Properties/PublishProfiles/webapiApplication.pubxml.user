@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\build_files\service Slideshowbuild</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\build_files\service Slideshowbuild_03_06_17</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Api/BindJson .cs">
@@ -157,7 +157,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/20/2017 12:21:10</publishTime>
     </File>
     <File Include="bin/WebapiApplication.dll">
-      <publishTime>06/03/2017 19:03:58</publishTime>
+      <publishTime>06/03/2017 19:17:57</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>05/20/2017 12:21:10</publishTime>
