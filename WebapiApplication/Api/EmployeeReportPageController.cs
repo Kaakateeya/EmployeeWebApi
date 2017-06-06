@@ -122,6 +122,7 @@ namespace WebapiApplication.Api
 
         public List<BothsideInterestObjs> ServiceSlideshowdata([FromBody]Servicesslideslideshowbasedonprofile Mobj) { return this.IEmployeeReport.ServiceSlideshowdata(Mobj); }
 
+        public Tuple<int?, int?> getcheckSettlementProfileIDandEmail(string profileID) { return this.IEmployeeReport.checkSettlementProfileIDandEmail(profileID); }
 
     }
 }

@@ -276,29 +276,22 @@
             //    });
             //});
             var inputobj2 = {
-                c_intersttype
- :
-  null,
-                c_oppintersttype
-:
-null,
-                i_empid
-    :
-    2,
-                pagefrom
-    :
-    1,
-                pageto
-    :
-    10,
-                v_profileid
-    :
-    "310910220"
+                "CreatedByEmpID": "2",
+                "CreatedDate": "05-06-2017",
+                "ModifiedByEmpID": "2",
+                "ModifiedEmpDate": "05-06-2017",
+                "Notes": "testtttt",
+                "isActive": 0,
+                "Settlementfrompath": "~\\Images\\SettlementImages\\310910220_settlementImages/310910220_settlementImages.jpg",
+                "isassigned": "0",
+                "ReferenceID": 456,
+                "ProfileID": "310910220",
+                "Profileidnew": "310910220"
             }
             $("#80000").click(function () {
                 alert(1);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/ServiceSlideshowdata',
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/uploadSettlementForm',
                     type: 'POST',
                     crossDomain: true,
                     data: JSON.stringify(inputobj2),

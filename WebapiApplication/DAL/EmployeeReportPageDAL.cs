@@ -2519,8 +2519,8 @@ namespace WebapiApplication.DAL
                 parm[10].Value = Mobj.Profileidnew;
                 parm[11] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[11].Direction = ParameterDirection.Output;
-                parm[12] = new SqlParameter("@ErrorMsg", SqlDbType.Int);
-                parm[12].Direction = ParameterDirection.Output;
+                //parm[12] = new SqlParameter("@ErrorMsg", SqlDbType.Int);
+                //parm[12].Direction = ParameterDirection.Output;
 
                 DataSet ds = new DataSet();
 
