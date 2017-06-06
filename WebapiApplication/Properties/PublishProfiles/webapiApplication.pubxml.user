@@ -157,7 +157,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/20/2017 12:06:44</publishTime>
     </File>
     <File Include="bin/WebapiApplication.dll">
-      <publishTime>06/05/2017 13:41:56</publishTime>
+
+      <publishTime>06/03/2017 19:03:58</publishTime>
+
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>05/20/2017 12:06:45</publishTime>
