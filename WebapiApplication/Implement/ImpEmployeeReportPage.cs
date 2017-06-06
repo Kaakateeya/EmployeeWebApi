@@ -61,17 +61,42 @@ namespace WebapiApplication.Implement
 
         public int uploadSettlementForm(uploadFormMl Mobj) { return new EmployeeReportPageDAL().uploadSettlementFormDal(Mobj, "usp_InsertUplaodsettlement"); }
 
-        public Tuple<int?,int?> checkSettlementProfileID(string profileID) {
+
+        public Tuple<int?, int?> checkProfileBasedOnsp(string profileID,string sp1,string sp2)
+        {
             EmployeeReportPageDAL obj = new EmployeeReportPageDAL();
             int intStatus = 0;
-            int profileExistence = new EmployeeReportPageDAL().checkSettlementProfileID(profileID, "usp_SelectProfileID", out intStatus);
-            int settlementProfileIDExistence = new EmployeeReportPageDAL().checkSettlementProfileID(profileID, "usp_existence_profile_Settlement", out intStatus);
+            int profileExistence = obj.checkSettlementProfileID(profileID, sp1, out intStatus);
+            int settlementProfileIDExistence = obj.checkSettlementProfileID(profileID, sp2, out intStatus);
             return new Tuple<int?, int?>(profileExistence, settlementProfileIDExistence);
         }
+
+
+        public Tuple<int?, int?> checkSettlementProfileID(string profileID)
+        {
+            return checkProfileBasedOnsp(profileID, "usp_SelectProfileID", "usp_existence_profile_Settlement");
+        }
+
+
+        //public Tuple<int?,int?> checkSettlementProfileID(string profileID) {
+        //    EmployeeReportPageDAL obj = new EmployeeReportPageDAL();
+        //    int intStatus = 0;
+        //    int profileExistence = new EmployeeReportPageDAL().checkSettlementProfileID(profileID, "usp_SelectProfileID", out intStatus);
+        //    int settlementProfileIDExistence = new EmployeeReportPageDAL().checkSettlementProfileID(profileID, "usp_existence_profile_Settlement", out intStatus);
+        //    return new Tuple<int?, int?>(profileExistence, settlementProfileIDExistence);
+        //}
+
         public List<BothsideInterestObjs> ServiceSlideshowdata(Servicesslideslideshowbasedonprofile Mobj)
         {
             return new EmployeeReportPageDAL().ServiceSlideshowdata(Mobj, "usp_select_ServiceSlideshowBasedOnProfileID");
         }
+
+
+        public Tuple<int?, int?> checkSettlementProfileIDandEmail(string profileID)
+        {
+            return checkProfileBasedOnsp(profileID, "usp_CheckProfileIDandgetOwnerWhilInsert", "usp_checkprimaryemail");
+        }
+
 
     }
 

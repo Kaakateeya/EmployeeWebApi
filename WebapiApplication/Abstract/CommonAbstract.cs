@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Data;
 using KaakateeyaDAL;
+using WebapiApplication.DAL;
 
 namespace WebapiApplication.Abstract
 {
@@ -29,7 +30,14 @@ namespace WebapiApplication.Abstract
         {
             return SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
         }
-
+        public virtual Tuple<int?, int?> checkProfileBasedOnsp(string profileID, string sp1, string sp2)
+        {
+            EmployeeReportPageDAL obj = new EmployeeReportPageDAL();
+            int intStatus = 0;
+            int profileExistence = obj.checkSettlementProfileID(profileID, sp1, out intStatus);
+            int settlementProfileIDExistence = obj.checkSettlementProfileID(profileID, sp2, out intStatus);
+            return new Tuple<int?, int?>(profileExistence, settlementProfileIDExistence);
+        }
 
     }
 }

@@ -257,8 +257,9 @@ namespace WebapiApplication.Interfaces
 
         Tuple<int?, int?> checkSettlementProfileID(string profileID);
 
-
         List<BothsideInterestObjs> ServiceSlideshowdata(Servicesslideslideshowbasedonprofile Mobj);
+
+        Tuple<int?, int?> checkSettlementProfileIDandEmail(string profileID);
     }
 
 }
