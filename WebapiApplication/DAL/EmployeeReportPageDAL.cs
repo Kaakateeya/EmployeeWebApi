@@ -2519,8 +2519,8 @@ namespace WebapiApplication.DAL
                 parm[10].Value = Mobj.Profileidnew;
                 parm[11] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[11].Direction = ParameterDirection.Output;
-                //parm[12] = new SqlParameter("@ErrorMsg", SqlDbType.Int);
-                //parm[12].Direction = ParameterDirection.Output;
+                parm[12] = new SqlParameter("@ErrorMsg", SqlDbType.Int);
+                parm[12].Direction = ParameterDirection.Output;
 
                 DataSet ds = new DataSet();
 
@@ -2734,6 +2734,152 @@ namespace WebapiApplication.DAL
             }
 
             return objlist;
+        }
+
+        internal int settledprofilesInsertionDal(SettledDeletedML Mobj, string spname)
+        {
+
+            SqlParameter[] parm = new SqlParameter[20];
+            int status = 0;
+
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@BrideCustID", SqlDbType.BigInt);
+                parm[0].Value = Mobj.BrideCustID;
+                parm[1] = new SqlParameter("@BrideEmpID", SqlDbType.BigInt);
+                parm[1].Value = Mobj.BrideEmpID;
+                parm[2] = new SqlParameter("@GroomCustID", SqlDbType.BigInt);
+                parm[2].Value = Mobj.GroomCustID;
+                parm[3] = new SqlParameter("@GroomEmpID", SqlDbType.BigInt);
+                parm[3].Value = Mobj.GroomEmpID;
+                parm[4] = new SqlParameter("@Engagementdate", SqlDbType.DateTime);
+                parm[4].Value = Mobj.Engagementdate;
+                parm[5] = new SqlParameter("@EngagementVenue", SqlDbType.VarChar, 500);
+                parm[5].Value = Mobj.EngagementVenue;
+                parm[6] = new SqlParameter("@Marriagedate", SqlDbType.DateTime);
+                parm[6].Value = Mobj.Marriagedate;
+                parm[7] = new SqlParameter("@MarriageVenue", SqlDbType.VarChar, 500);
+                parm[7].Value = Mobj.MarriageVenue;
+                parm[8] = new SqlParameter("@InformedBySide", SqlDbType.Int);
+                parm[8].Value = Mobj.InformedBySide;
+                parm[9] = new SqlParameter("@InformedBy", SqlDbType.Int);
+                parm[9].Value = Mobj.InformedBy;
+                parm[10] = new SqlParameter("@Narriation", SqlDbType.VarChar, 8000);
+                parm[10].Value = Mobj.Narriation;
+                parm[11] = new SqlParameter("@EmpID", SqlDbType.BigInt);
+                parm[11].Value = Mobj.EmpID;
+                parm[12] = new SqlParameter("@AuthorizeStatus", SqlDbType.Int);
+                parm[12].Value = Mobj.AuthorizeStatus;
+                parm[13] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[13].Direction = ParameterDirection.Output;
+                parm[14] = new SqlParameter("@rbnmail", SqlDbType.VarChar, 100);
+                parm[14].Value = Mobj.SendMailfornew;
+
+                //
+                parm[15] = new SqlParameter("@Settleddate", SqlDbType.VarChar, 500);
+                parm[15].Value = Mobj.Settleddate;
+
+                DataSet ds = new DataSet();
+
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(parm[13].Value.ToString(), System.DBNull.Value.ToString()) == 1)
+                {
+                    status = 1;
+                }
+                else
+                {
+                    status = Convert.ToInt32(parm[13].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return status;
+        }
+
+        internal int deletedprofilesInsertionDal(SettledDeletedML Mobj, string spname)
+        {
+            DataSet ds = new DataSet();
+            int status = 0;
+
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[20];
+                parm[0] = new SqlParameter("@ProfileID", SqlDbType.BigInt);
+                parm[0].Value = Mobj.Int64ProfileID;
+                parm[1] = new SqlParameter("@SendEmail", SqlDbType.Int);
+                parm[1].Value = Mobj.SendMail;
+                parm[2] = new SqlParameter("@Engagementdate", SqlDbType.DateTime);
+                parm[2].Value = Mobj.Engagementdate;
+                parm[3] = new SqlParameter("@EngagementVenue", SqlDbType.VarChar, 500);
+                parm[3].Value = Mobj.EngagementVenue;
+                parm[4] = new SqlParameter("@Marriagedate", SqlDbType.DateTime);
+                parm[4].Value = Mobj.Marriagedate;
+                parm[5] = new SqlParameter("@MarriageVenue", SqlDbType.VarChar, 500);
+                parm[5].Value = Mobj.MarriageVenue;
+                parm[6] = new SqlParameter("@Surname", SqlDbType.VarChar, 250);
+                parm[6].Value = Mobj.DelSurname;
+                parm[7] = new SqlParameter("@Name", SqlDbType.VarChar, 250);
+                parm[7].Value = Mobj.DelName1;
+                parm[8] = new SqlParameter("@FatherName", SqlDbType.VarChar, 250);
+                parm[8].Value = Mobj.DelFatherName;
+                parm[9] = new SqlParameter("@Native", SqlDbType.VarChar, 250);
+                parm[9].Value = Mobj.DelNative;
+                parm[10] = new SqlParameter("@Education", SqlDbType.VarChar, 250);
+                parm[10].Value = Mobj.DelEducation;
+                parm[11] = new SqlParameter("@Profession", SqlDbType.VarChar, 250);
+                parm[11].Value = Mobj.DelProfession;
+                parm[12] = new SqlParameter("@ReasonForDelete", SqlDbType.Int);
+                parm[12].Value = Mobj.DelReasonForDelete;
+                parm[13] = new SqlParameter("@Relationship", SqlDbType.Int);
+                parm[13].Value = Mobj.DelRelationship;
+                parm[14] = new SqlParameter("@RelationshipName", SqlDbType.VarChar, 250);
+                parm[14].Value = Mobj.DelRelationshipName;
+                parm[15] = new SqlParameter("@Narriation", SqlDbType.VarChar, 8000);
+                parm[15].Value = Mobj.Narriation;
+                parm[16] = new SqlParameter("@EmpID", SqlDbType.BigInt);
+                parm[16].Value = Mobj.EmpID;
+                parm[17] = new SqlParameter("@AuthorizeStatus", SqlDbType.Int);
+                parm[17].Value = Mobj.AuthorizeStatus;
+                parm[18] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[18].Direction = ParameterDirection.Output;
+                parm[19] = new SqlParameter("@rbnmail", SqlDbType.VarChar, 100);
+                parm[19].Value = Mobj.SendMailfornew;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(parm[18].Value.ToString(), System.DBNull.Value.ToString()) == 1)
+                {
+                    status = 1;
+                }
+                else
+                {
+                    status = Convert.ToInt32(parm[18].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return status;
         }
     }
 }
