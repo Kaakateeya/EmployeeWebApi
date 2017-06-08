@@ -1152,6 +1152,9 @@ namespace WebapiApplication.ML
         public string OnlyConfidential { set; get; }
         public int? slidegride { set; get; }
         public string HoroScopeStatus { set; get; }
+        public string DOBfrom { set; get; }
+        public string DOBTo { set; get; }
+        public string EmpIds { set; get; }
     }
 
     public class TAdvanceSearch
@@ -1268,7 +1271,9 @@ namespace WebapiApplication.ML
         public string Status_Property { set; get; }
         public string Status_Family { set; get; }
         public string Status_Profession { set; get; }
-
+        public string DOBfrom { set; get; }
+        public string DOBTo { set; get; }
+        public string EmpIds { set; get; }
     }
 
     //property details

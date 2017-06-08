@@ -143,6 +143,8 @@ namespace WebapiApplication.ML
         public int? verfiedcontacts { get; set; }
         public int? WebsiteBlocked { get; set; }
         public int? intTableType { get; set; }
+        public string v_MaritalStatus { get; set; }
+        public int? i_Domacile { get; set; }
     }
 
     public class myprofileResponse
