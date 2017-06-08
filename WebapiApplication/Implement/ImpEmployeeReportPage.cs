@@ -62,7 +62,7 @@ namespace WebapiApplication.Implement
         public int uploadSettlementForm(uploadFormMl Mobj) { return new EmployeeReportPageDAL().uploadSettlementFormDal(Mobj, "usp_InsertUplaodsettlement"); }
 
 
-        public Tuple<int?, int?> checkProfileBasedOnsp(string profileID,string sp1,string sp2)
+        public Tuple<int?, int?> checkProfileBasedOnsp(string profileID, string sp1, string sp2)
         {
             EmployeeReportPageDAL obj = new EmployeeReportPageDAL();
             int intStatus = 0;
@@ -95,6 +95,14 @@ namespace WebapiApplication.Implement
         public Tuple<int?, int?> checkSettlementProfileIDandEmail(string profileID)
         {
             return checkProfileBasedOnsp(profileID, "usp_CheckProfileIDandgetOwnerWhilInsert", "usp_checkprimaryemail");
+        }
+        public int settledprofilesInsertion(SettledDeletedML mobj)
+        {
+            return new EmployeeReportPageDAL().settledprofilesInsertionDal(mobj, "usp_InsertSettledMatchesProfiles");
+        }
+        public int deletedprofilesInsertion(SettledDeletedML mobj)
+        {
+            return new EmployeeReportPageDAL().deletedprofilesInsertionDal(mobj, "usp_InsertDeletedMatchesProfiles");
         }
 
 

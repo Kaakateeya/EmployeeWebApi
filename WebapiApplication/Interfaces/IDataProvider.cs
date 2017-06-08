@@ -260,6 +260,10 @@ namespace WebapiApplication.Interfaces
         List<BothsideInterestObjs> ServiceSlideshowdata(Servicesslideslideshowbasedonprofile Mobj);
 
         Tuple<int?, int?> checkSettlementProfileIDandEmail(string profileID);
+
+        int settledprofilesInsertion(SettledDeletedML mobj);
+
+        int deletedprofilesInsertion(SettledDeletedML mobj);
     }
 
 }

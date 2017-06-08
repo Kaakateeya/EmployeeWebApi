@@ -124,6 +124,10 @@ namespace WebapiApplication.Api
 
         public Tuple<int?, int?> getcheckSettlementProfileIDandEmail(string profileID) { return this.IEmployeeReport.checkSettlementProfileIDandEmail(profileID); }
 
+        public int Submitsettledprfiles(SettledDeletedML mobj) { return this.IEmployeeReport.settledprofilesInsertion(mobj); }
+
+        public int Submitdeletedprfiles(SettledDeletedML mobj) { return this.IEmployeeReport.deletedprofilesInsertion(mobj); }
+
     }
 }
 

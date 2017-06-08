@@ -912,5 +912,38 @@ namespace WebapiApplication.ML
         public int pagefrom { get; set; }
         public int pageto { get; set; }
     }
+
+    public class SettledDeletedML
+    {
+        public Int64? BrideCustID { get; set; }
+        public Int64? BrideEmpID { get; set; }
+        public Int64? GroomCustID { get; set; }
+        public Int64? GroomEmpID { get; set; }
+        public DateTime? Engagementdate { get; set; }
+        public string EngagementVenue { get; set; }
+        public DateTime? Marriagedate { get; set; }
+        public string MarriageVenue { get; set; }
+        public int? InformedBySide { get; set; }
+        public int? InformedBy { get; set; }
+        public string Narriation { get; set; }
+        public Int64? EmpID { get; set; }
+        public int? AuthorizeStatus { get; set; }
+        public string SendMailfornew { get; set; }
+        public DateTime? Settleddate { get; set; }
+        //delete
+        public Int64? Int64ProfileID { get; set; }
+        public int? SendMail { get; set; }
+        public string DelSurname { get; set; }
+        public string DelName1 { get; set; }
+        public string DelFatherName { get; set; }
+        public string DelNative { get; set; }
+        public string DelEducation { get; set; }
+        public string DelProfession { get; set; }
+        public int? DelReasonForDelete { get; set; }
+        public int? DelRelationship { get; set; }
+        public string DelRelationshipName { get; set; }
+    }
+
+
 }
 
