@@ -37,6 +37,8 @@ namespace WebapiApplication.ML
         public int? EmpID { get; set; }
         public int? Admin { get; set; }
         public string EmpLastModificationDate { get; set; }
+        public int? ProfileGradestatus { get; set; }
+        public int? ProfileGrade { get; set; }
     }
 
     //ProfessionML
