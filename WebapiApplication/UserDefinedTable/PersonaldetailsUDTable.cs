@@ -790,7 +790,10 @@ namespace WebapiApplication.UserDefinedTable
             dtGeneralsearch.Columns.Add("OnlyConfidential");
             dtGeneralsearch.Columns.Add("slidegride");
             dtGeneralsearch.Columns.Add("HoroScopeStatus");
-
+            //Added By Lakshmi
+            dtGeneralsearch.Columns.Add("DOBfrom");
+            dtGeneralsearch.Columns.Add("DOBTo");
+            dtGeneralsearch.Columns.Add("EmpIds");
             return dtGeneralsearch;
         }
 
@@ -908,7 +911,9 @@ namespace WebapiApplication.UserDefinedTable
             dtAdvancesearch.Columns.Add("Status_Property");
             dtAdvancesearch.Columns.Add("Status_Family");
             dtAdvancesearch.Columns.Add("Status_Profession");
-
+            dtAdvancesearch.Columns.Add("DOBfrom");
+            dtAdvancesearch.Columns.Add("DOBTo");
+            dtAdvancesearch.Columns.Add("EmpIds");
             return dtAdvancesearch;
         }
 
