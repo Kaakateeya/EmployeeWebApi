@@ -179,6 +179,9 @@ namespace WebapiApplication.DAL
                         MobjEdu.reviewstatus = (reader["reviewstatus"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("reviewstatus")) : bnull;
                         MobjEdu.EmpLastModificationDate = (reader["EmpLastModificationDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpLastModificationDate")) : null;
 
+                        MobjEdu.ProfileGrade = (reader["ProfileGrade"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ProfileGrade")) : iNull;
+                        MobjEdu.ProfileGradestatus = (reader["ProfileGradestatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ProfileGradestatus")) : iNull;
+
                         arrayList.Add(MobjEdu);
                     }
 

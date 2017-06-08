@@ -236,6 +236,9 @@ namespace WebapiApplication.Api
         public HoroGeneration getGenerateHoroscorpe(int? customerid, string EmpIDQueryString, int? intDay, int? intMonth, int? intYear, int? CityID) { return this.ICustomerpersonalupdate.GenerateHoroscorpe(customerid, EmpIDQueryString, intDay, intMonth, intYear, CityID); }
         public int UploadsettlementForm([FromBody]SettlementPaidBalanceDetailsMl settlementForm) { return this.ICustomerpersonalupdate.UploadsettlementForm(settlementForm); }
         public int getAstroGenerationS3Update(string Path, string KeyName) { return this.ICustomerpersonalupdate.AstroGenerationS3Update(Path, KeyName); }
+
+       
+
     }
 }
 
