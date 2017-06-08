@@ -389,12 +389,13 @@ namespace WebapiApplication.DAL
                 parm[29].Value = Mobj.verfiedcontacts;
                 parm[30] = new SqlParameter("@WebsiteBlocked", SqlDbType.Int);
                 parm[30].Value = Mobj.WebsiteBlocked;
-
                 parm[31] = new SqlParameter("@intTableType", SqlDbType.Int);
                 parm[31].Value = Mobj.intTableType;
-
+                parm[32] = new SqlParameter("@v_MaritalStatus", SqlDbType.VarChar);
+                parm[32].Value = Mobj.v_MaritalStatus;
+                parm[33] = new SqlParameter("@i_Domacile", SqlDbType.Int);
+                parm[33].Value = Mobj.i_Domacile;
                 reader = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
-
                 int count = reader.FieldCount;
                 if (reader.HasRows)
                 {
@@ -2492,7 +2493,7 @@ namespace WebapiApplication.DAL
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
-         
+
             try
             {
                 parm[0] = new SqlParameter("@CreatedbyEmpID", SqlDbType.BigInt);
@@ -2543,15 +2544,15 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
-               
+
             }
             return intStatus;
         }
 
-        public int checkSettlementProfileID(string profileID, string spname,out int intStatus)
+        public int checkSettlementProfileID(string profileID, string spname, out int intStatus)
         {
             SqlParameter[] Parm = new SqlParameter[2];
-          
+
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -2563,7 +2564,7 @@ namespace WebapiApplication.DAL
                 Parm[1] = new SqlParameter("@Status", SqlDbType.Int);
                 Parm[1].Direction = ParameterDirection.Output;
                 DataSet ds = new DataSet();
-                ds= SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, Parm);
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, Parm);
 
                 if (string.Compare(System.DBNull.Value.ToString(), Convert.ToString(Parm[1].Value)) == 0)
                 {
@@ -2591,7 +2592,7 @@ namespace WebapiApplication.DAL
         public List<BothsideInterestObjs> ServiceSlideshowdata(Servicesslideslideshowbasedonprofile Mobj, string spname)
         {
 
-            
+
             SqlDataReader reader;
             List<BothsideInterestserveice> li = new List<BothsideInterestserveice>();
             List<BothsideInterestserveice> li1 = new List<BothsideInterestserveice>();
