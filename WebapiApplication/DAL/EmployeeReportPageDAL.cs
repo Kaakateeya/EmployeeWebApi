@@ -2789,10 +2789,6 @@ namespace WebapiApplication.DAL
                 if (string.Compare(parm[13].Value.ToString(), System.DBNull.Value.ToString()) == 1)
                 {
                     status = 1;
-                    foreach (var item in Mobj.smslist)
-                    {
-                        base.sendSMSEmpTicket("Settled.", item.empname, item.number, item.ticketId);
-                    }
                 }
                 else
                 {
@@ -2868,10 +2864,6 @@ namespace WebapiApplication.DAL
                 if (string.Compare(parm[18].Value.ToString(), System.DBNull.Value.ToString()) == 1)
                 {
                     status = 1;
-                    foreach (var item in Mobj.smslist)
-                    {
-                        base.sendSMSEmpTicket("deleted.", item.empname, item.number, item.ticketId);
-                    }
                 }
                 else
                 {
