@@ -942,8 +942,15 @@ namespace WebapiApplication.ML
         public int? DelReasonForDelete { get; set; }
         public int? DelRelationship { get; set; }
         public string DelRelationshipName { get; set; }
+        public List<empSms> smslist { get; set; }
     }
 
+    public class empSms
+    {
+        public string empname { get; set; }
+        public string number { get; set; }
+        public string ticketId { get; set; }
+    }
 
 }
 
