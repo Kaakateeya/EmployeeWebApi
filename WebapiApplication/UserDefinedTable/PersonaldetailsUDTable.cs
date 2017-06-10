@@ -323,6 +323,15 @@ namespace WebapiApplication.UserDefinedTable
             dtsibBrotherdetails.Columns.Add("BroSpouseFatherNativePlace");
             dtsibBrotherdetails.Columns.Add("BrotherSpouseEmail");
             dtsibBrotherdetails.Columns.Add("SibilingSpouseFatherCasteID");
+            dtsibBrotherdetails.Columns.Add("BroProfessionCategoryID");
+            dtsibBrotherdetails.Columns.Add("BroSpouseProfessionCategoryID");
+            dtsibBrotherdetails.Columns.Add("BroSpouseFatherEmailID");
+            dtsibBrotherdetails.Columns.Add("BroSpouseFatherMobileCountryID");
+            dtsibBrotherdetails.Columns.Add("BroSpouseFatherMobileNo");
+            dtsibBrotherdetails.Columns.Add("BroSpouseFatherLandCountryID");
+            dtsibBrotherdetails.Columns.Add("BroSpouseFatherLandAreaCode");
+            dtsibBrotherdetails.Columns.Add("BroSpouseFatherLandNo");
+
             return dtsibBrotherdetails;
 
 
@@ -376,9 +385,16 @@ namespace WebapiApplication.UserDefinedTable
             dtsibsisterdetails.Columns.Add("SisSpouseFatherNativePlace");
             dtsibsisterdetails.Columns.Add("SisSpouseEmail");
             dtsibsisterdetails.Columns.Add("SibilingSpouseFatherCasteID");
+            dtsibsisterdetails.Columns.Add("SisProfessionCategoryID");
+            dtsibsisterdetails.Columns.Add("SisSpouseProfessionCategoryID");
+            dtsibsisterdetails.Columns.Add("SisSpouseFatherEmailID");
+            dtsibsisterdetails.Columns.Add("SisSpouseFatherMobileCountryID");
+            dtsibsisterdetails.Columns.Add("SisSpouseFatherMobileNo");
+            dtsibsisterdetails.Columns.Add("SisSpouseFatherLandCountryID");
+            dtsibsisterdetails.Columns.Add("SisSpouseFatherLandAreaCode");
+            dtsibsisterdetails.Columns.Add("SisSpouseFatherLandNo");
+
             return dtsibsisterdetails;
-
-
         }
 
         public static DataTable dtcreateAstrodetail()

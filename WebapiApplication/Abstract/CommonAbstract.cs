@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Data;
 using KaakateeyaDAL;
 using WebapiApplication.DAL;
+using WebapiApplication.ServiceReference1;
 
 namespace WebapiApplication.Abstract
 {
@@ -26,7 +27,7 @@ namespace WebapiApplication.Abstract
             SqlConnection.ClearAllPools();
         }
 
-        public SqlDataReader getReader(string spname, SqlParameter[]  parm)
+        public SqlDataReader getReader(string spname, SqlParameter[] parm)
         {
             return SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
         }
@@ -39,5 +40,15 @@ namespace WebapiApplication.Abstract
             return new Tuple<int?, int?>(profileExistence, settlementProfileIDExistence);
         }
 
+
+        public void sendSMSEmpTicket(string strsettled, string FirstName, string number, string ticketID)
+        {
+            if (!string.IsNullOrEmpty(FirstName) && !string.IsNullOrEmpty(number) && !string.IsNullOrEmpty(ticketID))
+            {
+                ServiceSoapClient cc = new ServiceSoapClient();
+                string strVerificationText = "Hi " + FirstName + ", Your Ticket-" + ticketID + "  Closed automatically due to relevant ProfileID is " + strsettled;
+                string result = cc.SendTextSMS("ykrishna", "summary$1", number, strVerificationText, "smscntry");
+            }
+        }
     }
 }
