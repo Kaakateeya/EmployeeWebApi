@@ -571,6 +571,7 @@ namespace WebapiApplication.DAL
             SqlDataReader reader;
             DataSet ds = new DataSet();
             DataTable dt = new DataTable();
+            DateTime? dnull=null;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -626,8 +627,12 @@ namespace WebapiApplication.DAL
                         sh.SelfEducation = reader["SelfEducation"] != DBNull.Value ? reader["SelfEducation"].ToString() : "";
                         sh.ApplicationProfilePic = reader["ApplicationProfilePic"] != DBNull.Value ? reader["ApplicationProfilePic"].ToString() : "";
                         sh.ThumbNailProfilePic = reader["ThumbNailProfilePic"] != DBNull.Value ? reader["ThumbNailProfilePic"].ToString() : "";
-                        sh.MaxDob = reader["MaxDob"] != DBNull.Value ? reader["MaxDob"].ToString() : "";
-                        sh.MinDob = reader["MinDob"] != DBNull.Value ? reader["MinDob"].ToString() : "";
+                        //sh.MaxDob = reader["MaxDob"] != DBNull.Value ? reader.GetDateTime["MaxDob"].to : dnull;
+                        //sh.MinDob = reader["MinDob"] != DBNull.Value ? reader["MinDob"] : dnull;
+
+                        sh.MaxDob = (reader["MaxDob"]) != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("MaxDob")) : dnull;
+                        sh.MinDob = (reader["MinDob"]) != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("MinDob")) : dnull;
+
                     }
                 }
 

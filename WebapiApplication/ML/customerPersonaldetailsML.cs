@@ -1025,9 +1025,9 @@ namespace WebapiApplication.ML
         public string ThumbNailProfilePic { set; get; }
 
         //added by lakshmi
-        public string MaxDob { get; set; }
+        public DateTime? MaxDob { get; set; }
 
-        public string MinDob { get; set; }
+        public DateTime? MinDob { get; set; }
     }
 
     public class slideshowNew
