@@ -626,8 +626,8 @@ namespace WebapiApplication.DAL
                         sh.SelfEducation = reader["SelfEducation"] != DBNull.Value ? reader["SelfEducation"].ToString() : "";
                         sh.ApplicationProfilePic = reader["ApplicationProfilePic"] != DBNull.Value ? reader["ApplicationProfilePic"].ToString() : "";
                         sh.ThumbNailProfilePic = reader["ThumbNailProfilePic"] != DBNull.Value ? reader["ThumbNailProfilePic"].ToString() : "";
-
-
+                        sh.MaxDob = reader["MaxDob"] != DBNull.Value ? reader["MaxDob"].ToString() : "";
+                        sh.MinDob = reader["MinDob"] != DBNull.Value ? reader["MinDob"].ToString() : "";
                     }
                 }
 
@@ -874,7 +874,7 @@ namespace WebapiApplication.DAL
                             sh.Cust_ProfileInterestsLog_ID = reader["Cust_ProfileInterestsLog_ID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ProfileInterestsLog_ID")) : Lnull;
                             sh.FTicketStatus = reader["FTicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FTicketStatus")) : Snull;
                             sh.TTicketStatus = reader["TTicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TTicketStatus")) : Snull;
-                        
+
                         }
                         details.Add(sh);
                     }

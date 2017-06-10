@@ -288,7 +288,7 @@
                 "ProfileID": "310910220",
                 "Profileidnew": "310910220"
             }
-            $("#80000").click(function () {
+            $("#800001").click(function () {
                 alert(1);
                 $.ajax({
                     url: 'http://localhost:63006/Api/EmployeeReportPage/uploadSettlementForm',
@@ -306,14 +306,15 @@
                 });
             });
 
-            $("#ClassData2").click(function () {
+            $("#80000").click(function () {
                 alert(1);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/CustomerPersonal/getProfileIDPlaybutton',
+                    url: 'http://localhost:63006/Api/CustomerSearch/getPrimaryCustomerDataResponse',
                     type: 'GET',
                     crossDomain: true,
                     data: {
-                        ProfileID: 310910220
+                        ProfileID: 210910352,
+                        EmpID:2
                     },
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
