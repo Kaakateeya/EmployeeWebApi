@@ -331,6 +331,7 @@ namespace WebapiApplication.UserDefinedTable
             dtsibBrotherdetails.Columns.Add("BroSpouseFatherLandCountryID");
             dtsibBrotherdetails.Columns.Add("BroSpouseFatherLandAreaCode");
             dtsibBrotherdetails.Columns.Add("BroSpouseFatherLandNo");
+            dtsibBrotherdetails.Columns.Add("BornOrder");
 
             return dtsibBrotherdetails;
 
@@ -393,6 +394,7 @@ namespace WebapiApplication.UserDefinedTable
             dtsibsisterdetails.Columns.Add("SisSpouseFatherLandCountryID");
             dtsibsisterdetails.Columns.Add("SisSpouseFatherLandAreaCode");
             dtsibsisterdetails.Columns.Add("SisSpouseFatherLandNo");
+            dtsibsisterdetails.Columns.Add("BornOrder");
 
             return dtsibsisterdetails;
         }

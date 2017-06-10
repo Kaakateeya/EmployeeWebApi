@@ -276,22 +276,12 @@
             //    });
             //});
             var inputobj2 = {
-                "CreatedByEmpID": "2",
-                "CreatedDate": "05-06-2017",
-                "ModifiedByEmpID": "2",
-                "ModifiedEmpDate": "05-06-2017",
-                "Notes": "testtttt",
-                "isActive": 0,
-                "Settlementfrompath": "~\\Images\\SettlementImages\\310910220_settlementImages/310910220_settlementImages.jpg",
-                "isassigned": "0",
-                "ReferenceID": 456,
-                "ProfileID": "310910220",
-                "Profileidnew": "310910220"
+                "GetDetails": { "BornOrder": 2, "SisElderYounger": "321", "SisName": "second", "siseducationdetails": null, "SisProfessionCategoryID": 567, "sisprofessiondetails": null, "undefined": "1", "SisCompanyName": null, "SisJobLocation": null, "SisMobileCountryCodeID": null, "SisMobileNumber": null, "SisLandCountryCodeID": null, "SisLandAreaCode": null, "SisLandNumber": null, "SisEmail": "kusumavishwaneni@gmail.com", "SIsMarried": 1, "SisHusbandName": "ramya ", "sisspouseeducationdetails": null, "SisSpouseProfessionCategoryID": 569, "sisspouseprofessiondetails": null, "SisHusCompanyName": null, "SisHusJobLocation": null, "SisHusbandMobileCountryCodeID": null, "SisHusbandMobileNumber": "8978987875", "SisHusbandLandCountryCodeID": null, "SisHusbandLandAreacode": null, "SisHusbandLandNumber": null, "SisSpouseEmail": null, "SisHusbandFatherSurName": null, "SisHusbandFatherName": null, "SisSpouseFatherMobileCountryID": 11, "SisSpouseFatherMobileNo": 4545454545, "SisSpouseFatherLandCountryID": 11, "SisSpouseFatherLandAreaCode": 5656, "SisSpouseFatherLandNo": 67676767, "SisSpouseFatherEmailID": "sssssssss@gmail.com", "SibilingSpouseFatherCasteID": 402, "SisSpouseFatherCountryID": 1, "SisSpouseFatherStateID": 1, "SisSpouseFatherDitrictID": 3, "SisSpouseFatherNativePlace": "bbbbb", "CustID": "91022", "SisSibilingCustfamilyID": null }, "customerpersonaldetails": { "intCusID": "91022", "EmpID": "2", "Admin": "1" }
             }
             $("#80000").click(function () {
                 alert(1);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/uploadSettlementForm',
+                    url: 'http://localhost:63006/Api/CustomerPersonalUpdate/CustomerSibSisterUpdatedetails',
                     type: 'POST',
                     crossDomain: true,
                     data: JSON.stringify(inputobj2),

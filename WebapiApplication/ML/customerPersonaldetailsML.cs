@@ -317,6 +317,8 @@ namespace WebapiApplication.ML
         public int? BroSpouseFatherLandCountryID { set; get; }
         public string BroSpouseFatherLandAreaCode { set; get; }
         public string BroSpouseFatherLandNo { set; get; }
+        public int? BornOrder { set; get; }
+            
     }
 
 
@@ -367,7 +369,6 @@ namespace WebapiApplication.ML
         public string SisSpouseFatherNativePlace { set; get; }
         public string SisSpouseEmail { set; get; }
         public int? SibilingSpouseFatherCasteID { set; get; }
-
         public int? SisProfessionCategoryID { set; get; }
         public int? SisSpouseProfessionCategoryID { set; get; }
         public string SisSpouseFatherEmailID { set; get; }
@@ -376,9 +377,8 @@ namespace WebapiApplication.ML
         public int? SisSpouseFatherLandCountryID { set; get; }
         public string SisSpouseFatherLandAreaCode { set; get; }
         public string SisSpouseFatherLandNo { set; get; }
-
+        public int? BornOrder { set; get; }
     }
-
 
     public class TSpouseDetailsUpdate
     {
