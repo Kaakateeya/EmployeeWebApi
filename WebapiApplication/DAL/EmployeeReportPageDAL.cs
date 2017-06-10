@@ -2622,11 +2622,8 @@ namespace WebapiApplication.DAL
                 int count = reader.FieldCount;
 
                 string empty = "--";
-                DateTime? dnull = null;
                 int? intnull = null;
                 long? Lnull = null;
-                double? dbnull = null;
-                bool? bnull = null;
                 Boolean? bnul = null;
                 double? fnull = null;
                 int intnullVal = 0;
