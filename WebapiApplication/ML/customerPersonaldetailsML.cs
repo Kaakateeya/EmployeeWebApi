@@ -490,6 +490,7 @@ namespace WebapiApplication.ML
         public string FBCurrentLocation { set; get; }
         public long? FatherbrotherCust_familyID { set; get; }
         public string FatherBrotherEducationDetails { set; get; }
+        public int? BornOrder { set; get; }
     }
 
 
@@ -517,6 +518,7 @@ namespace WebapiApplication.ML
         public string FSCurrentLocation { set; get; }
         public long? FatherSisterCust_familyID { set; get; }
         public string FSHEducationdetails { set; get; }
+        public int? BornOrder { set; get; }
     }
     public class TeditMB
     {
@@ -536,6 +538,7 @@ namespace WebapiApplication.ML
         public string MBCurrentLocation { set; get; }
         public long? MBMotherBrotherCust_familyID { set; get; }
         public string MBEducationdetails { set; get; }
+        public int? BornOrder { set; get; }
     }
     public class TeditMS
     {
@@ -560,6 +563,7 @@ namespace WebapiApplication.ML
         public string MSCurrentLocation { set; get; }
         public long? MSCust_familyID { set; get; }
         public string MSEducationdetails { set; get; }
+        public int? BornOrder { set; get; }
     }
     public class TeditReference
     {
