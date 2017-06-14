@@ -2689,6 +2689,7 @@ namespace WebapiApplication.DAL
                             Binterest.ToCust_InterestStatus = (reader["ToCust_InterestStatus"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToCust_InterestStatus")) : empty;
                             Binterest.ISRvrSend = (reader["ISRvrSend"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ISRvrSend")) : intnull;
                             Binterest.PaidStatus = (reader["PaidStatus"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PaidStatus")) : empty;
+                            Binterest.ApplicationPhoto = (reader["ApplicationPhoto"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ApplicationPhoto")) : empty;
 
 
                         }

@@ -454,6 +454,7 @@ namespace WebapiApplication.UserDefinedTable
             dtFBDetails.Columns.Add("FBCurrentLocation");
             dtFBDetails.Columns.Add("FatherbrotherCust_familyID");
             dtFBDetails.Columns.Add("FatherBrotherEducationDetails");
+            dtFBDetails.Columns.Add("BornOrder");
             return dtFBDetails;
         }
 
@@ -482,6 +483,7 @@ namespace WebapiApplication.UserDefinedTable
             dtFSister.Columns.Add("FSCurrentLocation");
             dtFSister.Columns.Add("FatherSisterCust_familyID");
             dtFSister.Columns.Add("FSHEducationdetails");
+            dtFSister.Columns.Add("BornOrder");
             return dtFSister;
         }
 
@@ -504,6 +506,7 @@ namespace WebapiApplication.UserDefinedTable
             dtMBdetails.Columns.Add("MBCurrentLocation");
             dtMBdetails.Columns.Add("MBMotherBrotherCust_familyID");
             dtMBdetails.Columns.Add("MBEducationdetails");
+            dtMBdetails.Columns.Add("BornOrder");
             return dtMBdetails;
         }
 
@@ -531,6 +534,7 @@ namespace WebapiApplication.UserDefinedTable
             dtMSisterDetails.Columns.Add("MSCurrentLocation");
             dtMSisterDetails.Columns.Add("MSCust_familyID");
             dtMSisterDetails.Columns.Add("MSEducationdetails");
+            dtMSisterDetails.Columns.Add("BornOrder");
             return dtMSisterDetails;
         }
 
