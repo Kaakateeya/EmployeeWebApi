@@ -234,6 +234,7 @@ D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.
 D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\obj\Release\WebapiApplication.csprojResolveAssemblyReference.cache
 D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\obj\Release\WebapiApplication.dll
 D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\obj\Release\WebapiApplication.pdb
+
 D:\New folder (2)\EmployeeWebApi\WebapiApplication\bin\WebapiApplication.dll.config
 D:\New folder (2)\EmployeeWebApi\WebapiApplication\bin\WebapiApplication.dll
 D:\New folder (2)\EmployeeWebApi\WebapiApplication\bin\WebapiApplication.pdb
@@ -282,16 +283,5 @@ D:\New folder (2)\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.Friendly
 D:\New folder (2)\EmployeeWebApi\WebapiApplication\obj\Release\WebapiApplication.csprojResolveAssemblyReference.cache
 D:\New folder (2)\EmployeeWebApi\WebapiApplication\obj\Release\WebapiApplication.dll
 D:\New folder (2)\EmployeeWebApi\WebapiApplication\obj\Release\WebapiApplication.pdb
-D:\EmployeeWebApi\WebapiApplication\bin\WebapiApplication.dll.config
-D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification3_CSharp.dll
-D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification3_CSharp.XmlSerializers.dll
-D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification6_CSharp.dll
-D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification6_CSharp.XmlSerializers.dll
-D:\EmployeeWebApi\WebapiApplication\bin\System.Net.Http.Formatting.dll
-D:\EmployeeWebApi\WebapiApplication\bin\System.Web.Http.dll
-D:\EmployeeWebApi\WebapiApplication\bin\System.Web.Http.WebHost.dll
-D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification3_CSharp.pdb
-D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification6_CSharp.pdb
-D:\EmployeeWebApi\WebapiApplication\bin\System.Net.Http.Formatting.xml
-D:\EmployeeWebApi\WebapiApplication\bin\System.Web.Http.xml
-D:\EmployeeWebApi\WebapiApplication\bin\System.Web.Http.WebHost.xml
+
+
