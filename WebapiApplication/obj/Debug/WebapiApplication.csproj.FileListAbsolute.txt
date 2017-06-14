@@ -150,6 +150,7 @@ D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.
 D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.FriendlyUrls.xml
 D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.dll
 D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.pdb
+D:\EmployeeWebApi\WebapiApplication\bin\WebapiApplication.dll.config
 D:\EmployeeWebApi\WebapiApplication\bin\WebapiApplication.dll
 D:\EmployeeWebApi\WebapiApplication\bin\WebapiApplication.pdb
 D:\EmployeeWebApi\WebapiApplication\bin\Antlr3.Runtime.dll
@@ -161,6 +162,10 @@ D:\EmployeeWebApi\WebapiApplication\bin\DotNetOpenAuth.OAuth.Consumer.dll
 D:\EmployeeWebApi\WebapiApplication\bin\DotNetOpenAuth.OAuth.dll
 D:\EmployeeWebApi\WebapiApplication\bin\DotNetOpenAuth.OpenId.dll
 D:\EmployeeWebApi\WebapiApplication\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification3_CSharp.dll
+D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification3_CSharp.XmlSerializers.dll
+D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification6_CSharp.dll
+D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification6_CSharp.XmlSerializers.dll
 D:\EmployeeWebApi\WebapiApplication\bin\EntityFramework.dll
 D:\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.FriendlyUrls.dll
 D:\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.Membership.OpenAuth.dll
@@ -169,10 +174,18 @@ D:\EmployeeWebApi\WebapiApplication\bin\Microsoft.ScriptManager.MSAjax.dll
 D:\EmployeeWebApi\WebapiApplication\bin\Microsoft.ScriptManager.WebForms.dll
 D:\EmployeeWebApi\WebapiApplication\bin\Microsoft.Web.Infrastructure.dll
 D:\EmployeeWebApi\WebapiApplication\bin\Newtonsoft.Json.dll
+D:\EmployeeWebApi\WebapiApplication\bin\System.Net.Http.Formatting.dll
+D:\EmployeeWebApi\WebapiApplication\bin\System.Web.Http.dll
+D:\EmployeeWebApi\WebapiApplication\bin\System.Web.Http.WebHost.dll
 D:\EmployeeWebApi\WebapiApplication\bin\System.Web.Optimization.dll
 D:\EmployeeWebApi\WebapiApplication\bin\System.Web.Providers.dll
 D:\EmployeeWebApi\WebapiApplication\bin\WebGrease.dll
+D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification3_CSharp.pdb
+D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification6_CSharp.pdb
 D:\EmployeeWebApi\WebapiApplication\bin\Newtonsoft.Json.xml
+D:\EmployeeWebApi\WebapiApplication\bin\System.Net.Http.Formatting.xml
+D:\EmployeeWebApi\WebapiApplication\bin\System.Web.Http.xml
+D:\EmployeeWebApi\WebapiApplication\bin\System.Web.Http.WebHost.xml
 D:\EmployeeWebApi\WebapiApplication\bin\EntityFramework.xml
 D:\EmployeeWebApi\WebapiApplication\bin\DotNetOpenAuth.Core.xml
 D:\EmployeeWebApi\WebapiApplication\bin\DotNetOpenAuth.OAuth.xml
