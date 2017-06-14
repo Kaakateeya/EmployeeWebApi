@@ -27,7 +27,18 @@ namespace WebapiApplication.ML
         public string MarriageDate { set; get; }
         public string PhotoPath { set; get; }
     }
-
+    public class CustomerPaymentOffers
+    {
+        public string ProfileID { set; get; }
+        public int? MembershipID { set; get; }
+        public int? CasteID { set; get; }
+        public decimal? MembershipAmt { set; get; }
+        public decimal? ServiceTaxAmt { set; get; }
+        public int? AllocatedPts { set; get; }
+        public DateTime? MemberShipDuration { set; get; }
+        public DateTime? StartTime { set; get; }
+        public DateTime? EndDate { set; get; }
+    }
     public class PhotoPathDisplay
     {
         public string ThumbNailPath { set; get; }

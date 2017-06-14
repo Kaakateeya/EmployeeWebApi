@@ -2554,6 +2554,65 @@ namespace WebapiApplication.DAL
             }
             return intStatus;
         }
+
+        public int CustomerPaymentOffersAssign(CustomerPaymentOffers Mobj, string spName)
+        {
+            SqlParameter[] parm = new SqlParameter[15];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            var sqlCommand = connection.CreateCommand();
+            sqlCommand.CommandTimeout = 120;
+
+
+            try
+            {
+                parm[0] = new SqlParameter("@i_ProfileID", SqlDbType.BigInt);
+                parm[0].Value = Mobj.ProfileID;
+                parm[1] = new SqlParameter("@i_MembershipID", SqlDbType.BigInt);
+                parm[1].Value = Mobj.MembershipID;
+                parm[2] = new SqlParameter("@i_CasteID", SqlDbType.Int);
+                parm[2].Value = Mobj.CasteID;
+                parm[3] = new SqlParameter("@f_MembershipAmt", SqlDbType.BigInt);
+                parm[3].Value = Mobj.MembershipAmt;
+                parm[4] = new SqlParameter("@f_ServiceTaxAmt", SqlDbType.Int);
+                parm[4].Value = Mobj.ServiceTaxAmt;
+
+                parm[5] = new SqlParameter("@i_AllocatedPts", SqlDbType.Int);
+                parm[5].Value = Mobj.AllocatedPts;
+
+                parm[6] = new SqlParameter("@i_MemberShipDuration", SqlDbType.Int);
+                parm[6].Value = Mobj.MemberShipDuration;
+
+                parm[7] = new SqlParameter("@dt_StartTime", SqlDbType.Int);
+                parm[7].Value = Mobj.StartTime;
+
+                parm[8] = new SqlParameter("@dt_EndDate", SqlDbType.Int);
+                parm[8].Value = Mobj.EndDate;
+
+                parm[9] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[9].Direction = ParameterDirection.Output;
+
+                DataSet dsMessages = new DataSet();
+                dsMessages = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[9].Value.ToString()) == 0) { intStatus = 0; }
+                else { intStatus = Convert.ToInt32(parm[9].Value); }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), Convert.ToInt32(Mobj.ProfileID), spName, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return intStatus;
+        }
+
     }
 }
 

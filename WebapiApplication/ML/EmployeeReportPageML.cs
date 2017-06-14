@@ -93,6 +93,37 @@ namespace WebapiApplication.ML
 
         public long? Cust_ProfileInterestsLog_ID { get; set; }
     }
+    public class NoServiceML
+    {
+
+        public Int64 EmpID { get; set; }
+
+        public string ProfileID { get; set; }
+
+        public int? Gender { get; set; }
+
+        public bool boolIsConfidential { get; set; }
+
+        public DateTime? FromDate { get; set; }
+
+        public DateTime? ToDate { get; set; }
+
+        public DataTable Caste { get; set; }
+
+        public DataTable Branch { get; set; }
+
+        public DataTable ApplicationStatus { get; set; }
+
+        public int PageSize { get; set; }
+
+        public int PageNumber { get; set; }
+
+        public int intlowerBound { get; set; }
+
+        public int intUpperBound { get; set; }
+
+        public int? PaymentStatus { get; set; }
+    }
     public class myprofileRequest
     {
         public string Kmpl { get; set; }

@@ -76,6 +76,8 @@ namespace WebapiApplication.Api
 
         public int getCheckprofileIDSelect(string Profileid) { return this.ISuccessStories.CheckprofileIDSelect(Profileid); }
 
+        public int CustomerPaymentOffersAssign([FromBody]CustomerPaymentOffers Customerpayoffers) { return this.ISuccessStories.CustomerPaymentOffersAssign(Customerpayoffers); }
+
     }
 }
 

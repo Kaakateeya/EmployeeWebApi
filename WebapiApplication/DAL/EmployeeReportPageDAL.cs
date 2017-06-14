@@ -2792,7 +2792,7 @@ namespace WebapiApplication.DAL
                 {
                     status = Convert.ToInt32(parm[13].Value);
                 }
-               
+
             }
             catch (Exception EX)
             {
@@ -2880,6 +2880,49 @@ namespace WebapiApplication.DAL
             }
 
             return status;
+        }
+
+        public ArrayList AssignSettings(NoServiceML Mobj, string sp)
+        {
+            ArrayList arrayList = new ArrayList();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet dtAssignSettings = new DataSet();
+            SqlDataAdapter daParentDetails = new SqlDataAdapter();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sp, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_AppUserId", Mobj.EmpID);
+                cmd.Parameters.AddWithValue("@i_ProfileId", Mobj.ProfileID);
+                cmd.Parameters.AddWithValue("@i_Gender", Mobj.Gender);
+                cmd.Parameters.AddWithValue("@i_isConfidential", Mobj.boolIsConfidential);
+                cmd.Parameters.AddWithValue("@dt_DateofRegistrationFrom", Mobj.FromDate);
+                cmd.Parameters.AddWithValue("@dt_DateofRegistrationTo", Mobj.ToDate);
+                cmd.Parameters.AddWithValue("@t_CasteIds", Mobj.Caste);
+                cmd.Parameters.AddWithValue("@t_BranchIds", Mobj.Branch);
+                cmd.Parameters.AddWithValue("@t_StatusIds", Mobj.ApplicationStatus);
+                cmd.Parameters.AddWithValue("@i_PageSize", Mobj.PageSize);
+                cmd.Parameters.AddWithValue("@i_PageNumber", Mobj.PageNumber);
+                cmd.Parameters.AddWithValue("@i_StartIndex", Mobj.intlowerBound);
+                cmd.Parameters.AddWithValue("@I_EndIndex", Mobj.intUpperBound);
+                cmd.Parameters.AddWithValue("@i_Payment", Mobj.PaymentStatus);
+                daParentDetails.SelectCommand = cmd;
+                daParentDetails.Fill(dtAssignSettings);
+            }
+            catch (Exception Ex)
+            {
+                Commonclass.ApplicationErrorLog(sp, Convert.ToString(Ex.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return Commonclass.convertdataTableToArrayList(dtAssignSettings);
         }
     }
 }

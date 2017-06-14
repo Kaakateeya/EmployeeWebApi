@@ -183,7 +183,7 @@ namespace WebapiApplication.Interfaces
 
         Tuple<string, int> ViewSettlementform(string Profileid);
         int CheckprofileIDSelect(string Profileid);
-
+        int CustomerPaymentOffersAssign(CustomerPaymentOffers Customerpayoffers);
     }
     public interface IDependency
     {
@@ -264,6 +264,8 @@ namespace WebapiApplication.Interfaces
         int settledprofilesInsertion(SettledDeletedML mobj);
 
         int deletedprofilesInsertion(SettledDeletedML mobj);
+
+        ArrayList AssignSettings(NoServiceML Mobj);
     }
 
 }
