@@ -2420,6 +2420,7 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
             }
+
             return status;
 
         }
@@ -2551,14 +2552,17 @@ namespace WebapiApplication.DAL
             return intStatus;
         }
 
+
         public int CustomerPaymentOffersAssign(CustomerPaymentOffers Customerpayoffers, string spName)
         {
             SqlParameter[] parm = new SqlParameter[15];
             int intStatus = 0;
 
+
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
+
 
             try
             {
@@ -2601,6 +2605,7 @@ namespace WebapiApplication.DAL
             catch (Exception EX)
             {
                 Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), Convert.ToInt32(Customerpayoffers.ProfileID), null, null);
+
             }
             finally
             {
@@ -2610,6 +2615,7 @@ namespace WebapiApplication.DAL
             }
             return intStatus;
         }
+
 
 
         public int CustomerProfileIDstatus(string ProfileID, string spName)

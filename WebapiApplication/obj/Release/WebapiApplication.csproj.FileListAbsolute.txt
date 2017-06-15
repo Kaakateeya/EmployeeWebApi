@@ -234,6 +234,7 @@ D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.
 D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\obj\Release\WebapiApplication.csprojResolveAssemblyReference.cache
 D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\obj\Release\WebapiApplication.dll
 D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\obj\Release\WebapiApplication.pdb
+
 D:\EmployeeWebApi\EmployeeWebApi\WebapiApplication\bin\WebapiApplication.dll.config
 D:\EmployeeWebApi\EmployeeWebApi\WebapiApplication\bin\WebapiApplication.dll
 D:\EmployeeWebApi\EmployeeWebApi\WebapiApplication\bin\WebapiApplication.pdb
@@ -282,3 +283,4 @@ D:\EmployeeWebApi\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.Friendly
 D:\EmployeeWebApi\EmployeeWebApi\WebapiApplication\obj\Release\WebapiApplication.csprojResolveAssemblyReference.cache
 D:\EmployeeWebApi\EmployeeWebApi\WebapiApplication\obj\Release\WebapiApplication.dll
 D:\EmployeeWebApi\EmployeeWebApi\WebapiApplication\obj\Release\WebapiApplication.pdb
+

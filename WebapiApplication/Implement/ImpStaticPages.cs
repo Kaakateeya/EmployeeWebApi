@@ -70,6 +70,7 @@ namespace WebapiApplication.Implement
         public Tuple<string,int> ViewSettlementform(string Profileid) { return new StaticPagesDAL().ViewSettlementform(Profileid, "USP_Getimageurl_Viewsettlement"); }
 
         public int CheckprofileIDSelect(string Profileid) { return new StaticPagesDAL().CheckprofileIDSelect(Profileid, "usp_SelectProfileID"); }
+
         public int CustomerPaymentOffersAssign(CustomerPaymentOffers Customerpayoffers) { return new StaticPagesDAL().CustomerPaymentOffersAssign(Customerpayoffers, "[dbo].[usp_InsertMembership_NewDesign]"); }
         public int CustomerProfileIDstatus(string ProfileID) { return new StaticPagesDAL().CustomerProfileIDstatus(ProfileID, "[dbo].[profileStatusCheck]"); }
 

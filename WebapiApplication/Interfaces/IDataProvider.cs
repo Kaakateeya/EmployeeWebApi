@@ -183,6 +183,7 @@ namespace WebapiApplication.Interfaces
         Tuple<string, int> ViewSettlementform(string Profileid);
 
         int CheckprofileIDSelect(string Profileid);
+
         
         int CustomerPaymentOffersAssign(CustomerPaymentOffers Customerpayoffers);
         
@@ -191,6 +192,7 @@ namespace WebapiApplication.Interfaces
         ArrayList CustomerParofileIDbasePayment(string ProfileID, int? BranchID);
 
         ArrayList CustomerUnauthorizedPayments(string BranchID, string StartDate, string EndDate, string Region);
+
     }
     public interface IDependency
     {
