@@ -2591,16 +2591,14 @@ namespace WebapiApplication.DAL
                 parm[8] = new SqlParameter("@dt_EndDate", SqlDbType.DateTime);
                 parm[8].Value = Customerpayoffers.EndDate;
 
-                parm[9] = new SqlParameter("@i_BranchID", SqlDbType.Int);
-                parm[9].Value = Customerpayoffers.BranchID;
 
-                parm[10] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[10].Direction = ParameterDirection.Output;
+                parm[9] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[9].Direction = ParameterDirection.Output;
 
                 DataSet dsMessages = new DataSet();
                 dsMessages = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[10].Value.ToString()) == 0) { intStatus = 0; }
-                else { intStatus = Convert.ToInt32(parm[10].Value); }
+                if (string.Compare(System.DBNull.Value.ToString(), parm[9].Value.ToString()) == 0) { intStatus = 0; }
+                else { intStatus = Convert.ToInt32(parm[9].Value); }
             }
             catch (Exception EX)
             {

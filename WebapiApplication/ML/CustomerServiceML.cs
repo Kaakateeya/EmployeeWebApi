@@ -962,6 +962,7 @@ namespace WebapiApplication.ML
         public DateTime? MemberShipDuration { set; get; }
         public DateTime? StartTime { set; get; }
         public DateTime? EndDate { set; get; }
+       
     }
 }
 
