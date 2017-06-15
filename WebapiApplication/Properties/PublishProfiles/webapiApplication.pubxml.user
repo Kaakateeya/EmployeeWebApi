@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\build_files\Serviceslideshow_13_06_2017</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Admin\Desktop\183build</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Api/BindJson .cs">
@@ -106,16 +106,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2016 12:02:47</publishTime>
     </File>
     <File Include="bin/EmailVerification3_CSharp.dll">
-      <publishTime>05/20/2017 12:21:09</publishTime>
+      <publishTime>03/03/2016 13:13:08</publishTime>
     </File>
     <File Include="bin/EmailVerification3_CSharp.XmlSerializers.dll">
-      <publishTime>05/20/2017 12:21:09</publishTime>
+      <publishTime>03/03/2016 13:13:08</publishTime>
     </File>
     <File Include="bin/EmailVerification6_CSharp.dll">
-      <publishTime>05/20/2017 12:21:09</publishTime>
+      <publishTime>03/03/2016 13:13:08</publishTime>
     </File>
     <File Include="bin/EmailVerification6_CSharp.XmlSerializers.dll">
-      <publishTime>05/20/2017 12:21:09</publishTime>
+      <publishTime>03/03/2016 13:13:08</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>09/24/2016 12:02:48</publishTime>
@@ -157,7 +157,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2016 12:02:45</publishTime>
     </File>
     <File Include="bin/WebapiApplication.dll">
-      <publishTime>06/13/2017 14:32:03</publishTime>
+      <publishTime>06/15/2017 18:00:53</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/24/2016 12:02:45</publishTime>
@@ -256,7 +256,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/05/2016 19:28:46</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/12/2017 16:47:10</publishTime>
+      <publishTime>06/14/2017 15:04:05</publishTime>
     </File>
   </ItemGroup>
 </Project>

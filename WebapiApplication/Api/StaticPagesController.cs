@@ -76,6 +76,11 @@ namespace WebapiApplication.Api
 
         public int getCheckprofileIDSelect(string Profileid) { return this.ISuccessStories.CheckprofileIDSelect(Profileid); }
 
+        public int CustomerPaymentOffersAssign([FromBody]CustomerPaymentOffers Customerpayoffers) { return this.ISuccessStories.CustomerPaymentOffersAssign(Customerpayoffers); }
+        public int getCustomerProfileIDstatus(string ProfileID) { return this.ISuccessStories.CustomerProfileIDstatus(ProfileID); }
+        public ArrayList getCustomerParofileIDbasePayment(string ProfileID, int? BranchID) { return this.ISuccessStories.CustomerParofileIDbasePayment( ProfileID,  BranchID); }
+        public ArrayList getCustomerUnauthorizedPayments(string BranchID, string StartDate, string EndDate, string Region) { return this.ISuccessStories.CustomerUnauthorizedPayments( BranchID,  StartDate,  EndDate,  Region); }
+
     }
 }
 
