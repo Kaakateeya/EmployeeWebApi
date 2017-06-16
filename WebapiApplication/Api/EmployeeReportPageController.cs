@@ -127,6 +127,7 @@ namespace WebapiApplication.Api
         public int Submitsettledprfiles(SettledDeletedML mobj) { return this.IEmployeeReport.settledprofilesInsertion(mobj); }
 
         public int Submitdeletedprfiles(SettledDeletedML mobj) { return this.IEmployeeReport.deletedprofilesInsertion(mobj); }
+        public ArrayList AssignSettings([FromBody]NoServiceML Mobj) { return this.IEmployeeReport.AssignSettings(Mobj); }
 
     }
 }

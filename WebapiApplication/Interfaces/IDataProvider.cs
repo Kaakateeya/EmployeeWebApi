@@ -264,6 +264,8 @@ namespace WebapiApplication.Interfaces
         int settledprofilesInsertion(SettledDeletedML mobj);
 
         int deletedprofilesInsertion(SettledDeletedML mobj);
+
+        ArrayList AssignSettings(NoServiceML Mobj);
     }
 
 }
