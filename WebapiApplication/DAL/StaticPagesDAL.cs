@@ -2171,9 +2171,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -2215,9 +2213,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -2424,6 +2420,7 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
             }
+
             return status;
 
         }
@@ -2554,6 +2551,220 @@ namespace WebapiApplication.DAL
             }
             return intStatus;
         }
+
+
+        public int CustomerPaymentOffersAssign(CustomerPaymentOffers Customerpayoffers, string spName)
+        {
+            SqlParameter[] parm = new SqlParameter[15];
+            int intStatus = 0;
+
+
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            
+            try
+            {
+                parm[0] = new SqlParameter("@i_ProfileID", SqlDbType.VarChar, 8000);
+                parm[0].Value = Customerpayoffers.ProfileID;
+                parm[1] = new SqlParameter("@i_MembershipID", SqlDbType.Int);
+                parm[1].Value = Customerpayoffers.MembershipID;
+                parm[2] = new SqlParameter("@i_CasteID", SqlDbType.Int);
+                parm[2].Value = Customerpayoffers.CasteID;
+                parm[3] = new SqlParameter("@f_MembershipAmt", SqlDbType.Decimal);
+                parm[3].Value = Customerpayoffers.MembershipAmt;
+
+                parm[4] = new SqlParameter("@f_ServiceTaxAmt", SqlDbType.Decimal);
+                parm[4].Value = Customerpayoffers.ServiceTaxAmt;
+
+                parm[5] = new SqlParameter("@i_AllocatedPts", SqlDbType.Int);
+                parm[5].Value = Customerpayoffers.AllocatedPts;
+
+                parm[6] = new SqlParameter("@i_MemberShipDuration", SqlDbType.Int);
+                parm[6].Value = Customerpayoffers.MemberShipDuration;
+
+                parm[7] = new SqlParameter("@dt_StartTime", SqlDbType.DateTime);
+                parm[7].Value = Customerpayoffers.StartTime;
+
+                parm[8] = new SqlParameter("@dt_EndDate", SqlDbType.DateTime);
+                parm[8].Value = Customerpayoffers.EndDate;
+
+
+                parm[9] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[9].Direction = ParameterDirection.Output;
+
+                DataSet dsMessages = new DataSet();
+                dsMessages = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[9].Value.ToString()) == 0) { intStatus = 0; }
+                else { intStatus = Convert.ToInt32(parm[9].Value); }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), Convert.ToInt32(Customerpayoffers.ProfileID), null, null);
+
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return intStatus;
+        }
+
+
+
+        public int CustomerProfileIDstatus(string ProfileID, string spName)
+        {
+            SqlParameter[] parm = new SqlParameter[15];
+            int intStatus = 0;
+
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                parm[0] = new SqlParameter("@ProfileID", SqlDbType.VarChar, 8000);
+                parm[0].Value = ProfileID;
+
+                parm[1] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[1].Direction = ParameterDirection.Output;
+
+                DataSet dsMessages = new DataSet();
+                dsMessages = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[1].Value.ToString()) == 0) { intStatus = 0; }
+                else { intStatus = Convert.ToInt32(parm[1].Value); }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), Convert.ToInt32(ProfileID), null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return intStatus;
+        }
+
+        public ArrayList CustomerParofileIDbasePayment(string ProfileID, int? BranchID, string spName)
+        {
+            DataSet dsProfileSearch = new DataSet();
+            SqlParameter[] parm = new SqlParameter[10];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            int intStatus = 0;
+            string strErrorMsg = null;
+            try
+            {
+                parm[0] = new SqlParameter("@ProfileID", SqlDbType.VarChar, 20);
+                parm[0].Value = ProfileID;
+                parm[1] = new SqlParameter("@BranchID", SqlDbType.Int);
+                parm[1].Value = BranchID;
+                parm[2] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+                parm[3] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
+                parm[3].Direction = ParameterDirection.Output;
+                dsProfileSearch = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+
+                if (string.Compare(System.DBNull.Value.ToString(), parm[2].Value.ToString()) == 0)
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[2].Value);
+                }
+                if (string.Compare(System.DBNull.Value.ToString(), parm[3].Value.ToString()) == 0)
+                {
+                    strErrorMsg = "System.DBNull returned from database";
+                }
+                else
+                {
+                    strErrorMsg = parm[3].Value.ToString();
+                }
+            }
+
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), Convert.ToInt32(ProfileID), null, null);
+            }
+            finally
+            {
+
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Commonclass.convertdataTableToArrayListTable(dsProfileSearch);
+        }
+
+        public ArrayList CustomerUnauthorizedPayments(string BranchID, string StartDate, string EndDate, string Region, string spName)
+        {
+            DataSet dsGetUnauthorizedPayments = new DataSet();
+            SqlParameter[] parm = new SqlParameter[6];
+
+            int intStatus = 0;
+            string strErrorMsg = null;
+
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                parm[0] = new SqlParameter("@BranchID", SqlDbType.VarChar);
+                parm[0].Value = BranchID;
+                parm[1] = new SqlParameter("@StartDate", SqlDbType.VarChar);
+                parm[1].Value = StartDate;
+                parm[2] = new SqlParameter("@EndDate", SqlDbType.VarChar);
+                parm[2].Value = EndDate;
+                parm[3] = new SqlParameter("@Region", SqlDbType.VarChar);
+                parm[3].Value = Region;
+                parm[4] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[4].Direction = ParameterDirection.Output;
+                parm[5] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
+                parm[5].Direction = ParameterDirection.Output;
+                dsGetUnauthorizedPayments = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[4].Value.ToString()) == 0)
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[4].Value);
+                }
+                if (string.Compare(System.DBNull.Value.ToString(), parm[5].Value.ToString()) == 0)
+                {
+                    strErrorMsg = "System.DBNull returned from database";
+                }
+                else
+                {
+                    strErrorMsg = parm[5].Value.ToString();
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            if (dsGetUnauthorizedPayments.Tables.Count == 0)
+                dsGetUnauthorizedPayments = null;
+            return Commonclass.convertdataTableToArrayListTable(dsGetUnauthorizedPayments); ;
+        }
+
+
+
+
     }
 }
 

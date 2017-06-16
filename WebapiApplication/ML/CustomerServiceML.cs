@@ -951,6 +951,18 @@ namespace WebapiApplication.ML
         public string number { get; set; }
         public string ticketId { get; set; }
     }
-
+    public class CustomerPaymentOffers
+    {
+        public string ProfileID { set; get; }
+        public int? MembershipID { set; get; }
+        public int? CasteID { set; get; }
+        public decimal? MembershipAmt { set; get; }
+        public decimal? ServiceTaxAmt { set; get; }
+        public int? AllocatedPts { set; get; }
+        public int? MemberShipDuration { set; get; }
+        public DateTime? StartTime { set; get; }
+        public DateTime? EndDate { set; get; }
+       
+    }
 }
 

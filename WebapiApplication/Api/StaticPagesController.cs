@@ -71,10 +71,15 @@ namespace WebapiApplication.Api
         public int getUpdateEmailBounce(Int64? CustID, int? EmailBounceEntryId, string BounceMailid) { return this.ISuccessStories.Update_EmailBounce(CustID, EmailBounceEntryId, BounceMailid); }
         public int getChangeApplicationStaus(long? ProfileID) { return this.ISuccessStories.getChangeApplicationStaus(ProfileID); }
         public ArrayList getCustomerHomePageDesignData(string flag, int? casteID, long? CustID, int? intStartIndex, int? intEndIndex, int? GenderID, int? isActive) { return this.ISuccessStories.CustomerHomePageDesignData(flag, casteID, CustID, intStartIndex, intEndIndex, GenderID, isActive); }
-
         public Tuple<string, int> getViewSettlementform(string Profileid) { return this.ISuccessStories.ViewSettlementform(Profileid); }
-
         public int getCheckprofileIDSelect(string Profileid) { return this.ISuccessStories.CheckprofileIDSelect(Profileid); }
+
+
+        public int CustomerPaymentOffersAssign([FromBody]CustomerPaymentOffers Customerpayoffers) { return this.ISuccessStories.CustomerPaymentOffersAssign(Customerpayoffers); }
+        public int getCustomerProfileIDstatus(string ProfileID) { return this.ISuccessStories.CustomerProfileIDstatus(ProfileID); }
+        public ArrayList getCustomerParofileIDbasePayment(string ProfileID, int? BranchID) { return this.ISuccessStories.CustomerParofileIDbasePayment( ProfileID,  BranchID); }
+        public ArrayList getCustomerUnauthorizedPayments(string BranchID, string StartDate, string EndDate, string Region) { return this.ISuccessStories.CustomerUnauthorizedPayments( BranchID,  StartDate,  EndDate,  Region); }
+
 
     }
 }

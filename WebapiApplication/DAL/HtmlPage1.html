@@ -239,13 +239,17 @@
             });
 
 
+
+            var daattt = { "ProfileID": 11154324, "MembershipID": 1, "MembershipAmt": 3000, "ServiceTaxAmt": "123", "AllocatedPts": 36, "MemberShipDuration": "20-10-2017", "StartTime": "16-06-2017", "EndDate": "20-10-2017" };
+
+
             $("#8070").click(function () {
                 alert(2);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/getcheckSettlementProfileID',
-                    type: 'GET',
+                    url: 'http://localhost:63006/Api/StaticPages/CustomerPaymentOffersAssign',
+                    type: 'post',
                     crossDomain: true,
-                    data: { profileID: '111101741' },
+                    data: JSON.stringify(daattt),
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));

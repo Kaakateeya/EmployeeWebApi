@@ -107,7 +107,7 @@ namespace WebapiApplication.ML
         public DataTable dtPaymentDetails { get; set; }
         public int? Isonline { get; set; }
         public int PaysmsID { get; set; }
-
+        public int MembershipDuration { set; get; }
     }
 
 

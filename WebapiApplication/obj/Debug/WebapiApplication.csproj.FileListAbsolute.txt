@@ -185,3 +185,5 @@ D:\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.FriendlyUrls.xml
 D:\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.dll
 D:\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.pdb
 D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.csprojResolveAssemblyReference.cache
+D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\bin\EmailVerification3_CSharp.pdb
+D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\bin\EmailVerification6_CSharp.pdb

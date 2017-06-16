@@ -27,7 +27,7 @@ namespace WebapiApplication.ML
         public string MarriageDate { set; get; }
         public string PhotoPath { set; get; }
     }
-
+   
     public class PhotoPathDisplay
     {
         public string ThumbNailPath { set; get; }
@@ -236,6 +236,9 @@ namespace WebapiApplication.ML
         public Int64? EmpID { get; set; }
 
     }
+
+   
+
     public class TicketDetails
     {
         public int? PageID { get; set; }
@@ -258,11 +261,13 @@ namespace WebapiApplication.ML
         public Int64? EmpTicketID { get; set; }
 
         public int Status { get; set; }
+
     }
 
 
     public class ExpressinterestbookmarkGetting
     {
+
         public int? BookmarkFlag { get; set; }
         public int? IgnoreFlag { get; set; }
         public int? Viewedflag { get; set; }

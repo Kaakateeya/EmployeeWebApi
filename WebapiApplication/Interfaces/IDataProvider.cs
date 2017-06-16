@@ -179,10 +179,19 @@ namespace WebapiApplication.Interfaces
 
 
         ArrayList CustomerHomePageDesignData(string flag, int? casteID, long? CustID, int? intStartIndex, int? intEndIndex, int? GenderID, int? isActive);
-
-
+        
         Tuple<string, int> ViewSettlementform(string Profileid);
+
         int CheckprofileIDSelect(string Profileid);
+
+        
+        int CustomerPaymentOffersAssign(CustomerPaymentOffers Customerpayoffers);
+        
+        int CustomerProfileIDstatus(string ProfileID);
+
+        ArrayList CustomerParofileIDbasePayment(string ProfileID, int? BranchID);
+
+        ArrayList CustomerUnauthorizedPayments(string BranchID, string StartDate, string EndDate, string Region);
 
     }
     public interface IDependency
