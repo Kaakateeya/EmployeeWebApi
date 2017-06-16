@@ -2562,7 +2562,7 @@ namespace WebapiApplication.DAL
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
-            
+
             try
             {
                 parm[0] = new SqlParameter("@i_ProfileID", SqlDbType.VarChar, 8000);
@@ -2765,6 +2765,100 @@ namespace WebapiApplication.DAL
 
 
 
+
+        public ViewProfileInputInbit InbitdataInfo(string ProfileID, int? empid, string sp)
+        {
+            SqlParameter[] parm = new SqlParameter[2];
+            SqlDataReader reader;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            string strval = string.Empty;
+            ViewProfileInputInbit inbit = new ViewProfileInputInbit();
+            try
+            {
+                parm[0] = new SqlParameter("@ProfileID", SqlDbType.VarChar);
+                parm[0].Value = ProfileID;
+                parm[1] = new SqlParameter("@EmpID", SqlDbType.Int);
+                parm[1].Value = empid;
+
+                reader = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, sp, parm);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        inbit.BitInfo = reader["BitInfo"] != DBNull.Value ? reader["BitInfo"].ToString() : null;
+                        inbit.MobileNumber = reader["MobileNumber"] != DBNull.Value ? reader["MobileNumber"].ToString() : null;
+                        inbit.MobileCode = reader["MobileCode"] != DBNull.Value ? reader["MobileCode"].ToString() : null;
+                        inbit.VerificationCode = reader["VerificationCode"] != DBNull.Value ? reader["VerificationCode"].ToString() : null;
+                        inbit.CustContactNumbersID = reader["CustContactNumbersID"] != DBNull.Value ? reader["CustContactNumbersID"].ToString() : null;
+                        inbit.MIsVerified = reader["MIsVerified"] != DBNull.Value ? reader["MIsVerified"].ToString() : null;
+                        inbit.Email = reader["Email"] != DBNull.Value ? reader["Email"].ToString() : null;
+                        inbit.EIsVerified = reader["EIsVerified"] != DBNull.Value ? reader["EIsVerified"].ToString() : null;
+                        inbit.CustID = reader["CustID"] != DBNull.Value ? reader["CustID"].ToString() : null;
+                    }
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(sp, Convert.ToString(EX.Message), Convert.ToInt32(ProfileID), null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return inbit;
+        }
+
+        public NoDataFoundDisplay NoDataFoundDisplay(string ProfileID, string sp)
+        {
+            SqlParameter[] parm = new SqlParameter[2];
+            SqlDataReader reader;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            string strval = string.Empty;
+            int? inull = null;
+            NoDataFoundDisplay nodata = new NoDataFoundDisplay();
+            try
+            {
+                parm[0] = new SqlParameter("@ProfileID", SqlDbType.VarChar);
+                parm[0].Value = ProfileID;
+
+                reader = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, sp, parm);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        nodata.ProfileID = reader["ProfileID"] != DBNull.Value ? reader["ProfileID"].ToString() : null;
+                        nodata.CustID = reader["CustID"] != DBNull.Value ? reader["CustID"].ToString() : null;
+                        nodata.iCustomerPersonalDetails = reader["CustomerPersonalDetails"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("CustomerPersonalDetails")) : inull;
+                        nodata.iManagePhoto = reader["ManagePhoto"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ManagePhoto")) : inull;
+                        nodata.iParentDetails = reader["ParentDetails"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ParentDetails")) : inull;
+                        nodata.iPartnerPreference = reader["PartnerPreference"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PartnerPreference")) : inull;
+                        nodata.iSiblingDetails = reader["SiblingDetails"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SiblingDetails")) : inull;
+                        nodata.iAstroDetails = reader["AstroDetails"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("AstroDetails")) : inull;
+                        nodata.iPropertyDetails = reader["PropertyDetails"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PropertyDetails")) : inull;
+                        nodata.iRelativeDetails = reader["RelativeDetails"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("RelativeDetails")) : inull;
+                        nodata.iReferenceDetails = reader["ReferenceDetails"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ReferenceDetails")) : inull;
+                        nodata.LoginStatusID = reader["LoginStatusID"] != DBNull.Value ? reader["LoginStatusID"].ToString() : null;
+                    }
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(sp, Convert.ToString(EX.Message), Convert.ToInt32(ProfileID), null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return nodata;
+        }
     }
 }
 

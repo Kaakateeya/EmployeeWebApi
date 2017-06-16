@@ -80,6 +80,9 @@ namespace WebapiApplication.Api
         public ArrayList getCustomerParofileIDbasePayment(string ProfileID, int? BranchID) { return this.ISuccessStories.CustomerParofileIDbasePayment( ProfileID,  BranchID); }
         public ArrayList getCustomerUnauthorizedPayments(string BranchID, string StartDate, string EndDate, string Region) { return this.ISuccessStories.CustomerUnauthorizedPayments( BranchID,  StartDate,  EndDate,  Region); }
 
+        public ViewProfileInputInbit getInbitdataInfo(string ProfileID, int? empid) { return this.ISuccessStories.InbitdataInfo(ProfileID, empid); }
+
+        public NoDataFoundDisplay getNoDataFoundDisplay(string ProfileID) { return this.ISuccessStories.NoDataFoundDisplay(ProfileID); }
 
     }
 }

@@ -964,5 +964,21 @@ namespace WebapiApplication.ML
         public DateTime? EndDate { set; get; }
        
     }
+    public class ViewProfileInputInbit
+    {
+
+        public string MobileNumber { get; set; }
+        public string MobileCode { get; set; }
+        public string VerificationCode { get; set; }
+        public string CustContactNumbersID { get; set; }
+        public string MIsVerified { get; set; }
+        public string Email { get; set; }
+        public string EIsVerified { get; set; }
+        public string BitInfo { set; get; }
+
+
+        public string CustID { get; set; }
+    }
+	
 }
 

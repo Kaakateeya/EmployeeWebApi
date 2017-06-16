@@ -193,6 +193,10 @@ namespace WebapiApplication.Interfaces
 
         ArrayList CustomerUnauthorizedPayments(string BranchID, string StartDate, string EndDate, string Region);
 
+
+        ViewProfileInputInbit InbitdataInfo(string ProfileID, int? empid);
+
+        NoDataFoundDisplay NoDataFoundDisplay(string ProfileID);
     }
     public interface IDependency
     {
