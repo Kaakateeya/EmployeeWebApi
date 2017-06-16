@@ -2562,8 +2562,7 @@ namespace WebapiApplication.DAL
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
-
-
+            
             try
             {
                 parm[0] = new SqlParameter("@i_ProfileID", SqlDbType.VarChar, 8000);
@@ -2572,7 +2571,6 @@ namespace WebapiApplication.DAL
                 parm[1].Value = Customerpayoffers.MembershipID;
                 parm[2] = new SqlParameter("@i_CasteID", SqlDbType.Int);
                 parm[2].Value = Customerpayoffers.CasteID;
-
                 parm[3] = new SqlParameter("@f_MembershipAmt", SqlDbType.Decimal);
                 parm[3].Value = Customerpayoffers.MembershipAmt;
 
@@ -2582,7 +2580,7 @@ namespace WebapiApplication.DAL
                 parm[5] = new SqlParameter("@i_AllocatedPts", SqlDbType.Int);
                 parm[5].Value = Customerpayoffers.AllocatedPts;
 
-                parm[6] = new SqlParameter("@i_MemberShipDuration", SqlDbType.DateTime);
+                parm[6] = new SqlParameter("@i_MemberShipDuration", SqlDbType.Int);
                 parm[6].Value = Customerpayoffers.MemberShipDuration;
 
                 parm[7] = new SqlParameter("@dt_StartTime", SqlDbType.DateTime);

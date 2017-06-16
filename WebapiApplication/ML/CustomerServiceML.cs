@@ -959,7 +959,7 @@ namespace WebapiApplication.ML
         public decimal? MembershipAmt { set; get; }
         public decimal? ServiceTaxAmt { set; get; }
         public int? AllocatedPts { set; get; }
-        public DateTime? MemberShipDuration { set; get; }
+        public int? MemberShipDuration { set; get; }
         public DateTime? StartTime { set; get; }
         public DateTime? EndDate { set; get; }
        
