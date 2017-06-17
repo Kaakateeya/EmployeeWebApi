@@ -2759,7 +2759,7 @@ namespace WebapiApplication.DAL
 
             if (dsGetUnauthorizedPayments.Tables.Count == 0)
                 dsGetUnauthorizedPayments = null;
-            return Commonclass.convertdataTableToArrayList(dsGetUnauthorizedPayments); ;
+            return Commonclass.convertdataTableToArrayListTable(dsGetUnauthorizedPayments); ;
         }
 
 
