@@ -2924,5 +2924,49 @@ namespace WebapiApplication.DAL
 
             return Commonclass.convertdataTableToArrayListTable(dtAssignSettings);
         }
+
+        public ArrayList ReviewpendingReports(AssigningProfileML Mobj, string sp)
+        {
+            ArrayList arrayList = new ArrayList();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet dtreviewsettings = new DataSet();
+            SqlDataAdapter dareview = new SqlDataAdapter();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sp, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Empid", Mobj.EmpID);
+                cmd.Parameters.AddWithValue("@t_genderId", Commonclass.returndt(Mobj.genderId, Mobj.Gender, "Gender", "Gender"));
+                cmd.Parameters.AddWithValue("@t_isPaid", Commonclass.returndt(Mobj.isPaid, Mobj.paid, "Paid", "Paid"));
+                cmd.Parameters.AddWithValue("@IsConfidential", Mobj.IsConfidential);
+                cmd.Parameters.AddWithValue("@ReviewFromDate", Mobj.ReviewFromDate);
+                cmd.Parameters.AddWithValue("@ReviewToDate", Mobj.ReviewToDate);
+                cmd.Parameters.AddWithValue("@SectionID", Mobj.SectionID);
+                cmd.Parameters.AddWithValue("@ReviewStatusID", Mobj.ReviewStatusID);
+                cmd.Parameters.AddWithValue("@ISRegistarion", Mobj.ISRegistarion);
+                cmd.Parameters.AddWithValue("@t_ProfileStatusID", Commonclass.returndt(Mobj.ProfileStatusID, Mobj.isProfileStatusID, "ProfileStatusID", "ProfileStatusID"));
+                cmd.Parameters.AddWithValue("@t_Caste", Commonclass.returndt(Mobj.Casteid, Mobj.Caste, "Caste", "Caste"));
+                cmd.Parameters.AddWithValue("@t_Branch", Commonclass.returndt(Mobj.Branchid, Mobj.Branch, "Branch", "Branch"));
+                cmd.Parameters.AddWithValue("@t_ProfileReviewedEmpID", Commonclass.returndt(Mobj.ProfileReviewedEmpID, Mobj.ProfileReviewedEmp, "ProfileReviewedEmp", "ProfileReviewedEmp"));
+                cmd.Parameters.AddWithValue("@i_PageFrom", Mobj.PageFrom);
+                cmd.Parameters.AddWithValue("@i_PageTo", Mobj.PageTo);
+                dareview.SelectCommand = cmd;
+                dareview.Fill(dtreviewsettings);
+            }
+            catch (Exception Ex)
+            {
+                Commonclass.ApplicationErrorLog(sp, Convert.ToString(Ex.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return Commonclass.convertdataTableToArrayListTable(dtreviewsettings);
+        }
     }
 }
