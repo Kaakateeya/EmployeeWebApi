@@ -403,6 +403,8 @@ namespace WebapiApplication.DAL
                         MobjpaymentGridview.CustName = (reader["CustName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CustName")) : null;
                         MobjpaymentGridview.ProfileOwner = (reader["ProfileOwner"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileOwner")) : null;
                         MobjpaymentGridview.TaxPaid_Status = (reader["TaxPaid_Status"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TaxPaid_Status")) : null;
+                        MobjpaymentGridview.RenewalStatus = (reader["RenewalStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("RenewalStatus")) : iNull;
+
                         arrayList.Add(MobjpaymentGridview);
 
                     }

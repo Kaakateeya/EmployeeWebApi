@@ -781,6 +781,7 @@ namespace WebapiApplication.ML
         public string CustName { get; set; }
         public string ProfileOwner { get; set; }
         public string TaxPaid_Status { get; set; }
+        public int? RenewalStatus { get; set; }
     }
 
     public class UpdatePersonaldetails
