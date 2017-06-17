@@ -2901,8 +2901,9 @@ namespace WebapiApplication.DAL
                 cmd.Parameters.AddWithValue("@dt_DateofRegistrationFrom", Mobj.FromDate);
                 cmd.Parameters.AddWithValue("@dt_DateofRegistrationTo", Mobj.ToDate);
                 cmd.Parameters.AddWithValue("@t_CasteIds", Mobj.Caste);
-                cmd.Parameters.AddWithValue("@t_BranchIds", Mobj.Branch);
-                cmd.Parameters.AddWithValue("@t_StatusIds", Mobj.ApplicationStatus);
+                cmd.Parameters.AddWithValue("@t_CasteIds", Commonclass.returndt(Mobj.castes, Mobj.Caste, "CasteID", "CasteID"));
+                cmd.Parameters.AddWithValue("@t_BranchIds", Commonclass.returndt(Mobj.branches, Mobj.Branch, "BranchID", "BranchID"));
+                cmd.Parameters.AddWithValue("@t_StatusIds", Commonclass.returndt(Mobj.applicationstatus, Mobj.ApplicationStatus, "ApplicationStatusID", "ApplicationStatusID"));
                 cmd.Parameters.AddWithValue("@i_PageSize", Mobj.PageSize);
                 cmd.Parameters.AddWithValue("@i_PageNumber", Mobj.PageNumber);
                 cmd.Parameters.AddWithValue("@i_StartIndex", Mobj.intlowerBound);
@@ -2922,7 +2923,7 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearAllPools();
             }
 
-            return Commonclass.convertdataTableToArrayList(dtAssignSettings);
+            return Commonclass.convertdataTableToArrayListTable(dtAssignSettings);
         }
     }
 }

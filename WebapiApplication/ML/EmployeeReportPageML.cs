@@ -123,6 +123,12 @@ namespace WebapiApplication.ML
         public int intUpperBound { get; set; }
 
         public int? PaymentStatus { get; set; }
+
+        //Added by lakshmi
+        public string castes { get; set; }
+        public string branches { get; set; }
+        public string applicationstatus { get; set; }
+
     }
     public class myprofileRequest
     {
