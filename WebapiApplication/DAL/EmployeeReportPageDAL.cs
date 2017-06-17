@@ -2900,7 +2900,6 @@ namespace WebapiApplication.DAL
                 cmd.Parameters.AddWithValue("@i_isConfidential", Mobj.boolIsConfidential);
                 cmd.Parameters.AddWithValue("@dt_DateofRegistrationFrom", Mobj.FromDate);
                 cmd.Parameters.AddWithValue("@dt_DateofRegistrationTo", Mobj.ToDate);
-                cmd.Parameters.AddWithValue("@t_CasteIds", Mobj.Caste);
                 cmd.Parameters.AddWithValue("@t_CasteIds", Commonclass.returndt(Mobj.castes, Mobj.Caste, "CasteID", "CasteID"));
                 cmd.Parameters.AddWithValue("@t_BranchIds", Commonclass.returndt(Mobj.branches, Mobj.Branch, "BranchID", "BranchID"));
                 cmd.Parameters.AddWithValue("@t_StatusIds", Commonclass.returndt(Mobj.applicationstatus, Mobj.ApplicationStatus, "ApplicationStatusID", "ApplicationStatusID"));
