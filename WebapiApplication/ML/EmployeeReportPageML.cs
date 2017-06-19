@@ -319,6 +319,55 @@ namespace WebapiApplication.ML
         public int IsFollowup { get; set; }
 
     }
+    public class AssigningProfileML
+    {
+        public DateTime? ReviewFromDate { get; set; }
+
+        public int? IsConfidential { get; set; }
+
+        public string isPaid { get; set; }
+
+        public string genderId { get; set; }
+
+        public int? EmpID { get; set; }
+
+
+        public DataTable Gender { get; set; }
+
+        public DataTable Paid { get; set; }
+
+        public DateTime? ReviewToDate { get; set; }
+
+        public int? SectionID { get; set; }
+
+
+
+        public int? ReviewStatusID { get; set; }
+
+        public bool ISRegistarion { get; set; }
+
+        public string ProfileStatusID { get; set; }
+
+        public DataTable isProfileStatusID { get; set; }
+
+        public string Casteid { get; set; }
+
+        public DataTable Caste { get; set; }
+
+        public string Branchid { get; set; }
+
+        public DataTable Branch { get; set; }
+
+        public string ProfileReviewedEmpID { get; set; }
+
+        public DataTable ProfileReviewedEmp { get; set; }
+
+        public int? PageTo { get; set; }
+
+        public int? PageFrom { get; set; }
+
+        public DataTable paid { get; set; }
+    }
 }
 
 

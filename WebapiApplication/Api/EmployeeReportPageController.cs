@@ -129,6 +129,16 @@ namespace WebapiApplication.Api
         public int Submitdeletedprfiles(SettledDeletedML mobj) { return this.IEmployeeReport.deletedprofilesInsertion(mobj); }
         public ArrayList AssignSettings([FromBody]NoServiceML Mobj) { return this.IEmployeeReport.AssignSettings(Mobj); }
 
+        public ArrayList ReviewpendingReports([FromBody]AssigningProfileML Mobj) { return this.IEmployeeReport.ReviewpendingReports(Mobj); }
+
+
+        public int? Assignprofiles([FromBody]JObject assign)
+        {
+            assignprofiles employeesearch = assign["assign"].ToObject<assignprofiles>();
+            List<assignprofiles> lstassign = new List<assignprofiles>();
+            employeesearch.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtcreateDatatableShowDataForEmployeeGeneral(), lstassign);
+            return this.IEmployeeReport.assignprofiles(employeesearch);
+        }
     }
 }
 

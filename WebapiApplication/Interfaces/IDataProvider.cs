@@ -281,6 +281,10 @@ namespace WebapiApplication.Interfaces
         int deletedprofilesInsertion(SettledDeletedML mobj);
 
         ArrayList AssignSettings(NoServiceML Mobj);
+
+        ArrayList ReviewpendingReports(AssigningProfileML Mobj);
+
+        int? assignprofiles(assignprofiles employeesearch);
     }
 
 }

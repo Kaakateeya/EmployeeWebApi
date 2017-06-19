@@ -239,40 +239,76 @@
             //});
 
 
+//            $("#test").click(function () {
+
+//                alert(1);
+//                var inputobj = {
+//                    EmpID
+//    :
+//    2,
+//                    PageNumber
+//:
+//1,
+//                    PageSize
+//    :
+//    100,
+//                    applicationstatus
+//    :
+//    null,
+//                    boolIsConfidential
+//    :
+//    false,
+//                    branches
+//    :
+//    null,
+//                    castes
+//    :
+//    null,
+//                    intUpperBound
+//    :
+//    100,
+//                    intlowerBound
+//    :
+//    1
+//                }
+//                $.ajax({
+//                    url: 'http://localhost:63006/Api/EmployeeReportPage/AssignSettings',
+//                    type: 'POST',
+//                    crossDomain: true,
+//                    data: JSON.stringify(inputobj),
+//                    contentType: 'application/json',
+//                    success: function (data, textStatus, xhr) {
+//                        alert(JSON.stringify(data));
+//                        console.log(data);
+//                    },
+//                    error: function (xhr, textStatus, errorThrown) {
+//                        console.log(xhr);
+//                    }
+//                });
+            //            });
+
             $("#test").click(function () {
 
                 alert(1);
                 var inputobj = {
-                    EmpID
-    :
-    2,
-                    PageNumber
-:
-1,
-                    PageSize
-    :
-    100,
-                    applicationstatus
-    :
-    null,
-                    boolIsConfidential
-    :
-    false,
-                    branches
-    :
-    null,
-                    castes
-    :
-    null,
-                    intUpperBound
-    :
-    100,
-                    intlowerBound
-    :
-    1
+                    EmpID: 2,
+                    genderId: "1,2",
+                    isPaid: "1,2",
+                    IsConfidential: 1,
+                    ReviewFromDate:null,
+                    ReviewToDate: null,
+                    SectionID: 1,
+                    ReviewStatusID: 1,
+                    ISRegistarion: 1,
+                    ProfileStatusID: "54",
+                    Casteid: "402",
+                    Branchid: null,
+                    ProfileReviewedEmpID: null,
+                    PageFrom: 1,
+                    PageTo:10
                 }
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/AssignSettings',
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/ReviewpendingReports',
                     type: 'POST',
                     crossDomain: true,
                     data: JSON.stringify(inputobj),

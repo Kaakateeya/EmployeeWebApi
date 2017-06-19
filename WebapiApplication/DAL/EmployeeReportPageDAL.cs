@@ -2735,7 +2735,7 @@ namespace WebapiApplication.DAL
             return objlist;
         }
 
-        internal int settledprofilesInsertionDal(SettledDeletedML Mobj, string spname)
+        public int settledprofilesInsertionDal(SettledDeletedML Mobj, string spname)
         {
 
             SqlParameter[] parm = new SqlParameter[20];
@@ -2923,6 +2923,90 @@ namespace WebapiApplication.DAL
             }
 
             return Commonclass.convertdataTableToArrayListTable(dtAssignSettings);
+        }
+
+        public ArrayList ReviewpendingReports(AssigningProfileML Mobj, string sp)
+        {
+            ArrayList arrayList = new ArrayList();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet dtreviewsettings = new DataSet();
+            SqlDataAdapter dareview = new SqlDataAdapter();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sp, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Empid", Mobj.EmpID);
+                cmd.Parameters.AddWithValue("@t_genderId", Commonclass.returndt(Mobj.genderId, Mobj.Gender, "Gender", "Gender"));
+                cmd.Parameters.AddWithValue("@t_isPaid", Commonclass.returndt(Mobj.isPaid, Mobj.paid, "Paid", "Paid"));
+                cmd.Parameters.AddWithValue("@IsConfidential", Mobj.IsConfidential);
+                cmd.Parameters.AddWithValue("@ReviewFromDate", Mobj.ReviewFromDate);
+                cmd.Parameters.AddWithValue("@ReviewToDate", Mobj.ReviewToDate);
+                cmd.Parameters.AddWithValue("@SectionID", Mobj.SectionID);
+                cmd.Parameters.AddWithValue("@ReviewStatusID", Mobj.ReviewStatusID);
+                cmd.Parameters.AddWithValue("@ISRegistarion", Mobj.ISRegistarion);
+                cmd.Parameters.AddWithValue("@t_ProfileStatusID", Commonclass.returndt(Mobj.ProfileStatusID, Mobj.isProfileStatusID, "ProfileStatusID", "ProfileStatusID"));
+                cmd.Parameters.AddWithValue("@t_Caste", Commonclass.returndt(Mobj.Casteid, Mobj.Caste, "Caste", "Caste"));
+                cmd.Parameters.AddWithValue("@t_Branch", Commonclass.returndt(Mobj.Branchid, Mobj.Branch, "Branch", "Branch"));
+                cmd.Parameters.AddWithValue("@t_ProfileReviewedEmpID", Commonclass.returndt(Mobj.ProfileReviewedEmpID, Mobj.ProfileReviewedEmp, "ProfileReviewedEmp", "ProfileReviewedEmp"));
+                cmd.Parameters.AddWithValue("@i_PageFrom", Mobj.PageFrom);
+                cmd.Parameters.AddWithValue("@i_PageTo", Mobj.PageTo);
+                dareview.SelectCommand = cmd;
+                dareview.Fill(dtreviewsettings);
+            }
+            catch (Exception Ex)
+            {
+                Commonclass.ApplicationErrorLog(sp, Convert.ToString(Ex.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return Commonclass.convertdataTableToArrayListTable(dtreviewsettings);
+        }
+
+        public int? assignprofiles(assignprofiles assign, string spname)
+        {
+            SqlParameter[] Parm = new SqlParameter[3];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            int? intStatus = 0;
+            try
+            {
+                Parm[0] = new SqlParameter("@t_ProfileOwners", SqlDbType.Structured);
+                Parm[0].Value = assign.dtTableValues;
+                Parm[1] = new SqlParameter("@Status", SqlDbType.Int);
+                Parm[1].Direction = ParameterDirection.Output;
+                Parm[2] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar,1000);
+                Parm[2].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, Parm);
+
+                if (string.Compare(System.DBNull.Value.ToString(), Convert.ToString(Parm[1].Value)) == 0)
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(Parm[1].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return intStatus;
         }
     }
 }

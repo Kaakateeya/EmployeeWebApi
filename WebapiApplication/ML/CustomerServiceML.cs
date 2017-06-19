@@ -979,6 +979,16 @@ namespace WebapiApplication.ML
 
         public string CustID { get; set; }
     }
+
+    public class assignprofiles
+    {
+        public long? CustID { set; get; }
+        public long? EmpID { set; get; }
+        public long? Admin { set; get; }
+        public DataTable dtTableValues { set; get; }
+        public int? startindex { set; get; }
+        public int? EndIndex { set; get; }
+    }
 	
 }
 
