@@ -2735,7 +2735,7 @@ namespace WebapiApplication.DAL
             return objlist;
         }
 
-        internal int settledprofilesInsertionDal(SettledDeletedML Mobj, string spname)
+        public int settledprofilesInsertionDal(SettledDeletedML Mobj, string spname)
         {
 
             SqlParameter[] parm = new SqlParameter[20];
@@ -2967,6 +2967,46 @@ namespace WebapiApplication.DAL
             }
 
             return Commonclass.convertdataTableToArrayListTable(dtreviewsettings);
+        }
+
+        public int? assignprofiles(assignprofiles assign, string spname)
+        {
+            SqlParameter[] Parm = new SqlParameter[3];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            int? intStatus = 0;
+            try
+            {
+                Parm[0] = new SqlParameter("@t_ProfileOwners", SqlDbType.Structured);
+                Parm[0].Value = assign.dtTableValues;
+                Parm[1] = new SqlParameter("@Status", SqlDbType.Int);
+                Parm[1].Direction = ParameterDirection.Output;
+                Parm[2] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar,1000);
+                Parm[2].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, Parm);
+
+                if (string.Compare(System.DBNull.Value.ToString(), Convert.ToString(Parm[1].Value)) == 0)
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(Parm[1].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return intStatus;
         }
     }
 }

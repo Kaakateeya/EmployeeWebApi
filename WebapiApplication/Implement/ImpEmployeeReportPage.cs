@@ -108,6 +108,10 @@ namespace WebapiApplication.Implement
 
         public ArrayList ReviewpendingReports(AssigningProfileML Mobj) { return new EmployeeReportPageDAL().ReviewpendingReports(Mobj, "[dbo].[uspKakReviewPendingProfiles]"); }
 
+
+
+        public int? assignprofiles(assignprofiles assign) { return new EmployeeReportPageDAL().assignprofiles(assign, "[dbo].[usp_Profile_setAssignOwners]"); }
+        
     }
 
 

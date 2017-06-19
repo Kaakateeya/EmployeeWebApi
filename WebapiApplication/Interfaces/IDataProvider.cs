@@ -281,6 +281,8 @@ namespace WebapiApplication.Interfaces
         ArrayList AssignSettings(NoServiceML Mobj);
 
         ArrayList ReviewpendingReports(AssigningProfileML Mobj);
+
+        int? assignprofiles(assignprofiles employeesearch);
     }
 
 }
