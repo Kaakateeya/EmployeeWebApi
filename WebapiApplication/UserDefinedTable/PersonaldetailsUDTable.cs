@@ -976,6 +976,7 @@ namespace WebapiApplication.UserDefinedTable
             dtassign.Columns.Add("MarketingOwner");
             dtassign.Columns.Add("ReviewOwner");
             return dtassign;
+        }
 
         public static DataTable getAuthorizationDetailsUpdate()
         {
