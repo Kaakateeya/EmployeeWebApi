@@ -464,5 +464,41 @@ namespace WebapiApplication.DAL
             return Commonclass.convertdataTableToArrayList(dsPayment);
         }
 
+
+        internal int setPaymentAuthorizationDal(paymentAuthorization mobj, string p)
+        {
+            int? intStatus = 0;
+            DataSet dsPayment = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            SqlParameter[] parm = new SqlParameter[7];
+            try
+            {
+                parm[0] = new SqlParameter("@ProfileID", SqlDbType.BigInt);
+                parm[0].Value = intProfileID;
+                parm[1] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[1].Direction = ParameterDirection.Output;
+                parm[2] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
+                parm[2].Direction = ParameterDirection.Output;
+
+                dsPayment = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+
+                if (string.Compare(System.DBNull.Value.ToString(), parm[1].Value.ToString()) == 0) { intStatus = 0; }
+                else { intStatus = Convert.ToInt32(parm[1].Value); }
+
+            }
+            catch (Exception EX) { Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), Convert.ToInt32(intProfileID), null, null); }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            if (dsPayment.Tables.Count == 0)
+                dsPayment = null;
+            return Commonclass.convertdataTableToArrayList(dsPayment);
+        }
     }
 }

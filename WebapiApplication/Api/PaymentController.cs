@@ -42,5 +42,14 @@ namespace WebapiApplication.Api
         public ArrayList getProfilePaymentDetails_NewDesigns(long? intProfileID) { return this.IPayment.DgetProfilePaymentDetails_NewDesigns(intProfileID); }
 
 
+        public int setPaymentAuthorization(paymentAuthorization mobj) {
+
+           
+
+            return this.IPayment.setPaymentAuthorization(mobj); 
+        
+        }
+
+
     }
 }
