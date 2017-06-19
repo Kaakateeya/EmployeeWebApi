@@ -43,7 +43,7 @@ namespace WebapiApplication.Interfaces
         ArrayList ProfilePaymentDetails_Gridview(string intProfileID);
         ArrayList DgetProfilePaymentDetails_NewDesigns(long? intProfileID);
 
-        int setPaymentAuthorization(paymentAuthorization mobj);
+        int setPaymentAuthorization(DataTable mobj);
     }
 
     public interface ICustomerSearch

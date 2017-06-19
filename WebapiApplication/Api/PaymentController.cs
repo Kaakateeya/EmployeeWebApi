@@ -7,6 +7,9 @@ using WebapiApplication.Interfaces;
 using System.Collections.Generic;
 using WebapiApplication.UserDefinedTable;
 using WebapiApplication.DAL;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Data;
 
 namespace WebapiApplication.Api
 {
@@ -42,12 +45,13 @@ namespace WebapiApplication.Api
         public ArrayList getProfilePaymentDetails_NewDesigns(long? intProfileID) { return this.IPayment.DgetProfilePaymentDetails_NewDesigns(intProfileID); }
 
 
-        public int setPaymentAuthorization(paymentAuthorization mobj) {
-
-           
-
-            return this.IPayment.setPaymentAuthorization(mobj); 
-        
+        public int setPaymentAuthorization([FromBody]paymentAuthorization mobj)
+        {
+            List<paymentAuthorization> lstpaymentAuth = new List<paymentAuthorization>();
+            lstpaymentAuth.Add(mobj);
+            DataTable dtinput = new DataTable();
+            dtinput = Commonclass.returnListDatatable(PersonaldetailsUDTables.getAuthorizationDetailsUpdate(), lstpaymentAuth);
+            return this.IPayment.setPaymentAuthorization(dtinput);         
         }
 
 

@@ -964,7 +964,7 @@ namespace WebapiApplication.UserDefinedTable
             return dtexp;
 
         }
-        public DataTable getAuthorizationDetailsUpdate()
+        public static DataTable getAuthorizationDetailsUpdate()
         {
             DataTable dtMyAuthDetails = new DataTable("Authorization");
 
