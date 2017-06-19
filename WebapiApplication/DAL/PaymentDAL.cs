@@ -475,7 +475,7 @@ namespace WebapiApplication.DAL
             SqlParameter[] parm = new SqlParameter[7];
             try
             {
-                parm[0] = new SqlParameter("@dtPaymentAuthDetails", SqlDbType.BigInt);
+                parm[0] = new SqlParameter("@dtPaymentAuthDetails", SqlDbType.Structured);
                 parm[0].Value = dt;
                 parm[1] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[1].Direction = ParameterDirection.Output;

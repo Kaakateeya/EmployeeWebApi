@@ -132,7 +132,6 @@ namespace WebapiApplication.ML
         public string OfflinePoints { set; get; }
         public string AutherizationDesc { set; get; }
         public string MembershipDuration { set; get; }
-      
         public string ExpiryDate { set; get; }
         public int? PaymentStatus { set; get; }
         public int? EmployeeID { set; get; }

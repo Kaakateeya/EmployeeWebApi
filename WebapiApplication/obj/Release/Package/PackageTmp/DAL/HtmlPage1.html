@@ -322,13 +322,13 @@
                     }
                 });
             });
-            var daattt = { "ProfileID": 11154324, "MembershipID": 1, "MembershipAmt": 3000, "ServiceTaxAmt": "123", "AllocatedPts": 36, "MemberShipDuration": "20-10-2017", "StartTime": "16-06-2017", "EndDate": "20-10-2017" };
+            var daattt = { "PaymentID": 47581, "ProfileID": "211153867", "TicketID": null, "MarketedByID": null, "CustomerID": 115386, "MembershipID": 14494, "MembershipDiscountID": null, "AgreedAmount": 2, "PaidAmount": 2, "SettlementAmount": "AA", "ServiceTax": 1, "OnlinePoints": 60, "OfflinePoints": null, "AutherizationDesc": "testtt", "ExpiryDate": "12-May-2017", "PaymentStatus": 1, "EmployeeID": "2", "CustMembershipID": 46486 };
 
 
             $("#8070").click(function () {
                 alert(2);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/StaticPages/CustomerPaymentOffersAssign',
+                    url: 'http://localhost:63006/Api/Payment/setPaymentAuthorization',
                     type: 'post',
                     crossDomain: true,
                     data: JSON.stringify(daattt),
