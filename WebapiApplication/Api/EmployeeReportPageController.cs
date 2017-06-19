@@ -132,12 +132,13 @@ namespace WebapiApplication.Api
         public ArrayList ReviewpendingReports([FromBody]AssigningProfileML Mobj) { return this.IEmployeeReport.ReviewpendingReports(Mobj); }
 
 
-        public int? Assignprofiles([FromBody]JObject assign)
+        public int? Assignprofiles([FromBody]assignprofiles assign)
         {
-            assignprofiles employeesearch = assign["assign"].ToObject<assignprofiles>();
-            List<assignprofiles> lstassign = new List<assignprofiles>();
-            employeesearch.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtcreateDatatableShowDataForEmployeeGeneral(), lstassign);
-            return this.IEmployeeReport.assignprofiles(employeesearch);
+
+            List<assignprofiles> lstPayment = new List<assignprofiles>();
+            lstPayment.Add(assign);
+            assign.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtassignsettings(), lstPayment);
+            return this.IEmployeeReport.assignprofiles(assign);
         }
     }
 }

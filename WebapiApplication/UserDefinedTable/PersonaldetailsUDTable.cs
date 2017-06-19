@@ -964,6 +964,20 @@ namespace WebapiApplication.UserDefinedTable
             return dtexp;
 
         }
+
+        public static DataTable dtassignsettings()
+        {
+
+            DataTable dtassign = new DataTable();
+            dtassign.Columns.Add("ProfileID");
+            dtassign.Columns.Add("CustID");
+            dtassign.Columns.Add("ModifiedEMPID");
+            dtassign.Columns.Add("ProfileOwner");
+            dtassign.Columns.Add("MarketingOwner");
+            dtassign.Columns.Add("ReviewOwner");
+            return dtassign;
+        }
+
         public static DataTable getAuthorizationDetailsUpdate()
         {
             DataTable dtMyAuthDetails = new DataTable("Authorization");
@@ -990,6 +1004,7 @@ namespace WebapiApplication.UserDefinedTable
             dtMyAuthDetails.Columns.Add("EmployeeID");
             dtMyAuthDetails.Columns.Add("CustMembershipID");
             return dtMyAuthDetails;
+
         }
 
     }
