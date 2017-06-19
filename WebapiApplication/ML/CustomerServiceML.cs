@@ -962,7 +962,7 @@ namespace WebapiApplication.ML
         public int? MemberShipDuration { set; get; }
         public DateTime? StartTime { set; get; }
         public DateTime? EndDate { set; get; }
-       
+
     }
     public class ViewProfileInputInbit
     {
@@ -982,13 +982,24 @@ namespace WebapiApplication.ML
 
     public class assignprofiles
     {
-        public long? CustID { set; get; }
-        public long? EmpID { set; get; }
-        public long? Admin { set; get; }
-        public DataTable dtTableValues { set; get; }
-        public int? startindex { set; get; }
-        public int? EndIndex { set; get; }
+        public string ProfileID { set; get; }
+        public Int64? CustID { set; get; }
+        public Int64? ModifiedEMPID { set; get; }
+        public Int64? ProfileOwner { set; get; }
+        public Int64? MarketingOwner { set; get; }
+        public Int64? ReviewOwner { set; get; }
+
+        public DataTable dtTableValues { get; set; }
     }
-	
+    public class assignprofilessubmit
+    {
+        public string ProfileID { set; get; }
+        public Int64? CustID { set; get; }
+        public Int64? ModifiedEMPID { set; get; }
+        public Int64? ProfileOwner { set; get; }
+        public Int64? MarketingOwner { set; get; }
+        public Int64? ReviewOwner { set; get; }
+
+    }
 }
 
