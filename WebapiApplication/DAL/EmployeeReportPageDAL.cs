@@ -2982,7 +2982,7 @@ namespace WebapiApplication.DAL
                 Parm[0].Value = assign.dtTableValues;
                 Parm[1] = new SqlParameter("@Status", SqlDbType.Int);
                 Parm[1].Direction = ParameterDirection.Output;
-                Parm[2] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar,1000);
+                Parm[2] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
                 Parm[2].Direction = ParameterDirection.Output;
                 DataSet ds = new DataSet();
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, Parm);
@@ -3005,6 +3005,48 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
+            }
+            return intStatus;
+        }
+
+        public int? ReviewpendingReassign(Reviewpending Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[10];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@CustID", SqlDbType.BigInt);
+                parm[0].Value = Mobj.CustID;
+                parm[1] = new SqlParameter("@EmpID", SqlDbType.VarChar);
+                parm[1].Value = Mobj.EmpID;
+                parm[2] = new SqlParameter("@i_Reviewpending", SqlDbType.BigInt);
+                parm[2].Value = Mobj.i_Reviewpending;
+                parm[3] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[3].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[3].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[3].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
             }
             return intStatus;
         }

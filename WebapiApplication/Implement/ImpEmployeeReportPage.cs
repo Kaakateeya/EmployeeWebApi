@@ -111,7 +111,9 @@ namespace WebapiApplication.Implement
 
 
         public int? assignprofiles(assignprofiles assign) { return new EmployeeReportPageDAL().assignprofiles(assign, "[dbo].[usp_Profile_setAssignOwners]"); }
-        
+
+
+        public int? ReviewpendingReassign(Reviewpending mobj) { return new EmployeeReportPageDAL().ReviewpendingReassign(mobj, "[dbo].[usp_ReviewpendingReassing_Profiles]"); }
     }
 
 
