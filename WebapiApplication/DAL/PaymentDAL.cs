@@ -484,7 +484,7 @@ namespace WebapiApplication.DAL
 
                 dsPayment = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
 
-                if (string.Compare(System.DBNull.Value.ToString(), parm[1].Value.ToString()) == 1)
+                if (Convert.ToInt32(parm[1].Value) == 1)
                 { intStatus = 1; }
                 else
                 { intStatus = 2; }
