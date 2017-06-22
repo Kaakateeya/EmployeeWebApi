@@ -348,13 +348,13 @@
                     }
                 });
             });
-            var daattt = { "strBranch": null, "strEmpName": "2", "i_isAdmin": "1", "i_EmpID": "2", "i_PageFrom": 1, "i_PageTo": 10, "v_MarketremindeFlag": 1, "v_siblingflag": 0, "v_guestticketflag": 0, "v_OnlineExprd": 0, "v_OfflineExprd": 0, "i_Excelflag": 3 };
+            var daattt = { "CreatedByEmpID": "2", "CreatedDate": "6/22/2017", "ModifiedByEmpID": "2", "ModifiedEmpDate": "6/22/2017", "Notes": "yyyyyyy", "isActive": 0, "Settlementfrompath": "~\\Images\\SettlementImages\\310910220_settlementImages/310910220_settlementImages.jpg", "isassigned": "1", "ReferenceID": "", "ProfileID": "310910220", "Profileidnew": "310910220" };
 
 
             $("#8070").click(function () {
                 alert(2);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/MarketingTicketHistoryInfo',
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/uploadSettlementForm',
                     type: 'post',
                     crossDomain: true,
                     data: JSON.stringify(daattt),
