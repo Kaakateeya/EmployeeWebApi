@@ -184,5 +184,3 @@ D:\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.Membership.OpenAuth.xml
 D:\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.FriendlyUrls.xml
 D:\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.dll
 D:\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.pdb
-D:\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.csprojResolveAssemblyReference.cache
-D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.csprojResolveAssemblyReference.cache

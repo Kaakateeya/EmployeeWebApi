@@ -348,13 +348,13 @@
                     }
                 });
             });
-            var daattt = { "PaymentID": 45067, "ProfileID": "011087262", "TicketID": null, "MarketedByID": null, "CustomerID": 108726, "MembershipID": 11271, "MembershipDiscountID": null, "AgreedAmount": 115, "PaidAmount": 115, "SettlementAmount": "AA", "ServiceTax": 15, "OnlinePoints": null, "OfflinePoints": 10, "ExpiryDate": "25-Dec-2016", "PaymentStatus": 1, "EmployeeID": "2", "CustMembershipID": 44021 };
+            var daattt = { "CreatedByEmpID": "2", "CreatedDate": "6/22/2017", "ModifiedByEmpID": "2", "ModifiedEmpDate": "6/22/2017", "Notes": "yyyyyyy", "isActive": 0, "Settlementfrompath": "~\\Images\\SettlementImages\\310910220_settlementImages/310910220_settlementImages.jpg", "isassigned": "1", "ReferenceID": "", "ProfileID": "310910220", "Profileidnew": "310910220" };
 
 
             $("#8070").click(function () {
                 alert(2);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/Payment/setPaymentAuthorization',
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/uploadSettlementForm',
                     type: 'post',
                     crossDomain: true,
                     data: JSON.stringify(daattt),
