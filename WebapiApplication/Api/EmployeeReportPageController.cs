@@ -140,6 +140,9 @@ namespace WebapiApplication.Api
             assign.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtassignsettings(), lstPayment);
             return this.IEmployeeReport.assignprofiles(assign);
         }
+
+        public int? ReviewpendingReassign(Reviewpending mobj) { return this.IEmployeeReport.ReviewpendingReassign(mobj); }
+
     }
 }
 

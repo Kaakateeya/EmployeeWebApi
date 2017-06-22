@@ -1001,5 +1001,12 @@ namespace WebapiApplication.ML
         public Int64? ReviewOwner { set; get; }
 
     }
+    public class Reviewpending
+    {
+        public Int64? CustID { set; get; }
+        public Int64? EmpID { set; get; }
+        public int? i_Reviewpending { set; get; }
+    }
+
 }
 

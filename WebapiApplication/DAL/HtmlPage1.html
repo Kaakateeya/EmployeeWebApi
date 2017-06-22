@@ -348,13 +348,13 @@
                     }
                 });
             });
-            var daattt = { "PaymentID": 45067, "ProfileID": "011087262", "TicketID": null, "MarketedByID": null, "CustomerID": 108726, "MembershipID": 11271, "MembershipDiscountID": null, "AgreedAmount": 115, "PaidAmount": 115, "SettlementAmount": "AA", "ServiceTax": 15, "OnlinePoints": null, "OfflinePoints": 10, "ExpiryDate": "25-Dec-2016", "PaymentStatus": 1, "EmployeeID": "2", "CustMembershipID": 44021 };
+            var daattt = { "strBranch": null, "strEmpName": "2", "i_isAdmin": "1", "i_EmpID": "2", "i_PageFrom": 1, "i_PageTo": 10, "v_MarketremindeFlag": 1, "v_siblingflag": 0, "v_guestticketflag": 0, "v_OnlineExprd": 0, "v_OfflineExprd": 0, "i_Excelflag": 3 };
 
 
             $("#8070").click(function () {
                 alert(2);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/Payment/setPaymentAuthorization',
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/MarketingTicketHistoryInfo',
                     type: 'post',
                     crossDomain: true,
                     data: JSON.stringify(daattt),
