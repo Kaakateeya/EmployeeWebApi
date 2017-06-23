@@ -2952,6 +2952,8 @@ namespace WebapiApplication.DAL
                 cmd.Parameters.AddWithValue("@t_ProfileReviewedEmpID", Commonclass.returndt(Mobj.ProfileReviewedEmpID, Mobj.ProfileReviewedEmp, "ProfileReviewedEmp", "ProfileReviewedEmp"));
                 cmd.Parameters.AddWithValue("@i_PageFrom", Mobj.PageFrom);
                 cmd.Parameters.AddWithValue("@i_PageTo", Mobj.PageTo);
+                cmd.Parameters.AddWithValue("@i_region", Mobj.region);
+
                 dareview.SelectCommand = cmd;
                 dareview.Fill(dtreviewsettings);
             }
