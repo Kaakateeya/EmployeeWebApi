@@ -104,7 +104,7 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().deletedprofilesInsertionDal(mobj, "usp_InsertDeletedMatchesProfiles");
         }
-        public ArrayList AssignSettings(NoServiceML Mobj) { return new EmployeeReportPageDAL().AssignSettings(Mobj, "[dbo].[usp_Profile_AssignSettings]"); }
+        public ArrayList AssignSettings(NoServiceML Mobj) { return new EmployeeReportPageDAL().AssignSettings(Mobj, "[dbo].[usp_Profile_AssignSettings_NewDesign]"); }
 
         public ArrayList ReviewpendingReports(AssigningProfileML Mobj) { return new EmployeeReportPageDAL().ReviewpendingReports(Mobj, "[dbo].[uspKakReviewPendingProfiles]"); }
 
