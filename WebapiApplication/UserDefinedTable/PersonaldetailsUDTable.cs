@@ -201,6 +201,9 @@ namespace WebapiApplication.UserDefinedTable
             dtParentsDetails.Columns.Add("MotherFatherLandNumber");
             dtParentsDetails.Columns.Add("FatherCaste");
             dtParentsDetails.Columns.Add("MotherCaste");
+            dtParentsDetails.Columns.Add("FatherProfessionCategoryID");
+            dtParentsDetails.Columns.Add("MotherProfessionCategoryID");
+
             return dtParentsDetails;
         }
 

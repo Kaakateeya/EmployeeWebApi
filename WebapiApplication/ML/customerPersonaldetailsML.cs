@@ -196,6 +196,11 @@ namespace WebapiApplication.ML
         public int? MotherCaste { get; set; }
         public int? FatherCaste { get; set; }
 
+        public int? FatherProfessionCategoryID { get; set; }
+        public int? MotherProfessionCategoryID { get; set; }
+
+
+
     }
 
 

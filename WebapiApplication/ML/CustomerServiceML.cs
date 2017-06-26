@@ -218,7 +218,10 @@ namespace WebapiApplication.ML
         public string ToTicketInfo { get; set; }
         public string FromApplicationPhoto { set; get; }
         public string ToApplicationPhoto { set; get; }
-
+        public int? FromPaidStatus { get; set; }
+        public int? ToPaidStatus { get; set; }
+        public DateTime? FromExpiryDate { get; set; }
+        public DateTime? ToExpiryDate { get; set; }
     }
 
     public class SearchML
