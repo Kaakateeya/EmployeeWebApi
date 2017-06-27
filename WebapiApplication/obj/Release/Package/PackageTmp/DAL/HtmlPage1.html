@@ -348,13 +348,23 @@
                     }
                 });
             });
-            var daattt = { "EmpID": 2, "genderId": "1,2", "isPaid": "372", "IsConfidential": 0, "SectionID": 1, "ReviewStatusID": 1, "ISRegistarion": 0, "ProfileStatusID": null, "Casteid": null, "Branchid": null, "ProfileReviewedEmpID": null, "region": "", "PageFrom": 1, "PageTo": 100 };
+            var daattt = {
+                "strFName": "",
+                "strSurName": "",
+                "strProfileID": "",
+                "strKMMLID": "",
+                "profileStatus": "54",
+                "intStartIndex": 1,
+                "intEndIndex": 10,
+                "intEmpID": "2",
+                "isSlide": false
+            };
 
 
             $("#8070").click(function () {
                 alert(2);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/ReviewpendingReports',
+                    url: 'http://localhost:63006/Api/CustomerPersonal/Search_ViewEditProfile',
                     type: 'post',
                     crossDomain: true,
                     data: JSON.stringify(daattt),
