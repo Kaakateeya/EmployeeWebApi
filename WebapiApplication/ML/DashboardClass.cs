@@ -292,6 +292,20 @@ namespace WebapiApplication.ML
         public int? NoOfDays { get; set; }
         public string MatchmeetingStatus { get; set; }
         public string HighPriority { get; set; }
+
+        public long? ReminderID { get; set; }
+
+        public string ReminderDate { get; set; }
+
+        public int? TicketTypeID { get; set; }
+
+        public long? ReminderRelationID { get; set; }
+
+        public string ReminderRelationName { get; set; }
+
+        public string Category { get; set; }
+
+        public string Reminderbody { get; set; }
     }
 
 }

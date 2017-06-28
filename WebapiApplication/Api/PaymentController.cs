@@ -42,7 +42,7 @@ namespace WebapiApplication.Api
         //new  Payment Page
 
         public ArrayList getProfilePaymentDetailsGridview(string intProfileID) { return this.IPayment.ProfilePaymentDetails_Gridview(intProfileID); }
-        public ArrayList getProfilePaymentDetails_NewDesigns(long? intProfileID) { return this.IPayment.DgetProfilePaymentDetails_NewDesigns(intProfileID); }
+        public ArrayList getProfilePaymentDetails_NewDesigns(string intProfileID) { return this.IPayment.DgetProfilePaymentDetails_NewDesigns(intProfileID); }
 
 
         public int setPaymentAuthorization([FromBody]paymentAuthorization mobj)

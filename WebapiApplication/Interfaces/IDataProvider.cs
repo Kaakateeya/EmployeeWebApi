@@ -41,7 +41,7 @@ namespace WebapiApplication.Interfaces
 
         int CustomerInsertPaymentDetilsInfo_NewDesign(PaymentInsertML Mobj);
         ArrayList ProfilePaymentDetails_Gridview(string intProfileID);
-        ArrayList DgetProfilePaymentDetails_NewDesigns(long? intProfileID);
+        ArrayList DgetProfilePaymentDetails_NewDesigns(string intProfileID);
 
         int setPaymentAuthorization(DataTable mobj);
     }

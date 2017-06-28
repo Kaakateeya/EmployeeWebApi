@@ -106,9 +106,7 @@ namespace WebapiApplication.Implement
         }
         public ArrayList AssignSettings(NoServiceML Mobj) { return new EmployeeReportPageDAL().AssignSettings(Mobj, "[dbo].[usp_Profile_AssignSettings_NewDesign]"); }
 
-        public ArrayList ReviewpendingReports(AssigningProfileML Mobj) { return new EmployeeReportPageDAL().ReviewpendingReports(Mobj, "[dbo].[uspKakReviewPendingProfiles]"); }
-
-
+        public ArrayList ReviewpendingReports(AssigningProfileML Mobj) { return new EmployeeReportPageDAL().ReviewpendingReports(Mobj, "[dbo].[uspKakReviewPendingProfiles_NewDesign]"); }
 
         public int? assignprofiles(assignprofiles assign) { return new EmployeeReportPageDAL().assignprofiles(assign, "[dbo].[usp_Profile_setAssignOwners]"); }
 

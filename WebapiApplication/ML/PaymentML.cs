@@ -119,23 +119,27 @@ namespace WebapiApplication.ML
     public class paymentAuthorization
     {
         public long? PaymentID { set; get; }
+        public int? PaymentHisID { set; get; }//added
         public string ProfileID { set; get; }
-        public string TicketID { set; get; }
-        public string MarketedByID { set; get; }
-        public string CustomerID { set; get; }
-        public string MembershipID { set; get; }
-        public string AgreedAmount { set; get; }
-        public string PaidAmount { set; get; }
-        public string SettlementAmount { set; get; }
-        public string ServiceTax { set; get; }
-        public string OnlinePoints { set; get; }
-        public string OfflinePoints { set; get; }
+        public int? CustID { set; get; }
         public string AutherizationDesc { set; get; }
-        public string MembershipDuration { set; get; }
         public string ExpiryDate { set; get; }
         public int? PaymentStatus { set; get; }
         public int? EmployeeID { set; get; }
-        public string CustMembershipID { set; get; }
+
+
+        //public string TicketID { set; get; }
+        //public string MarketedByID { set; get; }
+        //public string CustomerID { set; get; }
+        //public string MembershipID { set; get; }
+        //public string AgreedAmount { set; get; }
+        //public string PaidAmount { set; get; }
+        //public string SettlementAmount { set; get; }
+        //public string ServiceTax { set; get; }
+        //public string OnlinePoints { set; get; }
+        //public string OfflinePoints { set; get; }
+        //public string MembershipDuration { set; get; }
+        //public string CustMembershipID { set; get; }
     }
 
 

@@ -201,6 +201,9 @@ namespace WebapiApplication.UserDefinedTable
             dtParentsDetails.Columns.Add("MotherFatherLandNumber");
             dtParentsDetails.Columns.Add("FatherCaste");
             dtParentsDetails.Columns.Add("MotherCaste");
+            dtParentsDetails.Columns.Add("FatherProfessionCategoryID");
+            dtParentsDetails.Columns.Add("MotherProfessionCategoryID");
+
             return dtParentsDetails;
         }
 
@@ -983,26 +986,13 @@ namespace WebapiApplication.UserDefinedTable
             DataTable dtMyAuthDetails = new DataTable("Authorization");
 
             dtMyAuthDetails.Columns.Add("PaymentID");
+            dtMyAuthDetails.Columns.Add("PaymentHisID");//added
             dtMyAuthDetails.Columns.Add("ProfileID");
-
-            dtMyAuthDetails.Columns.Add("TicketID");
-            dtMyAuthDetails.Columns.Add("MarketedByID");
-
-            dtMyAuthDetails.Columns.Add("CustomerID");
-            dtMyAuthDetails.Columns.Add("MembershipID");
-            dtMyAuthDetails.Columns.Add("MembershipDiscountID");
-            dtMyAuthDetails.Columns.Add("AgreedAmount");
-            dtMyAuthDetails.Columns.Add("PaidAmount");
-            dtMyAuthDetails.Columns.Add("SettlementAmount");
-            dtMyAuthDetails.Columns.Add("ServiceTax");
-            dtMyAuthDetails.Columns.Add("OnlinePoints");
-            dtMyAuthDetails.Columns.Add("OfflinePoints");
+            dtMyAuthDetails.Columns.Add("CustID");//modif
             dtMyAuthDetails.Columns.Add("AutherizationDesc");
             dtMyAuthDetails.Columns.Add("ExpiryDate");
-
             dtMyAuthDetails.Columns.Add("PaymentStatus");
             dtMyAuthDetails.Columns.Add("EmployeeID");
-            dtMyAuthDetails.Columns.Add("CustMembershipID");
             return dtMyAuthDetails;
 
         }

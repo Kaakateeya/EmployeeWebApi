@@ -367,6 +367,8 @@ namespace WebapiApplication.ML
         public int? PageFrom { get; set; }
 
         public DataTable paid { get; set; }
+
+        public int? region { get; set; }
     }
 }
 
