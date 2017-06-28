@@ -449,7 +449,6 @@ namespace WebapiApplication.DAL
 
                 if (string.Compare(System.DBNull.Value.ToString(), parm[1].Value.ToString()) == 0) { intStatus = 0; }
                 else { intStatus = Convert.ToInt32(parm[1].Value); }
-
             }
             catch (Exception EX) { Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), Convert.ToInt32(intProfileID), null, null); }
             finally

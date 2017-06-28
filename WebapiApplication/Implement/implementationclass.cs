@@ -57,7 +57,6 @@ namespace WebapiApplication.Implement
         //Payment New  Table  design 
         public ArrayList ProfilePaymentDetails_Gridview(string intProfileID) { return new PaymentDAL().ProfilePaymentDetails_Gridview(intProfileID, "[dbo].[usp_getSearchMemberShipPackege_NewDesign]"); }
         public ArrayList DgetProfilePaymentDetails_NewDesigns(string intProfileID) { return new PaymentDAL().DgetProfilePaymentDetails_NewDesigns(intProfileID, "[dbo].[usp_Payment_getProfilePaymentDetails_NewDesigns]"); }
-        public int setPaymentAuthorization(DataTable dt) { return new PaymentDAL().setPaymentAuthorizationDal(dt, "[dbo].[usp_set_CustPaymentAuthorization]"); }
-
+        public int setPaymentAuthorization(DataTable dt) { return new PaymentDAL().setPaymentAuthorizationDal(dt, "[dbo].[usp_set_CustPaymentAuthorization_NewDesign]"); }
     }
 }
