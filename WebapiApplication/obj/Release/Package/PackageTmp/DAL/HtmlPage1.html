@@ -291,13 +291,13 @@
             });
 
 
-            var jsonbObj = { "strMFFNativePlace": "", "strFatherName": "", "strMotherName": "", "strFFName": "", "strMFName": "", "strMFSurName": "", "strCustSurName": "yalamanchi", "strCustName": "", "strCaste": "", "strAllPhones": "", "strAllEmailIds": "", "intAppicationStatusID": "", "intGenderID": "", "intEmpID": "2", "i_Startindex": 1, "i_EndIndex": 100 };
+            var jsonbObj = { "Empid": "2", "GenderID": "", "TypeofprofileID": "", "ApplicationstatusID": "54", "MarketingownerID": null, "BranchID": null, "CasteID": "402", "OwneroftheprofileID": "2", "HavingprofilesID": null, "Assigneddatefromdate": "", "Assigneddatetodate": "", "DORFromdate": "", "DORTodate": "", "LogoutId": "", "verfiedcontacts": "", "WebsiteBlocked": "", "pagefrom": 1, "pageto": 100, "intTableType": 1, "v_MaritalStatus": null, "i_Domacile": null };
 
 
             $("#btngetdata").click(function () {
                 alert(1);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/RegistrationValidation',
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/MyprofileAllslides',
                     type: 'post',
                     crossDomain: true,
                     data: JSON.stringify(jsonbObj),

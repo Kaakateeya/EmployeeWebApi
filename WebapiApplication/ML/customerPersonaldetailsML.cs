@@ -872,6 +872,8 @@ namespace WebapiApplication.ML
         public int? LoginCount { get; set; }
 
         public int? PaidSatus { get; set; }
+
+        public long? ProfileOwnerID { get; set; }
     }
 
     public class ProfilePaymentGridView

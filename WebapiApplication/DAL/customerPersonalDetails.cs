@@ -2030,6 +2030,7 @@ namespace WebapiApplication.DAL
                             MobjPersonalsML.MotherTongueName = (reader["MotherTongueName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MotherTongueName")) : null;
                             MobjPersonalsML.Email = (reader["Email"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Email")) : null;
                             MobjPersonalsML.PaidSatus = (reader["PaidSatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PaidSatus")) : iNull;
+                            MobjPersonalsML.ProfileOwnerID = (reader["ProfileOwnerID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("ProfileOwnerID")) : intNull;
                         }
                         //slideData
                         else
