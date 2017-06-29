@@ -775,7 +775,7 @@ namespace WebapiApplication.ML
         public string UserName { get; set; }
         public string EmpName { get; set; }
         public string ContactNumber { get; set; }
-        public int? PaidAmount { get; set; }
+        public string PaidAmount { get; set; }
         public string HoroScopeImage { get; set; }
         public string Primarynumber { get; set; }
         public string Primaryemail { get; set; }

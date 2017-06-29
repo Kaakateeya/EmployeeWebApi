@@ -82,7 +82,7 @@ namespace WebapiApplication.ML
 
     public class PaymentInsertML
     {
-        public int? ProfileID { get; set; }
+        public string ProfileID { get; set; }
         public int? Cust_id { get; set; }
         public int? Payment_Id { get; set; }
         public int? Renual_Type { get; set; }

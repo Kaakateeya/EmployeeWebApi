@@ -8,11 +8,10 @@ using System.Data.SqlClient;
 using System.Collections;
 using System.Configuration;
 using KaakateeyaDAL;
-using WebapiApplication.Abstract;
 
 namespace WebapiApplication.DAL
 {
-    public class EmployeeReportPageDAL : CommonAbstract
+    public class EmployeeReportPageDAL 
     {
 
         public int SaveViewedBookmark_Customer(CustSearchMl Mobj, string spName)
@@ -494,7 +493,7 @@ namespace WebapiApplication.DAL
                             myprofile.DOR = (reader["DOR"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("DOR")) : empty;
                             myprofile.LastLoginDate = (reader["LastLoginDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastLoginDate")) : empty;
                             // myprofile.LoginCount = (reader["LoginCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("LoginCount")) : intnull;
-                            myprofile.PaidAmount = (reader["Payment"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Payment")) : intnull;
+                            myprofile.PaidAmount = (reader["Payment"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Payment")) : empty;
                             myprofile.ContactNumber = (reader["ContactNumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ContactNumber")) : empty;
                             //  myprofile.Email = (reader["Email"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Email")) : empty;
                             // myprofile.MybookMarkedProfCount = (reader["MybookMarkedProfCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MybookMarkedProfCount")) : intnull;
@@ -505,10 +504,8 @@ namespace WebapiApplication.DAL
                             // myprofile.SentPhotoRequestCount = (reader["SentPhotoRequestCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SentPhotoRequestCount")) : intnull;
                             myprofile.EmpName = (reader["EmpName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpName")) : empty;
                             myprofile.UserName = (reader["UserName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("UserName")) : empty;
-                            // myprofile.HoroscopeImage = (reader["HoroscopeImage"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("HoroscopeImage")) : empty;
 
-                            //   }
-
+                            myprofile.Row = (reader["Row"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Row")) : iLong;
                             arrayList.Add(myprofile);
 
                         }

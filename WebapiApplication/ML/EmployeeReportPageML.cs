@@ -268,7 +268,7 @@ namespace WebapiApplication.ML
 
         public int? LoginCount { get; set; }
 
-        public int? PaidAmount { get; set; }
+        public string PaidAmount { get; set; }
 
         public string ContactNumber { get; set; }
 
@@ -291,7 +291,9 @@ namespace WebapiApplication.ML
         public string UserName { get; set; }
         public string HoroscopeImage { get; set; }
 
-        public int Row { get; set; }
+
+        public long? Row { get; set; }
+
     }
 
     public class FeeUpdateML
