@@ -1962,7 +1962,7 @@ namespace WebapiApplication.DAL
         public ArrayList Search_ViewEditProfile(ViewEditProfileSearch Mobj, string spName)
         {
             ArrayList arrayList = new ArrayList();
-            SqlParameter[] parm = new SqlParameter[11];
+            SqlParameter[] parm = new SqlParameter[12];
             SqlDataReader reader;
             Int64? intNull = null;
             int? iNull = null;
@@ -1989,14 +1989,16 @@ namespace WebapiApplication.DAL
                 parm[5].Value = Mobj.profileStatus;
                 parm[6] = new SqlParameter("@isSlide", SqlDbType.Bit);
                 parm[6].Value = Mobj.isSlide;
-                parm[7] = new SqlParameter("@intStartIndex", SqlDbType.Int);
-                parm[7].Value = Mobj.intStartIndex;
-                parm[8] = new SqlParameter("@intEndIndex", SqlDbType.Int);
-                parm[8].Value = Mobj.intEndIndex;
-                parm[9] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[9].Direction = ParameterDirection.Output;
-                parm[10] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
+                parm[7] = new SqlParameter("@intGender", SqlDbType.Int);
+                parm[7].Value = Mobj.genderID;
+                parm[8] = new SqlParameter("@intStartIndex", SqlDbType.Int);
+                parm[8].Value = Mobj.intStartIndex;
+                parm[9] = new SqlParameter("@intEndIndex", SqlDbType.Int);
+                parm[9].Value = Mobj.intEndIndex;
+                parm[10] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[10].Direction = ParameterDirection.Output;
+                parm[11] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
+                parm[11].Direction = ParameterDirection.Output;
 
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
 
@@ -2027,6 +2029,7 @@ namespace WebapiApplication.DAL
                             MobjPersonalsML.FamilyID = (reader["FamilyID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("FamilyID")) : intNull;
                             MobjPersonalsML.MotherTongueName = (reader["MotherTongueName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MotherTongueName")) : null;
                             MobjPersonalsML.Email = (reader["Email"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Email")) : null;
+                            MobjPersonalsML.PaidSatus = (reader["PaidSatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PaidSatus")) : iNull;
                         }
                         //slideData
                         else
@@ -2111,9 +2114,7 @@ namespace WebapiApplication.DAL
                             //MobjPersonalsML.ContactNumber = (reader["ContactNumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ContactNumber")) : empty;
                             //MobjPersonalsML.EmpName = (reader["EmpName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpName")) : empty;
                            // MobjPersonalsML.UserName = (reader["UserName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("UserName")) : empty;
-
-                            MobjPersonalsML.LoginCount = (reader["LoginCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("LoginCount")) : iNull;
-                       
+                            
                         }
                         arrayList.Add(MobjPersonalsML);
 

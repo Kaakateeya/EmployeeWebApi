@@ -870,6 +870,8 @@ namespace WebapiApplication.ML
         public int? Property { get; set; }
 
         public int? LoginCount { get; set; }
+
+        public int? PaidSatus { get; set; }
     }
 
     public class ProfilePaymentGridView
@@ -1595,6 +1597,7 @@ namespace WebapiApplication.ML
         public int? intEndIndex { get; set; }
         public int? intEmpID { set; get; }
         public bool? isSlide { get; set; }
+        public int? genderID { get; set; }
     }
     public class HoroGeneration
     {
