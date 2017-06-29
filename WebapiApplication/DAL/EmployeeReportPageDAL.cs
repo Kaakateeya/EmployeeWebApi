@@ -404,6 +404,8 @@ namespace WebapiApplication.DAL
                     {
                         myprofile = new myprofileResponse();
                         {
+                            myprofile.Row = (reader["Row"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Row")) : intnull;
+
                             myprofile.Cust_ID = (reader["Cust_ID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Cust_ID")) : empty;
                             myprofile.ProfileID = (reader["ProfileID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileID")) : empty;
                             myprofile.KMPLID = (reader["KMPLID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("KMPLID")) : empty;

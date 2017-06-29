@@ -290,6 +290,8 @@ namespace WebapiApplication.ML
 
         public string UserName { get; set; }
         public string HoroscopeImage { get; set; }
+
+        public int Row { get; set; }
     }
 
     public class FeeUpdateML
