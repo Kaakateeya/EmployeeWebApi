@@ -868,6 +868,8 @@ namespace WebapiApplication.ML
         public string serviceDate { get; set; }
 
         public int? Property { get; set; }
+
+        public int? LoginCount { get; set; }
     }
 
     public class ProfilePaymentGridView
