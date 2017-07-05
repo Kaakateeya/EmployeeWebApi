@@ -109,6 +109,8 @@ namespace WebapiApplication.ML
         public int? Isonline { get; set; }
         public int PaysmsID { get; set; }
         public int MembershipDuration { set; get; }
+        public int? PaymentHist_ID { set; get; }
+
     }
 
 

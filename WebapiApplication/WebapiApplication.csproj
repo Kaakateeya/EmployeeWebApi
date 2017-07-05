@@ -238,7 +238,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\CommonAbstract.cs" />
     <Compile Include="Api\BindJson .cs" />
     <Compile Include="Api\BothsideInterestObjs.cs" />
     <Compile Include="Api\CustomerPersonalController.cs" />

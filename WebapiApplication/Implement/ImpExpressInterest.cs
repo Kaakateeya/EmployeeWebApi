@@ -20,5 +20,8 @@ namespace WebapiApplication.Implement
         public ArrayList MatchFollowup_linq(string iflag, string ID, string RelationShipID) { return new ExpressInterestDAL().MatchFollowup_linq(iflag, ID, RelationShipID, "[dbo].[usp_MatchFollowup_linq]"); }
         public Tuple<List<Smtpemailsending>, int?> ExpressInterest(ExpressInterestInsert ExpML) { return new ExpressInterestDAL().ExpressInterest(ExpML, "[dbo].[usp_ExpressInterst_Insert_New]"); }
         public ArrayList ExpressInterest_SendSms(string FromProfileID, string ToProfileIDs) { return Commonclass.convertdataTableToArrayList(new ExpressInterestDAL().ExpressInterest_SendSms(FromProfileID, ToProfileIDs, "[dbo].[usp_ExpressInterest_SendSms]")); }
+
+        public int getServiceInfo(string FromProfileID, string ToProfileID) { return new ExpressInterestDAL().getServiceInfoDal(FromProfileID, ToProfileID, "[dbo].[Usp_GetServiceInfo_NewDesign]"); }
+
     }
 }

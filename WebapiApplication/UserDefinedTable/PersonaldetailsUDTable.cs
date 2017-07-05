@@ -127,6 +127,9 @@ namespace WebapiApplication.UserDefinedTable
             dtPayment.Columns.Add("EmpID");
             dtPayment.Columns.Add("AccessFeatureID");
             dtPayment.Columns.Add("MembershipDuration");
+            dtPayment.Columns.Add("PaymentHist_ID");
+
+
             return dtPayment;
         }
 

@@ -733,8 +733,8 @@ namespace WebapiApplication.ML
         public Int64? EmpID { get; set; }
         public Int64? intCusID { get; set; }
         public string ProfilePic { get; set; }
-
         public int? GenderID { get; set; }
+        public long? ProfileOwner { get; set; }
     }
 
     public class ViewAllCustomersSearch

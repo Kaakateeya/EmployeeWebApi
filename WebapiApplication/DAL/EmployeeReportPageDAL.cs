@@ -13,7 +13,6 @@ namespace WebapiApplication.DAL
 {
     public class EmployeeReportPageDAL 
     {
-
         public int SaveViewedBookmark_Customer(CustSearchMl Mobj, string spName)
         {
             int intStatus = 0;
@@ -1217,7 +1216,7 @@ namespace WebapiApplication.DAL
                                 Marketing.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("ProfileID"))).ToString() : Snull;
                                 Marketing.HighPriority = reader["HighPriority"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("HighPriority"))).ToString() : Snull;
                                 Marketing.ReminderID = reader["ReminderID"] != DBNull.Value ? (reader.GetInt64(reader.GetOrdinal("ReminderID"))) : iLong;
-                                Marketing.ReminderDate = reader["ReminderDate"] != DBNull.Value ? (reader.GetDateTime(reader.GetOrdinal("ReminderDate"))).ToString() : Snull;
+                                Marketing.ReminderDate = reader["ReminderDate"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("ReminderDate"))).ToString() : Snull;
                                 Marketing.TicketTypeID = reader["TicketTypeID"] != DBNull.Value ? (reader.GetInt32(reader.GetOrdinal("TicketTypeID"))) : iNULLs;
                                 Marketing.ReminderRelationID = reader["ReminderRelationID"] != DBNull.Value ? (reader.GetInt64(reader.GetOrdinal("ReminderRelationID"))) : iLong;
                                 Marketing.ReminderRelationName = reader["ReminderRelationName"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("ReminderRelationName"))).ToString() : Snull;

@@ -225,6 +225,8 @@ namespace WebapiApplication.Interfaces
         ArrayList MatchFollowup_linq(string flag, string ID, string RelationShipID);
         Tuple<List<Smtpemailsending>, int?> ExpressInterest(ExpressInterestInsert EXI);
         ArrayList ExpressInterest_SendSms(string FromProfileID, string ToProfileIDs);
+
+        int getServiceInfo(string FromProfileID, string ToProfileID);
     }
     public interface IEmployeeReportPage
     {

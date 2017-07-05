@@ -162,5 +162,48 @@ namespace WebapiApplication.DAL
 
         }
 
+
+        public int getServiceInfoDal(string FromProfileID, string ToProfileID, string spName)
+        {
+
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            int status = 0;
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[3];
+                parm[0] = new SqlParameter("@FromProfileID", SqlDbType.VarChar, 8000);
+                parm[0].Value = FromProfileID;
+                parm[1] = new SqlParameter("@ToProfileID", SqlDbType.VarChar, 8000);
+                parm[1].Value = ToProfileID;
+                parm[2] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+
+                if (string.Compare(System.DBNull.Value.ToString(), parm[2].Value.ToString()).Equals(0))
+                {
+                    status = 0;
+                }
+                else
+                {
+                    status = Convert.ToInt32(parm[2].Value);
+                }
+            }
+            catch (Exception ex)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(ex.Message), Convert.ToInt32(FromProfileID), null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return status;
+        }
     }
 }
