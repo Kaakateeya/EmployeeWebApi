@@ -265,7 +265,7 @@ namespace WebapiApplication.ML
         public string FromName { get; set; }
         public string Toname { get; set; }
         public string MobileNumber { set; get; }
-
+        public int? TicketStatusID { get; set; }
     }
 
     public class MarketingTicketResponse

@@ -404,6 +404,7 @@ namespace WebapiApplication.DAL
                         MobjpaymentGridview.ProfileOwner = (reader["ProfileOwner"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileOwner")) : null;
                         MobjpaymentGridview.TaxPaid_Status = (reader["TaxPaid_Status"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TaxPaid_Status")) : null;
                         MobjpaymentGridview.RenewalStatus = (reader["RenewalStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("RenewalStatus")) : iNull;
+                        MobjpaymentGridview.PaymentHist_ID = (reader["PaymentHist_ID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PaymentHist_ID")) : iNull;
 
                         arrayList.Add(MobjpaymentGridview);
 
@@ -428,22 +429,24 @@ namespace WebapiApplication.DAL
 
         }
 
-        public ArrayList DgetProfilePaymentDetails_NewDesigns(string intProfileID, string spName)
+        public ArrayList DgetProfilePaymentDetails_NewDesigns(string intProfileID,int intPaymentHistID, string spName)
         {
             int? intStatus = 0;
             DataSet dsPayment = new DataSet();
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
-            SqlParameter[] parm = new SqlParameter[7];
+            SqlParameter[] parm = new SqlParameter[4];
             try
             {
                 parm[0] = new SqlParameter("@ProfileID", SqlDbType.BigInt);
                 parm[0].Value = !string.IsNullOrEmpty(intProfileID)?Convert.ToInt64(intProfileID):0;
-                parm[1] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[1].Direction = ParameterDirection.Output;
-                parm[2] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
+                parm[1] = new SqlParameter("@intPaymentHistID", SqlDbType.Int);
+                parm[1].Value = intPaymentHistID;
+                parm[2] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[2].Direction = ParameterDirection.Output;
+                parm[3] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
+                parm[3].Direction = ParameterDirection.Output;
 
                 dsPayment = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
 
@@ -501,5 +504,7 @@ namespace WebapiApplication.DAL
                 dsPayment = null;
             return intStatus;
         }
+
+        
     }
 }

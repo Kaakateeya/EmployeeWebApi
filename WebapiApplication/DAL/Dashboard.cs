@@ -427,6 +427,7 @@ namespace WebapiApplication.DAL
             DataTable dt = new DataTable();
             string Snull = "--";
             Int64? Lnull = null;
+            int? inull = null;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             try
@@ -460,6 +461,8 @@ namespace WebapiApplication.DAL
                                 sh.ToProfileID = reader["OppProfileID"] != DBNull.Value ? Convert.ToInt64(reader["OppProfileID"]) : Lnull;
                                 sh.FromName = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
                                 sh.Toname = reader["OppName"] != DBNull.Value ? reader["OppName"].ToString() : null;
+                                sh.TicketStatusID = reader["TicketStatusID"] != DBNull.Value ? Convert.ToInt32(reader["TicketStatusID"]) : inull;
+
                             }
                             else
                             {

@@ -69,7 +69,8 @@ namespace WebapiApplication.DAL
                         MobjPersonalsML.ProfilePic = (reader["ProfilePic"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfilePic")) : null;
                         MobjPersonalsML.GenderID = (reader["GenderID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("GenderID")) : iNull;
                         MobjPersonalsML.ProfileOwner = (reader["ProfileOwner"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("ProfileOwner")) : intNull;
-
+                        MobjPersonalsML.PaidStatus = (reader["PaidStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PaidStatus")) : iNull;
+                        
                     }
                 }
 

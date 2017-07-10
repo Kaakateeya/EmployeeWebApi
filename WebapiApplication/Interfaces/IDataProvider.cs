@@ -38,10 +38,9 @@ namespace WebapiApplication.Interfaces
         int InsertPaymentDetails(PaymentMasterMl Mobj);
         ArrayList ProfilePaymentDetails(long? intProfileID, int? Isonline, int? flag, int? intMembershipID, string taxpaid);
         int CustomerInsertPaymentDetilsInfo(CustomerPaymentML Mobj);
-
         int CustomerInsertPaymentDetilsInfo_NewDesign(PaymentInsertML Mobj);
         ArrayList ProfilePaymentDetails_Gridview(string intProfileID);
-        ArrayList DgetProfilePaymentDetails_NewDesigns(string intProfileID);
+        ArrayList DgetProfilePaymentDetails_NewDesigns(string intProfileID, int intPaymentHistID);
 
         int setPaymentAuthorization(DataTable mobj);
     }

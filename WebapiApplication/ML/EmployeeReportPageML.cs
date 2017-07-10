@@ -374,6 +374,15 @@ namespace WebapiApplication.ML
 
         public int? region { get; set; }
     }
+
+   
+
+
+
+
+
+
+
 }
 
 

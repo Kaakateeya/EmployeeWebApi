@@ -735,6 +735,7 @@ namespace WebapiApplication.ML
         public string ProfilePic { get; set; }
         public int? GenderID { get; set; }
         public long? ProfileOwner { get; set; }
+        public int? PaidStatus { get; set; }
     }
 
     public class ViewAllCustomersSearch
@@ -896,7 +897,7 @@ namespace WebapiApplication.ML
         public string ProfileOwner { get; set; }
         public string TaxPaid_Status { get; set; }
         public int? RenewalStatus { get; set; }
-
+        public int? PaymentHist_ID { get; set; }
     }
 
     public class UpdatePersonaldetails
