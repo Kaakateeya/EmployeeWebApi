@@ -297,10 +297,10 @@
             $("#btngetdata").click(function () {
                 alert(1);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/MyprofileAllslides',
-                    type: 'post',
+                    url: 'http://localhost:63006/Api/Payment/getProfilePaymentDetailsGridview',
+                    type: 'get',
                     crossDomain: true,
-                    data: JSON.stringify(jsonbObj),
+                    data: { intProfileID: '010880808' },
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));

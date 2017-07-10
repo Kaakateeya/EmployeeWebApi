@@ -1149,6 +1149,10 @@ namespace WebapiApplication.ML
         public DateTime? MaxDob { get; set; }
 
         public DateTime? MinDob { get; set; }
+
+        public string Gotram { get; set; }
+
+        public string Surname { get; set; }
     }
 
     public class slideshowNew

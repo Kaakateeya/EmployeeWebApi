@@ -633,6 +633,9 @@ namespace WebapiApplication.DAL
                         sh.MaxDob = (reader["MaxDob"]) != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("MaxDob")) : dnull;
                         sh.MinDob = (reader["MinDob"]) != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("MinDob")) : dnull;
 
+                        sh.Gotram = reader["Gotram"] != DBNull.Value ? reader["Gotram"].ToString() : "";
+                        sh.Surname = reader["Surname"] != DBNull.Value ? reader["Surname"].ToString() : "";
+
                     }
                 }
 
