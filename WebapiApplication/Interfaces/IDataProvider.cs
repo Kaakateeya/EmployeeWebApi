@@ -216,6 +216,7 @@ namespace WebapiApplication.Interfaces
         ArrayList DGetloginCustinformation(string Username, string Password, int? iflag);
         int CheckUserPwd(string Username, string Password);
         ArrayList EmployeeRegisterCustomerHomepages(PrimaryInformationMl CustomerHome);
+        int UpdateEmplogintoCustomersite(int empid, string ProfileID, string Narration);
     }
 
     public interface IExpressInterest

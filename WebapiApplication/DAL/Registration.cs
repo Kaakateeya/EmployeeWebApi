@@ -466,9 +466,6 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -476,6 +473,49 @@ namespace WebapiApplication.DAL
             return intstatus;
         }
 
+
+        public int UpdateEmplogintoCustomersiteDal(int empid, string ProfileID, string Narration,string spname)
+        {
+            ArrayList arrayList = new ArrayList();
+            SqlParameter[] parm = new SqlParameter[4];
+            SqlDataReader reader = null;
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@EmpID", SqlDbType.Int);
+                parm[0].Value = empid;
+                parm[1] = new SqlParameter("@ProfileID", SqlDbType.VarChar);
+                parm[1].Value = ProfileID;
+                parm[2] = new SqlParameter("@Narration", SqlDbType.VarChar);
+                parm[2].Value = Narration;
+                parm[3] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[3].Direction = ParameterDirection.Output;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+                reader.Close();
+                if (string.Compare(parm[3].Value.ToString(), System.DBNull.Value.ToString()) != 0)
+                {
+                    intStatus = Convert.ToInt32(parm[3].Value);
+                }
+                else
+                {
+                    intStatus = 0;
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), Convert.ToInt64(ProfileID), null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return intStatus;
+        }
     }
 }
 

@@ -32,5 +32,6 @@ namespace WebapiApplication.Api
         public ArrayList getloginCustinformation(string Username, string Password, int? iflag) { return this.IRegistration.DGetloginCustinformation(Username, Password, iflag); }
         public int getCheckUserPwd(string Username, string Password) { return this.IRegistration.CheckUserPwd(Username, Password); }
 
+        public int UpdateEmplogintoCustomersite(int empid, string ProfileID, string Narration) { return this.IRegistration.UpdateEmplogintoCustomersite(empid,ProfileID,Narration); }
     }
 }
