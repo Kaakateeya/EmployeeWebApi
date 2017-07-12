@@ -284,6 +284,7 @@
     <Compile Include="Implement\implementationclass.cs" />
     <Compile Include="Implement\ImpRegistration.cs" />
     <Compile Include="Implement\ImpStaticPages.cs" />
+    <Compile Include="Implement\Servicedate.cs" />
     <Compile Include="Interfaces\IDataProvider.cs" />
     <Compile Include="ML\customerPersonaldetailsML.cs" />
     <Compile Include="ML\CustomerSearchML.cs" />
