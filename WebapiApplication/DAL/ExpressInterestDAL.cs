@@ -120,7 +120,7 @@ namespace WebapiApplication.DAL
                 }
 
                 Commonclass.ExpressInterestSMS(ExpML.dtExpInt, " ");
-                
+
                 reader.Close();
             }
             catch (Exception ex)
@@ -163,12 +163,13 @@ namespace WebapiApplication.DAL
         }
 
 
-        public int getServiceInfoDal(string FromProfileID, string ToProfileID, string spName)
+        public Servicedates getServiceInfoDal(string FromProfileID, string ToProfileID, string spName)
         {
-
             DataSet ds = new DataSet();
+            SqlDataReader reader;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
+            Servicedates servicedate = new Servicedates();
             connection.Open();
             int status = 0;
             try
@@ -181,15 +182,14 @@ namespace WebapiApplication.DAL
                 parm[2] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[2].Direction = ParameterDirection.Output;
 
-                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
-
-                if (string.Compare(System.DBNull.Value.ToString(), parm[2].Value.ToString()).Equals(0))
+                reader = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
+                if (reader.HasRows)
                 {
-                    status = 0;
-                }
-                else
-                {
-                    status = Convert.ToInt32(parm[2].Value);
+                    while (reader.Read())
+                    {
+                        servicedate.Servicedate = (reader["ServiceDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ServiceDate")) : string.Empty;
+                        servicedate.Status = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : status;
+                    }
                 }
             }
             catch (Exception ex)
@@ -203,7 +203,7 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearAllPools();
             }
 
-            return status;
+            return servicedate;
         }
     }
 }

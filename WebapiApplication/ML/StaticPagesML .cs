@@ -27,7 +27,7 @@ namespace WebapiApplication.ML
         public string MarriageDate { set; get; }
         public string PhotoPath { set; get; }
     }
-   
+
     public class PhotoPathDisplay
     {
         public string ThumbNailPath { set; get; }
@@ -237,7 +237,7 @@ namespace WebapiApplication.ML
 
     }
 
-   
+
 
     public class TicketDetails
     {
@@ -504,6 +504,11 @@ namespace WebapiApplication.ML
         public string strFromProfileID { get; set; }
         public string strToProfileID { get; set; }
     }
+    public class Servicedates
+    {
+        public string Servicedate { get; set; }
+        public int Status { get; set; }
+    }
 
-  
+
 }

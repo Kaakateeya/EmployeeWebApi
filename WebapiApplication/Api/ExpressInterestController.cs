@@ -50,6 +50,6 @@ namespace WebapiApplication.Api
 
         }
         public ArrayList getExpressInterest_SendSms(string FromProfileID, string ToProfileIDs) { return this.IExpressInterest.ExpressInterest_SendSms(FromProfileID, ToProfileIDs); }
-        public int getServiceInfo(string FromProfileID, string ToProfileID) { return this.IExpressInterest.getServiceInfo(FromProfileID, ToProfileID); }
+        public Servicedates getServiceInfo(string FromProfileID, string ToProfileID) { return this.IExpressInterest.getServiceInfo(FromProfileID, ToProfileID); }
     }
 }

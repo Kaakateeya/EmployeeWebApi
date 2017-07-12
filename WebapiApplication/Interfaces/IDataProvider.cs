@@ -225,7 +225,7 @@ namespace WebapiApplication.Interfaces
         Tuple<List<Smtpemailsending>, int?> ExpressInterest(ExpressInterestInsert EXI);
         ArrayList ExpressInterest_SendSms(string FromProfileID, string ToProfileIDs);
 
-        int getServiceInfo(string FromProfileID, string ToProfileID);
+        Servicedates getServiceInfo(string FromProfileID, string ToProfileID);
     }
     public interface IEmployeeReportPage
     {
