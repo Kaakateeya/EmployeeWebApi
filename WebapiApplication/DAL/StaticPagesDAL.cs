@@ -310,7 +310,6 @@ namespace WebapiApplication.DAL
                        };
                     }
                 }
-
             }
             catch (Exception EX)
             {
