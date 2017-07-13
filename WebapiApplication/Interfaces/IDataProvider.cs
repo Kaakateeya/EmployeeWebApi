@@ -289,6 +289,8 @@ namespace WebapiApplication.Interfaces
         int? assignprofiles(assignprofiles employeesearch);
 
         int? ReviewpendingReassign(Reviewpending mobj);
+
+        ArrayList getDuplicateProfiles(string profileID);
     }
 
 }

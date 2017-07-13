@@ -143,6 +143,7 @@ namespace WebapiApplication.Api
 
         public int? ReviewpendingReassign(Reviewpending mobj) { return this.IEmployeeReport.ReviewpendingReassign(mobj); }
 
+        public ArrayList getDuplicateProfiles(string profileID) { return this.IEmployeeReport.getDuplicateProfiles(profileID); }
     }
 }
 
