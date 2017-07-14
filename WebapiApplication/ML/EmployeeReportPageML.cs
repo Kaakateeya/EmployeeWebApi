@@ -384,6 +384,7 @@ namespace WebapiApplication.ML
         public string ProfileID { get; set; }
 
         public string MobileNumber { get; set; }
+        public string Email { get; set; }
     }
 
 

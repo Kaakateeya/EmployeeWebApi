@@ -3102,6 +3102,7 @@ namespace WebapiApplication.DAL
                 cmd.Parameters.AddWithValue("@EmpID", Mobj.EmpID);
                 cmd.Parameters.AddWithValue("@ProfileID", Mobj.ProfileID);
                 cmd.Parameters.AddWithValue("@MobileNumber", Mobj.MobileNumber);
+                cmd.Parameters.AddWithValue("@Email", Mobj.Email);
                 SqlParameter outputParamStatus = cmd.Parameters.Add("@Status", SqlDbType.Int);
                 outputParamStatus.Direction = ParameterDirection.Output;
                 dareview.SelectCommand = cmd;
