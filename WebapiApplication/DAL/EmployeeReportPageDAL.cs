@@ -11,7 +11,7 @@ using KaakateeyaDAL;
 
 namespace WebapiApplication.DAL
 {
-    public class EmployeeReportPageDAL 
+    public class EmployeeReportPageDAL
     {
         public int SaveViewedBookmark_Customer(CustSearchMl Mobj, string spName)
         {
@@ -690,11 +690,11 @@ namespace WebapiApplication.DAL
                             Binterest.TONEW = (reader["TONEW"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TONEW")) : intnull;
                             //Binterest.FromofflineDetails = (reader["FromofflineDetails"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromofflineDetails")) : empty;
                             //Binterest.FromonlineDetails = (reader["FromonlineDetails"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromonlineDetails")) : empty;
-                           // Binterest.TofflineDetails = (reader["TofflineDetails"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TofflineDetails")) : empty;
+                            // Binterest.TofflineDetails = (reader["TofflineDetails"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TofflineDetails")) : empty;
                             //Binterest.ToonlineDetails = (reader["ToonlineDetails"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToonlineDetails")) : empty;
-                           // Binterest.FromOfflineExpiryDate = (reader["FromOfflineExpiryDate"]) != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("FromOfflineExpiryDate")).ToString() : empty;
-                           // Binterest.FromOnlineMembershipExpiryDate = (reader["FromOnlineMembershipExpiryDate"]) != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("FromOnlineMembershipExpiryDate")).ToString() : empty;
-                           // Binterest.ToOfflineExpiryDate = (reader["ToOfflineExpiryDate"]) != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("ToOfflineExpiryDate")).ToString() : empty;
+                            // Binterest.FromOfflineExpiryDate = (reader["FromOfflineExpiryDate"]) != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("FromOfflineExpiryDate")).ToString() : empty;
+                            // Binterest.FromOnlineMembershipExpiryDate = (reader["FromOnlineMembershipExpiryDate"]) != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("FromOnlineMembershipExpiryDate")).ToString() : empty;
+                            // Binterest.ToOfflineExpiryDate = (reader["ToOfflineExpiryDate"]) != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("ToOfflineExpiryDate")).ToString() : empty;
                             //Binterest.ToonlineExpiryDate = (reader["ToonlineExpiryDate"]) != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("ToonlineExpiryDate")).ToString() : empty;
                             Binterest.FromApplicationPhoto = (reader["FromApplicationPhoto"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromApplicationPhoto")).ToString() : null;
                             Binterest.ToApplicationPhoto = (reader["ToApplicationPhoto"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToApplicationPhoto")).ToString() : null;
@@ -2960,7 +2960,7 @@ namespace WebapiApplication.DAL
                 cmd.Parameters.AddWithValue("@i_region", Mobj.region);
                 cmd.Parameters.AddWithValue("@i_PageFrom", Mobj.PageFrom);
                 cmd.Parameters.AddWithValue("@i_PageTo", Mobj.PageTo);
-              
+
 
                 dareview.SelectCommand = cmd;
                 dareview.Fill(dtreviewsettings);
@@ -3084,7 +3084,41 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
             }
-            return Commonclass.convertdataTableToArrayListTable(ds); 
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public ArrayList Guestticketcreation(guestticketcreation Mobj, string sp)
+        {
+            ArrayList arrayList = new ArrayList();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet guestticket = new DataSet();
+            SqlDataAdapter dareview = new SqlDataAdapter();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sp, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@EmpID", Mobj.EmpID);
+                cmd.Parameters.AddWithValue("@ProfileID", Mobj.ProfileID);
+                cmd.Parameters.AddWithValue("@MobileNumber", Mobj.MobileNumber);
+                SqlParameter outputParamStatus = cmd.Parameters.Add("@Status", SqlDbType.Int);
+                outputParamStatus.Direction = ParameterDirection.Output;
+                dareview.SelectCommand = cmd;
+                dareview.Fill(guestticket);
+            }
+            catch (Exception Ex)
+            {
+                Commonclass.ApplicationErrorLog(sp, Convert.ToString(Ex.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return Commonclass.convertdataTableToArrayListTable(guestticket);
         }
     }
 }

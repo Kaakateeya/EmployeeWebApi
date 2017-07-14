@@ -375,8 +375,16 @@ namespace WebapiApplication.ML
         public int? region { get; set; }
     }
 
-   
 
+    public class guestticketcreation
+    {
+        
+        public int? EmpID { get; set; }
+
+        public string ProfileID { get; set; }
+
+        public string MobileNumber { get; set; }
+    }
 
 
 

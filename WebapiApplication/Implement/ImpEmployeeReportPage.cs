@@ -115,6 +115,8 @@ namespace WebapiApplication.Implement
 
         public ArrayList getDuplicateProfiles(string profileID) { return new EmployeeReportPageDAL().getDuplicateProfilesDal(profileID, "[dbo].[Usp_AssignProfile_Similar_Count]"); }
 
+        public ArrayList Guestticketcreation(guestticketcreation Mobj) { return new EmployeeReportPageDAL().Guestticketcreation(Mobj, "[dbo].[usp_GuestTicketProfileValidation]"); }
+
     }
 
 
