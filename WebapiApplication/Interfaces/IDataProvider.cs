@@ -291,6 +291,8 @@ namespace WebapiApplication.Interfaces
         int? ReviewpendingReassign(Reviewpending mobj);
 
         ArrayList getDuplicateProfiles(string profileID);
+
+        ArrayList getmmSeriesData(string profileID, int empid);
     }
 
 }
