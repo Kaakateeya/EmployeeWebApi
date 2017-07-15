@@ -147,6 +147,9 @@ namespace WebapiApplication.Api
 
         public ArrayList Guestticketcreation([FromBody]guestticketcreation Mobj) { return this.IEmployeeReport.Guestticketcreation(Mobj); }
 
+
+        public int getChangeEmployeePassword(int? EmpID, string EmpoldPassword, string EmpNewPassword) { return this.IEmployeeReport.ChangeEmployeePassword(EmpID, EmpoldPassword, EmpNewPassword); }
+
     }
 }
 

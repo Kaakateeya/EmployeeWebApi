@@ -117,6 +117,8 @@ namespace WebapiApplication.Implement
 
         public ArrayList Guestticketcreation(guestticketcreation Mobj) { return new EmployeeReportPageDAL().Guestticketcreation(Mobj, "[dbo].[usp_GuestTicketProfileValidation]"); }
 
+        public int ChangeEmployeePassword(int? EmpID, string EmpoldPassword, string EmpNewPassword) { return new EmployeeReportPageDAL().ChangeEmployeePassword(EmpID, Commonclass.Encrypt(EmpoldPassword), Commonclass.Encrypt(EmpNewPassword), "[dbo].[usp_EmployeePasswordChange]"); }
+
     }
 
 
