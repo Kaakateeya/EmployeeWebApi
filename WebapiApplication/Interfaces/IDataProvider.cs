@@ -296,6 +296,8 @@ namespace WebapiApplication.Interfaces
         ArrayList Guestticketcreation(guestticketcreation Mobj);
 
         int ChangeEmployeePassword(int? EmpID, string EmpoldPassword, string EmpNewPassword);
+
+        int CheckemployeePassord(int? EmpID, string Emppassword);
     }
 
 }

@@ -151,6 +151,8 @@ namespace WebapiApplication.Api
 
         public int getChangeEmployeePassword(int? EmpID, string EmpoldPassword, string EmpNewPassword) { return this.IEmployeeReport.ChangeEmployeePassword(EmpID, EmpoldPassword, EmpNewPassword); }
 
+        public int getCheckemployeePassord(int? EmpID, string Emppassword) { return this.IEmployeeReport.CheckemployeePassord(EmpID, Emppassword); }
+
     }
 }
 

@@ -120,6 +120,8 @@ namespace WebapiApplication.Implement
 
         public int ChangeEmployeePassword(int? EmpID, string EmpoldPassword, string EmpNewPassword) { return new EmployeeReportPageDAL().ChangeEmployeePassword(EmpID, Commonclass.Encrypt(EmpoldPassword), Commonclass.Encrypt(EmpNewPassword), "[dbo].[usp_EmployeePasswordChange]"); }
 
+
+        public int CheckemployeePassord(int? EmpID, string Emppassword) { return new EmployeeReportPageDAL().CheckemployeePassord(EmpID, Commonclass.Encrypt(Emppassword), "[dbo].[usp_checkEmpPassword]"); }
     }
 
 

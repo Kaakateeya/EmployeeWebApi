@@ -3199,5 +3199,46 @@ namespace WebapiApplication.DAL
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
 
+
+        public int CheckemployeePassord(int? EmpID, string Emppassword, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[10];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@EmpID", SqlDbType.Int);
+                parm[0].Value = EmpID;
+                parm[1] = new SqlParameter("@Password", SqlDbType.VarChar);
+                parm[1].Value = Emppassword;
+                parm[2] = new SqlParameter("@status", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[2].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[2].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
+
+            }
+            return intStatus;
+        }
     }
 }
