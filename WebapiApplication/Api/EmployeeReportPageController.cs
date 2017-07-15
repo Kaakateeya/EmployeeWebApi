@@ -145,6 +145,7 @@ namespace WebapiApplication.Api
 
         public ArrayList getDuplicateProfiles(string profileID) { return this.IEmployeeReport.getDuplicateProfiles(profileID); }
 
+        public ArrayList getmmSeriesData(string profileID, int empid) { return this.IEmployeeReport.getmmSeriesData(profileID,empid); }
         public ArrayList Guestticketcreation([FromBody]guestticketcreation Mobj) { return this.IEmployeeReport.Guestticketcreation(Mobj); }
 
 

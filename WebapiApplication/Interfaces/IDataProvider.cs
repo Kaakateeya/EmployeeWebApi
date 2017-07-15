@@ -292,6 +292,7 @@ namespace WebapiApplication.Interfaces
 
         ArrayList getDuplicateProfiles(string profileID);
 
+        ArrayList getmmSeriesData(string profileID, int empid);
         ArrayList Guestticketcreation(guestticketcreation Mobj);
 
         int ChangeEmployeePassword(int? EmpID, string EmpoldPassword, string EmpNewPassword);
