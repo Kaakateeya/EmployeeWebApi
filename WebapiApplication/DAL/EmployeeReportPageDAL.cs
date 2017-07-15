@@ -3132,11 +3132,11 @@ namespace WebapiApplication.DAL
             connection.Open();
             try
             {
-                parm[0] = new SqlParameter("@EmpID", SqlDbType.BigInt);
+                parm[0] = new SqlParameter("@EmpID", SqlDbType.Int);
                 parm[0].Value = EmpID;
                 parm[1] = new SqlParameter("@EmpoldPassword", SqlDbType.VarChar);
                 parm[1].Value = EmpoldPassword;
-                parm[2] = new SqlParameter("@EmpNewPassword", SqlDbType.BigInt);
+                parm[2] = new SqlParameter("@EmpNewPassword", SqlDbType.VarChar);
                 parm[2].Value = EmpNewPassword;
                 parm[3] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[3].Direction = ParameterDirection.Output;
