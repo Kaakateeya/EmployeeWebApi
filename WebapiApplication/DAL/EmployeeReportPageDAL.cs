@@ -3122,7 +3122,7 @@ namespace WebapiApplication.DAL
             return Commonclass.convertdataTableToArrayListTable(guestticket);
         }
 
-<<<<<<< HEAD
+
         public int ChangeEmployeePassword(int? EmpID, string EmpoldPassword, string EmpNewPassword, string spname)
         {
             SqlParameter[] parm = new SqlParameter[10];
@@ -3150,8 +3150,23 @@ namespace WebapiApplication.DAL
                 {
                     intStatus = Convert.ToInt32(parm[3].Value);
                 }
-=======
-        internal ArrayList getmmSeriesDataDal(string profileID, int empid, string spname)
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
+
+            }
+            return intStatus;
+        }
+
+        public ArrayList getmmSeriesDataDal(string profileID, int empid, string spname)
         {
             SqlParameter[] parm = new SqlParameter[2];
             SqlConnection connection = new SqlConnection();
@@ -3165,7 +3180,7 @@ namespace WebapiApplication.DAL
                 parm[1] = new SqlParameter("@intEmpId", SqlDbType.Int);
                 parm[1].Value = empid;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
->>>>>>> 307ac7050ae47a201992d7179805ecadd580d75a
+
             }
             catch (Exception EX)
             {
@@ -3176,17 +3191,13 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
-<<<<<<< HEAD
+
 
             }
-            return intStatus;
-        }
 
 
-=======
-            }
-            return Commonclass.convertdataTableToArrayListTable(ds); 
+            return Commonclass.convertdataTableToArrayListTable(ds);
         }
->>>>>>> 307ac7050ae47a201992d7179805ecadd580d75a
+
     }
 }
