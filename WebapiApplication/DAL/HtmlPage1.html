@@ -247,7 +247,7 @@
             var daattt = { "strMFFNativePlace": "", "strFatherName": "", "strMotherName": "", "strFFName": "", "strMFName": "", "strMFSurName": "", "strCustSurName": "yalamanchi", "strCustName": "", "strCaste": "", "strAllPhones": "", "strAllEmailIds": "", "intAppicationStatusID": "", "intGenderID": "", "intEmpID": "2", "i_Startindex": 1, "i_EndIndex": 100 };
 
 
-          
+
             //var inputobj2 = {
             //    "GetDetails": { "BornOrder": 2, "SisElderYounger": "321", "SisName": "second", "siseducationdetails": null, "SisProfessionCategoryID": 567, "sisprofessiondetails": null, "undefined": "1", "SisCompanyName": null, "SisJobLocation": null, "SisMobileCountryCodeID": null, "SisMobileNumber": null, "SisLandCountryCodeID": null, "SisLandAreaCode": null, "SisLandNumber": null, "SisEmail": "kusumavishwaneni@gmail.com", "SIsMarried": 1, "SisHusbandName": "ramya ", "sisspouseeducationdetails": null, "SisSpouseProfessionCategoryID": 569, "sisspouseprofessiondetails": null, "SisHusCompanyName": null, "SisHusJobLocation": null, "SisHusbandMobileCountryCodeID": null, "SisHusbandMobileNumber": "8978987875", "SisHusbandLandCountryCodeID": null, "SisHusbandLandAreacode": null, "SisHusbandLandNumber": null, "SisSpouseEmail": null, "SisHusbandFatherSurName": null, "SisHusbandFatherName": null, "SisSpouseFatherMobileCountryID": 11, "SisSpouseFatherMobileNo": 4545454545, "SisSpouseFatherLandCountryID": 11, "SisSpouseFatherLandAreaCode": 5656, "SisSpouseFatherLandNo": 67676767, "SisSpouseFatherEmailID": "sssssssss@gmail.com", "SibilingSpouseFatherCasteID": 402, "SisSpouseFatherCountryID": 1, "SisSpouseFatherStateID": 1, "SisSpouseFatherDitrictID": 3, "SisSpouseFatherNativePlace": "bbbbb", "CustID": "91022", "SisSibilingCustfamilyID": null }, "customerpersonaldetails": { "intCusID": "91022", "EmpID": "2", "Admin": "1" }
             //}
@@ -269,7 +269,7 @@
             //    });
             //});
             var inputobj2 = {
-               EmpID: 2, ProfileID: "210910352", MobileNumber: "" 
+                EmpID: 2, ProfileID: "210910352", MobileNumber: ""
             }
             //$("#80000").click(function () {
             //    alert(1);
@@ -294,7 +294,7 @@
                     url: 'http://localhost:63006/Api/EmployeeReportPage/getChangeEmployeePassword',
                     type: 'GET',
                     crossDomain: true,
-                    data: {EmpID:2,EmpoldPassword:'Plum@840',EmpNewPassword:'Admin'},
+                    data: { EmpID: 2, EmpoldPassword: 'Plum@840', EmpNewPassword: 'Admin' },
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));
@@ -327,16 +327,21 @@
             //});
 
 
-            var jsonbObj = { "Empid": "2", "GenderID": "", "TypeofprofileID": "", "ApplicationstatusID": "54", "MarketingownerID": null, "BranchID": null, "CasteID": "402", "OwneroftheprofileID": "2", "HavingprofilesID": null, "Assigneddatefromdate": "", "Assigneddatetodate": "", "DORFromdate": "", "DORTodate": "", "LogoutId": "", "verfiedcontacts": "", "WebsiteBlocked": "", "pagefrom": 1, "pageto": 100, "intTableType": 1, "v_MaritalStatus": null, "i_Domacile": null };
+            var jsonbObj ={
+                Religion: '',
+                BranchID: '',
+                Ipaddress: '',
+                flag: ''
+            };
 
 
             $("#btngetdata").click(function () {
                 alert(1);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/getDuplicateProfiles',
-                    type: 'get',
+                    url: 'http://localhost:63006/Api/smallPages/MacIpValues',
+                    type: 'post',
                     crossDomain: true,
-                    data: { profileID:'310910220'},
+                    data: JSON.stringify(jsonbObj),
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));

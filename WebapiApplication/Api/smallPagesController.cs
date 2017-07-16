@@ -48,7 +48,7 @@ namespace WebapiApplication.Api
             Iobj = new ImpSmallPages();
         }
 
-        public ArrayList getMacIpValues(macIPInput mobj)
+        public ArrayList MacIpValues(macIPInput mobj)
         {
             return Iobj.getMacIpValues(mobj);
         }

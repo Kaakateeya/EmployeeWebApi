@@ -26,11 +26,11 @@ namespace WebapiApplication.DAL
                 parm[1] = new SqlParameter("@BranchID", SqlDbType.Int);
                 parm[1].Value = mobj.BranchID;
                 parm[2] = new SqlParameter("@Ipaddress", SqlDbType.VarChar);
-                parm[3].Value = mobj.Ipaddress;
-                parm[4] = new SqlParameter("@flag", SqlDbType.Int);
-                parm[4].Value = mobj.flag;
-                parm[5] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[5].Direction=ParameterDirection.Output;
+                parm[2].Value = mobj.Ipaddress;
+                parm[3] = new SqlParameter("@flag", SqlDbType.Int);
+                parm[3].Value = mobj.flag;
+                parm[4] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[4].Direction=ParameterDirection.Output;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
             }
             catch (Exception EX)
