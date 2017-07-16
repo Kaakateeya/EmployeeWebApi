@@ -148,6 +148,14 @@ namespace WebapiApplication.Api
         public ArrayList getmmSeriesData(string profileID, int empid) { return this.IEmployeeReport.getmmSeriesData(profileID,empid); }
         public ArrayList Guestticketcreation([FromBody]guestticketcreation Mobj) { return this.IEmployeeReport.Guestticketcreation(Mobj); }
 
+
+        public int getChangeEmployeePassword(int? EmpID, string EmpoldPassword, string EmpNewPassword) { return this.IEmployeeReport.ChangeEmployeePassword(EmpID, EmpoldPassword, EmpNewPassword); }
+
+        public int getCheckemployeePassord(int? EmpID, string Emppassword) { return this.IEmployeeReport.CheckemployeePassord(EmpID, Emppassword); }
+
+        public int getprofileidexistornot(string profileid) { return this.IEmployeeReport.profileidexistornot(profileid); }
+
+
     }
 }
 

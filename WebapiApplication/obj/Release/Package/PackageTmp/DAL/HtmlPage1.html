@@ -271,13 +271,30 @@
             var inputobj2 = {
                EmpID: 2, ProfileID: "210910352", MobileNumber: "" 
             }
+            //$("#80000").click(function () {
+            //    alert(1);
+            //    $.ajax({
+            //        url: 'http://localhost:63006/Api/EmployeeReportPage/Guestticketcreation',
+            //        type: 'POST',
+            //        crossDomain: true,
+            //        data: JSON.stringify(inputobj2),
+            //        contentType: 'application/json',
+            //        success: function (data, textStatus, xhr) {
+            //            alert(JSON.stringify(data));
+            //            console.log(data);
+            //        },
+            //        error: function (xhr, textStatus, errorThrown) {
+            //            console.log(xhr);
+            //        }
+            //    });
+            //});
             $("#80000").click(function () {
                 alert(1);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/Guestticketcreation',
-                    type: 'POST',
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/getChangeEmployeePassword',
+                    type: 'GET',
                     crossDomain: true,
-                    data: JSON.stringify(inputobj2),
+                    data: {EmpID:2,EmpoldPassword:'Plum@840',EmpNewPassword:'Admin'},
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));

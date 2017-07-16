@@ -294,6 +294,12 @@ namespace WebapiApplication.Interfaces
 
         ArrayList getmmSeriesData(string profileID, int empid);
         ArrayList Guestticketcreation(guestticketcreation Mobj);
+
+        int ChangeEmployeePassword(int? EmpID, string EmpoldPassword, string EmpNewPassword);
+
+        int CheckemployeePassord(int? EmpID, string Emppassword);
+
+        int profileidexistornot(string profileid);
     }
 
     public interface ISmallPages
