@@ -300,6 +300,8 @@ namespace WebapiApplication.Interfaces
         int CheckemployeePassord(int? EmpID, string Emppassword);
 
         int profileidexistornot(string profileid);
+
+        ArrayList presentunpaidmember(int? EmpID);
     }
 
     public interface ISmallPages

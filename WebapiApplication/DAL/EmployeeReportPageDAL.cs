@@ -3279,5 +3279,39 @@ namespace WebapiApplication.DAL
             }
             return intStatus;
         }
+
+        public ArrayList presentunpaidmember(int? empid, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[2];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@EmpID", SqlDbType.Int);
+                parm[0].Value = empid;
+                parm[1] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[1].Direction = ParameterDirection.Output;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
+
+            }
+
+
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
     }
 }
