@@ -126,6 +126,8 @@ namespace WebapiApplication.Implement
         public int profileidexistornot(string profileid) { return new EmployeeReportPageDAL().profileidexistornot(profileid, "[dbo].[usp_checkprofileidnotexist]"); }
 
         public ArrayList presentunpaidmember(int? EmpID) { return new EmployeeReportPageDAL().presentunpaidmember(EmpID, "[dbo].[usp_emp_LoginLogoutUnpaidMembers]"); }
+
+        public int UpadteMacAddess(string strProfileID, int? BranchID) { return new EmployeeReportPageDAL().UpadteMacAddess(strProfileID, BranchID, "[dbo].[usp_Macipaddressupdate]"); }
    
     }
 
