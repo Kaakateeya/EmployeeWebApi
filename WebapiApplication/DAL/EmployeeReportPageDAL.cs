@@ -792,30 +792,30 @@ namespace WebapiApplication.DAL
                 parm[15] = new SqlParameter("@i_GuestTickets", SqlDbType.Int);
                 parm[15].Value = Mobj.v_guestticketflag;
 
-                parm[16] = new SqlParameter("@i_Onlineexpiry", SqlDbType.Int);
+                parm[16] = new SqlParameter("@i_Onlineeexpiry", SqlDbType.Int);
                 parm[16].Value = Mobj.v_OnlineExprd;
-                parm[17] = new SqlParameter("@i_Ooflineexpiry", SqlDbType.Int);
-                parm[17].Value = Mobj.v_OfflineExprd;
+                //parm[17] = new SqlParameter("@i_Ooflineexpiry", SqlDbType.Int);
+                //parm[17].Value = Mobj.v_OfflineExprd;
 
-                parm[18] = new SqlParameter("@i_TicketId", SqlDbType.VarChar);
-                parm[18].Value = Mobj.i_TicketId;
+                parm[17] = new SqlParameter("@i_TicketId", SqlDbType.VarChar);
+                parm[17].Value = Mobj.i_TicketId;
 
-                parm[19] = new SqlParameter("@i_EmailId", SqlDbType.VarChar);
-                parm[19].Value = Mobj.i_EmailId;
-                parm[20] = new SqlParameter("@i_PhoneNumber", SqlDbType.VarChar);
-                parm[20].Value = Mobj.i_PhoneNumber;
+                parm[18] = new SqlParameter("@i_EmailId", SqlDbType.VarChar);
+                parm[18].Value = Mobj.i_EmailId;
+                parm[19] = new SqlParameter("@i_PhoneNumber", SqlDbType.VarChar);
+                parm[19].Value = Mobj.i_PhoneNumber;
 
-                parm[21] = new SqlParameter("@i_ProfileId", SqlDbType.VarChar);
-                parm[21].Value = Mobj.i_ProfileId;
+                parm[20] = new SqlParameter("@i_ProfileId", SqlDbType.VarChar);
+                parm[20].Value = Mobj.i_ProfileId;
 
-                parm[22] = new SqlParameter("@dt_FromReminderDate", SqlDbType.DateTime);
-                parm[22].Value = Mobj.dt_FromRemainderdate;
+                parm[21] = new SqlParameter("@dt_FromReminderDate", SqlDbType.DateTime);
+                parm[21].Value = Mobj.dt_FromRemainderdate;
 
-                parm[23] = new SqlParameter("@dt_ToReminderDate", SqlDbType.DateTime);
-                parm[23].Value = Mobj.dt_ToReminderdate;
+                parm[22] = new SqlParameter("@dt_ToReminderDate", SqlDbType.DateTime);
+                parm[22].Value = Mobj.dt_ToReminderdate;
 
-                parm[24] = new SqlParameter("@V_Notpay", SqlDbType.VarChar);
-                parm[24].Value = Mobj.V_Notpay;
+                parm[23] = new SqlParameter("@V_Notpay", SqlDbType.VarChar);
+                parm[23].Value = Mobj.V_Notpay;
 
                 drReader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
 
@@ -3263,6 +3263,81 @@ namespace WebapiApplication.DAL
                 else
                 {
                     intStatus = Convert.ToInt32(parm[1].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
+
+            }
+            return intStatus;
+        }
+
+        public ArrayList presentunpaidmember(int? empid, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[2];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@EmpID", SqlDbType.Int);
+                parm[0].Value = empid;
+                parm[1] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[1].Direction = ParameterDirection.Output;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
+
+            }
+
+
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+
+        public int UpadteMacAddess(string strProfileID, int? BranchID, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[10];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@v_IpAddress", SqlDbType.VarChar);
+                parm[0].Value = strProfileID;
+                parm[1] = new SqlParameter("@i_BranchID", SqlDbType.Int);
+                parm[1].Value = BranchID;
+                parm[2] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[2].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[2].Value);
                 }
             }
             catch (Exception EX)

@@ -154,7 +154,9 @@ namespace WebapiApplication.Api
         public int getCheckemployeePassord(int? EmpID, string Emppassword) { return this.IEmployeeReport.CheckemployeePassord(EmpID, Emppassword); }
 
         public int getprofileidexistornot(string profileid) { return this.IEmployeeReport.profileidexistornot(profileid); }
+        public ArrayList getpresentunpaidmembers(int? EmpID) { return this.IEmployeeReport.presentunpaidmember(EmpID); }
 
+        public int getUpadteMacAddess(string strProfileID, int? BranchID) { return this.IEmployeeReport.UpadteMacAddess(strProfileID, BranchID); }
 
     }
 }
