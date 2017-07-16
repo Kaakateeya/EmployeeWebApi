@@ -153,6 +153,9 @@ namespace WebapiApplication.Api
 
         public int getCheckemployeePassord(int? EmpID, string Emppassword) { return this.IEmployeeReport.CheckemployeePassord(EmpID, Emppassword); }
 
+        public int getprofileidexistornot(string profileid) { return this.IEmployeeReport.profileidexistornot(profileid); }
+
+
     }
 }
 

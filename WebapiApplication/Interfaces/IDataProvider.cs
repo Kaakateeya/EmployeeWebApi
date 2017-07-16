@@ -298,6 +298,8 @@ namespace WebapiApplication.Interfaces
         int ChangeEmployeePassword(int? EmpID, string EmpoldPassword, string EmpNewPassword);
 
         int CheckemployeePassord(int? EmpID, string Emppassword);
+
+        int profileidexistornot(string profileid);
     }
 
 }

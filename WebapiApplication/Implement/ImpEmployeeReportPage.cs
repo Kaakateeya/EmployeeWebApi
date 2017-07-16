@@ -114,7 +114,7 @@ namespace WebapiApplication.Implement
         public int? ReviewpendingReassign(Reviewpending mobj) { return new EmployeeReportPageDAL().ReviewpendingReassign(mobj, "[dbo].[usp_ReviewpendingReassing_Profiles]"); }
 
         public ArrayList getDuplicateProfiles(string profileID) { return new EmployeeReportPageDAL().getDuplicateProfilesDal(profileID, "[dbo].[Usp_AssignProfile_Similar_Count]"); }
-        public ArrayList getmmSeriesData(string profileID, int empid) { return new EmployeeReportPageDAL().getmmSeriesDataDal(profileID,empid, "[dbo].[Usp_EditViewProfileMatchMeeting_Narration]"); }
+        public ArrayList getmmSeriesData(string profileID, int empid) { return new EmployeeReportPageDAL().getmmSeriesDataDal(profileID, empid, "[dbo].[Usp_EditViewProfileMatchMeeting_Narration]"); }
 
         public ArrayList Guestticketcreation(guestticketcreation Mobj) { return new EmployeeReportPageDAL().Guestticketcreation(Mobj, "[dbo].[usp_GuestTicketProfileValidation]"); }
 
@@ -122,8 +122,9 @@ namespace WebapiApplication.Implement
 
 
         public int CheckemployeePassord(int? EmpID, string Emppassword) { return new EmployeeReportPageDAL().CheckemployeePassord(EmpID, Commonclass.Encrypt(Emppassword), "[dbo].[usp_checkEmpPassword]"); }
+
+        public int profileidexistornot(string profileid) { return new EmployeeReportPageDAL().profileidexistornot(profileid, "[dbo].[usp_checkprofileidnotexist]"); }
+
     }
-
-
 
 }
