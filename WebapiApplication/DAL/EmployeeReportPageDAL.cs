@@ -792,30 +792,30 @@ namespace WebapiApplication.DAL
                 parm[15] = new SqlParameter("@i_GuestTickets", SqlDbType.Int);
                 parm[15].Value = Mobj.v_guestticketflag;
 
-                parm[16] = new SqlParameter("@i_Onlineexpiry", SqlDbType.Int);
+                parm[16] = new SqlParameter("@i_Onlineeexpiry", SqlDbType.Int);
                 parm[16].Value = Mobj.v_OnlineExprd;
-                parm[17] = new SqlParameter("@i_Ooflineexpiry", SqlDbType.Int);
-                parm[17].Value = Mobj.v_OfflineExprd;
+                //parm[17] = new SqlParameter("@i_Ooflineexpiry", SqlDbType.Int);
+                //parm[17].Value = Mobj.v_OfflineExprd;
 
-                parm[18] = new SqlParameter("@i_TicketId", SqlDbType.VarChar);
-                parm[18].Value = Mobj.i_TicketId;
+                parm[17] = new SqlParameter("@i_TicketId", SqlDbType.VarChar);
+                parm[17].Value = Mobj.i_TicketId;
 
-                parm[19] = new SqlParameter("@i_EmailId", SqlDbType.VarChar);
-                parm[19].Value = Mobj.i_EmailId;
-                parm[20] = new SqlParameter("@i_PhoneNumber", SqlDbType.VarChar);
-                parm[20].Value = Mobj.i_PhoneNumber;
+                parm[18] = new SqlParameter("@i_EmailId", SqlDbType.VarChar);
+                parm[18].Value = Mobj.i_EmailId;
+                parm[19] = new SqlParameter("@i_PhoneNumber", SqlDbType.VarChar);
+                parm[19].Value = Mobj.i_PhoneNumber;
 
-                parm[21] = new SqlParameter("@i_ProfileId", SqlDbType.VarChar);
-                parm[21].Value = Mobj.i_ProfileId;
+                parm[20] = new SqlParameter("@i_ProfileId", SqlDbType.VarChar);
+                parm[20].Value = Mobj.i_ProfileId;
 
-                parm[22] = new SqlParameter("@dt_FromReminderDate", SqlDbType.DateTime);
-                parm[22].Value = Mobj.dt_FromRemainderdate;
+                parm[21] = new SqlParameter("@dt_FromReminderDate", SqlDbType.DateTime);
+                parm[21].Value = Mobj.dt_FromRemainderdate;
 
-                parm[23] = new SqlParameter("@dt_ToReminderDate", SqlDbType.DateTime);
-                parm[23].Value = Mobj.dt_ToReminderdate;
+                parm[22] = new SqlParameter("@dt_ToReminderDate", SqlDbType.DateTime);
+                parm[22].Value = Mobj.dt_ToReminderdate;
 
-                parm[24] = new SqlParameter("@V_Notpay", SqlDbType.VarChar);
-                parm[24].Value = Mobj.V_Notpay;
+                parm[23] = new SqlParameter("@V_Notpay", SqlDbType.VarChar);
+                parm[23].Value = Mobj.V_Notpay;
 
                 drReader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
 
