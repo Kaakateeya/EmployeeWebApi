@@ -252,7 +252,7 @@
     <Compile Include="Api\ExpressInterestController.cs" />
     <Compile Include="Api\PaymentController.cs" />
     <Compile Include="Api\RegistrationController.cs" />
-    <Compile Include="Api\smallPages.cs" />
+    <Compile Include="Api\smallPagesController.cs" />
     <Compile Include="Api\StaticPagesController.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Customer_new\Employee_new\EmployeeViewFullProfile.aspx.cs">
@@ -269,6 +269,7 @@
     <Compile Include="DAL\ExpressInterestDAL.cs" />
     <Compile Include="DAL\PaymentDAL.cs" />
     <Compile Include="DAL\Registration.cs" />
+    <Compile Include="DAL\smallPageDal.cs" />
     <Compile Include="DAL\SQLHelper.cs" />
     <Compile Include="DAL\StaticPagesDAL.cs" />
     <Compile Include="DAL\UserLoginDAL.cs" />
@@ -283,6 +284,7 @@
     <Compile Include="Implement\Impdependency_injection.cs" />
     <Compile Include="Implement\implementationclass.cs" />
     <Compile Include="Implement\ImpRegistration.cs" />
+    <Compile Include="Implement\ImpSmallPages.cs" />
     <Compile Include="Implement\ImpStaticPages.cs" />
     <Compile Include="Implement\Servicedate.cs" />
     <Compile Include="Interfaces\IDataProvider.cs" />
@@ -296,6 +298,7 @@
     <Compile Include="ML\ML.cs" />
     <Compile Include="ML\PaymentML.cs" />
     <Compile Include="ML\RegistrationML.cs" />
+    <Compile Include="ML\smallPagesMl.cs" />
     <Compile Include="ML\StaticPagesML .cs" />
     <Compile Include="ML\userLoginML.cs" />
     <Compile Include="ML\VerifiedContactInformationML.cs" />

@@ -296,5 +296,12 @@ namespace WebapiApplication.Interfaces
         ArrayList Guestticketcreation(guestticketcreation Mobj);
     }
 
+    public interface ISmallPages
+    {
+        ArrayList getMacIpValues(macIPInput mobj);
+    }
+
+
+
 }
 

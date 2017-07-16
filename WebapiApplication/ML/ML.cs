@@ -19,7 +19,6 @@ namespace WebapiApplication.ML
         public DateTime ReleaseDate { set; get; }
     }
 
-
     public class ActivePatientReport
     {
         public int ID { set; get; }
