@@ -218,19 +218,58 @@
                 });
             });
 
+            //$("#test").click(function () {
+
+            //    alert(1);
+            //    var inputobj = {
+            //        CustID: 679,
+            //        MarketingOwner: "2",
+            //        ModifiedEMPID: 2,
+            //        ProfileID: "010006792",
+            //        ProfileOwner: "2",
+            //        ReviewOwner: "2"
+            //    }
+            //    $.ajax({
+            //        url: 'http://localhost:63006/Api/EmployeeReportPage/Assignprofiles',
+            //        type: 'POST',
+            //        crossDomain: true,
+            //        data: JSON.stringify(inputobj),
+            //        contentType: 'application/json',
+            //        success: function (data, textStatus, xhr) {
+            //            alert(JSON.stringify(data));
+            //            console.log(data);
+            //        },
+            //        error: function (xhr, textStatus, errorThrown) {
+            //            console.log(xhr);
+            //        }
+            //    });
+            //});
+
             $("#test").click(function () {
 
                 alert(1);
                 var inputobj = {
-                    CustID: 679,
-                    MarketingOwner: "2",
-                    ModifiedEMPID: 2,
-                    ProfileID: "010006792",
-                    ProfileOwner: "2",
-                    ReviewOwner: "2"
+                    Body
+   :
+   null,
+                    EmpID
+:
+null,
+                MessageStatusID
+:
+null,
+                MessagesID
+:
+null,
+                Subject
+:
+null,
+                i_Type
+:
+1
                 }
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/Assignprofiles',
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/customermeassgeverification',
                     type: 'POST',
                     crossDomain: true,
                     data: JSON.stringify(inputobj),

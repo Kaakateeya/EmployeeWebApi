@@ -1881,7 +1881,7 @@ namespace WebapiApplication.DAL
                 if (Mobj.isRvrflag == "RVR")
                 {
 
-                    if (reader.HasRows)
+                     if (reader.HasRows)
                     {
 
                         while (reader.Read())
