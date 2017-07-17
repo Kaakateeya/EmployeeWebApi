@@ -130,7 +130,8 @@ namespace WebapiApplication.Implement
         public int UpadteMacAddess(string strProfileID, int? BranchID) { return new EmployeeReportPageDAL().UpadteMacAddess(strProfileID, BranchID, "[dbo].[usp_Macipaddressupdate]"); }
 
         public ArrayList customermeassgeverification([FromBody]messagesverification Mobj) { return new EmployeeReportPageDAL().customermeassgeverification(Mobj, "[dbo].[usp_GetUnAcceptedMessages]"); }
-    
+
+        public int updatecustomermessages([FromBody]updatemessagesverification Mobj) { return new EmployeeReportPageDAL().updatecustomermessages(Mobj, "[dbo].[usp_CustMessageSend]"); }
     }
 
 }

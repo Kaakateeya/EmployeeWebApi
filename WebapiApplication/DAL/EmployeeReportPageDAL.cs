@@ -3403,5 +3403,61 @@ namespace WebapiApplication.DAL
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
+
+        public int updatecustomermessages(updatemessagesverification Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[12];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@i_FromCustID", SqlDbType.BigInt);
+                parm[0].Value = Mobj.FromCustID;
+                parm[1] = new SqlParameter("@i_ToCustId", SqlDbType.BigInt);
+                parm[1].Value = Mobj.ToCustID;
+                parm[2] = new SqlParameter("@vc_Message", SqlDbType.NVarChar);
+                parm[2].Value = Mobj.StrHtmlText;
+                parm[3] = new SqlParameter("@i_MessageStatusId", SqlDbType.Int);
+                parm[3].Value = Mobj.MessageStatusId;
+                parm[4] = new SqlParameter("@i_EmpId", SqlDbType.BigInt);
+                parm[4].Value = Mobj.EmpId;
+                parm[5] = new SqlParameter("@b_ReadFlag", SqlDbType.Int);
+                parm[5].Value = Mobj.ReadFlag;
+                parm[6] = new SqlParameter("@i_messageHistoryId", SqlDbType.BigInt);
+                parm[6].Value = Mobj.MessageHistoryId;
+                parm[7] = new SqlParameter("@b_Accepted", SqlDbType.Int);
+                parm[7].Value = Mobj.Accepted;
+                parm[8] = new SqlParameter("@i_MessageLinkId", SqlDbType.BigInt);
+                parm[8].Value = Mobj.MessageLinkId;
+                parm[9] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[9].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[9].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[9].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
+
+            }
+            return intStatus;
+        }
+
     }
 }

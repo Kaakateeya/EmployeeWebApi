@@ -306,6 +306,8 @@ namespace WebapiApplication.Interfaces
         int UpadteMacAddess(string strProfileID, int? BranchID);
 
         ArrayList customermeassgeverification(messagesverification Mobj);
+
+        int updatecustomermessages(updatemessagesverification Mobj);
     }
 
     public interface ISmallPages

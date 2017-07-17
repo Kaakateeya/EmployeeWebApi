@@ -160,6 +160,8 @@ namespace WebapiApplication.Api
 
         public ArrayList customermeassgeverification([FromBody]messagesverification Mobj) { return this.IEmployeeReport.customermeassgeverification(Mobj); }
 
+        public int updatecustomermessages([FromBody]updatemessagesverification Mobj) { return this.IEmployeeReport.updatecustomermessages(Mobj); }
+
 
     }
 }

@@ -397,7 +397,18 @@ namespace WebapiApplication.ML
         public int? MessageStatusID { get; set; }
         public Int64? EmpID { get; set; }
     }
-
+    public class updatemessagesverification
+    {
+        public Int64? FromCustID { get; set; }
+        public Int64? ToCustID { get; set; }
+        public string StrHtmlText { get; set; }
+        public Int32? MessageStatusId { get; set; }
+        public Int64? EmpId { get; set; }
+        public Int32 ReadFlag { get; set; }
+        public Int64? MessageHistoryId { get; set; }
+        public Int32 Accepted { get; set; }
+        public Int64? MessageLinkId { get; set; }
+    }
 }
 
 
