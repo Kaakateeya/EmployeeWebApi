@@ -158,6 +158,9 @@ namespace WebapiApplication.Api
 
         public int getUpadteMacAddess(string strProfileID, int? BranchID) { return this.IEmployeeReport.UpadteMacAddess(strProfileID, BranchID); }
 
+        public ArrayList customermeassgeverification([FromBody]messagesverification Mobj) { return this.IEmployeeReport.customermeassgeverification(Mobj); }
+
+
     }
 }
 

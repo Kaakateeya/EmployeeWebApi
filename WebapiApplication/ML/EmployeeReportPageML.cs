@@ -378,7 +378,7 @@ namespace WebapiApplication.ML
 
     public class guestticketcreation
     {
-        
+
         public int? EmpID { get; set; }
 
         public string ProfileID { get; set; }
@@ -388,9 +388,15 @@ namespace WebapiApplication.ML
     }
 
 
-
-
-
+    public class messagesverification
+    {
+        public int? i_Type { get; set; }
+        public string Body { get; set; }
+        public string Subject { get; set; }
+        public Int64? MessagesID { get; set; }
+        public int? MessageStatusID { get; set; }
+        public Int64? EmpID { get; set; }
+    }
 
 }
 

@@ -3354,5 +3354,54 @@ namespace WebapiApplication.DAL
             }
             return intStatus;
         }
+
+        public ArrayList customermeassgeverification(messagesverification Mobj, string spname)
+        {
+
+            SqlParameter[] parm = new SqlParameter[10];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            int intStatus = 0;
+            try
+            {
+                parm[0] = new SqlParameter("@i_Type", SqlDbType.Int);
+                parm[0].Value = Mobj.i_Type;
+                parm[1] = new SqlParameter("@Body", SqlDbType.VarChar, 1000);
+                parm[1].Value = Mobj.Body;
+                parm[2] = new SqlParameter("@Subject", SqlDbType.VarChar, 1000);
+                parm[2].Value = Mobj.Subject;
+                parm[3] = new SqlParameter("@MessagesID", SqlDbType.BigInt);
+                parm[3].Value = Mobj.MessagesID;
+                parm[4] = new SqlParameter("@MessageStatusID", SqlDbType.Int);
+                parm[4].Value = Mobj.MessageStatusID;
+                parm[5] = new SqlParameter("@EmpID", SqlDbType.BigInt);
+                parm[5].Value = Mobj.EmpID;
+                parm[6] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[6].Direction = ParameterDirection.Output;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[6].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[6].Value);
+                }
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }

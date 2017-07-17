@@ -128,7 +128,9 @@ namespace WebapiApplication.Implement
         public ArrayList presentunpaidmember(int? EmpID) { return new EmployeeReportPageDAL().presentunpaidmember(EmpID, "[dbo].[usp_emp_LoginLogoutUnpaidMembers]"); }
 
         public int UpadteMacAddess(string strProfileID, int? BranchID) { return new EmployeeReportPageDAL().UpadteMacAddess(strProfileID, BranchID, "[dbo].[usp_Macipaddressupdate]"); }
-   
+
+        public ArrayList customermeassgeverification([FromBody]messagesverification Mobj) { return new EmployeeReportPageDAL().customermeassgeverification(Mobj, "[dbo].[usp_GetUnAcceptedMessages]"); }
+    
     }
 
 }
