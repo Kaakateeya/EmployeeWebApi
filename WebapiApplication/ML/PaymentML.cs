@@ -89,12 +89,12 @@ namespace WebapiApplication.ML
         public int NoofPoints { get; set; }
         public float? AgreedAmount { get; set; }
         public string SettlementAmount { get; set; }
-        public string DateDuration { get; set; }
+        public DateTime? DateDuration { get; set; }
         public float? ServiceTax { get; set; }
         public float? ServiceTaxAmt { get; set; }
         public string AmountPaid { get; set; }
-        public string StartDate { get; set; }
-        public string EndDate { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public string ReceiptNumber { get; set; }
         public string TransactionID { get; set; }
         public string ChequeNoOrDDNo { get; set; }
