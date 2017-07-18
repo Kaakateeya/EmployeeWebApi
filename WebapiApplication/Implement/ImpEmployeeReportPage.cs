@@ -132,6 +132,9 @@ namespace WebapiApplication.Implement
         public ArrayList customermeassgeverification([FromBody]messagesverification Mobj) { return new EmployeeReportPageDAL().customermeassgeverification(Mobj, "[dbo].[usp_GetUnAcceptedMessages]"); }
 
         public int updatecustomermessages([FromBody]updatemessagesverification Mobj) { return new EmployeeReportPageDAL().updatecustomermessages(Mobj, "[dbo].[usp_CustMessageSend]"); }
+
+        public int Editpaymentpointexpdate([FromBody]EditpaymentpointS Mobj) { return new EmployeeReportPageDAL().Editpaymentpointexpdate(Mobj, "[dbo].[Usp_UpdateCheckOutLimits_Manual]"); }
+
     }
 
 }

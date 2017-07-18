@@ -308,6 +308,8 @@ namespace WebapiApplication.Interfaces
         ArrayList customermeassgeverification(messagesverification Mobj);
 
         int updatecustomermessages(updatemessagesverification Mobj);
+
+        int Editpaymentpointexpdate(EditpaymentpointS Mobj);
     }
 
     public interface ISmallPages

@@ -364,7 +364,7 @@ namespace WebapiApplication.DAL
 
             int? iNull = null;
             decimal? idecimal = null;
-
+            Int64? lNull = null;
             ProfilePaymentGridView MobjpaymentGridview = null;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
@@ -405,7 +405,7 @@ namespace WebapiApplication.DAL
                         MobjpaymentGridview.TaxPaid_Status = (reader["TaxPaid_Status"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TaxPaid_Status")) : null;
                         MobjpaymentGridview.RenewalStatus = (reader["RenewalStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("RenewalStatus")) : iNull;
                         MobjpaymentGridview.PaymentHist_ID = (reader["PaymentHist_ID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PaymentHist_ID")) : iNull;
-
+                        MobjpaymentGridview.CustId = (reader["Cust_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ID")) : lNull;
                         arrayList.Add(MobjpaymentGridview);
 
                     }
@@ -429,7 +429,7 @@ namespace WebapiApplication.DAL
 
         }
 
-        public ArrayList DgetProfilePaymentDetails_NewDesigns(string intProfileID,int intPaymentHistID, string spName)
+        public ArrayList DgetProfilePaymentDetails_NewDesigns(string intProfileID, int intPaymentHistID, string spName)
         {
             int? intStatus = 0;
             DataSet dsPayment = new DataSet();
@@ -440,7 +440,7 @@ namespace WebapiApplication.DAL
             try
             {
                 parm[0] = new SqlParameter("@ProfileID", SqlDbType.BigInt);
-                parm[0].Value = !string.IsNullOrEmpty(intProfileID)?Convert.ToInt64(intProfileID):0;
+                parm[0].Value = !string.IsNullOrEmpty(intProfileID) ? Convert.ToInt64(intProfileID) : 0;
                 parm[1] = new SqlParameter("@intPaymentHistID", SqlDbType.Int);
                 parm[1].Value = intPaymentHistID;
                 parm[2] = new SqlParameter("@Status", SqlDbType.Int);
@@ -505,6 +505,6 @@ namespace WebapiApplication.DAL
             return intStatus;
         }
 
-        
+
     }
 }

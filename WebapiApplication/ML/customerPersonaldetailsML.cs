@@ -898,6 +898,8 @@ namespace WebapiApplication.ML
         public string TaxPaid_Status { get; set; }
         public int? RenewalStatus { get; set; }
         public int? PaymentHist_ID { get; set; }
+
+        public Int64? CustId { get; set; }
     }
 
     public class UpdatePersonaldetails

@@ -162,6 +162,7 @@ namespace WebapiApplication.Api
 
         public int updatecustomermessages([FromBody]updatemessagesverification Mobj) { return this.IEmployeeReport.updatecustomermessages(Mobj); }
 
+        public int Editpaymentpointexpdate([FromBody]EditpaymentpointS Mobj) { return this.IEmployeeReport.Editpaymentpointexpdate(Mobj); }
 
     }
 }

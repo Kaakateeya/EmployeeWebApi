@@ -1881,7 +1881,7 @@ namespace WebapiApplication.DAL
                 if (Mobj.isRvrflag == "RVR")
                 {
 
-                     if (reader.HasRows)
+                    if (reader.HasRows)
                     {
 
                         while (reader.Read())
@@ -3459,5 +3459,53 @@ namespace WebapiApplication.DAL
             return intStatus;
         }
 
+
+        public int Editpaymentpointexpdate(EditpaymentpointS Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[12];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@intEmpId", SqlDbType.BigInt);
+                parm[0].Value = Mobj.intEmpId;
+                parm[1] = new SqlParameter("@intCust_Id", SqlDbType.Int);
+                parm[1].Value = Mobj.intCust_Id;
+                parm[2] = new SqlParameter("@strProfileId", SqlDbType.VarChar);
+                parm[2].Value = Mobj.strProfileId;
+                parm[3] = new SqlParameter("@Allowed_Points", SqlDbType.Int);
+                parm[3].Value = Mobj.Allowed_Points;
+                parm[4] = new SqlParameter("@Allowed_Days", SqlDbType.Int);
+                parm[4].Value = Mobj.Allowed_Days;
+                parm[5] = new SqlParameter("@Old_ExpiryDate", SqlDbType.DateTime);
+                parm[5].Value = Mobj.Old_ExpiryDate;
+                parm[6] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[6].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[6].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[6].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
+            }
+            return intStatus;
+        }
     }
 }

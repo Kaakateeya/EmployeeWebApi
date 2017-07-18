@@ -409,6 +409,15 @@ namespace WebapiApplication.ML
         public Int32 Accepted { get; set; }
         public Int64? MessageLinkId { get; set; }
     }
+    public class EditpaymentpointS
+    {
+        public Int64? intEmpId { get; set; }
+        public int? intCust_Id { get; set; }
+        public string strProfileId { get; set; }
+        public int? Allowed_Points { get; set; }
+        public int? Allowed_Days { get; set; }
+        public DateTime? Old_ExpiryDate { get; set; }
+    }
 }
 
 
