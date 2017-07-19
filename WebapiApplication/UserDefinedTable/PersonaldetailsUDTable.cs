@@ -996,6 +996,17 @@ namespace WebapiApplication.UserDefinedTable
             dtMyAuthDetails.Columns.Add("ExpiryDate");
             dtMyAuthDetails.Columns.Add("PaymentStatus");
             dtMyAuthDetails.Columns.Add("EmployeeID");
+
+            dtMyAuthDetails.Columns.Add("TicketID");
+
+            dtMyAuthDetails.Columns.Add("TicketName");
+
+            dtMyAuthDetails.Columns.Add("TicketOwnerID");
+
+            dtMyAuthDetails.Columns.Add("MrkTicketVerified");
+            dtMyAuthDetails.Columns.Add("Markedted");
+
+
             return dtMyAuthDetails;
 
         }

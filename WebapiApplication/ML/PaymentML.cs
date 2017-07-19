@@ -129,6 +129,14 @@ namespace WebapiApplication.ML
         public int? PaymentStatus { set; get; }
         public int? EmployeeID { set; get; }
 
+             public int? TicketID { set; get; }
+
+           public string TicketName { set; get; }
+
+            public int? TicketOwnerID  { set; get; }
+
+            public int?  MrkTicketVerified { set; get; }
+            public int? Markedted { set; get; }
 
         //public string TicketID { set; get; }
         //public string MarketedByID { set; get; }

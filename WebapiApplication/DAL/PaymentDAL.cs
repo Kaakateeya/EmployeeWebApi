@@ -467,7 +467,45 @@ namespace WebapiApplication.DAL
         }
 
 
-        internal int setPaymentAuthorizationDal(DataTable dt, string spname)
+        //internal int setPaymentAuthorizationDal(DataTable dt, string spname)
+        //{
+        //    int intStatus = 0;
+        //    DataSet dsPayment = new DataSet();
+        //    SqlConnection connection = new SqlConnection();
+        //    connection = SQLHelper.GetSQLConnection();
+        //    connection.Open();
+        //    SqlParameter[] parm = new SqlParameter[7];
+        //    try
+        //    {
+        //        parm[0] = new SqlParameter("@dtPaymentAuthDetails", SqlDbType.Structured);
+        //        parm[0].Value = dt;
+        //        parm[1] = new SqlParameter("@Status", SqlDbType.Int);
+        //        parm[1].Direction = ParameterDirection.Output;
+        //        parm[2] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
+        //        parm[2].Direction = ParameterDirection.Output;
+
+        //        dsPayment = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+
+        //        if (Convert.ToInt32(parm[1].Value) == 1)
+        //        { intStatus = 1; }
+        //        else
+        //        { intStatus = 2; }
+
+        //    }
+        //    catch (Exception EX) { Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null); }
+        //    finally
+        //    {
+        //        connection.Close();
+        //        SqlConnection.ClearPool(connection);
+        //        SqlConnection.ClearAllPools();
+        //    }
+
+        //    if (dsPayment.Tables.Count == 0)
+        //        dsPayment = null;
+        //    return intStatus;
+        //}
+
+        public int setPaymentAuthorizationDal(DataTable dt, string spname)
         {
             int intStatus = 0;
             DataSet dsPayment = new DataSet();
