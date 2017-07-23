@@ -440,7 +440,6 @@ namespace WebapiApplication.ML
     }
     public class insertemailsbounce
     {
-
         public int PageID { get; set; }
         public string EmailID { get; set; }
         public string profileID { get; set; }
@@ -451,8 +450,51 @@ namespace WebapiApplication.ML
         public string Narration { get; set; }
         public Int64 EnteredbyEmpID { get; set; }
         public string status { get; set; }
-        
-      
+            
+    }
+    public class paymentreports
+    {
+        public string StrProfileID { get; set; }
+        public int? Gender { get; set; }
+        public int IsAdmin { get; set; }
+        public int? PayFor { get; set; }
+        public int? PaymenytStatus { get; set; }
+        public int? Region { get; set; }
+        public int? PayAmountFrom { get; set; }
+        public int? PayAmountTo { get; set; }
+        public int? FromAmount { get; set; }
+        public int? ToAmount { get; set; }
+        public int? Confidential { get; set; }
+        public int? IsServiceTaxPaid { get; set; }
+        public int IsAmountThere { get; set; }
+        public int? EmpType { get; set; }
+        public DataTable ApplicationStatus { get; set; }
+        public DataTable SearchedBy { get; set; }
+        public DataTable Caste { get; set; }
+        public DataTable Branch { get; set; }
+        public DataTable OwnerOFProfile { get; set; }
+        public DataTable Relationship { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
+        public int? From { get; set; }
+        public int? To { get; set; }
+        public int? ModeOfPaymentID { set; get; }
+
+        //Added by:S.Ashakiran,Date:8/26/13,Description:Add paging to gridview
+
+        public int flag { get; set; }
+        public int PageNumber { get; set; }
+        public int PageSize { get; set; }
+        public int intlowerBound { get; set; }
+        public int intUpperBound { get; set; }
+
+        public string profileownerid { get; set; }
+
+        public string ApplicationStatusid { get; set; }
+
+        public string Casteid { get; set; }
+
+        public string Branchid { get; set; }
     }
 }
 
