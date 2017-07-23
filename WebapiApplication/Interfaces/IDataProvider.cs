@@ -320,6 +320,8 @@ namespace WebapiApplication.Interfaces
         int InsertEmailBouceEntry(insertemailsbounce Mobj);
 
         int existanceprofileornot(string profileid);
+
+        ArrayList EmplyeepaymentReports(paymentreports Mobj);
     }
 
     public interface ISmallPages

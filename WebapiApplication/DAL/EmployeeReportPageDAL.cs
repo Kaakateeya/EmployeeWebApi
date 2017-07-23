@@ -3706,5 +3706,110 @@ namespace WebapiApplication.DAL
             }
             return intStatus;
         }
+
+        public ArrayList EmplyeepaymentReports(paymentreports Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[30];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            SqlDataAdapter daParentDetails = new SqlDataAdapter();
+            try
+            {
+                //parm[0] = new SqlParameter("@vc_ProfileId", SqlDbType.VarChar);
+                //parm[0].Value = Mobj.StrProfileID;
+                //parm[1] = new SqlParameter("@b_IsAdmin", SqlDbType.Int);
+                //parm[1].Value = Mobj.IsAdmin;
+                //parm[2] = new SqlParameter("@i_Gender", SqlDbType.Int);
+                //parm[2].Value = Mobj.Gender;
+                //parm[3] = new SqlParameter("@i_PayFor", SqlDbType.Int);
+                //parm[3].Value = Mobj.PayFor;
+                //parm[4] = new SqlParameter("@i_PaymentType", SqlDbType.Int);
+                //parm[4].Value = Mobj.PaymenytStatus;
+
+                //parm[5] = new SqlParameter("@i_Region", SqlDbType.Int);
+                //parm[5].Value = Mobj.Region;
+                //parm[6] = new SqlParameter("@b_IsConfidential", SqlDbType.Int);
+                //parm[6].Value = Mobj.Confidential;
+                //parm[7] = new SqlParameter("@i_IsServiceTax", SqlDbType.Int);
+                //parm[7].Value = Mobj.IsServiceTaxPaid;
+                //parm[8] = new SqlParameter("@b_IsBalance", SqlDbType.Int);
+                //parm[8].Value = Mobj.IsAmountThere;
+                //parm[9] = new SqlParameter("@b_IsEmp", SqlDbType.Int);
+                //parm[9].Value = Mobj.EmpType;
+                //parm[10] = new SqlParameter("@t_ProfileOwnerId", SqlDbType.Int);//re
+                //parm[10].Value = Mobj.OwnerOFProfile;
+
+                //parm[11] = new SqlParameter("@t_ApplicationStatus", SqlDbType.Int);//re
+                //parm[11].Value = Mobj.ApplicationStatus;
+                //parm[12] = new SqlParameter("@i_PaidFrom", SqlDbType.Int);
+                //parm[12].Value = Mobj.FromAmount;
+                //parm[13] = new SqlParameter("@i_PaidTo", SqlDbType.Int);
+                //parm[13].Value = Mobj.ToAmount;
+
+                //parm[14] = new SqlParameter("@t_Caste", SqlDbType.Int);//re
+                //parm[14].Value = Mobj.Caste;
+                //parm[15] = new SqlParameter("@t_Branch", SqlDbType.Int);//rew
+                //parm[15].Value = Mobj.Branch;
+                //parm[16] = new SqlParameter("@dt_PaymentStartDate", SqlDbType.DateTime);
+                //parm[16].Value = Mobj.StartDate;
+                //parm[17] = new SqlParameter("@dt_PaymentEndDate", SqlDbType.DateTime);
+                //parm[17].Value = Mobj.EndDate;
+
+                //parm[18] = new SqlParameter("@i_From", SqlDbType.Int);
+                //parm[18].Value = Mobj.From;
+                //parm[19] = new SqlParameter("@i_To", SqlDbType.Int);
+                //parm[19].Value = Mobj.To;
+                //parm[20] = new SqlParameter("@i_PageNumber", SqlDbType.Int);
+                //parm[20].Value = Mobj.PageNumber;
+                //parm[21] = new SqlParameter("@i_PageSize", SqlDbType.Int);
+                //parm[21].Value = Mobj.PageSize;
+                //parm[22] = new SqlParameter("@_Excel", SqlDbType.Int);
+                //parm[22].Value = Mobj.flag;
+                //parm[23] = new SqlParameter("@ModeOfPaymentID", SqlDbType.Int);
+                //parm[23].Value = Mobj.ModeOfPaymentID;
+                //ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                SqlCommand cmd = new SqlCommand(spname, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@vc_ProfileId", Mobj.StrProfileID);
+                cmd.Parameters.AddWithValue("@b_IsAdmin", Mobj.IsAdmin);
+                cmd.Parameters.AddWithValue("@i_Gender", Mobj.Gender);
+                cmd.Parameters.AddWithValue("@i_PayFor", Mobj.PayFor);
+                cmd.Parameters.AddWithValue("@i_PaymentType", Mobj.PaymenytStatus);
+                cmd.Parameters.AddWithValue("@i_Region", Mobj.Region);
+                cmd.Parameters.AddWithValue("@b_IsConfidential", Mobj.Confidential);
+                cmd.Parameters.AddWithValue("@i_IsServiceTax", Mobj.IsServiceTaxPaid);
+                cmd.Parameters.AddWithValue("@b_IsBalance", Mobj.IsAmountThere);
+                cmd.Parameters.AddWithValue("@b_IsEmp", Mobj.EmpType);
+                cmd.Parameters.AddWithValue("@t_ProfileOwnerId", Commonclass.returndt(Mobj.profileownerid, Mobj.OwnerOFProfile, "ProfileOwner", "ProfileOwner"));
+                cmd.Parameters.AddWithValue("@t_ApplicationStatus", Commonclass.returndt(Mobj.ApplicationStatusid, Mobj.ApplicationStatus, "Applicationstatus", "Applicationstatus"));
+                cmd.Parameters.AddWithValue("@i_PaidFrom", Mobj.FromAmount);
+                cmd.Parameters.AddWithValue("@i_PaidTo", Mobj.ToAmount);
+                cmd.Parameters.AddWithValue("@t_Caste", Commonclass.returndt(Mobj.Casteid, Mobj.Caste, "Caste", "Caste"));
+                cmd.Parameters.AddWithValue("@t_Branch", Commonclass.returndt(Mobj.Branchid, Mobj.Branch, "Branch", "Branch"));
+                cmd.Parameters.AddWithValue("@dt_PaymentStartDate", Mobj.StartDate);
+                cmd.Parameters.AddWithValue("@dt_PaymentEndDate", Mobj.EndDate);
+                cmd.Parameters.AddWithValue("@i_From", Mobj.From);
+                cmd.Parameters.AddWithValue("@i_To", Mobj.To);
+                cmd.Parameters.AddWithValue("@i_PageNumber", Mobj.PageNumber);
+                cmd.Parameters.AddWithValue("@i_PageSize", Mobj.PageSize);
+                cmd.Parameters.AddWithValue("@_Excel", Mobj.flag);
+                cmd.Parameters.AddWithValue("@ModeOfPaymentID", Mobj.ModeOfPaymentID);
+                daParentDetails.SelectCommand = cmd;
+                daParentDetails.Fill(ds);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }
