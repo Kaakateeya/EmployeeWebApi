@@ -53,11 +53,10 @@ namespace WebapiApplication.Api
             return Iobj.getMacIpValues(mobj);
         }
 
-        //public ArrayList MacIpValues(macIPInput mobj)
-        //{
-        //    return Iobj.getMacIpValues(mobj);
-        //}
-
+        public Tuple<int, ArrayList> matchMeetingEntryForm(matchMeetingEntryForm mobj)
+        {
+            return Iobj.matchMeetingEntryForm(mobj);
+        }
 
     }
 }

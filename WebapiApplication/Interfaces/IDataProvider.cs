@@ -309,6 +309,8 @@ namespace WebapiApplication.Interfaces
     public interface ISmallPages
     {
         ArrayList getMacIpValues(macIPInput mobj);
+
+        Tuple<int, ArrayList> matchMeetingEntryForm(matchMeetingEntryForm mobj);
     }
 
 
