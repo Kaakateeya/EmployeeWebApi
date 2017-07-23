@@ -304,6 +304,22 @@ namespace WebapiApplication.Interfaces
         ArrayList presentunpaidmember(int? EmpID);
 
         int UpadteMacAddess(string strProfileID, int? BranchID);
+
+        ArrayList customermeassgeverification(messagesverification Mobj);
+
+        int updatecustomermessages(updatemessagesverification Mobj);
+
+        int Editpaymentpointexpdate(EditpaymentpointS Mobj);
+
+        ArrayList Paymentexentionpointsdays(string Profileid);
+
+        ArrayList authorizationpaymentamoutReport(authorizationpayment Mobj);
+
+        int Editpayment(employeepaymentedit Mobj);
+
+        int InsertEmailBouceEntry(insertemailsbounce Mobj);
+
+        int existanceprofileornot(string profileid);
     }
 
     public interface ISmallPages

@@ -823,6 +823,8 @@ namespace WebapiApplication.UserDefinedTable
             dtGeneralsearch.Columns.Add("DOBfrom");
             dtGeneralsearch.Columns.Add("DOBTo");
             dtGeneralsearch.Columns.Add("EmpIds");
+           // dtGeneralsearch.Columns.Add("ParentInterCaste");
+
             return dtGeneralsearch;
         }
 
@@ -943,6 +945,7 @@ namespace WebapiApplication.UserDefinedTable
             dtAdvancesearch.Columns.Add("DOBfrom");
             dtAdvancesearch.Columns.Add("DOBTo");
             dtAdvancesearch.Columns.Add("EmpIds");
+           // dtAdvancesearch.Columns.Add("ParentInterCaste");
             return dtAdvancesearch;
         }
 
@@ -996,6 +999,16 @@ namespace WebapiApplication.UserDefinedTable
             dtMyAuthDetails.Columns.Add("ExpiryDate");
             dtMyAuthDetails.Columns.Add("PaymentStatus");
             dtMyAuthDetails.Columns.Add("EmployeeID");
+
+            dtMyAuthDetails.Columns.Add("TicketID");
+
+            dtMyAuthDetails.Columns.Add("TicketName");
+
+            dtMyAuthDetails.Columns.Add("TicketOwnerID");
+
+            dtMyAuthDetails.Columns.Add("MrkTicketVerified");
+            dtMyAuthDetails.Columns.Add("Markedted");
+            dtMyAuthDetails.Columns.Add("TotalAmount_Ticket");
             return dtMyAuthDetails;
 
         }

@@ -320,7 +320,7 @@ namespace WebapiApplication.ML
         public string BroSpouseFatherLandAreaCode { set; get; }
         public string BroSpouseFatherLandNo { set; get; }
         public int? BornOrder { set; get; }
-            
+
     }
 
 
@@ -898,6 +898,8 @@ namespace WebapiApplication.ML
         public string TaxPaid_Status { get; set; }
         public int? RenewalStatus { get; set; }
         public int? PaymentHist_ID { get; set; }
+
+        public Int64? CustId { get; set; }
     }
 
     public class UpdatePersonaldetails
@@ -1303,6 +1305,8 @@ namespace WebapiApplication.ML
         public string DOBfrom { set; get; }
         public string DOBTo { set; get; }
         public string EmpIds { set; get; }
+       // public int? ParentInterCaste { set; get; }
+
     }
 
     public class TAdvanceSearch
@@ -1423,6 +1427,7 @@ namespace WebapiApplication.ML
         public string DOBfrom { set; get; }
         public string DOBTo { set; get; }
         public string EmpIds { set; get; }
+       // public int? ParentInterCaste { set; get; }
 
     }
 
