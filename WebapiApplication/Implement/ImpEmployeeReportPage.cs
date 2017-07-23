@@ -145,7 +145,7 @@ namespace WebapiApplication.Implement
         public int InsertEmailBouceEntry([FromBody]insertemailsbounce Mobj) { return new EmployeeReportPageDAL().InsertEmailBouceEntry(Mobj, "[dbo].[usp_EmaibounceEntry_Insert]"); }
         public int existanceprofileornot(string profileid) { return new EmployeeReportPageDAL().existanceprofileornot(profileid, "[dbo].[usp_existence_profile_id]"); }
 
-        public ArrayList EmplyeepaymentReports([FromBody]paymentreports Mobj) { return new EmployeeReportPageDAL().EmplyeepaymentReports(Mobj, "[dbo].[usp_Reports_RegistrationFeeDetails]"); }
+        public ArrayList EmplyeepaymentReportspayment([FromBody]paymentreports Mobj) { return new EmployeeReportPageDAL().EmplyeepaymentReportspayment(Mobj, "[dbo].[usp_Reports_RegistrationFeeDetails]"); }
     
     }
 

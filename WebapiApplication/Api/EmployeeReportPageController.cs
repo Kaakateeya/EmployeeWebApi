@@ -175,7 +175,7 @@ namespace WebapiApplication.Api
 
         public int getexistanceprofileornot(string profileid) { return this.IEmployeeReport.existanceprofileornot(profileid); }
 
-        public ArrayList EmplyeepaymentReports([FromBody]paymentreports Mobj) { return this.IEmployeeReport.EmplyeepaymentReports(Mobj); }
+        public ArrayList EmplyeepaymentReportspayment([FromBody]paymentreports Mobj) { return this.IEmployeeReport.EmplyeepaymentReportspayment(Mobj); }
 
     }
 }

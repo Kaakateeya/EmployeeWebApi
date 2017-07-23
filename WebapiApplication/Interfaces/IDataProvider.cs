@@ -321,7 +321,7 @@ namespace WebapiApplication.Interfaces
 
         int existanceprofileornot(string profileid);
 
-        ArrayList EmplyeepaymentReports(paymentreports Mobj);
+        ArrayList EmplyeepaymentReportspayment(paymentreports Mobj);
     }
 
     public interface ISmallPages
