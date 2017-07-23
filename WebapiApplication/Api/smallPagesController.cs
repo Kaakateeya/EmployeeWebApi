@@ -64,6 +64,10 @@ namespace WebapiApplication.Api
             return Iobj.EmpDetailsNew(profileID, BridegroomFlag);
         }
 
+        public Tuple<ArrayList, int, int, int, int> GetmatchMeetingData(int? brideCustID,int? groomCustID)
+        {
+            return Iobj.GetmatchMeetingData(brideCustID, groomCustID);
+        }
 
 
 

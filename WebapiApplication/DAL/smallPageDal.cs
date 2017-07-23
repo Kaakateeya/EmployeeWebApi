@@ -30,7 +30,7 @@ namespace WebapiApplication.DAL
                 parm[3] = new SqlParameter("@flag", SqlDbType.Int);
                 parm[3].Value = mobj.flag;
                 parm[4] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[4].Direction=ParameterDirection.Output;
+                parm[4].Direction = ParameterDirection.Output;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
             }
             catch (Exception EX)
@@ -43,7 +43,7 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
             }
-            return Commonclass.convertdataTableToArrayListTable(ds); 
+            return Commonclass.convertdataTableToArrayListTable(ds);
         }
 
         internal Tuple<int, ArrayList> matchMeetingEntryFormDal(matchMeetingEntryForm Mobj, string spname)
@@ -154,6 +154,54 @@ namespace WebapiApplication.DAL
             }
 
             return new Tuple<int, ArrayList>(intStatus, Commonclass.convertdataTableToArrayListTable(ds));
+        }
+
+        public Tuple<ArrayList, int, int, int, int> EmpDetailsNew(int? brideCustID, int? groomCustID, string spname)
+        {
+            SqlParameter[] param = new SqlParameter[3];
+            int intStatus = 0;
+            int CasteStatus = 0;
+            int FromStatus = 0;
+            int ToStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                param[0] = new SqlParameter("@BideCustID", SqlDbType.BigInt);
+                param[0].Value = brideCustID;
+                param[1] = new SqlParameter("@GroomCustID", SqlDbType.BigInt);
+                param[1].Value = groomCustID;
+                param[2] = new SqlParameter("@Status", SqlDbType.Int);
+                param[2].Direction = ParameterDirection.Output;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, param);
+                if (string.Compare(param[2].Value.ToString(), System.DBNull.Value.ToString()) == 0)
+                {
+                    intStatus = 0;
+                    CasteStatus = 0;
+                    FromStatus = 0;
+                    ToStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(param[2].Value);
+                    CasteStatus = Convert.ToInt32(ds.Tables[3].Rows[0]["caste"]);
+                    FromStatus = Convert.ToInt32(ds.Tables[3].Rows[0]["BrideStatus"]);
+                    ToStatus = Convert.ToInt32(ds.Tables[3].Rows[0]["GroomStatus"]);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return new Tuple<ArrayList, int, int, int, int>(Commonclass.convertdataTableToArrayListTable(ds), intStatus, CasteStatus, FromStatus, ToStatus);
         }
     }
 }

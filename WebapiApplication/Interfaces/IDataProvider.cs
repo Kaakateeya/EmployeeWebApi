@@ -333,6 +333,8 @@ namespace WebapiApplication.Interfaces
         Tuple<int, ArrayList> matchMeetingEntryForm(matchMeetingEntryForm mobj);
 
         Tuple<int, ArrayList> EmpDetailsNew(string profileID, int BridegroomFlag);
+
+        Tuple<ArrayList, int, int, int, int> GetmatchMeetingData(int? brideCustID, int? groomCustID);
     }
 
 
