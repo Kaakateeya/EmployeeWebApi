@@ -177,6 +177,7 @@ namespace WebapiApplication.Api
 
         public ArrayList EmplyeepaymentReportspayment([FromBody]paymentreports Mobj) { return this.IEmployeeReport.EmplyeepaymentReportspayment(Mobj); }
 
+    
     }
 }
 
