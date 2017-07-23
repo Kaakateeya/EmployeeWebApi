@@ -3707,7 +3707,7 @@ namespace WebapiApplication.DAL
             return intStatus;
         }
 
-        public ArrayList EmplyeepaymentReports(paymentreports Mobj, string spname)
+        public ArrayList EmplyeepaymentReportspayment(paymentreports Mobj, string spname)
         {
             SqlParameter[] parm = new SqlParameter[30];
             SqlConnection connection = new SqlConnection();
