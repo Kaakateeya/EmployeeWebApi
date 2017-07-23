@@ -58,5 +58,16 @@ namespace WebapiApplication.Api
             return Iobj.matchMeetingEntryForm(mobj);
         }
 
+
+        private Tuple<int, ArrayList> GetEmployeeName(string profileID, int BridegroomFlag)
+        {
+            return Iobj.EmpDetailsNew(profileID, BridegroomFlag);
+        }
+
+
+
+
+
+
     }
 }
