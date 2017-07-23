@@ -59,7 +59,7 @@ namespace WebapiApplication.Api
         }
 
 
-        public Tuple<int, ArrayList> GetEmployeeName(string profileID, int BridegroomFlag)
+        public ArrayList GetEmployeedetails(string profileID, int BridegroomFlag)
         {
             return Iobj.EmpDetailsNew(profileID, BridegroomFlag);
         }

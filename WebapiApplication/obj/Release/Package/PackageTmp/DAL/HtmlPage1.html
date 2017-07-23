@@ -372,16 +372,17 @@ null,
             $("#btngetdata").click(function () {
                 alert(1);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/getUpadteMacAddess',
+                    url: 'http://localhost:63006/Api/smallPages/GetEmployeeName',
                     type: 'get',
                     crossDomain: true,
-                    data: {BranchID:335,strProfileID:'103.242.152.114'},
+                    data: { BridegroomFlag: 1, profileID: "310910220" },
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));
                         console.log(data);
                     },
                     error: function (xhr, textStatus, errorThrown) {
+                        alert('err');
                         console.log(xhr);
                     }
                 });

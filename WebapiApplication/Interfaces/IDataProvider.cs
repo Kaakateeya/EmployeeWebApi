@@ -330,7 +330,7 @@ namespace WebapiApplication.Interfaces
 
         Tuple<int, ArrayList> matchMeetingEntryForm(matchMeetingEntryForm mobj);
 
-        Tuple<int, ArrayList> EmpDetailsNew(string profileID, int BridegroomFlag);
+        ArrayList EmpDetailsNew(string profileID, int BridegroomFlag);
     }
 
 
