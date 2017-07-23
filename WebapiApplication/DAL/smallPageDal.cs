@@ -111,7 +111,7 @@ namespace WebapiApplication.DAL
             return new Tuple<int, ArrayList>(intStatus, Commonclass.convertdataTableToArrayListTable(ds));
         }
 
-        internal Tuple<int, ArrayList> EmpDetailsNew(string profileID, int BridegroomFlag, string spname)
+        public Tuple<int, ArrayList> EmpDetailsNew(string profileID, int BridegroomFlag, string spname)
         {
             SqlParameter[] parm = new SqlParameter[4];
             int intStatus = 0;
