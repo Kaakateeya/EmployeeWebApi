@@ -111,7 +111,7 @@ namespace WebapiApplication.DAL
             return new Tuple<int, ArrayList>(intStatus, Commonclass.convertdataTableToArrayListTable(ds));
         }
 
-        public ArrayList EmpDetailsNew(string profileID, int BridegroomFlag, string spname)
+        public Tuple<int, ArrayList> EmpDetailsNew(string profileID, int BridegroomFlag, string spname)
         {
             SqlParameter[] parm = new SqlParameter[4];
             int intStatus = 0;
@@ -153,9 +153,7 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearAllPools();
             }
 
-            int status = intStatus;
-            ArrayList arrr = Commonclass.convertdataTableToArrayListTable(ds);
-            return arrr;
+            return new Tuple<int, ArrayList>(intStatus, Commonclass.convertdataTableToArrayListTable(ds));
         }
     }
 }

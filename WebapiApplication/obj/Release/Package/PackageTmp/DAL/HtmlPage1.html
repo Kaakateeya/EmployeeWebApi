@@ -249,27 +249,81 @@
 
                 alert(1);
                 var inputobj = {
-                    Body
-   :
-   null,
-                    EmpID
+                    ApplicationStatusid
+  :
+  null,
+                    Branchid
 :
 null,
-                MessageStatusID
+                Casteid
 :
 null,
-                MessagesID
+                Confidential
+:
+0,
+                EmpType
 :
 null,
-                Subject
+                EndDate
 :
 null,
-                i_Type
+                From
 :
-1
+1,
+                FromAmount
+:
+null,
+                Gender
+:
+null,
+                IsAdmin
+:
+"2",
+                IsAmountThere
+:
+0,
+                IsServiceTaxPaid
+:
+null,
+                ModeOfPaymentID
+:
+null,
+                PageNumber
+:
+1,
+                PageSize
+:
+1,
+                PayFor
+:
+null,
+                PaymenytStatus
+:
+null,
+                Region
+:
+null,
+                StartDate
+:
+null,
+                StrProfileID
+:
+null,
+                To
+:
+10,
+                ToAmount
+:
+null,
+                flag
+:
+0,
+                profileownerid
+:
+null
                 }
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/customermeassgeverification',
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/EmplyeepaymentReportspayment',
                     type: 'POST',
                     crossDomain: true,
                     data: JSON.stringify(inputobj),
@@ -372,7 +426,7 @@ null,
             $("#btngetdata").click(function () {
                 alert(1);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/smallPages/GetEmployeeName',
+                    url: 'http://localhost:63006/Api/smallPages/GetEmployeedetails',
                     type: 'get',
                     crossDomain: true,
                     data: { BridegroomFlag: 1, profileID: "310910220" },

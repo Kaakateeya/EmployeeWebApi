@@ -321,7 +321,7 @@ namespace WebapiApplication.Interfaces
 
         int existanceprofileornot(string profileid);
 
-        ArrayList EmplyeepaymentReportspayment(paymentreports Mobj);
+        ArrayList EmplyeepaymentReports(paymentreports Mobj);
     }
 
     public interface ISmallPages
@@ -330,7 +330,7 @@ namespace WebapiApplication.Interfaces
 
         Tuple<int, ArrayList> matchMeetingEntryForm(matchMeetingEntryForm mobj);
 
-        ArrayList EmpDetailsNew(string profileID, int BridegroomFlag);
+        Tuple<int, ArrayList> EmpDetailsNew(string profileID, int BridegroomFlag);
     }
 
 
