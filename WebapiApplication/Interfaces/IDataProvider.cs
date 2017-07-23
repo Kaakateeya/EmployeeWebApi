@@ -329,6 +329,8 @@ namespace WebapiApplication.Interfaces
         ArrayList getMacIpValues(macIPInput mobj);
 
         Tuple<int, ArrayList> matchMeetingEntryForm(matchMeetingEntryForm mobj);
+
+        Tuple<int, ArrayList> EmpDetailsNew(string profileID, int BridegroomFlag);
     }
 
 

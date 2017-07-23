@@ -48,7 +48,7 @@ namespace WebapiApplication.DAL
 
         internal Tuple<int, ArrayList> matchMeetingEntryFormDal(matchMeetingEntryForm Mobj, string spname)
         {
-            SqlParameter[] parm = new SqlParameter[5];
+            SqlParameter[] parm = new SqlParameter[16];
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -108,6 +108,51 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
             }
+            return new Tuple<int, ArrayList>(intStatus, Commonclass.convertdataTableToArrayListTable(ds));
+        }
+
+        internal Tuple<int, ArrayList> EmpDetailsNew(string profileID, int BridegroomFlag, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[4];
+            int intStatus = 0;
+            string strErrorMsg = "";
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@ProfileID", SqlDbType.VarChar, 20);
+                parm[0].Value = profileID;
+                parm[1] = new SqlParameter("@Value", SqlDbType.Int);
+                parm[1].Value = BridegroomFlag;
+                parm[2] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+                parm[3] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
+                parm[3].Direction = ParameterDirection.Output;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), Convert.ToString(parm[2].Value)).Equals(0))
+                {
+                    intStatus = 0;
+                    strErrorMsg = "";
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[2].Value);
+                    strErrorMsg = "";
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
             return new Tuple<int, ArrayList>(intStatus, Commonclass.convertdataTableToArrayListTable(ds));
         }
     }
