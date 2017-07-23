@@ -164,6 +164,17 @@ namespace WebapiApplication.Api
 
         public int Editpaymentpointexpdate([FromBody]EditpaymentpointS Mobj) { return this.IEmployeeReport.Editpaymentpointexpdate(Mobj); }
 
+        public ArrayList getPaymentexentionpointsdays(string Profileid) { return this.IEmployeeReport.Paymentexentionpointsdays(Profileid); }
+
+
+        public ArrayList authorizationpaymentamoutReport([FromBody]authorizationpayment Mobj) { return this.IEmployeeReport.authorizationpaymentamoutReport(Mobj); }
+
+        public int Editpayment([FromBody]employeepaymentedit Mobj) { return this.IEmployeeReport.Editpayment(Mobj); }
+
+        public int InsertEmailBouceEntry([FromBody]insertemailsbounce Mobj) { return this.IEmployeeReport.InsertEmailBouceEntry(Mobj); }
+
+        public int getexistanceprofileornot(string profileid) { return this.IEmployeeReport.existanceprofileornot(profileid); }
+
     }
 }
 

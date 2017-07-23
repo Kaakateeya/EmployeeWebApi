@@ -135,6 +135,15 @@ namespace WebapiApplication.Implement
 
         public int Editpaymentpointexpdate([FromBody]EditpaymentpointS Mobj) { return new EmployeeReportPageDAL().Editpaymentpointexpdate(Mobj, "[dbo].[Usp_UpdateCheckOutLimits_Manual]"); }
 
+
+        public ArrayList Paymentexentionpointsdays(string Profileid) { return new EmployeeReportPageDAL().Paymentexentionpointsdays(Profileid, "[dbo].[usp_PaymentManualHistory_Details]"); }
+
+        public ArrayList authorizationpaymentamoutReport([FromBody]authorizationpayment Mobj) { return new EmployeeReportPageDAL().authorizationpaymentamoutReport(Mobj, "[dbo].[usp_Emp_Commission_TicketBased]"); }
+
+        public int Editpayment([FromBody]employeepaymentedit Mobj) { return new EmployeeReportPageDAL().Editpayment(Mobj, "[dbo].[usp_Emp_Commission_TicketBased]"); }
+
+        public int InsertEmailBouceEntry([FromBody]insertemailsbounce Mobj) { return new EmployeeReportPageDAL().InsertEmailBouceEntry(Mobj, "[dbo].[usp_EmaibounceEntry_Insert]"); }
+        public int existanceprofileornot(string profileid) { return new EmployeeReportPageDAL().existanceprofileornot(profileid, "[dbo].[usp_existence_profile_id]"); }
     }
 
 }

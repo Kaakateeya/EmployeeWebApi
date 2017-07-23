@@ -418,6 +418,42 @@ namespace WebapiApplication.ML
         public int? Allowed_Days { get; set; }
         public DateTime? Old_ExpiryDate { get; set; }
     }
+    public class authorizationpayment
+    {
+        public int? intRegional { get; set; }
+        public string intBranch { get; set; }
+        public string intEmpID { get; set; }
+        public int? intTicketVerified { get; set; }
+        public int? intMarked { get; set; }
+    }
+
+    public class employeepaymentedit
+    {
+
+        public Int64? Empid { get; set; }
+
+        public string aggredamount { get; set; }
+
+        public string paidamount { get; set; }
+
+        public string paymentdescription { get; set; }
+    }
+    public class insertemailsbounce
+    {
+
+        public int PageID { get; set; }
+        public string EmailID { get; set; }
+        public string profileID { get; set; }
+        public int CategoryID { get; set; }
+        public DateTime Bounce_From_date { get; set; }
+        public DateTime Email_Sent_From_Date { get; set; }
+        public DateTime Narration_Date { get; set; }
+        public string Narration { get; set; }
+        public Int64 EnteredbyEmpID { get; set; }
+        public string status { get; set; }
+        
+      
+    }
 }
 
 
