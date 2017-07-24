@@ -17,5 +17,8 @@ namespace WebapiApplication.Implement
         public Tuple<int, ArrayList> matchMeetingEntryForm(matchMeetingEntryForm mobj) { return dobj.matchMeetingEntryFormDal(mobj, "Usp_CreateMatchmeeting"); }
         public Tuple<int, ArrayList> EmpDetailsNew(string profileID, int BridegroomFlag) { return dobj.EmpDetailsNew(profileID,BridegroomFlag,"usp_reg_GetMatchMeetDetailsNew"); }
         public Tuple<ArrayList, int, int, int, int> GetmatchMeetingData(int? brideCustID, int? groomCustID) { return dobj.EmpDetailsNew(brideCustID, groomCustID, "Usp_CheckExpressInterestDetails"); }
+
+        public int checkMarketingTicket(long ticketID) { return dobj.checkMarketingTicketDal(ticketID, "usp_check_marketingTicket"); }
+
     }
 }

@@ -203,5 +203,44 @@ namespace WebapiApplication.DAL
             }
             return new Tuple<ArrayList, int, int, int, int>(Commonclass.convertdataTableToArrayListTable(ds), intStatus, CasteStatus, FromStatus, ToStatus);
         }
+
+        internal int checkMarketingTicketDal(long ticketID, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[2];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@ticketid", SqlDbType.VarChar, 20);
+                parm[0].Value = ticketID;
+                parm[1] = new SqlParameter("@status", SqlDbType.Int);
+                parm[1].Direction = ParameterDirection.Output;
+             
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), Convert.ToString(parm[1].Value)).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[2].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return intStatus;
+        }
     }
 }
