@@ -78,6 +78,7 @@ namespace WebapiApplication.Implement
         public ArrayList CustomerUnauthorizedPayments(string BranchID, string StartDate, string EndDate, string Region) { return new StaticPagesDAL().CustomerUnauthorizedPayments(BranchID, StartDate, EndDate, Region, "[dbo].[usp_get_CustUnauthorizedPaymentDetails_NewDesign]"); }
 
         public ViewProfileInputInbit InbitdataInfo(string ProfileID, int? empid) { return new StaticPagesDAL().InbitdataInfo(ProfileID, empid, "[dbo].[usp_getInBitInformation]"); }
-        public NoDataFoundDisplay NoDataFoundDisplay(string ProfileID) { return new StaticPagesDAL().NoDataFoundDisplay(ProfileID, "[dbo].[usp_Profile_NoDataFound]"); }    
+        public NoDataFoundDisplay NoDataFoundDisplay(string ProfileID) { return new StaticPagesDAL().NoDataFoundDisplay(ProfileID, "[dbo].[usp_Profile_NoDataFound]"); }
+        public int brokerEmailMobilenumberexists(int? iflagEmailmobile, string EmailMobile) { return new StaticPagesDAL().EmailMobilenumberexists(iflagEmailmobile, EmailMobile, "[dbo].[usp_EmailMobilenumberexists_BrokerProfiles]"); }
     }
 }
