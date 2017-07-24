@@ -3550,10 +3550,14 @@ namespace WebapiApplication.DAL
                 parm[1].Value = Mobj.intBranch;
                 parm[2] = new SqlParameter("@intEmpID", SqlDbType.VarChar);
                 parm[2].Value = Mobj.intEmpID;
-                parm[3] = new SqlParameter("@intTicketVerified", SqlDbType.Int);
-                parm[3].Value = Mobj.intTicketVerified;
-                parm[4] = new SqlParameter("@intMarked", SqlDbType.Int);
-                parm[4].Value = Mobj.intMarked;
+                parm[3] = new SqlParameter("@dtStartDate", SqlDbType.DateTime);
+                parm[3].Value = Mobj.dtStartDate;
+                parm[4] = new SqlParameter("@dtEndDate", SqlDbType.DateTime);
+                parm[4].Value = Mobj.dtEndDate;
+                parm[5] = new SqlParameter("@intTicketVerified", SqlDbType.Int);
+                parm[5].Value = Mobj.intTicketVerified;
+                parm[6] = new SqlParameter("@intMarked", SqlDbType.Int);
+                parm[6].Value = Mobj.intMarked;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
             }
             catch (Exception EX)

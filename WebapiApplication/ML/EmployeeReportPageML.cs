@@ -425,6 +425,8 @@ namespace WebapiApplication.ML
         public string intEmpID { get; set; }
         public int? intTicketVerified { get; set; }
         public int? intMarked { get; set; }
+        public DateTime? dtStartDate { get; set; }
+        public DateTime? dtEndDate { get; set; }
     }
 
     public class employeepaymentedit
@@ -450,7 +452,7 @@ namespace WebapiApplication.ML
         public string Narration { get; set; }
         public Int64 EnteredbyEmpID { get; set; }
         public string status { get; set; }
-            
+
     }
     public class paymentreports
     {
