@@ -340,7 +340,9 @@ namespace WebapiApplication.Interfaces
 
         Tuple<ArrayList, int, int, int, int> GetmatchMeetingData(int? brideCustID, int? groomCustID);
 
-        int checkMarketingTicket(long ticketID);
+        int checkMarketingTicket(string ticketID);
+
+        int brokerFormInsert(brokerEntryForm mobj);
     }
 
 

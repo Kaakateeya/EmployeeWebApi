@@ -204,7 +204,7 @@ namespace WebapiApplication.DAL
             return new Tuple<ArrayList, int, int, int, int>(Commonclass.convertdataTableToArrayListTable(ds), intStatus, CasteStatus, FromStatus, ToStatus);
         }
 
-        internal int checkMarketingTicketDal(long ticketID, string spname)
+        internal int checkMarketingTicketDal(string ticketID, string spname)
         {
             SqlParameter[] parm = new SqlParameter[2];
             int intStatus = 0;
@@ -226,7 +226,56 @@ namespace WebapiApplication.DAL
                 }
                 else
                 {
-                    intStatus = Convert.ToInt32(parm[2].Value);
+                    intStatus = Convert.ToInt32(parm[1].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return intStatus;
+        }
+
+        internal int brokerFormInsertDal(brokerEntryForm mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[7];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@v_Name", SqlDbType.VarChar, 20);
+                parm[0].Value = mobj.name;
+                parm[1] = new SqlParameter("@v_Place", SqlDbType.VarChar, 20);
+                parm[1].Value = mobj.place;
+                parm[2] = new SqlParameter("@v_Email", SqlDbType.VarChar, 20);
+                parm[2].Value = mobj.email;
+                parm[3] = new SqlParameter("@v_Mobilenumber", SqlDbType.VarChar, 20);
+                parm[3].Value = mobj.mobileNumber;
+                parm[4] = new SqlParameter("@i_Flag", SqlDbType.Int);
+                parm[4].Value = mobj.flag;
+                parm[5] = new SqlParameter("@i_Brokerid", SqlDbType.Int);
+                parm[5].Value = mobj.brokerId;
+                parm[6] = new SqlParameter("@status", SqlDbType.Int);
+                parm[6].Direction = ParameterDirection.Output;
+
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), Convert.ToString(parm[6].Value)).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[6].Value);
                 }
             }
             catch (Exception EX)
