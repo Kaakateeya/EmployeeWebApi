@@ -155,6 +155,27 @@
 
             }
 
+
+            var inputobjREG = {
+                  strMFFNativePlace: ""
+                , strFatherName: ""
+                , strMotherName: ""
+                , strFFName: ""
+                , strMFName: ""
+                , strMFSurName: "K"
+                , strCustSurName: ""
+                , strCustName: ""
+                , strCaste: ""
+                , strAllPhones: " "
+                , strAllEmailIds: ""
+                , intAppicationStatusID: ""
+                , intGenderID: ""
+                , intEmpID: "2"
+                , i_Startindex: 1
+                , i_EndIndex: 100
+            }
+
+
             var Mobj = {
                 "customerpersonaldetails": {
                     "FromCustID": 20556,
@@ -203,7 +224,7 @@
                 alert(Mobj);
 
                 $.ajax({
-                    url: 'http://localhost:63006/Api/ExpressInterest/ExpressInterest',
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/RegistrationValidation',
                     type: 'POST',
                     crossDomain: true,
                     data: JSON.stringify(Mobj),
