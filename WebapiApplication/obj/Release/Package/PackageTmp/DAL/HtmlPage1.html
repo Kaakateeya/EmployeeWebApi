@@ -441,16 +441,16 @@ null
             //});
 
 
-            var jsonbObj = { "ProfileID": "011174917", "Cust_id": 117491, "Payment_Id": "45697", "Renual_Type": "0", "NoofPoints": 4, "AgreedAmount": 5000, "SettlementAmount": 20000, "DateDuration": "07-24-2017", "ServiceTax": 1, "ServiceTaxAmt": 0, "AmountPaid": 200, "StartDate": "16-07-2017", "EndDate": "23-07-2017", "ReceiptNumber": "12123123", "Paydescription": "dfsdfsdfsdfsdf", "ModeOfPayment": "345", "EmpID": "2", "AccessFeatureID": 0, "PaysmsID": 1, "MembershipDuration": 8, "PaymentHist_ID": 0 };
+            var jsonbObj = { "Empid": "2", "GenderID": "", "TypeofprofileID": "", "ApplicationstatusID": "54", "MarketingownerID": null, "BranchID": null, "CasteID": "402", "OwneroftheprofileID": "2", "HavingprofilesID": null, "Assigneddatefromdate": "", "Assigneddatetodate": "", "DORFromdate": "", "DORTodate": "", "LogoutId": "", "verfiedcontacts": "", "WebsiteBlocked": "", "pagefrom": 1, "pageto": 100, "intTableType": 1, "v_MaritalStatus": null, "i_Domacile": null };
 
 
             $("#btngetdata").click(function () {
                 alert(1);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/smallPages/GetcheckMarketingTicket',
-                    type: 'get',
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/MyprofileAllslides',
+                    type: 'post',
                     crossDomain: true,
-                    data: { ticketID: 'KakHD1687234' },
+                    data: JSON.stringify(jsonbObj),
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));
