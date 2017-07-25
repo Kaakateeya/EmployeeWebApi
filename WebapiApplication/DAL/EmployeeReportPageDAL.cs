@@ -412,8 +412,8 @@ namespace WebapiApplication.DAL
 
                             myprofile.FirstName = (reader["FirstName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FirstName")) : empty;
                             myprofile.LastName = (reader["LastName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastName")) : empty;
-                            myprofile.NoOfBrothers = (reader["NoOfBrothers"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfBrothers")) : intnull;
-                            myprofile.NoOfSisters = (reader["NoOfSisters"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfSisters")) : intnull;
+                            //myprofile.NoOfBrothers = (reader["NoOfBrothers"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfBrothers")) : intnull;
+                            //myprofile.NoOfSisters = (reader["NoOfSisters"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfSisters")) : intnull;
                             myprofile.Caste = (reader["Caste"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Caste")) : empty;
                             myprofile.ProfileGrade = (reader["ProfileGrade"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ProfileGrade")) : intnull;
                             myprofile.TotalRows = (reader["TotalRows"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : intnull;
@@ -427,12 +427,12 @@ namespace WebapiApplication.DAL
                             myprofile.SAForm = (reader["SAForm"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("SAForm")) : empty;
                             myprofile.TicketID = (reader["TicketID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketID")) : empty;
                             myprofile.MatchMeetingCount = (reader["MatchMeetingCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MatchMeetingCount")) : intnull;
-                            myprofile.CountryCodeID = (reader["CountryCodeID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("CountryCodeID")) : intnull;
-                            myprofile.Reason4InActive = (reader["Reason4InActive"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Reason4InActive")) : empty;
+                            //myprofile.CountryCodeID = (reader["CountryCodeID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("CountryCodeID")) : intnull;
+                            //myprofile.Reason4InActive = (reader["Reason4InActive"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Reason4InActive")) : empty;
                             myprofile.mothertongue = (reader["MotherTongue"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MotherTongue")) : empty;
                             myprofile.PhotoCount = (reader["PhotoCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PhotoCount")) : intnull;
-                            myprofile.CreatedDate = (reader["CreatedDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CreatedDate")) : empty;
-                            myprofile.Cust_Family_ID = (reader["Cust_Family_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_Family_ID")) : iLong;
+                            //myprofile.CreatedDate = (reader["CreatedDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CreatedDate")) : empty;
+                            //myprofile.Cust_Family_ID = (reader["Cust_Family_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_Family_ID")) : iLong;
 
                             //if (Mobj.intTableType == 1)
                             //{
@@ -440,24 +440,24 @@ namespace WebapiApplication.DAL
                             myprofile.SubCaste = (reader["SubCaste"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("SubCaste")) : empty;
                             myprofile.Age = (reader["Age"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Age")) : intnull;
                             myprofile.Height = (reader["Height"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Height")) : empty;
-                            myprofile.Color = (reader["Color"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Color")) : empty;
-                            myprofile.EducationGroup = (reader["EducationGroup"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EducationGroup")) : empty;
-                            myprofile.Profession = (reader["Profession"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profession")) : empty;
-                            myprofile.JobLocation = (reader["JobLocation"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("JobLocation")) : empty;
-                            myprofile.countrylivingin = (reader["CountryLivingin"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CountryLivingin")) : empty;
-                            myprofile.MaritalStatusID = (reader["MaritalStatus"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MaritalStatus")) : empty;
-                            myprofile.Star = (reader["Star"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Star")) : empty;
-                            myprofile.Gothram = (reader["Gothram"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gothram")) : empty;
-                            myprofile.TOB = (reader["TOB"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TOB")) : empty;
-                            myprofile.educationspecialisation = (reader["EduSpecialization"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EduSpecialization")) : empty;
-                            myprofile.EduGroupnamenew = (reader["EduGroupnamenew"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EduGroupnamenew")) : empty;
-                            myprofile.Employeedin = (reader["EmployeedIn"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmployeedIn")) : empty;
-                            myprofile.Profession = (reader["ProfGroup"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfGroup")) : empty;
-                            myprofile.Property = (reader["Property"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Property")) : intnull;
+                            //myprofile.Color = (reader["Color"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Color")) : empty;
+                            //myprofile.EducationGroup = (reader["EducationGroup"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EducationGroup")) : empty;
+                            //myprofile.Profession = (reader["Profession"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profession")) : empty;
+                            //myprofile.JobLocation = (reader["JobLocation"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("JobLocation")) : empty;
+                            //myprofile.countrylivingin = (reader["CountryLivingin"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CountryLivingin")) : empty;
+                            //myprofile.MaritalStatusID = (reader["MaritalStatus"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MaritalStatus")) : empty;
+                            //myprofile.Star = (reader["Star"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Star")) : empty;
+                            //myprofile.Gothram = (reader["Gothram"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gothram")) : empty;
+                            //myprofile.TOB = (reader["TOB"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TOB")) : empty;
+                            //myprofile.educationspecialisation = (reader["EduSpecialization"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EduSpecialization")) : empty;
+                            //myprofile.EduGroupnamenew = (reader["EduGroupnamenew"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EduGroupnamenew")) : empty;
+                            //myprofile.Employeedin = (reader["EmployeedIn"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmployeedIn")) : empty;
+                            //myprofile.Profession = (reader["ProfGroup"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfGroup")) : empty;
+                            //myprofile.Property = (reader["Property"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Property")) : intnull;
                             myprofile.Income = (reader["Income"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Income")) : empty;
-                            myprofile.FFNative = (reader["FFNative"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FFNative")) : empty;
-                            myprofile.MFNative = (reader["MFNative"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MFNative")) : empty;
-                            myprofile.PlaceOfBirth = (reader["PlaceOfBirth"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PlaceOfBirth")) : empty;
+                            //myprofile.FFNative = (reader["FFNative"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FFNative")) : empty;
+                            //myprofile.MFNative = (reader["MFNative"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MFNative")) : empty;
+                            //myprofile.PlaceOfBirth = (reader["PlaceOfBirth"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PlaceOfBirth")) : empty;
                             myprofile.Photo = (reader["Photo"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Photo")) : empty;
                             myprofile.PhotoNames = (reader["PhotoNames"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PhotoNames")) : empty;
                             myprofile.currency = (reader["currency"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("currency")) : empty;
@@ -480,7 +480,7 @@ namespace WebapiApplication.DAL
                             myprofile.Primaryemail = (reader["email"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("email")) : empty;
                             myprofile.Primarynumber = (reader["number"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("number")) : empty;
                             myprofile.HoroscopeStatus = (reader["HoroscopeStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("HoroscopeStatus")) : intnull;
-                            myprofile.HoroScopeImage = (reader["HoroScope"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("HoroScope")) : empty;
+                            //myprofile.HoroScopeImage = (reader["HoroScope"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("HoroScope")) : empty;
 
                             //}
 
@@ -489,10 +489,10 @@ namespace WebapiApplication.DAL
 
                             myprofile.ApplicationPhotoPath = (reader["ApplicationPhotoPath"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ApplicationPhotoPath")) : empty;
                             myprofile.DOR = (reader["DOR"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("DOR")) : empty;
-                            myprofile.LastLoginDate = (reader["LastLoginDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastLoginDate")) : empty;
+                            //myprofile.LastLoginDate = (reader["LastLoginDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastLoginDate")) : empty;
                             // myprofile.LoginCount = (reader["LoginCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("LoginCount")) : intnull;
                             myprofile.PaidAmount = (reader["Payment"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Payment")) : empty;
-                            myprofile.ContactNumber = (reader["ContactNumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ContactNumber")) : empty;
+                            //myprofile.ContactNumber = (reader["ContactNumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ContactNumber")) : empty;
                             //  myprofile.Email = (reader["Email"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Email")) : empty;
                             // myprofile.MybookMarkedProfCount = (reader["MybookMarkedProfCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MybookMarkedProfCount")) : intnull;
                             //  myprofile.WhobookmarkedCount = (reader["WhobookmarkedCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("WhobookmarkedCount")) : intnull;
@@ -500,8 +500,8 @@ namespace WebapiApplication.DAL
                             //  myprofile.RectWhoViewedCout = (reader["RectWhoViewedCout"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("RectWhoViewedCout")) : intnull;
                             // myprofile.IgnoreProfileCount = (reader["IgnoreProfileCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("IgnoreProfileCount")) : intnull;
                             // myprofile.SentPhotoRequestCount = (reader["SentPhotoRequestCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SentPhotoRequestCount")) : intnull;
-                            myprofile.EmpName = (reader["EmpName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpName")) : empty;
-                            myprofile.UserName = (reader["UserName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("UserName")) : empty;
+                            //myprofile.EmpName = (reader["EmpName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpName")) : empty;
+                            //myprofile.UserName = (reader["UserName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("UserName")) : empty;
 
                             myprofile.Row = (reader["Row"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Row")) : iLong;
                             arrayList.Add(myprofile);
@@ -3353,467 +3353,6 @@ namespace WebapiApplication.DAL
 
             }
             return intStatus;
-        }
-
-        public ArrayList customermeassgeverification(messagesverification Mobj, string spname)
-        {
-
-            SqlParameter[] parm = new SqlParameter[10];
-            SqlConnection connection = new SqlConnection();
-            connection = SQLHelper.GetSQLConnection();
-            connection.Open();
-            DataSet ds = new DataSet();
-            int intStatus = 0;
-            try
-            {
-                parm[0] = new SqlParameter("@i_Type", SqlDbType.Int);
-                parm[0].Value = Mobj.i_Type;
-                parm[1] = new SqlParameter("@Body", SqlDbType.VarChar, 1000);
-                parm[1].Value = Mobj.Body;
-                parm[2] = new SqlParameter("@Subject", SqlDbType.VarChar, 1000);
-                parm[2].Value = Mobj.Subject;
-                parm[3] = new SqlParameter("@MessagesID", SqlDbType.BigInt);
-                parm[3].Value = Mobj.MessagesID;
-                parm[4] = new SqlParameter("@MessageStatusID", SqlDbType.Int);
-                parm[4].Value = Mobj.MessageStatusID;
-                parm[5] = new SqlParameter("@EmpID", SqlDbType.BigInt);
-                parm[5].Value = Mobj.EmpID;
-                parm[6] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[6].Direction = ParameterDirection.Output;
-                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[6].Value.ToString()).Equals(0))
-                {
-                    intStatus = 0;
-                }
-                else
-                {
-                    intStatus = Convert.ToInt32(parm[6].Value);
-                }
-
-            }
-            catch (Exception EX)
-            {
-                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
-            }
-            finally
-            {
-                connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
-            }
-            return Commonclass.convertdataTableToArrayListTable(ds);
-        }
-
-        public int updatecustomermessages(updatemessagesverification Mobj, string spname)
-        {
-            SqlParameter[] parm = new SqlParameter[12];
-            int intStatus = 0;
-            SqlConnection connection = new SqlConnection();
-            connection = SQLHelper.GetSQLConnection();
-            connection.Open();
-            try
-            {
-                parm[0] = new SqlParameter("@i_FromCustID", SqlDbType.BigInt);
-                parm[0].Value = Mobj.FromCustID;
-                parm[1] = new SqlParameter("@i_ToCustId", SqlDbType.BigInt);
-                parm[1].Value = Mobj.ToCustID;
-                parm[2] = new SqlParameter("@vc_Message", SqlDbType.NVarChar);
-                parm[2].Value = Mobj.StrHtmlText;
-                parm[3] = new SqlParameter("@i_MessageStatusId", SqlDbType.Int);
-                parm[3].Value = Mobj.MessageStatusId;
-                parm[4] = new SqlParameter("@i_EmpId", SqlDbType.BigInt);
-                parm[4].Value = Mobj.EmpId;
-                parm[5] = new SqlParameter("@b_ReadFlag", SqlDbType.Int);
-                parm[5].Value = Mobj.ReadFlag;
-                parm[6] = new SqlParameter("@i_messageHistoryId", SqlDbType.BigInt);
-                parm[6].Value = Mobj.MessageHistoryId;
-                parm[7] = new SqlParameter("@b_Accepted", SqlDbType.Int);
-                parm[7].Value = Mobj.Accepted;
-                parm[8] = new SqlParameter("@i_MessageLinkId", SqlDbType.BigInt);
-                parm[8].Value = Mobj.MessageLinkId;
-                parm[9] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[9].Direction = ParameterDirection.Output;
-                DataSet ds = new DataSet();
-                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[9].Value.ToString()).Equals(0))
-                {
-                    intStatus = 0;
-                }
-                else
-                {
-                    intStatus = Convert.ToInt32(parm[9].Value);
-                }
-            }
-            catch (Exception EX)
-            {
-                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
-            }
-            finally
-            {
-                connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
-
-
-            }
-            return intStatus;
-        }
-
-
-        public int Editpaymentpointexpdate(EditpaymentpointS Mobj, string spname)
-        {
-            SqlParameter[] parm = new SqlParameter[12];
-            int intStatus = 0;
-            SqlConnection connection = new SqlConnection();
-            connection = SQLHelper.GetSQLConnection();
-            connection.Open();
-            try
-            {
-                parm[0] = new SqlParameter("@intEmpId", SqlDbType.BigInt);
-                parm[0].Value = Mobj.intEmpId;
-                parm[1] = new SqlParameter("@intCust_Id", SqlDbType.Int);
-                parm[1].Value = Mobj.intCust_Id;
-                parm[2] = new SqlParameter("@strProfileId", SqlDbType.VarChar);
-                parm[2].Value = Mobj.strProfileId;
-                parm[3] = new SqlParameter("@Allowed_Points", SqlDbType.Int);
-                parm[3].Value = Mobj.Allowed_Points;
-                parm[4] = new SqlParameter("@Allowed_Days", SqlDbType.Int);
-                parm[4].Value = Mobj.Allowed_Days;
-                parm[5] = new SqlParameter("@Old_ExpiryDate", SqlDbType.DateTime);
-                parm[5].Value = Mobj.Old_ExpiryDate;
-                parm[6] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[6].Direction = ParameterDirection.Output;
-                DataSet ds = new DataSet();
-                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[6].Value.ToString()).Equals(0))
-                {
-                    intStatus = 0;
-                }
-                else
-                {
-                    intStatus = Convert.ToInt32(parm[6].Value);
-                }
-            }
-            catch (Exception EX)
-            {
-                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
-            }
-            finally
-            {
-                connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
-
-            }
-            return intStatus;
-        }
-
-        public ArrayList Paymentexentionpointsdays(string Profileid, string spname)
-        {
-
-            SqlParameter[] parm = new SqlParameter[3];
-            SqlConnection connection = new SqlConnection();
-            connection = SQLHelper.GetSQLConnection();
-            connection.Open();
-            DataSet ds = new DataSet();
-            try
-            {
-                parm[0] = new SqlParameter("@strProfileID", SqlDbType.VarChar);
-                parm[0].Value = Profileid;
-                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-            }
-            catch (Exception EX)
-            {
-                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
-            }
-            finally
-            {
-                connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
-            }
-            return Commonclass.convertdataTableToArrayListTable(ds);
-        }
-
-        public ArrayList authorizationpaymentamoutReport(authorizationpayment Mobj, string spname)
-        {
-            SqlParameter[] parm = new SqlParameter[8];
-            SqlConnection connection = new SqlConnection();
-            connection = SQLHelper.GetSQLConnection();
-            connection.Open();
-            DataSet ds = new DataSet();
-            try
-            {
-                parm[0] = new SqlParameter("@intRegional", SqlDbType.Int);
-                parm[0].Value = Mobj.intRegional;
-                parm[1] = new SqlParameter("@intBranch", SqlDbType.VarChar);
-                parm[1].Value = Mobj.intBranch;
-                parm[2] = new SqlParameter("@intEmpID", SqlDbType.VarChar);
-                parm[2].Value = Mobj.intEmpID;
-                parm[3] = new SqlParameter("@dtStartDate", SqlDbType.DateTime);
-                parm[3].Value = Mobj.dtStartDate;
-                parm[4] = new SqlParameter("@dtEndDate", SqlDbType.DateTime);
-                parm[4].Value = Mobj.dtEndDate;
-                parm[5] = new SqlParameter("@intTicketVerified", SqlDbType.Int);
-                parm[5].Value = Mobj.intTicketVerified;
-                parm[6] = new SqlParameter("@intMarked", SqlDbType.Int);
-                parm[6].Value = Mobj.intMarked;
-                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-            }
-            catch (Exception EX)
-            {
-                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
-            }
-            finally
-            {
-                connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
-            }
-            return Commonclass.convertdataTableToArrayListTable(ds);
-        }
-
-        public int Editpayment(employeepaymentedit Mobj, string spname)
-        {
-            SqlParameter[] parm = new SqlParameter[8];
-            int intStatus = 0;
-            SqlConnection connection = new SqlConnection();
-            connection = SQLHelper.GetSQLConnection();
-            connection.Open();
-            try
-            {
-                parm[0] = new SqlParameter("@intEmpId", SqlDbType.BigInt);
-                parm[0].Value = Mobj.Empid;
-                parm[1] = new SqlParameter("@aggredamount", SqlDbType.VarChar);
-                parm[1].Value = Mobj.aggredamount;
-                parm[2] = new SqlParameter("@paidamount", SqlDbType.VarChar);
-                parm[2].Value = Mobj.paidamount;
-                parm[3] = new SqlParameter("@paymentdescription", SqlDbType.VarChar);
-                parm[3].Value = Mobj.paymentdescription;
-                parm[4] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[4].Direction = ParameterDirection.Output;
-                DataSet ds = new DataSet();
-                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[4].Value.ToString()).Equals(0))
-                {
-                    intStatus = 0;
-                }
-                else
-                {
-                    intStatus = Convert.ToInt32(parm[4].Value);
-                }
-            }
-            catch (Exception EX)
-            {
-                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
-            }
-            finally
-            {
-                connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
-
-            }
-            return intStatus;
-        }
-
-        public int InsertEmailBouceEntry(insertemailsbounce Mobj, string spname)
-        {
-            SqlParameter[] parm = new SqlParameter[15];
-            int intStatus = 0;
-            SqlConnection connection = new SqlConnection();
-            connection = SQLHelper.GetSQLConnection();
-            connection.Open();
-            try
-            {
-                parm[0] = new SqlParameter("@ProfileID", SqlDbType.VarChar, 20);
-                parm[0].Value = Mobj.profileID;
-                parm[1] = new SqlParameter("@EmailID", SqlDbType.VarChar, 100);
-                parm[1].Value = Mobj.EmailID;
-                parm[2] = new SqlParameter("@CategoryID", SqlDbType.Int);
-                parm[2].Value = Mobj.CategoryID;
-                parm[3] = new SqlParameter("@Bounce_From_date", SqlDbType.DateTime);
-                parm[3].Value = Mobj.Bounce_From_date;
-                parm[4] = new SqlParameter("@Email_Sent_From_Date", SqlDbType.DateTime);
-                parm[4].Value = Mobj.Email_Sent_From_Date;
-                parm[5] = new SqlParameter("@Narration_date", SqlDbType.DateTime);
-                parm[5].Value = Mobj.Narration_Date;
-                parm[6] = new SqlParameter("@Narration", SqlDbType.VarChar, 4000);
-                parm[6].Value = Mobj.Narration;
-                parm[7] = new SqlParameter("@EnteredbyEmpID", SqlDbType.BigInt);
-                parm[7].Value = Mobj.EnteredbyEmpID;
-                parm[8] = new SqlParameter("@Status", SqlDbType.Bit);
-                parm[8].Value = Mobj.status;
-                parm[9] = new SqlParameter("@rtnstatus", SqlDbType.Int);
-                parm[9].Direction = ParameterDirection.Output;
-                parm[10] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 4000);
-                parm[10].Direction = ParameterDirection.Output;
-                DataSet ds = new DataSet();
-                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[9].Value.ToString()).Equals(0))
-                {
-                    intStatus = 0;
-                }
-                else
-                {
-                    intStatus = Convert.ToInt32(parm[9].Value);
-                }
-            }
-            catch (Exception EX)
-            {
-                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
-            }
-            finally
-            {
-                connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
-
-            }
-            return intStatus;
-        }
-
-        public int existanceprofileornot(string profileid, string spname)
-        {
-            SqlParameter[] parm = new SqlParameter[4];
-            int intStatus = 0;
-            SqlConnection connection = new SqlConnection();
-            connection = SQLHelper.GetSQLConnection();
-            connection.Open();
-            try
-            {
-                parm[0] = new SqlParameter("@ProfileID", SqlDbType.VarChar, 20);
-                parm[0].Value = profileid;
-                parm[1] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[1].Direction = ParameterDirection.Output;
-                DataSet ds = new DataSet();
-                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[1].Value.ToString()).Equals(0))
-                {
-                    intStatus = 0;
-                }
-                else
-                {
-                    intStatus = Convert.ToInt32(parm[1].Value);
-                }
-            }
-            catch (Exception EX)
-            {
-                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
-            }
-            finally
-            {
-                connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
-
-            }
-            return intStatus;
-        }
-
-        public ArrayList EmplyeepaymentReportspayment(paymentreports Mobj, string spname)
-        {
-            SqlParameter[] parm = new SqlParameter[30];
-            SqlConnection connection = new SqlConnection();
-            connection = SQLHelper.GetSQLConnection();
-            connection.Open();
-            DataSet ds = new DataSet();
-            SqlDataAdapter daParentDetails = new SqlDataAdapter();
-            try
-            {
-                //parm[0] = new SqlParameter("@vc_ProfileId", SqlDbType.VarChar);
-                //parm[0].Value = Mobj.StrProfileID;
-                //parm[1] = new SqlParameter("@b_IsAdmin", SqlDbType.Int);
-                //parm[1].Value = Mobj.IsAdmin;
-                //parm[2] = new SqlParameter("@i_Gender", SqlDbType.Int);
-                //parm[2].Value = Mobj.Gender;
-                //parm[3] = new SqlParameter("@i_PayFor", SqlDbType.Int);
-                //parm[3].Value = Mobj.PayFor;
-                //parm[4] = new SqlParameter("@i_PaymentType", SqlDbType.Int);
-                //parm[4].Value = Mobj.PaymenytStatus;
-
-                //parm[5] = new SqlParameter("@i_Region", SqlDbType.Int);
-                //parm[5].Value = Mobj.Region;
-                //parm[6] = new SqlParameter("@b_IsConfidential", SqlDbType.Int);
-                //parm[6].Value = Mobj.Confidential;
-                //parm[7] = new SqlParameter("@i_IsServiceTax", SqlDbType.Int);
-                //parm[7].Value = Mobj.IsServiceTaxPaid;
-                //parm[8] = new SqlParameter("@b_IsBalance", SqlDbType.Int);
-                //parm[8].Value = Mobj.IsAmountThere;
-                //parm[9] = new SqlParameter("@b_IsEmp", SqlDbType.Int);
-                //parm[9].Value = Mobj.EmpType;
-                //parm[10] = new SqlParameter("@t_ProfileOwnerId", SqlDbType.Int);//re
-                //parm[10].Value = Mobj.OwnerOFProfile;
-
-                //parm[11] = new SqlParameter("@t_ApplicationStatus", SqlDbType.Int);//re
-                //parm[11].Value = Mobj.ApplicationStatus;
-                //parm[12] = new SqlParameter("@i_PaidFrom", SqlDbType.Int);
-                //parm[12].Value = Mobj.FromAmount;
-                //parm[13] = new SqlParameter("@i_PaidTo", SqlDbType.Int);
-                //parm[13].Value = Mobj.ToAmount;
-
-                //parm[14] = new SqlParameter("@t_Caste", SqlDbType.Int);//re
-                //parm[14].Value = Mobj.Caste;
-                //parm[15] = new SqlParameter("@t_Branch", SqlDbType.Int);//rew
-                //parm[15].Value = Mobj.Branch;
-                //parm[16] = new SqlParameter("@dt_PaymentStartDate", SqlDbType.DateTime);
-                //parm[16].Value = Mobj.StartDate;
-                //parm[17] = new SqlParameter("@dt_PaymentEndDate", SqlDbType.DateTime);
-                //parm[17].Value = Mobj.EndDate;
-
-                //parm[18] = new SqlParameter("@i_From", SqlDbType.Int);
-                //parm[18].Value = Mobj.From;
-                //parm[19] = new SqlParameter("@i_To", SqlDbType.Int);
-                //parm[19].Value = Mobj.To;
-                //parm[20] = new SqlParameter("@i_PageNumber", SqlDbType.Int);
-                //parm[20].Value = Mobj.PageNumber;
-                //parm[21] = new SqlParameter("@i_PageSize", SqlDbType.Int);
-                //parm[21].Value = Mobj.PageSize;
-                //parm[22] = new SqlParameter("@_Excel", SqlDbType.Int);
-                //parm[22].Value = Mobj.flag;
-                //parm[23] = new SqlParameter("@ModeOfPaymentID", SqlDbType.Int);
-                //parm[23].Value = Mobj.ModeOfPaymentID;
-                //ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                SqlCommand cmd = new SqlCommand(spname, connection);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@vc_ProfileId", Mobj.StrProfileID);
-                cmd.Parameters.AddWithValue("@b_IsAdmin", Mobj.IsAdmin);
-                cmd.Parameters.AddWithValue("@i_Gender", Mobj.Gender);
-                cmd.Parameters.AddWithValue("@i_PayFor", Mobj.PayFor);
-                cmd.Parameters.AddWithValue("@i_PaymentType", Mobj.PaymenytStatus);
-                cmd.Parameters.AddWithValue("@i_Region", Mobj.Region);
-                cmd.Parameters.AddWithValue("@b_IsConfidential", Mobj.Confidential);
-                cmd.Parameters.AddWithValue("@i_IsServiceTax", Mobj.IsServiceTaxPaid);
-                cmd.Parameters.AddWithValue("@b_IsBalance", Mobj.IsAmountThere);
-                cmd.Parameters.AddWithValue("@b_IsEmp", Mobj.EmpType);
-                cmd.Parameters.AddWithValue("@t_ProfileOwnerId", Commonclass.returndt(Mobj.profileownerid, Mobj.OwnerOFProfile, "ProfileOwner", "ProfileOwner"));
-                cmd.Parameters.AddWithValue("@t_ApplicationStatus", Commonclass.returndt(Mobj.ApplicationStatusid, Mobj.ApplicationStatus, "Applicationstatus", "Applicationstatus"));
-                cmd.Parameters.AddWithValue("@i_PaidFrom", Mobj.FromAmount);
-                cmd.Parameters.AddWithValue("@i_PaidTo", Mobj.ToAmount);
-                cmd.Parameters.AddWithValue("@t_Caste", Commonclass.returndt(Mobj.Casteid, Mobj.Caste, "Caste", "Caste"));
-                cmd.Parameters.AddWithValue("@t_Branch", Commonclass.returndt(Mobj.Branchid, Mobj.Branch, "Branch", "Branch"));
-                cmd.Parameters.AddWithValue("@dt_PaymentStartDate", Mobj.StartDate);
-                cmd.Parameters.AddWithValue("@dt_PaymentEndDate", Mobj.EndDate);
-                cmd.Parameters.AddWithValue("@i_From", Mobj.From);
-                cmd.Parameters.AddWithValue("@i_To", Mobj.To);
-                cmd.Parameters.AddWithValue("@i_PageNumber", Mobj.PageNumber);
-                cmd.Parameters.AddWithValue("@i_PageSize", Mobj.PageSize);
-                cmd.Parameters.AddWithValue("@_Excel", Mobj.flag);
-                cmd.Parameters.AddWithValue("@ModeOfPaymentID", Mobj.ModeOfPaymentID);
-                daParentDetails.SelectCommand = cmd;
-                daParentDetails.Fill(ds);
-            }
-            catch (Exception EX)
-            {
-                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
-            }
-            finally
-            {
-                connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
-            }
-            return Commonclass.convertdataTableToArrayListTable(ds);
         }
     }
 }
