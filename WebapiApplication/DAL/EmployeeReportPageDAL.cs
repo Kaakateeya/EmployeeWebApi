@@ -454,14 +454,14 @@ namespace WebapiApplication.DAL
                             //myprofile.Employeedin = (reader["EmployeedIn"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmployeedIn")) : empty;
                             //myprofile.Profession = (reader["ProfGroup"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfGroup")) : empty;
                             //myprofile.Property = (reader["Property"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Property")) : intnull;
-                            myprofile.Income = (reader["Income"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Income")) : empty;
+                            //myprofile.Income = (reader["Income"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Income")) : empty;
                             //myprofile.FFNative = (reader["FFNative"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FFNative")) : empty;
                             //myprofile.MFNative = (reader["MFNative"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MFNative")) : empty;
                             //myprofile.PlaceOfBirth = (reader["PlaceOfBirth"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PlaceOfBirth")) : empty;
                             myprofile.Photo = (reader["Photo"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Photo")) : empty;
                             myprofile.PhotoNames = (reader["PhotoNames"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PhotoNames")) : empty;
-                            myprofile.currency = (reader["currency"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("currency")) : empty;
-                            myprofile.Ownerflag = (reader["Ownerflag"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("Ownerflag")) : false;
+                            //myprofile.currency = (reader["currency"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("currency")) : empty;
+                            //myprofile.Ownerflag = (reader["Ownerflag"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("Ownerflag")) : false;
                             myprofile.RegistrationDate = (reader["RegistrationDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("RegistrationDate")) : empty;
                             myprofile.UploadedPhotoscount = (reader["UploadedPhotoscount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("UploadedPhotoscount")) : intnull;
                             myprofile.PhotoshopCount = (reader["PhotoshopCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PhotoshopCount")) : intnull;
@@ -480,7 +480,7 @@ namespace WebapiApplication.DAL
                             myprofile.Primaryemail = (reader["email"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("email")) : empty;
                             myprofile.Primarynumber = (reader["number"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("number")) : empty;
                             myprofile.HoroscopeStatus = (reader["HoroscopeStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("HoroscopeStatus")) : intnull;
-                            //myprofile.HoroScopeImage = (reader["HoroScope"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("HoroScope")) : empty;
+                            myprofile.HoroScopeImage = (reader["HoroScope"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("HoroScope")) : empty;
 
                             //}
 
