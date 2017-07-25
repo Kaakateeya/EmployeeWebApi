@@ -17,6 +17,7 @@ namespace WebapiApplication.Api
         public RegistrationController() : base() { this.IRegistration = new ImpRegistration(); }
         public int? RegisterCustomerHomepages(PrimaryInformationMl CustomerHome) { return this.IRegistration.RegisterCustomerHomepages(CustomerHome); }
         public ArrayList EmployeeRegisterCustomerHomepages(PrimaryInformationMl CustomerHome) { return this.IRegistration.EmployeeRegisterCustomerHomepages(CustomerHome); }
+        public ArrayList EmployeeRegisterCustomerHomepagesBrokerProfiles(PrimaryInformationMl CustomerHome) { return this.IRegistration.EmployeeRegisterCustomerHomepagesBrokerProfiles(CustomerHome); }
         public int? CustomerRegProfileDetails([FromBody]JObject CustomerHome)
         {
             TDetailedRegistration TCustomer = CustomerHome["GetDetails"].ToObject<TDetailedRegistration>();

@@ -198,6 +198,8 @@ namespace WebapiApplication.Interfaces
         ViewProfileInputInbit InbitdataInfo(string ProfileID, int? empid);
 
         NoDataFoundDisplay NoDataFoundDisplay(string ProfileID);
+
+        int brokerEmailMobilenumberexists(int? iflagEmailmobile, string EmailMobile);
     }
     public interface IDependency
     {
@@ -217,6 +219,8 @@ namespace WebapiApplication.Interfaces
         int CheckUserPwd(string Username, string Password);
         ArrayList EmployeeRegisterCustomerHomepages(PrimaryInformationMl CustomerHome);
         int UpdateEmplogintoCustomersite(int empid, string ProfileID, string Narration);
+
+        ArrayList EmployeeRegisterCustomerHomepagesBrokerProfiles(PrimaryInformationMl CustomerHome);
     }
 
     public interface IExpressInterest
@@ -335,6 +339,10 @@ namespace WebapiApplication.Interfaces
         Tuple<int, ArrayList> EmpDetailsNew(string profileID, int BridegroomFlag);
 
         Tuple<ArrayList, int, int, int, int> GetmatchMeetingData(int? brideCustID, int? groomCustID);
+
+        int checkMarketingTicket(string ticketID);
+
+        int brokerFormInsert(brokerEntryForm mobj);
     }
 
 

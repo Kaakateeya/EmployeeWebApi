@@ -83,7 +83,7 @@ namespace WebapiApplication.Api
         public ViewProfileInputInbit getInbitdataInfo(string ProfileID, int? empid) { return this.ISuccessStories.InbitdataInfo(ProfileID, empid); }
 
         public NoDataFoundDisplay getNoDataFoundDisplay(string ProfileID) { return this.ISuccessStories.NoDataFoundDisplay(ProfileID); }
-
+        public int brokerEmailMobilenumberexists(int? iflagEmailmobile, string EmailMobile) { return this.ISuccessStories.brokerEmailMobilenumberexists(iflagEmailmobile, EmailMobile); }
     }
 }
 

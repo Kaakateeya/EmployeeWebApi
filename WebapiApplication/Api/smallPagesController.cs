@@ -69,9 +69,15 @@ namespace WebapiApplication.Api
             return Iobj.GetmatchMeetingData(brideCustID, groomCustID);
         }
 
+        public int GetcheckMarketingTicket(string ticketID)
+        {
+            return Iobj.checkMarketingTicket(ticketID);
+        }
 
-
-
+        public int brokerFormInsert(brokerEntryForm  mobj)
+        {
+            return Iobj.brokerFormInsert(mobj);
+        }
 
     }
 }
