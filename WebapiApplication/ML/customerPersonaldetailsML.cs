@@ -790,7 +790,7 @@ namespace WebapiApplication.ML
         public string Cust_ID { get; set; }
         public string KMPLID { get; set; }
 
-        public bool paid { get; set; }
+        public int? paid { get; set; }
 
         public bool IsConfidential { get; set; }
 
@@ -1305,7 +1305,7 @@ namespace WebapiApplication.ML
         public string DOBfrom { set; get; }
         public string DOBTo { set; get; }
         public string EmpIds { set; get; }
-       // public int? ParentInterCaste { set; get; }
+        // public int? ParentInterCaste { set; get; }
 
     }
 
@@ -1427,7 +1427,7 @@ namespace WebapiApplication.ML
         public string DOBfrom { set; get; }
         public string DOBTo { set; get; }
         public string EmpIds { set; get; }
-       // public int? ParentInterCaste { set; get; }
+        // public int? ParentInterCaste { set; get; }
 
     }
 
