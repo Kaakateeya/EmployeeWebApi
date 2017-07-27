@@ -156,6 +156,20 @@
             }
 
 
+            var inputobjED = {
+                genderID: ""
+                , strFName: ""
+                , strSurName: ""
+                , strProfileID: ""
+                , strKMMLID: ""
+                , profileStatus: "54"
+                , intStartIndex: 1
+                , intEndIndex: 100
+                , intEmpID: "2"
+                , isSlide: 1
+            }
+
+
             var inputobjREG = {
                 strMFFNativePlace: null
                 , strFatherName: null
@@ -224,10 +238,10 @@
                 alert(Mobj);
 
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/RegistrationValidation',
+                    url: 'http://localhost:63006/Api/CustomerPersonal/Search_ViewEditProfile',
                     type: 'POST',
                     crossDomain: true,
-                    data: JSON.stringify(Mobj),
+                    data: JSON.stringify(inputobjED),
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));
@@ -276,72 +290,72 @@
                     Branchid
 :
 null,
-                Casteid
-:
-null,
-                Confidential
-:
-0,
-                EmpType
-:
-null,
-                EndDate
-:
-null,
-                From
-:
-1,
-                FromAmount
-:
-null,
-                Gender
-:
-null,
-                IsAdmin
-:
-"2",
-                IsAmountThere
-:
-0,
-                IsServiceTaxPaid
-:
-null,
-                ModeOfPaymentID
-:
-null,
-                PageNumber
-:
-1,
-                PageSize
-:
-1,
-                PayFor
-:
-null,
-                PaymenytStatus
-:
-null,
-                Region
-:
-null,
-                StartDate
-:
-null,
-                StrProfileID
-:
-null,
-                To
-:
-10,
-                ToAmount
-:
-null,
-                flag
-:
-0,
-                profileownerid
-:
-null
+                    Casteid
+    :
+    null,
+                    Confidential
+    :
+    0,
+                    EmpType
+    :
+    null,
+                    EndDate
+    :
+    null,
+                    From
+    :
+    1,
+                    FromAmount
+    :
+    null,
+                    Gender
+    :
+    null,
+                    IsAdmin
+    :
+    "2",
+                    IsAmountThere
+    :
+    0,
+                    IsServiceTaxPaid
+    :
+    null,
+                    ModeOfPaymentID
+    :
+    null,
+                    PageNumber
+    :
+    1,
+                    PageSize
+    :
+    1,
+                    PayFor
+    :
+    null,
+                    PaymenytStatus
+    :
+    null,
+                    Region
+    :
+    null,
+                    StartDate
+    :
+    null,
+                    StrProfileID
+    :
+    null,
+                    To
+    :
+    10,
+                    ToAmount
+    :
+    null,
+                    flag
+    :
+    0,
+                    profileownerid
+    :
+    null
                 }
                 $.ajax({
                     url: 'http://localhost:63006/Api/EmployeeReportPage/EmplyeepaymentReportspayment',
@@ -408,7 +422,7 @@ null
                     url: 'http://localhost:63006/Api/EmployeeReportPage/getPaymentexentionpointsdays',
                     type: 'GET',
                     crossDomain: true,
-                    data: {Profileid:'310910220' },
+                    data: { Profileid: '310910220' },
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));
