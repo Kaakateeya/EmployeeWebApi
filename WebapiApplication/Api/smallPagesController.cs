@@ -78,6 +78,9 @@ namespace WebapiApplication.Api
         {
             return Iobj.brokerFormInsert(mobj);
         }
-
+        public List<MyassignedPhotosOutPut> myAssignedPhotos(myassignedPhotoInputMl mobj)
+        {
+            return Iobj.myAssignedPhotos(mobj);
+        }
     }
 }

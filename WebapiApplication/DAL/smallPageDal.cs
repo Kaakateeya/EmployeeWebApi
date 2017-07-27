@@ -291,6 +291,72 @@ namespace WebapiApplication.DAL
 
             return intStatus;
         }
+
+        internal List<MyassignedPhotosOutPut> myAssignedPhotosDal(myassignedPhotoInputMl Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[5];
+            long? lnull = null;
+            int? inull = null;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            List<MyassignedPhotosOutPut> li = new List<MyassignedPhotosOutPut>();
+            try
+            {
+                parm[0] = new SqlParameter("@EmpID", SqlDbType.Int);
+                parm[0].Value = Mobj.I_EmpID;
+                parm[1] = new SqlParameter("@vc_ProfileId", SqlDbType.VarChar);
+                parm[1].Value = Mobj.StrProfileID;
+                parm[2] = new SqlParameter("@dt_StartDate", SqlDbType.DateTime);
+                parm[2].Value = Mobj.StartDate;
+                parm[3] = new SqlParameter("@dt_EndDate", SqlDbType.DateTime);
+                parm[3].Value = Mobj.EnDate;
+                parm[4] = new SqlParameter("@i_PageFrom", SqlDbType.Int);
+                parm[4].Value = Mobj.PageFrom;
+                parm[5] = new SqlParameter("@i_PageTo", SqlDbType.Int);
+                parm[5].Value = Mobj.PageTo;
+                SqlDataReader reader;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        MyassignedPhotosOutPut Mobjresult = new MyassignedPhotosOutPut();
+                        {
+                            Mobjresult.Row = (reader["Row"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Row")) : lnull;
+                            Mobjresult.TotalRows = (reader["TotalRows"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : inull;
+                            Mobjresult.Totalpages = (reader["Totalpages"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Totalpages")) : inull;
+                            Mobjresult.Cust_ID = (reader["Cust_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ID")) : lnull;
+                            Mobjresult.ProfileID = (reader["ProfileID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileID")) : string.Empty;
+                            Mobjresult.FirstName = (reader["FirstName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FirstName")) : string.Empty;
+                            Mobjresult.LastName = (reader["LastName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastName")) : string.Empty;
+                            Mobjresult.UploadedDate = (reader["UploadedDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("UploadedDate")) : string.Empty;
+                            Mobjresult.AssignedDate = (reader["AssignedDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("AssignedDate")) : string.Empty;
+                            Mobjresult.PhotoName = (reader["PhotoName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PhotoName")) : string.Empty;
+                            Mobjresult.Cust_Photos_ID = (reader["Cust_Photos_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_Photos_ID")) : lnull;
+                            Mobjresult.AssignEmpName = (reader["AssignEmpName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("AssignEmpName")) : string.Empty;
+                            Mobjresult.paid = (reader["IsPaidMember"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("IsPaidMember")) : inull;
+                            Mobjresult.Uploaded_by = (reader["Uploadedby"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Uploadedby")) : string.Empty;
+                            Mobjresult.Uploaded_branch = (reader["UploadedBranch"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("UploadedBranch")) : string.Empty;
+                        }
+                        li.Add(Mobjresult);
+                    }
+                }
+                reader.Close();
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return li;
+        }
     }
 }
 

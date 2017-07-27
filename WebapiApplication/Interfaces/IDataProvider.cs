@@ -343,6 +343,8 @@ namespace WebapiApplication.Interfaces
         int checkMarketingTicket(string ticketID);
 
         int brokerFormInsert(brokerEntryForm mobj);
+
+        List<MyassignedPhotosOutPut> myAssignedPhotos(myassignedPhotoInputMl mobj);
     }
 
 

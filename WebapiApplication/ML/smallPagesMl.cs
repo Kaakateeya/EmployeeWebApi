@@ -33,14 +33,60 @@ namespace WebapiApplication.ML
     }
     public class brokerEntryForm
     {
-        public string name { get;set; }
+        public string name { get; set; }
         public string place { get; set; }
         public string email { get; set; }
         public string mobileNumber { get; set; }
         public int? brokerId { get; set; }
         public int? flag { get; set; }
-      
     }
+
+    public class myassignedPhotoInputMl
+    {
+        public int? I_EmpID { get; set; }
+        public string StrProfileID { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EnDate { get; set; }
+        public int? PageFrom { get; set; }
+        public int? PageTo { get; set; }
+    }
+
+
+
+    public class MyassignedPhotosOutPut
+    {
+
+        public long? Row { get; set; }
+
+        public int? TotalRows { get; set; }
+
+        public int? Totalpages { get; set; }
+
+        public long? Cust_ID { get; set; }
+
+        public string ProfileID { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string UploadedDate { get; set; }
+
+        public string AssignedDate { get; set; }
+
+        public string PhotoName { get; set; }
+
+        public long? Cust_Photos_ID { get; set; }
+
+        public string AssignEmpName { get; set; }
+
+        public int? paid { get; set; }
+
+        public string Uploaded_by { get; set; }
+
+        public string Uploaded_branch { get; set; }
+    }
+
 
 
 }

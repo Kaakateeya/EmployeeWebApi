@@ -20,5 +20,6 @@ namespace WebapiApplication.Implement
 
         public int checkMarketingTicket(string ticketID) { return dobj.checkMarketingTicketDal(ticketID, "usp_check_marketingTicket"); }
         public int brokerFormInsert(brokerEntryForm mobj) { return dobj.brokerFormInsertDal(mobj, "usp_insert_brokerEntryForm"); }
+        public List<MyassignedPhotosOutPut> myAssignedPhotos(myassignedPhotoInputMl mobj) { return dobj.myAssignedPhotosDal(mobj, "usp_Select_Reports_MyAssignedPhotos"); }
     }
 }
