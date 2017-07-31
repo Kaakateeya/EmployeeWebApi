@@ -455,16 +455,19 @@ null,
             //});
 
 
-            var jsonbObj = { "Empid": "2", "GenderID": "", "TypeofprofileID": "", "ApplicationstatusID": "54", "MarketingownerID": null, "BranchID": null, "CasteID": "402", "OwneroftheprofileID": "2", "HavingprofilesID": null, "Assigneddatefromdate": "", "Assigneddatetodate": "", "DORFromdate": "", "DORTodate": "", "LogoutId": "", "verfiedcontacts": "", "WebsiteBlocked": "", "pagefrom": 1, "pageto": 100, "intTableType": 1, "v_MaritalStatus": null, "i_Domacile": null };
-
+            var jsonbObj = [
+                { custid: '100000', profileid: '011000002', photoname: 'img1.jpg' },
+                { custid: '100000', profileid: '011000002', photoname: 'img2.jpg' }
+            ];
+            
 
             $("#btngetdata").click(function () {
                 alert(1);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/MyprofileAllslides',
-                    type: 'post',
+                    url: 'http://localhost:63006/Api/smallPages/GetDownloadtest',
+                    type: 'get',
                     crossDomain: true,
-                    data: JSON.stringify(jsonbObj),
+                    data: { name: "C:/kaakateeyaPhotos/011000002_1.jpg" },
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));

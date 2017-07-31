@@ -23,7 +23,7 @@ namespace WebapiApplication.Implement
         public ArrayList DGetloginCustinformation(string Username, string Password, int? iflag) { return new RegistrationDAL().DGetloginCustinformation(Username, Password, iflag); }
         public int CheckUserPwd(string Username, string Password) { return new RegistrationDAL().CheckUserPwd(Username, Password); }
         public int UpdateEmplogintoCustomersite(int empid, string ProfileID, string Narration) { return new RegistrationDAL().UpdateEmplogintoCustomersiteDal(empid, ProfileID, Narration, "usp_insert_EmplogintoCustomersite"); }
-        public ArrayList EmployeeRegisterCustomerHomepagesBrokerProfiles(PrimaryInformationMl Mobj) { return new RegistrationDAL().EmployeeRegisterCustomerHomepages(Mobj, "[dbo].[usp_Cust_QuickRegistration_BrokerProfileReg]"); }
+        public ArrayList EmployeeRegisterCustomerHomepagesBrokerProfiles(PrimaryInformationMl Mobj) { return new RegistrationDAL().EmployeeRegisterCustomerHomepages_Brokerentry(Mobj, "[dbo].[usp_Cust_QuickRegistration_BrokerProfileReg]"); }
 
     }
 }

@@ -39,6 +39,9 @@ namespace WebapiApplication.ML
         public string mobileNumber { get; set; }
         public int? brokerId { get; set; }
         public int? flag { get; set; }
+        public int? BranchID { get; set; }
+
+        public string whatsappNumber { get; set; }
     }
 
     public class myassignedPhotoInputMl
@@ -86,9 +89,21 @@ namespace WebapiApplication.ML
 
         public string Uploaded_branch { get; set; }
     }
+    public class myassignPhotoSubmit
+    {
+        public Int64? EmpID { get; set; }
+        public string StrThumbNail { get; set; }
+        public string StrFullPhoto { get; set; }
+        public string StrApplicationPhoto { get; set; }
+        public Int64 PhotoID { get; set; }  
+    }
 
-
-
+    public class downloadInput
+    {
+        public string custid { get; set; }
+        public string profileid { get; set; }
+        public string photoname { get; set; }
+    }
 }
 
 

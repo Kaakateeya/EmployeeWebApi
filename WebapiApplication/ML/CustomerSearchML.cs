@@ -136,6 +136,8 @@ namespace WebapiApplication.ML
         public string Searchresult { get; set; }
         public string PageName { get; set; }
         public int? intSubCasteID { set; get; }
+
+        public int? BrokerNameID { get; set; }
     }
 
     public class CustomerHomePageSearch

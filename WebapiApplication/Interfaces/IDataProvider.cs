@@ -345,6 +345,8 @@ namespace WebapiApplication.Interfaces
         int brokerFormInsert(brokerEntryForm mobj);
 
         List<MyassignedPhotosOutPut> myAssignedPhotos(myassignedPhotoInputMl mobj);
+
+        int myAssignedPhotosSubmit(myassignPhotoSubmit mobj);
     }
 
 

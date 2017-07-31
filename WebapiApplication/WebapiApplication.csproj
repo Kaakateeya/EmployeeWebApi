@@ -60,6 +60,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\Dev_new\Dev\Kaakateeya\Development_Kaakateeya\kaakateeyaWeb\Bin\EmailVerification6_CSharp.XmlSerializers.dll</HintPath>
     </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>C:\Users\Admin\Downloads\Ionic.Zip\Ionic.Zip.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>

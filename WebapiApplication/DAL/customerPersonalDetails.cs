@@ -2020,7 +2020,7 @@ namespace WebapiApplication.DAL
                             MobjPersonalsML.LoginStatus = (reader["LoginStatus"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LoginStatus")) : null;
                             MobjPersonalsML.educationgroup = (reader["educationgroup"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("educationgroup")) : null;
                             MobjPersonalsML.Age = (reader["Age"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Age")) : null;
-                            // MobjPersonalsML.GenderID = (reader["GenderID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("GenderID")) : iNull;
+                            MobjPersonalsML.GenderID = (reader["GenderID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("GenderID")) : iNull;
                             MobjPersonalsML.ProfileStatusID = (reader["ProfileStatusID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ProfileStatusID")) : iNull;
                             MobjPersonalsML.Confidential = (reader["Confidential"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Confidential")) : null;
                             MobjPersonalsML.ProfileID = (reader["ProfileID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileID")) : null;

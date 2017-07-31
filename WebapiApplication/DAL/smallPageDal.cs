@@ -245,7 +245,7 @@ namespace WebapiApplication.DAL
 
         internal int brokerFormInsertDal(brokerEntryForm mobj, string spname)
         {
-            SqlParameter[] parm = new SqlParameter[7];
+            SqlParameter[] parm = new SqlParameter[9];
             int intStatus = 0;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
@@ -265,17 +265,21 @@ namespace WebapiApplication.DAL
                 parm[4].Value = mobj.flag;
                 parm[5] = new SqlParameter("@i_Brokerid", SqlDbType.Int);
                 parm[5].Value = mobj.brokerId;
-                parm[6] = new SqlParameter("@status", SqlDbType.Int);
-                parm[6].Direction = ParameterDirection.Output;
+                parm[6] = new SqlParameter("@BranchID", SqlDbType.Int);
+                parm[6].Value = mobj.BranchID;
+                parm[7] = new SqlParameter("@whatsappNumber", SqlDbType.VarChar, 20);
+                parm[7].Value = mobj.whatsappNumber;
+                parm[8] = new SqlParameter("@status", SqlDbType.Int);
+                parm[8].Direction = ParameterDirection.Output;
 
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), Convert.ToString(parm[6].Value)).Equals(0))
+                if (string.Compare(System.DBNull.Value.ToString(), Convert.ToString(parm[8].Value)).Equals(0))
                 {
                     intStatus = 0;
                 }
                 else
                 {
-                    intStatus = Convert.ToInt32(parm[6].Value);
+                    intStatus = Convert.ToInt32(parm[8].Value);
                 }
             }
             catch (Exception EX)
@@ -294,7 +298,7 @@ namespace WebapiApplication.DAL
 
         internal List<MyassignedPhotosOutPut> myAssignedPhotosDal(myassignedPhotoInputMl Mobj, string spname)
         {
-            SqlParameter[] parm = new SqlParameter[5];
+            SqlParameter[] parm = new SqlParameter[6];
             long? lnull = null;
             int? inull = null;
             SqlConnection connection = new SqlConnection();
@@ -356,6 +360,53 @@ namespace WebapiApplication.DAL
             }
 
             return li;
+        }
+
+        internal int myAssignedPhotosSubmitDal(myassignPhotoSubmit Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[6];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@i_EmpID", SqlDbType.BigInt);
+                parm[0].Value = Mobj.EmpID;
+                parm[1] = new SqlParameter("@Vc_ThumbNail", SqlDbType.VarChar);
+                parm[1].Value = Mobj.StrThumbNail;
+                parm[2] = new SqlParameter("@Vc_FullPhoto", SqlDbType.VarChar);
+                parm[2].Value = Mobj.StrFullPhoto;
+                parm[3] = new SqlParameter("@Vc_ApplicationPhoto", SqlDbType.VarChar);
+                parm[3].Value = Mobj.StrApplicationPhoto;
+                parm[4] = new SqlParameter("@i_PhotoID", SqlDbType.BigInt);
+                parm[4].Value = Mobj.PhotoID;
+                parm[5] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[5].Direction = ParameterDirection.Output;
+
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(parm[5].Value.ToString(), System.DBNull.Value.ToString()) == 0)
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[5].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return intStatus;
         }
     }
 }
