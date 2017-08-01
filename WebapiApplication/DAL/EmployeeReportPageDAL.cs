@@ -393,7 +393,7 @@ namespace WebapiApplication.DAL
                 parm[32].Value = Mobj.v_MaritalStatus;
                 parm[33] = new SqlParameter("@i_Domacile", SqlDbType.Int);
                 parm[33].Value = Mobj.i_Domacile;
-                reader = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 int count = reader.FieldCount;
                 if (reader.HasRows)
                 {
@@ -619,7 +619,7 @@ namespace WebapiApplication.DAL
 
             try
             {
-                reader = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 int count = reader.FieldCount;
 
                 if (reader.HasRows)
@@ -1424,7 +1424,7 @@ namespace WebapiApplication.DAL
                 parm[12] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
                 parm[12].Direction = ParameterDirection.Output;
                 SqlDataReader drReader = null;
-                drReader = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
+                drReader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
 
                 if (string.Compare(System.DBNull.Value.ToString(), parm[11].Value.ToString()).Equals(0))
                 {
@@ -1470,7 +1470,7 @@ namespace WebapiApplication.DAL
                 parm[5] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
                 parm[5].Direction = ParameterDirection.Output;
                 SqlDataReader drResult = null;
-                drResult = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
+                drResult = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (string.Compare(System.DBNull.Value.ToString(), Convert.ToString(parm[4].Value)).Equals(0))
                 {
                     intStatus = 0;
@@ -1515,7 +1515,7 @@ namespace WebapiApplication.DAL
                 parm[5] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
                 parm[5].Direction = ParameterDirection.Output;
                 SqlDataReader drResult = null;
-                drResult = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
+                drResult = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (string.Compare(System.DBNull.Value.ToString(), parm[4].Value.ToString()).Equals(0))
                 {
                     intStatus = 0;
@@ -1558,7 +1558,7 @@ namespace WebapiApplication.DAL
                 parm[4] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
                 parm[4].Direction = ParameterDirection.Output;
                 SqlDataReader drResult = null;
-                drResult = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
+                drResult = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (string.Compare(System.DBNull.Value.ToString(), parm[3].Value.ToString()).Equals(0))
                 {
                     intStatus = 0;
@@ -1601,7 +1601,7 @@ namespace WebapiApplication.DAL
                 parm[2] = new SqlParameter("@empid", SqlDbType.Int);
                 parm[2].Value = empid;
 
-                reader = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (reader.HasRows)
                 {
                     while (reader.Read())

@@ -155,7 +155,7 @@ namespace WebapiApplication.DAL
                 param[4] = new SqlParameter("@Status", System.Data.SqlDbType.Int);
                 param[4].Direction = ParameterDirection.Output;
 
-                DataSet dsLogin = SQLHelper.ExecuteDataset(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, param);
+                DataSet dsLogin = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, param);
                 if (string.Compare(System.DBNull.Value.ToString(), param[4].Value.ToString()) == 0) { intstatus = 0; }
                 else
                 {

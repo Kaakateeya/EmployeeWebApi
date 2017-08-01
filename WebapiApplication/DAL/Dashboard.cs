@@ -430,6 +430,7 @@ namespace WebapiApplication.DAL
             int? inull = null;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
+
             try
             {
                 SqlParameter[] parm = new SqlParameter[6];
@@ -552,9 +553,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+               
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -572,6 +571,7 @@ namespace WebapiApplication.DAL
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
             SqlParameter[] parm = new SqlParameter[6];
+
             try
             {
                 parm[0] = new SqlParameter("@fromcust_id", SqlDbType.BigInt);
@@ -639,6 +639,7 @@ namespace WebapiApplication.DAL
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
+
             try
             {
                 parm[0] = new SqlParameter("@fromcustid", SqlDbType.Int);

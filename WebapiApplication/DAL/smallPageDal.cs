@@ -12,7 +12,7 @@ namespace WebapiApplication.DAL
 {
     public class smallPageDal
     {
-        internal ArrayList getMacIpValuesDal(macIPInput mobj, string spname)
+        public ArrayList getMacIpValuesDal(macIPInput mobj, string spname)
         {
             SqlParameter[] parm = new SqlParameter[5];
             SqlConnection connection = new SqlConnection();
@@ -46,7 +46,7 @@ namespace WebapiApplication.DAL
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
 
-        internal Tuple<int, ArrayList> matchMeetingEntryFormDal(matchMeetingEntryForm Mobj, string spname)
+        public Tuple<int, ArrayList> matchMeetingEntryFormDal(matchMeetingEntryForm Mobj, string spname)
         {
             SqlParameter[] parm = new SqlParameter[16];
             SqlConnection connection = new SqlConnection();
@@ -54,6 +54,7 @@ namespace WebapiApplication.DAL
             connection.Open();
             DataSet ds = new DataSet();
             int intStatus = 0;
+
             try
             {
                 parm[0] = new SqlParameter("@BrideCustID", SqlDbType.BigInt);
@@ -204,7 +205,7 @@ namespace WebapiApplication.DAL
             return new Tuple<ArrayList, int, int, int, int>(Commonclass.convertdataTableToArrayListTable(ds), intStatus, CasteStatus, FromStatus, ToStatus);
         }
 
-        internal int checkMarketingTicketDal(string ticketID, string spname)
+        public int checkMarketingTicketDal(string ticketID, string spname)
         {
             SqlParameter[] parm = new SqlParameter[2];
             int intStatus = 0;
@@ -218,7 +219,7 @@ namespace WebapiApplication.DAL
                 parm[0].Value = ticketID;
                 parm[1] = new SqlParameter("@status", SqlDbType.Int);
                 parm[1].Direction = ParameterDirection.Output;
-             
+
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
                 if (string.Compare(System.DBNull.Value.ToString(), Convert.ToString(parm[1].Value)).Equals(0))
                 {
@@ -243,7 +244,7 @@ namespace WebapiApplication.DAL
             return intStatus;
         }
 
-        internal int brokerFormInsertDal(brokerEntryForm mobj, string spname)
+        public int brokerFormInsertDal(brokerEntryForm mobj, string spname)
         {
             SqlParameter[] parm = new SqlParameter[9];
             int intStatus = 0;
@@ -296,7 +297,7 @@ namespace WebapiApplication.DAL
             return intStatus;
         }
 
-        internal List<MyassignedPhotosOutPut> myAssignedPhotosDal(myassignedPhotoInputMl Mobj, string spname)
+        public List<MyassignedPhotosOutPut> myAssignedPhotosDal(myassignedPhotoInputMl Mobj, string spname)
         {
             SqlParameter[] parm = new SqlParameter[6];
             long? lnull = null;
@@ -362,7 +363,7 @@ namespace WebapiApplication.DAL
             return li;
         }
 
-        internal int myAssignedPhotosSubmitDal(myassignPhotoSubmit Mobj, string spname)
+        public int myAssignedPhotosSubmitDal(myassignPhotoSubmit Mobj, string spname)
         {
             SqlParameter[] parm = new SqlParameter[6];
             int intStatus = 0;

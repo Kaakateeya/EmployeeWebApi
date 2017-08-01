@@ -102,109 +102,23 @@ namespace WebapiApplication.Api
         public string downloadImages([FromBody]List<downloadInput> li)
         {
             List<downloadInput> listval = li;
-
-            if (Directory.Exists("C:\\kaakateeyaPhotos"))
-            {
-                Directory.Delete("C:\\kaakateeyaPhotos", true);
-            }
-             string strpathreturn ="";
+            string strpathreturn = "";
             if (listval.Count > 0)
             {
-
                 if (listval.Count == 1)
                 {
                     listval[0].photoname = listval[0].photoname.Replace("i", "I");
                     string[] imggg = listval[0].photoname.Split('.');
                     string strtest = "Images/ProfilePics/KMPL_" + listval[0].custid + "_Images/" + imggg[0] + "." + (imggg[1].ToLower());
                     string strimagedisplay = listval[0].profileid + "_" + (((listval[0].photoname).Split('.'))[0]).Substring(3) + "." + (imggg[1].ToLower());
-
-                    Download(strtest, listval[0].profileid + "_" + listval[0].photoname, strimagedisplay);
-                     strpathreturn = "C:\\kaakateeyaPhotos\\" + strimagedisplay;
+                    string dest = "C:\\kaakateeyaPhotos\\" + strimagedisplay;
+                    AmazonLoad(strtest, dest);
+                    strpathreturn = "C:/kaakateeyaPhotos/" + strimagedisplay;
                 }
-
-                if (listval.Count > 1)
-                {
-                    for (int i = 0; i < listval.Count; i++)
-                    {
-
-                        listval[i].photoname = (listval[i].photoname.Replace("i", "I"));
-                        string[] imgggall = listval[i].photoname.Split('.');
-                        string strtest1 = "Images/ProfilePics/KMPL_" + listval[i].custid + "_Images/" + imgggall[0] + "." + (imgggall[1].ToLower());
-                        string[] keySplit = strtest1.Split('/');
-                        string fileName = keySplit[keySplit.Length - 1];
-                        string strimagenum = (((listval[i].photoname).Split('.'))[0]).Substring(3) + "." + (imgggall[1].ToLower());
-
-                        string destAll = "C:\\kaakateeyaPhotos\\" + listval[i].profileid + "_" + strimagenum;
-                        AmazonLoad(strtest1, destAll);
-                    }
-                    downloadFolder();
-                }
-
             }
             return strpathreturn;
         }
-        public void Download(string keyName, string destination, string strimagedisplay)
-        {
-            var http = System.Web.HttpContext.Current;
-            var page = http.CurrentHandler as System.Web.UI.Page;
-
-            string dest = "C:\\kaakateeyaPhotos\\" + strimagedisplay;
-
-            AmazonLoad(keyName, dest);
-
-            HttpContext.Current.Response.ContentType = "doc/docx";
-            HttpContext.Current.Response.AddHeader("Content-Disposition", "attachment;filename=\"" + strimagedisplay);
-            if (File.Exists(dest))
-            {
-                HttpResponseMessage Response = new HttpResponseMessage(HttpStatusCode.OK);
-                //HttpResponse Response = new HttpResponse(page);
-               // page.Response.TransmitFile(dest);
-            }
-
-            string pathUser = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            string pathDownload = Path.Combine(pathUser, "Downloads");
-            DirectoryInfo dinfo2 = new DirectoryInfo(pathDownload);
-            string Physicalpath = dinfo2 + "\\" + strimagedisplay;
-
-            if (!File.Exists(Physicalpath) || File.Exists(Physicalpath))
-            {
-                try
-                {
-                    File.Copy(dest, Physicalpath, true);
-                }
-                catch (Exception ea)
-                {
-                }
-            }
-            //page.Response.End();
-
-
-        }
-        public void downloadFolder()
-        {
-            var http = System.Web.HttpContext.Current;
-            var page = http.CurrentHandler as System.Web.UI.Page;
-
-            using (ZipFile zip = new ZipFile())
-            {
-                zip.AlternateEncodingUsage = ZipOption.AsNecessary;
-
-                zip.AddDirectoryByName("kaakateeyaPhotos");
-                string[] filePaths = Directory.GetFiles("C:\\kaakateeyaPhotos");
-                foreach (string filePath in filePaths)
-                {
-                    zip.AddFile(filePath, "kaakateeyaPhotos");
-                }
-                //page.Response.Clear();
-                //page.Response.BufferOutput = false;
-                //string zipName = String.Format("kaakateeyaPhotos_{0}.zip", DateTime.Now.ToString("yyyy-MMM-dd-HHmmss"));
-                //page.Response.ContentType = "application/zip";
-                //page.Response.AddHeader("content-disposition", "attachment; filename=" + zipName);
-                //zip.Save(page.Response.OutputStream);
-                //page.Response.End();
-            }
-
-        }
+      
         public void AmazonLoad(string keyName, string dest)
         {
 
