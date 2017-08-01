@@ -1963,6 +1963,7 @@ namespace WebapiApplication.DAL
 
         public ArrayList Search_ViewEditProfile(ViewEditProfileSearch Mobj, string spName)
         {
+
             ArrayList arrayList = new ArrayList();
             SqlParameter[] parm = new SqlParameter[12];
             SqlDataReader reader;
