@@ -2203,7 +2203,7 @@ namespace WebapiApplication.DAL
                             // sh.Income = reader["MonthlyIncome"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MonthlyIncome")) : Snull;
                             //sh.FFNative = reader["FatherNativePlace"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FatherNativePlace")) : Snull;
                             //sh.MFNative = reader["MotherNativePlace"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MotherNativePlace")) : Snull;
-                           // sh.Property = reader["Property"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Property")) : Snull;
+                            // sh.Property = reader["Property"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Property")) : Snull;
                             sh.PhotoCount = reader["PhotoCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PhotoCount")) : inull;
                             sh.CustomerFullPhoto = reader["FromApplicationPhoto"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromApplicationPhoto")) : Snull;
                             sh.KMPL = reader["KMPLID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("KMPLID")) : Snull;
@@ -2221,17 +2221,17 @@ namespace WebapiApplication.DAL
                             sh.MatchMeetingCount = (reader["MatchMeetingCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MatchMeetingCount")) : inull;
                             sh.ProfileOwnername = (reader["ProfileOwnername"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileOwnername")) : empty;
                             sh.EmpUserName = (reader["EmpUserName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpUserName")) : empty;
-                          //  sh.EmpName = (reader["EmpName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpName")) : empty;
+                            //  sh.EmpName = (reader["EmpName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpName")) : empty;
                             sh.SAForm = (reader["SAForm"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("SAForm")) : empty;
                             sh.CNumberVerStatus = (reader["CNumberVerStatus"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("CNumberVerStatus")) : false;
                             sh.CEmailVerStatus = (reader["CEmailVerStatus"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("CEmailVerStatus")) : false;
-                           // sh.Reason4InActive = (reader["Reason4InActive"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Reason4InActive")) : empty;
-                          //  sh.Cust_Family_ID = (reader["Cust_Family_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_Family_ID")) : Lnull;
+                            // sh.Reason4InActive = (reader["Reason4InActive"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Reason4InActive")) : empty;
+                            //  sh.Cust_Family_ID = (reader["Cust_Family_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_Family_ID")) : Lnull;
                             sh.CountryCodeID = (reader["CountryCodeID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("CountryCodeID")) : inull;
-                           // sh.CreatedDate = (reader["CreatedDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CreatedDate")) : empty;
+                            // sh.CreatedDate = (reader["CreatedDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CreatedDate")) : empty;
                             sh.Primarynumber = (reader["Primarynumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Primarynumber")) : empty;
                             sh.Primaryemail = (reader["Primaryemail"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Primaryemail")) : empty;
-                           // sh.ContactNumber = (reader["ContactNumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ContactNumber")) : empty;
+                            // sh.ContactNumber = (reader["ContactNumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ContactNumber")) : empty;
                             //sh.UserName = (reader["UserName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("UserName")) : empty;
                             sh.ProfileGrade = (reader["ProfileGrade"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ProfileGrade")) : inull;
                             sh.mothertongue = (reader["mothertongue"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("mothertongue")) : empty;
@@ -3722,19 +3722,16 @@ namespace WebapiApplication.DAL
             SqlDataAdapter daParentDetails = new SqlDataAdapter();
             try
             {
-               
+
                 SqlCommand cmd = new SqlCommand(spname, connection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@vc_ProfileId", Mobj.StrProfileID);
                 cmd.Parameters.AddWithValue("@b_IsAdmin", Mobj.IsAdmin);
                 cmd.Parameters.AddWithValue("@i_Gender", Mobj.Gender);
-                cmd.Parameters.AddWithValue("@i_PayFor", Mobj.PayFor);
                 cmd.Parameters.AddWithValue("@i_PaymentType", Mobj.PaymenytStatus);
                 cmd.Parameters.AddWithValue("@i_Region", Mobj.Region);
                 cmd.Parameters.AddWithValue("@b_IsConfidential", Mobj.Confidential);
-                cmd.Parameters.AddWithValue("@i_IsServiceTax", Mobj.IsServiceTaxPaid);
                 cmd.Parameters.AddWithValue("@b_IsBalance", Mobj.IsAmountThere);
-                cmd.Parameters.AddWithValue("@b_IsEmp", Mobj.EmpType);
                 cmd.Parameters.AddWithValue("@t_ProfileOwnerId", Commonclass.returndt(Mobj.profileownerid, Mobj.OwnerOFProfile, "ProfileOwner", "ProfileOwner"));
                 cmd.Parameters.AddWithValue("@t_ApplicationStatus", Commonclass.returndt(Mobj.ApplicationStatusid, Mobj.ApplicationStatus, "Applicationstatus", "Applicationstatus"));
                 cmd.Parameters.AddWithValue("@i_PaidFrom", Mobj.FromAmount);
