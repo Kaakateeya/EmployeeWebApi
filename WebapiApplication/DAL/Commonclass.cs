@@ -354,8 +354,9 @@ namespace WebapiApplication.DAL
             string strVerificationText = string.Empty;
             if (dsPaymentDetails != null)
             {
+
                 string lblBalAmount = (Convert.ToDecimal(Mobj.dtPaymentDetails.Rows[0]["AgreedAmount"]) - Convert.ToDecimal(Mobj.dtPaymentDetails.Rows[0]["AmountPaid"])).ToString();
-                string lblPaymentID = dsPaymentDetails.Tables[0].Rows[0]["PaymentID"].ToString();
+                string lblPaymentID = dsPaymentDetails.Tables[0].Rows[0]["paymentid"].ToString();
                 PaymentDAL payment = new PaymentDAL();
                 if (Mobj.PaysmsID == 1)
                 {
@@ -384,16 +385,16 @@ namespace WebapiApplication.DAL
                     {
                         ProfileID = Mobj.dtPaymentDetails.Rows[0]["ProfileID"].ToString();
                         AmountPaid = Mobj.dtPaymentDetails.Rows[0]["AmountPaid"].ToString();
-                        strVerificationText = strgender + '.' + dsPaymentDetails.Tables[0].Rows[0]["FirstName"].ToString() + ", thank you for the payment of  Rs." + AmountPaid + "/ at" + ' ' + strbranchcode + " and your profile id is : " + ProfileID + ".... Kaakateeya.com";
+                        strVerificationText = strgender + '.' + dsPaymentDetails.Tables[0].Rows[0]["Name"].ToString() + ", thank you for the payment of  Rs." + AmountPaid + "/ at" + ' ' + strbranchcode + " and your profile id is : " + ProfileID + ".... Kaakateeya.com";
                     }
                     else
                     {
-                        strVerificationText = strgender + '.' + dsPaymentDetails.Tables[0].Rows[0]["FirstName"].ToString() + " No Payment received for the" + ProfileID + ".";
+                        strVerificationText = strgender + '.' + dsPaymentDetails.Tables[0].Rows[0]["Name"].ToString() + " No Payment received for the" + ProfileID + ".";
                     }
 
                     try
                     {
-                        if (Mobj.ProfileID != null)
+                        if (Mobj.dtPaymentDetails.Rows[0]["ProfileID"] != null)
                         {
 
                             string strProfileID = Mobj.dtPaymentDetails.Rows[0]["ProfileID"].ToString();
@@ -406,18 +407,20 @@ namespace WebapiApplication.DAL
                                 {
 
                                     string result1 = cc.SendTextSMS("ykrishna", "summary$1", "9841282222", strVerificationText, "smscntry");
+                                    //string result1 = cc.SendTextSMS("ykrishna", "summary$1", "9492117548", strVerificationText, "smscntry");
 
                                 }
                                 else
                                 {
 
                                     string result2 = cc.SendTextSMS("ykrishna", "summary$1", "9848355213", strVerificationText, "smscntry");
+                                    // string result2 = cc.SendTextSMS("ykrishna", "summary$1", "8341287876", strVerificationText, "smscntry");
 
                                 }
                             }
 
                         }
-
+                        //dsPaymentDetails.Tables[0].Rows[0]["Number"] = "9492117548";
                         string result = cc.SendTextSMS("ykrishna", "summary$1", dsPaymentDetails.Tables[0].Rows[0]["Number"].ToString(), strVerificationText, "smscntry");
                     }
                     catch (Exception ee)
