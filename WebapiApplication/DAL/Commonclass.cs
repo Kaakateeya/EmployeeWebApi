@@ -230,7 +230,7 @@ namespace WebapiApplication.DAL
         {
             RijndaelManaged rijndaelCipher = new RijndaelManaged();
             inputText = inputText.Replace(" ", string.Empty);
-          
+
             byte[] encryptedData = Encoding.Unicode.GetBytes(inputText);
 
             PasswordDeriveBytes secretKey = new PasswordDeriveBytes(ENCRYPTION_KEY, SALT);
@@ -254,7 +254,7 @@ namespace WebapiApplication.DAL
 
         public static string getEncryptedExpressIntrestString(string strActualText)
         {
-           
+
             RijndaelManaged rijndaelCipher = new RijndaelManaged();
             byte[] plainText = Encoding.Unicode.GetBytes(strActualText);
             PasswordDeriveBytes SecretKey = new PasswordDeriveBytes(ENCRYPTION_KEY, SALT);
@@ -345,6 +345,89 @@ namespace WebapiApplication.DAL
             }
         }
 
+
+        public static void PaymentinsertSMS(DataSet dsPaymentDetails, PaymentInsertML Mobj)
+        {
+            string page = string.Empty;
+            string ProfileID = string.Empty;
+            string AmountPaid = string.Empty;
+            string strVerificationText = string.Empty;
+            if (dsPaymentDetails != null)
+            {
+                string lblBalAmount = (Convert.ToDecimal(Mobj.dtPaymentDetails.Rows[0]["AgreedAmount"]) - Convert.ToDecimal(Mobj.dtPaymentDetails.Rows[0]["AmountPaid"])).ToString();
+                string lblPaymentID = dsPaymentDetails.Tables[0].Rows[0]["PaymentID"].ToString();
+                PaymentDAL payment = new PaymentDAL();
+                if (Mobj.PaysmsID == 1)
+                {
+                    ServiceSoapClient cc = new ServiceSoapClient();
+                    DataTable dtProfileID = new DataTable();
+                    string strgender = null;
+                    string strbranchcode = null;
+                    if (Mobj.dtPaymentDetails.Rows[0]["ProfileID"] != null)
+                    {
+                        string strProfileID = Mobj.dtPaymentDetails.Rows[0]["ProfileID"].ToString();
+                        dtProfileID = payment.Bgepay_RegionProfileID(strProfileID);
+                        if (dtProfileID.Rows.Count > 0)
+                        {
+                            if (dtProfileID.Rows[0]["GenderID"].ToString() == "1")
+                            {
+                                strgender = "Mr";
+                            }
+                            else
+                            {
+                                strgender = "Ms";
+                            }
+                            strbranchcode = "at" + ' ' + dtProfileID.Rows[0]["BranchesName"].ToString();
+                        }
+                    }
+                    if (Mobj.dtPaymentDetails.Rows.Count > 0)
+                    {
+                        ProfileID = Mobj.dtPaymentDetails.Rows[0]["ProfileID"].ToString();
+                        AmountPaid = Mobj.dtPaymentDetails.Rows[0]["AmountPaid"].ToString();
+                        strVerificationText = strgender + '.' + dsPaymentDetails.Tables[0].Rows[0]["FirstName"].ToString() + ", thank you for the payment of  Rs." + AmountPaid + "/ at" + ' ' + strbranchcode + " and your profile id is : " + ProfileID + ".... Kaakateeya.com";
+                    }
+                    else
+                    {
+                        strVerificationText = strgender + '.' + dsPaymentDetails.Tables[0].Rows[0]["FirstName"].ToString() + " No Payment received for the" + ProfileID + ".";
+                    }
+
+                    try
+                    {
+                        if (Mobj.ProfileID != null)
+                        {
+
+                            string strProfileID = Mobj.dtPaymentDetails.Rows[0]["ProfileID"].ToString();
+                            dtProfileID = payment.Bgepay_RegionProfileID(strProfileID);
+
+                            if (dtProfileID.Rows.Count > 0)
+                            {
+                                string strRegion = dtProfileID.Rows[0]["Region"].ToString();
+                                if (strRegion == "409")
+                                {
+
+                                    string result1 = cc.SendTextSMS("ykrishna", "summary$1", "9841282222", strVerificationText, "smscntry");
+
+                                }
+                                else
+                                {
+
+                                    string result2 = cc.SendTextSMS("ykrishna", "summary$1", "9848355213", strVerificationText, "smscntry");
+
+                                }
+                            }
+
+                        }
+
+                        string result = cc.SendTextSMS("ykrishna", "summary$1", dsPaymentDetails.Tables[0].Rows[0]["Number"].ToString(), strVerificationText, "smscntry");
+                    }
+                    catch (Exception ee)
+                    {
+
+                    }
+                }
+
+            }
+        }
         public static void ResendMobileSMS(int? iCountryID, int? iCCode, string MobileNumber, string strMobileverf)
         {
             ServiceSoapClient cc = new ServiceSoapClient();
@@ -649,6 +732,8 @@ namespace WebapiApplication.DAL
 
             return intStatus;
         }
-        
+
+
+
     }
 }

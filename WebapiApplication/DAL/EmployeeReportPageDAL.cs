@@ -2331,7 +2331,7 @@ namespace WebapiApplication.DAL
         }
 
 
-        internal int FeeUpdateDalWithInternalMemoUpdate(FeeUpdateML Mobj, string spname)
+        public int FeeUpdateDalWithInternalMemoUpdate(FeeUpdateML Mobj, string spname)
         {
             SqlParameter[] parm = new SqlParameter[9];
             int intStatus = 0;
@@ -2814,7 +2814,7 @@ namespace WebapiApplication.DAL
             return status;
         }
 
-        internal int deletedprofilesInsertionDal(SettledDeletedML Mobj, string spname)
+        public int deletedprofilesInsertionDal(SettledDeletedML Mobj, string spname)
         {
             DataSet ds = new DataSet();
             int status = 0;

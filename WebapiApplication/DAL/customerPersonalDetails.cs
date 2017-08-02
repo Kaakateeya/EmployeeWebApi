@@ -2427,7 +2427,7 @@ namespace WebapiApplication.DAL
 
         public static string PathChange = ConfigurationManager.AppSettings["PathChange"];
         string withouraccesspathhoro = "~\\Images\\";
-        internal int AstroGenerationUpdate(string Path, string KeyName)
+        public int AstroGenerationUpdate(string Path, string KeyName)
         {
             int iresult = 0;
 
