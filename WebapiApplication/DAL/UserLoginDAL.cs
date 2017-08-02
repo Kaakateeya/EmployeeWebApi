@@ -190,9 +190,9 @@ namespace WebapiApplication.DAL
                         empDetails.isManagement = !string.IsNullOrEmpty(dtLogin.Rows[0]["isManagement"].ToString()) ? Convert.ToBoolean(dtLogin.Rows[0]["isManagement"].ToString()) : false;
                         empDetails.EmpPhotoPath = !string.IsNullOrEmpty(dtLogin.Rows[0]["EmpPhotoPath"].ToString()) ? dtLogin.Rows[0]["EmpPhotoPath"].ToString() : null;
 
-                        MenuItem MenuItemlist = new MenuItem();
-                        ScrollText scrolltext = new ScrollText();
-                        StarRating starRating = new StarRating();
+                        //  MenuItem MenuItemlist = new MenuItem();
+                        //ScrollText scrolltext = new ScrollText();
+                        // StarRating starRating = new StarRating();
 
                         //if (dsLogin.Tables.Count > 0 && dsLogin.Tables[1].Rows.Count > 0)
                         //{
@@ -246,7 +246,7 @@ namespace WebapiApplication.DAL
                     }
                     else
                     {
-                       // intstatus = 0;
+                        // intstatus = 0;
                     }
                 }
             }
