@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>C:\Users\Admin\Desktop\183build</_PublishTargetUrl>
-    <_PublishTargetUrl>D:\build_files\04_08_2017_removeds3keysfromWebconfig</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\build_files\04_08_2017_removeds3keysfromWebconfig123</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Api/BindJson .cs">
@@ -161,7 +161,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/20/2017 12:06:44</publishTime>
     </File>
     <File Include="bin/WebapiApplication.dll">
+      <publishTime>08/04/2017 16:34:05</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
       <publishTime>05/20/2017 12:06:45</publishTime>
+    </File>
     <File Include="Customer_new/Employee_new/EmployeeViewFullProfile.aspx">
       <publishTime>02/02/2017 12:45:52</publishTime>
     </File>
@@ -256,7 +260,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/05/2016 19:28:46</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/04/2017 16:26:24</publishTime>
+      <publishTime>08/04/2017 16:59:12</publishTime>
     </File>
   </ItemGroup>
 </Project>
