@@ -41,7 +41,9 @@ namespace WebapiApplication.Implement
 
         // Communication Log  
 
-        public List<EmpCommunication> EmployeeCommunicationLog(string ProfileID, int? intEmpId) { return new EmployeeReportPageDAL().EmployeeCommunicationLog(ProfileID, intEmpId, "[dbo].[Usp_Select_Communicationlog]"); }
+       // public List<EmpCommunication> EmployeeCommunicationLog(string ProfileID, int? intEmpId) { return new EmployeeReportPageDAL().EmployeeCommunicationLog(ProfileID, intEmpId, "[dbo].[Usp_Select_Communicationlog]"); }
+         public ArrayList EmployeeCommunicationLog(string ProfileID, int? intEmpId) { return new EmployeeReportPageDAL().EmployeeCommunicationLog(ProfileID, intEmpId, "[dbo].[Usp_Select_Communicationlog]"); }
+      
         public int EmployeeCommunicationLogSentphotosemail(string Email, string CustID) { return new EmployeeReportPageDAL().EmployeeCommunicationLogSentphotosemail(Email, CustID, "[dbo].[usp_sentemailwithimages_New]"); }
         public Tuple<int, List<CommunicationLogResult>> EmployeeCommunicationLogRvrAndResend(RvrRequest Mobj) { return new EmployeeReportPageDAL().EmployeeCommunicationLogRvrAndResend(Mobj, "[dbo].[Usp_insert_Rvr_Resend_Log]"); }
         public int EmployeeCommunicationLogSendMarketingMail(CreateEmployeeMl Mobj) { return new EmployeeReportPageDAL().EmployeeCommunicationLogSendMarketingMail(Mobj, "[dbo].[sp_Email_TicketHistoryInfo_slide_New]"); }

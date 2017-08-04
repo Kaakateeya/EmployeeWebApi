@@ -257,7 +257,8 @@ namespace WebapiApplication.Interfaces
         int SendNumbersMatchfollowup(long? LFromCustID, long? LToCustID, int? empid, string mailTxt);
         ArrayList MyProfileBindingsBranch(string flag, string ID);
 
-        List<EmpCommunication> EmployeeCommunicationLog(string ProfileID, int? intEmpId);
+      //  List<EmpCommunication> EmployeeCommunicationLog(string ProfileID, int? intEmpId);
+        ArrayList EmployeeCommunicationLog(string ProfileID, int? intEmpId);
         List<GetRegprofilevalidation> RegistrationValidation(Regprofilevalidation RegValidation);
 
         int EmployeeCommunicationLogSentphotosemail(string Email, string CustID);
