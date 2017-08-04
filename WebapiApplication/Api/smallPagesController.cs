@@ -144,7 +144,7 @@ namespace WebapiApplication.Api
             return Iobj.unassignPhotoSelect(mobj);
         }
 
-        public int assignPhotos(long? Empid,string PhotoIDs)
+        public int GetassignPhotos(long? Empid,string PhotoIDs)
         {
             return Iobj.assignPhotos(Empid, PhotoIDs);
         }
