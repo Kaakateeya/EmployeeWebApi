@@ -3781,7 +3781,7 @@ namespace WebapiApplication.DAL
                 cmd.Parameters.AddWithValue("@i_Region", Mobj.Region);
                 cmd.Parameters.AddWithValue("@b_IsConfidential", Mobj.Confidential);
                 cmd.Parameters.AddWithValue("@b_IsBalance", Mobj.IsAmountThere);
-                cmd.Parameters.AddWithValue("@t_ProfileOwnerId", Commonclass.returndt(Mobj.profileownerid, Mobj.OwnerOFProfile, "ProfileOwner", "ProfileOwner"));
+               // cmd.Parameters.AddWithValue("@t_ProfileOwnerId", Commonclass.returndt(Mobj.profileownerid, Mobj.OwnerOFProfile, "ProfileOwner", "ProfileOwner"));
                 cmd.Parameters.AddWithValue("@t_ApplicationStatus", Commonclass.returndt(Mobj.ApplicationStatusid, Mobj.ApplicationStatus, "Applicationstatus", "Applicationstatus"));
                 cmd.Parameters.AddWithValue("@i_PaidFrom", Mobj.FromAmount);
                 cmd.Parameters.AddWithValue("@i_PaidTo", Mobj.ToAmount);
