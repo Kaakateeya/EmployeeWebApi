@@ -3789,10 +3789,8 @@ namespace WebapiApplication.DAL
                 cmd.Parameters.AddWithValue("@t_Branch", Commonclass.returndt(Mobj.Branchid, Mobj.Branch, "Branch", "Branch"));
                 cmd.Parameters.AddWithValue("@dt_PaymentStartDate", Mobj.StartDate);
                 cmd.Parameters.AddWithValue("@dt_PaymentEndDate", Mobj.EndDate);
-                cmd.Parameters.AddWithValue("@i_From", Mobj.From);
-                cmd.Parameters.AddWithValue("@i_To", Mobj.To);
-                cmd.Parameters.AddWithValue("@i_PageNumber", Mobj.PageNumber);
-                cmd.Parameters.AddWithValue("@i_PageSize", Mobj.PageSize);
+                cmd.Parameters.AddWithValue("@i_StartIndex", Mobj.From);
+                cmd.Parameters.AddWithValue("@i_EndIndex", Mobj.To);
                 cmd.Parameters.AddWithValue("@_Excel", Mobj.flag);
                 cmd.Parameters.AddWithValue("@ModeOfPaymentID", Mobj.ModeOfPaymentID);
                 daParentDetails.SelectCommand = cmd;
