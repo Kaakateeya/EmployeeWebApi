@@ -409,6 +409,122 @@ namespace WebapiApplication.DAL
 
             return intStatus;
         }
+
+        public List<UnassignedPhotoSelect> unassignPhotoSelectDal(UnassignPhotoSelect Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[12];
+            Int64? intNull = null;
+            int? iNull = null;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            List<UnassignedPhotoSelect> li = new List<UnassignedPhotoSelect>();
+            try
+            {
+                parm[0] = new SqlParameter("@EmpID", SqlDbType.Int);
+                parm[0].Value = Mobj.iEmpID;
+                parm[1] = new SqlParameter("@vc_ProfileId", SqlDbType.VarChar);
+                parm[1].Value = Mobj.StrProfileID;
+                parm[2] = new SqlParameter("@i_PhotoAssigned", SqlDbType.Int);
+                parm[2].Value = Mobj.PhotoAssigned;
+                parm[3] = new SqlParameter("@i_Gender ", SqlDbType.Int);
+                parm[3].Value = Mobj.GenderID;
+                parm[4] = new SqlParameter("@i_PhotoStatus", SqlDbType.Int);
+                parm[4].Value = Mobj.PhotoStatus;
+                parm[5] = new SqlParameter("@V_BranchID", SqlDbType.VarChar);
+                parm[5].Value = Mobj.strBranch;
+                parm[6] = new SqlParameter("@V_regionId", SqlDbType.VarChar);
+                parm[6].Value = Mobj.strRegion;
+                parm[7] = new SqlParameter("@V_casteID", SqlDbType.VarChar);
+                parm[7].Value = Mobj.strCaste;
+                parm[8] = new SqlParameter("@dt_StartDate", SqlDbType.DateTime);
+                parm[8].Value = Mobj.StartDate;
+                parm[9] = new SqlParameter("@dt_EndDate", SqlDbType.DateTime);
+                parm[9].Value = Mobj.EnDate;
+                parm[10] = new SqlParameter("@i_PageFrom", SqlDbType.Int);
+                parm[10].Value = Mobj.intlowerBound;
+                parm[11] = new SqlParameter("@i_PageTo", SqlDbType.Int);
+                parm[11].Value = Mobj.intUpperBound;
+
+                SqlDataReader reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        UnassignedPhotoSelect Mobjresult = new UnassignedPhotoSelect();
+                        {
+                            Mobjresult.Row = (reader["Row"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Row")) : intNull;
+                            Mobjresult.TotalRows = (reader["TotalRows"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : iNull;
+                            Mobjresult.Totalpages = (reader["Totalpages"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Totalpages")) : iNull;
+                            Mobjresult.cust_id = (reader["cust_id"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("cust_id")) : intNull;
+                            Mobjresult.ProfileID = (reader["profileid"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("profileid")) : string.Empty;
+                            Mobjresult.CustomerName = (reader["CustomerName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CustomerName")) : string.Empty;
+                            Mobjresult.OwnerName = (reader["OwnerName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("OwnerName")) : string.Empty;
+                            Mobjresult.PhotosCount = (reader["OriginalPhotosCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("OriginalPhotosCount")) : iNull;
+                            Mobjresult.AccepCount = (reader["AccepCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("AccepCount")) : iNull;
+                            Mobjresult.RejectCount = (reader["RejectCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("RejectCount")) : iNull;
+                            Mobjresult.IdS = (reader["IdS"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("IdS")) : string.Empty;
+                            Mobjresult.paid = (reader["IsPaidMember"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("IsPaidMember")) : iNull;
+                        }
+                        li.Add(Mobjresult);
+                    }
+                }
+                reader.Close();
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return li;
+        }
+
+        public int assignPhotosDal(long? Empid, string PhotoIDs, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[3];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@i_EmpID", SqlDbType.BigInt);
+                parm[0].Value = Empid;
+                parm[1] = new SqlParameter("@Vc_PhotoIDs", SqlDbType.VarChar);
+                parm[1].Value = PhotoIDs;
+                parm[2] = new SqlParameter("@status", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(parm[2].Value.ToString(), System.DBNull.Value.ToString()) == 0)
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[2].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return intStatus;
+        }
     }
 }
 

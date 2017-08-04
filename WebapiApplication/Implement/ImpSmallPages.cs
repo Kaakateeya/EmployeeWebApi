@@ -22,5 +22,7 @@ namespace WebapiApplication.Implement
         public int brokerFormInsert(brokerEntryForm mobj) { return dobj.brokerFormInsertDal(mobj, "usp_insert_brokerEntryForm"); }
         public List<MyassignedPhotosOutPut> myAssignedPhotos(myassignedPhotoInputMl mobj) { return dobj.myAssignedPhotosDal(mobj, "usp_Select_Reports_MyAssignedPhotos"); }
         public int myAssignedPhotosSubmit(myassignPhotoSubmit mobj) { return dobj.myAssignedPhotosSubmitDal(mobj, "Usp_update_UploadedExtractedPhoto"); }
+        public List<UnassignedPhotoSelect> unassignPhotoSelect(UnassignPhotoSelect mobj) { return dobj.unassignPhotoSelectDal(mobj, "usp_Select_Reports_unassignedphotos"); }
+        public int assignPhotos(long? Empid, string PhotoIDs) { return dobj.assignPhotosDal(Empid, PhotoIDs, "usp_insert_assignningPhotosToEmp"); }
     }
 }

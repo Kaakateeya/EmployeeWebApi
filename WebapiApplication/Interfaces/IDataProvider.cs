@@ -348,6 +348,10 @@ namespace WebapiApplication.Interfaces
         List<MyassignedPhotosOutPut> myAssignedPhotos(myassignedPhotoInputMl mobj);
 
         int myAssignedPhotosSubmit(myassignPhotoSubmit mobj);
+
+        List<UnassignedPhotoSelect> unassignPhotoSelect(UnassignPhotoSelect mobj);
+
+        int assignPhotos(long? Empid, string PhotoIDs);
     }
 
 

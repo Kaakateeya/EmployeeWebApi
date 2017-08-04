@@ -139,6 +139,14 @@ namespace WebapiApplication.Api
             }
         }
 
+        public List<UnassignedPhotoSelect> unassignPhotoSelect(UnassignPhotoSelect mobj)
+        {
+            return Iobj.unassignPhotoSelect(mobj);
+        }
 
+        public int assignPhotos(long? Empid,string PhotoIDs)
+        {
+            return Iobj.assignPhotos(Empid, PhotoIDs);
+        }
     }
 }

@@ -104,6 +104,38 @@ namespace WebapiApplication.ML
         public string profileid { get; set; }
         public string photoname { get; set; }
     }
+
+    public class UnassignPhotoSelect
+    {
+        public int iEmpID { get; set; }
+        public string StrProfileID { get; set; }
+        public int? PhotoAssigned { get; set; }
+        public int? GenderID { get; set; }
+        public int? PhotoStatus { get; set; }
+        public string strBranch { get; set; }
+        public string strRegion { get; set; }
+        public string strCaste { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EnDate { get; set; }
+        public int intlowerBound { get; set; }
+        public int intUpperBound { get; set; }
+       
+    }
+    public class UnassignedPhotoSelect
+    {
+        public Int64? Row { get; set; }
+        public int? TotalRows { get; set; }
+        public int? Totalpages { get; set; }
+        public Int64? cust_id { get; set; }
+        public string ProfileID { get; set; }
+        public string CustomerName { get; set; }
+        public string OwnerName { get; set; }
+        public int? PhotosCount { get; set; }
+        public int? AccepCount { get; set; }
+        public int? RejectCount { get; set; }
+        public string IdS { get; set; }
+        public int? paid { get; set; }
+    }
 }
 
 
