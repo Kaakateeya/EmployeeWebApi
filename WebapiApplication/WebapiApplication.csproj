@@ -256,6 +256,7 @@
     <Compile Include="Api\PaymentController.cs" />
     <Compile Include="Api\RegistrationController.cs" />
     <Compile Include="Api\smallPagesController.cs" />
+    <Compile Include="Api\SMSC_CLIENT.cs" />
     <Compile Include="Api\StaticPagesController.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Customer_new\Employee_new\EmployeeViewFullProfile.aspx.cs">

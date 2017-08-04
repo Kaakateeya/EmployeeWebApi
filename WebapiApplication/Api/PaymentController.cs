@@ -10,7 +10,7 @@ using WebapiApplication.DAL;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Data;
-
+using WebapiApplication.ServiceReference1;
 namespace WebapiApplication.Api
 {
     public class PaymentController : ApiController
@@ -32,6 +32,7 @@ namespace WebapiApplication.Api
 
         public int CustomerInsertPaymentDetilsInfo_NewDesign([FromBody]PaymentInsertML Mobj)
         {
+           
             List<PaymentInsertML> lstPayment = new List<PaymentInsertML>();
             lstPayment.Add(Mobj);
             Mobj.dtPaymentDetails = Commonclass.returnListDatatable(PersonaldetailsUDTables.createDataTablePayment_New(), lstPayment);
@@ -50,7 +51,7 @@ namespace WebapiApplication.Api
             lstpaymentAuth.Add(mobj);
             DataTable dtinput = new DataTable();
             dtinput = Commonclass.returnListDatatable(PersonaldetailsUDTables.getAuthorizationDetailsUpdate(), lstpaymentAuth);
-            return this.IPayment.setPaymentAuthorization(dtinput);         
+            return this.IPayment.setPaymentAuthorization(dtinput);
         }
 
 

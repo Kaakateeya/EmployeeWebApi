@@ -393,7 +393,7 @@ namespace WebapiApplication.DAL
                 parm[32].Value = Mobj.v_MaritalStatus;
                 parm[33] = new SqlParameter("@i_Domacile", SqlDbType.Int);
                 parm[33].Value = Mobj.i_Domacile;
-                reader = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 int count = reader.FieldCount;
                 if (reader.HasRows)
                 {
@@ -619,7 +619,7 @@ namespace WebapiApplication.DAL
 
             try
             {
-                reader = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 int count = reader.FieldCount;
 
                 if (reader.HasRows)
@@ -1424,7 +1424,7 @@ namespace WebapiApplication.DAL
                 parm[12] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
                 parm[12].Direction = ParameterDirection.Output;
                 SqlDataReader drReader = null;
-                drReader = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
+                drReader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
 
                 if (string.Compare(System.DBNull.Value.ToString(), parm[11].Value.ToString()).Equals(0))
                 {
@@ -1470,7 +1470,7 @@ namespace WebapiApplication.DAL
                 parm[5] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
                 parm[5].Direction = ParameterDirection.Output;
                 SqlDataReader drResult = null;
-                drResult = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
+                drResult = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (string.Compare(System.DBNull.Value.ToString(), Convert.ToString(parm[4].Value)).Equals(0))
                 {
                     intStatus = 0;
@@ -1515,7 +1515,7 @@ namespace WebapiApplication.DAL
                 parm[5] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
                 parm[5].Direction = ParameterDirection.Output;
                 SqlDataReader drResult = null;
-                drResult = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
+                drResult = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (string.Compare(System.DBNull.Value.ToString(), parm[4].Value.ToString()).Equals(0))
                 {
                     intStatus = 0;
@@ -1558,7 +1558,7 @@ namespace WebapiApplication.DAL
                 parm[4] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
                 parm[4].Direction = ParameterDirection.Output;
                 SqlDataReader drResult = null;
-                drResult = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
+                drResult = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (string.Compare(System.DBNull.Value.ToString(), parm[3].Value.ToString()).Equals(0))
                 {
                     intStatus = 0;
@@ -1601,7 +1601,7 @@ namespace WebapiApplication.DAL
                 parm[2] = new SqlParameter("@empid", SqlDbType.Int);
                 parm[2].Value = empid;
 
-                reader = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (reader.HasRows)
                 {
                     while (reader.Read())
@@ -1637,18 +1637,208 @@ namespace WebapiApplication.DAL
 
         #region
 
-        public List<EmpCommunication> EmployeeCommunicationLog(string ProfileID, int? intEmpId, string spName)
-        {
-            List<CommunicationLogResult> details1 = new List<CommunicationLogResult>();
-            List<CommunicationLogResult> details2 = new List<CommunicationLogResult>();
-            List<CommunicationLogResult> details3 = new List<CommunicationLogResult>();
-            List<CommunicationLogResult> details4 = new List<CommunicationLogResult>();
-            List<EmpCommunication> logList = new List<EmpCommunication>();
+        //public List<EmpCommunication> EmployeeCommunicationLog(string ProfileID, int? intEmpId, string spName)
+        //{
+        //    List<CommunicationLogResult> details1 = new List<CommunicationLogResult>();
+        //    List<CommunicationLogResult> details2 = new List<CommunicationLogResult>();
+        //    List<CommunicationLogResult> details3 = new List<CommunicationLogResult>();
+        //    List<CommunicationLogResult> details4 = new List<CommunicationLogResult>();
+        //    List<EmpCommunication> logList = new List<EmpCommunication>();
 
+        //    SqlDataReader reader;
+        //    int? iNull = null;
+        //    Int64? LNull = null;
+
+        //    SqlConnection connection = new SqlConnection();
+        //    connection = SQLHelper.GetSQLConnection();
+        //    connection.Open();
+
+        //    try
+        //    {
+        //        SqlParameter[] parm = new SqlParameter[2];
+
+        //        parm[0] = new SqlParameter("@ProfielD", SqlDbType.VarChar);
+        //        parm[0].Value = ProfileID;
+        //        parm[1] = new SqlParameter("@intEmpId", SqlDbType.Int);
+        //        parm[1].Value = intEmpId;
+        //        reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+
+        //        if (reader.HasRows)
+        //        {
+        //            while (reader.Read())
+        //            {
+        //                CommunicationLogResult display = new CommunicationLogResult();
+        //                {
+
+        //                    display.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader["ProfileID"]).ToString() : null;
+        //                    display.Name = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
+        //                    display.ServiceDate = reader["ServiceDate"] != DBNull.Value ? reader["ServiceDate"].ToString() : null;
+        //                    display.TypeOfService = reader["TypeOfService"] != DBNull.Value ? reader["TypeOfService"].ToString() : null;
+        //                    display.EmpName = reader["EmpName"] != DBNull.Value ? reader["EmpName"].ToString() : null;
+        //                    display.Branch = reader["BranchName"] != DBNull.Value ? reader["BranchName"].ToString() : null;
+        //                    display.MFPStatus = reader["MFPStatus"] != DBNull.Value ? reader["MFPStatus"].ToString() : null;
+        //                    display.MFPStatusDate = reader["MFPStatusDate"] != DBNull.Value ? reader["MFPStatusDate"].ToString() : null;
+        //                    display.TicketID = reader["TicketID"] != DBNull.Value ? reader["TicketID"].ToString() : null;
+        //                    display.Emp_FollowupTicket_ID = reader["Emp_FollowupTicket_ID"] != DBNull.Value ? Convert.ToInt64(reader["Emp_FollowupTicket_ID"]) : LNull;
+        //                    display.ProfileStatusID = reader["ProfileStatusID"] != DBNull.Value ? Convert.ToInt32(reader["ProfileStatusID"]) : iNull;
+        //                    display.TicketStatusID = reader["TicketStatusID"] != DBNull.Value ? Convert.ToInt32(reader["TicketStatusID"]) : iNull;
+        //                    display.TotalRows = reader["TotalRows"] != DBNull.Value ? Convert.ToInt32(reader["TotalRows"]) : iNull;
+        //                    display.ProfileOwner = reader["ProfileOwner"] != DBNull.Value ? reader["ProfileOwner"].ToString() : null;
+        //                    display.ExpressInterestID = reader["ExpressInterestID"] != DBNull.Value ? Convert.ToInt32(reader["ExpressInterestID"]) : iNull;
+        //                    display.LogID = reader["LogID"] != DBNull.Value ? reader["LogID"] : LNull;
+        //                    display.ISRvrSend = reader["ISRvrSend"] != DBNull.Value ? reader["ISRvrSend"] : iNull;
+        //                    display.PD = reader["I"] != DBNull.Value ? Convert.ToInt32(reader["I"]) : iNull;
+        //                    display.DPD = reader["NI"] != DBNull.Value ? Convert.ToInt32(reader["NI"]) : iNull;
+        //                    display.Viewed = reader["V"] != DBNull.Value ? Convert.ToInt32(reader["V"]) : iNull;
+        //                    display.NViewed = reader["NV"] != DBNull.Value ? Convert.ToInt32(reader["NV"]) : iNull;
+        //                    display.paid = reader["Paid"] != DBNull.Value ? Convert.ToInt32(reader["Paid"]) : iNull;
+        //                    display.ProfileStatus = reader["ProfileStatus"] != DBNull.Value ? reader["ProfileStatus"].ToString() : null;
+
+        //                    display.iFromCustID = reader["FromCustID"] != DBNull.Value ? Convert.ToInt32(reader["FromCustID"]) : iNull;
+        //                    display.FromName = reader["FromName"] != DBNull.Value ? reader["FromName"].ToString() : null;
+        //                    display.iToCustID = reader["ToCustID"] != DBNull.Value ? Convert.ToInt32(reader["ToCustID"]) : iNull;
+
+        //                }
+
+        //                details1.Add(display);
+        //            }
+
+        //        }
+
+        //        logList.Add(new EmpCommunication { log = details1 });
+        //        reader.NextResult();
+
+        //        if (reader.HasRows)
+        //        {
+        //            while (reader.Read())
+        //            {
+        //                CommunicationLogResult display = new CommunicationLogResult();
+        //                {
+        //                    display.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader["ProfileID"]).ToString() : null;
+        //                    //display.ServiceID = reader["ServiceID"] != DBNull.Value ? reader["ServiceID"].ToString() : null;
+        //                    display.Name = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
+        //                    display.ServiceDate = reader["ServiceDate"] != DBNull.Value ? reader["ServiceDate"].ToString() : null;
+        //                    display.TypeOfService = reader["TypeOfService"] != DBNull.Value ? reader["TypeOfService"].ToString() : null;
+        //                    display.EmpName = reader["EmpName"] != DBNull.Value ? reader["EmpName"].ToString() : null;
+        //                    display.Branch = reader["BranchName"] != DBNull.Value ? reader["BranchName"].ToString() : null;
+        //                    display.MFPStatus = reader["MFPStatus"] != DBNull.Value ? reader["MFPStatus"].ToString() : null;
+        //                    display.MFPStatusDate = reader["MFPStatusDate"] != DBNull.Value ? reader["MFPStatusDate"].ToString() : null;
+        //                    display.TicketID = reader["TicketID"] != DBNull.Value ? reader["TicketID"].ToString() : null;
+        //                    display.Emp_FollowupTicket_ID = reader["Emp_FollowupTicket_ID"] != DBNull.Value ? Convert.ToInt64(reader["Emp_FollowupTicket_ID"]) : LNull;
+        //                    display.ProfileStatusID = reader["ProfileStatusID"] != DBNull.Value ? Convert.ToInt32(reader["ProfileStatusID"]) : iNull;
+        //                    display.TicketStatusID = reader["TicketStatusID"] != DBNull.Value ? Convert.ToInt32(reader["TicketStatusID"]) : iNull;
+        //                    display.TotalRows = reader["TotalRows"] != DBNull.Value ? Convert.ToInt32(reader["TotalRows"]) : iNull;
+        //                    display.ProfileOwner = reader["ProfileOwner"] != DBNull.Value ? reader["ProfileOwner"].ToString() : null;
+        //                    display.ExpressInterestID = reader["ExpressInterestID"] != DBNull.Value ? Convert.ToInt32(reader["ExpressInterestID"]) : iNull;
+        //                    display.LogID = reader["LogID"] != DBNull.Value ? reader["LogID"] : LNull;
+        //                    display.ISRvrSend = reader["ISRvrSend"] != DBNull.Value ? reader["ISRvrSend"] : iNull;
+        //                    display.PhotoCount = reader["PhotoCount"] != DBNull.Value ? reader["PhotoCount"] : iNull;
+        //                    //
+        //                    display.PD = reader["I"] != DBNull.Value ? Convert.ToInt32(reader["I"]) : iNull;
+        //                    display.DPD = reader["NI"] != DBNull.Value ? Convert.ToInt32(reader["NI"]) : iNull;
+        //                    display.Viewed = reader["V"] != DBNull.Value ? Convert.ToInt32(reader["V"]) : iNull;
+        //                    display.NViewed = reader["NV"] != DBNull.Value ? Convert.ToInt32(reader["NV"]) : iNull;
+        //                    display.paid = reader["Paid"] != DBNull.Value ? Convert.ToInt32(reader["Paid"]) : iNull;
+
+        //                    //
+        //                    display.ProfileStatus = reader["ProfileStatus"] != DBNull.Value ? reader["ProfileStatus"].ToString() : null;
+        //                    display.ServiceExpiryDate = reader["ServiceExpiryDate"] != DBNull.Value ? reader["ServiceExpiryDate"].ToString() : null;
+        //                    display.ServicePoints = reader["ServicePoints"] != DBNull.Value ? reader["ServicePoints"].ToString() : null;
+
+        //                    display.iFromCustID = reader["FromCustID"] != DBNull.Value ? Convert.ToInt32(reader["FromCustID"]) : iNull;
+        //                    display.FromName = reader["FromName"] != DBNull.Value ? reader["FromName"].ToString() : null;
+        //                    display.iToCustID = reader["ToCustID"] != DBNull.Value ? Convert.ToInt32(reader["ToCustID"]) : iNull;
+        //                    display.FromEmail = reader["FromEmail"] != DBNull.Value ? reader["FromEmail"].ToString() : null;
+        //                }
+        //                details2.Add(display);
+        //            }
+
+        //        }
+
+        //        logList.Add(new EmpCommunication { log = details2 });
+        //        reader.NextResult();
+
+        //        if (reader.HasRows)
+        //        {
+        //            while (reader.Read())
+        //            {
+        //                CommunicationLogResult display = new CommunicationLogResult();
+        //                {
+        //                    display.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader["ProfileID"]).ToString() : null;
+        //                    display.Name = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
+        //                    display.ResendDate = reader["ResendDate"] != DBNull.Value ? reader["ResendDate"].ToString() : null;
+        //                    display.TypeOfService = reader["TypeOfService"] != DBNull.Value ? reader["TypeOfService"].ToString() : null;
+        //                    display.EmpName = reader["EmpName"] != DBNull.Value ? reader["EmpName"].ToString() : null;
+        //                    display.Branch = reader["BranchName"] != DBNull.Value ? reader["BranchName"].ToString() : null;
+        //                    display.ServiceDate = reader["ServiceDate"] != DBNull.Value ? reader["ServiceDate"].ToString() : null;
+        //                    display.ProfileStatusID = reader["ProfileStatusID"] != DBNull.Value ? Convert.ToInt32(reader["ProfileStatusID"]) : iNull;
+        //                    display.TotalRows = reader["TotalRows"] != DBNull.Value ? Convert.ToInt32(reader["TotalRows"]) : iNull;
+        //                    display.paid = reader["Paid"] != DBNull.Value ? Convert.ToInt32(reader["Paid"]) : iNull;
+        //                    display.ProfileStatus = reader["ProfileStatus"] != DBNull.Value ? reader["ProfileStatus"].ToString() : null;
+
+        //                    display.iFromCustID = reader["FromCustID"] != DBNull.Value ? Convert.ToInt32(reader["FromCustID"]) : iNull;
+        //                    display.FromName = reader["FromName"] != DBNull.Value ? reader["FromName"].ToString() : null;
+        //                    display.iToCustID = reader["ToCustID"] != DBNull.Value ? Convert.ToInt32(reader["ToCustID"]) : iNull;
+
+        //                }
+        //                details3.Add(display);
+        //            }
+
+        //        }
+
+        //        logList.Add(new EmpCommunication { log = details3 });
+
+        //        reader.NextResult();
+
+        //        if (reader.HasRows)
+        //        {
+        //            while (reader.Read())
+        //            {
+        //                CommunicationLogResult display = new CommunicationLogResult();
+        //                {
+        //                    display.Sno = reader["Sno"] != DBNull.Value ? Convert.ToInt32(reader["Sno"]) : iNull;
+        //                    display.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader["ProfileID"]).ToString() : null;
+        //                    display.Name = reader["FirstName"] != DBNull.Value ? reader["FirstName"].ToString() : null;
+        //                    display.LastName = reader["LastName"] != DBNull.Value ? reader["LastName"].ToString() : null;
+        //                    display.ProfileOwner = reader["EmpName"] != DBNull.Value ? reader["EmpName"].ToString() : null;
+        //                    display.MeetingDate = reader["MeetingDate"] != DBNull.Value ? reader["MeetingDate"].ToString() : null;
+        //                    display.TotalRows = reader["TotalRows"] != DBNull.Value ? Convert.ToInt32(reader["TotalRows"]) : iNull;
+        //                    display.paid = reader["Paid"] != DBNull.Value ? Convert.ToInt32(reader["Paid"]) : iNull;
+        //                    display.ProfileStatus = reader["ProfileStatus"] != DBNull.Value ? reader["ProfileStatus"].ToString() : null;
+
+        //                    display.iFromCustID = reader["FromCustID"] != DBNull.Value ? Convert.ToInt32(reader["FromCustID"]) : iNull;
+        //                    display.FromName = reader["FromName"] != DBNull.Value ? reader["FromName"].ToString() : null;
+        //                    display.iToCustID = reader["ToCustID"] != DBNull.Value ? Convert.ToInt32(reader["ToCustID"]) : iNull;
+        //                }
+
+        //                details4.Add(display);
+        //            }
+        //        }
+
+        //        logList.Add(new EmpCommunication { log = details4 });
+
+        //        reader.Close();
+        //    }
+        //    catch (Exception EX)
+        //    {
+        //        Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+        //    }
+        //    finally
+        //    {
+        //        connection.Close();
+        //        SqlConnection.ClearPool(connection);
+        //        SqlConnection.ClearAllPools();
+        //    }
+
+        //    return logList;
+        //}
+        public ArrayList EmployeeCommunicationLog(string ProfileID, int? intEmpId, string spName)
+        {
+          
             SqlDataReader reader;
             int? iNull = null;
             Int64? LNull = null;
-
+            DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -1661,163 +1851,9 @@ namespace WebapiApplication.DAL
                 parm[0].Value = ProfileID;
                 parm[1] = new SqlParameter("@intEmpId", SqlDbType.Int);
                 parm[1].Value = intEmpId;
-                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
 
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        CommunicationLogResult display = new CommunicationLogResult();
-                        {
-
-                            display.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader["ProfileID"]).ToString() : null;
-                            display.Name = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
-                            display.ServiceDate = reader["ServiceDate"] != DBNull.Value ? reader["ServiceDate"].ToString() : null;
-                            display.TypeOfService = reader["TypeOfService"] != DBNull.Value ? reader["TypeOfService"].ToString() : null;
-                            display.EmpName = reader["EmpName"] != DBNull.Value ? reader["EmpName"].ToString() : null;
-                            display.Branch = reader["BranchName"] != DBNull.Value ? reader["BranchName"].ToString() : null;
-                            display.MFPStatus = reader["MFPStatus"] != DBNull.Value ? reader["MFPStatus"].ToString() : null;
-                            display.MFPStatusDate = reader["MFPStatusDate"] != DBNull.Value ? reader["MFPStatusDate"].ToString() : null;
-                            display.TicketID = reader["TicketID"] != DBNull.Value ? reader["TicketID"].ToString() : null;
-                            display.Emp_FollowupTicket_ID = reader["Emp_FollowupTicket_ID"] != DBNull.Value ? Convert.ToInt64(reader["Emp_FollowupTicket_ID"]) : LNull;
-                            display.ProfileStatusID = reader["ProfileStatusID"] != DBNull.Value ? Convert.ToInt32(reader["ProfileStatusID"]) : iNull;
-                            display.TicketStatusID = reader["TicketStatusID"] != DBNull.Value ? Convert.ToInt32(reader["TicketStatusID"]) : iNull;
-                            display.TotalRows = reader["TotalRows"] != DBNull.Value ? Convert.ToInt32(reader["TotalRows"]) : iNull;
-                            display.ProfileOwner = reader["ProfileOwner"] != DBNull.Value ? reader["ProfileOwner"].ToString() : null;
-                            display.ExpressInterestID = reader["ExpressInterestID"] != DBNull.Value ? Convert.ToInt32(reader["ExpressInterestID"]) : iNull;
-                            display.LogID = reader["LogID"] != DBNull.Value ? reader["LogID"] : LNull;
-                            display.ISRvrSend = reader["ISRvrSend"] != DBNull.Value ? reader["ISRvrSend"] : iNull;
-                            display.PD = reader["I"] != DBNull.Value ? Convert.ToInt32(reader["I"]) : iNull;
-                            display.DPD = reader["NI"] != DBNull.Value ? Convert.ToInt32(reader["NI"]) : iNull;
-                            display.Viewed = reader["V"] != DBNull.Value ? Convert.ToInt32(reader["V"]) : iNull;
-                            display.NViewed = reader["NV"] != DBNull.Value ? Convert.ToInt32(reader["NV"]) : iNull;
-                            display.paid = reader["Paid"] != DBNull.Value ? Convert.ToInt32(reader["Paid"]) : iNull;
-                            display.ProfileStatus = reader["ProfileStatus"] != DBNull.Value ? reader["ProfileStatus"].ToString() : null;
-
-                            display.iFromCustID = reader["FromCustID"] != DBNull.Value ? Convert.ToInt32(reader["FromCustID"]) : iNull;
-                            display.FromName = reader["FromName"] != DBNull.Value ? reader["FromName"].ToString() : null;
-                            display.iToCustID = reader["ToCustID"] != DBNull.Value ? Convert.ToInt32(reader["ToCustID"]) : iNull;
-
-                        }
-
-                        details1.Add(display);
-                    }
-
-                }
-
-                logList.Add(new EmpCommunication { log = details1 });
-                reader.NextResult();
-
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        CommunicationLogResult display = new CommunicationLogResult();
-                        {
-                            display.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader["ProfileID"]).ToString() : null;
-                            //display.ServiceID = reader["ServiceID"] != DBNull.Value ? reader["ServiceID"].ToString() : null;
-                            display.Name = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
-                            display.ServiceDate = reader["ServiceDate"] != DBNull.Value ? reader["ServiceDate"].ToString() : null;
-                            display.TypeOfService = reader["TypeOfService"] != DBNull.Value ? reader["TypeOfService"].ToString() : null;
-                            display.EmpName = reader["EmpName"] != DBNull.Value ? reader["EmpName"].ToString() : null;
-                            display.Branch = reader["BranchName"] != DBNull.Value ? reader["BranchName"].ToString() : null;
-                            display.MFPStatus = reader["MFPStatus"] != DBNull.Value ? reader["MFPStatus"].ToString() : null;
-                            display.MFPStatusDate = reader["MFPStatusDate"] != DBNull.Value ? reader["MFPStatusDate"].ToString() : null;
-                            display.TicketID = reader["TicketID"] != DBNull.Value ? reader["TicketID"].ToString() : null;
-                            display.Emp_FollowupTicket_ID = reader["Emp_FollowupTicket_ID"] != DBNull.Value ? Convert.ToInt64(reader["Emp_FollowupTicket_ID"]) : LNull;
-                            display.ProfileStatusID = reader["ProfileStatusID"] != DBNull.Value ? Convert.ToInt32(reader["ProfileStatusID"]) : iNull;
-                            display.TicketStatusID = reader["TicketStatusID"] != DBNull.Value ? Convert.ToInt32(reader["TicketStatusID"]) : iNull;
-                            display.TotalRows = reader["TotalRows"] != DBNull.Value ? Convert.ToInt32(reader["TotalRows"]) : iNull;
-                            display.ProfileOwner = reader["ProfileOwner"] != DBNull.Value ? reader["ProfileOwner"].ToString() : null;
-                            display.ExpressInterestID = reader["ExpressInterestID"] != DBNull.Value ? Convert.ToInt32(reader["ExpressInterestID"]) : iNull;
-                            display.LogID = reader["LogID"] != DBNull.Value ? reader["LogID"] : LNull;
-                            display.ISRvrSend = reader["ISRvrSend"] != DBNull.Value ? reader["ISRvrSend"] : iNull;
-                            display.PhotoCount = reader["PhotoCount"] != DBNull.Value ? reader["PhotoCount"] : iNull;
-                            //
-                            display.PD = reader["I"] != DBNull.Value ? Convert.ToInt32(reader["I"]) : iNull;
-                            display.DPD = reader["NI"] != DBNull.Value ? Convert.ToInt32(reader["NI"]) : iNull;
-                            display.Viewed = reader["V"] != DBNull.Value ? Convert.ToInt32(reader["V"]) : iNull;
-                            display.NViewed = reader["NV"] != DBNull.Value ? Convert.ToInt32(reader["NV"]) : iNull;
-                            display.paid = reader["Paid"] != DBNull.Value ? Convert.ToInt32(reader["Paid"]) : iNull;
-
-                            //
-                            display.ProfileStatus = reader["ProfileStatus"] != DBNull.Value ? reader["ProfileStatus"].ToString() : null;
-                            display.ServiceExpiryDate = reader["ServiceExpiryDate"] != DBNull.Value ? reader["ServiceExpiryDate"].ToString() : null;
-                            display.ServicePoints = reader["ServicePoints"] != DBNull.Value ? reader["ServicePoints"].ToString() : null;
-
-                            display.iFromCustID = reader["FromCustID"] != DBNull.Value ? Convert.ToInt32(reader["FromCustID"]) : iNull;
-                            display.FromName = reader["FromName"] != DBNull.Value ? reader["FromName"].ToString() : null;
-                            display.iToCustID = reader["ToCustID"] != DBNull.Value ? Convert.ToInt32(reader["ToCustID"]) : iNull;
-                            display.FromEmail = reader["FromEmail"] != DBNull.Value ? reader["FromEmail"].ToString() : null;
-                        }
-                        details2.Add(display);
-                    }
-
-                }
-
-                logList.Add(new EmpCommunication { log = details2 });
-                reader.NextResult();
-
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        CommunicationLogResult display = new CommunicationLogResult();
-                        {
-                            display.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader["ProfileID"]).ToString() : null;
-                            display.Name = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
-                            display.ResendDate = reader["ResendDate"] != DBNull.Value ? reader["ResendDate"].ToString() : null;
-                            display.TypeOfService = reader["TypeOfService"] != DBNull.Value ? reader["TypeOfService"].ToString() : null;
-                            display.EmpName = reader["EmpName"] != DBNull.Value ? reader["EmpName"].ToString() : null;
-                            display.Branch = reader["BranchName"] != DBNull.Value ? reader["BranchName"].ToString() : null;
-                            display.ServiceDate = reader["ServiceDate"] != DBNull.Value ? reader["ServiceDate"].ToString() : null;
-                            display.ProfileStatusID = reader["ProfileStatusID"] != DBNull.Value ? Convert.ToInt32(reader["ProfileStatusID"]) : iNull;
-                            display.TotalRows = reader["TotalRows"] != DBNull.Value ? Convert.ToInt32(reader["TotalRows"]) : iNull;
-                            display.paid = reader["Paid"] != DBNull.Value ? Convert.ToInt32(reader["Paid"]) : iNull;
-                            display.ProfileStatus = reader["ProfileStatus"] != DBNull.Value ? reader["ProfileStatus"].ToString() : null;
-
-                            display.iFromCustID = reader["FromCustID"] != DBNull.Value ? Convert.ToInt32(reader["FromCustID"]) : iNull;
-                            display.FromName = reader["FromName"] != DBNull.Value ? reader["FromName"].ToString() : null;
-                            display.iToCustID = reader["ToCustID"] != DBNull.Value ? Convert.ToInt32(reader["ToCustID"]) : iNull;
-
-                        }
-                        details3.Add(display);
-                    }
-
-                }
-
-                logList.Add(new EmpCommunication { log = details3 });
-
-                reader.NextResult();
-
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        CommunicationLogResult display = new CommunicationLogResult();
-                        {
-                            display.Sno = reader["Sno"] != DBNull.Value ? Convert.ToInt32(reader["Sno"]) : iNull;
-                            display.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader["ProfileID"]).ToString() : null;
-                            display.Name = reader["FirstName"] != DBNull.Value ? reader["FirstName"].ToString() : null;
-                            display.LastName = reader["LastName"] != DBNull.Value ? reader["LastName"].ToString() : null;
-                            display.ProfileOwner = reader["EmpName"] != DBNull.Value ? reader["EmpName"].ToString() : null;
-                            display.MeetingDate = reader["MeetingDate"] != DBNull.Value ? reader["MeetingDate"].ToString() : null;
-                            display.TotalRows = reader["TotalRows"] != DBNull.Value ? Convert.ToInt32(reader["TotalRows"]) : iNull;
-                            display.paid = reader["Paid"] != DBNull.Value ? Convert.ToInt32(reader["Paid"]) : iNull;
-                            display.ProfileStatus = reader["ProfileStatus"] != DBNull.Value ? reader["ProfileStatus"].ToString() : null;
-
-                            display.iFromCustID = reader["FromCustID"] != DBNull.Value ? Convert.ToInt32(reader["FromCustID"]) : iNull;
-                            display.FromName = reader["FromName"] != DBNull.Value ? reader["FromName"].ToString() : null;
-                            display.iToCustID = reader["ToCustID"] != DBNull.Value ? Convert.ToInt32(reader["ToCustID"]) : iNull;
-                        }
-
-                        details4.Add(display);
-                    }
-                }
-
-                logList.Add(new EmpCommunication { log = details4 });
-
-                reader.Close();
+              
             }
             catch (Exception EX)
             {
@@ -1830,7 +1866,7 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearAllPools();
             }
 
-            return logList;
+            return Commonclass.convertdataTableToArrayListTable(ds);
         }
 
         public Tuple<int, List<CommunicationLogResult>> EmployeeCommunicationLogRvrAndResend(RvrRequest Mobj, string spName)
@@ -1908,16 +1944,29 @@ namespace WebapiApplication.DAL
                         {
                             CommunicationLogResult display = new CommunicationLogResult();
                             {
+                                //display.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader["ProfileID"]).ToString() : null;
+                                //display.Name = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
+                                //display.ResendDate = reader["ResendDate"] != DBNull.Value ? reader["ResendDate"].ToString() : null;
+                                //display.TypeOfService = reader["TypeOfService"] != DBNull.Value ? reader["TypeOfService"].ToString() : null;
+                                //display.EmpName = reader["EmpName"] != DBNull.Value ? reader["EmpName"].ToString() : null;
+                                //display.Branch = reader["BranchName"] != DBNull.Value ? reader["BranchName"].ToString() : null;
+                                //display.ServiceDate = reader["ServiceDate"] != DBNull.Value ? reader["ServiceDate"].ToString() : null;
+                                //display.ProfileStatusID = reader["ProfileStatusID"] != DBNull.Value ? Convert.ToInt32(reader["ProfileStatusID"]) : iNull;
+                                //display.TotalRows = reader["TotalRows"] != DBNull.Value ? Convert.ToInt32(reader["TotalRows"]) : iNull;
+                                //display.paid = reader["Paid"] != DBNull.Value ? Convert.ToInt32(reader["Paid"]) : iNull;
+                                //display.ProfileStatus = reader["ProfileStatus"] != DBNull.Value ? reader["ProfileStatus"].ToString() : null;
+
+
                                 display.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader["ProfileID"]).ToString() : null;
-                                display.Name = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
+                                display.NAME = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
                                 display.ResendDate = reader["ResendDate"] != DBNull.Value ? reader["ResendDate"].ToString() : null;
                                 display.TypeOfService = reader["TypeOfService"] != DBNull.Value ? reader["TypeOfService"].ToString() : null;
                                 display.EmpName = reader["EmpName"] != DBNull.Value ? reader["EmpName"].ToString() : null;
-                                display.Branch = reader["BranchName"] != DBNull.Value ? reader["BranchName"].ToString() : null;
+                                display.BranchName = reader["BranchName"] != DBNull.Value ? reader["BranchName"].ToString() : null;
                                 display.ServiceDate = reader["ServiceDate"] != DBNull.Value ? reader["ServiceDate"].ToString() : null;
                                 display.ProfileStatusID = reader["ProfileStatusID"] != DBNull.Value ? Convert.ToInt32(reader["ProfileStatusID"]) : iNull;
                                 display.TotalRows = reader["TotalRows"] != DBNull.Value ? Convert.ToInt32(reader["TotalRows"]) : iNull;
-                                display.paid = reader["Paid"] != DBNull.Value ? Convert.ToInt32(reader["Paid"]) : iNull;
+                                display.Paid = reader["Paid"] != DBNull.Value ? Convert.ToInt32(reader["Paid"]) : iNull;
                                 display.ProfileStatus = reader["ProfileStatus"] != DBNull.Value ? reader["ProfileStatus"].ToString() : null;
                             }
                             details3.Add(display);
@@ -2203,7 +2252,7 @@ namespace WebapiApplication.DAL
                             // sh.Income = reader["MonthlyIncome"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MonthlyIncome")) : Snull;
                             //sh.FFNative = reader["FatherNativePlace"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FatherNativePlace")) : Snull;
                             //sh.MFNative = reader["MotherNativePlace"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MotherNativePlace")) : Snull;
-                           // sh.Property = reader["Property"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Property")) : Snull;
+                            // sh.Property = reader["Property"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Property")) : Snull;
                             sh.PhotoCount = reader["PhotoCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PhotoCount")) : inull;
                             sh.CustomerFullPhoto = reader["FromApplicationPhoto"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromApplicationPhoto")) : Snull;
                             sh.KMPL = reader["KMPLID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("KMPLID")) : Snull;
@@ -2221,17 +2270,17 @@ namespace WebapiApplication.DAL
                             sh.MatchMeetingCount = (reader["MatchMeetingCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MatchMeetingCount")) : inull;
                             sh.ProfileOwnername = (reader["ProfileOwnername"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileOwnername")) : empty;
                             sh.EmpUserName = (reader["EmpUserName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpUserName")) : empty;
-                          //  sh.EmpName = (reader["EmpName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpName")) : empty;
+                            //  sh.EmpName = (reader["EmpName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpName")) : empty;
                             sh.SAForm = (reader["SAForm"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("SAForm")) : empty;
                             sh.CNumberVerStatus = (reader["CNumberVerStatus"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("CNumberVerStatus")) : false;
                             sh.CEmailVerStatus = (reader["CEmailVerStatus"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("CEmailVerStatus")) : false;
-                           // sh.Reason4InActive = (reader["Reason4InActive"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Reason4InActive")) : empty;
-                          //  sh.Cust_Family_ID = (reader["Cust_Family_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_Family_ID")) : Lnull;
+                            // sh.Reason4InActive = (reader["Reason4InActive"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Reason4InActive")) : empty;
+                            //  sh.Cust_Family_ID = (reader["Cust_Family_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_Family_ID")) : Lnull;
                             sh.CountryCodeID = (reader["CountryCodeID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("CountryCodeID")) : inull;
-                           // sh.CreatedDate = (reader["CreatedDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CreatedDate")) : empty;
+                            // sh.CreatedDate = (reader["CreatedDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CreatedDate")) : empty;
                             sh.Primarynumber = (reader["Primarynumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Primarynumber")) : empty;
                             sh.Primaryemail = (reader["Primaryemail"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Primaryemail")) : empty;
-                           // sh.ContactNumber = (reader["ContactNumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ContactNumber")) : empty;
+                            // sh.ContactNumber = (reader["ContactNumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ContactNumber")) : empty;
                             //sh.UserName = (reader["UserName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("UserName")) : empty;
                             sh.ProfileGrade = (reader["ProfileGrade"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ProfileGrade")) : inull;
                             sh.mothertongue = (reader["mothertongue"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("mothertongue")) : empty;
@@ -2331,7 +2380,7 @@ namespace WebapiApplication.DAL
         }
 
 
-        internal int FeeUpdateDalWithInternalMemoUpdate(FeeUpdateML Mobj, string spname)
+        public int FeeUpdateDalWithInternalMemoUpdate(FeeUpdateML Mobj, string spname)
         {
             SqlParameter[] parm = new SqlParameter[9];
             int intStatus = 0;
@@ -2814,7 +2863,7 @@ namespace WebapiApplication.DAL
             return status;
         }
 
-        internal int deletedprofilesInsertionDal(SettledDeletedML Mobj, string spname)
+        public int deletedprofilesInsertionDal(SettledDeletedML Mobj, string spname)
         {
             DataSet ds = new DataSet();
             int status = 0;
@@ -3722,71 +3771,16 @@ namespace WebapiApplication.DAL
             SqlDataAdapter daParentDetails = new SqlDataAdapter();
             try
             {
-                //parm[0] = new SqlParameter("@vc_ProfileId", SqlDbType.VarChar);
-                //parm[0].Value = Mobj.StrProfileID;
-                //parm[1] = new SqlParameter("@b_IsAdmin", SqlDbType.Int);
-                //parm[1].Value = Mobj.IsAdmin;
-                //parm[2] = new SqlParameter("@i_Gender", SqlDbType.Int);
-                //parm[2].Value = Mobj.Gender;
-                //parm[3] = new SqlParameter("@i_PayFor", SqlDbType.Int);
-                //parm[3].Value = Mobj.PayFor;
-                //parm[4] = new SqlParameter("@i_PaymentType", SqlDbType.Int);
-                //parm[4].Value = Mobj.PaymenytStatus;
 
-                //parm[5] = new SqlParameter("@i_Region", SqlDbType.Int);
-                //parm[5].Value = Mobj.Region;
-                //parm[6] = new SqlParameter("@b_IsConfidential", SqlDbType.Int);
-                //parm[6].Value = Mobj.Confidential;
-                //parm[7] = new SqlParameter("@i_IsServiceTax", SqlDbType.Int);
-                //parm[7].Value = Mobj.IsServiceTaxPaid;
-                //parm[8] = new SqlParameter("@b_IsBalance", SqlDbType.Int);
-                //parm[8].Value = Mobj.IsAmountThere;
-                //parm[9] = new SqlParameter("@b_IsEmp", SqlDbType.Int);
-                //parm[9].Value = Mobj.EmpType;
-                //parm[10] = new SqlParameter("@t_ProfileOwnerId", SqlDbType.Int);//re
-                //parm[10].Value = Mobj.OwnerOFProfile;
-
-                //parm[11] = new SqlParameter("@t_ApplicationStatus", SqlDbType.Int);//re
-                //parm[11].Value = Mobj.ApplicationStatus;
-                //parm[12] = new SqlParameter("@i_PaidFrom", SqlDbType.Int);
-                //parm[12].Value = Mobj.FromAmount;
-                //parm[13] = new SqlParameter("@i_PaidTo", SqlDbType.Int);
-                //parm[13].Value = Mobj.ToAmount;
-
-                //parm[14] = new SqlParameter("@t_Caste", SqlDbType.Int);//re
-                //parm[14].Value = Mobj.Caste;
-                //parm[15] = new SqlParameter("@t_Branch", SqlDbType.Int);//rew
-                //parm[15].Value = Mobj.Branch;
-                //parm[16] = new SqlParameter("@dt_PaymentStartDate", SqlDbType.DateTime);
-                //parm[16].Value = Mobj.StartDate;
-                //parm[17] = new SqlParameter("@dt_PaymentEndDate", SqlDbType.DateTime);
-                //parm[17].Value = Mobj.EndDate;
-
-                //parm[18] = new SqlParameter("@i_From", SqlDbType.Int);
-                //parm[18].Value = Mobj.From;
-                //parm[19] = new SqlParameter("@i_To", SqlDbType.Int);
-                //parm[19].Value = Mobj.To;
-                //parm[20] = new SqlParameter("@i_PageNumber", SqlDbType.Int);
-                //parm[20].Value = Mobj.PageNumber;
-                //parm[21] = new SqlParameter("@i_PageSize", SqlDbType.Int);
-                //parm[21].Value = Mobj.PageSize;
-                //parm[22] = new SqlParameter("@_Excel", SqlDbType.Int);
-                //parm[22].Value = Mobj.flag;
-                //parm[23] = new SqlParameter("@ModeOfPaymentID", SqlDbType.Int);
-                //parm[23].Value = Mobj.ModeOfPaymentID;
-                //ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
                 SqlCommand cmd = new SqlCommand(spname, connection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@vc_ProfileId", Mobj.StrProfileID);
                 cmd.Parameters.AddWithValue("@b_IsAdmin", Mobj.IsAdmin);
                 cmd.Parameters.AddWithValue("@i_Gender", Mobj.Gender);
-                cmd.Parameters.AddWithValue("@i_PayFor", Mobj.PayFor);
                 cmd.Parameters.AddWithValue("@i_PaymentType", Mobj.PaymenytStatus);
                 cmd.Parameters.AddWithValue("@i_Region", Mobj.Region);
                 cmd.Parameters.AddWithValue("@b_IsConfidential", Mobj.Confidential);
-                cmd.Parameters.AddWithValue("@i_IsServiceTax", Mobj.IsServiceTaxPaid);
                 cmd.Parameters.AddWithValue("@b_IsBalance", Mobj.IsAmountThere);
-                cmd.Parameters.AddWithValue("@b_IsEmp", Mobj.EmpType);
                 cmd.Parameters.AddWithValue("@t_ProfileOwnerId", Commonclass.returndt(Mobj.profileownerid, Mobj.OwnerOFProfile, "ProfileOwner", "ProfileOwner"));
                 cmd.Parameters.AddWithValue("@t_ApplicationStatus", Commonclass.returndt(Mobj.ApplicationStatusid, Mobj.ApplicationStatus, "Applicationstatus", "Applicationstatus"));
                 cmd.Parameters.AddWithValue("@i_PaidFrom", Mobj.FromAmount);

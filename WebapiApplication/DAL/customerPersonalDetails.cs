@@ -86,8 +86,7 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+               
             }
             return MobjPersonalsML;
 
@@ -199,9 +198,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+               
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -407,9 +404,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+               
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -442,9 +437,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+              
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -573,9 +566,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+              
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -652,9 +643,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+                
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -754,9 +743,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+               
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -801,9 +788,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+              
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -866,9 +851,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+               
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -990,9 +973,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+                
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -1198,7 +1179,7 @@ namespace WebapiApplication.DAL
                 parm[0].Value = intCusID;
                 parm[1] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[1].Direction = ParameterDirection.Output;
-                dscontactsALL = SQLHelper.ExecuteDataset(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, strSpname, parm);
+                dscontactsALL = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, strSpname, parm);
                 if (string.Compare(parm[1].Value.ToString(), System.DBNull.Value.ToString()) == 0)
                 {
                     iStatus = 0;
@@ -1236,7 +1217,7 @@ namespace WebapiApplication.DAL
 
                 parm[1] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[1].Direction = ParameterDirection.Output;
-                dssibling = SQLHelper.ExecuteDataset(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, strSpname, parm);
+                dssibling = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, strSpname, parm);
                 if (string.Compare(parm[1].Value.ToString(), System.DBNull.Value.ToString()) == 0)
                 {
                     iStatus = 0;
@@ -1273,7 +1254,7 @@ namespace WebapiApplication.DAL
                 parm[0].Value = intCusID;
                 parm[1] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[1].Direction = ParameterDirection.Output;
-                dsprofilesettings = SQLHelper.ExecuteDataset(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, strSpname, parm);
+                dsprofilesettings = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, strSpname, parm);
                 if (string.Compare(parm[1].Value.ToString(), System.DBNull.Value.ToString()) == 0)
                 {
                     iStatus = 0;
@@ -1317,7 +1298,7 @@ namespace WebapiApplication.DAL
                 parm[3].Value = Mobjspouce.Admin;
                 parm[4] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[4].Direction = ParameterDirection.Output;
-                ds = SQLHelper.ExecuteDataset(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, strSpname, parm);
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, strSpname, parm);
                 if (string.Compare(parm[4].Value.ToString(), System.DBNull.Value.ToString()) == 0)
                 {
                     iStatus = 0;
@@ -1363,7 +1344,7 @@ namespace WebapiApplication.DAL
                 parm[3].Value = customerpersonaldetails.Admin;
                 parm[4] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[4].Direction = ParameterDirection.Output;
-                ds = SQLHelper.ExecuteDataset(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, strSpname, parm);
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, strSpname, parm);
                 if (string.Compare(parm[4].Value.ToString(), System.DBNull.Value.ToString()) == 0)
                 {
                     iStatus = 0;
@@ -1459,7 +1440,7 @@ namespace WebapiApplication.DAL
                 parm[30] = new SqlParameter("@iflagFF", SqlDbType.Int);
                 parm[30].Value = mobCandidateContact.iflagFF;
 
-                ds = SQLHelper.ExecuteDataset(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, strSpname, parm);
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, strSpname, parm);
 
                 if (string.Compare(parm[23].Value.ToString(), System.DBNull.Value.ToString()) == 0)
                 {
@@ -1529,7 +1510,7 @@ namespace WebapiApplication.DAL
                 parm[12] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[12].Direction = ParameterDirection.Output;
 
-                ds = SQLHelper.ExecuteDataset(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, strSpname, parm);
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, strSpname, parm);
                 if (string.Compare(parm[12].Value.ToString(), System.DBNull.Value.ToString()) == 0)
                 {
                     iStatus = 0;
@@ -1561,7 +1542,7 @@ namespace WebapiApplication.DAL
             DataSet dsSet = new DataSet();
             try
             {
-                SqlCommand cmd = new SqlCommand("Usp_InsertProfileGrading", SQLHelper.GetSQLConnection());
+                SqlCommand cmd = new SqlCommand("Usp_InsertProfileGrading", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@CustId", Mobj.CustID);
                 cmd.Parameters.AddWithValue("@EmpID", Mobj.EmpID);
@@ -1616,7 +1597,8 @@ namespace WebapiApplication.DAL
                 parm[3].Value = mobjpersonal.Admin;
                 parm[4] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[4].Direction = ParameterDirection.Output;
-                ds = SQLHelper.ExecuteDataset(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, strSpname, parm);
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, strSpname, parm);
+
                 if (string.Compare(parm[4].Value.ToString(), System.DBNull.Value.ToString()) == 0)
                 {
                     iStatus = 0;
@@ -1655,7 +1637,7 @@ namespace WebapiApplication.DAL
                 parm[0].Value = ProfileID;
 
 
-                reader = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, strSpname, parm);
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, strSpname, parm);
                 if (reader.HasRows)
                 {
                     while (reader.Read())
@@ -1695,6 +1677,7 @@ namespace WebapiApplication.DAL
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
+
             try
             {
                 SqlParameter[] parm = new SqlParameter[5];
@@ -1706,7 +1689,7 @@ namespace WebapiApplication.DAL
                 parm[2].Value = identityid;
                 parm[3] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[3].Direction = ParameterDirection.Output;
-                dsprofilesettings = SQLHelper.ExecuteDataset(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, strSpname, parm);
+                dsprofilesettings = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, strSpname, parm);
                 if (string.Compare(parm[3].Value.ToString(), System.DBNull.Value.ToString()) == 0)
                 {
                     iStatus = 0;
@@ -1736,6 +1719,7 @@ namespace WebapiApplication.DAL
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
+
             try
             {
                 SqlParameter[] parm = new SqlParameter[14];
@@ -1759,7 +1743,7 @@ namespace WebapiApplication.DAL
                 parm[8].Value = Mobj.Email;
                 parm[9] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[9].Direction = ParameterDirection.Output;
-                dsprofilesettings = SQLHelper.ExecuteDataset(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, strSpname, parm);
+                dsprofilesettings = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, strSpname, parm);
 
                 if (string.Compare(parm[9].Value.ToString(), System.DBNull.Value.ToString()) == 0)
                 {
@@ -1790,12 +1774,13 @@ namespace WebapiApplication.DAL
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
+
             try
             {
                 SqlParameter[] parm = new SqlParameter[5];
                 parm[0] = new SqlParameter("@cust_Id", SqlDbType.Int);
                 parm[0].Value = CustID;
-                dspersonal = SQLHelper.ExecuteDataset(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, strSpname, parm);
+                dspersonal = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, strSpname, parm);
 
             }
             catch (Exception Ex)
@@ -1823,6 +1808,7 @@ namespace WebapiApplication.DAL
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
+
             try
             {
                 parm[0] = new SqlParameter("@EmpID", SqlDbType.Int);
@@ -1903,7 +1889,7 @@ namespace WebapiApplication.DAL
                 parm[3] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
                 parm[3].Direction = ParameterDirection.Output;
 
-                dsCustomerList = SQLHelper.ExecuteDataset(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
+                dsCustomerList = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
                 if (string.Compare(parm[2].Value.ToString(), System.DBNull.Value.ToString()) == 0)
                 {
                     intStatus = 0;
@@ -1963,6 +1949,7 @@ namespace WebapiApplication.DAL
 
         public ArrayList Search_ViewEditProfile(ViewEditProfileSearch Mobj, string spName)
         {
+
             ArrayList arrayList = new ArrayList();
             SqlParameter[] parm = new SqlParameter[12];
             SqlDataReader reader;
@@ -2150,6 +2137,7 @@ namespace WebapiApplication.DAL
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
+
             Smtpemailsending smtp = new Smtpemailsending();
             List<Smtpemailsending> li = new List<Smtpemailsending>();
             try
@@ -2362,7 +2350,7 @@ namespace WebapiApplication.DAL
                 parm[0].Value = CustID;
                 parm[1] = new SqlParameter("@status", SqlDbType.VarChar, 200);
                 parm[1].Value = typeofdata;
-                dsPlaybutton = SQLHelper.ExecuteDataset(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, strSpname, parm);
+                dsPlaybutton = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, strSpname, parm);
             }
             catch (Exception ex)
             {
@@ -2414,7 +2402,7 @@ namespace WebapiApplication.DAL
                 parm[11] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[11].Direction = ParameterDirection.Output;
 
-                dsprofilesettings = SQLHelper.ExecuteDataset(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, strSpname, parm);
+                dsprofilesettings = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, strSpname, parm);
                 if (string.Compare(parm[11].Value.ToString(), System.DBNull.Value.ToString()) == 0)
                 {
                     iStatus = 0;
@@ -2439,7 +2427,7 @@ namespace WebapiApplication.DAL
 
         public static string PathChange = ConfigurationManager.AppSettings["PathChange"];
         string withouraccesspathhoro = "~\\Images\\";
-        internal int AstroGenerationUpdate(string Path, string KeyName)
+        public int AstroGenerationUpdate(string Path, string KeyName)
         {
             int iresult = 0;
 

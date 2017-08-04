@@ -338,6 +338,12 @@ namespace WebapiApplication.ML
         public string FromName { get; set; }
         public int? iToCustID { get; set; }
         public string FromEmail { set; get; }
+
+        public string NAME { get; set; }
+
+        public string BranchName { get; set; }
+
+        public int? Paid { get; set; }
     }
 
 

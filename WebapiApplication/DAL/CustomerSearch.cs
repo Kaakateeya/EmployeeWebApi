@@ -347,9 +347,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearPool(con);
-                //SQLHelper.GetSQLConnection().Dispose();
+               
                 con.Close();
                 SqlConnection.ClearPool(con);
                 SqlConnection.ClearAllPools();
@@ -393,9 +391,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+              
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -459,9 +455,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearPool(con);
-                //SQLHelper.GetSQLConnection().Dispose();
+             
                 con.Close();
                 SqlConnection.ClearPool(con);
                 SqlConnection.ClearAllPools();
@@ -552,9 +546,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+               
                 con.Close();
                 SqlConnection.ClearPool(con);
                 SqlConnection.ClearAllPools();

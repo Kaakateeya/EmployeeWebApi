@@ -80,9 +80,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+              
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -113,9 +111,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+               
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -166,9 +162,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+              
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -210,9 +204,7 @@ namespace WebapiApplication.DAL
             catch (Exception EX) { Commonclass.ApplicationErrorLog("usp_Payment_getProfilePaymentDetails", Convert.ToString(EX.Message), Convert.ToInt32(intProfileID), null, null); }
             finally
             {
-                //SQLHelper.GetSQLConnection().Close();
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+               
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -294,6 +286,7 @@ namespace WebapiApplication.DAL
 
         public int CustomerInsertPaymentDetilsInfo_New(PaymentInsertML Mobj, string spName)
         {
+
             int IntStatus = 0;
             DataSet dsPaymentDetails = new DataSet();
             int? Istatus = null;
@@ -335,6 +328,8 @@ namespace WebapiApplication.DAL
                     if (Mobj.PaysmsID == 1)
                     {
                         Commonclass.SendMailSmtpMethod(li, "info");
+                        Commonclass.PaymentinsertSMS(dsPaymentDetails, Mobj);
+                       
                     }
                 }
                 else
@@ -544,5 +539,31 @@ namespace WebapiApplication.DAL
         }
 
 
+
+        public DataTable Bgepay_RegionProfileID(string strProfileID)
+        {
+            DataTable dset = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            SqlCommand cmd = new SqlCommand("[dbo].[usp_pay_Region]", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                cmd.Parameters.AddWithValue("@ProfileID", strProfileID);
+                da.SelectCommand = cmd;
+                da.Fill(dset);
+                
+            }
+            catch (Exception EX) { Commonclass.ApplicationErrorLog("usp_pay_Region", Convert.ToString(EX.Message), null, null, null); }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return dset;
+        }
     }
 }

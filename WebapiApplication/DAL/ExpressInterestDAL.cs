@@ -82,6 +82,10 @@ namespace WebapiApplication.DAL
 
             SqlDataReader reader;
             List<Smtpemailsending> li = new List<Smtpemailsending>();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
             try
             {
 
@@ -97,7 +101,7 @@ namespace WebapiApplication.DAL
                 parm[4] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[4].Direction = ParameterDirection.Output;
 
-                reader = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
 
                 if (reader.HasRows)
                 {
@@ -126,6 +130,12 @@ namespace WebapiApplication.DAL
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
             }
 
             return new Tuple<List<Smtpemailsending>, int?>(li, status);
@@ -172,6 +182,7 @@ namespace WebapiApplication.DAL
             Servicedates servicedate = new Servicedates();
             connection.Open();
             int status = 0;
+
             try
             {
                 SqlParameter[] parm = new SqlParameter[3];
@@ -182,7 +193,7 @@ namespace WebapiApplication.DAL
                 parm[2] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[2].Direction = ParameterDirection.Output;
 
-                reader = SQLHelper.ExecuteReader(SQLHelper.GetSQLConnection(), CommandType.StoredProcedure, spName, parm);
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (reader.HasRows)
                 {
                     while (reader.Read())

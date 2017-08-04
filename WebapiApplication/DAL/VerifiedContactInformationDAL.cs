@@ -60,13 +60,11 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                //SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Close();
-                //SQLHelper.GetSQLConnection().Dispose();
+               
                 con.Close();
                 SqlConnection.ClearPool(con);
                 SqlConnection.ClearAllPools();
-               // System.GC.Collect();
+              
             }
             return verification;
         }
