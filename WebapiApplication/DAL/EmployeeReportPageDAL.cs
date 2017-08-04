@@ -1834,7 +1834,7 @@ namespace WebapiApplication.DAL
         //}
         public ArrayList EmployeeCommunicationLog(string ProfileID, int? intEmpId, string spName)
         {
-          
+
             SqlDataReader reader;
             int? iNull = null;
             Int64? LNull = null;
@@ -1853,7 +1853,7 @@ namespace WebapiApplication.DAL
                 parm[1].Value = intEmpId;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
 
-              
+
             }
             catch (Exception EX)
             {
@@ -3781,7 +3781,7 @@ namespace WebapiApplication.DAL
                 cmd.Parameters.AddWithValue("@i_Region", Mobj.Region);
                 cmd.Parameters.AddWithValue("@b_IsConfidential", Mobj.Confidential);
                 cmd.Parameters.AddWithValue("@b_IsBalance", Mobj.IsAmountThere);
-               // cmd.Parameters.AddWithValue("@t_ProfileOwnerId", Commonclass.returndt(Mobj.profileownerid, Mobj.OwnerOFProfile, "ProfileOwner", "ProfileOwner"));
+                // cmd.Parameters.AddWithValue("@t_ProfileOwnerId", Commonclass.returndt(Mobj.profileownerid, Mobj.OwnerOFProfile, "ProfileOwner", "ProfileOwner"));
                 cmd.Parameters.AddWithValue("@t_ApplicationStatus", Commonclass.returndt(Mobj.ApplicationStatusid, Mobj.ApplicationStatus, "Applicationstatus", "Applicationstatus"));
                 cmd.Parameters.AddWithValue("@i_PaidFrom", Mobj.FromAmount);
                 cmd.Parameters.AddWithValue("@i_PaidTo", Mobj.ToAmount);
@@ -3812,5 +3812,91 @@ namespace WebapiApplication.DAL
         }
 
 
+
+        public int SendMailRegidtrationFeeDetails(long? CustID, string spname)
+        {
+            SqlParameter[] param = new SqlParameter[4];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                param[0] = new SqlParameter("@CustID", SqlDbType.BigInt);
+                param[0].Value = CustID;
+                param[1] = new SqlParameter("@Status", SqlDbType.Int);
+                param[1].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, param);
+                if (string.Compare(System.DBNull.Value.ToString(), param[1].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(param[1].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
+            }
+            return intStatus;
+        }
+
+
+
+        public int EmployeepaymentreportsSendsms(paymentreportsms Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[10];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@CategoryID", SqlDbType.Int);
+                parm[0].Value = Mobj.CategoryID;
+                parm[1] = new SqlParameter("@Message", SqlDbType.VarChar, 8000);
+                parm[1].Value = Mobj.MessageText;
+                parm[2] = new SqlParameter("@FromEmp", SqlDbType.BigInt);
+                parm[2].Value = Mobj.FromEmpID;
+                parm[3] = new SqlParameter("@ToEmp", SqlDbType.BigInt);
+                parm[3].Value = Mobj.ToEmpID;
+                parm[4] = new SqlParameter("@CustID", SqlDbType.BigInt);
+                parm[4].Value = Mobj.CustID;
+                parm[5] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[5].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[5].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[5].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
+            }
+            return intStatus;
+        }
     }
 }

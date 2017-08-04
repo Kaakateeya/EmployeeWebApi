@@ -498,6 +498,20 @@ namespace WebapiApplication.ML
 
         public string Branchid { get; set; }
     }
+
+    public class paymentreportsms
+    {
+
+        public int? CategoryID { get; set; }
+
+        public string MessageText { get; set; }
+
+        public Int64? FromEmpID { get; set; }
+
+        public Int64? ToEmpID { get; set; }
+
+        public Int64? CustID { get; set; }
+    }
 }
 
 

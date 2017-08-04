@@ -328,7 +328,11 @@ namespace WebapiApplication.Interfaces
 
         ArrayList EmplyeepaymentReportspayment(paymentreports Mobj);
 
- 
+
+
+        int SendMailRegidtrationFeeDetails(long? CustID);
+
+        int EmployeepaymentreportsSendsms(paymentreportsms Mobj);
     }
 
     public interface ISmallPages
