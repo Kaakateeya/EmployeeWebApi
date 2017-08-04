@@ -25,7 +25,7 @@ namespace WebapiApplication.Implement
         public List<ProfileSettings> customerProfilesettings(Int64? CustID) { return new StaticPagesDAL().customerProfilesettings(CustID, "[dbo].[usp_Profilesettings_customer]"); }
         public ArrayList CustomerViewfullProfileDetails(long? ProfileID, int? CustID, int? Relationship) { string spname = Relationship == 283 ? "[dbo].[GetViewProfile_FullDetails]" : "[dbo].[GetViewProfile_FullDetails_Partner]"; return new StaticPagesDAL().CustomerViewfullProfileDetails(ProfileID, CustID, spname); }
         public ArrayList GetExpressinterstBookmarkIgnore(long? loggedcustid, long? ToCustID) { return new StaticPagesDAL().GetExpressinterst_bookmark_ignore_Data(loggedcustid, ToCustID, "[dbo].[usp_GetExpressinterst_bookmark_ignore_data_New]"); }
-        public ArrayList paymentdetailsmethoddal(Int64? CustID) { return new StaticPagesDAL().paymentdetailsmethoddal(CustID, "[dbo].[usp_ProfilePayments]"); }
+        public ArrayList paymentdetailsmethoddal(Int64? CustID) { return new StaticPagesDAL().paymentdetailsmethoddal(CustID, "[dbo].[usp_ProfilePayments_NewDesign]"); }
         public ArrayList GetTicketDetails(TicketDetails ticketdetails) { return new StaticPagesDAL().GetTicketDetailsDal(ticketdetails, "[dbo].[usp_Reports_CustomerTicketingReports]"); }
         public ArrayList ExpressIntrstfullprofile(string FromProfileID, int? EmpID) { return new StaticPagesDAL().ExpressIntrstfullprofile(FromProfileID, EmpID, "[dbo].[GetViewProfile_FullDetails_RoleWise]"); }
         public ArrayList Expressinterst_bookmark_ignore_data(long? Loggedcustid, long? ToCustID) { return new StaticPagesDAL().Expressinterst_bookmark_ignore_data(Loggedcustid, ToCustID, "[dbo].[usp_GetExpressinterst_bookmark_ignore_data_New]"); }
