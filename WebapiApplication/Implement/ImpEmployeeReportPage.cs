@@ -148,7 +148,10 @@ namespace WebapiApplication.Implement
         public int existanceprofileornot(string profileid) { return new EmployeeReportPageDAL().existanceprofileornot(profileid, "[dbo].[usp_existence_profile_id]"); }
 
         public ArrayList EmplyeepaymentReportspayment([FromBody]paymentreports Mobj) { return new EmployeeReportPageDAL().EmplyeepaymentReportspayment(Mobj, "[dbo].[usp_Reports_RegistrationFeeDetails_NewDesign]"); }
-    
+
+        public int SendMailRegidtrationFeeDetails(Int64? CustID) { return new EmployeeReportPageDAL().SendMailRegidtrationFeeDetails(CustID, "[dbo].[usp_SendMailToRegidtrationFeeDetailsProfiles]"); }
+
+        public int EmployeepaymentreportsSendsms([FromBody]paymentreportsms Mobj) { return new EmployeeReportPageDAL().EmployeepaymentreportsSendsms(Mobj, "[dbo].[usp_NoServiceSendMessage]"); }    
     }
 
 }

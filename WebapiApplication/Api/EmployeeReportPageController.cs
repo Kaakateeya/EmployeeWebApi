@@ -180,7 +180,9 @@ namespace WebapiApplication.Api
 
         public ArrayList EmplyeepaymentReportspayment([FromBody]paymentreports Mobj) { return this.IEmployeeReport.EmplyeepaymentReportspayment(Mobj); }
 
-    
+        public int getSendMailRegidtrationFeeDetails(Int64? CustID) { return this.IEmployeeReport.SendMailRegidtrationFeeDetails(CustID); }
+
+        public int EmployeepaymentreportsSendsms([FromBody]paymentreportsms Mobj) { return this.IEmployeeReport.EmployeepaymentreportsSendsms(Mobj); }
     }
 }
 
