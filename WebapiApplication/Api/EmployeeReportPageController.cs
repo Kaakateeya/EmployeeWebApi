@@ -185,7 +185,11 @@ namespace WebapiApplication.Api
         public int EmployeepaymentreportsSendsms([FromBody]paymentreportsms Mobj) { return this.IEmployeeReport.EmployeepaymentreportsSendsms(Mobj); }
 
         public ArrayList getPaymentoffersbasedonselect(string Profileid, int? casteid) { return this.IEmployeeReport.Paymentoffersbasedonselect(Profileid, casteid); }
-
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="Mobj"></param>
+       /// <returns></returns>
         public int Editanddeleteupdateoffers([FromBody]paymenteditdelete Mobj) { return this.IEmployeeReport.Editanddeleteupdateoffers(Mobj); }
    
     
