@@ -333,6 +333,8 @@ namespace WebapiApplication.Interfaces
         int SendMailRegidtrationFeeDetails(long? CustID);
 
         int EmployeepaymentreportsSendsms(paymentreportsms Mobj);
+
+        ArrayList Paymentoffersbasedonselect(string Profileid, int? casteid);
     }
 
     public interface ISmallPages

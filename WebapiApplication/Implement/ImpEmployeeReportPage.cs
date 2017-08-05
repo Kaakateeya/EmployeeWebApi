@@ -151,7 +151,9 @@ namespace WebapiApplication.Implement
 
         public int SendMailRegidtrationFeeDetails(Int64? CustID) { return new EmployeeReportPageDAL().SendMailRegidtrationFeeDetails(CustID, "[dbo].[usp_SendMailToRegidtrationFeeDetailsProfiles]"); }
 
-        public int EmployeepaymentreportsSendsms([FromBody]paymentreportsms Mobj) { return new EmployeeReportPageDAL().EmployeepaymentreportsSendsms(Mobj, "[dbo].[usp_NoServiceSendMessage]"); }    
+        public int EmployeepaymentreportsSendsms([FromBody]paymentreportsms Mobj) { return new EmployeeReportPageDAL().EmployeepaymentreportsSendsms(Mobj, "[dbo].[usp_NoServiceSendMessage]"); }
+
+        public ArrayList Paymentoffersbasedonselect(string Profileid, int? casteid) { return new EmployeeReportPageDAL().Paymentoffersbasedonselect(Profileid, casteid, "[dbo].[usp_GetPayment_Offers]"); }
     }
 
 }

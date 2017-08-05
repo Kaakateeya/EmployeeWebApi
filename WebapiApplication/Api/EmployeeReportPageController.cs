@@ -183,6 +183,9 @@ namespace WebapiApplication.Api
         public int getSendMailRegidtrationFeeDetails(Int64? CustID) { return this.IEmployeeReport.SendMailRegidtrationFeeDetails(CustID); }
 
         public int EmployeepaymentreportsSendsms([FromBody]paymentreportsms Mobj) { return this.IEmployeeReport.EmployeepaymentreportsSendsms(Mobj); }
+
+        public ArrayList getPaymentoffersbasedonselect(string Profileid, int? casteid) { return this.IEmployeeReport.Paymentoffersbasedonselect(Profileid, casteid); }
+
     }
 }
 
