@@ -186,6 +186,10 @@ namespace WebapiApplication.Api
 
         public ArrayList getPaymentoffersbasedonselect(string Profileid, int? casteid) { return this.IEmployeeReport.Paymentoffersbasedonselect(Profileid, casteid); }
 
+        public int Editanddeleteupdateoffers([FromBody]paymenteditdelete Mobj) { return this.IEmployeeReport.Editanddeleteupdateoffers(Mobj); }
+   
+    
+    
     }
 }
 

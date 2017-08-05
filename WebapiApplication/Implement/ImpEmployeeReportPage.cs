@@ -154,6 +154,9 @@ namespace WebapiApplication.Implement
         public int EmployeepaymentreportsSendsms([FromBody]paymentreportsms Mobj) { return new EmployeeReportPageDAL().EmployeepaymentreportsSendsms(Mobj, "[dbo].[usp_NoServiceSendMessage]"); }
 
         public ArrayList Paymentoffersbasedonselect(string Profileid, int? casteid) { return new EmployeeReportPageDAL().Paymentoffersbasedonselect(Profileid, casteid, "[dbo].[usp_GetPayment_Offers]"); }
+
+        public int Editanddeleteupdateoffers([FromBody]paymenteditdelete Mobj) { return new EmployeeReportPageDAL().Editanddeleteupdateoffers(Mobj, "[dbo].[usp_GetSet_PaymentMemberships]"); }
+    
     }
 
 }
