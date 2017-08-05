@@ -180,14 +180,14 @@ namespace WebapiApplication.Interfaces
 
 
         ArrayList CustomerHomePageDesignData(string flag, int? casteID, long? CustID, int? intStartIndex, int? intEndIndex, int? GenderID, int? isActive);
-        
+
         Tuple<string, int> ViewSettlementform(string Profileid);
 
         int CheckprofileIDSelect(string Profileid);
 
-        
+
         int CustomerPaymentOffersAssign(CustomerPaymentOffers Customerpayoffers);
-        
+
         int CustomerProfileIDstatus(string ProfileID);
 
         ArrayList CustomerParofileIDbasePayment(string ProfileID, int? BranchID);
@@ -257,7 +257,7 @@ namespace WebapiApplication.Interfaces
         int SendNumbersMatchfollowup(long? LFromCustID, long? LToCustID, int? empid, string mailTxt);
         ArrayList MyProfileBindingsBranch(string flag, string ID);
 
-      //  List<EmpCommunication> EmployeeCommunicationLog(string ProfileID, int? intEmpId);
+        //  List<EmpCommunication> EmployeeCommunicationLog(string ProfileID, int? intEmpId);
         ArrayList EmployeeCommunicationLog(string ProfileID, int? intEmpId);
         List<GetRegprofilevalidation> RegistrationValidation(Regprofilevalidation RegValidation);
 
@@ -358,6 +358,12 @@ namespace WebapiApplication.Interfaces
         List<UnassignedPhotoSelect> unassignPhotoSelect(UnassignPhotoSelect mobj);
 
         int assignPhotos(long? Empid, string PhotoIDs);
+    }
+
+    public interface IMobileAppDev
+    {
+        ArrayList getMobileAppLandingDisplay(int? CustID, int? PaidStatus, int? Startindex, int? EndIndex);
+        ArrayList UpdateCustomerEmailMobileNumber_Verification(MobileEmailVerf Mobj);
     }
 
 

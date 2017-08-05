@@ -83,6 +83,21 @@
             }
 
 
+            var MobjMob = {
+
+
+                CustID: 91022
+        , Email: "Test1234@gmail.com"
+        , MobileNumber: "55555555"
+        , CountryCode: "1"
+        , VerificationCode: "04544"
+       , isVerified: "1"
+
+
+
+            }
+
+
             var object123 = {
                 customerpersonaldetails: {
                     FromCustID: "",
@@ -238,10 +253,10 @@
                 alert(Mobj);
 
                 $.ajax({
-                    url: 'http://localhost:63006/Api/CustomerPersonal/Search_ViewEditProfile',
+                    url: 'http://localhost:63006/Api/MobileAppLanding/UpdateCustomerEmailMobileNumber_Verification',
                     type: 'POST',
                     crossDomain: true,
-                    data: JSON.stringify(inputobjED),
+                    data: JSON.stringify(MobjMob),
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));
@@ -416,13 +431,15 @@ null,
             //        }
             //    });
             //});
+
+
             $("#80000").click(function () {
                 alert(1);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/getPaymentexentionpointsdays',
+                    url: 'http://localhost:63006/Api/MobileAppLanding/getMobileAppLandingDisplay',
                     type: 'GET',
                     crossDomain: true,
-                    data: { Profileid: '310910220' },
+                    data: { CustID: '91022', PaidStatus: '1', Startindex: '1', EndIndex: '9' },
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));
@@ -433,6 +450,10 @@ null,
                     }
                 });
             });
+
+
+
+
             //$("#80000").click(function () {
             //    alert(1);
             //    $.ajax({
@@ -458,7 +479,7 @@ null,
             var jsonbObj = [
                 { custid: '100000', profileid: '011000002', photoname: 'img2.jpg' }
             ];
-            
+
 
             $("#btngetdata").click(function () {
                 alert(1);
