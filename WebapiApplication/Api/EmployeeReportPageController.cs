@@ -196,7 +196,7 @@ namespace WebapiApplication.Api
         public int getVerifyProfileid(string profileid) { return this.IEmployeeReport.VerifyProfileid(profileid); }
 
 
-        public ArrayList CustomerFactsheetDetails(string Profileid) { return this.IEmployeeReport.CustomerFactsheetDetails(Profileid); }
+        public ArrayList getCustomerFactsheetDetails(string Profileid) { return this.IEmployeeReport.CustomerFactsheetDetails(Profileid); }
     }
 }
 
