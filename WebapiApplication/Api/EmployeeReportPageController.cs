@@ -193,7 +193,7 @@ namespace WebapiApplication.Api
         public int Editanddeleteupdateoffers([FromBody]paymenteditdelete Mobj) { return this.IEmployeeReport.Editanddeleteupdateoffers(Mobj); }
    
     
-    
+     
     }
 }
 
