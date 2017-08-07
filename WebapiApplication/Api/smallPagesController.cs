@@ -97,8 +97,6 @@ namespace WebapiApplication.Api
             return Iobj.myAssignedPhotosSubmit(mobj);
         }
 
-
-
         public string downloadImages([FromBody]List<downloadInput> li)
         {
 
@@ -163,5 +161,17 @@ namespace WebapiApplication.Api
         {
             return Iobj.assignPhotos(Empid, PhotoIDs);
         }
+
+        public List<GetEmployeeList> employeeList(GetEmployeeListRequest mobj)
+        {
+            return Iobj.employeeList(mobj);
+        }
+
+        public int employeeCreation(EmployeeCreationInput mobj)
+        {
+            return Iobj.employeeCreation(mobj);
+        }
+
+
     }
 }

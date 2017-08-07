@@ -156,7 +156,16 @@ namespace WebapiApplication.Implement
         public ArrayList Paymentoffersbasedonselect(string Profileid, int? casteid) { return new EmployeeReportPageDAL().Paymentoffersbasedonselect(Profileid, casteid, "[dbo].[usp_GetPayment_Offers]"); }
 
         public int Editanddeleteupdateoffers([FromBody]paymenteditdelete Mobj) { return new EmployeeReportPageDAL().Editanddeleteupdateoffers(Mobj, "[dbo].[usp_GetSet_PaymentMemberships]"); }
-    
+        /// <summary>
+        /// A.Lakshmi---07-08-2017
+        /// </summary>
+        /// <param name="profileid">profileid--varchar</param>
+        /// <returns>int---status</returns>
+        /// To get Status of Profileid for Fact sheeet
+        public int VerifyProfileid(string profileid) { return new EmployeeReportPageDAL().VerifyProfileid(profileid, "[dbo].[usp_VerifyCustID]"); }
+
+
+        public ArrayList CustomerFactsheetDetails(string Profileid) { return new EmployeeReportPageDAL().CustomerFactsheetDetails(Profileid, "[dbo].[usp_CustomerFactSheetDetails_NewDesign]"); }
     }
 
 }

@@ -253,6 +253,7 @@
     <Compile Include="Api\EmailMobileVerfController.cs" />
     <Compile Include="Api\EmployeeReportPageController.cs" />
     <Compile Include="Api\ExpressInterestController.cs" />
+    <Compile Include="Api\MobileAppLandingController.cs" />
     <Compile Include="Api\PaymentController.cs" />
     <Compile Include="Api\RegistrationController.cs" />
     <Compile Include="Api\smallPagesController.cs" />
@@ -271,6 +272,7 @@
     <Compile Include="DAL\DependencyDAL.cs" />
     <Compile Include="DAL\EmployeeReportPageDAL.cs" />
     <Compile Include="DAL\ExpressInterestDAL.cs" />
+    <Compile Include="DAL\MobileAppApiDAL.cs" />
     <Compile Include="DAL\PaymentDAL.cs" />
     <Compile Include="DAL\Registration.cs" />
     <Compile Include="DAL\smallPageDal.cs" />
@@ -287,6 +289,7 @@
     <Compile Include="Implement\ImpCustomerSearch.cs" />
     <Compile Include="Implement\Impdependency_injection.cs" />
     <Compile Include="Implement\implementationclass.cs" />
+    <Compile Include="Implement\ImpMobileApp.cs" />
     <Compile Include="Implement\ImpRegistration.cs" />
     <Compile Include="Implement\ImpSmallPages.cs" />
     <Compile Include="Implement\ImpStaticPages.cs" />
@@ -300,6 +303,7 @@
     <Compile Include="ML\EmployeeReportPageML.cs" />
     <Compile Include="ML\ExpressInterestML.cs" />
     <Compile Include="ML\ML.cs" />
+    <Compile Include="ML\MobileAppDevML.cs" />
     <Compile Include="ML\PaymentML.cs" />
     <Compile Include="ML\RegistrationML.cs" />
     <Compile Include="ML\smallPagesMl.cs" />

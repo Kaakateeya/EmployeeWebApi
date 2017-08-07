@@ -191,9 +191,12 @@ namespace WebapiApplication.Api
        /// <param name="Mobj"></param>
        /// <returns></returns>
         public int Editanddeleteupdateoffers([FromBody]paymenteditdelete Mobj) { return this.IEmployeeReport.Editanddeleteupdateoffers(Mobj); }
-   
-    
-    
+
+      
+        public int getVerifyProfileid(string profileid) { return this.IEmployeeReport.VerifyProfileid(profileid); }
+
+
+        public ArrayList getCustomerFactsheetDetails(string Profileid) { return this.IEmployeeReport.CustomerFactsheetDetails(Profileid); }
     }
 }
 

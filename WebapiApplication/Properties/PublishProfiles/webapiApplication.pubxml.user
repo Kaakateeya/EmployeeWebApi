@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>C:\Users\Admin\Desktop\183build</_PublishTargetUrl>
-    <_PublishTargetUrl>D:\build_files\07_08_2017_deleteFolder</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\build_files\07_08_2017_factsheetsdetailsbuildsp</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Api/BindJson .cs">
@@ -161,7 +161,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/20/2017 12:06:44</publishTime>
     </File>
     <File Include="bin/WebapiApplication.dll">
-      <publishTime>08/07/2017 11:48:41</publishTime>
+      <publishTime>08/07/2017 17:06:31</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>05/20/2017 12:06:45</publishTime>
@@ -170,7 +170,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/02/2017 12:45:52</publishTime>
     </File>
     <File Include="DAL/HtmlPage1.html">
-      <publishTime>08/07/2017 11:48:41</publishTime>
+      <publishTime>08/07/2017 17:03:03</publishTime>
     </File>
     <File Include="DAL/TestAngular.html">
       <publishTime>06/14/2017 10:52:30</publishTime>
@@ -260,7 +260,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/05/2016 19:28:46</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/07/2017 11:51:19</publishTime>
+      <publishTime>08/07/2017 17:06:31</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -525,6 +525,165 @@ namespace WebapiApplication.DAL
 
             return intStatus;
         }
+        /// <summary>
+        /// to get employee details
+        /// </summary>
+        /// <param name="uma"></param>
+        /// <param date="07-08-2017"></param>
+        /// <returns></returns>
+        public List<GetEmployeeList> employeeListDal(GetEmployeeListRequest mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[5];
+            int? inull = null;
+            Int64? Lnull = null;
+            double? fnull = null;
+            string snull = string.Empty;
+            bool? bnull = null;
+            List<GetEmployeeList> liEmp = new List<GetEmployeeList>();
+
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            SqlDataReader reader;
+            try
+            {
+                parm[0] = new SqlParameter("@EmpID", SqlDbType.Int);
+                parm[0].Value = mobj.Empid;
+                parm[1] = new SqlParameter("@V_branchID", SqlDbType.VarChar);
+                parm[1].Value = mobj.BranchIDs;
+                parm[2] = new SqlParameter("@i_empstatus", SqlDbType.Int);
+                parm[2].Value = mobj.EmpStatus;
+                parm[3] = new SqlParameter("@v_emptype", SqlDbType.VarChar);
+                parm[3].Value = mobj.EmpTypeIDs;
+                parm[4] = new SqlParameter("@V_isLoginanywhere", SqlDbType.Bit);
+                parm[4].Value = mobj.isLoginanywhere;
+
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+                if (reader.HasRows)
+                {
+
+                    while (reader.Read())
+                    {
+                        GetEmployeeList Gemp = new GetEmployeeList();
+                        Gemp.EmpPhoto = reader["ImgPath"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ImgPath")) : null;
+                        Gemp.CreatedByEmployeeName = reader["CreatedByEmployeeName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CreatedByEmployeeName")) : null;
+                        Gemp.CreatedByID = reader["CreatedByID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("CreatedByID")) : Lnull;
+                        Gemp.Created_Date = reader["Created_Date"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Created_Date")) : null;
+                        Gemp.FirstName = reader["FirstName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FirstName")) : null;
+                        Gemp.LastName = reader["LastName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastName")) : null;
+                        Gemp.OfficialEmailID = reader["OfficialEmailID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("OfficialEmailID")) : null;
+                        Gemp.BranchID = reader["BranchID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("BranchID")) : inull;
+                        Gemp.BranchesName = reader["BranchesName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("BranchesName")) : null;
+                        Gemp.BranchCode = reader["BranchCode"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("BranchCode")) : null;
+                        Gemp.WorkPhone = reader["WorkPhone"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("WorkPhone")) : null;
+                        Gemp.OfficialContactNumber = reader["OfficialContactNumber"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("OfficialContactNumber")) : null;
+                        Gemp.HomePhone = reader["HomePhone"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("HomePhone")) : null;
+                        Gemp.DesignationID = reader["DesignationID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DesignationID")) : inull;
+                        Gemp.LoginLocation = reader["LoginLocation"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("LoginLocation")) : null;
+                        Gemp.WorkingStartTIme = reader["WorkingStartTIme"] != DBNull.Value ? (reader.GetDateTime(reader.GetOrdinal("WorkingStartTIme"))).ToString() : null;
+                        Gemp.WorkingEndTIme = reader["WorkingEndTIme"] != DBNull.Value ? (reader.GetDateTime(reader.GetOrdinal("WorkingEndTIme"))).ToString() : null;
+                        Gemp.DayOff = reader["DayOff"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DayOff")) : inull;
+                        Gemp.DateOfJoining = reader["DateOfJoining"] != DBNull.Value ? (reader.GetDateTime(reader.GetOrdinal("DateOfJoining"))).ToString() : null;
+                        Gemp.DateOfReleaving = reader["DateOfReleaving"] != DBNull.Value ? (reader.GetDateTime(reader.GetOrdinal("DateOfReleaving"))).ToString() : null;
+                        Gemp.ReportingMngrID = reader["ReportingMngrID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("ReportingMngrID")) : Lnull;
+                        Gemp.ReportingMngrName = reader["ReportingMngrName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ReportingMngrName")) : null;
+                        Gemp.AnnualIncome = reader["AnnualIncome"] != DBNull.Value ? reader.GetDouble(reader.GetOrdinal("AnnualIncome")) : fnull;
+                        Gemp.CountryID = reader["CountryID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("CountryID")) : inull;
+                        Gemp.CountryName = reader["CountryName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CountryName")) : null;
+                        Gemp.StateID = reader["StateID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("StateID")) : inull;
+                        Gemp.StateName = reader["StateName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("StateName")) : null;
+                        Gemp.DistrictID = reader["DistrictID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DistrictID")) : inull;
+                        Gemp.DistrictName = reader["DistrictName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("DistrictName")) : null;
+                        Gemp.CityID = reader["CityID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("CityID")) : inull;
+                        Gemp.CityName = reader["CityName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CityName")) : null;
+                        Gemp.CityOther = reader["CityOther"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CityOther")) : null;
+                        Gemp.Address = reader["Address"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Address")) : null;
+                        Gemp.EducationCategoryID = reader["EducationCategoryID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("EducationCategoryID")) : inull;
+                        Gemp.EducationCategoryName = reader["EducationCategoryName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("EducationCategoryName")) : null;
+                        Gemp.EducationGroupID = reader["EducationGroupID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("EducationGroupID")) : inull;
+                        Gemp.EducationGroupName = reader["EducationGroupName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("EducationGroupName")) : null;
+                        Gemp.EducationSpecializaionID = reader["EducationSpecializaionID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("EducationSpecializaionID")) : inull;
+                        Gemp.EducationSpecializaionName = reader["EducationSpecializaionName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("EducationSpecializaionName")) : null;
+                        Gemp.isAdmin = reader["isAdmin"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("isAdmin")) : inull;
+                        Gemp.EmpID = reader["EmpID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("EmpID")) : Lnull;
+                        Gemp.CreatedDate = reader["CreatedDate"] != DBNull.Value ? (reader.GetDateTime(reader.GetOrdinal("CreatedDate"))).ToString() : null;
+                        Gemp.UserID = reader["UserID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("UserID")) : null;
+                        Gemp.Password = reader["Password"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Password")) : null;
+                        Gemp.Email = reader["Email"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Email")) : null;
+                        Gemp.IsActive = reader["IsActive"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("IsActive")) : inull;
+                        Gemp.IsActiveStatus = reader["IsActiveStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("IsActiveStatus")) : null;
+                        Gemp.LoginStatusID = reader["LoginStatusID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("LoginStatusID")) : inull;
+                        Gemp.LoginStatus = reader["LoginStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("LoginStatus")) : null;
+                        Gemp.isLoginanywhere = reader["isLoginanywhere"] != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("isLoginanywhere")) : bnull;
+
+                        liEmp.Add(Gemp);
+                    }
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return liEmp;
+        }
+
+        /// <summary>
+        /// submitting employee creation form
+        /// </summary>
+        /// <param name="uma"></param>
+        /// <param date="07-08-2017"></param>
+        /// <returns></returns>
+
+
+        public int employeeCreation(EmployeeCreationInput Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[4];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@dtEmployeeData", SqlDbType.Structured);
+                parm[0].Value = Mobj.dtEmployeecreation;
+                parm[1] = new SqlParameter("@loggedEmpID", SqlDbType.BigInt);
+                parm[1].Value = Mobj.CreatedEMPID;
+                parm[2] = new SqlParameter("@EMPID", SqlDbType.BigInt);
+                parm[2].Value = Mobj.EMPID;
+                parm[3] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[3].Direction = ParameterDirection.Output;
+
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[3].Value.ToString()) == 0)
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[3].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return intStatus;
+        }
     }
 }
 

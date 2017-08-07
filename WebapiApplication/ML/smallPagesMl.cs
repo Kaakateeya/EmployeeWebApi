@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
 
 namespace WebapiApplication.ML
 {
@@ -95,7 +96,7 @@ namespace WebapiApplication.ML
         public string StrThumbNail { get; set; }
         public string StrFullPhoto { get; set; }
         public string StrApplicationPhoto { get; set; }
-        public Int64 PhotoID { get; set; }  
+        public Int64 PhotoID { get; set; }
     }
 
     public class downloadInput
@@ -119,7 +120,7 @@ namespace WebapiApplication.ML
         public DateTime? EnDate { get; set; }
         public int intlowerBound { get; set; }
         public int intUpperBound { get; set; }
-       
+
     }
     public class UnassignedPhotoSelect
     {
@@ -135,6 +136,157 @@ namespace WebapiApplication.ML
         public int? RejectCount { get; set; }
         public string IdS { get; set; }
         public int? paid { get; set; }
+    }
+    public class GetEmployeeList
+    {
+
+        public string EmpPhoto { get; set; }
+
+        public string CreatedByEmployeeName { get; set; }
+
+        public long? CreatedByID { get; set; }
+
+        public string Created_Date { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string OfficialEmailID { get; set; }
+
+        public int? BranchID { get; set; }
+
+        public string BranchesName { get; set; }
+
+        public string BranchCode { get; set; }
+
+        public string WorkPhone { get; set; }
+
+        public string OfficialContactNumber { get; set; }
+
+        public string HomePhone { get; set; }
+
+        public int? DesignationID { get; set; }
+
+        public string LoginLocation { get; set; }
+
+        public string WorkingStartTIme { get; set; }
+
+        public string WorkingEndTIme { get; set; }
+
+        public int? DayOff { get; set; }
+
+        public string DateOfJoining { get; set; }
+
+        public string DateOfReleaving { get; set; }
+
+        public long? ReportingMngrID { get; set; }
+
+        public string ReportingMngrName { get; set; }
+
+        public double? AnnualIncome { get; set; }
+
+        public int? CountryID { get; set; }
+
+        public string CountryName { get; set; }
+
+        public int? StateID { get; set; }
+
+        public string StateName { get; set; }
+
+        public int? DistrictID { get; set; }
+
+        public string DistrictName { get; set; }
+
+        public int? CityID { get; set; }
+
+        public string CityName { get; set; }
+
+        public string CityOther { get; set; }
+
+        public string Address { get; set; }
+
+        public int? EducationCategoryID { get; set; }
+
+        public string EducationCategoryName { get; set; }
+
+        public int? EducationGroupID { get; set; }
+
+        public string EducationGroupName { get; set; }
+
+        public int? EducationSpecializaionID { get; set; }
+
+        public string EducationSpecializaionName { get; set; }
+
+        public int? isAdmin { get; set; }
+
+        public long? EmpID { get; set; }
+
+        public string CreatedDate { get; set; }
+
+        public string UserID { get; set; }
+
+        public string Password { get; set; }
+
+        public string Email { get; set; }
+
+        public int? IsActive { get; set; }
+
+        public string IsActiveStatus { get; set; }
+
+        public int? LoginStatusID { get; set; }
+
+        public string LoginStatus { get; set; }
+
+        public bool? isLoginanywhere { get; set; }
+    }
+    public class GetEmployeeListRequest
+    {
+        public int? Empid { get; set; }
+        public string BranchIDs { get; set; }
+        public int? EmpStatus { get; set; }
+        public string EmpTypeIDs { get; set; }
+        public bool? isLoginanywhere { get; set; }
+    }
+    public class EmployeeCreationInput
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string OfficialEmailID { get; set; }
+        public int? HomeBranchID { get; set; }
+        public string WorkPhone { get; set; }
+        public string OfficialCellPhone { get; set; }
+        public string HomePhone { get; set; }
+        public string PersonalEmailID { get; set; }
+        public string LoginName { get; set; }
+        public string Password { get; set; }
+        public int? Designation { get; set; }
+        public string LoginLocation { get; set; }
+        public string OfficeFromHrs { get; set; }
+        public string OfficeToHrs { get; set; }
+        public int? DayOff { get; set; }
+        public string DateofJoining { get; set; }
+        public string DateofReleaving { get; set; }
+        public int? ReportingMngrID { get; set; }
+        public string AnnualIncome { get; set; }
+        public int? Country { get; set; }
+        public int? State { get; set; }
+        public int? District { get; set; }
+        public int? City { get; set; }
+        public string CityOther { get; set; }
+        public string Address { get; set; }
+        public int? EducationCategory { get; set; }
+        public int? EducationGroup { get; set; }
+        public int? EducationSpecialization { get; set; }
+        public string EmployeeImgPath { get; set; }
+        public int? TypeOfEmployee { get; set; }
+        public int? EmployeeStatus { get; set; }
+        public long? CreatedEMPID { get; set; }
+        public long? EMPID { get; set; }
+
+        public DataTable dtEmployeecreation { get; set; }
+
+        public bool? isLoginAnywhere { get; set; }
     }
 }
 
