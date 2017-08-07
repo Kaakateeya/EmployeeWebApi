@@ -342,7 +342,7 @@ namespace WebapiApplication.Interfaces
 
         ArrayList CustomerFactsheetDetails(string Profileid);
 
-        int custmorfactsheetsendMai(string profileid);
+        int custmorfactsheetsendMail(string profileid);
 
 
         int? sendEmail_factResetPassword(string profileid, string p);

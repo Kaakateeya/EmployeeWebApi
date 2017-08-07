@@ -199,7 +199,7 @@ namespace WebapiApplication.Api
         public ArrayList getCustomerFactsheetDetails(string Profileid) { return this.IEmployeeReport.CustomerFactsheetDetails(Profileid); }
 
 
-        public int getcustmorfactsheetsendMail(string profileid) { return this.IEmployeeReport.custmorfactsheetsendMai(profileid); }
+        public int getcustmorfactsheetsendMail(string profileid) { return this.IEmployeeReport.custmorfactsheetsendMail(profileid); }
 
 
         public int? getsendEmail_factResetPassword(string profileid) { return this.IEmployeeReport.sendEmail_factResetPassword(profileid, Commonclass.profileidEncrypt(profileid)); }

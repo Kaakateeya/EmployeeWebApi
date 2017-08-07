@@ -4145,7 +4145,7 @@ namespace WebapiApplication.DAL
             }
             catch (Exception ex)
             {
-                throw ex;
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(ex.Message), null, null, null);
             }
             finally
             {
@@ -4179,7 +4179,7 @@ namespace WebapiApplication.DAL
                 parm[0].Value = profileid;
                 parm[1] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[1].Direction = ParameterDirection.Output;
-                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
 
                 if (reader.HasRows)
                 {
