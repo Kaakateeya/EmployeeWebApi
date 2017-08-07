@@ -512,6 +512,24 @@ namespace WebapiApplication.ML
 
         public Int64? CustID { get; set; }
     }
+    public class paymenteditdelete
+    {
+
+
+        public string strProfileID { get; set; }
+
+        public int? intPaymentID { get; set; }
+
+        public int? intMemberShipTypeID { get; set; }
+
+        public Decimal? floatAgreedAmt { get; set; }
+
+        public int? intCasteID { get; set; }
+
+        public int? intFlagID { get; set; }
+    }
+
+
 }
 
 
