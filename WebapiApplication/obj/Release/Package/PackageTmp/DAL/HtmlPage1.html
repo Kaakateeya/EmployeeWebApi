@@ -456,14 +456,15 @@ null,
 
 
             var jsonbObj = [
-                { custid: '100000', profileid: '011000002', photoname: 'img2.jpg' }
+                { custid: '91022', profileid: '310910220', photoname: 'img2.jpg' },
+                { custid: '91022', profileid: '310910220', photoname: 'img1.jpg' }
             ];
             
 
             $("#btngetdata").click(function () {
                 alert(1);
                 $.ajax({
-                    url: 'http://183.82.0.58:8025/Api/smallPages/downloadImages',
+                    url: 'http://localhost:63006/Api/smallPages/downloadImages',
                     type: 'post',
                     crossDomain: true,
                     data: JSON.stringify(jsonbObj),

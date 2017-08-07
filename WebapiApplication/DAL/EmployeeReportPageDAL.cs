@@ -3927,5 +3927,53 @@ namespace WebapiApplication.DAL
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
+
+        public int Editanddeleteupdateoffers(paymenteditdelete Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[10];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@strProfileID", SqlDbType.VarChar);
+                parm[0].Value = Mobj.strProfileID;
+                parm[1] = new SqlParameter("@intPaymentID", SqlDbType.Int);
+                parm[1].Value = Mobj.intPaymentID;
+                parm[2] = new SqlParameter("@intMemberShipTypeID", SqlDbType.Int);
+                parm[2].Value = Mobj.intMemberShipTypeID;
+                parm[3] = new SqlParameter("@floatAgreedAmt", SqlDbType.Decimal);
+                parm[3].Value = Mobj.floatAgreedAmt;
+                parm[4] = new SqlParameter("@intCasteID", SqlDbType.Int);
+                parm[4].Value = Mobj.intCasteID;
+                parm[5] = new SqlParameter("@intFlagID", SqlDbType.Int);
+                parm[5].Value = Mobj.intFlagID;
+                parm[6] = new SqlParameter("@intStatus", SqlDbType.Int);
+                parm[6].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[6].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[6].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
+            }
+            return intStatus;
+        }
     }
 }

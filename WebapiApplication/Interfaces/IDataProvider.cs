@@ -335,6 +335,8 @@ namespace WebapiApplication.Interfaces
         int EmployeepaymentreportsSendsms(paymentreportsms Mobj);
 
         ArrayList Paymentoffersbasedonselect(string Profileid, int? casteid);
+
+        int Editanddeleteupdateoffers(paymenteditdelete Mobj);
     }
 
     public interface ISmallPages

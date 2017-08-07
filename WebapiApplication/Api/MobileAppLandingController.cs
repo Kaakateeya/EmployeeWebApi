@@ -15,6 +15,7 @@ namespace WebapiApplication.Api
     {
 
         private readonly IMobileAppDev IMobileAppDev; public MobileAppLandingController() : base() { this.IMobileAppDev = new ImpMobileApp(); }
+
         public ArrayList getMobileAppLandingDisplay(int? CustID, int? PaidStatus, int? Startindex, int? EndIndex) { return this.IMobileAppDev.getMobileAppLandingDisplay(CustID, PaidStatus, Startindex, EndIndex); }
         
         public ArrayList UpdateCustomerEmailMobileNumber_Verification([FromBody]MobileEmailVerf Mobj)

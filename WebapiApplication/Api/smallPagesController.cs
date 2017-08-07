@@ -115,10 +115,24 @@ namespace WebapiApplication.Api
                     AmazonLoad(strtest, dest);
                     strpathreturn = "C:/kaakateeyaPhotos/" + strimagedisplay;
                 }
+                else if (listval.Count > 1)
+                {
+                    for (int i = 0; i < listval.Count; i++)
+                    {
+                        listval[i].photoname = listval[i].photoname.Replace("i", "I");
+                        string[] imggg = listval[i].photoname.Split('.');
+                        string strtest = "Images/ProfilePics/KMPL_" + listval[i].custid + "_Images/" + imggg[0] + "." + (imggg[1].ToLower());
+                        string strimagedisplay = listval[i].profileid + "_" + (((listval[i].photoname).Split('.'))[0]).Substring(3) + "." + (imggg[1].ToLower());
+                        string dest = "C:\\kaakateeyaPhotos\\" + strimagedisplay;
+                        AmazonLoad(strtest, dest);
+                        strpathreturn = "C:/kaakateeyaPhotos/" + strimagedisplay;
+                    }
+                }
             }
+
             return strpathreturn;
         }
-      
+
         public void AmazonLoad(string keyName, string dest)
         {
 
@@ -144,7 +158,7 @@ namespace WebapiApplication.Api
             return Iobj.unassignPhotoSelect(mobj);
         }
 
-        public int GetassignPhotos(long? Empid,string PhotoIDs)
+        public int GetassignPhotos(long? Empid, string PhotoIDs)
         {
             return Iobj.assignPhotos(Empid, PhotoIDs);
         }
