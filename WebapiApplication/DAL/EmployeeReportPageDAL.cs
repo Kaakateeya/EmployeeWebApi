@@ -14,7 +14,7 @@ namespace WebapiApplication.DAL
 
     public class EmployeeReportPageDAL
     {
-          
+
         public int SaveViewedBookmark_Customer(CustSearchMl Mobj, string spName)
         {
             int intStatus = 0;
@@ -3912,7 +3912,7 @@ namespace WebapiApplication.DAL
                 parm[0].Value = Profileid;
                 parm[1] = new SqlParameter("@strCaste", SqlDbType.Int);
                 parm[1].Value = casteid;
-               
+
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
             }
             catch (Exception EX)
@@ -3974,6 +3974,70 @@ namespace WebapiApplication.DAL
 
             }
             return intStatus;
+        }
+
+        public int VerifyProfileid(string profileid, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[10];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@vc_ProfileID", SqlDbType.VarChar);
+                parm[0].Value = profileid;
+                parm[1] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[1].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[1].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[1].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
+            }
+            return intStatus;
+        }
+
+        public ArrayList CustomerFactsheetDetails(string Profileid, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[2];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@i_custID1", SqlDbType.VarChar);
+                parm[0].Value = Profileid;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
         }
     }
 }

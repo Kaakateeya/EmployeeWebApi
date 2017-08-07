@@ -337,6 +337,10 @@ namespace WebapiApplication.Interfaces
         ArrayList Paymentoffersbasedonselect(string Profileid, int? casteid);
 
         int Editanddeleteupdateoffers(paymenteditdelete Mobj);
+
+        int VerifyProfileid(string profileid);
+
+        ArrayList CustomerFactsheetDetails(string Profileid);
     }
 
     public interface ISmallPages
