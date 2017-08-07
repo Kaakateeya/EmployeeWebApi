@@ -3975,7 +3975,12 @@ namespace WebapiApplication.DAL
             }
             return intStatus;
         }
-
+        /// <summary>
+        /// A.Lakshmi---07-08-2017
+        /// </summary>
+        /// <param name="profileid">profileid--varchar</param>
+        /// <returns>int---status</returns>
+        /// To get Status of Profileid for Fact sheeet
         public int VerifyProfileid(string profileid, string spname)
         {
             SqlParameter[] parm = new SqlParameter[10];
@@ -4013,7 +4018,12 @@ namespace WebapiApplication.DAL
             }
             return intStatus;
         }
-
+        /// <summary>
+        /// A.Lakshmi---07-08-2017
+        /// </summary>
+        /// <param name="profileid">profileid--varchar</param>
+        /// <returns>ArrayList</returns>
+        /// To get Factsheetdetails of Profileid
         public ArrayList CustomerFactsheetDetails(string Profileid, string spname)
         {
             SqlParameter[] parm = new SqlParameter[2];
@@ -4038,6 +4048,171 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearAllPools();
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+        /// <summary>
+        /// A.Lakshmi---07-08-2017
+        /// </summary>
+        /// <param name="profileid">profileid--varchar</param>
+        /// <returns>int status</returns>
+        /// To get Factsheet email status
+        public int custmorfactsheetsendMail(string profileid, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[4];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@ProfileID", SqlDbType.VarChar);
+                parm[0].Value = profileid;
+                parm[1] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[1].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[1].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[1].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
+            }
+            return intStatus;
+        }
+        /// <summary>
+        /// A.Lakshmi---07-08-2017
+        /// </summary>
+        /// <param name="profileid">profileid--varchar</param>
+        ///    /// <param name="Encryptedtext">Encryptedtext--encrypted profileid</param>
+        /// <returns>int status</returns>
+        /// To send Factsheet email 
+        public int? sendEmail_factResetPassword(string profileid, string Encryptedtext, string spName)
+        {
+            int? status = 0;
+
+            SqlDataReader reader;
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+
+                SqlParameter[] parm = new SqlParameter[5];
+                parm[0] = new SqlParameter("@PROFILEID", SqlDbType.Int);
+                parm[0].Value = profileid;
+                parm[1] = new SqlParameter("@EncryptedText", SqlDbType.BigInt);
+                parm[1].Value = Encryptedtext;
+                parm[2] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+
+                if (reader.HasRows)
+                {
+
+                    while (reader.Read())
+                    {
+                        li.Clear();
+                        Smtpemailsending smtp = new Smtpemailsending();
+                        {
+                            smtp.profile_name = (reader["profile_name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("profile_name")) : string.Empty;
+                            smtp.recipients = (reader["recipients"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("recipients")) : string.Empty;
+                            smtp.body = (reader["body"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body")) : string.Empty;
+                            smtp.subject = (reader["subject"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("subject")) : string.Empty;
+                            smtp.body_format = (reader["body_format"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body_format")) : string.Empty;
+                            status = smtp.Status = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : status;
+                        }
+                        li.Add(smtp);
+                        Commonclass.SendMailSmtpMethod(li, "exp");
+                    }
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return status;
+        }
+        /// <summary>
+        /// A.Lakshmi---07-08-2017
+        /// </summary>
+        /// <param name="profileid">profileid--varchar</param>
+        ///    /// <param name="Encryptedtext">Encryptedtext--encrypted profileid</param>
+        /// <returns>int status</returns>
+        /// To send forget password email 
+        public int? sendEmail_ResetPassword(string profileid, string spname)
+        {
+            SqlDataReader reader;
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            SqlParameter[] parm = new SqlParameter[4];
+            int? intStatus = 0;
+            Smtpemailsending smtp = new Smtpemailsending();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@ProfileID", SqlDbType.VarChar);
+                parm[0].Value = profileid;
+                parm[1] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[1].Direction = ParameterDirection.Output;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+
+                if (reader.HasRows)
+                {
+
+                    while (reader.Read())
+                    {
+                        li.Clear();
+
+                        smtp.profile_name = (reader["profile_name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("profile_name")) : string.Empty;
+                        smtp.recipients = (reader["recipients"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("recipients")) : string.Empty;
+                        smtp.body = (reader["body"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body")) : string.Empty;
+                        smtp.subject = (reader["subject"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("subject")) : string.Empty;
+                        smtp.body_format = (reader["body_format"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body_format")) : string.Empty;
+                        smtp.Status = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : intStatus;
+                        li.Add(smtp);
+                        Commonclass.SendMailSmtpMethod(li, "exp");
+                    }
+                }
+                intStatus = smtp.Status;
+                reader.Close();
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
+            }
+            return intStatus;
         }
     }
 }

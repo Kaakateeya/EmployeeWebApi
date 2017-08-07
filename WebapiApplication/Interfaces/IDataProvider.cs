@@ -341,6 +341,13 @@ namespace WebapiApplication.Interfaces
         int VerifyProfileid(string profileid);
 
         ArrayList CustomerFactsheetDetails(string Profileid);
+
+        int custmorfactsheetsendMai(string profileid);
+
+
+        int? sendEmail_factResetPassword(string profileid, string p);
+
+        int? sendEmail_ResetPassword(string profileid);
     }
 
     public interface ISmallPages
