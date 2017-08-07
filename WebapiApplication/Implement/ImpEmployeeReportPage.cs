@@ -165,7 +165,7 @@ namespace WebapiApplication.Implement
         public int VerifyProfileid(string profileid) { return new EmployeeReportPageDAL().VerifyProfileid(profileid, "[dbo].[usp_VerifyCustID]"); }
 
 
-        public ArrayList CustomerFactsheetDetails(string Profileid) { return new EmployeeReportPageDAL().CustomerFactsheetDetails(Profileid, "[dbo].[usp_CustomerFactSheetDetails]"); }
+        public ArrayList CustomerFactsheetDetails(string Profileid) { return new EmployeeReportPageDAL().CustomerFactsheetDetails(Profileid, "[dbo].[usp_CustomerFactSheetDetails_NewDesign]"); }
     }
 
 }
