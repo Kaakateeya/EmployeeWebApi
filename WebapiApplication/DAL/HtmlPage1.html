@@ -434,12 +434,18 @@ null,
 
 
             $("#80000").click(function () {
-                alert(1);
                 $.ajax({
+<<<<<<< HEAD
                     url: 'http://localhost:63006/Api/MobileAppLanding/getMobileAppLandingDisplay',
                     type: 'GET',
                     crossDomain: true,
                     data: { CustID: '91022', PaidStatus: '1', Startindex: '1', EndIndex: '9' },
+=======
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/getEmployeeCommunicationLog',
+                    type: 'GET',
+                    crossDomain: true,
+                    data: { ProfileID: '010764652', intEmpId: 2 },
+>>>>>>> b1cd7eeae4432cd39e1eea6cf0f1e57f7c553e72
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));
@@ -476,11 +482,18 @@ null,
             //});
 
 
+<<<<<<< HEAD
             var jsonbObj = [
                 { custid: '91022', profileid: '310910220', photoname: 'img2.jpg' },
                 { custid: '91022', profileid: '310910220', photoname: 'img1.jpg' }
             ];
 
+=======
+            var jsonbObj = [{ "custid": 117424, "profileid": "111174241", "photoname": "Img1.png" },
+                { "custid": 116933, "profileid": "011169331", "photoname": "Img1.jpg" },
+                { "custid": 117383, "profileid": "211173837", "photoname": "Img2.jpg" },
+                { "custid": 117383, "profileid": "211173837", "photoname": "Img1.jpg" }, { "custid": 117367, "profileid": "011173679", "photoname": "Img2.png" }];
+>>>>>>> b1cd7eeae4432cd39e1eea6cf0f1e57f7c553e72
 
             $("#btngetdata").click(function () {
                 alert(1);

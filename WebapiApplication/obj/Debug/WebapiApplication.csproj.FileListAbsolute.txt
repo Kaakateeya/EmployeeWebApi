@@ -185,6 +185,7 @@ D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.
 D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.dll
 D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.pdb
 D:\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.csprojResolveAssemblyReference.cache
+<<<<<<< HEAD
 D:\EmployeeWebApi\EmployeeWebApi\WebapiApplication\bin\WebapiApplication.dll
 D:\EmployeeWebApi\EmployeeWebApi\WebapiApplication\bin\WebapiApplication.pdb
 D:\EmployeeWebApi\EmployeeWebApi\WebapiApplication\bin\Antlr3.Runtime.dll
@@ -231,3 +232,6 @@ D:\EmployeeWebApi\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.Membersh
 D:\EmployeeWebApi\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.FriendlyUrls.xml
 D:\EmployeeWebApi\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.dll
 D:\EmployeeWebApi\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.pdb
+=======
+D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.csprojResolveAssemblyReference.cache
+>>>>>>> b1cd7eeae4432cd39e1eea6cf0f1e57f7c553e72

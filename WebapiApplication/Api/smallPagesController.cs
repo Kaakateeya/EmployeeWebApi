@@ -101,6 +101,20 @@ namespace WebapiApplication.Api
 
         public string downloadImages([FromBody]List<downloadInput> li)
         {
+
+
+            string path = System.IO.Directory.GetCurrentDirectory();
+
+            System.IO.DirectoryInfo di = new DirectoryInfo("C:\\kaakateeyaPhotos");
+
+            foreach (FileInfo file in di.GetFiles())
+            {
+                file.Delete();
+            }
+            if (Directory.Exists("C:\\kaakateeyaPhotos"))
+            {
+                Directory.Delete("C:\\kaakateeyaPhotos", true);
+            }
             List<downloadInput> listval = li;
             string strpathreturn = "";
             if (listval.Count > 0)
