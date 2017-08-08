@@ -4113,9 +4113,9 @@ namespace WebapiApplication.DAL
             {
 
                 SqlParameter[] parm = new SqlParameter[5];
-                parm[0] = new SqlParameter("@PROFILEID", SqlDbType.Int);
+                parm[0] = new SqlParameter("@PROFILEID", SqlDbType.VarChar);
                 parm[0].Value = profileid;
-                parm[1] = new SqlParameter("@EncryptedText", SqlDbType.BigInt);
+                parm[1] = new SqlParameter("@EncryptedText", SqlDbType.VarChar);
                 parm[1].Value = Encryptedtext;
                 parm[2] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[2].Direction = ParameterDirection.Output;
