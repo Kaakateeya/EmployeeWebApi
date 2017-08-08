@@ -185,11 +185,14 @@ namespace WebapiApplication.Api
         public int EmployeepaymentreportsSendsms([FromBody]paymentreportsms Mobj) { return this.IEmployeeReport.EmployeepaymentreportsSendsms(Mobj); }
 
         public ArrayList getPaymentoffersbasedonselect(string Profileid, int? casteid) { return this.IEmployeeReport.Paymentoffersbasedonselect(Profileid, casteid); }
-       /// <summary>
+     
+        /// <summary>
        /// 
        /// </summary>
        /// <param name="Mobj"></param>
        /// <returns></returns>
+       /// 
+
         public int Editanddeleteupdateoffers([FromBody]paymenteditdelete Mobj) { return this.IEmployeeReport.Editanddeleteupdateoffers(Mobj); }
 
       
@@ -205,6 +208,7 @@ namespace WebapiApplication.Api
         public int? getsendEmail_factResetPassword(string profileid) { return this.IEmployeeReport.sendEmail_factResetPassword(profileid, Commonclass.profileidEncrypt(profileid)); }
 
         public int? getsendEmail_ResetPassword(string profileid) { return this.IEmployeeReport.sendEmail_ResetPassword(profileid); }
+
 
     }
 }

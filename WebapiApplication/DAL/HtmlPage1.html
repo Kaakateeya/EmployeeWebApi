@@ -406,12 +406,12 @@
 
             $("#80000").click(function() {
                 $.ajax({
-                    url: 'http://localhost:63006/Api/MobileAppLanding/getMobileAppLandingDisplay',
+                    url: 'http://localhost:63006/Api/MobileAppLanding/getMobileLandingOrderDisplay',
                     type: 'GET',
                     crossDomain: true,
                     data: {
                         CustID: '91022',
-                        PaidStatus: '1',
+                      
                         Startindex: '1',
                         EndIndex: '9'
                     },
@@ -465,10 +465,10 @@
             $("#btngetdata").click(function() {
                 alert(1);
                 $.ajax({
-                    url: 'http://http://183.82.0.58:8025/Api/smallPages/downloadImages',
-                    type: 'post',
+                    url: 'http://localhost:63006/Api/smallPages/getLoginName',
+                    type: 'get',
                     crossDomain: true,
-                    data: JSON.stringify(jsonbObj),
+                    data: {intHomeBrchID:319},
                     contentType: 'application/json',
                     success: function(data, textStatus, xhr) {
                         alert(JSON.stringify(data));

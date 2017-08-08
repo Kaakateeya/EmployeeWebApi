@@ -684,6 +684,50 @@ namespace WebapiApplication.DAL
 
             return intStatus;
         }
+
+
+        /// <summary>
+        /// creating new userid for new employee
+        /// </summary>
+        /// <param name="uma"></param>
+        /// <param date="08-08-2017"></param>
+        /// <returns></returns>
+
+        public string getLoginNameDal(int intHomeBrchID, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[1];
+            string strUserID = "";
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            SqlDataReader reader = null;
+            try
+            {
+                parm[0] = new SqlParameter("@i_BranchID", SqlDbType.Int);
+                parm[0].Value = intHomeBrchID;
+
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        strUserID = reader["LoginName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("LoginName")) : string.Empty;
+                    }
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return strUserID;
+        }
     }
 }
 
