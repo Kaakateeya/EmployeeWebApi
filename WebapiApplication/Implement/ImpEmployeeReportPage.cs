@@ -41,9 +41,9 @@ namespace WebapiApplication.Implement
 
         // Communication Log  
 
-       // public List<EmpCommunication> EmployeeCommunicationLog(string ProfileID, int? intEmpId) { return new EmployeeReportPageDAL().EmployeeCommunicationLog(ProfileID, intEmpId, "[dbo].[Usp_Select_Communicationlog]"); }
-         public ArrayList EmployeeCommunicationLog(string ProfileID, int? intEmpId) { return new EmployeeReportPageDAL().EmployeeCommunicationLog(ProfileID, intEmpId, "[dbo].[Usp_Select_Communicationlog]"); }
-      
+        // public List<EmpCommunication> EmployeeCommunicationLog(string ProfileID, int? intEmpId) { return new EmployeeReportPageDAL().EmployeeCommunicationLog(ProfileID, intEmpId, "[dbo].[Usp_Select_Communicationlog]"); }
+        public ArrayList EmployeeCommunicationLog(string ProfileID, int? intEmpId) { return new EmployeeReportPageDAL().EmployeeCommunicationLog(ProfileID, intEmpId, "[dbo].[Usp_Select_Communicationlog]"); }
+
         public int EmployeeCommunicationLogSentphotosemail(string Email, string CustID) { return new EmployeeReportPageDAL().EmployeeCommunicationLogSentphotosemail(Email, CustID, "[dbo].[usp_sentemailwithimages_New]"); }
         public Tuple<int, List<CommunicationLogResult>> EmployeeCommunicationLogRvrAndResend(RvrRequest Mobj) { return new EmployeeReportPageDAL().EmployeeCommunicationLogRvrAndResend(Mobj, "[dbo].[Usp_insert_Rvr_Resend_Log]"); }
         public int EmployeeCommunicationLogSendMarketingMail(CreateEmployeeMl Mobj) { return new EmployeeReportPageDAL().EmployeeCommunicationLogSendMarketingMail(Mobj, "[dbo].[sp_Email_TicketHistoryInfo_slide_New]"); }
@@ -156,16 +156,16 @@ namespace WebapiApplication.Implement
         public ArrayList Paymentoffersbasedonselect(string Profileid, int? casteid) { return new EmployeeReportPageDAL().Paymentoffersbasedonselect(Profileid, casteid, "[dbo].[usp_GetPayment_Offers]"); }
 
         public int Editanddeleteupdateoffers([FromBody]paymenteditdelete Mobj) { return new EmployeeReportPageDAL().Editanddeleteupdateoffers(Mobj, "[dbo].[usp_GetSet_PaymentMemberships]"); }
-        /// <summary>
-        /// A.Lakshmi---07-08-2017
-        /// </summary>
-        /// <param name="profileid">profileid--varchar</param>
-        /// <returns>int---status</returns>
-        /// To get Status of Profileid for Fact sheeet
+
         public int VerifyProfileid(string profileid) { return new EmployeeReportPageDAL().VerifyProfileid(profileid, "[dbo].[usp_VerifyCustID]"); }
 
 
         public ArrayList CustomerFactsheetDetails(string Profileid) { return new EmployeeReportPageDAL().CustomerFactsheetDetails(Profileid, "[dbo].[usp_CustomerFactSheetDetails_NewDesign]"); }
+
+        public int custmorfactsheetsendMail(string profileid) { return new EmployeeReportPageDAL().custmorfactsheetsendMail(profileid, "[dbo].[Chk_FactsheetsendMail]"); }
+        public int? sendEmail_factResetPassword(string profileid, string Encryptedtext) { return new EmployeeReportPageDAL().sendEmail_factResetPassword(profileid, Encryptedtext, "[dbo].[Usp_SENDMAILFORFACTSHEET]"); }
+        public int? sendEmail_ResetPassword(string profileid) { return new EmployeeReportPageDAL().sendEmail_ResetPassword(profileid, "[dbo].[Usp_CustResetPasswordFactsheet]"); }
+
     }
 
 }
