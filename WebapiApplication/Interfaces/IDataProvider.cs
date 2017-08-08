@@ -368,6 +368,8 @@ namespace WebapiApplication.Interfaces
         List<GetEmployeeList> employeeList(GetEmployeeListRequest mobj);
 
         int employeeCreation(EmployeeCreationInput mobj);
+
+        string getLoginName(int intHomeBrchID);
     }
 
     public interface IMobileAppDev

@@ -1012,6 +1012,43 @@ namespace WebapiApplication.UserDefinedTable
             return dtMyAuthDetails;
 
         }
+        public static DataTable getEmployeeDatanew()
+        {
+            DataTable dtCreateEmployee = new DataTable();
+            dtCreateEmployee.Columns.Add("FirstName");
+            dtCreateEmployee.Columns.Add("LastName");
+            dtCreateEmployee.Columns.Add("OfficialEmailID");
+            dtCreateEmployee.Columns.Add("HomeBranchID");
+            dtCreateEmployee.Columns.Add("WorkPhone");
+            dtCreateEmployee.Columns.Add("OfficialCellPhone");
+            dtCreateEmployee.Columns.Add("HomePhone");
+            dtCreateEmployee.Columns.Add("PersonalEmailID");
+            dtCreateEmployee.Columns.Add("LoginName");
+            dtCreateEmployee.Columns.Add("Password");
+            dtCreateEmployee.Columns.Add("Designation");
+            dtCreateEmployee.Columns.Add("LoginLocation");
+            dtCreateEmployee.Columns.Add("OfficeFromHrs");
+            dtCreateEmployee.Columns.Add("OfficeToHrs");
+            dtCreateEmployee.Columns.Add("DayOff");
+            dtCreateEmployee.Columns.Add("DateofJoining");
+            dtCreateEmployee.Columns.Add("DateofReleaving");
+            dtCreateEmployee.Columns.Add("ReportingMngrID");
+            dtCreateEmployee.Columns.Add("AnnualIncome");
+            dtCreateEmployee.Columns.Add("Country");
+            dtCreateEmployee.Columns.Add("State");
+            dtCreateEmployee.Columns.Add("District");
+            dtCreateEmployee.Columns.Add("City");
+            dtCreateEmployee.Columns.Add("CityOther");
+            dtCreateEmployee.Columns.Add("Address");
+            dtCreateEmployee.Columns.Add("EducationCategory");
+            dtCreateEmployee.Columns.Add("EducationGroup");
+            dtCreateEmployee.Columns.Add("EducationSpecialization");
+            dtCreateEmployee.Columns.Add("EmployeeImgPath");
+            dtCreateEmployee.Columns.Add("TypeOfEmployee");
+            dtCreateEmployee.Columns.Add("EmployeeStatus");
+            dtCreateEmployee.Columns.Add("isLoginAnywhere");
 
+            return dtCreateEmployee;
+        }
     }
 }
