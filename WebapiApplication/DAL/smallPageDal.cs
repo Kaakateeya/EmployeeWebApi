@@ -633,7 +633,7 @@ namespace WebapiApplication.DAL
 
             return liEmp;
         }
-       
+
         /// <summary>
         /// submitting employee creation form
         /// </summary>
@@ -707,8 +707,13 @@ namespace WebapiApplication.DAL
                 parm[0].Value = intHomeBrchID;
 
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
-                if(reader.HasRows)
-                    strUserID = reader["LoginName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("LoginName")) : string.Empty;
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        strUserID = reader["LoginName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("LoginName")) : string.Empty;
+                    }
+                }
             }
             catch (Exception EX)
             {
