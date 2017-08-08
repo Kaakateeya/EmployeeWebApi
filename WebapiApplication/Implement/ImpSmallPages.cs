@@ -26,5 +26,7 @@ namespace WebapiApplication.Implement
         public int assignPhotos(long? Empid, string PhotoIDs) { return dobj.assignPhotosDal(Empid, PhotoIDs, "usp_insert_assignningPhotosToEmp"); }
         public List<GetEmployeeList> employeeList(GetEmployeeListRequest mobj) { return dobj.employeeListDal(mobj, "usp_Select_Reports_Employee"); }
         public int employeeCreation(EmployeeCreationInput mobj) { return dobj.employeeCreation(mobj, "usp_insert_createEmployee"); }
+        public string getLoginName(int intHomeBrchID) { return dobj.getLoginNameDal(intHomeBrchID, "usp_createEmpUserId"); }
+
     }
 }

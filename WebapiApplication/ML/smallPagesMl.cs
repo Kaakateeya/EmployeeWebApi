@@ -248,6 +248,8 @@ namespace WebapiApplication.ML
         public string EmpTypeIDs { get; set; }
         public bool? isLoginanywhere { get; set; }
     }
+
+     
     public class EmployeeCreationInput
     {
         public string FirstName { get; set; }

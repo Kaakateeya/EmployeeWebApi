@@ -16,6 +16,7 @@ using System.Web.UI;
 using Ionic.Zip;
 using WebapiApplication.DAL;
 using System.Net.Http.Headers;
+using WebapiApplication.UserDefinedTable;
 
 namespace WebapiApplication.Api
 {
@@ -169,9 +170,13 @@ namespace WebapiApplication.Api
 
         public int employeeCreation(EmployeeCreationInput mobj)
         {
+            List<EmployeeCreationInput> lstEmp = new List<EmployeeCreationInput>();
+            lstEmp.Add(mobj);
+            mobj.dtEmployeecreation = Commonclass.returnListDatatable(PersonaldetailsUDTables.getEmployeeDatanew(), lstEmp);
             return Iobj.employeeCreation(mobj);
         }
 
+        public string getLoginName(int intHomeBrchID) { return Iobj.getLoginName(intHomeBrchID); }
 
     }
 }
