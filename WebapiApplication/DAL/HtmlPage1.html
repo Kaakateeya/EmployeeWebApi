@@ -451,24 +451,16 @@
             //});
 
 
-            var jsonbObj = [{
-                custid: '91022',
-                profileid: '310910220',
-                photoname: 'img2.jpg'
-            }, {
-                custid: '91022',
-                profileid: '310910220',
-                photoname: 'img1.jpg'
-            }];
+            var jsonbObj = { "FirstName": "new", "LastName": "tstt", "OfficialEmailID": "dsffsddsdfsdf@gmaail.com", "HomeBranchID": 319, "WorkPhone": "23424424", "OfficialCellPhone": "23244234234", "HomePhone": "24234234234234", "PersonalEmailID": "sdfsdffsdfsdf@gmail.com", "LoginName": "HD075", "Designation": 1, "LoginLocation": "319", "OfficeFromHrs": "8:2:00", "OfficeToHrs": "7:2:00", "DayOff": 7, "DateofJoining": "09-08-2017", "DateofReleaving": null, "ReportingMngrID": null, "AnnualIncome": null, "Country": 1, "State": 2, "District": 12, "City": 3028, "CityOther": null, "Address": "fghfgfghfgh", "EducationCategory": 1, "EducationGroup": 3, "EducationSpecialization": 44, "TypeOfEmployee": "", "EmployeeStatus": 423, "isLoginAnywhere": true, "CreatedEMPID": "2", "loginname": "HD075", "EMPID": 391 };
 
 
             $("#btngetdata").click(function() {
                 alert(1);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/smallPages/getLoginName',
-                    type: 'get',
+                    url: 'http://localhost:63006/Api/smallPages/employeeCreation',
+                    type: 'post',
                     crossDomain: true,
-                    data: {intHomeBrchID:319},
+                    data: JSON.stringify(jsonbObj),
                     contentType: 'application/json',
                     success: function(data, textStatus, xhr) {
                         alert(JSON.stringify(data));
