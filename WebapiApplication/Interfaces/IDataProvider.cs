@@ -379,13 +379,12 @@ namespace WebapiApplication.Interfaces
         string getLoginName(int intHomeBrchID);
     }
 
-    public interface IMobileAppDev
-    {
-        ArrayList getMobileAppLandingDisplay(int? CustID, int? PaidStatus, int? Startindex, int? EndIndex);
-        ArrayList UpdateCustomerEmailMobileNumber_Verification(MobileEmailVerf Mobj);
-    }
-
-
-
+     public interface IMobileAppDev
+     {
+         ArrayList getMobileAppLandingDisplay(int? CustID, int? PaidStatus, int? Startindex, int? EndIndex);
+         ArrayList UpdateCustomerEmailMobileNumber_Verification(MobileEmailVerf Mobj);
+         ArrayList MobileLandingOrderDisplay(long? CustID, int? Startindex, int? EndIndex);
+     }
+    
 }
 

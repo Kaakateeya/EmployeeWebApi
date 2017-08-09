@@ -406,12 +406,12 @@
 
             $("#80000").click(function() {
                 $.ajax({
-                    url: 'http://localhost:63006/Api/MobileAppLanding/getMobileAppLandingDisplay',
+                    url: 'http://localhost:63006/Api/MobileAppLanding/getMobileLandingOrderDisplay',
                     type: 'GET',
                     crossDomain: true,
                     data: {
                         CustID: '91022',
-                        PaidStatus: '1',
+                      
                         Startindex: '1',
                         EndIndex: '9'
                     },
