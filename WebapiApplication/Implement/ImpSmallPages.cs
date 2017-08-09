@@ -27,6 +27,7 @@ namespace WebapiApplication.Implement
         public List<GetEmployeeList> employeeList(GetEmployeeListRequest mobj) { return dobj.employeeListDal(mobj, "usp_Select_Reports_Employee"); }
         public int employeeCreation(EmployeeCreationInput mobj) { return dobj.employeeCreation(mobj, "usp_insert_createEmployee"); }
         public string getLoginName(int intHomeBrchID) { return dobj.getLoginNameDal(intHomeBrchID, "usp_createEmpUserId"); }
-
+        public EmpAssignCounts getEmpWorkAssignCounts(int EmpID) { return dobj.getEmpWorkAssignCountsDal(EmpID, "usp_GetEmpCounts"); }
+        public int setEmpAssignCounts(EmpAssignCounts mobj) { return dobj.setEmpAssignCountsDal(mobj, "usp_InsertViewEditEmplist"); }
     }
 }

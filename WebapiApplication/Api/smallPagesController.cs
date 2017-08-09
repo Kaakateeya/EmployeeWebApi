@@ -177,6 +177,9 @@ namespace WebapiApplication.Api
         }
 
         public string getLoginName(int intHomeBrchID) { return Iobj.getLoginName(intHomeBrchID); }
+        public EmpAssignCounts getEmpWorkAssignCounts(int EmpID) { return Iobj.getEmpWorkAssignCounts(EmpID); }
+
+        public int setEmpAssignCounts(EmpAssignCounts mobj) { return Iobj.setEmpAssignCounts(mobj); }
 
     }
 }

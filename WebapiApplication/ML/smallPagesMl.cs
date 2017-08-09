@@ -290,6 +290,18 @@ namespace WebapiApplication.ML
 
         public bool? isLoginAnywhere { get; set; }
     }
+
+
+    public class EmpAssignCounts
+    {
+        public int? EMployeeID { get; set; }
+        public int? servicegivencount { get; set; }
+        public int? matchfollowupcount { get; set; }
+        public int? marketingticketscount { get; set; }
+        public int? PhotoCount { get; set; }
+        public int? HoroCount { get; set; }
+        public int? EMpname { get; set; }
+    }
 }
 
 

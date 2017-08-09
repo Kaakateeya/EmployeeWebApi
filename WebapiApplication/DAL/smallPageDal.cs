@@ -728,6 +728,120 @@ namespace WebapiApplication.DAL
 
             return strUserID;
         }
+
+        /// <summary>
+        /// to get emppassign count
+        /// </summary>
+        /// <param name="uma"></param>
+        /// <param date="09-08-2017"></param>
+        /// <returns></returns>
+
+        public EmpAssignCounts getEmpWorkAssignCountsDal(int EmpID, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[1];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            SqlDataReader reader = null;
+            int? inull = null;
+            EmpAssignCounts mobj = new EmpAssignCounts();
+            try
+            {
+                parm[0] = new SqlParameter("@i_empid", SqlDbType.Int);
+                parm[0].Value = EmpID;
+
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+                if (reader.HasRows)
+                {
+                  
+                    while (reader.Read())
+                    {
+                        mobj.EMployeeID = reader["EMployeeID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("EMployeeID")) : inull;
+                        mobj.servicegivencount = reader["servicegivencount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("servicegivencount")) : inull;
+                        mobj.matchfollowupcount = reader["matchfollowupcount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("matchfollowupcount")) : inull;
+                        mobj.marketingticketscount = reader["marketingticketscount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("marketingticketscount")) : inull;
+                        mobj.PhotoCount = reader["PhotoCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PhotoCount")) : inull;
+                        mobj.HoroCount = reader["HoroCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("HoroCount")) : inull;
+                        mobj.EMpname = reader["EMpname"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("EMpname")) : inull;
+                    }
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return mobj;
+        }
+        /// <summary>
+        /// to submit emp assign counts
+        /// </summary>
+        /// <param name="uma"></param>
+        /// <param date="009-08-2017"></param>
+        /// <returns></returns>
+        public int setEmpAssignCountsDal(EmpAssignCounts Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[8];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            SqlDataReader reader = null;
+            int Status = 0;
+           
+            try
+            {
+                parm[0] = new SqlParameter("@CreatedEMPID", SqlDbType.Int);
+                parm[0].Value = Mobj.EMployeeID;
+
+                parm[1] = new SqlParameter("@servicegivencount", SqlDbType.VarChar);
+                parm[1].Value = Mobj.servicegivencount;
+
+                parm[2] = new SqlParameter("@matchfollowupcount", SqlDbType.VarChar);
+                parm[2].Value = Mobj.matchfollowupcount;
+
+                parm[3] = new SqlParameter("@marketingticketscount", SqlDbType.VarChar);
+                parm[3].Value = Mobj.marketingticketscount;
+
+                parm[4] = new SqlParameter("@PhotoCount", SqlDbType.VarChar);
+                parm[4].Value = Mobj.PhotoCount;
+
+                parm[5] = new SqlParameter("@HoroCount", SqlDbType.VarChar);
+                parm[5].Value = Mobj.HoroCount;
+
+                parm[6] = new SqlParameter("@EmpName", SqlDbType.VarChar);
+                parm[6].Value = Mobj.EMpname;
+
+                parm[7] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[7].Direction = ParameterDirection.Output;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(parm[7].Value.ToString(), System.DBNull.Value.ToString()) == 0)
+                {
+                    Status = 0;
+                }
+                else
+                {
+                    Status = Convert.ToInt32(parm[7].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return Status;
+        }
     }
 }
 
