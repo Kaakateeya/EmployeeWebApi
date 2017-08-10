@@ -24,7 +24,7 @@ namespace WebapiApplication.Implement
         public int myAssignedPhotosSubmit(myassignPhotoSubmit mobj) { return dobj.myAssignedPhotosSubmitDal(mobj, "Usp_update_UploadedExtractedPhoto"); }
         public List<UnassignedPhotoSelect> unassignPhotoSelect(UnassignPhotoSelect mobj) { return dobj.unassignPhotoSelectDal(mobj, "usp_Select_Reports_unassignedphotos"); }
         public int assignPhotos(long? Empid, string PhotoIDs) { return dobj.assignPhotosDal(Empid, PhotoIDs, "usp_insert_assignningPhotosToEmp"); }
-        public List<GetEmployeeList> employeeList(GetEmployeeListRequest mobj) { return dobj.employeeListDal(mobj, "usp_Select_Reports_Employee"); }
+        public List<GetEmployeeList> employeeList(GetEmployeeListRequest mobj) { return dobj.employeeListDal(mobj, "usp_Select_Reports_Employee_NewDesign"); }
         public int employeeCreation(EmployeeCreationInput mobj) { return dobj.employeeCreation(mobj, "usp_insert_createEmployee"); }
         public string getLoginName(int intHomeBrchID) { return dobj.getLoginNameDal(intHomeBrchID, "usp_createEmpUserId"); }
         public EmpAssignCounts getEmpWorkAssignCounts(int EmpID) { return dobj.getEmpWorkAssignCountsDal(EmpID, "usp_GetEmpCounts"); }

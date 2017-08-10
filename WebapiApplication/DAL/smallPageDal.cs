@@ -533,7 +533,7 @@ namespace WebapiApplication.DAL
         /// <returns></returns>
         public List<GetEmployeeList> employeeListDal(GetEmployeeListRequest mobj, string spname)
         {
-            SqlParameter[] parm = new SqlParameter[5];
+            SqlParameter[] parm = new SqlParameter[6];
             int? inull = null;
             Int64? Lnull = null;
             double? fnull = null;
@@ -555,8 +555,10 @@ namespace WebapiApplication.DAL
                 parm[2].Value = mobj.EmpStatus;
                 parm[3] = new SqlParameter("@v_emptype", SqlDbType.VarChar);
                 parm[3].Value = mobj.EmpTypeIDs;
-                parm[4] = new SqlParameter("@V_isLoginanywhere", SqlDbType.Bit);
-                parm[4].Value = mobj.isLoginanywhere;
+                parm[4] = new SqlParameter("@region", SqlDbType.VarChar);
+                parm[4].Value = mobj.region;
+                parm[5] = new SqlParameter("@V_isLoginanywhere", SqlDbType.Bit);
+                parm[5].Value = mobj.isLoginanywhere;
 
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
                 if (reader.HasRows)
