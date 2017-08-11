@@ -377,6 +377,11 @@ namespace WebapiApplication.Interfaces
         int employeeCreation(EmployeeCreationInput mobj);
 
         string getLoginName(int intHomeBrchID);
+
+        EmpAssignCounts getEmpWorkAssignCounts(int EmpID);
+
+        int setEmpAssignCounts(EmpAssignCounts mobj);
+        ArrayList loginLogOutReport(EmpLoginLogoutReportML mobj);
     }
 
      public interface IMobileAppDev

@@ -247,6 +247,7 @@ namespace WebapiApplication.ML
         public int? EmpStatus { get; set; }
         public string EmpTypeIDs { get; set; }
         public bool? isLoginanywhere { get; set; }
+        public string region { get; set; }
     }
 
      
@@ -290,6 +291,37 @@ namespace WebapiApplication.ML
 
         public bool? isLoginAnywhere { get; set; }
     }
+
+
+    public class EmpAssignCounts
+    {
+        public int? EMployeeID { get; set; }
+        public int? servicegivencount { get; set; }
+        public int? matchfollowupcount { get; set; }
+        public int? marketingticketscount { get; set; }
+        public int? PhotoCount { get; set; }
+        public int? HoroCount { get; set; }
+        public int? EMpname { get; set; }
+    }
+
+    public class EmpLoginLogoutReportML
+    {
+        public string EmpUserID { get; set; }
+        public string Branch { get; set; }
+        public DataTable dtBranch { get; set; }
+        public DataTable dtEmployeeName { get; set; }
+        public string EmployeeName { get; set; }
+        public int? WorkingHours { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
+        public int? FromRange { get; set; }
+        public int? ToRange { get; set; }
+        public int PageNumber { get; set; }
+        public int PageSize { get; set; }
+        public int flag { get; set; }
+       
+    }
+
 }
 
 

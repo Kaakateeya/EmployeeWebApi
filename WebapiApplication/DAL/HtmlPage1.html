@@ -451,24 +451,16 @@
             //});
 
 
-            var jsonbObj = [{
-                custid: '91022',
-                profileid: '310910220',
-                photoname: 'img2.jpg'
-            }, {
-                custid: '91022',
-                profileid: '310910220',
-                photoname: 'img1.jpg'
-            }];
+            var jsonbObj = { "EMployeeID": 382, "servicegivencount": 0, "matchfollowupcount": 0, "marketingticketscount": "12", "PhotoCount": 0, "HoroCount": 0, "EMpname": "prasanthi Dasari" };
 
 
             $("#btngetdata").click(function() {
                 alert(1);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/smallPages/getLoginName',
-                    type: 'get',
+                    url: 'http://localhost:63006/Api/smallPages/employeeCreation',
+                    type: 'post',
                     crossDomain: true,
-                    data: {intHomeBrchID:319},
+                    data: JSON.stringify(jsonbObj),
                     contentType: 'application/json',
                     success: function(data, textStatus, xhr) {
                         alert(JSON.stringify(data));
