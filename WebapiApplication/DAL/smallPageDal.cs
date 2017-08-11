@@ -898,52 +898,7 @@ namespace WebapiApplication.DAL
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
 
-        //public ArrayList empWorksheetDal(EmpWorkSheetMl mobj, string p)
-        //{
-        //    SqlParameter[] parm = new SqlParameter[11];
-        //    SqlConnection connection = new SqlConnection();
-        //    connection = SQLHelper.GetSQLConnection();
-        //    connection.Open();
-        //    DataSet ds = new DataSet();
-        //    try
-        //    {
-        //        parm[0] = new SqlParameter("@dt_StartDate", SqlDbType.Int);
-        //        parm[0].Value = mobj.EmpUserID;
-        //        parm[1] = new SqlParameter("@dt_EndDate", SqlDbType.Structured);
-        //        parm[1].Value = Commonclass.returndt(mobj.Branch, mobj.dtBranch, "branch", "branchtable");
-        //        parm[2] = new SqlParameter("@t_ProfileOwner", SqlDbType.Structured);
-        //        parm[2].Value = Commonclass.returndt(mobj.EmployeeName, mobj.dtEmployeeName, "empnames", "empIDsTable");
-        //        parm[3] = new SqlParameter("@t_Branch", SqlDbType.Int);
-        //        parm[3].Value = mobj.WorkingHours;
-        //        parm[4] = new SqlParameter("@i_PageSize", SqlDbType.DateTime);
-        //        parm[4].Value = mobj.StartDate;
-        //        parm[5] = new SqlParameter("@i_PageNumber", SqlDbType.DateTime);
-        //        parm[5].Value = mobj.EndDate;
-        //        parm[6] = new SqlParameter("@i_From", SqlDbType.Int);
-        //        parm[6].Value = mobj.FromRange;
-        //        parm[7] = new SqlParameter("@i_To", SqlDbType.Int);
-        //        parm[7].Value = mobj.ToRange;
-        //        parm[8] = new SqlParameter("@_Excel", SqlDbType.Int);
-        //        parm[8].Value = mobj.PageNumber;
-        //        parm[9] = new SqlParameter("@pagename", SqlDbType.Int);
-        //        parm[9].Value = mobj.PageSize;
-        //        parm[10] = new SqlParameter("@time", SqlDbType.Int);
-        //        parm[10].Value = mobj.flag;
-
-        //        ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-        //    }
-        //    catch (Exception EX)
-        //    {
-        //        Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
-        //    }
-        //    finally
-        //    {
-        //        connection.Close();
-        //        SqlConnection.ClearPool(connection);
-        //        SqlConnection.ClearAllPools();
-        //    }
-        //    return Commonclass.convertdataTableToArrayListTable(ds);
-        //}
+       
 
         public int getinsertImagepathDal(long whereId, string strvalue,string flag, string spname)
         {
@@ -986,6 +941,59 @@ namespace WebapiApplication.DAL
 
             return Status;
         }
+
+
+
+        public ArrayList empWorksheetDal(EmpWorkSheetMl mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[11];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@dt_StartDate", SqlDbType.Int);
+                parm[0].Value = mobj.FromDate;
+                parm[1] = new SqlParameter("@dt_EndDate", SqlDbType.Structured);
+                parm[1].Value = mobj.toDate;
+                parm[2] = new SqlParameter("@t_ProfileOwner", SqlDbType.Structured);
+                parm[2].Value = Commonclass.returndt(mobj.Employeename, mobj.dtEmployeename, "empnames", "empIDsTable");
+                parm[3] = new SqlParameter("@t_Branch", SqlDbType.Int);
+                parm[3].Value = Commonclass.returndt(mobj.Branch, mobj.dtBranch, "branch", "branchtable");
+                parm[4] = new SqlParameter("@i_PageSize", SqlDbType.DateTime);
+                parm[4].Value = mobj.PageSize;
+                parm[5] = new SqlParameter("@i_PageNumber", SqlDbType.DateTime);
+                parm[5].Value = mobj.PageNumber;
+                parm[6] = new SqlParameter("@i_From", SqlDbType.Int);
+                parm[6].Value = mobj.SerialnoFrom;
+                parm[7] = new SqlParameter("@i_To", SqlDbType.Int);
+                parm[7].Value = mobj.SerialnoFrom;
+                parm[8] = new SqlParameter("@_Excel", SqlDbType.Int);
+                parm[8].Value = mobj.PageNumber;
+                parm[9] = new SqlParameter("@pagename", SqlDbType.Int);
+                parm[9].Value = mobj.Pagename;
+                parm[10] = new SqlParameter("@time", SqlDbType.Int);
+                parm[10].Value = mobj.timings;
+
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+
+
+
     }
 }
 

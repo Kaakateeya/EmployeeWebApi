@@ -326,8 +326,12 @@ namespace WebapiApplication.ML
     {
         public DateTime? FromDate { get; set; }
         public DateTime? toDate { get; set; }
-        public DataTable Employeename { get; set; }
-        public DataTable Branch { get; set; }
+        public DataTable dtEmployeename { get; set; }
+        public string Employeename { get; set; }
+
+        public DataTable dtBranch { get; set; }
+        public string Branch { get; set; }
+
         public int PageSize { get; set; }
         public int PageNumber { get; set; }
         public int? SerialnoFrom { get; set; }
