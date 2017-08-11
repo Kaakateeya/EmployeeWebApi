@@ -210,6 +210,8 @@ namespace WebapiApplication.Api
         public int? getsendEmail_ResetPassword(string profileid) { return this.IEmployeeReport.sendEmail_ResetPassword(profileid); }
 
 
+        public int Successstoriesupload([FromBody]emplyeeSuccessStoryML Mobj) { return this.IEmployeeReport.Successstoriesupload(Mobj); }
+
     }
 }
 
