@@ -248,6 +248,7 @@ namespace WebapiApplication.ML
         public string EmpTypeIDs { get; set; }
         public bool? isLoginanywhere { get; set; }
         public string region { get; set; }
+
     }
 
      
