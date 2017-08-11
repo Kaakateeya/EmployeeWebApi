@@ -529,7 +529,35 @@ namespace WebapiApplication.ML
         public int? intFlagID { get; set; }
     }
 
+    public class emplyeeSuccessStoryML
+    {
 
+
+
+        public Int64? EmpID { get; set; }
+
+        public Int64? BrideID { get; set; }
+
+        public string Bridename { get; set; }
+
+        public Int64? GroomID { get; set; }
+
+        public string Groomname { get; set; }
+
+        public DateTime? StartDate { get; set; }
+
+        public DateTime? EndDate { get; set; }
+
+        public string Attachphoto { get; set; }
+
+        public string SuccesSstory { get; set; }
+
+        public bool Displayinweb { get; set; }
+
+        public int? flag { get; set; }
+
+        public string strSuccessstories { get; set; }
+    }
 }
 
 
