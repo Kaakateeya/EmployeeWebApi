@@ -944,6 +944,48 @@ namespace WebapiApplication.DAL
         //    }
         //    return Commonclass.convertdataTableToArrayListTable(ds);
         //}
+
+        public int getinsertImagepathDal(long whereId, string strvalue,string flag, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[4];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            SqlDataReader reader = null;
+            int Status = 0;
+            try
+            {
+                parm[0] = new SqlParameter("@where_ID", SqlDbType.BigInt);
+                parm[0].Value = whereId;
+                parm[1] = new SqlParameter("@strvalue", SqlDbType.VarChar);
+                parm[1].Value = strvalue;
+                parm[2] = new SqlParameter("@flag", SqlDbType.VarChar);
+                parm[2].Value = flag;
+                parm[3] = new SqlParameter("@status", SqlDbType.Int);
+                parm[3].Direction = ParameterDirection.Output;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(parm[3].Value.ToString(), System.DBNull.Value.ToString()) == 0)
+                {
+                    Status = 0;
+                }
+                else
+                {
+                    Status = Convert.ToInt32(parm[3].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return Status;
+        }
     }
 }
 

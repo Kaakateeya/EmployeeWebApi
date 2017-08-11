@@ -183,6 +183,7 @@ namespace WebapiApplication.Api
         public ArrayList loginLogOutReport(EmpLoginLogoutReportML mobj) { return Iobj.loginLogOutReport(mobj); }
 
         //public ArrayList empWorksheet(EmpWorkSheetMl mobj) { return Iobj.empWorksheet(mobj); }
+        public int getinsertImagepath(long whereId, string strvalue, string flag) { return Iobj.getinsertImagepath(whereId, strvalue, flag); }
 
     }
 }

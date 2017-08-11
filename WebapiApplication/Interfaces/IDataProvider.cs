@@ -384,6 +384,8 @@ namespace WebapiApplication.Interfaces
         ArrayList loginLogOutReport(EmpLoginLogoutReportML mobj);
 
         //ArrayList empWorksheet(EmpWorkSheetMl mobj);
+
+        int getinsertImagepath(long whereId, string strvalue, string flag);
     }
 
      public interface IMobileAppDev
