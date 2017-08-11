@@ -322,7 +322,20 @@ namespace WebapiApplication.ML
         public int flag { get; set; }
        
     }
-
+    public class EmpWorkSheetMl
+    {
+        public DateTime? FromDate { get; set; }
+        public DateTime? toDate { get; set; }
+        public DataTable Employeename { get; set; }
+        public DataTable Branch { get; set; }
+        public int PageSize { get; set; }
+        public int PageNumber { get; set; }
+        public int? SerialnoFrom { get; set; }
+        public int? serialnoto { get; set; }
+        public int flag { get; set; }
+        public String Pagename { get; set; }
+        public string timings { get; set; }
+    }
 }
 
 

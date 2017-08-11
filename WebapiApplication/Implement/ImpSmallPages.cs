@@ -30,5 +30,6 @@ namespace WebapiApplication.Implement
         public EmpAssignCounts getEmpWorkAssignCounts(int EmpID) { return dobj.getEmpWorkAssignCountsDal(EmpID, "usp_GetEmpCounts"); }
         public int setEmpAssignCounts(EmpAssignCounts mobj) { return dobj.setEmpAssignCountsDal(mobj, "usp_InsertViewEditEmplist"); }
         public ArrayList loginLogOutReport(EmpLoginLogoutReportML mobj) { return dobj.loginLogOutReportDal(mobj, "usp_Reports_EmployeeLogIn_Details"); }
+        //public ArrayList empWorksheet(EmpWorkSheetMl mobj) { return dobj.empWorksheetDal(mobj, "usp_Reports_EmpActivityLog"); }
     }
 }
