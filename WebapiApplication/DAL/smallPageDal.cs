@@ -844,6 +844,59 @@ namespace WebapiApplication.DAL
 
             return Status;
         }
+        /// <summary>
+        /// emp login logout report
+        /// </summary>
+        /// <param name="uma"></param>
+        /// <param date="11-08-2017"></param>
+        /// <returns></returns>
+        /// 
+        public ArrayList loginLogOutReportDal(EmpLoginLogoutReportML mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[11];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@i_EmployeeID", SqlDbType.Int);
+                parm[0].Value = mobj.EmpUserID;
+                parm[1] = new SqlParameter("@t_BranchIds", SqlDbType.Structured);
+                parm[1].Value = Commonclass.returndt(mobj.Branch, mobj.dtBranch, "branch", "branchtable");
+                parm[2] = new SqlParameter("@t_EmployeeIds", SqlDbType.Structured);
+                parm[2].Value = Commonclass.returndt(mobj.EmployeeName, mobj.dtEmployeeName, "empnames", "empIDsTable");
+                parm[3] = new SqlParameter("@vc_WorkingHours", SqlDbType.Int);
+                parm[3].Value = mobj.WorkingHours;
+                parm[4] = new SqlParameter("@dt_StartDate", SqlDbType.DateTime);
+                parm[4].Value = mobj.StartDate;
+                parm[5] = new SqlParameter("@dt_EndDate", SqlDbType.DateTime);
+                parm[5].Value = mobj.EndDate;
+                parm[6] = new SqlParameter("@i_Startindex", SqlDbType.Int);
+                parm[6].Value = mobj.FromRange;
+                parm[7] = new SqlParameter("@i_Endindex", SqlDbType.Int);
+                parm[7].Value = mobj.ToRange;
+                parm[8] = new SqlParameter("@i_PageNumber", SqlDbType.Int);
+                parm[8].Value = mobj.PageNumber;
+                parm[9] = new SqlParameter("@i_PageSize", SqlDbType.Int);
+                parm[9].Value = mobj.PageSize;
+                parm[10] = new SqlParameter("@_Excel", SqlDbType.Int);
+                parm[10].Value = mobj.flag;
+              
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }
 

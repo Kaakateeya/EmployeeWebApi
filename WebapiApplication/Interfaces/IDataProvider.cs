@@ -381,6 +381,7 @@ namespace WebapiApplication.Interfaces
         EmpAssignCounts getEmpWorkAssignCounts(int EmpID);
 
         int setEmpAssignCounts(EmpAssignCounts mobj);
+        ArrayList loginLogOutReport(EmpLoginLogoutReportML mobj);
     }
 
      public interface IMobileAppDev

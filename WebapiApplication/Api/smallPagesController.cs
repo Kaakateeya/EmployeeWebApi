@@ -180,6 +180,7 @@ namespace WebapiApplication.Api
         public EmpAssignCounts getEmpWorkAssignCounts(int EmpID) { return Iobj.getEmpWorkAssignCounts(EmpID); }
 
         public int setEmpAssignCounts(EmpAssignCounts mobj) { return Iobj.setEmpAssignCounts(mobj); }
+        public ArrayList loginLogOutReport(EmpLoginLogoutReportML mobj) { return Iobj.loginLogOutReport(mobj); }
 
     }
 }

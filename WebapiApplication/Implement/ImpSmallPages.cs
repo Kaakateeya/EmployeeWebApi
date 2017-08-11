@@ -29,5 +29,6 @@ namespace WebapiApplication.Implement
         public string getLoginName(int intHomeBrchID) { return dobj.getLoginNameDal(intHomeBrchID, "usp_createEmpUserId"); }
         public EmpAssignCounts getEmpWorkAssignCounts(int EmpID) { return dobj.getEmpWorkAssignCountsDal(EmpID, "usp_GetEmpCounts"); }
         public int setEmpAssignCounts(EmpAssignCounts mobj) { return dobj.setEmpAssignCountsDal(mobj, "usp_InsertViewEditEmplist"); }
+        public ArrayList loginLogOutReport(EmpLoginLogoutReportML mobj) { return dobj.loginLogOutReportDal(mobj, "usp_Reports_EmployeeLogIn_Details"); }
     }
 }
