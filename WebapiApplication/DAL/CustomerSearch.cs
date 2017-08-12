@@ -627,6 +627,8 @@ namespace WebapiApplication.DAL
 
                         sh.Gotram = reader["Gotram"] != DBNull.Value ? reader["Gotram"].ToString() : "";
                         sh.Surname = reader["Surname"] != DBNull.Value ? reader["Surname"].ToString() : "";
+                        sh.SubCasteID = reader["SubCasteID"] != DBNull.Value ? reader["SubCasteID"].ToString() : "";
+
 
                     }
                 }
