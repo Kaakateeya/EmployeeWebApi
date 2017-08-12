@@ -1306,6 +1306,7 @@ namespace WebapiApplication.ML
         public string DOBTo { set; get; }
         public string EmpIds { set; get; }
         // public int? ParentInterCaste { set; get; }
+        public string SubCasteID { set; get; }
 
     }
 
@@ -1429,6 +1430,7 @@ namespace WebapiApplication.ML
         public string EmpIds { set; get; }
         // public int? ParentInterCaste { set; get; }
 
+        public string SubCasteID { set; get; }
     }
 
     //property details

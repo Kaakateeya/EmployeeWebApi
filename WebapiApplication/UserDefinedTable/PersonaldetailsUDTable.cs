@@ -823,7 +823,9 @@ namespace WebapiApplication.UserDefinedTable
             dtGeneralsearch.Columns.Add("DOBfrom");
             dtGeneralsearch.Columns.Add("DOBTo");
             dtGeneralsearch.Columns.Add("EmpIds");
-           // dtGeneralsearch.Columns.Add("ParentInterCaste");
+            //dtGeneralsearch.Columns.Add("ParentInterCaste");
+            //Added by lakshmi 12/08/2017
+            dtGeneralsearch.Columns.Add("SubCasteID");
 
             return dtGeneralsearch;
         }
@@ -945,7 +947,9 @@ namespace WebapiApplication.UserDefinedTable
             dtAdvancesearch.Columns.Add("DOBfrom");
             dtAdvancesearch.Columns.Add("DOBTo");
             dtAdvancesearch.Columns.Add("EmpIds");
-           // dtAdvancesearch.Columns.Add("ParentInterCaste");
+            // dtAdvancesearch.Columns.Add("ParentInterCaste");
+            //Added by LAkshmi 12/08/2017
+            dtAdvancesearch.Columns.Add("SubCasteID");
             return dtAdvancesearch;
         }
 
