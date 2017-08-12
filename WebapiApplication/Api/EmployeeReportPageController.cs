@@ -159,7 +159,7 @@ namespace WebapiApplication.Api
         public int getprofileidexistornot(string profileid) { return this.IEmployeeReport.profileidexistornot(profileid); }
         public ArrayList getpresentunpaidmembers(int? EmpID) { return this.IEmployeeReport.presentunpaidmember(EmpID); }
 
-        public int getUpadteMacAddess(string strProfileID, int? BranchID) { return this.IEmployeeReport.UpadteMacAddess(strProfileID, BranchID); }
+        public int getUpadteMacAddess(string strProfileID,string ipaddresss2, int? BranchID) { return this.IEmployeeReport.UpadteMacAddess(strProfileID,ipaddresss2, BranchID); }
 
         public ArrayList customermeassgeverification([FromBody]messagesverification Mobj) { return this.IEmployeeReport.customermeassgeverification(Mobj); }
 

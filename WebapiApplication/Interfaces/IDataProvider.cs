@@ -308,7 +308,7 @@ namespace WebapiApplication.Interfaces
 
         ArrayList presentunpaidmember(int? EmpID);
 
-        int UpadteMacAddess(string strProfileID, int? BranchID);
+        int UpadteMacAddess(string strProfileID,string ipaddresss2, int? BranchID);
 
         ArrayList customermeassgeverification(messagesverification Mobj);
 
