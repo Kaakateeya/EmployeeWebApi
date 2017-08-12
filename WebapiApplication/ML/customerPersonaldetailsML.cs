@@ -1155,6 +1155,8 @@ namespace WebapiApplication.ML
         public string Gotram { get; set; }
 
         public string Surname { get; set; }
+
+        public string SubCasteID { get; set; }
     }
 
     public class slideshowNew
