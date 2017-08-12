@@ -34,7 +34,7 @@ namespace WebapiApplication.Implement
         
         
         public ArrayList empWorksheet(EmpWorkSheetMl mobj) { return dobj.empWorksheetDal(mobj, "usp_Reports_EmpActivityLog"); }
-
+        public int empLogout(int empid) { return dobj.empLogoutDal(empid, "usp_Emp_LogOut"); }
 
     }
 }

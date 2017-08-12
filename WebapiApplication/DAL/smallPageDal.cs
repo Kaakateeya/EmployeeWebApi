@@ -991,9 +991,42 @@ namespace WebapiApplication.DAL
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
 
+        public int empLogoutDal(int empid, string spname)
+        {
+            SqlParameter[] param = new SqlParameter[3];
+            int intstatus =0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            SqlDataReader reader = null;
+            try
+            {
+                param[0] = new SqlParameter("@EmployeeID", System.Data.SqlDbType.BigInt);
+                param[0].Value = empid;
+                param[1] = new SqlParameter("@ErrorMsg", System.Data.SqlDbType.VarChar, 10000);
+                param[1].Direction = ParameterDirection.Output;
+                param[2] = new SqlParameter("@Status", System.Data.SqlDbType.Int);
+                param[2].Direction = ParameterDirection.Output;
 
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, param);
+                if (string.Compare(System.DBNull.Value.ToString(), param[2].Value.ToString()) == 0)
+                    intstatus= 0;
+                else
+                    intstatus= 1;
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
 
-
+            return intstatus;
+        }
     }
 }
 
