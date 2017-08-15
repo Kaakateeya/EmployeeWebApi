@@ -170,6 +170,7 @@ namespace WebapiApplication.Api
 
         public int employeeCreation(EmployeeCreationInput mobj)
         {
+            mobj.Password = !string.IsNullOrEmpty(mobj.Password) ? Commonclass.Encrypt(mobj.Password) : mobj.Password;
             List<EmployeeCreationInput> lstEmp = new List<EmployeeCreationInput>();
             lstEmp.Add(mobj);
             mobj.dtEmployeecreation = Commonclass.returnListDatatable(PersonaldetailsUDTables.getEmployeeDatanew(), lstEmp);
@@ -185,6 +186,9 @@ namespace WebapiApplication.Api
 
         public ArrayList empWorksheet(EmpWorkSheetMl mobj) { return Iobj.empWorksheet(mobj); }
 
+        public int getEmpLogout(int empid) { return Iobj.empLogout(empid); }
+
+        public ArrayList mediaterRegValidation(mediaterRegFormValidation mobj) { return Iobj.mediaterRegValidation(mobj); }
 
     }
 }
