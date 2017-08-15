@@ -390,6 +390,8 @@ namespace WebapiApplication.Interfaces
         int getinsertImagepath(long whereId, string strvalue, string flag);
 
         int empLogout(int empid);
+
+        ArrayList mediaterRegValidation(mediaterRegFormValidation mobj);
     }
 
      public interface IMobileAppDev

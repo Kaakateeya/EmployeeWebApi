@@ -340,6 +340,18 @@ namespace WebapiApplication.ML
         public String Pagename { get; set; }
         public string timings { get; set; }
     }
+
+
+    public class mediaterRegFormValidation
+    {
+        public int i_MediaterID { get; set; }
+        public string v_FirstName { get; set; }
+        public string v_Surname { get; set; }
+        public string v_Email { get; set; }
+        public string v_Mobilenumber { get; set; }
+        public string v_CounttyCode { get; set; }
+    }
+
 }
 
 

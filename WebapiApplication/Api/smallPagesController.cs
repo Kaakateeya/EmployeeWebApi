@@ -187,5 +187,8 @@ namespace WebapiApplication.Api
         public ArrayList empWorksheet(EmpWorkSheetMl mobj) { return Iobj.empWorksheet(mobj); }
 
         public int getEmpLogout(int empid) { return Iobj.empLogout(empid); }
+
+        public ArrayList mediaterRegValidation(mediaterRegFormValidation mobj) { return Iobj.mediaterRegValidation(mobj); }
+
     }
 }

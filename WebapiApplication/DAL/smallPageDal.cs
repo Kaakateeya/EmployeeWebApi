@@ -1027,6 +1027,43 @@ namespace WebapiApplication.DAL
 
             return intstatus;
         }
+
+        public ArrayList mediaterRegValidationDal(mediaterRegFormValidation mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[6];          
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@i_MediaterID", SqlDbType.Int);
+                parm[0].Value = mobj.i_MediaterID;
+                parm[1] = new SqlParameter("@v_FirstName", SqlDbType.VarChar);
+                parm[1].Value = mobj.v_FirstName;
+                parm[2] = new SqlParameter("@v_Surname", SqlDbType.VarChar);
+                parm[2].Value = mobj.v_Surname;
+                parm[3] = new SqlParameter("@v_Email", SqlDbType.VarChar);
+                parm[3].Value = mobj.v_Email;
+                parm[4] = new SqlParameter("@v_Mobilenumber", SqlDbType.VarChar);
+                parm[4].Value = mobj.v_Mobilenumber;
+                parm[5] = new SqlParameter("@v_CounttyCode", SqlDbType.VarChar);
+                parm[5].Value = mobj.v_CounttyCode;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }
 
