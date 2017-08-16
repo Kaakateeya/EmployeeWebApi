@@ -212,6 +212,9 @@ namespace WebapiApplication.Api
 
         public int Successstoriesupload([FromBody]emplyeeSuccessStoryML Mobj) { return this.IEmployeeReport.Successstoriesupload(Mobj); }
 
+        public int? getMarketingticketstatus(Int64? ticketid, string EmpID) { return this.IEmployeeReport.Marketingticketstatus(ticketid, EmpID); }
+
+
     }
 }
 

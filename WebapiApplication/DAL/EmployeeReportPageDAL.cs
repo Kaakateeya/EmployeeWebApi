@@ -3365,7 +3365,7 @@ namespace WebapiApplication.DAL
         }
 
 
-        public int UpadteMacAddess(string strProfileID,string ipaddresss2, int? BranchID, string spname)
+        public int UpadteMacAddess(string strProfileID, string ipaddresss2, int? BranchID, string spname)
         {
             SqlParameter[] parm = new SqlParameter[10];
             int intStatus = 0;
@@ -4268,6 +4268,46 @@ namespace WebapiApplication.DAL
                 else
                 {
                     intStatus = Convert.ToInt32(parm[12].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
+            }
+            return intStatus;
+        }
+
+        public int? Marketingticketstatus(long? ticketid,string EmpID, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[5];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@intTicketID", SqlDbType.BigInt);
+                parm[0].Value = ticketid;
+                parm[1] = new SqlParameter("@intEmpID", SqlDbType.VarChar);
+                parm[1].Value = EmpID;
+                parm[2] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[2].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[2].Value);
                 }
             }
             catch (Exception EX)

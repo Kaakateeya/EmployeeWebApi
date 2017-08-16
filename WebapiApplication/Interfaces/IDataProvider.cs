@@ -350,6 +350,8 @@ namespace WebapiApplication.Interfaces
         int? sendEmail_ResetPassword(string profileid);
 
         int Successstoriesupload(emplyeeSuccessStoryML Mobj);
+
+        int? Marketingticketstatus(long? ticketid, string EmpID);
     }
 
     public interface ISmallPages

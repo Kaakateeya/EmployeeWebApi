@@ -167,7 +167,8 @@ namespace WebapiApplication.Implement
         public int? sendEmail_ResetPassword(string profileid) { return new EmployeeReportPageDAL().sendEmail_ResetPassword(profileid, "[dbo].[Usp_CustResetPasswordFactsheet]"); }
 
         public int Successstoriesupload([FromBody]emplyeeSuccessStoryML Mobj) { return new EmployeeReportPageDAL().Successstoriesupload(Mobj, "[dbo].[Usp_Successstories]"); }
-    
+
+        public int? Marketingticketstatus(Int64? ticketid, string EmpID) { return new EmployeeReportPageDAL().Marketingticketstatus(ticketid,EmpID, "[dbo].[usp_UpdateTicketStatus]"); }
     }
 
 }
