@@ -127,14 +127,11 @@ namespace WebapiApplication.ML
         public string AutherizationDesc { set; get; }
         public string ExpiryDate { set; get; }
         public int? PaymentStatus { set; get; }
-        public string EmployeeID_1 { set; get; }
-        public string EmployeeID_2 { set; get; }
+        public int? EmployeeID { set; get; }
         public int? TicketID { set; get; }
-
         public string TicketName { set; get; }
-
-        public int? TicketOwnerID { set; get; }
-
+        public string TicketOwnerIDAmt_1 { set; get; }
+        public string TicketOwnerIDAmt_2 { set; get; }
         public int? MrkTicketVerified { set; get; }
         public int? Markedted { set; get; }
         //public string TotalAmount_Ticket { set; get; }
