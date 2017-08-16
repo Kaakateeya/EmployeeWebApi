@@ -1002,7 +1002,8 @@ namespace WebapiApplication.UserDefinedTable
             dtMyAuthDetails.Columns.Add("AutherizationDesc");
             dtMyAuthDetails.Columns.Add("ExpiryDate");
             dtMyAuthDetails.Columns.Add("PaymentStatus");
-            dtMyAuthDetails.Columns.Add("EmployeeID");
+            dtMyAuthDetails.Columns.Add("EmployeeID_1");
+            dtMyAuthDetails.Columns.Add("EmployeeID_2");
 
             dtMyAuthDetails.Columns.Add("TicketID");
 
@@ -1012,7 +1013,7 @@ namespace WebapiApplication.UserDefinedTable
 
             dtMyAuthDetails.Columns.Add("MrkTicketVerified");
             dtMyAuthDetails.Columns.Add("Markedted");
-            dtMyAuthDetails.Columns.Add("TotalAmount_Ticket");
+            //dtMyAuthDetails.Columns.Add("TotalAmount_Ticket");
             return dtMyAuthDetails;
 
         }
