@@ -174,6 +174,8 @@ namespace WebapiApplication.Implement
 
 
         public int? CheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB) { return new EmployeeReportPageDAL().CheckSurNameNamedob(strSurName, StrName, dtDOB, "[dbo].[usp_CheckSurNameName]"); }
+
+        public int? InsertResonForNoService([FromBody]insetnoserice Mobj) { return new EmployeeReportPageDAL().InsertResonForNoService(Mobj, "[dbo].[usp_Insert_ResonForNoService]"); }
     }
 
 }

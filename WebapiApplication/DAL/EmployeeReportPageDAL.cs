@@ -4284,7 +4284,7 @@ namespace WebapiApplication.DAL
             return intStatus;
         }
 
-        public int? Marketingticketstatus(long? ticketid,string EmpID, string spname)
+        public int? Marketingticketstatus(long? ticketid, string EmpID, string spname)
         {
             SqlParameter[] parm = new SqlParameter[5];
             int intStatus = 0;
@@ -4323,14 +4323,14 @@ namespace WebapiApplication.DAL
             }
             return intStatus;
         }
-       /// <summary>
-       /// 
-       /// </summary>
-       /// <param name="i_EmpID"></param>
-       /// <param name="i_BranchID"></param>
-       /// <param name="v_MacAddress"></param>
-       /// <param name="p"></param>
-       /// <returns></returns>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="i_EmpID"></param>
+        /// <param name="i_BranchID"></param>
+        /// <param name="v_MacAddress"></param>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public ArrayList AdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress, string spname)
         {
             SqlParameter[] parm = new SqlParameter[5];
@@ -4379,7 +4379,7 @@ namespace WebapiApplication.DAL
                 parm[2].Value = dtDOB;
                 parm[3] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[3].Direction = ParameterDirection.Output;
-                parm[4] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar,1000);
+                parm[4] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
                 parm[4].Direction = ParameterDirection.Output;
                 DataSet ds = new DataSet();
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
@@ -4390,6 +4390,54 @@ namespace WebapiApplication.DAL
                 else
                 {
                     intStatus = Convert.ToInt32(parm[3].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
+            }
+            return intStatus;
+        }
+
+        public int? InsertResonForNoService(insetnoserice Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[10];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@intCust_ID", SqlDbType.Int);
+                parm[0].Value = Mobj.intCust_ID;
+                parm[1] = new SqlParameter("@strProfileID", SqlDbType.VarChar);
+                parm[1].Value = Mobj.strProfileID;
+                parm[2] = new SqlParameter("@intTicketOwnerID", SqlDbType.Int);
+                parm[2].Value = Mobj.intTicketOwnerID;
+                parm[3] = new SqlParameter("@strReason", SqlDbType.VarChar);
+                parm[3].Value = Mobj.strReason;
+                parm[4] = new SqlParameter("@intEnteredBy", SqlDbType.Int);
+                parm[4].Value = Mobj.intEnteredBy;
+                parm[5] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[5].Direction = ParameterDirection.Output;
+                parm[6] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
+                parm[6].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[5].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[5].Value);
                 }
             }
             catch (Exception EX)
