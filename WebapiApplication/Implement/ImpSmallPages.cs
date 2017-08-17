@@ -36,5 +36,7 @@ namespace WebapiApplication.Implement
         public ArrayList empWorksheet(EmpWorkSheetMl mobj) { return dobj.empWorksheetDal(mobj, "usp_Reports_EmpActivityLog"); }
         public int empLogout(int empid) { return dobj.empLogoutDal(empid, "usp_Emp_LogOut"); }
         public ArrayList mediaterRegValidation(mediaterRegFormValidation mobj) { return dobj.mediaterRegValidationDal(mobj, "usp_BrokerProfileRegistaration_Validation"); }
+        public ArrayList EmployeeCommunicationLogNew(CommunicationRequest mobj) { return dobj.EmployeeCommunicationLogDal(mobj, "[dbo].[Usp_Select_Communicationlog_NewDesign]"); }
+
     }
 }

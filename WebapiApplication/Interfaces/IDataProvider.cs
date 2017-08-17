@@ -392,6 +392,8 @@ namespace WebapiApplication.Interfaces
         int empLogout(int empid);
 
         ArrayList mediaterRegValidation(mediaterRegFormValidation mobj);
+
+        ArrayList EmployeeCommunicationLogNew(CommunicationRequest mobj);
     }
 
      public interface IMobileAppDev

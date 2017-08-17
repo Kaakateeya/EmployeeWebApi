@@ -251,7 +251,7 @@ namespace WebapiApplication.ML
 
     }
 
-     
+
     public class EmployeeCreationInput
     {
         public string FirstName { get; set; }
@@ -320,7 +320,7 @@ namespace WebapiApplication.ML
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
         public int flag { get; set; }
-       
+
     }
     public class EmpWorkSheetMl
     {
@@ -351,6 +351,19 @@ namespace WebapiApplication.ML
         public string v_Mobilenumber { get; set; }
         public string v_CounttyCode { get; set; }
     }
+
+
+    public class CommunicationRequest
+    {
+        public string profileID { get; set; }
+        public string v_Grid { get; set; }
+        public int? intEmpId { get; set; }
+        public int? startIndex { get; set; }
+        public int? endIndex { get; set; }
+        public int? Gridvalue { get; set; }
+    }
+
+
 
 }
 

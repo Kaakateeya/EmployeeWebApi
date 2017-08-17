@@ -1064,6 +1064,49 @@ namespace WebapiApplication.DAL
 
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
+
+       
+
+
+
+        public ArrayList EmployeeCommunicationLogDal(CommunicationRequest mobj, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[6];
+
+                parm[0] = new SqlParameter("@ProfielD", SqlDbType.VarChar);
+                parm[0].Value = mobj.profileID;
+                parm[1] = new SqlParameter("@intEmpId", SqlDbType.Int);
+                parm[1].Value = mobj.intEmpId;
+                parm[2] = new SqlParameter("@i_Startindex", SqlDbType.Int);
+                parm[2].Value = mobj.startIndex;
+                parm[3] = new SqlParameter("@i_EndIndex", SqlDbType.Int);
+                parm[3].Value = mobj.endIndex;
+                parm[4] = new SqlParameter("@v_Grid", SqlDbType.VarChar);
+                parm[4].Value = mobj.v_Grid;
+                parm[5] = new SqlParameter("@i_Gridvalue", SqlDbType.Int);
+                parm[5].Value = mobj.Gridvalue;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }
 
