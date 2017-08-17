@@ -4379,7 +4379,7 @@ namespace WebapiApplication.DAL
                 parm[2].Value = dtDOB;
                 parm[3] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[3].Direction = ParameterDirection.Output;
-                parm[4] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar);
+                parm[4] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar,1000);
                 parm[4].Direction = ParameterDirection.Output;
                 DataSet ds = new DataSet();
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
