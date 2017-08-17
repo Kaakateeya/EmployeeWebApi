@@ -352,6 +352,8 @@ namespace WebapiApplication.Interfaces
         int Successstoriesupload(emplyeeSuccessStoryML Mobj);
 
         int? Marketingticketstatus(long? ticketid, string EmpID);
+
+        ArrayList AdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress);
     }
 
     public interface ISmallPages

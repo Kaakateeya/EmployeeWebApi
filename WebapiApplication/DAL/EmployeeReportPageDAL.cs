@@ -4323,5 +4323,42 @@ namespace WebapiApplication.DAL
             }
             return intStatus;
         }
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="i_EmpID"></param>
+       /// <param name="i_BranchID"></param>
+       /// <param name="v_MacAddress"></param>
+       /// <param name="p"></param>
+       /// <returns></returns>
+        public ArrayList AdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[2];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@i_EmpID", SqlDbType.Int);
+                parm[0].Value = i_EmpID;
+                parm[1] = new SqlParameter("@i_BranchID", SqlDbType.Int);
+                parm[1].Value = i_BranchID;
+                parm[2] = new SqlParameter("@v_MacAddress", SqlDbType.VarChar);
+                parm[2].Value = v_MacAddress;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }
