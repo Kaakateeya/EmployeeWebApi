@@ -4333,7 +4333,7 @@ namespace WebapiApplication.DAL
        /// <returns></returns>
         public ArrayList AdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress, string spname)
         {
-            SqlParameter[] parm = new SqlParameter[2];
+            SqlParameter[] parm = new SqlParameter[5];
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
