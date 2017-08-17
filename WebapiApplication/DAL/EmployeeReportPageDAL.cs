@@ -3365,7 +3365,7 @@ namespace WebapiApplication.DAL
         }
 
 
-        public int UpadteMacAddess(string strProfileID,string ipaddresss2, int? BranchID, string spname)
+        public int UpadteMacAddess(string strProfileID, string ipaddresss2, int? BranchID, string spname)
         {
             SqlParameter[] parm = new SqlParameter[10];
             int intStatus = 0;
@@ -4268,6 +4268,128 @@ namespace WebapiApplication.DAL
                 else
                 {
                     intStatus = Convert.ToInt32(parm[12].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
+            }
+            return intStatus;
+        }
+
+        public int? Marketingticketstatus(long? ticketid,string EmpID, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[5];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@intTicketID", SqlDbType.BigInt);
+                parm[0].Value = ticketid;
+                parm[1] = new SqlParameter("@intEmpID", SqlDbType.VarChar);
+                parm[1].Value = EmpID;
+                parm[2] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[2].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[2].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
+            }
+            return intStatus;
+        }
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="i_EmpID"></param>
+       /// <param name="i_BranchID"></param>
+       /// <param name="v_MacAddress"></param>
+       /// <param name="p"></param>
+       /// <returns></returns>
+        public ArrayList AdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[5];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@i_EmpID", SqlDbType.Int);
+                parm[0].Value = i_EmpID;
+                parm[1] = new SqlParameter("@i_BranchID", SqlDbType.Int);
+                parm[1].Value = i_BranchID;
+                parm[2] = new SqlParameter("@v_MacAddress", SqlDbType.VarChar);
+                parm[2].Value = v_MacAddress;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public int? CheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB, string spname)
+        {
+
+            SqlParameter[] parm = new SqlParameter[8];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@strSurName", SqlDbType.VarChar);
+                parm[0].Value = strSurName;
+                parm[1] = new SqlParameter("@StrName", SqlDbType.VarChar);
+                parm[1].Value = StrName;
+                parm[2] = new SqlParameter("@dtDOB", SqlDbType.DateTime);
+                parm[2].Value = dtDOB;
+                parm[3] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[3].Direction = ParameterDirection.Output;
+                parm[4] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar);
+                parm[4].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[3].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[3].Value);
                 }
             }
             catch (Exception EX)

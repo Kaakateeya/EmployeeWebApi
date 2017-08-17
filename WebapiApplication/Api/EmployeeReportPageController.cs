@@ -212,6 +212,12 @@ namespace WebapiApplication.Api
 
         public int Successstoriesupload([FromBody]emplyeeSuccessStoryML Mobj) { return this.IEmployeeReport.Successstoriesupload(Mobj); }
 
+        public int? getMarketingticketstatus(Int64? ticketid, string EmpID) { return this.IEmployeeReport.Marketingticketstatus(ticketid, EmpID); }
+
+        public ArrayList getAdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress) { return this.IEmployeeReport.AdminReportsAllProfiles(i_EmpID, i_BranchID, v_MacAddress); }
+
+        public int? getCheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB) { return this.IEmployeeReport.CheckSurNameNamedob(strSurName, StrName, dtDOB); }
+
     }
 }
 
