@@ -216,6 +216,8 @@ namespace WebapiApplication.Api
 
         public ArrayList getAdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress) { return this.IEmployeeReport.AdminReportsAllProfiles(i_EmpID, i_BranchID, v_MacAddress); }
 
+        public int? getCheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB) { return this.IEmployeeReport.CheckSurNameNamedob(strSurName, StrName, dtDOB); }
+
     }
 }
 

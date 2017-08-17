@@ -354,6 +354,8 @@ namespace WebapiApplication.Interfaces
         int? Marketingticketstatus(long? ticketid, string EmpID);
 
         ArrayList AdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress);
+
+        int? CheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB);
     }
 
     public interface ISmallPages

@@ -171,7 +171,9 @@ namespace WebapiApplication.Implement
         public int? Marketingticketstatus(Int64? ticketid, string EmpID) { return new EmployeeReportPageDAL().Marketingticketstatus(ticketid,EmpID, "[dbo].[usp_UpdateTicketStatus]"); }
 
         public ArrayList AdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress) { return new EmployeeReportPageDAL().AdminReportsAllProfiles(i_EmpID, i_BranchID, v_MacAddress, "[dbo].[usp_Emp_SchedulerWorkPending]"); }
-    
+
+
+        public int? CheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB) { return new EmployeeReportPageDAL().CheckSurNameNamedob(strSurName, StrName, dtDOB, "[dbo].[usp_CheckSurNameName]"); }
     }
 
 }

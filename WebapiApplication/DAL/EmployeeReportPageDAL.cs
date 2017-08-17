@@ -4360,5 +4360,50 @@ namespace WebapiApplication.DAL
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
+
+        public int? CheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB, string spname)
+        {
+
+            SqlParameter[] parm = new SqlParameter[8];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@strSurName", SqlDbType.VarChar);
+                parm[0].Value = strSurName;
+                parm[1] = new SqlParameter("@StrName", SqlDbType.VarChar);
+                parm[1].Value = StrName;
+                parm[2] = new SqlParameter("@dtDOB", SqlDbType.DateTime);
+                parm[2].Value = dtDOB;
+                parm[3] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[3].Direction = ParameterDirection.Output;
+                parm[4] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar);
+                parm[4].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[3].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[3].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+
+            }
+            return intStatus;
+        }
     }
 }
