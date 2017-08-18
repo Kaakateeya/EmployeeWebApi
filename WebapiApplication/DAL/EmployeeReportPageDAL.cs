@@ -4361,11 +4361,13 @@ namespace WebapiApplication.DAL
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
 
-        public int? CheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB, string spname)
+        public ArrayList CheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB, string spname)
         {
-
+            ArrayList arrayList = new ArrayList();
             SqlParameter[] parm = new SqlParameter[8];
-            int intStatus = 0;
+            int? intStatus = 0;
+            responsechksurname response = null;
+            SqlDataReader reader;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -4382,15 +4384,28 @@ namespace WebapiApplication.DAL
                 parm[4] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
                 parm[4].Direction = ParameterDirection.Output;
                 DataSet ds = new DataSet();
-                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[3].Value.ToString()).Equals(0))
+
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+                int count = reader.FieldCount;
+
+                if (reader.HasRows)
                 {
-                    intStatus = 0;
+                    while (reader.Read())
+                    {
+                        response = new responsechksurname();
+                        {
+                            response.Profileid = (reader["ProfileID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileID")) : string.Empty;
+                            response.Name = (reader["FirstName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FirstName")) : string.Empty;
+                            response.Surname = (reader["LastName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastName")) : string.Empty;
+                            response.Status = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : intStatus;
+                            arrayList.Add(response);
+
+                        }
+                    }
+
                 }
-                else
-                {
-                    intStatus = Convert.ToInt32(parm[3].Value);
-                }
+
+                reader.Close();
             }
             catch (Exception EX)
             {
@@ -4403,7 +4418,7 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearAllPools();
 
             }
-            return intStatus;
+            return arrayList;
         }
 
         public int? InsertResonForNoService(insetnoserice Mobj, string spname)

@@ -355,7 +355,7 @@ namespace WebapiApplication.Interfaces
 
         ArrayList AdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress);
 
-        int? CheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB);
+        ArrayList CheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB);
 
         int? InsertResonForNoService(insetnoserice Mobj);
     }
