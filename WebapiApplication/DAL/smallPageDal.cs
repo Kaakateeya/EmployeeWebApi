@@ -1065,7 +1065,7 @@ namespace WebapiApplication.DAL
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
 
-       
+
 
 
 
@@ -1092,7 +1092,7 @@ namespace WebapiApplication.DAL
                 parm[4].Value = mobj.v_Grid;
                 parm[5] = new SqlParameter("@i_Gridvalue", SqlDbType.Int);
                 parm[5].Value = mobj.Gridvalue;
-                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+                //ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)
             {
@@ -1106,6 +1106,47 @@ namespace WebapiApplication.DAL
             }
 
             return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public int deleteSettleFormDal(int settleID, string spname)
+        {
+            SqlParameter[] param = new SqlParameter[3];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            SqlDataReader reader = null;
+            int Status = 0;
+
+            try
+            {
+                param[0] = new SqlParameter("@i_Value", SqlDbType.Int);
+                param[0].Value = 1;
+                param[1] = new SqlParameter("@i_SettleID", SqlDbType.Int);
+                param[1].Value = settleID;
+                param[2] = new SqlParameter("@i_Status", SqlDbType.Int);
+                param[2].Direction = ParameterDirection.Output;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, param);
+                if (string.Compare(System.DBNull.Value.ToString(), param[2].Value.ToString()) == 0)
+                {
+                    Status = 0;
+                }
+                else
+                {
+                    Status = Convert.ToInt32(param[2].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return Status;
         }
     }
 }
