@@ -402,6 +402,8 @@ namespace WebapiApplication.Interfaces
         ArrayList mediaterRegValidation(mediaterRegFormValidation mobj);
 
         ArrayList EmployeeCommunicationLogNew(CommunicationRequest mobj);
+
+        int deleteSettleForm(int settleID);
     }
 
      public interface IMobileAppDev

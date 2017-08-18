@@ -37,6 +37,6 @@ namespace WebapiApplication.Implement
         public int empLogout(int empid) { return dobj.empLogoutDal(empid, "usp_Emp_LogOut"); }
         public ArrayList mediaterRegValidation(mediaterRegFormValidation mobj) { return dobj.mediaterRegValidationDal(mobj, "usp_BrokerProfileRegistaration_Validation"); }
         public ArrayList EmployeeCommunicationLogNew(CommunicationRequest mobj) { return dobj.EmployeeCommunicationLogDal(mobj, "[dbo].[Usp_Select_Communicationlog_NewDesign]"); }
-
+        public int deleteSettleForm(int settleID) { return dobj.deleteSettleFormDal(settleID, "[dbo].[usp_UpdateDeleteSettlementForm]"); }
     }
 }
