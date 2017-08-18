@@ -218,6 +218,9 @@ namespace WebapiApplication.Api
 
         public int? getCheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB) { return this.IEmployeeReport.CheckSurNameNamedob(strSurName, StrName, dtDOB); }
 
+        public int? InsertResonForNoService([FromBody]insetnoserice Mobj) { return this.IEmployeeReport.InsertResonForNoService(Mobj); }
+
+
     }
 }
 

@@ -558,6 +558,20 @@ namespace WebapiApplication.ML
 
         public string strSuccessstories { get; set; }
     }
+
+
+    public class insetnoserice
+    {
+        public int? intCust_ID { get; set; }
+
+        public string strProfileID { get; set; }
+
+        public int? intTicketOwnerID { get; set; }
+
+        public string strReason { get; set; }
+
+        public int? intEnteredBy { get; set; }
+    }
 }
 
 
