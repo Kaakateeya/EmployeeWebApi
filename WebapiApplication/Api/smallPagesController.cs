@@ -189,7 +189,7 @@ namespace WebapiApplication.Api
         public ArrayList mediaterRegValidation(mediaterRegFormValidation mobj) { return Iobj.mediaterRegValidation(mobj); }
         public ArrayList EmployeeCommunicationLogNew(CommunicationRequest mobj) { return Iobj.EmployeeCommunicationLogNew(mobj); }
         [HttpGet]
-        public int deleteSettleForm(int settleID) { return Iobj.deleteSettleForm(settleID); }
+        public int getdeleteSettleForm(int settleID) { return Iobj.deleteSettleForm(settleID); }
 
 
 
