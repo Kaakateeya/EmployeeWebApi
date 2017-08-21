@@ -572,6 +572,13 @@ namespace WebapiApplication.ML
 
         public int? intEnteredBy { get; set; }
     }
+    public class responsechksurname
+    {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Profileid { get; set; }
+        public int? Status { get; set; }
+    }
 }
 
 
