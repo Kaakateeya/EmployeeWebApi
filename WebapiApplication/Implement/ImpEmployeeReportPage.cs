@@ -129,7 +129,7 @@ namespace WebapiApplication.Implement
 
         public ArrayList presentunpaidmember(int? EmpID) { return new EmployeeReportPageDAL().presentunpaidmember(EmpID, "[dbo].[usp_emp_LoginLogoutUnpaidMembers]"); }
 
-        public int UpadteMacAddess(string strProfileID,string ipaddresss2, int? BranchID) { return new EmployeeReportPageDAL().UpadteMacAddess(strProfileID,ipaddresss2, BranchID, "[dbo].[usp_Macipaddressupdate]"); }
+        public int UpadteMacAddess(string strProfileID, string ipaddresss2, int? BranchID) { return new EmployeeReportPageDAL().UpadteMacAddess(strProfileID, ipaddresss2, BranchID, "[dbo].[usp_Macipaddressupdate]"); }
 
         public ArrayList customermeassgeverification([FromBody]messagesverification Mobj) { return new EmployeeReportPageDAL().customermeassgeverification(Mobj, "[dbo].[usp_GetUnAcceptedMessages]"); }
 
@@ -168,9 +168,9 @@ namespace WebapiApplication.Implement
 
         public int Successstoriesupload([FromBody]emplyeeSuccessStoryML Mobj) { return new EmployeeReportPageDAL().Successstoriesupload(Mobj, "[dbo].[Usp_Successstories]"); }
 
-        public int? Marketingticketstatus(Int64? ticketid, string EmpID) { return new EmployeeReportPageDAL().Marketingticketstatus(ticketid,EmpID, "[dbo].[usp_UpdateTicketStatus]"); }
+        public int? Marketingticketstatus(Int64? ticketid, string EmpID) { return new EmployeeReportPageDAL().Marketingticketstatus(ticketid, EmpID, "[dbo].[usp_UpdateTicketStatus]"); }
 
-        public ArrayList AdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress) { return new EmployeeReportPageDAL().AdminReportsAllProfiles(i_EmpID, i_BranchID, v_MacAddress, "[dbo].[usp_Emp_SchedulerWorkPending]"); }
+        public ArrayList AdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress, int? flag) { return new EmployeeReportPageDAL().AdminReportsAllProfiles(i_EmpID, i_BranchID, v_MacAddress, flag, "[dbo].[usp_Emp_SchedulerWorkPending]"); }
 
 
         public ArrayList CheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB) { return new EmployeeReportPageDAL().CheckSurNameNamedob(strSurName, StrName, dtDOB, "[dbo].[usp_CheckSurNameName]"); }

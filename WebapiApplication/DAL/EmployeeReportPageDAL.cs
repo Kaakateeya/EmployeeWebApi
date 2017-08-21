@@ -4331,7 +4331,7 @@ namespace WebapiApplication.DAL
         /// <param name="v_MacAddress"></param>
         /// <param name="p"></param>
         /// <returns></returns>
-        public ArrayList AdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress, string spname)
+        public ArrayList AdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress, int? flag, string spname)
         {
             SqlParameter[] parm = new SqlParameter[5];
             SqlConnection connection = new SqlConnection();
@@ -4346,6 +4346,8 @@ namespace WebapiApplication.DAL
                 parm[1].Value = i_BranchID;
                 parm[2] = new SqlParameter("@v_MacAddress", SqlDbType.VarChar);
                 parm[2].Value = v_MacAddress;
+                parm[3] = new SqlParameter("@flag", SqlDbType.Int);
+                parm[3].Value = flag;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
             }
             catch (Exception EX)

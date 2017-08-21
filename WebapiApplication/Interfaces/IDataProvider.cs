@@ -308,7 +308,7 @@ namespace WebapiApplication.Interfaces
 
         ArrayList presentunpaidmember(int? EmpID);
 
-        int UpadteMacAddess(string strProfileID,string ipaddresss2, int? BranchID);
+        int UpadteMacAddess(string strProfileID, string ipaddresss2, int? BranchID);
 
         ArrayList customermeassgeverification(messagesverification Mobj);
 
@@ -353,7 +353,7 @@ namespace WebapiApplication.Interfaces
 
         int? Marketingticketstatus(long? ticketid, string EmpID);
 
-        ArrayList AdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress);
+        ArrayList AdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress, int? flag);
 
         ArrayList CheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB);
 
@@ -406,12 +406,12 @@ namespace WebapiApplication.Interfaces
         int deleteSettleForm(int settleID);
     }
 
-     public interface IMobileAppDev
-     {
-         ArrayList getMobileAppLandingDisplay(int? CustID, int? PaidStatus, int? Startindex, int? EndIndex);
-         ArrayList UpdateCustomerEmailMobileNumber_Verification(MobileEmailVerf Mobj);
-         ArrayList MobileLandingOrderDisplay(long? CustID, int? Startindex, int? EndIndex);
-     }
-    
+    public interface IMobileAppDev
+    {
+        ArrayList getMobileAppLandingDisplay(int? CustID, int? PaidStatus, int? Startindex, int? EndIndex);
+        ArrayList UpdateCustomerEmailMobileNumber_Verification(MobileEmailVerf Mobj);
+        ArrayList MobileLandingOrderDisplay(long? CustID, int? Startindex, int? EndIndex);
+    }
+
 }
 
