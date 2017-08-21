@@ -450,8 +450,9 @@ namespace WebapiApplication.DAL
         public static bool S3upload(string filePath, string keyName)
         {
             //filePath = "D://KaakateeyaMainProject//Kaakateeya//Development_Kaakateeya//kaakateeyaWeb//access//Images//ProfilePics//KMPL_71668_Images//img2.jpg";
-            filePath = "C://inetpub//wwwroot//access//Images//91022_HaroscopeImage//91022_HaroscopeImage.html";
 
+            string strpath = keyName.Replace("/","//");
+            filePath = "C://inetpub//wwwroot//access//"+strpath;
             try
             {
                 TransferUtility fileTransferUtility = new

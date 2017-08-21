@@ -457,10 +457,13 @@
             $("#btngetdata").click(function() {
                 alert(1);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/smallPages/employeeCreation',
-                    type: 'post',
+                    url: 'http://localhost:63006/Api/CustomerPersonalUpdate/getAstroGenerationS3Update',
+                    type: 'get',
                     crossDomain: true,
-                    data: JSON.stringify(jsonbObj),
+                    data: {
+                        Path: 'http:\e.kaakateeya.com\access\ImagesHoroscopeImages\91022_HaroscopeImage\91022_HaroscopeImage.html',
+                        KeyName: 'Images/HoroscopeImages/91022_HaroscopeImage/91022_HaroscopeImage.html'
+                    },
                     contentType: 'application/json',
                     success: function(data, textStatus, xhr) {
                         alert(JSON.stringify(data));

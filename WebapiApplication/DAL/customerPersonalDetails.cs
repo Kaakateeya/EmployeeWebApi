@@ -2449,7 +2449,7 @@ namespace WebapiApplication.DAL
             //  Path = parentDir + "\\91022_HaroscopeImage.html";
             //  Path = Server.MapPath("~/" + KeyName);
 
-            Path = "www.e.kaakateeya.com\\access\\Images\\HoroscopeImages\\91022_HaroscopeImage\\91022_HaroscopeImage.html";
+            //Path = "www.e.kaakateeya.com\\access\\Images\\HoroscopeImages\\91022_HaroscopeImage\\91022_HaroscopeImage.html";
 
             //Path = System.IO.Path.Combine(System.Environment.CurrentDirectory, Path);
 
