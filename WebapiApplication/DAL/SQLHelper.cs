@@ -860,6 +860,7 @@ namespace KaakateeyaDAL
             bool mustCloseConnection = false;
             // Create a command and prepare it for execution
             SqlCommand cmd = new SqlCommand();
+            cmd.CommandTimeout = 100;
             try
             {
                 PrepareCommand(cmd, connection, transaction, commandType, commandText, commandParameters, out mustCloseConnection);
