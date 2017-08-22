@@ -9,13 +9,13 @@ using WebapiApplication.ML;
 
 namespace WebapiApplication.Implement
 {
-  
-    public class ImpSmallPages:ISmallPages
+
+    public class ImpSmallPages : ISmallPages
     {
-        smallPageDal dobj=new smallPageDal();
+        smallPageDal dobj = new smallPageDal();
         public ArrayList getMacIpValues(macIPInput mobj) { return dobj.getMacIpValuesDal(mobj, "usp_BranchIpaddress"); }
         public Tuple<int, ArrayList> matchMeetingEntryForm(matchMeetingEntryForm mobj) { return dobj.matchMeetingEntryFormDal(mobj, "Usp_CreateMatchmeeting"); }
-        public Tuple<int, ArrayList> EmpDetailsNew(string profileID, int BridegroomFlag) { return dobj.EmpDetailsNew(profileID,BridegroomFlag,"usp_reg_GetMatchMeetDetailsNew"); }
+        public Tuple<int, ArrayList> EmpDetailsNew(string profileID, int BridegroomFlag) { return dobj.EmpDetailsNew(profileID, BridegroomFlag, "usp_reg_GetMatchMeetDetailsNew"); }
         public Tuple<ArrayList, int, int, int, int> GetmatchMeetingData(int? brideCustID, int? groomCustID) { return dobj.EmpDetailsNew(brideCustID, groomCustID, "Usp_CheckExpressInterestDetails"); }
 
         public int checkMarketingTicket(string ticketID) { return dobj.checkMarketingTicketDal(ticketID, "usp_check_marketingTicket"); }
@@ -31,14 +31,16 @@ namespace WebapiApplication.Implement
         public int setEmpAssignCounts(EmpAssignCounts mobj) { return dobj.setEmpAssignCountsDal(mobj, "usp_InsertViewEditEmplist"); }
         public ArrayList loginLogOutReport(EmpLoginLogoutReportML mobj) { return dobj.loginLogOutReportDal(mobj, "usp_Reports_EmployeeLogIn_Details"); }
         public int getinsertImagepath(long whereId, string strvalue, string flag) { return dobj.getinsertImagepathDal(whereId, strvalue, flag, "usp_insertSingleValues"); }
-        
-        
+
+
         public ArrayList empWorksheet(EmpWorkSheetMl mobj) { return dobj.empWorksheetDal(mobj, "usp_Reports_EmpActivityLog"); }
         public int empLogout(int empid) { return dobj.empLogoutDal(empid, "usp_Emp_LogOut"); }
         public ArrayList mediaterRegValidation(mediaterRegFormValidation mobj) { return dobj.mediaterRegValidationDal(mobj, "usp_BrokerProfileRegistaration_Validation"); }
         public ArrayList EmployeeCommunicationLogNew(CommunicationRequest mobj) { return dobj.EmployeeCommunicationLogDal(mobj, "[dbo].[Usp_Select_Communicationlog_NewDesign]"); }
         public int deleteSettleForm(int settleID) { return dobj.deleteSettleFormDal(settleID, "[dbo].[usp_UpdateDeleteSettlementForm]"); }
         public ArrayList ViewSuccessStories(viewSuccessStoriesRequest sObj) { return dobj.ViewSuccessStoriesDal(sObj, "[dbo].[usp_Reports_ViewSuccess]"); }
+        public Tuple<int, ArrayList> GetbrideGroomData(string profileID, int iFlag) { return dobj.GetbrideGroomDataDal(profileID, iFlag, "[dbo].[usp_reg_GetMatchMeetDetails]"); }
+        public Tuple<int, ArrayList> GetbrideGroomDataNew(string profileID, int iFlag) { return dobj.GetbrideGroomDataDal(profileID, iFlag, "[dbo].[usp_reg_GetMatchMeetDetails_New]"); }
 
     }
 }

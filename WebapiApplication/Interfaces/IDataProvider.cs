@@ -406,6 +406,9 @@ namespace WebapiApplication.Interfaces
         int deleteSettleForm(int settleID);
 
         ArrayList ViewSuccessStories(viewSuccessStoriesRequest sObj);
+
+        Tuple<int, ArrayList> GetbrideGroomData(string profileID, int iFlag);
+        Tuple<int, ArrayList> GetbrideGroomDataNew(string profileID, int iFlag);
     }
 
     public interface IMobileAppDev

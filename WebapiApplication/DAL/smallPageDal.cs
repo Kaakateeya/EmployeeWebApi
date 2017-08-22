@@ -755,7 +755,7 @@ namespace WebapiApplication.DAL
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
                 if (reader.HasRows)
                 {
-                  
+
                     while (reader.Read())
                     {
                         mobj.EMployeeID = reader["EMployeeID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("EMployeeID")) : inull;
@@ -795,7 +795,7 @@ namespace WebapiApplication.DAL
             connection.Open();
             SqlDataReader reader = null;
             int Status = 0;
-           
+
             try
             {
                 parm[0] = new SqlParameter("@CreatedEMPID", SqlDbType.Int);
@@ -882,7 +882,7 @@ namespace WebapiApplication.DAL
                 parm[9].Value = mobj.PageSize;
                 parm[10] = new SqlParameter("@_Excel", SqlDbType.Int);
                 parm[10].Value = mobj.flag;
-              
+
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
             }
             catch (Exception EX)
@@ -898,9 +898,9 @@ namespace WebapiApplication.DAL
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
 
-       
 
-        public int getinsertImagepathDal(long whereId, string strvalue,string flag, string spname)
+
+        public int getinsertImagepathDal(long whereId, string strvalue, string flag, string spname)
         {
             SqlParameter[] parm = new SqlParameter[4];
             SqlConnection connection = new SqlConnection();
@@ -994,7 +994,7 @@ namespace WebapiApplication.DAL
         public int empLogoutDal(int empid, string spname)
         {
             SqlParameter[] param = new SqlParameter[3];
-            int intstatus =0;
+            int intstatus = 0;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -1010,9 +1010,9 @@ namespace WebapiApplication.DAL
 
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, param);
                 if (string.Compare(System.DBNull.Value.ToString(), param[2].Value.ToString()) == 0)
-                    intstatus= 0;
+                    intstatus = 0;
                 else
-                    intstatus= 1;
+                    intstatus = 1;
             }
             catch (Exception EX)
             {
@@ -1030,7 +1030,7 @@ namespace WebapiApplication.DAL
 
         public ArrayList mediaterRegValidationDal(mediaterRegFormValidation mobj, string spname)
         {
-            SqlParameter[] parm = new SqlParameter[6];          
+            SqlParameter[] parm = new SqlParameter[6];
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -1197,6 +1197,49 @@ namespace WebapiApplication.DAL
             }
 
             return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public Tuple<int, ArrayList> GetbrideGroomDataDal(string profileID, int iFlag, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            int intStatus = 0;
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[4];
+
+                parm[0] = new SqlParameter("@ProfileID", SqlDbType.VarChar, 20);
+                parm[0].Value = profileID;
+                parm[1] = new SqlParameter("@Value", SqlDbType.Int);
+                parm[1].Value = iFlag;
+                parm[2] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+                parm[3] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
+                parm[3].Direction = ParameterDirection.Output;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), Convert.ToString(parm[2].Value)).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[2].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return new Tuple<int, ArrayList>(intStatus, Commonclass.convertdataTableToArrayListTable(ds));
         }
     }
 }

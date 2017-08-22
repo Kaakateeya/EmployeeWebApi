@@ -161,11 +161,12 @@ namespace WebapiApplication.Api
         public int getEmpLogout(int empid) { return Iobj.empLogout(empid); }
         public ArrayList mediaterRegValidation(mediaterRegFormValidation mobj) { return Iobj.mediaterRegValidation(mobj); }
         public ArrayList EmployeeCommunicationLogNew(CommunicationRequest mobj) { return Iobj.EmployeeCommunicationLogNew(mobj); }
-        
         public int getdeleteSettleForm(int settleID) { return Iobj.deleteSettleForm(settleID); }
 
         public ArrayList ViewSuccessStories(viewSuccessStoriesRequest sObj) { return Iobj.ViewSuccessStories(sObj); }
+        public Tuple<int, ArrayList> GetbrideGroomData(string profileID, int iFlag) { return Iobj.GetbrideGroomData(profileID, iFlag); }
 
+        public Tuple<int, ArrayList> GetbrideGroomDataNew(string profileID, int iFlag) { return Iobj.GetbrideGroomDataNew(profileID, iFlag); }
 
     }
 }
