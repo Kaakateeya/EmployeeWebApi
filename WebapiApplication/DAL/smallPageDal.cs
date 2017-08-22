@@ -1164,13 +1164,13 @@ namespace WebapiApplication.DAL
                 parm[0].Value = mobj.profileID;
                 parm[1] = new SqlParameter("@i_RegionID", SqlDbType.Int);
                 parm[1].Value = mobj.Region;
-                parm[2] = new SqlParameter("@t_Caste", SqlDbType.Int);
+                parm[2] = new SqlParameter("@t_Caste", SqlDbType.Structured);
                 parm[2].Value = Commonclass.returndt(mobj.strCaste, mobj.dtCaste, "caste", "casteTable");
-                parm[3] = new SqlParameter("@t_Branch", SqlDbType.Int);
+                parm[3] = new SqlParameter("@t_Branch", SqlDbType.Structured);
                 parm[3].Value = Commonclass.returndt(mobj.strBranch, mobj.dtBranch, "branch", "branchTable");
-                parm[4] = new SqlParameter("@dt_StartDate", SqlDbType.VarChar);
+                parm[4] = new SqlParameter("@dt_StartDate", SqlDbType.DateTime);
                 parm[4].Value = mobj.StartDate;
-                parm[5] = new SqlParameter("@dt_EndDate", SqlDbType.Int);
+                parm[5] = new SqlParameter("@dt_EndDate", SqlDbType.DateTime);
                 parm[5].Value = mobj.EndDate;
                 parm[6] = new SqlParameter("@i_PageSize", SqlDbType.Int);
                 parm[6].Value = mobj.PageSize;
