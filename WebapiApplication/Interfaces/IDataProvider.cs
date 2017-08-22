@@ -404,6 +404,8 @@ namespace WebapiApplication.Interfaces
         ArrayList EmployeeCommunicationLogNew(CommunicationRequest mobj);
 
         int deleteSettleForm(int settleID);
+
+        ArrayList ViewSuccessStories(viewSuccessStoriesRequest sObj);
     }
 
     public interface IMobileAppDev

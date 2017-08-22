@@ -1148,6 +1148,56 @@ namespace WebapiApplication.DAL
 
             return Status;
         }
+
+        public ArrayList ViewSuccessStoriesDal(viewSuccessStoriesRequest mobj, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[11];
+
+                parm[0] = new SqlParameter("@vc_ProfileID", SqlDbType.VarChar);
+                parm[0].Value = mobj.profileID;
+                parm[1] = new SqlParameter("@i_RegionID", SqlDbType.Int);
+                parm[1].Value = mobj.Region;
+                parm[2] = new SqlParameter("@t_Caste", SqlDbType.Int);
+                parm[2].Value = Commonclass.returndt(mobj.strCaste, mobj.dtCaste, "caste", "casteTable");
+                parm[3] = new SqlParameter("@t_Branch", SqlDbType.Int);
+                parm[3].Value = Commonclass.returndt(mobj.strBranch, mobj.dtBranch, "branch", "branchTable");
+                parm[4] = new SqlParameter("@dt_StartDate", SqlDbType.VarChar);
+                parm[4].Value = mobj.StartDate;
+                parm[5] = new SqlParameter("@dt_EndDate", SqlDbType.Int);
+                parm[5].Value = mobj.EndDate;
+                parm[6] = new SqlParameter("@i_PageSize", SqlDbType.Int);
+                parm[6].Value = mobj.PageSize;
+                parm[7] = new SqlParameter("@i_PageNumber", SqlDbType.Int);
+                parm[7].Value = mobj.PageNumber;
+                parm[8] = new SqlParameter("@i_StartIndex", SqlDbType.Int);
+                parm[8].Value = mobj.intlowerBound;
+                parm[9] = new SqlParameter("@I_EndIndex", SqlDbType.Int);
+                parm[9].Value = mobj.intUpperBound;
+                parm[10] = new SqlParameter("@I_value", SqlDbType.Int);
+                parm[10].Value = mobj.value;
+
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }
 

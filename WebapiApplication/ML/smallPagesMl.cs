@@ -362,7 +362,24 @@ namespace WebapiApplication.ML
         public int? endIndex { get; set; }
         public int? Gridvalue { get; set; }
     }
+    public class viewSuccessStoriesRequest
+    {
+        public string profileID { get; set; }
+        public int? Region { set; get; }
+        public DataTable dtCaste { get; set; }
+        public DataTable dtBranch { get; set; }
+        public string strCaste { get; set; }
+        public string strBranch { get; set; }
 
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
+        public int PageSize { get; set; }
+        public int PageNumber { get; set; }
+        public int intlowerBound { get; set; }
+        public int intUpperBound { get; set; }
+        public int? value { set; get; }
+      
+    }
 
 
 }
