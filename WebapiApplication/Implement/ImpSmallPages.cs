@@ -42,5 +42,8 @@ namespace WebapiApplication.Implement
         public Tuple<int, ArrayList> GetbrideGroomData(string profileID, int iFlag) { return dobj.GetbrideGroomDataDal(profileID, iFlag, "[dbo].[usp_reg_GetMatchMeetDetails]"); }
         public Tuple<int, ArrayList> GetbrideGroomDataNew(string profileID, int iFlag) { return dobj.GetbrideGroomDataDal(profileID, iFlag, "[dbo].[usp_reg_GetMatchMeetDetails_New]"); }
 
+        public int createSuccessStories(createSuccessStoryRequest mobj) { return dobj.createSuccessStoriesDal(mobj, "[dbo].[Usp_Successstories]"); }
+
+
     }
 }

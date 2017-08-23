@@ -165,8 +165,11 @@ namespace WebapiApplication.Api
 
         public ArrayList ViewSuccessStories(viewSuccessStoriesRequest sObj) { return Iobj.ViewSuccessStories(sObj); }
         public Tuple<int, ArrayList> GetbrideGroomData(string profileID, int iFlag) { return Iobj.GetbrideGroomData(profileID, iFlag); }
-
         public Tuple<int, ArrayList> GetbrideGroomDataNew(string profileID, int iFlag) { return Iobj.GetbrideGroomDataNew(profileID, iFlag); }
+
+        public int createSuccessStories(createSuccessStoryRequest mobj) { return Iobj.createSuccessStories(mobj); }
+
+
 
     }
 }

@@ -1241,6 +1241,74 @@ namespace WebapiApplication.DAL
 
             return new Tuple<int, ArrayList>(intStatus, Commonclass.convertdataTableToArrayListTable(ds));
         }
+
+        public int createSuccessStoriesDal(createSuccessStoryRequest Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[13];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            SqlDataReader reader = null;
+            int Status = 0;
+
+            try
+            {
+                parm[0] = new SqlParameter("@EmpID", SqlDbType.BigInt);
+                parm[0].Value = Mobj.EmpID;
+
+                parm[1] = new SqlParameter("@BrideID", SqlDbType.BigInt);
+                parm[1].Value = Mobj.BrideID;
+                parm[2] = new SqlParameter("@Bridename", SqlDbType.VarChar, 250);
+                parm[2].Value = Mobj.Bridename;
+                parm[3] = new SqlParameter("@GroomID", SqlDbType.BigInt);
+                parm[3].Value = Mobj.GroomID;
+                parm[4] = new SqlParameter("@Groomname", SqlDbType.VarChar, 500);
+                parm[4].Value = Mobj.Groomname;
+                parm[5] = new SqlParameter("@Engagementdate", SqlDbType.DateTime);
+                parm[5].Value = Mobj.StartDate;
+                parm[6] = new SqlParameter("@Marriagedate", SqlDbType.DateTime);
+                parm[6].Value = Mobj.EndDate;
+
+                parm[7] = new SqlParameter("@Attachphoto", SqlDbType.VarChar, 500);
+                parm[7].Value = Mobj.Attachphoto;
+
+                parm[8] = new SqlParameter("@Successstory", SqlDbType.VarChar, 500);
+                parm[8].Value = Mobj.SuccesSstory;
+
+                parm[9] = new SqlParameter("@DisplayInWeb", SqlDbType.Bit);
+                parm[9].Value = Mobj.Displayinweb;
+
+                parm[10] = new SqlParameter("@flag", SqlDbType.Int);
+                parm[10].Value = Mobj.flag;
+
+                parm[11] = new SqlParameter("@Successstory_ID", SqlDbType.VarChar, 500);
+                parm[11].Value = Mobj.strSuccessstories;
+
+                parm[12] = new SqlParameter("@status", SqlDbType.Int);
+                parm[12].Direction = ParameterDirection.Output;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(Convert.ToString(parm[12].Value), System.DBNull.Value.ToString()) == 0)
+                {
+                    Status = 0;
+                }
+                else
+                {
+                    Status = Convert.ToInt32(parm[12].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return Status;
+        }
     }
 }
 
