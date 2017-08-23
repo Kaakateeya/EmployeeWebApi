@@ -358,6 +358,8 @@ namespace WebapiApplication.Interfaces
         ArrayList CheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB);
 
         int? InsertResonForNoService(insetnoserice Mobj);
+
+        ArrayList Nomatchesreasons(string v_EmpID, int? i_Region, string v_Branch);
     }
 
     public interface ISmallPages

@@ -176,6 +176,8 @@ namespace WebapiApplication.Implement
         public ArrayList CheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB) { return new EmployeeReportPageDAL().CheckSurNameNamedob(strSurName, StrName, dtDOB, "[dbo].[usp_CheckSurNameName]"); }
 
         public int? InsertResonForNoService([FromBody]insetnoserice Mobj) { return new EmployeeReportPageDAL().InsertResonForNoService(Mobj, "[dbo].[usp_Insert_ResonForNoService]"); }
+
+        public ArrayList Nomatchesreasons(string v_EmpID, int? i_Region, string v_Branch) { return new EmployeeReportPageDAL().Nomatchesreasons(v_EmpID, i_Region, v_Branch, "[dbo].[usp_NoMatchmettingreason]"); ; }
     }
 
 }
