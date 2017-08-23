@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>C:\Users\Admin\Desktop\183build</_PublishTargetUrl>
-    <_PublishTargetUrl>D:\build_files\23_08_2017_Nomatchesreason</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\build_files\23_08_2017_NomatchesreasonBuild</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Api/BindJson .cs">
