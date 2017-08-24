@@ -4470,5 +4470,35 @@ namespace WebapiApplication.DAL
             }
             return intStatus;
         }
+
+        public ArrayList Nomatchesreasons(string v_EmpID, int? i_Region, string v_Branch, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[5];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@v_EmpID", SqlDbType.VarChar);
+                parm[0].Value = v_EmpID;
+                parm[1] = new SqlParameter("@i_Region", SqlDbType.Int);
+                parm[1].Value = i_Region;
+                parm[2] = new SqlParameter("@v_Branch", SqlDbType.VarChar);
+                parm[2].Value = v_Branch;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }

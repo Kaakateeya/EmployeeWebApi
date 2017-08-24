@@ -221,6 +221,9 @@ namespace WebapiApplication.Api
         public int? InsertResonForNoService([FromBody]insetnoserice Mobj) { return this.IEmployeeReport.InsertResonForNoService(Mobj); }
 
 
+        public ArrayList getNomatchesreasons(string v_EmpID, int? i_Region, string v_Branch) { return this.IEmployeeReport.Nomatchesreasons(v_EmpID, i_Region, v_Branch); }
+
+
     }
 }
 
