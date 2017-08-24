@@ -169,6 +169,7 @@ namespace WebapiApplication.Api
 
         public int createSuccessStories(createSuccessStoryRequest mobj) { return Iobj.createSuccessStories(mobj); }
 
+        public int deleteSucessStories(string sucessStoryID, string brideProfileID, string groomProfileID) { return Iobj.deleteSucessStories(sucessStoryID,brideProfileID, groomProfileID); }
 
 
     }

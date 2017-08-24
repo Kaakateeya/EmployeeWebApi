@@ -411,6 +411,8 @@ namespace WebapiApplication.Interfaces
         Tuple<int, ArrayList> GetbrideGroomDataNew(string profileID, int iFlag);
 
         int createSuccessStories(createSuccessStoryRequest mobj);
+
+        int deleteSucessStories(string sucessStoryID, string brideProfileID, string groomProfileID);
     }
 
     public interface IMobileAppDev
