@@ -4474,9 +4474,11 @@ namespace WebapiApplication.DAL
         public ArrayList Nomatchesreasons(string v_EmpID, int? i_Region, string v_Branch, int? i_flag, int? i_Cust_ID, string spname)
         {
             SqlParameter[] parm = new SqlParameter[7];
+            ArrayList arrayList = new ArrayList();
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
+            int intStatus = 0;
             DataSet ds = new DataSet();
             try
             {
@@ -4490,7 +4492,18 @@ namespace WebapiApplication.DAL
                 parm[3].Value = i_flag;
                 parm[4] = new SqlParameter("@i_Cust_ID", SqlDbType.Int);
                 parm[4].Value = i_Cust_ID;
+                parm[5] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[5].Direction = ParameterDirection.Output;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[5].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[5].Value);
+                }
+                arrayList.Add(intStatus);
             }
             catch (Exception EX)
             {
@@ -4502,7 +4515,7 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
             }
-            return Commonclass.convertdataTableToArrayListTable(ds);
+            return i_flag == 1 ? arrayList : Commonclass.convertdataTableToArrayListTable(ds);
         }
     }
 }
