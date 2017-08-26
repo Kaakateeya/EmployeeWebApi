@@ -4471,9 +4471,9 @@ namespace WebapiApplication.DAL
             return intStatus;
         }
 
-        public ArrayList Nomatchesreasons(string v_EmpID, int? i_Region, string v_Branch, int? i_flag, int? i_Cust_ID, string spname)
+        public ArrayList Nomatchesreasons(string v_EmpID, int? i_Region, string v_Branch, int? i_flag, int? i_Cust_ID, string v_Reason, string spname)
         {
-            SqlParameter[] parm = new SqlParameter[7];
+            SqlParameter[] parm = new SqlParameter[8];
             ArrayList arrayList = new ArrayList();
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
@@ -4492,16 +4492,18 @@ namespace WebapiApplication.DAL
                 parm[3].Value = i_flag;
                 parm[4] = new SqlParameter("@i_Cust_ID", SqlDbType.Int);
                 parm[4].Value = i_Cust_ID;
-                parm[5] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[5].Direction = ParameterDirection.Output;
+                parm[5] = new SqlParameter("@v_Reason", SqlDbType.VarChar);
+                parm[5].Value = v_Reason;
+                parm[6] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[6].Direction = ParameterDirection.Output;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[5].Value.ToString()).Equals(0))
+                if (string.Compare(System.DBNull.Value.ToString(), parm[6].Value.ToString()).Equals(0))
                 {
                     intStatus = 0;
                 }
                 else
                 {
-                    intStatus = Convert.ToInt32(parm[5].Value);
+                    intStatus = Convert.ToInt32(parm[6].Value);
                 }
                 arrayList.Add(intStatus);
             }
