@@ -359,7 +359,7 @@ namespace WebapiApplication.Interfaces
 
         int? InsertResonForNoService(insetnoserice Mobj);
 
-        ArrayList Nomatchesreasons(string v_EmpID, int? i_Region, string v_Branch);
+        ArrayList Nomatchesreasons(string v_EmpID, int? i_Region, string v_Branch, int? i_flag, int? i_Cust_ID);
     }
 
     public interface ISmallPages

@@ -177,7 +177,7 @@ namespace WebapiApplication.Implement
 
         public int? InsertResonForNoService([FromBody]insetnoserice Mobj) { return new EmployeeReportPageDAL().InsertResonForNoService(Mobj, "[dbo].[usp_Insert_ResonForNoService]"); }
 
-        public ArrayList Nomatchesreasons(string v_EmpID, int? i_Region, string v_Branch) { return new EmployeeReportPageDAL().Nomatchesreasons(v_EmpID, i_Region, v_Branch, "[dbo].[usp_NoMatchmettingreason]"); ; }
+        public ArrayList Nomatchesreasons(string v_EmpID, int? i_Region, string v_Branch, int? i_flag, int? i_Cust_ID) { return new EmployeeReportPageDAL().Nomatchesreasons(v_EmpID, i_Region, v_Branch,i_flag,i_Cust_ID, "[dbo].[usp_NoMatchmettingreason]"); }
     }
 
 }

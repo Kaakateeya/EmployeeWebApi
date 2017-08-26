@@ -4471,9 +4471,9 @@ namespace WebapiApplication.DAL
             return intStatus;
         }
 
-        public ArrayList Nomatchesreasons(string v_EmpID, int? i_Region, string v_Branch, string spname)
+        public ArrayList Nomatchesreasons(string v_EmpID, int? i_Region, string v_Branch, int? i_flag, int? i_Cust_ID, string spname)
         {
-            SqlParameter[] parm = new SqlParameter[5];
+            SqlParameter[] parm = new SqlParameter[7];
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -4486,6 +4486,10 @@ namespace WebapiApplication.DAL
                 parm[1].Value = i_Region;
                 parm[2] = new SqlParameter("@v_Branch", SqlDbType.VarChar);
                 parm[2].Value = v_Branch;
+                parm[3] = new SqlParameter("@i_flag", SqlDbType.Int);
+                parm[3].Value = i_flag;
+                parm[4] = new SqlParameter("@i_Cust_ID", SqlDbType.Int);
+                parm[4].Value = i_Cust_ID;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
             }
             catch (Exception EX)
