@@ -4517,7 +4517,7 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
             }
-            return i_flag == 1 ? arrayList : Commonclass.convertdataTableToArrayListTable(ds);
+            return i_flag == 1 || i_flag == 2 ? arrayList : Commonclass.convertdataTableToArrayListTable(ds);
         }
     }
 }
