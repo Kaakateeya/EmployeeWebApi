@@ -597,7 +597,7 @@ namespace KaakateeyaDAL
 
             // Create a command and prepare it for execution
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandTimeout = 100;
+            cmd.CommandTimeout = 200;
             bool mustCloseConnection = false;
             PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out mustCloseConnection);
 
@@ -860,7 +860,7 @@ namespace KaakateeyaDAL
             bool mustCloseConnection = false;
             // Create a command and prepare it for execution
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandTimeout = 100;
+            cmd.CommandTimeout = 200;
             try
             {
                 PrepareCommand(cmd, connection, transaction, commandType, commandText, commandParameters, out mustCloseConnection);

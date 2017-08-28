@@ -65,8 +65,8 @@ namespace WebapiApplication.Api
 
         //public List<EmpCommunication> getEmployeeCommunicationLog(string ProfileID, int? intEmpId) { return this.IEmployeeReport.EmployeeCommunicationLog(ProfileID, intEmpId); }
         public ArrayList getEmployeeCommunicationLog(string ProfileID, int? intEmpId) { return this.IEmployeeReport.EmployeeCommunicationLog(ProfileID, intEmpId); }
-       
-        
+
+
         public Tuple<int, List<CommunicationLogResult>> EmployeeCommunicationLogRvrAndResend([FromBody]RvrRequest Mobj)
         {
             if (Mobj.isRvrflag == "RVR")
@@ -148,7 +148,7 @@ namespace WebapiApplication.Api
 
         public ArrayList getDuplicateProfiles(string profileID) { return this.IEmployeeReport.getDuplicateProfiles(profileID); }
 
-        public ArrayList getmmSeriesData(string profileID, int empid) { return this.IEmployeeReport.getmmSeriesData(profileID,empid); }
+        public ArrayList getmmSeriesData(string profileID, int empid) { return this.IEmployeeReport.getmmSeriesData(profileID, empid); }
         public ArrayList Guestticketcreation([FromBody]guestticketcreation Mobj) { return this.IEmployeeReport.Guestticketcreation(Mobj); }
 
 
@@ -159,7 +159,7 @@ namespace WebapiApplication.Api
         public int getprofileidexistornot(string profileid) { return this.IEmployeeReport.profileidexistornot(profileid); }
         public ArrayList getpresentunpaidmembers(int? EmpID) { return this.IEmployeeReport.presentunpaidmember(EmpID); }
 
-        public int getUpadteMacAddess(string strProfileID,string ipaddresss2, int? BranchID) { return this.IEmployeeReport.UpadteMacAddess(strProfileID,ipaddresss2, BranchID); }
+        public int getUpadteMacAddess(string strProfileID, string ipaddresss2, int? BranchID) { return this.IEmployeeReport.UpadteMacAddess(strProfileID, ipaddresss2, BranchID); }
 
         public ArrayList customermeassgeverification([FromBody]messagesverification Mobj) { return this.IEmployeeReport.customermeassgeverification(Mobj); }
 
@@ -185,17 +185,17 @@ namespace WebapiApplication.Api
         public int EmployeepaymentreportsSendsms([FromBody]paymentreportsms Mobj) { return this.IEmployeeReport.EmployeepaymentreportsSendsms(Mobj); }
 
         public ArrayList getPaymentoffersbasedonselect(string Profileid, int? casteid) { return this.IEmployeeReport.Paymentoffersbasedonselect(Profileid, casteid); }
-     
+
         /// <summary>
-       /// 
-       /// </summary>
-       /// <param name="Mobj"></param>
-       /// <returns></returns>
-       /// 
+        /// 
+        /// </summary>
+        /// <param name="Mobj"></param>
+        /// <returns></returns>
+        /// 
 
         public int Editanddeleteupdateoffers([FromBody]paymenteditdelete Mobj) { return this.IEmployeeReport.Editanddeleteupdateoffers(Mobj); }
 
-      
+
         public int getVerifyProfileid(string profileid) { return this.IEmployeeReport.VerifyProfileid(profileid); }
 
 
@@ -214,16 +214,24 @@ namespace WebapiApplication.Api
 
         public int? getMarketingticketstatus(Int64? ticketid, string EmpID) { return this.IEmployeeReport.Marketingticketstatus(ticketid, EmpID); }
 
-        public ArrayList getAdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress,int? flag) { return this.IEmployeeReport.AdminReportsAllProfiles(i_EmpID, i_BranchID, v_MacAddress,flag); }
+        public ArrayList getAdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress, int? flag) { return this.IEmployeeReport.AdminReportsAllProfiles(i_EmpID, i_BranchID, v_MacAddress, flag); }
 
         public ArrayList getCheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB) { return this.IEmployeeReport.CheckSurNameNamedob(strSurName, StrName, dtDOB); }
 
         public int? InsertResonForNoService([FromBody]insetnoserice Mobj) { return this.IEmployeeReport.InsertResonForNoService(Mobj); }
 
 
-        public ArrayList getNomatchesreasons(string v_EmpID, int? i_Region, string v_Branch) { return this.IEmployeeReport.Nomatchesreasons(v_EmpID, i_Region, v_Branch); }
+        public ArrayList getNomatchesreasons(string v_EmpID, int? i_Region, string v_Branch, int? i_flag, int? i_Cust_ID, string v_Reason) { return this.IEmployeeReport.Nomatchesreasons(v_EmpID, i_Region, v_Branch, i_flag, i_Cust_ID, v_Reason); }
 
 
+        public ArrayList Oldkmplkeywordlikesearch([FromBody]CreateKeywordLlikesearchReqoldkmpl oldkmpl)
+        {
+            int status = 0;
+            List<CreateKeywordLlikesearchReqoldkmpl> lstkmpl = new List<CreateKeywordLlikesearchReqoldkmpl>();
+            lstkmpl.Add(oldkmpl);
+            oldkmpl.dtPartnerPreference = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtkeywordsearch(), lstkmpl);
+            return this.IEmployeeReport.Oldkmplkeywordlikesearch(oldkmpl);
+        }
     }
 }
 

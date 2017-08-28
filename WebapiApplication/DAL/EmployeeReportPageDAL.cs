@@ -705,6 +705,9 @@ namespace WebapiApplication.DAL
                             Binterest.FromExpiryDate = (reader["FromExpiryDate"]) != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("FromExpiryDate")) : dnull;
                             Binterest.ToExpiryDate = (reader["ToExpiryDate"]) != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("ToExpiryDate")) : dnull;
 
+                            Binterest.Expressinterestlogid = (reader["Expressinterestlogid"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Expressinterestlogid")) : Lnull;
+
+
                             arrayList.Add(Binterest);
 
                         }
@@ -4471,12 +4474,14 @@ namespace WebapiApplication.DAL
             return intStatus;
         }
 
-        public ArrayList Nomatchesreasons(string v_EmpID, int? i_Region, string v_Branch, string spname)
+        public ArrayList Nomatchesreasons(string v_EmpID, int? i_Region, string v_Branch, int? i_flag, int? i_Cust_ID, string v_Reason, string spname)
         {
-            SqlParameter[] parm = new SqlParameter[5];
+            SqlParameter[] parm = new SqlParameter[8];
+            ArrayList arrayList = new ArrayList();
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
+            int intStatus = 0;
             DataSet ds = new DataSet();
             try
             {
@@ -4486,6 +4491,57 @@ namespace WebapiApplication.DAL
                 parm[1].Value = i_Region;
                 parm[2] = new SqlParameter("@v_Branch", SqlDbType.VarChar);
                 parm[2].Value = v_Branch;
+                parm[3] = new SqlParameter("@i_flag", SqlDbType.Int);
+                parm[3].Value = i_flag;
+                parm[4] = new SqlParameter("@i_Cust_ID", SqlDbType.Int);
+                parm[4].Value = i_Cust_ID;
+                parm[5] = new SqlParameter("@v_Reason", SqlDbType.VarChar);
+                parm[5].Value = v_Reason;
+                parm[6] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[6].Direction = ParameterDirection.Output;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[6].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[6].Value);
+                }
+                arrayList.Add(intStatus);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return i_flag == 1 || i_flag == 2 ? arrayList : Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public ArrayList Oldkmplkeywordlikesearch(CreateKeywordLlikesearchReqoldkmpl oldkmpl, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[7];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@TblDetails", SqlDbType.Structured);
+                parm[0].Value = oldkmpl.dtPartnerPreference;
+                parm[1] = new SqlParameter("@intEmpID", SqlDbType.Int);
+                parm[1].Value = oldkmpl.EmpID;
+                parm[2] = new SqlParameter("@i_Startindex", SqlDbType.Int);
+                parm[2].Value = oldkmpl.startindex;
+                parm[3] = new SqlParameter("@i_EndIndex", SqlDbType.Int);
+                parm[3].Value = oldkmpl.EndIndex;
+                parm[4] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[4].Direction = ParameterDirection.Output;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
             }
             catch (Exception EX)
