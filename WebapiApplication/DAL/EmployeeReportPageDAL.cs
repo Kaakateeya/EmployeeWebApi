@@ -4522,5 +4522,39 @@ namespace WebapiApplication.DAL
             }
             return i_flag == 1 || i_flag == 2 ? arrayList : Commonclass.convertdataTableToArrayListTable(ds);
         }
+
+        public ArrayList Oldkmplkeywordlikesearch(CreateKeywordLlikesearchReqoldkmpl oldkmpl, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[7];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@TblDetails", SqlDbType.Structured);
+                parm[0].Value = oldkmpl.dtPartnerPreference;
+                parm[1] = new SqlParameter("@intEmpID", SqlDbType.Int);
+                parm[1].Value = oldkmpl.EmpID;
+                parm[2] = new SqlParameter("@i_Startindex", SqlDbType.Int);
+                parm[2].Value = oldkmpl.startindex;
+                parm[3] = new SqlParameter("@i_EndIndex", SqlDbType.Int);
+                parm[3].Value = oldkmpl.EndIndex;
+                parm[4] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[4].Direction = ParameterDirection.Output;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }

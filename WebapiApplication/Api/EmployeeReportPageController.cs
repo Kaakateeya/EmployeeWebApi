@@ -224,6 +224,14 @@ namespace WebapiApplication.Api
         public ArrayList getNomatchesreasons(string v_EmpID, int? i_Region, string v_Branch, int? i_flag, int? i_Cust_ID, string v_Reason) { return this.IEmployeeReport.Nomatchesreasons(v_EmpID, i_Region, v_Branch, i_flag, i_Cust_ID, v_Reason); }
 
 
+        public ArrayList Oldkmplkeywordlikesearch([FromBody]CreateKeywordLlikesearchReqoldkmpl oldkmpl)
+        {
+            int status = 0;
+            List<CreateKeywordLlikesearchReqoldkmpl> lstkmpl = new List<CreateKeywordLlikesearchReqoldkmpl>();
+            lstkmpl.Add(oldkmpl);
+            oldkmpl.dtPartnerPreference = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtkeywordsearch(), lstkmpl);
+            return this.IEmployeeReport.Oldkmplkeywordlikesearch(oldkmpl);
+        }
     }
 }
 
