@@ -406,14 +406,12 @@
 
             $("#80000").click(function() {
                 $.ajax({
-                    url: 'http://localhost:63006/Api/MobileAppLanding/getMobileLandingOrderDisplay',
+                    url: 'http://localhost:63006/Api/smallPages/GetbrideGroomDataNew',
                     type: 'GET',
                     crossDomain: true,
                     data: {
-                        CustID: '91022',
-                      
-                        Startindex: '1',
-                        EndIndex: '9'
+                        profileID: '310910220',
+                        iFlag:1
                     },
                     contentType: 'application/json',
                     success: function(data, textStatus, xhr) {

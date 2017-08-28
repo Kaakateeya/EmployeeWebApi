@@ -25,8 +25,9 @@ namespace WebapiApplication.Api
       
         //private readonly ISmallPages Iobj = new ImpSmallPages();
         private readonly ISmallPages Iobj;
-        
-        public smallPagesController(): base()
+
+        public smallPagesController()
+            : base()
         {
             Iobj = new ImpSmallPages();
         }
@@ -168,9 +169,10 @@ namespace WebapiApplication.Api
         public Tuple<int, ArrayList> GetbrideGroomDataNew(string profileID, int iFlag) { return Iobj.GetbrideGroomDataNew(profileID, iFlag); }
 
         public int createSuccessStories(createSuccessStoryRequest mobj) { return Iobj.createSuccessStories(mobj); }
-
+        [HttpGet]
         public int deleteSucessStories(string sucessStoryID, string brideProfileID, string groomProfileID) { return Iobj.deleteSucessStories(sucessStoryID,brideProfileID, groomProfileID); }
-
+        public ArrayList matchMeetingCountReport(matchMeetingCountMl mobj) { return Iobj.matchMeetingCountReport(mobj); }
+        public ArrayList matchMeetingCountInfo(matchMeetingCountInfoMl mobj) { return Iobj.matchMeetingCountInfo(mobj); }
 
     }
 }

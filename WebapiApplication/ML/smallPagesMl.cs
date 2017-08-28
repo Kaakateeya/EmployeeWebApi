@@ -396,6 +396,34 @@ namespace WebapiApplication.ML
         public int flag { get; set; }
         public string strSuccessstories { get; set; }        
     }
+
+    public class matchMeetingCountMl
+    {
+        public int? AppusrID { get; set; }
+        public int? SearchBy { get; set; }
+        public string count { get; set; }
+        public int? Countfrom { get; set; }
+        public int? CountTo { get; set; }
+        public int? Dcount { get; set; }
+        public DateTime? FromDate { get; set; }
+        public DateTime? toDate { get; set; }
+        public string strBranch { get; set; }
+        public string strCaste { get; set; }
+        public DataTable dtBranch { get; set; }
+        public DataTable dtCaste { get; set; }
+        public int? SerialnoFrom { get; set; }
+        public int? serialnoto { get; set; }
+    }
+
+    public class matchMeetingCountInfoMl
+    {
+        public int? custid { get; set; }
+        public int? Empid { get; set; }
+        public int? MMCustID { get; set; }
+        public int? MMCustID2 { get; set; } 
+    }
+
+
 }
 
 
