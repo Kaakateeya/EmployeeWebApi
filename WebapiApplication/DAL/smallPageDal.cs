@@ -1352,6 +1352,87 @@ namespace WebapiApplication.DAL
 
             return Status;
         }
+
+        public ArrayList matchMeetingCountReportDal(matchMeetingCountMl mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[12];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@i_AppUserId", SqlDbType.Int);
+                parm[0].Value = mobj.AppusrID;
+                parm[1] = new SqlParameter("@i_Flag", SqlDbType.Int);
+                parm[1].Value = mobj.SearchBy;
+                parm[2] = new SqlParameter("@i_Flagcount", SqlDbType.VarChar);
+                parm[2].Value = mobj.count;
+                parm[3] = new SqlParameter("@i_CountFrom", SqlDbType.Int);
+                parm[3].Value = mobj.Countfrom;
+                parm[4] = new SqlParameter("@i_CountTo", SqlDbType.Int);
+                parm[4].Value = mobj.CountTo;
+                parm[5] = new SqlParameter("@b_Count", SqlDbType.Bit);
+                parm[5].Value = mobj.Dcount;
+                parm[6] = new SqlParameter("@d_StartDate", SqlDbType.DateTime);
+                parm[6].Value = mobj.FromDate;
+                parm[7] = new SqlParameter("@d_EndDate", SqlDbType.DateTime);
+                parm[7].Value = mobj.toDate;
+                parm[8] = new SqlParameter("@t_Branch", SqlDbType.Structured);
+                parm[8].Value = Commonclass.returndt(mobj.strBranch, mobj.dtBranch, "branch", "branchTable");
+                parm[9] = new SqlParameter("@t_Caste", SqlDbType.Structured);
+                parm[9].Value = Commonclass.returndt(mobj.strCaste, mobj.dtCaste, "caste", "castetable");
+                parm[10] = new SqlParameter("@i_SubFrom", SqlDbType.Int);
+                parm[10].Value = mobj.SerialnoFrom;
+                parm[11] = new SqlParameter("@i_SubTo", SqlDbType.Int);
+                parm[11].Value = mobj.serialnoto;
+               
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public ArrayList matchMeetingCountInfoDal(matchMeetingCountInfoMl Mobj, string spname)
+        {
+            SqlParameter[] param = new SqlParameter[4];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                param[0] = new SqlParameter("@i_CId", SqlDbType.Int);
+                param[0].Value = Mobj.custid;
+                param[1] = new SqlParameter("@i_Eid", SqlDbType.Int);
+                param[1].Value = Mobj.Empid;
+                param[2] = new SqlParameter("@i_Mcid", SqlDbType.Int);
+                param[2].Value = Mobj.MMCustID;
+                param[3] = new SqlParameter("@i_Meid", SqlDbType.Int);
+                param[3].Value = Mobj.MMCustID2;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, param);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }
 

@@ -44,6 +44,8 @@ namespace WebapiApplication.Implement
 
         public int createSuccessStories(createSuccessStoryRequest mobj) { return dobj.createSuccessStoriesDal(mobj, "[dbo].[Usp_Successstories]"); }
         public int deleteSucessStories(string sucessStoryID, string brideProfileID, string groomProfileID) { return dobj.deleteSucessStoriesDal(sucessStoryID,brideProfileID, groomProfileID, "[dbo].[Usp_Successstories_delete]"); }
+        public ArrayList matchMeetingCountReport(matchMeetingCountMl mobj) { return dobj.matchMeetingCountReportDal(mobj, "[dbo].[usp_Reports_MatchMeetingCount]"); }
+        public ArrayList matchMeetingCountInfo(matchMeetingCountInfoMl mobj) { return dobj.matchMeetingCountInfoDal(mobj, "[dbo].[usp_Reports_MatchMeeting_View]"); }
 
     }
 }

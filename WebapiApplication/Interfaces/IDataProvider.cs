@@ -418,6 +418,10 @@ namespace WebapiApplication.Interfaces
         int createSuccessStories(createSuccessStoryRequest mobj);
 
         int deleteSucessStories(string sucessStoryID, string brideProfileID, string groomProfileID);
+
+        ArrayList matchMeetingCountReport(matchMeetingCountMl mobj);
+
+        ArrayList matchMeetingCountInfo(matchMeetingCountInfoMl mobj);
     }
 
     public interface IMobileAppDev
