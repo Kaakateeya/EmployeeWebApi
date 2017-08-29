@@ -378,7 +378,7 @@ namespace WebapiApplication.ML
         public int intlowerBound { get; set; }
         public int intUpperBound { get; set; }
         public int? value { set; get; }
-      
+
     }
 
     public class createSuccessStoryRequest
@@ -394,7 +394,7 @@ namespace WebapiApplication.ML
         public string SuccesSstory { get; set; }
         public int? Displayinweb { set; get; }
         public int flag { get; set; }
-        public string strSuccessstories { get; set; }        
+        public string strSuccessstories { get; set; }
     }
 
     public class matchMeetingCountMl
@@ -420,10 +420,31 @@ namespace WebapiApplication.ML
         public int? custid { get; set; }
         public int? Empid { get; set; }
         public int? MMCustID { get; set; }
-        public int? MMCustID2 { get; set; } 
+        public int? MMCustID2 { get; set; }
     }
 
 
+    public class settleDeleteProfilesReport
+    {
+        public int IsAdmin { get; set; }
+        public string strProfileID { get; set; }
+        public string typeofStatus { get; set; }
+        public int? AuthorizeStatus { get; set; }
+        public int? Gender { get; set; }
+        public int? ProfileType { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
+        public int IsConfidential { get; set; }
+        public DataTable t_authorizedBy { set; get; }
+        public DataTable t_enteredBy { set; get; }
+        public DataTable t_Branch { set; get; }
+        public DataTable t_Caste { get; set; }
+        public DataTable t_ProfileOwnerId { set; get; }
+        public int? i_Regionfield { set; get; }
+        public int? StartIndex { set; get; }
+        public int? EndIndex { set; get; }
+       
+    }
 }
 
 
