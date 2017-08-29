@@ -440,6 +440,11 @@ namespace WebapiApplication.ML
         public DataTable t_Branch { set; get; }
         public DataTable t_Caste { get; set; }
         public DataTable t_ProfileOwnerId { set; get; }
+        public string strauthorizedBy { set; get; }
+        public string strenteredBy { set; get; }
+        public string strBranch { set; get; }
+        public string strCaste { get; set; }
+        public string strProfileOwnerId { set; get; }
         public int? i_Regionfield { set; get; }
         public int? StartIndex { set; get; }
         public int? EndIndex { set; get; }
