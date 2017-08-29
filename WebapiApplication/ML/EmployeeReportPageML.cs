@@ -432,13 +432,13 @@ namespace WebapiApplication.ML
     public class employeepaymentedit
     {
 
-        public Int64? Empid { get; set; }
-
-        public string aggredamount { get; set; }
-
-        public string paidamount { get; set; }
-
-        public string paymentdescription { get; set; }
+        public int? Empid { get; set; }
+        public int? intpaymentid { get; set; }
+        public int? intPaymentHisId { get; set; }
+        public string ProfileID { get; set; }
+        public Decimal? decgreedAmount { get; set; }
+        public Decimal? decPaidAmount { get; set; }
+        public string strPaydescription { get; set; }
     }
     public class insertemailsbounce
     {
@@ -761,7 +761,7 @@ namespace WebapiApplication.ML
 
         public DataTable dtPartnerPreference { get; set; }
     }
-  }
+}
 
 
 
