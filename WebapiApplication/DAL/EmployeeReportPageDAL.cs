@@ -3639,25 +3639,31 @@ namespace WebapiApplication.DAL
             connection.Open();
             try
             {
-                parm[0] = new SqlParameter("@intEmpId", SqlDbType.BigInt);
+                parm[0] = new SqlParameter("@intempid", SqlDbType.Int);
                 parm[0].Value = Mobj.Empid;
-                parm[1] = new SqlParameter("@aggredamount", SqlDbType.VarChar);
-                parm[1].Value = Mobj.aggredamount;
-                parm[2] = new SqlParameter("@paidamount", SqlDbType.VarChar);
-                parm[2].Value = Mobj.paidamount;
-                parm[3] = new SqlParameter("@paymentdescription", SqlDbType.VarChar);
-                parm[3].Value = Mobj.paymentdescription;
-                parm[4] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[4].Direction = ParameterDirection.Output;
+                parm[1] = new SqlParameter("@intpaymentid", SqlDbType.Int);
+                parm[1].Value = Mobj.intpaymentid;
+                parm[2] = new SqlParameter("@intPaymentHisId", SqlDbType.Int);
+                parm[2].Value = Mobj.intPaymentHisId;
+                parm[3] = new SqlParameter("@strprofileid", SqlDbType.VarChar);
+                parm[3].Value = Mobj.ProfileID;
+                parm[4] = new SqlParameter("@decgreedAmount", SqlDbType.Decimal);
+                parm[4].Value = Mobj.decgreedAmount;
+                parm[5] = new SqlParameter("@decPaidAmount", SqlDbType.Decimal);
+                parm[5].Value = Mobj.decPaidAmount;
+                parm[6] = new SqlParameter("@strPaydescription", SqlDbType.VarChar);
+                parm[6].Value = Mobj.strPaydescription;
+                parm[7] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[7].Direction = ParameterDirection.Output;
                 DataSet ds = new DataSet();
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[4].Value.ToString()).Equals(0))
+                if (string.Compare(System.DBNull.Value.ToString(), parm[7].Value.ToString()).Equals(0))
                 {
                     intStatus = 0;
                 }
                 else
                 {
-                    intStatus = Convert.ToInt32(parm[4].Value);
+                    intStatus = Convert.ToInt32(parm[7].Value);
                 }
             }
             catch (Exception EX)
@@ -4500,15 +4506,18 @@ namespace WebapiApplication.DAL
                 parm[6] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[6].Direction = ParameterDirection.Output;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[6].Value.ToString()).Equals(0))
+                if (i_flag == 1 || i_flag == 2)
                 {
-                    intStatus = 0;
+                    if (string.Compare(System.DBNull.Value.ToString(), parm[6].Value.ToString()).Equals(0))
+                    {
+                        intStatus = 0;
+                    }
+                    else
+                    {
+                        intStatus = Convert.ToInt32(parm[6].Value);
+                    }
+                    arrayList.Add(intStatus);
                 }
-                else
-                {
-                    intStatus = Convert.ToInt32(parm[6].Value);
-                }
-                arrayList.Add(intStatus);
             }
             catch (Exception EX)
             {
