@@ -1433,6 +1433,64 @@ namespace WebapiApplication.DAL
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
+
+        public ArrayList ProfileDeleteProfilesReportDal(settleDeleteProfilesReport Mobj, string spname)
+        {
+            SqlParameter[] param = new SqlParameter[17];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                param[0] = new SqlParameter("@i_AppUserId", SqlDbType.BigInt);
+                param[0].Value = Mobj.IsAdmin;
+                param[1] = new SqlParameter("@vc_ProfileID", SqlDbType.VarChar);
+                param[1].Value = Mobj.strProfileID;
+                param[2] = new SqlParameter("@vc_Selecttype", SqlDbType.Char);
+                param[2].Value = Mobj.typeofStatus;
+                param[3] = new SqlParameter("@i_AuthorizationStatus", SqlDbType.Int);
+                param[3].Value = Mobj.AuthorizeStatus;
+                param[4] = new SqlParameter("@i_gender", SqlDbType.Int);
+                param[4].Value = Mobj.Gender;
+                param[5] = new SqlParameter("@i_ProfilePaid", SqlDbType.Int);
+                param[5].Value = Mobj.ProfileType;
+                param[6] = new SqlParameter("@d_StartDate", SqlDbType.DateTime);
+                param[6].Value = Mobj.StartDate;
+                param[7] = new SqlParameter("@d_EndDate", SqlDbType.DateTime);
+                param[7].Value = Mobj.EndDate;
+                param[8] = new SqlParameter("@b_isConfidential", SqlDbType.Bit);
+                param[8].Value = Mobj.IsConfidential;
+                param[9] = new SqlParameter("@t_authorizedBy", SqlDbType.Structured);
+                param[9].Value = Commonclass.returndt(Mobj.strauthorizedBy, Mobj.t_authorizedBy, "authorizedby", "authorizeTable");
+                param[10] = new SqlParameter("@t_enteredBy", SqlDbType.Structured);
+                param[10].Value = Commonclass.returndt(Mobj.strenteredBy, Mobj.t_enteredBy, "enteredBy", "enteredByTable");
+                param[11] = new SqlParameter("@t_Branch", SqlDbType.Structured);
+                param[11].Value = Commonclass.returndt(Mobj.strBranch, Mobj.t_Branch, "branch", "branchTable");
+                param[12] = new SqlParameter("@t_Caste", SqlDbType.Structured);
+                param[12].Value = Commonclass.returndt(Mobj.strCaste, Mobj.t_Caste, "caste", "casteTable");
+                param[13] = new SqlParameter("@t_ProfileOwner", SqlDbType.Structured);
+                param[13].Value = Commonclass.returndt(Mobj.strProfileOwnerId, Mobj.t_ProfileOwnerId, "profileOwner", "profileownerTable");
+                param[14] = new SqlParameter("@i_Region", SqlDbType.Int);
+                param[14].Value = Mobj.i_Regionfield;
+                param[15] = new SqlParameter("@i_Startindex", SqlDbType.Int);
+                param[15].Value = Mobj.StartIndex;
+                param[16] = new SqlParameter("@i_EndIndex", SqlDbType.Int);
+                param[16].Value = Mobj.EndIndex;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, param);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }
 

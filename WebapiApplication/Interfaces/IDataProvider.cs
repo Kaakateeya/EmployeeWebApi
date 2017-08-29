@@ -422,6 +422,8 @@ namespace WebapiApplication.Interfaces
         ArrayList matchMeetingCountReport(matchMeetingCountMl mobj);
 
         ArrayList matchMeetingCountInfo(matchMeetingCountInfoMl mobj);
+
+        ArrayList ProfileDeleteProfilesReport(settleDeleteProfilesReport mobj);
     }
 
     public interface IMobileAppDev
