@@ -4506,15 +4506,18 @@ namespace WebapiApplication.DAL
                 parm[6] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[6].Direction = ParameterDirection.Output;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[6].Value.ToString()).Equals(0))
+                if (i_flag == 1 || i_flag == 2)
                 {
-                    intStatus = 0;
+                    if (string.Compare(System.DBNull.Value.ToString(), parm[6].Value.ToString()).Equals(0))
+                    {
+                        intStatus = 0;
+                    }
+                    else
+                    {
+                        intStatus = Convert.ToInt32(parm[6].Value);
+                    }
+                    arrayList.Add(intStatus);
                 }
-                else
-                {
-                    intStatus = Convert.ToInt32(parm[6].Value);
-                }
-                arrayList.Add(intStatus);
             }
             catch (Exception EX)
             {
