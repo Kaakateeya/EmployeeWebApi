@@ -170,14 +170,14 @@ namespace WebapiApplication.Implement
 
         public int? Marketingticketstatus(Int64? ticketid, string EmpID) { return new EmployeeReportPageDAL().Marketingticketstatus(ticketid, EmpID, "[dbo].[usp_UpdateTicketStatus]"); }
 
-        public ArrayList AdminReportsAllProfiles(int? i_EmpID, int? i_BranchID, string v_MacAddress, int? flag) { return new EmployeeReportPageDAL().AdminReportsAllProfiles(i_EmpID, i_BranchID, v_MacAddress, flag, "[dbo].[usp_Emp_SchedulerWorkPending]"); }
+        public ArrayList AdminReportsAllProfiles(int? i_EmpID, string i_BranchID, int? i_Region, string v_MacAddress, int? flag) { return new EmployeeReportPageDAL().AdminReportsAllProfiles(i_EmpID, i_BranchID, i_Region, v_MacAddress, flag, "[dbo].[usp_Emp_SchedulerWorkPending]"); }
 
 
         public ArrayList CheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB) { return new EmployeeReportPageDAL().CheckSurNameNamedob(strSurName, StrName, dtDOB, "[dbo].[usp_CheckSurNameName]"); }
 
         public int? InsertResonForNoService([FromBody]insetnoserice Mobj) { return new EmployeeReportPageDAL().InsertResonForNoService(Mobj, "[dbo].[usp_Insert_ResonForNoService]"); }
 
-        public ArrayList Nomatchesreasons(string v_EmpID, int? i_Region, string v_Branch, int? i_flag, int? i_Cust_ID, string v_Reason) { return new EmployeeReportPageDAL().Nomatchesreasons(v_EmpID, i_Region, v_Branch, i_flag, i_Cust_ID,v_Reason, "[dbo].[usp_NoMatchmettingreason]"); }
+        public ArrayList Nomatchesreasons(string v_EmpID, int? i_Region, string v_Branch, int? i_flag, int? i_Cust_ID, string v_Reason) { return new EmployeeReportPageDAL().Nomatchesreasons(v_EmpID, i_Region, v_Branch, i_flag, i_Cust_ID, v_Reason, "[dbo].[usp_NoMatchmettingreason]"); }
 
 
         public ArrayList Oldkmplkeywordlikesearch([FromBody]CreateKeywordLlikesearchReqoldkmpl oldkmpl) { return new EmployeeReportPageDAL().Oldkmplkeywordlikesearch(oldkmpl, "[dbo].[Usp_Search_KeyWord_oldkmpl]"); }
