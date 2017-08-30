@@ -4,532 +4,7 @@
 <head>
     <title></title>
     <script src="//code.jquery.com/jquery.min.js" type="text/javascript"></script>
-    <script>
-        $(document).ready(function() {
-
-            var object = {
-
-                GetDetails: {
-                    AgeFromID: "25",
-                    AgeFromText: null,
-                    AgeToID: "29",
-                    AgeToText: null,
-                    AnnualIncomefrom: null,
-                    AnnualIncometo: null,
-                    AnnualincomeID: null,
-                    AnnualincomeText: null,
-                    ApplicationstatusID: null,
-                    ApplicationstatusText: null,
-                    BranchID: null,
-                    BranchText: null,
-                    CountryID: "1",
-                    CountryText: null,
-                    CustID: 91022,
-                    Dateofregfrom: null,
-                    Dateofregto: null,
-                    EducationID: "1",
-                    EducationText: null,
-                    GenderID: "1",
-                    GenderText: null,
-                    HeightFromID: "21",
-                    HeightFromText: null,
-                    HeightToID: "27",
-                    HeightToText: null,
-                    LastestLoginsfrom: null,
-                    LastestLoginsto: null,
-                    MaritalstatusID: "43",
-                    MaritalstatusText: null,
-                    MothertongueID: "1",
-                    MothertongueText: null,
-                    OnlyConfidential: 0,
-                    ProfessionID: null,
-                    ProfessionText: null,
-                    ProfileID: null,
-                    PropertyValuefrom: null,
-                    PropertyValueto: null,
-                    RegionID: null,
-                    RegionText: null,
-                    ReligionID: "1",
-                    ReligionText: null,
-                    SeriousMatch: null,
-                    ShowinprofileText: null,
-                    castID: "402,403,402",
-                    castIDText: null,
-                    slidegride: null
-                },
-                customerpersonaldetails: {
-                    Admin: 1,
-                    CustID: "91022",
-                    EmpID: "2",
-                    EndIndex: 10,
-                    startindex: 1
-
-                }
-
-            }
-
-            var Mobjddd = {
-                custfamiliyid: 1174407,
-                MoblieCountryCode: 13,
-                MobileNumber: "1111111111",
-                LandCountryCode: 22,
-                LandAreaCode: null,
-                LandNumber: "3333333333",
-                Email: "testing@gmail.com",
-                intCusID: 111070,
-                EmpID: "2",
-                Admin: null,
-                SibblingFlag: "Parent"
-            }
-
-
-            var MobjMob = {
-
-
-                CustID: 91022,
-                Email: "Test1234@gmail.com",
-                MobileNumber: "55555555",
-                CountryCode: "1",
-                VerificationCode: "04544",
-                isVerified: "1"
-
-
-
-            }
-
-
-            var object123 = {
-                customerpersonaldetails: {
-                    FromCustID: "",
-                    EmpID: "141",
-                    emailaddress: "lakshmidevi407@gmail.com"
-                },
-                GetDetails: [{
-                    FromProfileID: "310910220",
-                    ToProfileID: "210910352",
-                    EmpID: 141,
-                    ModeofService: 351,
-                    RelationShipID: 39,
-                    Name: "venkata Ramana gggggg ",
-                    TypeOfService: "2",
-                    ProfileType: "1",
-                    Sendsms: 1,
-                    IsRvrSend: 1,
-                    SelectedImages: "img2.jpg,img3.jpg;210910352",
-                    Acceptlink: "",
-                    Rejectlink: "",
-                    EmailAddress: "lakshmidevi407@gmail.com",
-                    RVRAcceptlink: "",
-                    RVRRejectlink: ""
-                }]
-
-            }
-
-            var dd = {
-                EMPID: "2",
-                FromCustID: 91022,
-                FromProfileID: "310910220",
-                HistoryUpdate: 1,
-                LTicketID: 1054519,
-                Notes: "Bride is interested in your profile.",
-                TicketStatusID: "Accept",
-                ToProfileID: "110169486",
-                TocustID: 16948,
-                profileid: "310910220"
-
-            }
-            var inputobj = {
-
-                strBranch: null,
-                strEmpName: '2',
-                i_isAdmin: 1,
-                i_EmpID: 2,
-                i_PageFrom: 1,
-                i_PageTo: 10,
-                dtFromProceedDate: null,
-                dtToProceedDate: null,
-                i_days: null,
-                i_RegionID: null,
-                v_MarketremindeFlag: 2,
-                v_siblingflag: 0,
-                v_guestticketflag: 0,
-                v_OnlineExprd: 0,
-                v_OfflineExprd: 0,
-                i_TicketId: null,
-                i_EmailId: null,
-                i_PhoneNumber: null,
-                i_Name: null,
-                dt_Opendate: null,
-                i_ProfileId: null,
-                i_Category: null,
-                i_Ticketstatus: null,
-                dt_FromRemainderdate: null,
-                dt_ToReminderdate: null,
-                i_Excelflag: null,
-                V_Notpay: null
-
-            }
-
-
-            var inputobjED = {
-                genderID: "",
-                strFName: "",
-                strSurName: "",
-                strProfileID: "",
-                strKMMLID: "",
-                profileStatus: "54",
-                intStartIndex: 1,
-                intEndIndex: 100,
-                intEmpID: "2",
-                isSlide: 1
-            }
-
-
-            var inputobjREG = {
-                strMFFNativePlace: null,
-                strFatherName: null,
-                strMotherName: null,
-                strFFName: null,
-                strMFName: null,
-                strMFSurName: null,
-                strCustSurName: null,
-                strCustName: null,
-                strCaste: null,
-                strAllPhones: null,
-                strAllEmailIds: null,
-                intAppicationStatusID: null,
-                intGenderID: null,
-                intEmpID: null,
-                i_Startindex: "1",
-                i_EndIndex: "100"
-            }
-
-
-            //var Mobj = {
-            //    "customerpersonaldetails": {
-            //        "FromCustID": 20556,
-            //        "EmpID": "2",
-            //        "emailaddress": "lakshmidevi407@gmail.com,kusumurugopalkrishna@gmail.com,kusumurugopalkrishna@gmail.com"
-            //    },
-            //    "GetDetails": [{
-            //        "FromProfileID": "010205568",
-            //        "ToProfileID": "210069845",
-            //        "EmpID": "2",
-            //        "ModeofService": 350,
-            //        "RelationShipID": 40,
-            //        "Name": "P.CHANDRIKA ",
-            //        "TypeOfService": 366,
-            //        "ProfileType": 358,
-            //        "Sendsms": 0,
-            //        "IsRvrSend": 1,
-            //        "SelectedImages": "img3.Jpg,img2.Jpg,img1.Jpg",
-            //        "Acceptlink": "",
-            //        "Rejectlink": "",
-            //        "EmailAddress": "lakshmidevi407@gmail.com,kusumurugopalkrishna@gmail.com,kusumurugopalkrishna@gmail.com",
-            //        "RVRAcceptlink": "",
-            //        "RVRRejectlink": ""
-            //    }, {
-            //        "FromProfileID": "010205568",
-            //        "ToProfileID": "210069818",
-            //        "EmpID": "2",
-            //        "ModeofService": 350,
-            //        "RelationShipID": 40,
-            //        "Name": "P.CHANDRIKA ",
-            //        "TypeOfService": 366,
-            //        "ProfileType": 358,
-            //        "Sendsms": 0,
-            //        "IsRvrSend": 1,
-            //        "SelectedImages": "img3.Jpg,img2.Jpg,img1.Jpg",
-            //        "Acceptlink": "",
-            //        "Rejectlink": "",
-            //        "EmailAddress": "lakshmidevi407@gmail.com,kusumurugopalkrishna@gmail.com,kusumurugopalkrishna@gmail.com",
-            //        "RVRAcceptlink": "",
-            //        "RVRRejectlink": ""
-            //    }]
-            //};
-            var Mobj = {
-                "GetDetails": [{
-                    Acceptlink: "",
-                    EmailAddress: "lakshmidevi407@gmail.com,hfshj@gmail.com",
-                    EmpID: "2",
-                    FromProfileID: "310910220",
-                    IsRvrSend: 1,
-                    ModeofService: 353,
-                    ProfileType: 358,
-                    RVRAcceptlink: "",
-                    RVRRejectlink: "",
-                    Rejectlink: "",
-                    RelationShipID: 0,
-                    SelectedImages: "img1.jpg,img2.jpg",
-                    Sendsms: 1,
-                    ToProfileID: "010970105",
-                    TypeOfService: 366
-                }],
-                "customerpersonaldetails": {
-                    EmpID: "2",
-                    FromCustID: 91022,
-                    emailaddress: "lakshmidevi407@gmail.com,hfshj@gmail.com"
-                }
-
-            };
-            $("#Display").click(function() {
-
-                alert(Mobj);
-
-                $.ajax({
-                    url: 'http://localhost:63006/Api/ExpressInterest/ExpressInterest',
-                    type: 'POST',
-                    crossDomain: true,
-                    data: JSON.stringify(Mobj),
-                    contentType: 'application/json',
-                    success: function(data, textStatus, xhr) {
-                        alert(JSON.stringify(data));
-                        console.log(data);
-                    },
-                    error: function(xhr, textStatus, errorThrown) {
-                        console.log(xhr);
-                    }
-                });
-            });
-
-            //$("#test").click(function () {
-
-            //    alert(1);
-            //    var inputobj = {
-            //        CustID: 679,
-            //        MarketingOwner: "2",
-            //        ModifiedEMPID: 2,
-            //        ProfileID: "010006792",
-            //        ProfileOwner: "2",
-            //        ReviewOwner: "2"
-            //    }
-            //    $.ajax({
-            //        url: 'http://localhost:63006/Api/EmployeeReportPage/Assignprofiles',
-            //        type: 'POST',
-            //        crossDomain: true,
-            //        data: JSON.stringify(inputobj),
-            //        contentType: 'application/json',
-            //        success: function (data, textStatus, xhr) {
-            //            alert(JSON.stringify(data));
-            //            console.log(data);
-            //        },
-            //        error: function (xhr, textStatus, errorThrown) {
-            //            console.log(xhr);
-            //        }
-            //    });
-            //});
-
-            $("#test").click(function() {
-
-                alert(1);
-                var inputobj = {
-                    ApplicationStatusid: null,
-                    Branchid: null,
-                    Casteid: null,
-                    Confidential: 0,
-                    EmpType: null,
-                    EndDate: null,
-                    From: 1,
-                    FromAmount: null,
-                    Gender: null,
-                    IsAdmin: "2",
-                    IsAmountThere: 0,
-                    IsServiceTaxPaid: null,
-                    ModeOfPaymentID: null,
-                    PageNumber: 1,
-                    PageSize: 1,
-                    PayFor: null,
-                    PaymenytStatus: null,
-                    Region: null,
-                    StartDate: null,
-                    StrProfileID: null,
-                    To: 10,
-                    ToAmount: null,
-                    flag: 0,
-                    profileownerid: null
-                }
-                $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/EmplyeepaymentReportspayment',
-                    type: 'POST',
-                    crossDomain: true,
-                    data: JSON.stringify(inputobj),
-                    contentType: 'application/json',
-                    success: function(data, textStatus, xhr) {
-                        alert(JSON.stringify(data));
-                        console.log(data);
-                    },
-                    error: function(xhr, textStatus, errorThrown) {
-                        console.log(xhr);
-                    }
-                });
-            });
-            var daattt = {
-                "strMFFNativePlace": "",
-                "strFatherName": "",
-                "strMotherName": "",
-                "strFFName": "",
-                "strMFName": "",
-                "strMFSurName": "",
-                "strCustSurName": "yalamanchi",
-                "strCustName": "",
-                "strCaste": "",
-                "strAllPhones": "",
-                "strAllEmailIds": "",
-                "intAppicationStatusID": "",
-                "intGenderID": "",
-                "intEmpID": "2",
-                "i_Startindex": 1,
-                "i_EndIndex": 100
-            };
-
-
-
-            //var inputobj2 = {
-            //    "GetDetails": { "BornOrder": 2, "SisElderYounger": "321", "SisName": "second", "siseducationdetails": null, "SisProfessionCategoryID": 567, "sisprofessiondetails": null, "undefined": "1", "SisCompanyName": null, "SisJobLocation": null, "SisMobileCountryCodeID": null, "SisMobileNumber": null, "SisLandCountryCodeID": null, "SisLandAreaCode": null, "SisLandNumber": null, "SisEmail": "kusumavishwaneni@gmail.com", "SIsMarried": 1, "SisHusbandName": "ramya ", "sisspouseeducationdetails": null, "SisSpouseProfessionCategoryID": 569, "sisspouseprofessiondetails": null, "SisHusCompanyName": null, "SisHusJobLocation": null, "SisHusbandMobileCountryCodeID": null, "SisHusbandMobileNumber": "8978987875", "SisHusbandLandCountryCodeID": null, "SisHusbandLandAreacode": null, "SisHusbandLandNumber": null, "SisSpouseEmail": null, "SisHusbandFatherSurName": null, "SisHusbandFatherName": null, "SisSpouseFatherMobileCountryID": 11, "SisSpouseFatherMobileNo": 4545454545, "SisSpouseFatherLandCountryID": 11, "SisSpouseFatherLandAreaCode": 5656, "SisSpouseFatherLandNo": 67676767, "SisSpouseFatherEmailID": "sssssssss@gmail.com", "SibilingSpouseFatherCasteID": 402, "SisSpouseFatherCountryID": 1, "SisSpouseFatherStateID": 1, "SisSpouseFatherDitrictID": 3, "SisSpouseFatherNativePlace": "bbbbb", "CustID": "91022", "SisSibilingCustfamilyID": null }, "customerpersonaldetails": { "intCusID": "91022", "EmpID": "2", "Admin": "1" }
-            //}
-            //$("#800001").click(function () {
-            //    alert(1);
-            //    $.ajax({
-            //        url: 'http://localhost:63006/Api/CustomerPersonalUpdate/CustomerSibSisterUpdatedetails',
-            //        type: 'POST',
-            //        crossDomain: true,
-            //        data: JSON.stringify(inputobj2),
-            //        contentType: 'application/json',
-            //        success: function (data, textStatus, xhr) {
-            //            alert(JSON.stringify(data));
-            //            console.log(data);
-            //        },
-            //        error: function (xhr, textStatus, errorThrown) {
-            //            console.log(xhr);
-            //        }
-            //    });
-            //});
-            var inputobj2 = {
-                    EmpID: 2,
-                    ProfileID: "210910352",
-                    MobileNumber: ""
-                }
-                //$("#80000").click(function () {
-                //    alert(1);
-                //    $.ajax({
-                //        url: 'http://localhost:63006/Api/EmployeeReportPage/Guestticketcreation',
-                //        type: 'POST',
-                //        crossDomain: true,
-                //        data: JSON.stringify(inputobj2),
-                //        contentType: 'application/json',
-                //        success: function (data, textStatus, xhr) {
-                //            alert(JSON.stringify(data));
-                //            console.log(data);
-                //        },
-                //        error: function (xhr, textStatus, errorThrown) {
-                //            console.log(xhr);
-                //        }
-                //    });
-                //});
-
-
-            $("#80000").click(function() {
-                $.ajax({
-                    url: 'http://localhost:63006/Api/smallPages/GetbrideGroomDataNew',
-                    type: 'GET',
-                    crossDomain: true,
-                    data: {
-                        CustID: '91022',
-                        Startindex: '1',
-                        EndIndex: '9'
-                    },
-                    contentType: 'application/json',
-                    success: function(data, textStatus, xhr) {
-                        alert(JSON.stringify(data));
-                        console.log(data);
-                    },
-                    error: function(xhr, textStatus, errorThrown) {
-                        console.log(xhr);
-                    }
-                });
-            });
-
-
-
-
-            //$("#80000").click(function () {
-            //    alert(1);
-            //    $.ajax({
-            //        url: 'http://localhost:63006/Api/CustomerSearch/getPrimaryCustomerDataResponse',
-            //        type: 'GET',
-            //        crossDomain: true,
-            //        data: {
-            //            ProfileID: 210910352,
-            //            EmpID: 2
-            //        },
-            //        contentType: 'application/json',
-            //        success: function (data, textStatus, xhr) {
-            //            alert(JSON.stringify(data));
-            //            console.log(data);
-            //        },
-            //        error: function (xhr, textStatus, errorThrown) {
-            //            console.log(xhr);
-            //        }
-            //    });
-            //});
-
-
-            var jsonbObj = {
-                "EMployeeID": 382,
-                "servicegivencount": 0,
-                "matchfollowupcount": 0,
-                "marketingticketscount": "12",
-                "PhotoCount": 0,
-                "HoroCount": 0,
-                "EMpname": "prasanthi Dasari"
-            };
-
-
-            $("#btngetdata").click(function() {
-                alert(1);
-                $.ajax({
-                    url: 'http://localhost:63006/Api/CustomerPersonalUpdate/getAstroGenerationS3Update',
-                    type: 'get',
-                    crossDomain: true,
-                    data: {
-                        Path: 'http:\e.kaakateeya.com\access\ImagesHoroscopeImages\91022_HaroscopeImage\91022_HaroscopeImage.html',
-                        KeyName: 'Images/HoroscopeImages/91022_HaroscopeImage/91022_HaroscopeImage.html'
-                    },
-                    contentType: 'application/json',
-                    success: function(data, textStatus, xhr) {
-                        alert(JSON.stringify(data));
-                        console.log(data);
-                    },
-                    error: function(xhr, textStatus, errorThrown) {
-                        alert('err');
-                        console.log(xhr);
-                    }
-                });
-            });
-
-
-
-
-
-
-        });
-    </script>
-
-    <script type="text/javascript">
-        function Host() {
-            alert(2);
-            $.get('http://54.169.133.223:8010/Api/DB/GetTimeUrl/1', function(data) {
-
-                $.each(data, function(i, v) {
-                    $('#result').html($('#result').html() + v.Title + '<br />');
-                });
-            });
-        }
-
-        function yourFunction() {
-            alert(1);
-        }
-    </script>
+   
 </head>
 
 <body>
@@ -915,531 +390,8 @@
                     <td style='width: 15px;'>212</td>
                     <td style='width: 15px;'>0</td>
                 </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>RANI</td>
-                    <td style='width: 15px;'>MI</td>
-                    <td style='width: 15px;'>307</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>40</td>
-                    <td style='width: 15px;'>267</td>
-                    <td style='width: 15px;'>12</td>
-                    <td style='width: 15px;'>209</td>
-                    <td style='width: 15px;'>150</td>
-                    <td style='width: 15px;'>149</td>
-                    <td style='width: 15px;'>223</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>RENUKA</td>
-                    <td style='width: 15px;'>ED</td>
-                    <td style='width: 15px;'>184</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>6</td>
-                    <td style='width: 15px;'>178</td>
-                    <td style='width: 15px;'>3</td>
-                    <td style='width: 15px;'>117</td>
-                    <td style='width: 15px;'>30</td>
-                    <td style='width: 15px;'>42</td>
-                    <td style='width: 15px;'>139</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Poongodi</td>
-                    <td style='width: 15px;'>ED</td>
-                    <td style='width: 15px;'>430</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>34</td>
-                    <td style='width: 15px;'>396</td>
-                    <td style='width: 15px;'>16</td>
-                    <td style='width: 15px;'>283</td>
-                    <td style='width: 15px;'>105</td>
-                    <td style='width: 15px;'>107</td>
-                    <td style='width: 15px;'>297</td>
-                    <td style='width: 15px;'>1</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>RAJESH PRIYA</td>
-                    <td style='width: 15px;'>SM</td>
-                    <td style='width: 15px;'>120</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>5</td>
-                    <td style='width: 15px;'>115</td>
-                    <td style='width: 15px;'>-----</td>
-                    <td style='width: 15px;'>99</td>
-                    <td style='width: 15px;'>40</td>
-                    <td style='width: 15px;'>35</td>
-                    <td style='width: 15px;'>100</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Subashini</td>
-                    <td style='width: 15px;'>SM</td>
-                    <td style='width: 15px;'>84</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>2</td>
-                    <td style='width: 15px;'>82</td>
-                    <td style='width: 15px;'>1</td>
-                    <td style='width: 15px;'>67</td>
-                    <td style='width: 15px;'>26</td>
-                    <td style='width: 15px;'>14</td>
-                    <td style='width: 15px;'>63</td>
-                    <td style='width: 15px;'>1</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Anandajothi</td>
-                    <td style='width: 15px;'>SM</td>
-                    <td style='width: 15px;'>91</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>6</td>
-                    <td style='width: 15px;'>85</td>
-                    <td style='width: 15px;'>3</td>
-                    <td style='width: 15px;'>75</td>
-                    <td style='width: 15px;'>33</td>
-                    <td style='width: 15px;'>29</td>
-                    <td style='width: 15px;'>73</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Sivakami</td>
-                    <td style='width: 15px;'>TY</td>
-                    <td style='width: 15px;'>171</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>16</td>
-                    <td style='width: 15px;'>155</td>
-                    <td style='width: 15px;'>3</td>
-                    <td style='width: 15px;'>114</td>
-                    <td style='width: 15px;'>34</td>
-                    <td style='width: 15px;'>52</td>
-                    <td style='width: 15px;'>133</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Sasikala</td>
-                    <td style='width: 15px;'>TY</td>
-                    <td style='width: 15px;'>175</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>13</td>
-                    <td style='width: 15px;'>162</td>
-                    <td style='width: 15px;'>3</td>
-                    <td style='width: 15px;'>145</td>
-                    <td style='width: 15px;'>68</td>
-                    <td style='width: 15px;'>86</td>
-                    <td style='width: 15px;'>150</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Nisha</td>
-                    <td style='width: 15px;'>TY</td>
-                    <td style='width: 15px;'>281</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>35</td>
-                    <td style='width: 15px;'>245</td>
-                    <td style='width: 15px;'>9</td>
-                    <td style='width: 15px;'>173</td>
-                    <td style='width: 15px;'>70</td>
-                    <td style='width: 15px;'>95</td>
-                    <td style='width: 15px;'>195</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Anita</td>
-                    <td style='width: 15px;'>M1</td>
-                    <td style='width: 15px;'>423</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>20</td>
-                    <td style='width: 15px;'>403</td>
-                    <td style='width: 15px;'>9</td>
-                    <td style='width: 15px;'>287</td>
-                    <td style='width: 15px;'>147</td>
-                    <td style='width: 15px;'>226</td>
-                    <td style='width: 15px;'>321</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
+              
+         
                 <tr>
                     <td style='width: 15px;'>Dhanalakshmi</td>
                     <td style='width: 15px;'>M1</td>
@@ -1601,923 +553,10 @@
                     <td style='width: 15px;'>210</td>
                     <td style='width: 15px;'>0</td>
                 </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>DEVI</td>
-                    <td style='width: 15px;'>CE</td>
-                    <td style='width: 15px;'>4</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>4</td>
-                    <td style='width: 15px;'>-----</td>
-                    <td style='width: 15px;'>2</td>
-                    <td style='width: 15px;'>1</td>
-                    <td style='width: 15px;'>4</td>
-                    <td style='width: 15px;'>3</td>
-                    <td style='width: 15px;'>1</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Sumangali</td>
-                    <td style='width: 15px;'>CE</td>
-                    <td style='width: 15px;'>465</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>30</td>
-                    <td style='width: 15px;'>435</td>
-                    <td style='width: 15px;'>10</td>
-                    <td style='width: 15px;'>354</td>
-                    <td style='width: 15px;'>213</td>
-                    <td style='width: 15px;'>156</td>
-                    <td style='width: 15px;'>367</td>
-                    <td style='width: 15px;'>1</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Amsaveni</td>
-                    <td style='width: 15px;'>CE</td>
-                    <td style='width: 15px;'>247</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>49</td>
-                    <td style='width: 15px;'>198</td>
-                    <td style='width: 15px;'>5</td>
-                    <td style='width: 15px;'>130</td>
-                    <td style='width: 15px;'>67</td>
-                    <td style='width: 15px;'>73</td>
-                    <td style='width: 15px;'>137</td>
-                    <td style='width: 15px;'>1</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Haripriya</td>
-                    <td style='width: 15px;'>CE</td>
-                    <td style='width: 15px;'>385</td>
-                    <td style='width: 15px;'>1</td>
-                    <td style='width: 15px;'>46</td>
-                    <td style='width: 15px;'>339</td>
-                    <td style='width: 15px;'>26</td>
-                    <td style='width: 15px;'>210</td>
-                    <td style='width: 15px;'>85</td>
-                    <td style='width: 15px;'>122</td>
-                    <td style='width: 15px;'>227</td>
-                    <td style='width: 15px;'>1</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Radha</td>
-                    <td style='width: 15px;'>MS</td>
-                    <td style='width: 15px;'>156</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>11</td>
-                    <td style='width: 15px;'>145</td>
-                    <td style='width: 15px;'>-----</td>
-                    <td style='width: 15px;'>126</td>
-                    <td style='width: 15px;'>89</td>
-                    <td style='width: 15px;'>94</td>
-                    <td style='width: 15px;'>91</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Sandhya Devi</td>
-                    <td style='width: 15px;'>MS</td>
-                    <td style='width: 15px;'>125</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>16</td>
-                    <td style='width: 15px;'>109</td>
-                    <td style='width: 15px;'>1</td>
-                    <td style='width: 15px;'>82</td>
-                    <td style='width: 15px;'>59</td>
-                    <td style='width: 15px;'>70</td>
-                    <td style='width: 15px;'>85</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Anamika</td>
-                    <td style='width: 15px;'>MS</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>-----</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>------</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Anamika</td>
-                    <td style='width: 15px;'>MS</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>-----</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>------</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Santhi</td>
-                    <td style='width: 15px;'>MS</td>
-                    <td style='width: 15px;'>316</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>49</td>
-                    <td style='width: 15px;'>267</td>
-                    <td style='width: 15px;'>1</td>
-                    <td style='width: 15px;'>179</td>
-                    <td style='width: 15px;'>136</td>
-                    <td style='width: 15px;'>165</td>
-                    <td style='width: 15px;'>178</td>
-                    <td style='width: 15px;'>1</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Naveenaa madam</td>
-                    <td style='width: 15px;'>MS</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>-----</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>------</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Sarala</td>
-                    <td style='width: 15px;'>MS</td>
-                    <td style='width: 15px;'>408</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>79</td>
-                    <td style='width: 15px;'>329</td>
-                    <td style='width: 15px;'>11</td>
-                    <td style='width: 15px;'>186</td>
-                    <td style='width: 15px;'>98</td>
-                    <td style='width: 15px;'>168</td>
-                    <td style='width: 15px;'>214</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Sabitha</td>
-                    <td style='width: 15px;'>MS</td>
-                    <td style='width: 15px;'>343</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>88</td>
-                    <td style='width: 15px;'>255</td>
-                    <td style='width: 15px;'>27</td>
-                    <td style='width: 15px;'>182</td>
-                    <td style='width: 15px;'>138</td>
-                    <td style='width: 15px;'>148</td>
-                    <td style='width: 15px;'>133</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Naveena</td>
-                    <td style='width: 15px;'>MS</td>
-                    <td style='width: 15px;'>288</td>
-                    <td style='width: 15px;'>2</td>
-                    <td style='width: 15px;'>201</td>
-                    <td style='width: 15px;'>87</td>
-                    <td style='width: 15px;'>12</td>
-                    <td style='width: 15px;'>121</td>
-                    <td style='width: 15px;'>33</td>
-                    <td style='width: 15px;'>112</td>
-                    <td style='width: 15px;'>152</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Sheela</td>
-                    <td style='width: 15px;'>M2</td>
-                    <td style='width: 15px;'>368</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>18</td>
-                    <td style='width: 15px;'>350</td>
-                    <td style='width: 15px;'>-----</td>
-                    <td style='width: 15px;'>270</td>
-                    <td style='width: 15px;'>184</td>
-                    <td style='width: 15px;'>217</td>
-                    <td style='width: 15px;'>268</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Susithra</td>
-                    <td style='width: 15px;'>M2</td>
-                    <td style='width: 15px;'>428</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>55</td>
-                    <td style='width: 15px;'>373</td>
-                    <td style='width: 15px;'>18</td>
-                    <td style='width: 15px;'>271</td>
-                    <td style='width: 15px;'>231</td>
-                    <td style='width: 15px;'>261</td>
-                    <td style='width: 15px;'>277</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>MATHANGI</td>
-                    <td style='width: 15px;'>M2</td>
-                    <td style='width: 15px;'>348</td>
-                    <td style='width: 15px;'>1</td>
-                    <td style='width: 15px;'>31</td>
-                    <td style='width: 15px;'>317</td>
-                    <td style='width: 15px;'>2</td>
-                    <td style='width: 15px;'>203</td>
-                    <td style='width: 15px;'>143</td>
-                    <td style='width: 15px;'>165</td>
-                    <td style='width: 15px;'>190</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>Chitra</td>
-                    <td style='width: 15px;'>M2</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>-----</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>------</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
-                <tr>
-                    <td style='width: 15px;'>NARMADHA</td>
-                    <td style='width: 15px;'>M2</td>
-                    <td style='width: 15px;'>406</td>
-                    <td style='width: 15px;'>1</td>
-                    <td style='width: 15px;'>65</td>
-                    <td style='width: 15px;'>341</td>
-                    <td style='width: 15px;'>22</td>
-                    <td style='width: 15px;'>227</td>
-                    <td style='width: 15px;'>157</td>
-                    <td style='width: 15px;'>152</td>
-                    <td style='width: 15px;'>229</td>
-                    <td style='width: 15px;'>0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                    <td>
-                        <hr width="100%" align="right">
-                    </td>
-                </tr>
+           
+               
+             
+           
                 <tr>
                     <td style='width: 15px;'>Geethapriya</td>
                     <td style='width: 15px;'>M2</td>
@@ -2546,3 +585,519 @@
     </body>
 
     </html>
+
+     <script>
+         $(document).ready(function () {
+
+             var object = {
+
+                 GetDetails: {
+                     AgeFromID: "25",
+                     AgeFromText: null,
+                     AgeToID: "29",
+                     AgeToText: null,
+                     AnnualIncomefrom: null,
+                     AnnualIncometo: null,
+                     AnnualincomeID: null,
+                     AnnualincomeText: null,
+                     ApplicationstatusID: null,
+                     ApplicationstatusText: null,
+                     BranchID: null,
+                     BranchText: null,
+                     CountryID: "1",
+                     CountryText: null,
+                     CustID: 91022,
+                     Dateofregfrom: null,
+                     Dateofregto: null,
+                     EducationID: "1",
+                     EducationText: null,
+                     GenderID: "1",
+                     GenderText: null,
+                     HeightFromID: "21",
+                     HeightFromText: null,
+                     HeightToID: "27",
+                     HeightToText: null,
+                     LastestLoginsfrom: null,
+                     LastestLoginsto: null,
+                     MaritalstatusID: "43",
+                     MaritalstatusText: null,
+                     MothertongueID: "1",
+                     MothertongueText: null,
+                     OnlyConfidential: 0,
+                     ProfessionID: null,
+                     ProfessionText: null,
+                     ProfileID: null,
+                     PropertyValuefrom: null,
+                     PropertyValueto: null,
+                     RegionID: null,
+                     RegionText: null,
+                     ReligionID: "1",
+                     ReligionText: null,
+                     SeriousMatch: null,
+                     ShowinprofileText: null,
+                     castID: "402,403,402",
+                     castIDText: null,
+                     slidegride: null
+                 },
+                 customerpersonaldetails: {
+                     Admin: 1,
+                     CustID: "91022",
+                     EmpID: "2",
+                     EndIndex: 10,
+                     startindex: 1
+
+                 }
+
+             }
+
+             var Mobjddd = {
+                 custfamiliyid: 1174407,
+                 MoblieCountryCode: 13,
+                 MobileNumber: "1111111111",
+                 LandCountryCode: 22,
+                 LandAreaCode: null,
+                 LandNumber: "3333333333",
+                 Email: "testing@gmail.com",
+                 intCusID: 111070,
+                 EmpID: "2",
+                 Admin: null,
+                 SibblingFlag: "Parent"
+             }
+
+
+             var MobjMob = {
+
+
+                 CustID: 91022,
+                 Email: "Test1234@gmail.com",
+                 MobileNumber: "55555555",
+                 CountryCode: "1",
+                 VerificationCode: "04544",
+                 isVerified: "1"
+
+
+
+             }
+
+
+             var object123 = {
+                 customerpersonaldetails: {
+                     FromCustID: "",
+                     EmpID: "141",
+                     emailaddress: "lakshmidevi407@gmail.com"
+                 },
+                 GetDetails: [{
+                     FromProfileID: "310910220",
+                     ToProfileID: "210910352",
+                     EmpID: 141,
+                     ModeofService: 351,
+                     RelationShipID: 39,
+                     Name: "venkata Ramana gggggg ",
+                     TypeOfService: "2",
+                     ProfileType: "1",
+                     Sendsms: 1,
+                     IsRvrSend: 1,
+                     SelectedImages: "img2.jpg,img3.jpg;210910352",
+                     Acceptlink: "",
+                     Rejectlink: "",
+                     EmailAddress: "lakshmidevi407@gmail.com",
+                     RVRAcceptlink: "",
+                     RVRRejectlink: ""
+                 }]
+
+             }
+
+             var dd = {
+                 EMPID: "2",
+                 FromCustID: 91022,
+                 FromProfileID: "310910220",
+                 HistoryUpdate: 1,
+                 LTicketID: 1054519,
+                 Notes: "Bride is interested in your profile.",
+                 TicketStatusID: "Accept",
+                 ToProfileID: "110169486",
+                 TocustID: 16948,
+                 profileid: "310910220"
+
+             }
+             var inputobj = {
+
+                 strBranch: null,
+                 strEmpName: '2',
+                 i_isAdmin: 1,
+                 i_EmpID: 2,
+                 i_PageFrom: 1,
+                 i_PageTo: 10,
+                 dtFromProceedDate: null,
+                 dtToProceedDate: null,
+                 i_days: null,
+                 i_RegionID: null,
+                 v_MarketremindeFlag: 2,
+                 v_siblingflag: 0,
+                 v_guestticketflag: 0,
+                 v_OnlineExprd: 0,
+                 v_OfflineExprd: 0,
+                 i_TicketId: null,
+                 i_EmailId: null,
+                 i_PhoneNumber: null,
+                 i_Name: null,
+                 dt_Opendate: null,
+                 i_ProfileId: null,
+                 i_Category: null,
+                 i_Ticketstatus: null,
+                 dt_FromRemainderdate: null,
+                 dt_ToReminderdate: null,
+                 i_Excelflag: null,
+                 V_Notpay: null
+
+             }
+
+
+             var inputobjED = {
+                 genderID: "",
+                 strFName: "",
+                 strSurName: "",
+                 strProfileID: "",
+                 strKMMLID: "",
+                 profileStatus: "54",
+                 intStartIndex: 1,
+                 intEndIndex: 100,
+                 intEmpID: "2",
+                 isSlide: 1
+             }
+
+
+             var inputobjREG = {
+                 strMFFNativePlace: null,
+                 strFatherName: null,
+                 strMotherName: null,
+                 strFFName: null,
+                 strMFName: null,
+                 strMFSurName: null,
+                 strCustSurName: null,
+                 strCustName: null,
+                 strCaste: null,
+                 strAllPhones: null,
+                 strAllEmailIds: null,
+                 intAppicationStatusID: null,
+                 intGenderID: null,
+                 intEmpID: null,
+                 i_Startindex: "1",
+                 i_EndIndex: "100"
+             }
+
+
+             //var Mobj = {
+             //    "customerpersonaldetails": {
+             //        "FromCustID": 20556,
+             //        "EmpID": "2",
+             //        "emailaddress": "lakshmidevi407@gmail.com,kusumurugopalkrishna@gmail.com,kusumurugopalkrishna@gmail.com"
+             //    },
+             //    "GetDetails": [{
+             //        "FromProfileID": "010205568",
+             //        "ToProfileID": "210069845",
+             //        "EmpID": "2",
+             //        "ModeofService": 350,
+             //        "RelationShipID": 40,
+             //        "Name": "P.CHANDRIKA ",
+             //        "TypeOfService": 366,
+             //        "ProfileType": 358,
+             //        "Sendsms": 0,
+             //        "IsRvrSend": 1,
+             //        "SelectedImages": "img3.Jpg,img2.Jpg,img1.Jpg",
+             //        "Acceptlink": "",
+             //        "Rejectlink": "",
+             //        "EmailAddress": "lakshmidevi407@gmail.com,kusumurugopalkrishna@gmail.com,kusumurugopalkrishna@gmail.com",
+             //        "RVRAcceptlink": "",
+             //        "RVRRejectlink": ""
+             //    }, {
+             //        "FromProfileID": "010205568",
+             //        "ToProfileID": "210069818",
+             //        "EmpID": "2",
+             //        "ModeofService": 350,
+             //        "RelationShipID": 40,
+             //        "Name": "P.CHANDRIKA ",
+             //        "TypeOfService": 366,
+             //        "ProfileType": 358,
+             //        "Sendsms": 0,
+             //        "IsRvrSend": 1,
+             //        "SelectedImages": "img3.Jpg,img2.Jpg,img1.Jpg",
+             //        "Acceptlink": "",
+             //        "Rejectlink": "",
+             //        "EmailAddress": "lakshmidevi407@gmail.com,kusumurugopalkrishna@gmail.com,kusumurugopalkrishna@gmail.com",
+             //        "RVRAcceptlink": "",
+             //        "RVRRejectlink": ""
+             //    }]
+             //};
+             var Mobj = {
+                 "GetDetails": [{
+                     Acceptlink: "",
+                     EmailAddress: "lakshmidevi407@gmail.com,hfshj@gmail.com",
+                     EmpID: "2",
+                     FromProfileID: "310910220",
+                     IsRvrSend: 1,
+                     ModeofService: 353,
+                     ProfileType: 358,
+                     RVRAcceptlink: "",
+                     RVRRejectlink: "",
+                     Rejectlink: "",
+                     RelationShipID: 0,
+                     SelectedImages: "img1.jpg,img2.jpg",
+                     Sendsms: 1,
+                     ToProfileID: "010970105",
+                     TypeOfService: 366
+                 }],
+                 "customerpersonaldetails": {
+                     EmpID: "2",
+                     FromCustID: 91022,
+                     emailaddress: "lakshmidevi407@gmail.com,hfshj@gmail.com"
+                 }
+
+             };
+             $("#Display").click(function () {
+
+                 alert(Mobj);
+
+                 $.ajax({
+                     url: 'http://localhost:63006/Api/ExpressInterest/ExpressInterest',
+                     type: 'POST',
+                     crossDomain: true,
+                     data: JSON.stringify(Mobj),
+                     contentType: 'application/json',
+                     success: function (data, textStatus, xhr) {
+                         alert(JSON.stringify(data));
+                         console.log(data);
+                     },
+                     error: function (xhr, textStatus, errorThrown) {
+                         console.log(xhr);
+                     }
+                 });
+             });
+
+             //$("#test").click(function () {
+
+             //    alert(1);
+             //    var inputobj = {
+             //        CustID: 679,
+             //        MarketingOwner: "2",
+             //        ModifiedEMPID: 2,
+             //        ProfileID: "010006792",
+             //        ProfileOwner: "2",
+             //        ReviewOwner: "2"
+             //    }
+             //    $.ajax({
+             //        url: 'http://localhost:63006/Api/EmployeeReportPage/Assignprofiles',
+             //        type: 'POST',
+             //        crossDomain: true,
+             //        data: JSON.stringify(inputobj),
+             //        contentType: 'application/json',
+             //        success: function (data, textStatus, xhr) {
+             //            alert(JSON.stringify(data));
+             //            console.log(data);
+             //        },
+             //        error: function (xhr, textStatus, errorThrown) {
+             //            console.log(xhr);
+             //        }
+             //    });
+             //});
+
+             $("#test").click(function () {
+
+                 alert(1);
+                 var inputobj = {
+                     ApplicationStatusid: null,
+                     Branchid: null,
+                     Casteid: null,
+                     Confidential: 0,
+                     EmpType: null,
+                     EndDate: null,
+                     From: 1,
+                     FromAmount: null,
+                     Gender: null,
+                     IsAdmin: "2",
+                     IsAmountThere: 0,
+                     IsServiceTaxPaid: null,
+                     ModeOfPaymentID: null,
+                     PageNumber: 1,
+                     PageSize: 1,
+                     PayFor: null,
+                     PaymenytStatus: null,
+                     Region: null,
+                     StartDate: null,
+                     StrProfileID: null,
+                     To: 10,
+                     ToAmount: null,
+                     flag: 0,
+                     profileownerid: null
+                 }
+                 $.ajax({
+                     url: 'http://localhost:63006/Api/EmployeeReportPage/EmplyeepaymentReportspayment',
+                     type: 'POST',
+                     crossDomain: true,
+                     data: JSON.stringify(inputobj),
+                     contentType: 'application/json',
+                     success: function (data, textStatus, xhr) {
+                         alert(JSON.stringify(data));
+                         console.log(data);
+                     },
+                     error: function (xhr, textStatus, errorThrown) {
+                         console.log(xhr);
+                     }
+                 });
+             });
+             var daattt = {
+                 "strMFFNativePlace": "",
+                 "strFatherName": "",
+                 "strMotherName": "",
+                 "strFFName": "",
+                 "strMFName": "",
+                 "strMFSurName": "",
+                 "strCustSurName": "yalamanchi",
+                 "strCustName": "",
+                 "strCaste": "",
+                 "strAllPhones": "",
+                 "strAllEmailIds": "",
+                 "intAppicationStatusID": "",
+                 "intGenderID": "",
+                 "intEmpID": "2",
+                 "i_Startindex": 1,
+                 "i_EndIndex": 100
+             };
+
+
+
+             //var inputobj2 = {
+             //    "GetDetails": { "BornOrder": 2, "SisElderYounger": "321", "SisName": "second", "siseducationdetails": null, "SisProfessionCategoryID": 567, "sisprofessiondetails": null, "undefined": "1", "SisCompanyName": null, "SisJobLocation": null, "SisMobileCountryCodeID": null, "SisMobileNumber": null, "SisLandCountryCodeID": null, "SisLandAreaCode": null, "SisLandNumber": null, "SisEmail": "kusumavishwaneni@gmail.com", "SIsMarried": 1, "SisHusbandName": "ramya ", "sisspouseeducationdetails": null, "SisSpouseProfessionCategoryID": 569, "sisspouseprofessiondetails": null, "SisHusCompanyName": null, "SisHusJobLocation": null, "SisHusbandMobileCountryCodeID": null, "SisHusbandMobileNumber": "8978987875", "SisHusbandLandCountryCodeID": null, "SisHusbandLandAreacode": null, "SisHusbandLandNumber": null, "SisSpouseEmail": null, "SisHusbandFatherSurName": null, "SisHusbandFatherName": null, "SisSpouseFatherMobileCountryID": 11, "SisSpouseFatherMobileNo": 4545454545, "SisSpouseFatherLandCountryID": 11, "SisSpouseFatherLandAreaCode": 5656, "SisSpouseFatherLandNo": 67676767, "SisSpouseFatherEmailID": "sssssssss@gmail.com", "SibilingSpouseFatherCasteID": 402, "SisSpouseFatherCountryID": 1, "SisSpouseFatherStateID": 1, "SisSpouseFatherDitrictID": 3, "SisSpouseFatherNativePlace": "bbbbb", "CustID": "91022", "SisSibilingCustfamilyID": null }, "customerpersonaldetails": { "intCusID": "91022", "EmpID": "2", "Admin": "1" }
+             //}
+             //$("#800001").click(function () {
+             //    alert(1);
+             //    $.ajax({
+             //        url: 'http://localhost:63006/Api/CustomerPersonalUpdate/CustomerSibSisterUpdatedetails',
+             //        type: 'POST',
+             //        crossDomain: true,
+             //        data: JSON.stringify(inputobj2),
+             //        contentType: 'application/json',
+             //        success: function (data, textStatus, xhr) {
+             //            alert(JSON.stringify(data));
+             //            console.log(data);
+             //        },
+             //        error: function (xhr, textStatus, errorThrown) {
+             //            console.log(xhr);
+             //        }
+             //    });
+             //});
+             var inputobj2 = {
+                 EmpID: 2,
+                 ProfileID: "210910352",
+                 MobileNumber: ""
+             }
+             //$("#80000").click(function () {
+             //    alert(1);
+             //    $.ajax({
+             //        url: 'http://localhost:63006/Api/EmployeeReportPage/Guestticketcreation',
+             //        type: 'POST',
+             //        crossDomain: true,
+             //        data: JSON.stringify(inputobj2),
+             //        contentType: 'application/json',
+             //        success: function (data, textStatus, xhr) {
+             //            alert(JSON.stringify(data));
+             //            console.log(data);
+             //        },
+             //        error: function (xhr, textStatus, errorThrown) {
+             //            console.log(xhr);
+             //        }
+             //    });
+             //});
+
+
+             $("#80000").click(function () {
+                 $.ajax({
+                     url: 'http://localhost:63006/Api/smallPages/GetbrideGroomDataNew',
+                     type: 'GET',
+                     crossDomain: true,
+                     data: {
+                         CustID: '91022',
+                         Startindex: '1',
+                         EndIndex: '9'
+                     },
+                     contentType: 'application/json',
+                     success: function (data, textStatus, xhr) {
+                         alert(JSON.stringify(data));
+                         console.log(data);
+                     },
+                     error: function (xhr, textStatus, errorThrown) {
+                         console.log(xhr);
+                     }
+                 });
+             });
+
+
+
+
+             //$("#80000").click(function () {
+             //    alert(1);
+             //    $.ajax({
+             //        url: 'http://localhost:63006/Api/CustomerSearch/getPrimaryCustomerDataResponse',
+             //        type: 'GET',
+             //        crossDomain: true,
+             //        data: {
+             //            ProfileID: 210910352,
+             //            EmpID: 2
+             //        },
+             //        contentType: 'application/json',
+             //        success: function (data, textStatus, xhr) {
+             //            alert(JSON.stringify(data));
+             //            console.log(data);
+             //        },
+             //        error: function (xhr, textStatus, errorThrown) {
+             //            console.log(xhr);
+             //        }
+             //    });
+             //});
+
+
+             var jsonbObj = { "IsAdmin": "1", "typeofStatus": "B", "AuthorizeStatus": null, "Gender": null, "ProfileType": null, "StartDate": "2016-07-01", "EndDate": "2017-08-29", "strauthorizedBy": null, "strenteredBy": null, "strBranch": null, "strCaste": null, "strProfileOwnerI": null, "i_Regionfield": null, "StartIndex": null, "EndIndex": null };
+
+
+             $("#btngetdata").click(function () {
+                 alert(1);
+                 $.ajax({
+                     url: 'http://localhost:63006/Api/smallPages/ProfileDeleteProfilesReport',
+                     type: 'post',
+                     crossDomain: true,
+                     data: JSON.stringify(jsonbObj),
+                     contentType: 'application/json',
+                     success: function (data, textStatus, xhr) {
+                         alert(JSON.stringify(data));
+                         console.log(data);
+                     },
+                     error: function (xhr, textStatus, errorThrown) {
+                         alert('err');
+                         console.log(xhr);
+                     }
+                 });
+             });
+
+
+
+
+
+
+         });
+    </script>
+
+    <script type="text/javascript">
+        function Host() {
+            alert(2);
+            $.get('http://54.169.133.223:8010/Api/DB/GetTimeUrl/1', function (data) {
+
+                $.each(data, function (i, v) {
+                    $('#result').html($('#result').html() + v.Title + '<br />');
+                });
+            });
+        }
+
+        function yourFunction() {
+            alert(1);
+        }
+    </script>

@@ -173,6 +173,11 @@ namespace WebapiApplication.Api
         public int deleteSucessStories(string sucessStoryID, string brideProfileID, string groomProfileID) { return Iobj.deleteSucessStories(sucessStoryID,brideProfileID, groomProfileID); }
         public ArrayList matchMeetingCountReport(matchMeetingCountMl mobj) { return Iobj.matchMeetingCountReport(mobj); }
         public ArrayList matchMeetingCountInfo(matchMeetingCountInfoMl mobj) { return Iobj.matchMeetingCountInfo(mobj); }
-        public ArrayList ProfileDeleteProfilesReport(settleDeleteProfilesReport mobj) { return Iobj.ProfileDeleteProfilesReport(mobj); }
+        public ArrayList settleDeleteProfilesReport(settleDeleteProfilesReport mobj) { return Iobj.ProfileDeleteProfilesReport(mobj); }
+
+
+        public int restoreProfile(restoreProfile mobj) { return Iobj.restoreProfile(mobj); }
+
+
     }
 }

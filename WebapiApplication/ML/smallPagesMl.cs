@@ -448,8 +448,23 @@ namespace WebapiApplication.ML
         public int? i_Regionfield { set; get; }
         public int? StartIndex { set; get; }
         public int? EndIndex { set; get; }
-       
+
     }
+
+    public class restoreProfile
+    {
+        public Int64? Cust_ID { set; get; }
+        public Int64? EmpID { get; set; }
+        public Int64? RequestedBY { set; get; }
+        public Int64? RequestedbyEmpID { set; get; }
+        public int? RelationshipID { set; get; }
+        public string strRelationshipname { set; get; }
+        public string strReasonforrestore { set; get; }
+        public Int64 ProfileStatusID { set; get; }
+    }
+
+
+
 }
 
 
