@@ -1494,7 +1494,7 @@ namespace WebapiApplication.DAL
 
         public int restoreProfileDal(restoreProfile Mobj, string spname)
         {
-            SqlParameter[] parm = new SqlParameter[9;
+            SqlParameter[] parm = new SqlParameter[9];
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
