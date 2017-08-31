@@ -425,7 +425,9 @@ namespace WebapiApplication.Interfaces
 
         ArrayList ProfileDeleteProfilesReport(settleDeleteProfilesReport mobj);
 
-        int restoreProfile(restoreProfile mobj);
+        //int restoreProfile(restoreProfile mobj);
+
+        int checkStatus(string whereID, string flag);
     }
 
     public interface IMobileAppDev

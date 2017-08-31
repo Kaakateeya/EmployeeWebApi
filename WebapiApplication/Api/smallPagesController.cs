@@ -174,10 +174,9 @@ namespace WebapiApplication.Api
         public ArrayList matchMeetingCountReport(matchMeetingCountMl mobj) { return Iobj.matchMeetingCountReport(mobj); }
         public ArrayList matchMeetingCountInfo(matchMeetingCountInfoMl mobj) { return Iobj.matchMeetingCountInfo(mobj); }
         public ArrayList settleDeleteProfilesReport(settleDeleteProfilesReport mobj) { return Iobj.ProfileDeleteProfilesReport(mobj); }
+        //public int restoreProfile(restoreProfile mobj) { return Iobj.restoreProfile(mobj); }
 
-
-        public int restoreProfile(restoreProfile mobj) { return Iobj.restoreProfile(mobj); }
-
+        public int checkStatus(string whereID, string flag) { return Iobj.checkStatus(whereID, flag); }
 
     }
 }

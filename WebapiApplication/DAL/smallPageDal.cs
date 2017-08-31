@@ -1492,43 +1492,83 @@ namespace WebapiApplication.DAL
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
 
-        public int restoreProfileDal(restoreProfile Mobj, string spname)
+        //public int restoreProfileDal(restoreProfile Mobj, string spname)
+        //{
+        //    SqlParameter[] parm = new SqlParameter[9];
+        //    SqlConnection connection = new SqlConnection();
+        //    connection = SQLHelper.GetSQLConnection();
+        //    connection.Open();
+        //    SqlDataReader reader = null;
+        //    int Status = 0;
+
+        //    try
+        //    {
+        //        parm[0] = new SqlParameter("@CustID", SqlDbType.BigInt);
+        //        parm[0].Value = Mobj.Cust_ID;
+        //        parm[1] = new SqlParameter("@EmpID", SqlDbType.BigInt);
+        //        parm[1].Value = Mobj.EmpID;
+        //        parm[2] = new SqlParameter("@RequestedBY", SqlDbType.BigInt);
+        //        parm[2].Value = Mobj.RequestedBY;
+        //        parm[3] = new SqlParameter("@RequestedBYEmpID", SqlDbType.BigInt);
+        //        parm[3].Value = Mobj.RequestedbyEmpID;
+        //        parm[4] = new SqlParameter("@RelationshipID", SqlDbType.Int);
+        //        parm[4].Value = Mobj.RelationshipID;
+        //        parm[5] = new SqlParameter("@Relationshipname", SqlDbType.VarChar, 500);
+        //        parm[5].Value = Mobj.strRelationshipname;
+        //        parm[6] = new SqlParameter("@Reasonforrestore", SqlDbType.VarChar, 500);
+        //        parm[6].Value = Mobj.strReasonforrestore;
+        //        parm[7] = new SqlParameter("@PriviousProfileStatus", SqlDbType.Int);
+        //        parm[7].Value = Mobj.ProfileStatusID;
+        //        parm[8] = new SqlParameter("@status", SqlDbType.Int);
+        //        parm[8].Direction = ParameterDirection.Output;
+        //        reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+        //        if (string.Compare(parm[8].Value.ToString(), System.DBNull.Value.ToString()) == 1)
+        //        {
+        //            Status = 1;
+        //        }
+        //        else
+        //        {
+        //            Status = Convert.ToInt32(parm[8].Value);
+        //        }
+        //    }
+        //    catch (Exception EX)
+        //    {
+        //        Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+        //    }
+        //    finally
+        //    {
+        //        connection.Close();
+        //        SqlConnection.ClearPool(connection);
+        //        SqlConnection.ClearAllPools();
+        //    }
+
+        //    return Status;
+        //}
+
+        public int checkStatusDal(string whereID, string flag, string spname)
         {
-            SqlParameter[] parm = new SqlParameter[9];
+            SqlParameter[] parm = new SqlParameter[3];
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
             SqlDataReader reader = null;
             int Status = 0;
-
             try
             {
-                parm[0] = new SqlParameter("@CustID", SqlDbType.BigInt);
-                parm[0].Value = Mobj.Cust_ID;
-                parm[1] = new SqlParameter("@EmpID", SqlDbType.BigInt);
-                parm[1].Value = Mobj.EmpID;
-                parm[2] = new SqlParameter("@RequestedBY", SqlDbType.BigInt);
-                parm[2].Value = Mobj.RequestedBY;
-                parm[3] = new SqlParameter("@RequestedBYEmpID", SqlDbType.BigInt);
-                parm[3].Value = Mobj.RequestedbyEmpID;
-                parm[4] = new SqlParameter("@RelationshipID", SqlDbType.Int);
-                parm[4].Value = Mobj.RelationshipID;
-                parm[5] = new SqlParameter("@Relationshipname", SqlDbType.VarChar, 500);
-                parm[5].Value = Mobj.strRelationshipname;
-                parm[6] = new SqlParameter("@Reasonforrestore", SqlDbType.VarChar, 500);
-                parm[6].Value = Mobj.strReasonforrestore;
-                parm[7] = new SqlParameter("@PriviousProfileStatus", SqlDbType.Int);
-                parm[7].Value = Mobj.ProfileStatusID;
-                parm[8] = new SqlParameter("@status", SqlDbType.Int);
-                parm[8].Direction = ParameterDirection.Output;
+                parm[0] = new SqlParameter("@where_ID", SqlDbType.VarChar);
+                parm[0].Value = whereID;
+                parm[1] = new SqlParameter("@flag", SqlDbType.VarChar);
+                parm[1].Value = flag;
+                parm[2] = new SqlParameter("@status", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(parm[8].Value.ToString(), System.DBNull.Value.ToString()) == 1)
+                if (string.Compare(parm[2].Value.ToString(), System.DBNull.Value.ToString()) == 0)
                 {
-                    Status = 1;
+                    Status = 0;
                 }
                 else
                 {
-                    Status = Convert.ToInt32(parm[8].Value);
+                    Status = Convert.ToInt32(parm[2].Value);
                 }
             }
             catch (Exception EX)
@@ -1542,7 +1582,7 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearAllPools();
             }
 
-            return Status;
+            return Status; 
         }
     }
 }
