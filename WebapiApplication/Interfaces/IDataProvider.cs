@@ -427,7 +427,7 @@ namespace WebapiApplication.Interfaces
 
         //int restoreProfile(restoreProfile mobj);
 
-        int checkStatus(string whereID, string flag);
+        int checkStatus(string whereID, string secondwhereID, string flag);
     }
 
     public interface IMobileAppDev

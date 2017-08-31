@@ -48,6 +48,6 @@ namespace WebapiApplication.Implement
         public ArrayList matchMeetingCountInfo(matchMeetingCountInfoMl mobj) { return dobj.matchMeetingCountInfoDal(mobj, "[dbo].[usp_Reports_MatchMeeting_View]"); }
         public ArrayList ProfileDeleteProfilesReport(settleDeleteProfilesReport mobj) { return dobj.ProfileDeleteProfilesReportDal(mobj, "[dbo].[usp_Reports_SettledandDeleteProf]"); }
         //public int restoreProfile(restoreProfile mobj) { return dobj.restoreProfileDal(mobj, "[dbo].[Usp_InsertRestoreRecord]"); }
-        public int checkStatus(string whereID, string flag) { return dobj.checkStatusDal(whereID, flag, "[dbo].[usp_checkStatus]"); }
+        public int checkStatus(string whereID, string secondwhereID ,string flag) { return dobj.checkStatusDal(whereID,secondwhereID, flag, "[dbo].[usp_checkStatus]"); }
     }
 }

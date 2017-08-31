@@ -1545,9 +1545,9 @@ namespace WebapiApplication.DAL
         //    return Status;
         //}
 
-        public int checkStatusDal(string whereID, string flag, string spname)
+        public int checkStatusDal(string whereID, string secondwhereID, string flag, string spname)
         {
-            SqlParameter[] parm = new SqlParameter[3];
+            SqlParameter[] parm = new SqlParameter[4];
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -1557,18 +1557,20 @@ namespace WebapiApplication.DAL
             {
                 parm[0] = new SqlParameter("@where_ID", SqlDbType.VarChar);
                 parm[0].Value = whereID;
-                parm[1] = new SqlParameter("@flag", SqlDbType.VarChar);
-                parm[1].Value = flag;
-                parm[2] = new SqlParameter("@status", SqlDbType.Int);
-                parm[2].Direction = ParameterDirection.Output;
+                parm[1] = new SqlParameter("@secondwhere_ID", SqlDbType.VarChar);
+                parm[1].Value = secondwhereID;
+                parm[2] = new SqlParameter("@flag", SqlDbType.VarChar);
+                parm[2].Value = flag;
+                parm[3] = new SqlParameter("@status", SqlDbType.Int);
+                parm[3].Direction = ParameterDirection.Output;
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(parm[2].Value.ToString(), System.DBNull.Value.ToString()) == 0)
+                if (string.Compare(parm[3].Value.ToString(), System.DBNull.Value.ToString()) == 0)
                 {
                     Status = 0;
                 }
                 else
                 {
-                    Status = Convert.ToInt32(parm[2].Value);
+                    Status = Convert.ToInt32(parm[3].Value);
                 }
             }
             catch (Exception EX)
