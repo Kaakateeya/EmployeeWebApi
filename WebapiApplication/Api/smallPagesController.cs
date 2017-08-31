@@ -176,7 +176,7 @@ namespace WebapiApplication.Api
         public ArrayList settleDeleteProfilesReport(settleDeleteProfilesReport mobj) { return Iobj.ProfileDeleteProfilesReport(mobj); }
         //public int restoreProfile(restoreProfile mobj) { return Iobj.restoreProfile(mobj); }
 
-        public int checkStatus(string whereID, string flag) { return Iobj.checkStatus(whereID, flag); }
+        public int getcheckStatus(string whereID, string flag) { return Iobj.checkStatus(whereID, flag); }
 
     }
 }
