@@ -425,6 +425,10 @@ namespace WebapiApplication.Interfaces
         ArrayList matchMeetingCountInfo(matchMeetingCountInfoMl mobj);
 
         ArrayList ProfileDeleteProfilesReport(settleDeleteProfilesReport mobj);
+
+        //int restoreProfile(restoreProfile mobj);
+
+        int checkStatus(string whereID, string secondwhereID, string flag);
     }
 
     public interface IMobileAppDev
