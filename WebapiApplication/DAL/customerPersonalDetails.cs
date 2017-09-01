@@ -1148,11 +1148,15 @@ namespace WebapiApplication.DAL
             int? iNull = null;
             Int64? i64null = null;
             bool? ibool = null;
-            DateTime? idate = null;
+            
+            //DateTime? idate = null;
+
             Emplanding_counts _EmpAdminCount = null;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
+
+            List<Emplanding_counts> empcount = null;
 
             try
             {
@@ -1173,9 +1177,11 @@ namespace WebapiApplication.DAL
 
                 while (reader.HasRows)
                 {
+                    empcount = new List<Emplanding_counts>();
 
                     while (reader.Read())
                     {
+                      
                         _EmpAdminCount = new Emplanding_counts();
                         _EmpAdminCount.TableName = (reader["TableName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TableName")) : null;
                         _EmpAdminCount.Profileid = (reader["Profileid"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profileid")) : null;
@@ -1209,9 +1215,10 @@ namespace WebapiApplication.DAL
                             _EmpAdminCount.NotificationID = (reader["NotificationID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NotificationID")) : iNull;
                         }
 
-                        arrayList.Add(_EmpAdminCount);
+                        empcount.Add(_EmpAdminCount);
                     }
 
+                    arrayList.Add(empcount);
                     reader.NextResult();
                 }
 
@@ -2570,3 +2577,5 @@ namespace WebapiApplication.DAL
         }
     }
 }
+
+  
