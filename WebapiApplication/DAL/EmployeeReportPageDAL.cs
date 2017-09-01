@@ -4360,7 +4360,7 @@ namespace WebapiApplication.DAL
                 parm[4] = new SqlParameter("@flag", SqlDbType.Int);
                 parm[4].Value = flag;
                 parm[5] = new SqlParameter("@v_ProfileOwnerEmpID", SqlDbType.VarChar);
-                parm[5].Value = flag;
+                parm[5].Value = v_ProfileOwnerEmpID;
 
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
             }
