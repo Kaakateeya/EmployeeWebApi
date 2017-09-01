@@ -165,7 +165,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>05/20/2017 12:06:45</publishTime>
-    </File>
     <File Include="Customer_new/Employee_new/EmployeeViewFullProfile.aspx">
       <publishTime>02/02/2017 12:45:52</publishTime>
     </File>

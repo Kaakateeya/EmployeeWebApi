@@ -4482,9 +4482,9 @@ namespace WebapiApplication.DAL
             return intStatus;
         }
 
-        public ArrayList Nomatchesreasons(string v_EmpID, int? i_Region, string v_Branch, int? i_flag, int? i_Cust_ID, string v_Reason, string spname)
+        public ArrayList Nomatchesreasons(nomatchesreason Mobj, string spname)
         {
-            SqlParameter[] parm = new SqlParameter[8];
+            SqlParameter[] parm = new SqlParameter[12];
             ArrayList arrayList = new ArrayList();
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
@@ -4494,29 +4494,39 @@ namespace WebapiApplication.DAL
             try
             {
                 parm[0] = new SqlParameter("@v_EmpID", SqlDbType.VarChar);
-                parm[0].Value = v_EmpID;
+                parm[0].Value = Mobj.v_EmpID;
                 parm[1] = new SqlParameter("@i_Region", SqlDbType.Int);
-                parm[1].Value = i_Region;
+                parm[1].Value = Mobj.i_Region;
                 parm[2] = new SqlParameter("@v_Branch", SqlDbType.VarChar);
-                parm[2].Value = v_Branch;
+                parm[2].Value = Mobj.v_Branch;
                 parm[3] = new SqlParameter("@i_flag", SqlDbType.Int);
-                parm[3].Value = i_flag;
+                parm[3].Value = Mobj.i_flag;
                 parm[4] = new SqlParameter("@i_Cust_ID", SqlDbType.Int);
-                parm[4].Value = i_Cust_ID;
+                parm[4].Value = Mobj.i_Cust_ID;
                 parm[5] = new SqlParameter("@v_Reason", SqlDbType.VarChar);
-                parm[5].Value = v_Reason;
-                parm[6] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[6].Direction = ParameterDirection.Output;
+                parm[5].Value = Mobj.v_Reason;
+                parm[6] = new SqlParameter("@i_Authorized", SqlDbType.Int);
+                parm[6].Value = Mobj.i_Authorized;
+
+
+                parm[7] = new SqlParameter("@i_Startindex", SqlDbType.Int);
+                parm[7].Value = Mobj.startindex;
+                parm[8] = new SqlParameter("@i_EndIndex", SqlDbType.Int);
+                parm[8].Value = Mobj.endindex;
+
+                parm[9] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[9].Direction = ParameterDirection.Output;
+
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (i_flag == 1 || i_flag == 2)
+                if (Mobj.i_flag == 1 || Mobj.i_flag == 2 || Mobj.i_flag == 3)
                 {
-                    if (string.Compare(System.DBNull.Value.ToString(), parm[6].Value.ToString()).Equals(0))
+                    if (string.Compare(System.DBNull.Value.ToString(), parm[9].Value.ToString()).Equals(0))
                     {
                         intStatus = 0;
                     }
                     else
                     {
-                        intStatus = Convert.ToInt32(parm[6].Value);
+                        intStatus = Convert.ToInt32(parm[9].Value);
                     }
                     arrayList.Add(intStatus);
                 }
@@ -4531,7 +4541,7 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
             }
-            return i_flag == 1 || i_flag == 2 ? arrayList : Commonclass.convertdataTableToArrayListTable(ds);
+            return Mobj.i_flag == 1 || Mobj.i_flag == 2 || Mobj.i_flag == 3 ? arrayList : Commonclass.convertdataTableToArrayListTable(ds);
         }
 
         public ArrayList Oldkmplkeywordlikesearch(CreateKeywordLlikesearchReqoldkmpl oldkmpl, string spname)

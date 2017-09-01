@@ -86,7 +86,7 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
-               
+
             }
             return MobjPersonalsML;
 
@@ -198,7 +198,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-               
+
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -404,7 +404,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-               
+
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -437,7 +437,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-              
+
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -566,7 +566,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-              
+
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -643,7 +643,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                
+
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -743,7 +743,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-               
+
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -788,7 +788,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-              
+
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -851,7 +851,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-               
+
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -973,7 +973,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                
+
                 connection.Close();
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
@@ -1126,6 +1126,112 @@ namespace WebapiApplication.DAL
 
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
+
+
+        /// <summary>
+        /// create Date : 31/08/2017
+        /// created By: S.A.Kiran
+        /// DES :display Employee landing  tables
+        /// </summary>
+        /// <param name="flag"></param>
+        /// <param name="ID"></param>
+        /// <param name="spName"></param>
+        /// <returns></returns>
+        /// 
+
+        public ArrayList Emplanding_counts_TablesDisplay(EmployeeLandingCount employeecount, string strSpName)
+        {
+            ArrayList arrayList = new ArrayList();
+            SqlParameter[] parm = new SqlParameter[10];
+            SqlDataReader reader;
+
+            int? iNull = null;
+            Int64? i64null = null;
+            bool? ibool = null;
+            DateTime? idate = null;
+            Emplanding_counts _EmpAdminCount = null;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                parm[0] = new SqlParameter("@owner", SqlDbType.Structured);
+                parm[0].Value = employeecount.owner;
+                parm[1] = new SqlParameter("@Branch", SqlDbType.Structured);
+                parm[1].Value = employeecount.Branch;
+                parm[2] = new SqlParameter("@intStartIndex", SqlDbType.Int);
+                parm[2].Value = employeecount.StartIndex;
+                parm[3] = new SqlParameter("@intEndIndex", SqlDbType.Int);
+                parm[3].Value = employeecount.EndIndex;
+                parm[4] = new SqlParameter("@strTableType", SqlDbType.VarChar);
+                parm[4].Value = employeecount.strTableType;
+                parm[5] = new SqlParameter("@intLoadStatus", SqlDbType.Int);
+                parm[5].Value = employeecount.intLoadStatus;
+
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, strSpName, parm);
+
+                while (reader.HasRows)
+                {
+
+                    while (reader.Read())
+                    {
+                        _EmpAdminCount = new Emplanding_counts();
+                        _EmpAdminCount.TableName = (reader["TableName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TableName")) : null;
+                        _EmpAdminCount.Profileid = (reader["Profileid"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profileid")) : null;
+                        _EmpAdminCount.Name = (reader["Name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Name")) : null;
+                        _EmpAdminCount.ServiceCount = (reader["ServiceCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ServiceCount")) : iNull;
+                        _EmpAdminCount.Date = (reader["Date"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Date")) : null;
+                        _EmpAdminCount.Photo = (reader["Photo"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Photo")) : null;
+
+                        if (_EmpAdminCount.TableName != "No Photos Customers" && _EmpAdminCount.TableName != "Not Yet Verified Contact Details")
+                        {
+                            _EmpAdminCount.PaidStatus = (reader["PaidStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PaidStatus")) : iNull;
+                        }
+                        if (_EmpAdminCount.TableName == "Inactive Customers")
+                        {
+                            _EmpAdminCount.Reason4InActive = (reader["Reason4InActive"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Reason4InActive")) : null;
+                        }
+                        if (_EmpAdminCount.TableName == "Marketing Tickets Assigned Since 10 Days" || _EmpAdminCount.TableName == "Marketing Ticket Expiry With in Two days")
+                        {
+                            _EmpAdminCount.Tickets = (reader["Tickets"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Tickets")) : null;
+                            _EmpAdminCount.TicketID = (reader["TicketID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("TicketID")) : i64null;
+
+                        }
+                        if (_EmpAdminCount.TableName == "No Sa Form For Paid Profiles")
+                        {
+                            _EmpAdminCount.SAFormStatus = (reader["SAFormStatus"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("SAFormStatus")) : null;
+                        }
+                        if (_EmpAdminCount.TableName == "Customer Notification Status")
+                        {
+                            _EmpAdminCount.ReadStatus = (reader["ReadStatus"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("ReadStatus")) : ibool;
+                          
+                            _EmpAdminCount.NotificationID = (reader["NotificationID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NotificationID")) : iNull;
+                        }
+
+                        arrayList.Add(_EmpAdminCount);
+                    }
+
+                    reader.NextResult();
+                }
+
+
+                reader.Close();
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(strSpName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return arrayList;
+        }
+
 
         public ArrayList CustomerPersonaloffice_purpose(string flag, string ID, string AboutProfile, int? IsConfidential, int? HighConfendential, string strSpname)
         {
@@ -2031,7 +2137,7 @@ namespace WebapiApplication.DAL
                             MobjPersonalsML.SuperConfidentila = (reader["SuperConfidentila"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("SuperConfidentila")) : false;
                             MobjPersonalsML.FirstName = (reader["FirstName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FirstName")) : empty;
                             MobjPersonalsML.LastName = (reader["LastName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastName")) : empty;
-                          //  MobjPersonalsML.NoOfBrothers = (reader["NoOfBrothers"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfBrothers")) : iNull;
+                            //  MobjPersonalsML.NoOfBrothers = (reader["NoOfBrothers"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfBrothers")) : iNull;
                             //MobjPersonalsML.NoOfSisters = (reader["NoOfSisters"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfSisters")) : iNull;
                             MobjPersonalsML.Caste = (reader["Caste"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Caste")) : empty;
                             MobjPersonalsML.ProfileGrade = (reader["ProfileGrade"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ProfileGrade")) : iNull;
@@ -2053,29 +2159,29 @@ namespace WebapiApplication.DAL
                             MobjPersonalsML.Cust_Family_ID = (reader["Cust_Family_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_Family_ID")) : iLong;
                             MobjPersonalsML.Gender = (reader["Gender"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gender")) : empty;
                             MobjPersonalsML.SubCaste = (reader["SubCaste"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("SubCaste")) : empty;
-                           // MobjPersonalsML.Age = (reader["Age"]) != DBNull.Value ? (reader.GetInt32(reader.GetOrdinal("Age"))).ToString() : empty;
-                           // MobjPersonalsML.Height = (reader["Height"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Height")) : empty;
-                           // MobjPersonalsML.Color = (reader["Color"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Color")) : empty;
-                           // MobjPersonalsML.EducationGroup = (reader["EducationGroup"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EducationGroup")) : empty;
-                          //  MobjPersonalsML.Profession = (reader["Profession"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profession")) : empty;
+                            // MobjPersonalsML.Age = (reader["Age"]) != DBNull.Value ? (reader.GetInt32(reader.GetOrdinal("Age"))).ToString() : empty;
+                            // MobjPersonalsML.Height = (reader["Height"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Height")) : empty;
+                            // MobjPersonalsML.Color = (reader["Color"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Color")) : empty;
+                            // MobjPersonalsML.EducationGroup = (reader["EducationGroup"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EducationGroup")) : empty;
+                            //  MobjPersonalsML.Profession = (reader["Profession"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profession")) : empty;
                             //MobjPersonalsML.JobLocation = (reader["JobLocation"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("JobLocation")) : empty;
-                           // MobjPersonalsML.countrylivingin = (reader["CountryLivingin"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CountryLivingin")) : empty;
-                          //  MobjPersonalsML.MaritalStatusID = (reader["MaritalStatus"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MaritalStatus")) : empty;
-                           // MobjPersonalsML.Star = (reader["Star"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Star")) : empty;
-                           // MobjPersonalsML.Gothram = (reader["Gothram"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gothram")) : empty;
-                           // MobjPersonalsML.TOB = (reader["TOB"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TOB")) : empty;
-                          //  MobjPersonalsML.educationspecialisation = (reader["EduSpecialization"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EduSpecialization")) : empty;
-                           // MobjPersonalsML.EduGroupnamenew = (reader["EduGroupnamenew"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EduGroupnamenew")) : empty;
-                           // MobjPersonalsML.Employeedin = (reader["EmployeedIn"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmployeedIn")) : empty;
-                           // MobjPersonalsML.Profession = (reader["ProfGroup"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfGroup")) : empty;
-                           // MobjPersonalsML.Property = (reader["Property"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Property")) : iNull;
-                           // MobjPersonalsML.Income = (reader["Income"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Income")) : empty;
-                           // MobjPersonalsML.FFNative = (reader["FFNative"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FFNative")) : empty;
-                           // MobjPersonalsML.MFNative = (reader["MFNative"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MFNative")) : empty;
+                            // MobjPersonalsML.countrylivingin = (reader["CountryLivingin"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CountryLivingin")) : empty;
+                            //  MobjPersonalsML.MaritalStatusID = (reader["MaritalStatus"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MaritalStatus")) : empty;
+                            // MobjPersonalsML.Star = (reader["Star"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Star")) : empty;
+                            // MobjPersonalsML.Gothram = (reader["Gothram"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gothram")) : empty;
+                            // MobjPersonalsML.TOB = (reader["TOB"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TOB")) : empty;
+                            //  MobjPersonalsML.educationspecialisation = (reader["EduSpecialization"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EduSpecialization")) : empty;
+                            // MobjPersonalsML.EduGroupnamenew = (reader["EduGroupnamenew"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EduGroupnamenew")) : empty;
+                            // MobjPersonalsML.Employeedin = (reader["EmployeedIn"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmployeedIn")) : empty;
+                            // MobjPersonalsML.Profession = (reader["ProfGroup"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfGroup")) : empty;
+                            // MobjPersonalsML.Property = (reader["Property"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Property")) : iNull;
+                            // MobjPersonalsML.Income = (reader["Income"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Income")) : empty;
+                            // MobjPersonalsML.FFNative = (reader["FFNative"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FFNative")) : empty;
+                            // MobjPersonalsML.MFNative = (reader["MFNative"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MFNative")) : empty;
                             //MobjPersonalsML.PlaceOfBirth = (reader["PlaceOfBirth"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PlaceOfBirth")) : empty;
                             MobjPersonalsML.Photo = (reader["Photo"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Photo")) : empty;
                             MobjPersonalsML.PhotoNames = (reader["PhotoNames"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PhotoNames")) : empty;
-                           // MobjPersonalsML.currency = (reader["currency"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("currency")) : empty;
+                            // MobjPersonalsML.currency = (reader["currency"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("currency")) : empty;
                             MobjPersonalsML.Ownerflag = (reader["Ownerflag"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("Ownerflag")) : false;
                             MobjPersonalsML.RegistrationDate = (reader["DOR"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("DOR")) : empty;
                             MobjPersonalsML.UploadedPhotoscount = (reader["UploadedPhotoscount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("UploadedPhotoscount")) : iNull;
@@ -2085,8 +2191,8 @@ namespace WebapiApplication.DAL
                             //MobjPersonalsML.onlinepaidcls = (reader["onlinepaidcls"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("onlinepaidcls")) : empty;
                             //MobjPersonalsML.offlinepaidcls = (reader["offlinepaidcls"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("offlinepaidcls")) : empty;
                             MobjPersonalsML.OwnerName = (reader["OwnerName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("OwnerName")) : empty;
-                          //  MobjPersonalsML.DOB = (reader["DOB"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("DOB")) : empty;
-                           // MobjPersonalsML.serviceDate = (reader["CreatedDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CreatedDate")) : empty;
+                            //  MobjPersonalsML.DOB = (reader["DOB"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("DOB")) : empty;
+                            // MobjPersonalsML.serviceDate = (reader["CreatedDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CreatedDate")) : empty;
                             MobjPersonalsML.IsConfidential = (reader["IsConfidential"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("IsConfidential")) : false;
                             MobjPersonalsML.HoroscopeStatus = (reader["HoroscopeStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("HoroscopeStatus")) : iNull;
                             MobjPersonalsML.Emp_Ticket_ID = (reader["Emp_Ticket_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Emp_Ticket_ID")) : iLong;

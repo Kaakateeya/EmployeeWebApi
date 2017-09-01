@@ -75,6 +75,11 @@ namespace WebapiApplication.Implement
         public int AstroDetailsUpdateDelete(AstroUploadDelete astroupdate) { return customerdetails.AstroDetailsUpdateDelete(astroupdate, "[dbo].[usp_AstroUpload_Delete]"); }
         public HoroGeneration GenerateHoroscorpe(int? customerid, string EmpIDQueryString, int? intDay, int? intMonth, int? intYear, int? CityID) { return customerdetails.GenerateHoroscorpe(customerid, EmpIDQueryString, intDay, intMonth, intYear, CityID); }
         public ArrayList Emplanding_counts_Admin(EmployeeLandingCount ecount) { return customerdetails.Emplanding_counts_Admin(ecount, "[dbo].[usp_emplanding_counts_Admin_New]"); }
+
+        public ArrayList Emplanding_counts_TablesDisplay(EmployeeLandingCount ecount) { return customerdetails.Emplanding_counts_TablesDisplay(ecount, "[dbo].[usp_emplanding_counts_Admin_New]"); }
+
+        
+
         public int UpdateSpoucedetails_Customersetails(UpdatePersonaldetails customerpersonaldetails) { return customerdetails.UpdateSpoucedetails_Customersetails(customerpersonaldetails, "[dbo].[usp_edit_Spoucedetails_CustomerEdit]"); }
         public int UpdateSpouseChildDetails(UpdatePersonaldetails customerpersonaldetails) { return customerdetails.UpdateSpouseChildDetails(customerpersonaldetails, "[dbo].[usp_edit_SpoucedetailsChildern_CustomerEdit_NewDesign]"); }
         public int CustomerContactDetails_Update(ContactDetals Mobj) { return customerdetails.CustomerContactDetails_Update(Mobj, "[dbo].[usp_edit_CustomerContactNumbers_EmployeeEdit_NewDesign]"); }

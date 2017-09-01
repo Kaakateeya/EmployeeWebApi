@@ -124,6 +124,8 @@ namespace WebapiApplication.Interfaces
         int UploadsettlementForm(SettlementPaidBalanceDetailsMl settlementForm);
 
         int AstroGenerationS3Update(string Path, string KeyName);
+
+        ArrayList Emplanding_counts_TablesDisplay(EmployeeLandingCount ecount);
     }
     public interface IStaticPages
     {
@@ -359,10 +361,9 @@ namespace WebapiApplication.Interfaces
 
         int? InsertResonForNoService(insetnoserice Mobj);
 
-        ArrayList Nomatchesreasons(string v_EmpID, int? i_Region, string v_Branch, int? i_flag, int? i_Cust_ID, string v_Reason);
-
-
         ArrayList Oldkmplkeywordlikesearch(CreateKeywordLlikesearchReqoldkmpl oldkmpl);
+
+        ArrayList Nomatchesreasons(nomatchesreason Mobj);
     }
 
     public interface ISmallPages
