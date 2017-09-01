@@ -221,7 +221,7 @@ namespace WebapiApplication.Api
         public int? InsertResonForNoService([FromBody]insetnoserice Mobj) { return this.IEmployeeReport.InsertResonForNoService(Mobj); }
 
         //string v_EmpID, int? i_Region, string v_Branch, int? i_flag, int? i_Cust_ID, string v_Reason, int? i_Authorized
-        public ArrayList getNomatchesreasons([FromBody]nomatchesreason Mobj) { return this.IEmployeeReport.Nomatchesreasons(Mobj); }
+        public ArrayList Nomatchesreasons([FromBody]nomatchesreason Mobj) { return this.IEmployeeReport.Nomatchesreasons(Mobj); }
 
 
         public ArrayList Oldkmplkeywordlikesearch([FromBody]CreateKeywordLlikesearchReqoldkmpl oldkmpl)
