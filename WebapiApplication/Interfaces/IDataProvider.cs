@@ -355,7 +355,7 @@ namespace WebapiApplication.Interfaces
 
         int? Marketingticketstatus(long? ticketid, string EmpID);
 
-        ArrayList AdminReportsAllProfiles(int? i_EmpID, string i_BranchID,int? i_Region, string v_MacAddress, int? flag);
+        ArrayList AdminReportsAllProfiles(int? i_EmpID, string i_BranchID, int? i_Region, string v_MacAddress, int? flag, string v_ProfileOwnerEmpID);
 
         ArrayList CheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB);
 

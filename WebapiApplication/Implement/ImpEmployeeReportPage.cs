@@ -170,7 +170,7 @@ namespace WebapiApplication.Implement
 
         public int? Marketingticketstatus(Int64? ticketid, string EmpID) { return new EmployeeReportPageDAL().Marketingticketstatus(ticketid, EmpID, "[dbo].[usp_UpdateTicketStatus]"); }
 
-        public ArrayList AdminReportsAllProfiles(int? i_EmpID, string i_BranchID, int? i_Region, string v_MacAddress, int? flag) { return new EmployeeReportPageDAL().AdminReportsAllProfiles(i_EmpID, i_BranchID, i_Region, v_MacAddress, flag, "[dbo].[usp_Emp_SchedulerWorkPending]"); }
+        public ArrayList AdminReportsAllProfiles(int? i_EmpID, string i_BranchID, int? i_Region, string v_MacAddress, int? flag, string v_ProfileOwnerEmpID) { return new EmployeeReportPageDAL().AdminReportsAllProfiles(i_EmpID, i_BranchID, i_Region, v_MacAddress, flag,v_ProfileOwnerEmpID, "[dbo].[usp_Emp_SchedulerWorkPending]"); }
 
 
         public ArrayList CheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB) { return new EmployeeReportPageDAL().CheckSurNameNamedob(strSurName, StrName, dtDOB, "[dbo].[usp_CheckSurNameName]"); }
