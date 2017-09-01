@@ -761,6 +761,20 @@ namespace WebapiApplication.ML
 
         public DataTable dtPartnerPreference { get; set; }
     }
+    public class nomatchesreason
+    {
+        public string v_EmpID { get; set; }
+        public int? i_Region { get; set; }
+        public string v_Branch { get; set; }
+        public int? i_flag { get; set; }
+        public int? i_Cust_ID { get; set; }
+        public string v_Reason { get; set; }
+        public int? i_Authorized { get; set; }
+        public int? startindex { get; set; }
+        public int? endindex { get; set; }
+
+
+    }
 }
 
 

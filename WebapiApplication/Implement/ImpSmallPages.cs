@@ -12,7 +12,9 @@ namespace WebapiApplication.Implement
 
     public class ImpSmallPages : ISmallPages
     {
+
         smallPageDal dobj = new smallPageDal();
+
         public ArrayList getMacIpValues(macIPInput mobj) { return dobj.getMacIpValuesDal(mobj, "usp_BranchIpaddress"); }
         public Tuple<int, ArrayList> matchMeetingEntryForm(matchMeetingEntryForm mobj) { return dobj.matchMeetingEntryFormDal(mobj, "Usp_CreateMatchmeeting"); }
         public Tuple<int, ArrayList> EmpDetailsNew(string profileID, int BridegroomFlag) { return dobj.EmpDetailsNew(profileID, BridegroomFlag, "usp_reg_GetMatchMeetDetailsNew"); }
@@ -47,5 +49,7 @@ namespace WebapiApplication.Implement
         public ArrayList matchMeetingCountReport(matchMeetingCountMl mobj) { return dobj.matchMeetingCountReportDal(mobj, "[dbo].[usp_Reports_MatchMeetingCount]"); }
         public ArrayList matchMeetingCountInfo(matchMeetingCountInfoMl mobj) { return dobj.matchMeetingCountInfoDal(mobj, "[dbo].[usp_Reports_MatchMeeting_View]"); }
         public ArrayList ProfileDeleteProfilesReport(settleDeleteProfilesReport mobj) { return dobj.ProfileDeleteProfilesReportDal(mobj, "[dbo].[usp_Reports_SettledandDeleteProf]"); }
+    
+    
     }
 }

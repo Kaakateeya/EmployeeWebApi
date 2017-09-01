@@ -28,4 +28,27 @@ namespace WebapiApplication.ML
         public int? ProfileStatusID { get; set; }
         public long? CustID { get; set; }
     }
+
+    public class Emplanding_counts
+    {
+
+        public string TableName { get; set; }
+        public string Profileid { get; set; }
+        public string Name { get; set; }
+        public int? ServiceCount { get; set; }
+        public string Date { get; set; }
+        public string Photo { get; set; }
+        public int? PaidStatus { get; set; }
+        public string Reason4InActive { get; set; }
+
+        public string Tickets { get; set; }
+
+        public long? TicketID { get; set; }
+
+        public string SAFormStatus { get; set; }
+
+        public bool? ReadStatus { get; set; }
+
+        public int? NotificationID { get; set; }
+    }
 }

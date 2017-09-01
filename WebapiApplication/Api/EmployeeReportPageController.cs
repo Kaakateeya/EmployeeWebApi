@@ -220,8 +220,8 @@ namespace WebapiApplication.Api
 
         public int? InsertResonForNoService([FromBody]insetnoserice Mobj) { return this.IEmployeeReport.InsertResonForNoService(Mobj); }
 
-
-        public ArrayList getNomatchesreasons(string v_EmpID, int? i_Region, string v_Branch, int? i_flag, int? i_Cust_ID, string v_Reason) { return this.IEmployeeReport.Nomatchesreasons(v_EmpID, i_Region, v_Branch, i_flag, i_Cust_ID, v_Reason); }
+        //string v_EmpID, int? i_Region, string v_Branch, int? i_flag, int? i_Cust_ID, string v_Reason, int? i_Authorized
+        public ArrayList getNomatchesreasons([FromBody]nomatchesreason Mobj) { return this.IEmployeeReport.Nomatchesreasons(Mobj); }
 
 
         public ArrayList Oldkmplkeywordlikesearch([FromBody]CreateKeywordLlikesearchReqoldkmpl oldkmpl)

@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>C:\Users\Admin\Desktop\183build</_PublishTargetUrl>
-    <_PublishTargetUrl>D:\build_files\29_08_2017_connectiontimeout</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\build_files\31_08_2017_Loop123</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Api/BindJson .cs">
@@ -161,7 +161,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2016 12:02:45</publishTime>
     </File>
     <File Include="bin/WebapiApplication.dll">
-      <publishTime>08/29/2017 16:39:44</publishTime>
+      <publishTime>08/31/2017 18:31:45</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/24/2016 12:02:45</publishTime>
@@ -170,7 +170,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="DAL/HtmlPage1.html">
-      <publishTime>08/29/2017 10:31:29</publishTime>
+      <publishTime>08/31/2017 16:05:31</publishTime>
     </File>
     <File Include="DAL/TestAngular.html">
       <publishTime>06/17/2017 13:53:34</publishTime>
