@@ -704,9 +704,9 @@ namespace WebapiApplication.DAL
                             Binterest.ToPaidStatus = (reader["ToPaidStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ToPaidStatus")) : intnull;
                             Binterest.FromExpiryDate = (reader["FromExpiryDate"]) != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("FromExpiryDate")) : dnull;
                             Binterest.ToExpiryDate = (reader["ToExpiryDate"]) != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("ToExpiryDate")) : dnull;
-
                             Binterest.Expressinterestlogid = (reader["Expressinterestlogid"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Expressinterestlogid")) : Lnull;
-
+                            Binterest.fromgenderid = (reader["fromgenderid"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("fromgenderid")) : intnull;
+                            Binterest.togenderid = (reader["togenderid"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("togenderid")) : intnull;
 
                             arrayList.Add(Binterest);
 
@@ -4340,7 +4340,7 @@ namespace WebapiApplication.DAL
         /// <param name="v_MacAddress"></param>
         /// <param name="p"></param>
         /// <returns></returns>
-        public ArrayList AdminReportsAllProfiles(int? i_EmpID, string i_BranchID, int? i_Region, string v_MacAddress, int? flag,string v_ProfileOwnerEmpID, string spname)
+        public ArrayList AdminReportsAllProfiles(int? i_EmpID, string i_BranchID, int? i_Region, string v_MacAddress, int? flag, string v_ProfileOwnerEmpID, string spname)
         {
             SqlParameter[] parm = new SqlParameter[7];
             SqlConnection connection = new SqlConnection();

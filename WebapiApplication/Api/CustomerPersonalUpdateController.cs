@@ -198,6 +198,10 @@ namespace WebapiApplication.Api
            
         }
 
+
+
+
+
         // Edit/View 
 
         public int UpdateSpoucedetails_Customersetails([FromBody]JObject CgetDetails)
