@@ -224,6 +224,10 @@ namespace WebapiApplication.ML
         public DateTime? ToExpiryDate { get; set; }
 
         public long? Expressinterestlogid { get; set; }
+
+        public int? fromgenderid { get; set; }
+
+        public int? togenderid { get; set; }
     }
 
     public class SearchML
