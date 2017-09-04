@@ -95,7 +95,18 @@ namespace WebapiApplication.Api
 
         // RegistrationValidation
 
-        public List<GetRegprofilevalidation> RegistrationValidation([FromBody]Regprofilevalidation RegValidation) { return this.IEmployeeReport.RegistrationValidation(RegValidation); }
+        public List<GetRegprofilevalidation> RegistrationValidation([FromBody]Regprofilevalidation RegValidation)
+        {
+            return this.IEmployeeReport.RegistrationValidation(RegValidation);
+
+        }
+        public List<GetRegprofilevalidationtable> RegistrationValidationtable([FromBody]Regprofilevalidation RegValidation)
+        {
+
+            return this.IEmployeeReport.RegistrationValidation_Table(RegValidation);
+
+
+        }
         public List<RegprofilevalidationPlaybutton> getRegistrationValidation_Playbutton(string Profileid) { return this.IEmployeeReport.RegistrationValidation_Playbutton(Profileid); }
 
         public int FeeUpdate(FeeUpdateML mobj) { return this.IEmployeeReport.FeeUpdate(mobj); }

@@ -364,6 +364,8 @@ namespace WebapiApplication.Interfaces
         ArrayList Oldkmplkeywordlikesearch(CreateKeywordLlikesearchReqoldkmpl oldkmpl);
 
         ArrayList Nomatchesreasons(nomatchesreason Mobj);
+
+        List<GetRegprofilevalidationtable> RegistrationValidation_Table(Regprofilevalidation RegValidation);
     }
 
     public interface ISmallPages
