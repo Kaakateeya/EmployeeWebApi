@@ -85,7 +85,7 @@ namespace WebapiApplication.Api
         public NoDataFoundDisplay getNoDataFoundDisplay(string ProfileID) { return this.ISuccessStories.NoDataFoundDisplay(ProfileID); }
         public int getbrokerEmailMobilenumberexists(int? iflagEmailmobile, string EmailMobile) { return this.ISuccessStories.brokerEmailMobilenumberexists(iflagEmailmobile, EmailMobile); }
 
-        public ArrayList getCustomerviewProfileEncrptBased(string ProfileID, int? EmpID) { return this.ISuccessStories.CustomerViewAdminFullDetails(Commonclass.profileidEncrypt(ProfileID), EmpID); }
+        public string getdecryptedProfileID(string ProfileID) { return Commonclass.Decrypt_new(ProfileID); }
 
     }
 }

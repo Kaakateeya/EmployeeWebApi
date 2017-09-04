@@ -479,31 +479,19 @@
 
 
             var jsonbObj = {
-                "EMployeeID": 382,
-                "servicegivencount": 0,
-                "matchfollowupcount": 0,
-                "marketingticketscount": "12",
-                "PhotoCount": 0,
-                "HoroCount": 0,
-                "EMpname": "prasanthi Dasari"
+                EmpID: 1,
+                ProfileID:''
             };
 
 
             $("#btngetdata").click(function() {
                 alert(1);
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/getNomatchesreasons',
+                    url: 'http://localhost:63006/Api/StaticPages/getdecryptedProfileID',
                     type: 'get',
                     crossDomain: true,
                     data: {
-                        i_Authorized: '',
-                        i_Cust_ID: 91022,
-                        i_Region: '',
-                        i_flag: 3,
-                        v_Branch: '',
-                        v_EmpID: '',
-                        v_Reason: ''
-
+                        ProfileID: 'EyoHK/W419vFDq3XAQADukLKS+/sAktgQhsZeQcB8x0='
                     },
                     contentType: 'application/json',
                     success: function(data, textStatus, xhr) {
