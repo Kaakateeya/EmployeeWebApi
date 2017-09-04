@@ -50,5 +50,7 @@ namespace WebapiApplication.ML
         public bool? ReadStatus { get; set; }
 
         public int? NotificationID { get; set; }
+      
     }
+   
 }

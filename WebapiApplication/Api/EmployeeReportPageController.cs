@@ -95,7 +95,18 @@ namespace WebapiApplication.Api
 
         // RegistrationValidation
 
-        public List<GetRegprofilevalidation> RegistrationValidation([FromBody]Regprofilevalidation RegValidation) { return this.IEmployeeReport.RegistrationValidation(RegValidation); }
+        public List<GetRegprofilevalidation> RegistrationValidation([FromBody]Regprofilevalidation RegValidation)
+        {
+            return this.IEmployeeReport.RegistrationValidation(RegValidation);
+
+        }
+        public List<GetRegprofilevalidationtable> RegistrationValidationtable([FromBody]Regprofilevalidation RegValidation)
+        {
+
+            return this.IEmployeeReport.RegistrationValidation_Table(RegValidation);
+
+
+        }
         public List<RegprofilevalidationPlaybutton> getRegistrationValidation_Playbutton(string Profileid) { return this.IEmployeeReport.RegistrationValidation_Playbutton(Profileid); }
 
         public int FeeUpdate(FeeUpdateML mobj) { return this.IEmployeeReport.FeeUpdate(mobj); }
@@ -214,14 +225,14 @@ namespace WebapiApplication.Api
 
         public int? getMarketingticketstatus(Int64? ticketid, string EmpID) { return this.IEmployeeReport.Marketingticketstatus(ticketid, EmpID); }
 
-        public ArrayList getAdminReportsAllProfiles(int? i_EmpID, string i_BranchID,int? i_Region, string v_MacAddress, int? flag) { return this.IEmployeeReport.AdminReportsAllProfiles(i_EmpID, i_BranchID, i_Region, v_MacAddress, flag); }
+        public ArrayList getAdminReportsAllProfiles(int? i_EmpID, string i_BranchID, int? i_Region, string v_MacAddress, int? flag, string v_ProfileOwnerEmpID) { return this.IEmployeeReport.AdminReportsAllProfiles(i_EmpID, i_BranchID, i_Region, v_MacAddress, flag, v_ProfileOwnerEmpID); }
 
         public ArrayList getCheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB) { return this.IEmployeeReport.CheckSurNameNamedob(strSurName, StrName, dtDOB); }
 
         public int? InsertResonForNoService([FromBody]insetnoserice Mobj) { return this.IEmployeeReport.InsertResonForNoService(Mobj); }
 
         //string v_EmpID, int? i_Region, string v_Branch, int? i_flag, int? i_Cust_ID, string v_Reason, int? i_Authorized
-        public ArrayList getNomatchesreasons([FromBody]nomatchesreason Mobj) { return this.IEmployeeReport.Nomatchesreasons(Mobj); }
+        public ArrayList Nomatchesreasons([FromBody]nomatchesreason Mobj) { return this.IEmployeeReport.Nomatchesreasons(Mobj); }
 
 
         public ArrayList Oldkmplkeywordlikesearch([FromBody]CreateKeywordLlikesearchReqoldkmpl oldkmpl)
