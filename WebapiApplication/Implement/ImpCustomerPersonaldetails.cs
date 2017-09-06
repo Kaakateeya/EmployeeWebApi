@@ -45,7 +45,7 @@ namespace WebapiApplication.Implement
         public int CandidateContactsendmailtoemailverify(long? CustID) { return customerdetails.CandidateContactsendmailtoemailverify(CustID, "[dbo].[Usp_ResendEmailVerficationLink]"); }
         public ArrayList ProfileIDPlaybutton(string ProfileID) { return customerdetails.ProfileIDPlaybutton(ProfileID, "[dbo].[Usp_GetFullInfoofCustomer_NewDesign]"); }
         public ArrayList ViewAllCustomersSettledeleteinfo(string CustID, string typeofdata) { return customerdetails.ViewAllCustomersSettledeleteinfo(CustID, typeofdata, "[dbo].[usp_ViewSettleDeleteProfiledsinfo_NewDesign]"); }
-        public ArrayList Search_ViewEditProfile(ViewEditProfileSearch Mobj) { return customerdetails.Search_ViewEditProfile(Mobj, "[dbo].[Usp_Search_ViewEditProfile]"); }
+        public ArrayList Search_ViewEditProfile(ViewEditProfileSearch Mobj) { return customerdetails.Search_ViewEditProfile(Mobj, Mobj.isSlide == true ? "[dbo].[Usp_Search_ViewEditProfile]" : "[dbo].[Usp_Search_ViewEditProfile_Table]"); }
 
     }
 

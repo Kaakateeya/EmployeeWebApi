@@ -876,7 +876,43 @@ namespace WebapiApplication.ML
 
         public long? ProfileOwnerID { get; set; }
     }
+    public class ViewAllCustomersSearchtable
+    {
 
+
+        public long? CustID { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string CasteName { get; set; }
+
+        public string ProfileOwner { get; set; }
+
+        public string Height { get; set; }
+
+        public string LoginStatus { get; set; }
+
+        public string educationgroup { get; set; }
+
+        public string Age { get; set; }
+
+        public int? GenderID { get; set; }
+
+        public int? ProfileStatusID { get; set; }
+
+        public string Confidential { get; set; }
+
+        public string ProfileID { get; set; }
+
+        public int? TotalRows { get; set; }
+        public string Profession { get; set; }
+
+        public int? PaidSatus { get; set; }
+
+        public long? ProfileOwnerID { get; set; }
+    }
     public class ProfilePaymentGridView
     {
         public string ProfileID { get; set; }
