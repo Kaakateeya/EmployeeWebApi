@@ -1917,7 +1917,7 @@ namespace WebapiApplication.DAL
             Int64? intNull = null;
             int? iNull = null;
 
-            ViewAllCustomersSearch MobjPersonalsML = null;
+            ViewAllCustomersSearchnew MobjPersonalsML = null;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -1944,7 +1944,7 @@ namespace WebapiApplication.DAL
                 {
                     while (reader.Read())
                     {
-                        MobjPersonalsML = new ViewAllCustomersSearch();
+                        MobjPersonalsML = new ViewAllCustomersSearchnew();
                         MobjPersonalsML.CustID = (reader["CustID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("CustID")) : intNull;
                         MobjPersonalsML.FirstName = (reader["FirstName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FirstName")) : null;
                         MobjPersonalsML.LastName = (reader["LastName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastName")) : null;
@@ -2152,7 +2152,6 @@ namespace WebapiApplication.DAL
                             MobjPersonalsML.Caste = (reader["Caste"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Caste")) : empty;
                             MobjPersonalsML.ProfileGrade = (reader["ProfileGrade"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ProfileGrade")) : iNull;
                             MobjPersonalsML.TotalRows = (reader["TotalRows"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : iNull;
-                            MobjPersonalsML.Totalpages = (reader["Totalpages"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Totalpages")) : iNull;
                             MobjPersonalsML.SRCount = (reader["SRCount"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("SRCount")) : empty;
                             MobjPersonalsML.ExpiryDate = (reader["ExpiryDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ExpiryDate")) : empty;
                             MobjPersonalsML.Points = (reader["Points"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Points")) : empty;
@@ -2172,21 +2171,18 @@ namespace WebapiApplication.DAL
                             MobjPersonalsML.Photo = (reader["Photo"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Photo")) : empty;
                             MobjPersonalsML.PhotoNames = (reader["PhotoNames"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PhotoNames")) : empty;
                             MobjPersonalsML.Ownerflag = (reader["Ownerflag"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("Ownerflag")) : false;
-                            MobjPersonalsML.RegistrationDate = (reader["DOR"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("DOR")) : empty;
+                            MobjPersonalsML.DOR = MobjPersonalsML.RegistrationDate = (reader["DOR"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("DOR")) : empty;
                             MobjPersonalsML.UploadedPhotoscount = (reader["UploadedPhotoscount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("UploadedPhotoscount")) : iNull;
                             MobjPersonalsML.PhotoshopCount = (reader["PhotoshopCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PhotoshopCount")) : iNull;
                             MobjPersonalsML.OwnerName = (reader["OwnerName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("OwnerName")) : empty;
-                            MobjPersonalsML.IsConfidential = (reader["IsConfidential"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("IsConfidential")) : false;
                             MobjPersonalsML.HoroscopeStatus = (reader["HoroscopeStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("HoroscopeStatus")) : iNull;
                             MobjPersonalsML.Emp_Ticket_ID = (reader["Emp_Ticket_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Emp_Ticket_ID")) : iLong;
                             MobjPersonalsML.ProfileOwnername = (reader["ProfileOwnername"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileOwnername")) : empty;
                             MobjPersonalsML.EmpUserName = (reader["EmpUserName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpUserName")) : empty;
                             MobjPersonalsML.Primaryemail = (reader["Primaryemail"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Primaryemail")) : empty;
                             MobjPersonalsML.Primarynumber = (reader["Primarynumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Primarynumber")) : empty;
-                            MobjPersonalsML.HoroscopeStatus = (reader["HoroscopeStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("HoroscopeStatus")) : iNull;
                             MobjPersonalsML.HoroScopeImage = (reader["HoroScope"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("HoroScope")) : empty;
                             MobjPersonalsML.ApplicationPhotoPath = (reader["ApplicationPhotoPath"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ApplicationPhotoPath")) : empty;
-                            MobjPersonalsML.DOR = (reader["DOR"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("DOR")) : empty;
                             MobjPersonalsML.LastLoginDate = (reader["LastLoginDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastLoginDate")) : empty;
                             MobjPersonalsML.PaidAmount = (reader["PaidAmount"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PaidAmount")) : empty;
                             arrayList.Add(MobjPersonalsML);
