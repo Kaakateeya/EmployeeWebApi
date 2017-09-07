@@ -908,35 +908,35 @@ namespace WebapiApplication.DAL
         }
         public void DApplicationErrorLog(string ErrorSpName, string ErrorMessage, long? CustID, string PageName, string Type, string spName)
         {
-            //SqlConnection connection = new SqlConnection();
-            //connection = SQLHelper.GetSQLConnection();
-            //connection.Open();
-            //try
-            //{
-            //    SqlParameter[] parm = new SqlParameter[6];
-            //    parm[0] = new SqlParameter("@ErrorSpName", SqlDbType.VarChar);
-            //    parm[0].Value = ErrorSpName;
-            //    parm[1] = new SqlParameter("@ErrorMessage", SqlDbType.VarChar);
-            //    parm[1].Value = ErrorMessage;
-            //    parm[2] = new SqlParameter("@CustID", SqlDbType.BigInt);
-            //    parm[2].Value = CustID;
-            //    parm[3] = new SqlParameter("@PageName", SqlDbType.VarChar);
-            //    parm[3].Value = PageName;
-            //    parm[4] = new SqlParameter("@Type", SqlDbType.VarChar);
-            //    parm[4].Value = Type;
-            //    SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[6];
+                parm[0] = new SqlParameter("@ErrorSpName", SqlDbType.VarChar);
+                parm[0].Value = ErrorSpName;
+                parm[1] = new SqlParameter("@ErrorMessage", SqlDbType.VarChar);
+                parm[1].Value = ErrorMessage;
+                parm[2] = new SqlParameter("@CustID", SqlDbType.BigInt);
+                parm[2].Value = CustID;
+                parm[3] = new SqlParameter("@PageName", SqlDbType.VarChar);
+                parm[3].Value = PageName;
+                parm[4] = new SqlParameter("@Type", SqlDbType.VarChar);
+                parm[4].Value = Type;
+                SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    Commonclass.ApplicationErrorLog(spName, Convert.ToString(ex.Message), null, null, null);
-            //}
-            //finally
-            //{
-            //    connection.Close();
-            //    SqlConnection.ClearPool(connection);
-            //    SqlConnection.ClearAllPools();
-            //}
+            }
+            catch (Exception ex)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(ex.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
 
         }
         public int EmailMobilenumberexists(int? iflagEmailmobile, string EmailMobile, string spName)
