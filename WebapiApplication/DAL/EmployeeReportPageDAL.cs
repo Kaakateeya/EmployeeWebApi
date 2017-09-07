@@ -746,7 +746,7 @@ namespace WebapiApplication.DAL
 
                 parm[16] = new SqlParameter("@i_Onlineeexpiry", SqlDbType.Int);
                 parm[16].Value = Mobj.v_OnlineExprd;
-               
+
                 parm[17] = new SqlParameter("@i_TicketId", SqlDbType.VarChar);
                 parm[17].Value = Mobj.i_TicketId;
 
@@ -1113,15 +1113,14 @@ namespace WebapiApplication.DAL
             return details;
         }
 
-        public List<MarketingTicketResponse> MarketingTicketinformation(long? Ticketid, char Type, string spName)
+        public List<MarketingTicketResponseinfo> MarketingTicketinformation(long? Ticketid, char Type, string spName)
         {
 
-            List<MarketingTicketResponse> details = new List<MarketingTicketResponse>();
+            List<MarketingTicketResponseinfo> details = new List<MarketingTicketResponseinfo>();
             SqlDataReader reader;
             DataSet ds = new DataSet();
             DataTable dt = new DataTable();
             string Snull = "--";
-            DateTime? dtTime = null;
             int? iNULLs = null;
             long? iLong = null;
 
@@ -1141,46 +1140,27 @@ namespace WebapiApplication.DAL
                 {
                     while (reader.Read())
                     {
-                        MarketingTicketResponse Marketing = new MarketingTicketResponse();
+                        MarketingTicketResponseinfo Marketing = new MarketingTicketResponseinfo();
                         {
-                            if (Type == 'I')
-                            {
-
-                                Marketing.TicketID = reader["TicketID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketID")) : Snull;
-                                Marketing.TotalRows = reader["TotalRows"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : iNULLs;
-                                Marketing.Emp_Ticket_ID = reader["Emp_Ticket_ID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Emp_Ticket_ID")) : iLong;
-                                Marketing.TicketStatus = reader["TicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketStatus")) : Snull;
-                                Marketing.TicketOpenedOn = reader["TicketOpenedOn"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketOpenedOn")) : null;
-                                Marketing.Prirority = reader["Prirority"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Prirority")) : null;
-                                Marketing.EmpName = reader["EmpName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpName")) : Snull;
-                                Marketing.PrimaryContactNumber = reader["PrimaryContactNumber"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("PrimaryContactNumber")) : Snull;
-                                Marketing.NoofDays = reader["NoofDays"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoofDays")) : iNULLs;
-                                Marketing.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("ProfileID"))).ToString() : Snull;
-                                Marketing.HighPriority = reader["HighPriority"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("HighPriority"))).ToString() : Snull;
-                                Marketing.ReminderID = reader["ReminderID"] != DBNull.Value ? (reader.GetInt64(reader.GetOrdinal("ReminderID"))) : iLong;
-                                Marketing.ReminderDate = reader["ReminderDate"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("ReminderDate"))).ToString() : Snull;
-                                Marketing.TicketTypeID = reader["TicketTypeID"] != DBNull.Value ? (reader.GetInt32(reader.GetOrdinal("TicketTypeID"))) : iNULLs;
-                                Marketing.ReminderRelationID = reader["ReminderRelationID"] != DBNull.Value ? (reader.GetInt64(reader.GetOrdinal("ReminderRelationID"))) : iLong;
-                                Marketing.ReminderRelationName = reader["ReminderRelationName"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("ReminderRelationName"))).ToString() : Snull;
-                                Marketing.Category = reader["Category"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Category"))).ToString() : Snull;
-                                Marketing.Reminderbody = reader["Reminderbody"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Reminderbody"))).ToString() : Snull;
-                            }
-                            else
-                            {
-                                Marketing.TicketType = reader["TicketType"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketType")) : Snull;
-                                Marketing.ReplyDatenew = reader["ReplyDatenew"] != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("ReplyDatenew")) : dtTime;
-                                Marketing.ReplyDate = reader["ReplyDate"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ReplyDate")) : null;
-                                Marketing.NAME = reader["NAME"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("NAME")) : Snull;
-                                Marketing.CallStatus = reader["CallStatus"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CallStatus"))).ToString() : Snull;
-                                Marketing.CallReceivedBy = reader["CallReceivedBy"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CallReceivedBy"))).ToString() : Snull;
-                                Marketing.RelationShip = reader["RelationShip"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("RelationShip"))).ToString() : Snull;
-                                Marketing.ReplyDesc = reader["ReplyDesc"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("ReplyDesc"))).ToString() : Snull;
-                                //  Marketing.NoOfDays = reader["NoOfDays"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfDays")) : iNULLs;
-                                Marketing.MatchmeetingStatus = reader["MatchmeetingStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MatchmeetingStatus")) : Snull;
-
-                            }
+                            Marketing.TicketID = reader["TicketID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketID")) : Snull;
+                            Marketing.TotalRows = reader["TotalRows"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : iNULLs;
+                            Marketing.Emp_Ticket_ID = reader["Emp_Ticket_ID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Emp_Ticket_ID")) : iLong;
+                            Marketing.TicketStatus = reader["TicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketStatus")) : Snull;
+                            Marketing.TicketOpenedOn = reader["TicketOpenedOn"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketOpenedOn")) : null;
+                            Marketing.Prirority = reader["Prirority"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Prirority")) : null;
+                            Marketing.EmpName = reader["EmpName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpName")) : Snull;
+                            Marketing.PrimaryContactNumber = reader["PrimaryContactNumber"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("PrimaryContactNumber")) : Snull;
+                            Marketing.NoofDays = reader["NoofDays"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoofDays")) : iNULLs;
+                            Marketing.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("ProfileID"))).ToString() : Snull;
+                            Marketing.HighPriority = reader["HighPriority"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("HighPriority"))).ToString() : Snull;
+                            Marketing.ReminderID = reader["ReminderID"] != DBNull.Value ? (reader.GetInt64(reader.GetOrdinal("ReminderID"))) : iLong;
+                            Marketing.ReminderDate = reader["ReminderDate"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("ReminderDate"))).ToString() : Snull;
+                            Marketing.TicketTypeID = reader["TicketTypeID"] != DBNull.Value ? (reader.GetInt32(reader.GetOrdinal("TicketTypeID"))) : iNULLs;
+                            Marketing.ReminderRelationID = reader["ReminderRelationID"] != DBNull.Value ? (reader.GetInt64(reader.GetOrdinal("ReminderRelationID"))) : iLong;
+                            Marketing.ReminderRelationName = reader["ReminderRelationName"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("ReminderRelationName"))).ToString() : Snull;
+                            Marketing.Category = reader["Category"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Category"))).ToString() : Snull;
+                            Marketing.Reminderbody = reader["Reminderbody"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Reminderbody"))).ToString() : Snull;
                         }
-
                         details.Add(Marketing);
                     }
                 }
@@ -4585,6 +4565,67 @@ namespace WebapiApplication.DAL
             }
 
             status = 1;
+            return details;
+        }
+
+        public List<MarketingTicketResponseHistory> MarketingTickethistory(long? Ticketid, char Type, string spName)
+        {
+            List<MarketingTicketResponseHistory> details = new List<MarketingTicketResponseHistory>();
+            SqlDataReader reader;
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+            string Snull = "--";
+            DateTime? dtTime = null;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[6];
+                parm[0] = new SqlParameter("@TicketID", SqlDbType.BigInt);
+                parm[0].Value = Ticketid;
+                parm[1] = new SqlParameter("@Type", SqlDbType.Char);
+                parm[1].Value = Type;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        MarketingTicketResponseHistory Marketing = new MarketingTicketResponseHistory();
+                        {
+
+                            Marketing.TicketType = reader["TicketType"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketType")) : Snull;
+                            Marketing.ReplyDatenew = reader["ReplyDatenew"] != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("ReplyDatenew")) : dtTime;
+                            Marketing.ReplyDate = reader["ReplyDate"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ReplyDate")) : null;
+                            Marketing.NAME = reader["NAME"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("NAME")) : Snull;
+                            Marketing.CallStatus = reader["CallStatus"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CallStatus"))).ToString() : Snull;
+                            Marketing.CallReceivedBy = reader["CallReceivedBy"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CallReceivedBy"))).ToString() : Snull;
+                            Marketing.RelationShip = reader["RelationShip"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("RelationShip"))).ToString() : Snull;
+                            Marketing.ReplyDesc = reader["ReplyDesc"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("ReplyDesc"))).ToString() : Snull;
+                            Marketing.MatchmeetingStatus = reader["MatchmeetingStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MatchmeetingStatus")) : Snull;
+
+
+                        }
+
+                        details.Add(Marketing);
+                    }
+                }
+
+                reader.Close();
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
             return details;
         }
     }

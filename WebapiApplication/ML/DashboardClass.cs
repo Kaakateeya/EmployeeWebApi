@@ -307,5 +307,67 @@ namespace WebapiApplication.ML
 
         public string Reminderbody { get; set; }
     }
+    public class MarketingTicketResponseinfo
+    {
+
+
+        public string TicketID { get; set; }
+
+        public int? TotalRows { get; set; }
+
+        public long? Emp_Ticket_ID { get; set; }
+
+        public string TicketStatus { get; set; }
+
+        public string TicketOpenedOn { get; set; }
+
+        public string Prirority { get; set; }
+
+        public string EmpName { get; set; }
+
+        public string PrimaryContactNumber { get; set; }
+
+        public int? NoofDays { get; set; }
+
+        public string ProfileID { get; set; }
+
+        public string HighPriority { get; set; }
+
+        public long? ReminderID { get; set; }
+
+        public string ReminderDate { get; set; }
+
+        public int? TicketTypeID { get; set; }
+
+        public long? ReminderRelationID { get; set; }
+
+        public string ReminderRelationName { get; set; }
+
+        public string Category { get; set; }
+
+        public string Reminderbody { get; set; }
+    }
+    public class MarketingTicketResponseHistory
+    {
+
+
+        public string TicketType { get; set; }
+
+        public DateTime? ReplyDatenew { get; set; }
+
+        public string ReplyDate { get; set; }
+
+        public string NAME { get; set; }
+
+        public string CallStatus { get; set; }
+
+        public string CallReceivedBy { get; set; }
+
+        public string RelationShip { get; set; }
+
+        public string ReplyDesc { get; set; }
+
+        public string MatchmeetingStatus { get; set; }
+    }
 
 }

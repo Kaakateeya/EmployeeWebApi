@@ -29,8 +29,11 @@ namespace WebapiApplication.Implement
         public int MatchFollowupSendSms(EmployeeMarketslidesendmail Mobj) { return new EmployeeReportPageDAL().MatchFollowupSendSms(Mobj, "[dbo].[usp_insert_customerDashboard_SMS]"); }
         public int MatchFollowupMailSend(MatchFollowupMailSend Mobj) { return new EmployeeReportPageDAL().MatchFollowupMailSend(Mobj, "[dbo].[sp_Email_TicketHistoryInfo_slide_New]"); }
         public List<TicketHistoryinfoResponse> MatchFollowupTicketinformation(long? Ticketid, char Type) { return new EmployeeReportPageDAL().MatchFollowupTicketinformation(Ticketid, Type, "[dbo].[Usp_select_MatchFollowupTicketHistory]"); }
-        public List<MarketingTicketResponse> MarketingTicketinformation(long? Ticketid, char Type) { return new EmployeeReportPageDAL().MarketingTicketinformation(Ticketid, Type, "[dbo].[usp_GetMarketingTicketHistry_IdBased]"); }
+        public List<MarketingTicketResponseinfo> MarketingTicketinformation(long? Ticketid, char Type) { return new EmployeeReportPageDAL().MarketingTicketinformation(Ticketid, Type, "[dbo].[usp_GetMarketingTicketHistry_IdBased]"); }
 
+        public List<MarketingTicketResponseHistory> MarketingTickethistory(long? Ticketid, char Type) { return new EmployeeReportPageDAL().MarketingTickethistory(Ticketid, Type, "[dbo].[usp_GetMarketingTicketHistry_IdBased]"); }
+        
+        
         public int MatchFollowupResendMail(MatchFollowupResendMail Mobj) { return new EmployeeReportPageDAL().MatchFollowupResendMail(Mobj, "[dbo].[sp_Email_singleBothsideinterest]"); }
         public int Insertout_incomingcallCommunicationlogData(TicketCallHistory Mobj) { return new EmployeeReportPageDAL().Insertout_incomingcallCommunicationlogData(Mobj, "[dbo].[Usp_Insert_MatchFollowupTickethistory]"); }
         public int Insertout_incomingcallData(IncomingOutgoing Mobj) { return new EmployeeReportPageDAL().Insertout_incomingcallData(Mobj, "[dbo].[Usp_InsertOut_incomongCall]"); }
