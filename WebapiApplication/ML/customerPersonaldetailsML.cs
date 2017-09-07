@@ -741,53 +741,11 @@ namespace WebapiApplication.ML
     public class ViewAllCustomersSearch
     {
 
-        public long? CustID { get; set; }
-        public string LastName { get; set; }
-        public string CasteName { get; set; }
-        public string ProfileOwner { get; set; }
-        public string LoginStatus { get; set; }
-        public string Height { get; set; }
-        public string FirstName { get; set; }
-        public string educationgroup { get; set; }
-        public int? GenderID { get; set; }
-        public string Gender { get; set; }
-        public string Age { get; set; }
-        public int? ProfileStatusID { get; set; }
-        public string Confidential { get; set; }
-        public string ProfileID { get; set; }
-        public int? TotalRows { get; set; }
-        public int? Totalpages { get; set; }
-        public string Profession { get; set; }
-        public long? FamilyID { get; set; }
-        public string MotherTongueName { get; set; }
-        public string Email { get; set; }
-        public long? Cust_Family_ID { get; set; }
-        public string CreatedDate { get; set; }
-        public string Reason4InActive { get; set; }
-        public int? CountryCodeID { get; set; }
-        public int? MatchMeetingCount { get; set; }
-        public string TicketID { get; set; }
-        public string SAForm { get; set; }
-        public bool CEmailVerStatus { get; set; }
-        public bool CNumberVerStatus { get; set; }
-        public string Points { get; set; }
-        public string ExpiryDate { get; set; }
-        public string SRCount { get; set; }
-        public string UserName { get; set; }
-        public string EmpName { get; set; }
-        public string ContactNumber { get; set; }
-        public string PaidAmount { get; set; }
-        public string HoroScopeImage { get; set; }
-        public string Primarynumber { get; set; }
-        public string Primaryemail { get; set; }
-        public string EmpUserName { get; set; }
-        public string ProfileOwnername { get; set; }
-        public long? Emp_Ticket_ID { get; set; }
-        public string offlinepaidcls { get; set; }
-        public string onlinepaidcls { get; set; }
-        public string offlinepaid { get; set; }
-        public string onlinepaid { get; set; }
+
         public string Cust_ID { get; set; }
+
+        public string ProfileID { get; set; }
+
         public string KMPLID { get; set; }
 
         public int? paid { get; set; }
@@ -796,55 +754,53 @@ namespace WebapiApplication.ML
 
         public bool SuperConfidentila { get; set; }
 
-        public int? NoOfSisters { get; set; }
+        public string FirstName { get; set; }
 
-        public int? NoOfBrothers { get; set; }
+        public string LastName { get; set; }
 
         public string Caste { get; set; }
 
         public int? ProfileGrade { get; set; }
 
+        public int? TotalRows { get; set; }
+
+        public int? Totalpages { get; set; }
+
+        public string SRCount { get; set; }
+
+        public string ExpiryDate { get; set; }
+
+        public string Points { get; set; }
+
+        public bool CNumberVerStatus { get; set; }
+
+        public bool CEmailVerStatus { get; set; }
+
+        public string SAForm { get; set; }
+
+        public string TicketID { get; set; }
+
+        public int? MatchMeetingCount { get; set; }
+
+        public int? CountryCodeID { get; set; }
+
+        public string Reason4InActive { get; set; }
+
         public string mothertongue { get; set; }
 
         public int? PhotoCount { get; set; }
 
+        public string CreatedDate { get; set; }
+
+        public long? Cust_Family_ID { get; set; }
+
+        public string Gender { get; set; }
+
         public string SubCaste { get; set; }
-
-        public string Color { get; set; }
-
-        public string EducationGroup { get; set; }
-
-        public string JobLocation { get; set; }
-
-        public string countrylivingin { get; set; }
-
-        public string MaritalStatusID { get; set; }
-
-        public string Star { get; set; }
-
-        public string Gothram { get; set; }
-
-        public string educationspecialisation { get; set; }
-
-        public string EduGroupnamenew { get; set; }
-
-        public string TOB { get; set; }
-
-        public string Employeedin { get; set; }
-
-        public string Income { get; set; }
-
-        public string FFNative { get; set; }
-
-        public string MFNative { get; set; }
-
-        public string PlaceOfBirth { get; set; }
 
         public string Photo { get; set; }
 
         public string PhotoNames { get; set; }
-
-        public string currency { get; set; }
 
         public bool Ownerflag { get; set; }
 
@@ -856,25 +812,27 @@ namespace WebapiApplication.ML
 
         public string OwnerName { get; set; }
 
-        public string DOB { get; set; }
+        public int? HoroscopeStatus { get; set; }
 
-        public string LastLoginDate { get; set; }
+        public long? Emp_Ticket_ID { get; set; }
 
-        public string DOR { get; set; }
+        public string ProfileOwnername { get; set; }
+
+        public string EmpUserName { get; set; }
+
+        public string Primaryemail { get; set; }
+
+        public string Primarynumber { get; set; }
+
+        public string HoroScopeImage { get; set; }
 
         public string ApplicationPhotoPath { get; set; }
 
-        public int? HoroscopeStatus { get; set; }
+        public string LastLoginDate { get; set; }
 
-        public string serviceDate { get; set; }
+        public string PaidAmount { get; set; }
 
-        public int? Property { get; set; }
-
-        public int? LoginCount { get; set; }
-
-        public int? PaidSatus { get; set; }
-
-        public long? ProfileOwnerID { get; set; }
+        public string DOR { get; set; }
     }
     public class ViewAllCustomersSearchtable
     {
