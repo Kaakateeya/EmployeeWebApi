@@ -1333,7 +1333,9 @@ namespace WebapiApplication.ML
         public string EmpIds { set; get; }
         // public int? ParentInterCaste { set; get; }
         public string SubCasteID { set; get; }
-
+        //08/09/2017 added by lakshmi
+        public int? FatherCaste { set; get; }
+        public int? MotherCaste { set; get; }
     }
 
     public class TAdvanceSearch
@@ -1457,6 +1459,9 @@ namespace WebapiApplication.ML
         // public int? ParentInterCaste { set; get; }
 
         public string SubCasteID { set; get; }
+        //08/09/2017 added by lakshmi
+        public int? FatherCaste { set; get; }
+        public int? MotherCaste { set; get; }
     }
 
     //property details
