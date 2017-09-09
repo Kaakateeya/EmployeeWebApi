@@ -4628,5 +4628,70 @@ namespace WebapiApplication.DAL
 
             return details;
         }
+
+        public List<EmpNotifications> employeenotications(EmpNotifications Notification, string spName)
+        {
+            List<EmpNotifications> details = new List<EmpNotifications>();
+            SqlDataReader reader;
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+            string Snull = "--";
+            DateTime? dtTime = null;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[6];
+                parm[0] = new SqlParameter("@EmpID", SqlDbType.Int);
+                parm[0].Value = Notification.iEmpID;
+
+                parm[1] = new SqlParameter("@i_display", SqlDbType.Int);
+                parm[1].Value = Notification.i_display;
+
+                parm[2] = new SqlParameter("@i_NotificationID", SqlDbType.Int);
+                parm[2].Value = Notification.iNotificationID;
+                parm[3] = new SqlParameter("@i_CategoryID", SqlDbType.Int);
+                parm[3].Value = Notification.CategoryID;
+                parm[4] = new SqlParameter("@CustID", SqlDbType.Int);
+                parm[4].Value = !string.IsNullOrEmpty(Notification.strProfileID) ? Convert.ToInt32((Notification.strProfileID)) : iNull;
+
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        EmpNotifications display = new EmpNotifications();
+                        {
+                            display.strActionName = reader["ActionName"] != DBNull.Value ? reader["ActionName"].ToString() : null;
+                            display.strProfileID = reader["ProfileID"] != DBNull.Value ? reader["ProfileID"].ToString() : null;
+                            display.strCustomerName = reader["CustomerName"] != DBNull.Value ? reader["CustomerName"].ToString() : null;
+                            display.iNotificationID = reader["NotificationID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NotificationID")) : iNull;
+                            display.strCustomerPhoto = reader["CustomerPhoto"] != DBNull.Value ? reader["CustomerPhoto"].ToString() : null;
+                            display.NotifyCount = reader["NotifyCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NotifyCount")) : iNull;
+                            display.CategoryID = reader["CategoryID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("CategoryID")) : iNull;
+
+                        }
+                        details.Add(display);
+                    }
+                }
+
+                reader.Close();
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            return details;
+        }
     }
 }

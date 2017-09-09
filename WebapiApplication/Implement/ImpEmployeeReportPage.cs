@@ -188,6 +188,8 @@ namespace WebapiApplication.Implement
 
 
         public ArrayList Oldkmplkeywordlikesearch([FromBody]CreateKeywordLlikesearchReqoldkmpl oldkmpl) { return new EmployeeReportPageDAL().Oldkmplkeywordlikesearch(oldkmpl, "[dbo].[Usp_Search_KeyWord_oldkmpl]"); }
+
+        public List<EmpNotifications> employeenotications([FromBody]EmpNotifications empnotification) { return new EmployeeReportPageDAL().employeenotications(empnotification, "[dbo].[usp_GetNotificationdetails_Emp]"); }
     }
 
 }

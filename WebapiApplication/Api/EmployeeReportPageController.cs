@@ -244,6 +244,8 @@ namespace WebapiApplication.Api
             oldkmpl.dtPartnerPreference = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtkeywordsearch(), lstkmpl);
             return this.IEmployeeReport.Oldkmplkeywordlikesearch(oldkmpl);
         }
+
+        public List<EmpNotifications> getemployeenotications([FromBody]EmpNotifications empnotification) { return this.IEmployeeReport.employeenotications(empnotification); }
     }
 }
 

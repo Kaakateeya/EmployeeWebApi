@@ -775,6 +775,19 @@ namespace WebapiApplication.ML
 
 
     }
+    public class EmpNotifications
+    {
+        public Int64? ICustID { get; set; }
+        public string strActionName { set; get; }
+        public int? iEmpID { set; get; }
+        public int i_display { set; get; }
+        public int? iNotificationID { set; get; }
+        public string strCustomerPhoto { set; get; }
+        public string strCustomerName { set; get; }
+        public string strProfileID { set; get; }
+        public int? NotifyCount { get; set; }
+        public int? CategoryID { get; set; }
+    }
 }
 
 

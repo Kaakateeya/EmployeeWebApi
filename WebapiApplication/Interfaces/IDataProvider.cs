@@ -368,6 +368,9 @@ namespace WebapiApplication.Interfaces
         List<GetRegprofilevalidationtable> RegistrationValidation_Table(Regprofilevalidation RegValidation);
 
         List<MarketingTicketResponseHistory> MarketingTickethistory(long? Ticketid, char Type);
+
+
+        List<EmpNotifications> employeenotications(EmpNotifications empnotification);
     }
 
     public interface ISmallPages
