@@ -4633,14 +4633,10 @@ namespace WebapiApplication.DAL
         {
             List<EmpNotifications> details = new List<EmpNotifications>();
             SqlDataReader reader;
-            DataSet ds = new DataSet();
-            DataTable dt = new DataTable();
-            string Snull = "--";
-            DateTime? dtTime = null;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
-
+            int? iNull = null;
             try
             {
                 SqlParameter[] parm = new SqlParameter[6];
