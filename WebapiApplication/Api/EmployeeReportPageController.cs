@@ -245,7 +245,7 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.Oldkmplkeywordlikesearch(oldkmpl);
         }
 
-        public List<EmpNotifications> getemployeenotications([FromBody]EmpNotifications empnotification) { return this.IEmployeeReport.employeenotications(empnotification); }
+        public List<EmpNotifications> employeenotications([FromBody]EmpNotifications empnotification) { return this.IEmployeeReport.employeenotications(empnotification); }
     }
 }
 
