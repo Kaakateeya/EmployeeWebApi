@@ -4637,6 +4637,7 @@ namespace WebapiApplication.DAL
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
             int? iNull = null;
+            Int64? lnull = null;
             try
             {
                 SqlParameter[] parm = new SqlParameter[6];
@@ -4667,6 +4668,7 @@ namespace WebapiApplication.DAL
                             display.strCustomerPhoto = reader["CustomerPhoto"] != DBNull.Value ? reader["CustomerPhoto"].ToString() : null;
                             display.NotifyCount = reader["NotifyCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NotifyCount")) : iNull;
                             display.CategoryID = reader["CategoryID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("CategoryID")) : iNull;
+                            display.ICustID = reader["Cust_ID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ID")) : lnull;
 
                         }
                         details.Add(display);
