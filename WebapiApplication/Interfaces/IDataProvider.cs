@@ -248,7 +248,7 @@ namespace WebapiApplication.Interfaces
         int MatchFollowupSendSms(EmployeeMarketslidesendmail Mobj);
         int MatchFollowupMailSend(MatchFollowupMailSend Mobj);
         List<TicketHistoryinfoResponse> MatchFollowupTicketinformation(long? Ticketid, char Type);
-        List<MarketingTicketResponse> MarketingTicketinformation(long? Ticketid, char Type);
+        List<MarketingTicketResponseinfo> MarketingTicketinformation(long? Ticketid, char Type);
         int MatchFollowupResendMail(MatchFollowupResendMail Mobj);
         int Insertout_incomingcallCommunicationlogData(TicketCallHistory Mobj);
 
@@ -366,6 +366,11 @@ namespace WebapiApplication.Interfaces
         ArrayList Nomatchesreasons(nomatchesreason Mobj);
 
         List<GetRegprofilevalidationtable> RegistrationValidation_Table(Regprofilevalidation RegValidation);
+
+        List<MarketingTicketResponseHistory> MarketingTickethistory(long? Ticketid, char Type);
+
+
+        List<EmpNotifications> employeenotications(EmpNotifications empnotification);
     }
 
     public interface ISmallPages

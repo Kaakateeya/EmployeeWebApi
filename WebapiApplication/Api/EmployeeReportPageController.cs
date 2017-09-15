@@ -45,7 +45,8 @@ namespace WebapiApplication.Api
 
         public List<TicketHistoryinfoResponse> getMatchFollowupTicketinformation(long? Ticketid, char Type) { return this.IEmployeeReport.MatchFollowupTicketinformation(Ticketid, Type); }
 
-        public List<MarketingTicketResponse> getMarketingTicketinformation(long? Ticketid, char Type) { return this.IEmployeeReport.MarketingTicketinformation(Ticketid, Type); }
+        public List<MarketingTicketResponseinfo> getMarketingTicketinformation(long? Ticketid, char Type) { return this.IEmployeeReport.MarketingTicketinformation(Ticketid, Type); }
+        public List<MarketingTicketResponseHistory> getMarketingTickethistory(long? Ticketid, char Type) { return this.IEmployeeReport.MarketingTickethistory(Ticketid, Type); }
 
         public int MatchFollowupResendMail([FromBody]MatchFollowupResendMail ResendMail)
         {
@@ -243,6 +244,8 @@ namespace WebapiApplication.Api
             oldkmpl.dtPartnerPreference = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtkeywordsearch(), lstkmpl);
             return this.IEmployeeReport.Oldkmplkeywordlikesearch(oldkmpl);
         }
+
+        public List<EmpNotifications> employeenotications([FromBody]EmpNotifications empnotification) { return this.IEmployeeReport.employeenotications(empnotification); }
     }
 }
 

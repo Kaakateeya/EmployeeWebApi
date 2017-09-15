@@ -763,9 +763,6 @@ namespace WebapiApplication.ML
         public int? ProfileGrade { get; set; }
 
         public int? TotalRows { get; set; }
-
-        public int? Totalpages { get; set; }
-
         public string SRCount { get; set; }
 
         public string ExpiryDate { get; set; }
@@ -834,9 +831,42 @@ namespace WebapiApplication.ML
 
         public string DOR { get; set; }
     }
+    public class ViewAllCustomersSearchnew
+    {
+        public long? CustID { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string CasteName { get; set; }
+
+        public string ProfileOwner { get; set; }
+
+        public string Height { get; set; }
+
+        public string LoginStatus { get; set; }
+
+        public string educationgroup { get; set; }
+
+        public string Age { get; set; }
+
+        public int? GenderID { get; set; }
+
+        public int? ProfileStatusID { get; set; }
+
+        public string Confidential { get; set; }
+
+        public string ProfileID { get; set; }
+
+        public int? TotalRows { get; set; }
+
+        public int? Totalpages { get; set; }
+
+        public string Profession { get; set; }
+    }
     public class ViewAllCustomersSearchtable
     {
-
 
         public long? CustID { get; set; }
 
@@ -1303,7 +1333,9 @@ namespace WebapiApplication.ML
         public string EmpIds { set; get; }
         // public int? ParentInterCaste { set; get; }
         public string SubCasteID { set; get; }
-
+        //08/09/2017 added by lakshmi
+        public int? FatherCaste { set; get; }
+        public int? MotherCaste { set; get; }
     }
 
     public class TAdvanceSearch
@@ -1427,6 +1459,9 @@ namespace WebapiApplication.ML
         // public int? ParentInterCaste { set; get; }
 
         public string SubCasteID { set; get; }
+        //08/09/2017 added by lakshmi
+        public int? FatherCaste { set; get; }
+        public int? MotherCaste { set; get; }
     }
 
     //property details

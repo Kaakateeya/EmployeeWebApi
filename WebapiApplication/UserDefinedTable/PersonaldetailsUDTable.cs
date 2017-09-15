@@ -826,7 +826,9 @@ namespace WebapiApplication.UserDefinedTable
             //dtGeneralsearch.Columns.Add("ParentInterCaste");
             //Added by lakshmi 12/08/2017
             dtGeneralsearch.Columns.Add("SubCasteID");
-
+            //08/09/2017 Added by lakshmi
+            dtGeneralsearch.Columns.Add("FatherCaste");
+            dtGeneralsearch.Columns.Add("MotherCaste");
             return dtGeneralsearch;
         }
 
@@ -950,6 +952,9 @@ namespace WebapiApplication.UserDefinedTable
             // dtAdvancesearch.Columns.Add("ParentInterCaste");
             //Added by LAkshmi 12/08/2017
             dtAdvancesearch.Columns.Add("SubCasteID");
+            //08/09/2017 Added by lakshmi
+            dtAdvancesearch.Columns.Add("FatherCaste");
+            dtAdvancesearch.Columns.Add("MotherCaste");
             return dtAdvancesearch;
         }
 
