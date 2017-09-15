@@ -136,6 +136,8 @@ namespace WebapiApplication.ML
         public int? RejectCount { get; set; }
         public string IdS { get; set; }
         public int? paid { get; set; }
+        public string CasteName { get; set; }
+        public string AssignedTo { get; set; }
     }
     public class GetEmployeeList
     {

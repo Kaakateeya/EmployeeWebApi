@@ -465,6 +465,8 @@ namespace WebapiApplication.DAL
                             Mobjresult.RejectCount = (reader["RejectCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("RejectCount")) : iNull;
                             Mobjresult.IdS = (reader["IdS"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("IdS")) : string.Empty;
                             Mobjresult.paid = (reader["IsPaidMember"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("IsPaidMember")) : iNull;
+                            Mobjresult.CasteName = (reader["CasteName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CasteName")) : string.Empty;
+                            Mobjresult.AssignedTo = (reader["AssignedTo"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("AssignedTo")) : string.Empty;
                         }
                         li.Add(Mobjresult);
                     }
