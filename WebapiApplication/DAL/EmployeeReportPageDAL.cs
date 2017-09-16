@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Collections;
 using System.Configuration;
 using KaakateeyaDAL;
+using WebapiApplication.UserDefinedTable;
 
 namespace WebapiApplication.DAL
 {
@@ -4691,5 +4692,149 @@ namespace WebapiApplication.DAL
 
             return details;
         }
+
+        public int? notviewedprofilesemails(ExpressInterestInsert Mobj, string spName)
+        {
+
+            int? Istatus = null;
+            int intStatus = 0;
+
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            SqlDataReader reader;
+
+            SqlParameter[] parm = new SqlParameter[10];
+            try
+            {
+
+
+                parm[0] = new SqlParameter("@TblDetails", SqlDbType.Structured);
+                parm[0].Value = Mobj.dtExpInt;
+                parm[1] = new SqlParameter("@empid", SqlDbType.BigInt);
+                parm[1].Value = Mobj.EmpID;
+                parm[2] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+                List<Smtpemailsending> li = new List<Smtpemailsending>();
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                if (reader.HasRows)
+                {
+
+                    while (reader.Read())
+                    {
+                        Smtpemailsending smtp = new Smtpemailsending();
+                        {
+                            smtp.profile_name = (reader["profile_name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("profile_name")) : string.Empty;
+                            smtp.recipients = (reader["recipients"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("recipients")) : string.Empty;
+                            smtp.body = (reader["body"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body")) : string.Empty;
+                            smtp.subject = (reader["subject"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("subject")) : string.Empty;
+                            smtp.body_format = (reader["body_format"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body_format")) : string.Empty;
+                            Istatus = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : 0;
+                        }
+                        li.Add(smtp);
+
+                    }
+
+                }
+                intStatus = Istatus != null && Istatus != 0 ? 1 : 0;
+
+                reader.Close();
+                if (li.Count > 0)
+                {
+                    Commonclass.SendMailSmtpMethod(li, "info");
+                }
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return intStatus;
+        }
+
+        public int? noserviceemailsfromcustomer(string profileid, int? empid, string spName)
+        {
+            int? Istatus = null;
+            int intStatus = 0;
+            Int64? lnull = null;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            SqlDataReader reader;
+
+            SqlParameter[] parm = new SqlParameter[5];
+            try
+            {
+                parm[0] = new SqlParameter("@Profileid", SqlDbType.VarChar);
+                parm[0].Value = profileid;
+                parm[1] = new SqlParameter("@EmpID", SqlDbType.Int);
+                parm[1].Value = empid;
+                parm[2] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+                List<Smtpemailsending> li = new List<Smtpemailsending>();
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                List<notviewedprofiles> notviewd = new List<notviewedprofiles>();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        notviewedprofiles noservice = new notviewedprofiles();
+                        {
+                            noservice.FromProfileID = (reader["FromProfileID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromProfileID")) : string.Empty;
+                            noservice.ToProfileID = (reader["ToProfileID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToProfileID")) : string.Empty;
+                            noservice.FromCustID = (reader["FromCustID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("FromCustID")) : lnull;
+                            noservice.ToCustID = (reader["ToCustID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("ToCustID")) : lnull;
+                        }
+                        notviewd.Add(noservice);
+                    }
+                }
+                reader.Close();
+
+                DataTable dtExpress = new DataTable();
+                ExpressInterestInsert EXI = new ExpressInterestInsert();
+                EXI.EmpID = empid;
+                dtExpress = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtExpressInterestTable(), notviewd);
+                if (dtExpress != null && dtExpress.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in dtExpress.Rows)
+                    {
+                        string FromProfileID = dr["FromProfileID"].ToString();
+                        string ToProfileID = dr["ToProfileID"].ToString();
+
+                        dr["Acceptlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + FromProfileID + "&" + "ToProfileID=" + ToProfileID + "&" + "Flag=" + 1);
+                        dr["Rejectlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + FromProfileID + "&" + "ToProfileID=" + ToProfileID + "&" + "Flag=" + 0);
+                        dr["RvrAcceptlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + ToProfileID + "&" + "ToProfileID=" + FromProfileID + "&" + "Flag=" + 1);
+                        dr["RvrRejectlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + ToProfileID + "&" + "ToProfileID=" + FromProfileID + "&" + "Flag=" + 0);
+                        dr["Sendsms"] = (!string.IsNullOrEmpty(dr["Sendsms"].ToString()) && dr["Sendsms"].ToString() == "True") ? true : false;
+                        dr["IsRvrSend"] = (!string.IsNullOrEmpty(dr["IsRvrSend"].ToString()) && dr["IsRvrSend"].ToString() == "True") ? true : false;
+                    }
+                }
+
+                EXI.dtExpInt = dtExpress;
+                Istatus = notviewedprofilesemails(EXI, "[dbo].[usp_GetUnviewedServiceProfilesData]");
+
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return intStatus;
+        }
+
+
     }
 }

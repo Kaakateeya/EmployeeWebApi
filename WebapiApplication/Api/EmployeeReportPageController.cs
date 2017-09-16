@@ -246,6 +246,10 @@ namespace WebapiApplication.Api
         }
 
         public List<EmpNotifications> employeenotications([FromBody]EmpNotifications empnotification) { return this.IEmployeeReport.employeenotications(empnotification); }
+
+
+        public int? getnoserviceemailsfromcustomer(string profileid, int? empid) { return this.IEmployeeReport.noserviceemailsfromcustomer(profileid, empid); }
+
     }
 }
 

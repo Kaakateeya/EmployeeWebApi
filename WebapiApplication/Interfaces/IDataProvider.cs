@@ -371,6 +371,8 @@ namespace WebapiApplication.Interfaces
 
 
         List<EmpNotifications> employeenotications(EmpNotifications empnotification);
+
+        int? noserviceemailsfromcustomer(string profileid, int? empid);
     }
 
     public interface ISmallPages
