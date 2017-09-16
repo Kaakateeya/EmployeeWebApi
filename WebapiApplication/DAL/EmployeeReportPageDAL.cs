@@ -4697,7 +4697,7 @@ namespace WebapiApplication.DAL
         {
 
             int? Istatus = null;
-            int intStatus = 0;
+            int? intStatus = 0;
 
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
@@ -4764,7 +4764,6 @@ namespace WebapiApplication.DAL
         public int? noserviceemailsfromcustomer(string profileid, int? empid, string spName)
         {
             int? Istatus = null;
-            int intStatus = 0;
             Int64? lnull = null;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
@@ -4779,8 +4778,6 @@ namespace WebapiApplication.DAL
                 parm[1] = new SqlParameter("@EmpID", SqlDbType.Int);
                 parm[1].Value = empid;
 
-                parm[2] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[2].Direction = ParameterDirection.Output;
                 List<Smtpemailsending> li = new List<Smtpemailsending>();
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 List<notviewedprofiles> notviewd = new List<notviewedprofiles>();
@@ -4835,7 +4832,7 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
             }
-            return intStatus;
+            return Istatus;
         }
 
 
