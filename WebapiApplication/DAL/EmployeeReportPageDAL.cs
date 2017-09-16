@@ -4714,6 +4714,8 @@ namespace WebapiApplication.DAL
                 parm[0].Value = Mobj.dtExpInt;
                 parm[1] = new SqlParameter("@empid", SqlDbType.BigInt);
                 parm[1].Value = Mobj.EmpID;
+
+
                 parm[2] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[2].Direction = ParameterDirection.Output;
                 List<Smtpemailsending> li = new List<Smtpemailsending>();
@@ -4776,6 +4778,7 @@ namespace WebapiApplication.DAL
                 parm[0].Value = profileid;
                 parm[1] = new SqlParameter("@EmpID", SqlDbType.Int);
                 parm[1].Value = empid;
+
                 parm[2] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[2].Direction = ParameterDirection.Output;
                 List<Smtpemailsending> li = new List<Smtpemailsending>();

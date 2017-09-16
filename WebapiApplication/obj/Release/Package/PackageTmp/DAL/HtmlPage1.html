@@ -430,17 +430,13 @@
 
             $("#80000").click(function() {
                 $.ajax({
-                    url: 'http://localhost:63006/Api/CustomerPersonalUpdate/getEmplanding_counts_Admin',
+                    url: 'http://localhost:63006/Api/CustomerPersonalUpdate/getnoserviceemailsfromcustomer',
                     type: 'GET',
                     crossDomain: true,
                     data: {
 
-                        OwnerName: '2',
-                        Branchname: '319',
-                        StartIndex: 1,
-                        EndIndex: 5,
-                        strTableType: null,
-                        intLoadStatus: 0
+                        profileid: '311134610',
+                        empid:2
                     },
                     contentType: 'application/json',
                     success: function(data, textStatus, xhr) {
