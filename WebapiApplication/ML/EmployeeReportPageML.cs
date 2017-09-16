@@ -788,6 +788,21 @@ namespace WebapiApplication.ML
         public int? NotifyCount { get; set; }
         public int? CategoryID { get; set; }
     }
+
+    public class keywordlikesearch
+    {
+
+
+        public DataTable dtPartnerPreference { get; set; }
+
+        public int? EmpID { get; set; }
+
+        public int? startindex { get; set; }
+
+        public int? EndIndex { get; set; }
+
+        public string ApplicationStatus { get; set; }
+    }
 }
 
 

@@ -373,6 +373,8 @@ namespace WebapiApplication.Interfaces
         List<EmpNotifications> employeenotications(EmpNotifications empnotification);
 
         int? noserviceemailsfromcustomer(string profileid, int? empid);
+
+        ArrayList keywordlikesearch(keywordlikesearch keyword);
     }
 
     public interface ISmallPages

@@ -1238,5 +1238,32 @@ namespace WebapiApplication.UserDefinedTable
 
 
         }
+
+
+        public static DataTable dtlikekeywordsearch()
+        {
+            DataTable dtCreate = new DataTable();
+            dtCreate.Columns.Add("AllContactNo");
+            dtCreate.Columns.Add("AllEmails");
+            dtCreate.Columns.Add("AllSurNames");
+            dtCreate.Columns.Add("AllNatives");
+            dtCreate.Columns.Add("CEducationAll");
+            dtCreate.Columns.Add("CProfAll");
+            dtCreate.Columns.Add("FAllFields");
+            dtCreate.Columns.Add("MAllFields");
+            dtCreate.Columns.Add("Br_AllFields");
+            dtCreate.Columns.Add("Sr_AllFields");
+            dtCreate.Columns.Add("FB_AllFields");
+            dtCreate.Columns.Add("FS_AllFields");
+            dtCreate.Columns.Add("MB_AllFields");
+            dtCreate.Columns.Add("MS_AllFields");
+            dtCreate.Columns.Add("CAll");
+           
+
+            return dtCreate;
+
+
+
+        }
     }
 }

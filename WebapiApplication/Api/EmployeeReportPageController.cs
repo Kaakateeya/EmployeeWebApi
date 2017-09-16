@@ -250,6 +250,15 @@ namespace WebapiApplication.Api
 
         public int? getnoserviceemailsfromcustomer(string profileid, int? empid) { return this.IEmployeeReport.noserviceemailsfromcustomer(profileid, empid); }
 
+        ////
+        public ArrayList keywordlikesearch([FromBody]keywordlikesearch keyword)
+        {
+
+            List<keywordlikesearch> lstkeyword = new List<keywordlikesearch>();
+            lstkeyword.Add(keyword);
+            keyword.dtPartnerPreference = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtlikekeywordsearch(), lstkeyword);
+            return this.IEmployeeReport.keywordlikesearch(keyword);
+        }
     }
 }
 

@@ -4836,5 +4836,41 @@ namespace WebapiApplication.DAL
         }
 
 
+
+        public ArrayList keywordlikesearch(keywordlikesearch keyword, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[9];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@TblDetails", SqlDbType.Structured);
+                parm[0].Value = keyword.dtPartnerPreference;
+                parm[1] = new SqlParameter("@ApplicationStatus", SqlDbType.VarChar);
+                parm[1].Value = keyword.ApplicationStatus;
+                parm[2] = new SqlParameter("@intEmpID", SqlDbType.Int);
+                parm[2].Value = keyword.EmpID;
+                parm[3] = new SqlParameter("@i_Startindex", SqlDbType.Int);
+                parm[3].Value = keyword.startindex;
+                parm[4] = new SqlParameter("@i_EndIndex", SqlDbType.Int);
+                parm[4].Value = keyword.EndIndex;
+                parm[5] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[5].Direction = ParameterDirection.Output;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }

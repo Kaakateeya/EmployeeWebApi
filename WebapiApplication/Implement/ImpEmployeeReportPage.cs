@@ -192,6 +192,13 @@ namespace WebapiApplication.Implement
         public List<EmpNotifications> employeenotications([FromBody]EmpNotifications empnotification) { return new EmployeeReportPageDAL().employeenotications(empnotification, "[dbo].[usp_GetNotificationdetails_Emp]"); }
 
         public int? noserviceemailsfromcustomer(string profileid, int? empid) { return new EmployeeReportPageDAL().noserviceemailsfromcustomer(profileid, empid, "[dbo].[usp_GetUnviewedServiceProfiles]"); }
+
+
+        public ArrayList keywordlikesearch([FromBody]keywordlikesearch keyword)
+        {
+            return new EmployeeReportPageDAL().keywordlikesearch(keyword, "[dbo].[Usp_Search_KeyWord_All]");
+        }
+    
     }
 
 }
