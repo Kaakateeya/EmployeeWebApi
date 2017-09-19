@@ -802,6 +802,24 @@ namespace WebapiApplication.ML
         public int? EndIndex { get; set; }
 
         public string ApplicationStatus { get; set; }
+
+
+        //
+        public string AllContactNo { get; set; }
+        public string AllEmails { get; set; }
+        public string AllSurNames { get; set; }
+        public string AllNatives { get; set; }
+        public string CEducationAll { get; set; }
+        public string CProfAll { get; set; }
+        public string FAllFields { get; set; }
+        public string MAllFields { get; set; }
+        public string Br_AllFields { get; set; }
+        public string Sr_AllFields { get; set; }
+        public string FB_AllFields { get; set; }
+        public string FS_AllFields { get; set; }
+        public string MB_AllFields { get; set; }
+        public string MS_AllFields { get; set; }
+        public string CAll { get; set; }
     }
 }
 
