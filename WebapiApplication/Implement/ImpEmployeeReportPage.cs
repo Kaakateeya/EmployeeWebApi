@@ -53,9 +53,9 @@ namespace WebapiApplication.Implement
 
 
         // RegistrationValidation
+        //old sp:[Usp_Search_RegistrationBefore]
 
-     
-        public List<GetRegprofilevalidation> RegistrationValidation([FromBody]Regprofilevalidation RegValidation) { return new EmployeeReportPageDAL().RegistrationValidation(RegValidation, "[dbo].[Usp_Search_RegistrationBefore]"); }
+        public List<GetRegprofilevalidation> RegistrationValidation([FromBody]Regprofilevalidation RegValidation) { return new EmployeeReportPageDAL().RegistrationValidation(RegValidation, "[dbo].[Usp_Search_RegistrationBefore_Slide]"); }
 
         public List<GetRegprofilevalidationtable> RegistrationValidation_Table([FromBody]Regprofilevalidation RegValidation) { return new EmployeeReportPageDAL().RegistrationValidation_Table(RegValidation, "[dbo].[Usp_Search_RegistrationBefore_Table]"); }
         
