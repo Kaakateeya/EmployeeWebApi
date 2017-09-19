@@ -2145,10 +2145,10 @@ namespace WebapiApplication.DAL
                             sh.TotalRows = reader["TotalRows"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : inull;
                             sh.TotalPages = reader["TotalPages"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalPages")) : inull;
                             sh.ProfileStatusID = reader["ProfileStatusID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileStatusID")) : Snull;
-                            sh.ActiveCount = reader["ActiveCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ActiveCount")) : inull;
-                            sh.DeletedCount = reader["DeletedCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DeletedCount")) : inull;
-                            sh.SettledCount = reader["SettledCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SettledCount")) : inull;
-                            sh.InActiveCount = reader["InActiveCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("InActiveCount")) : inull;
+                           // sh.ActiveCount = reader["ActiveCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ActiveCount")) : inull;
+                           // sh.DeletedCount = reader["DeletedCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DeletedCount")) : inull;
+                           // sh.SettledCount = reader["SettledCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SettledCount")) : inull;
+                          //  sh.InActiveCount = reader["InActiveCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("InActiveCount")) : inull;
                             sh.MMSerious = reader["MMSerious"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MMSerious")) : inull;
                             sh.TicketID = reader["TicketID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("TicketID")) : Lnull;
                             sh.TicketHistoryID = reader["TicketHisID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketHisID")) : Snull;
