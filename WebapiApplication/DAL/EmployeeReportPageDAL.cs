@@ -455,7 +455,12 @@ namespace WebapiApplication.DAL
                             myprofile.DOR = (reader["DOR"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("DOR")) : empty;
                             myprofile.PaidAmount = (reader["Payment"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Payment")) : empty;
                             myprofile.Row = (reader["Row"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Row")) : iLong;
+
+                            myprofile.LastLoginDate = (reader["LastLoginDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastLoginDate")) : empty;
+                            myprofile.LoginCount = (reader["LoginCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("LoginCount")) : intnull;
+
                             arrayList.Add(myprofile);
+
 
                         }
                     }

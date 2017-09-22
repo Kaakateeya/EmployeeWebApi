@@ -294,6 +294,10 @@ namespace WebapiApplication.ML
 
         public long? Row { get; set; }
 
+
+        public string LastLoginDate { get; set; }
+
+        public int? LoginCount { get; set; }
     }
 
     public class FeeUpdateML
