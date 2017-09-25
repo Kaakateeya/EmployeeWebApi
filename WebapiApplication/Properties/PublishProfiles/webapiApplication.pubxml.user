@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>C:\Users\Admin\Desktop\183build</_PublishTargetUrl>
-    <_PublishTargetUrl>D:\build_files\22_09_2017_Myprofilechanges</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\build_files\22_09_2017_Myprofilechangesgggg</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Api/BindJson .cs">
@@ -170,7 +170,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="DAL/HtmlPage1.html">
-      <publishTime>09/16/2017 15:37:10</publishTime>
+      <publishTime>09/23/2017 17:52:37</publishTime>
     </File>
     <File Include="DAL/TestAngular.html">
       <publishTime>06/17/2017 13:53:34</publishTime>
