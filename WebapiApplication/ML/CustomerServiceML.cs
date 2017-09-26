@@ -236,6 +236,10 @@ namespace WebapiApplication.ML
         public int? toIsconfidential { get; set; }
 
         public int? toHighconfidential { get; set; }
+
+        public long? ToEmpownerid { get; set; }
+
+        public long? FromEmpownerid { get; set; }
     }
 
     public class SearchML

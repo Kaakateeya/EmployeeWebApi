@@ -667,6 +667,11 @@ namespace WebapiApplication.DAL
                             Binterest.fromHighconfidential = (reader["fromHighconfidential"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("fromHighconfidential")) : intnull;
                             Binterest.toIsconfidential = (reader["toIsconfidential"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("toIsconfidential")) : intnull;
                             Binterest.toHighconfidential = (reader["toHighconfidential"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("toHighconfidential")) : intnull;
+
+                            Binterest.FromEmpownerid = (reader["FromEmpownerid"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("FromEmpownerid")) : Lnull;
+                            Binterest.ToEmpownerid = (reader["ToEmpownerid"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("ToEmpownerid")) : Lnull;
+
+
                             arrayList.Add(Binterest);
 
                         }
