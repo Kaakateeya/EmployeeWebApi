@@ -228,6 +228,14 @@ namespace WebapiApplication.ML
         public int? fromgenderid { get; set; }
 
         public int? togenderid { get; set; }
+
+        public int? fromIsconfidential { get; set; }
+
+        public int? fromHighconfidential { get; set; }
+
+        public int? toIsconfidential { get; set; }
+
+        public int? toHighconfidential { get; set; }
     }
 
     public class SearchML
