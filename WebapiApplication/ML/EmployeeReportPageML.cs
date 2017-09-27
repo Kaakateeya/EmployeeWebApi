@@ -330,6 +330,8 @@ namespace WebapiApplication.ML
         public string fathercaste { get; set; }
 
         public string mothercaste { get; set; }
+
+        public string currency { get; set; }
     }
 
     public class FeeUpdateML
