@@ -298,6 +298,8 @@ namespace WebapiApplication.ML
         public string LastLoginDate { get; set; }
 
         public int? LoginCount { get; set; }
+
+        public string Thumbnailpath { get; set; }
     }
 
     public class FeeUpdateML

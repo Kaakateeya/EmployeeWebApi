@@ -459,6 +459,9 @@ namespace WebapiApplication.DAL
                             myprofile.LastLoginDate = (reader["LastLoginDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastLoginDate")) : empty;
                             myprofile.LoginCount = (reader["LoginCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("LoginCount")) : intnull;
 
+                            //27-09-2017   
+                            myprofile.Thumbnailpath = (reader["Thumbnailpath"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Thumbnailpath")) : empty;
+
                             arrayList.Add(myprofile);
 
 
