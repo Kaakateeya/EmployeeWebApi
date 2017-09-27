@@ -300,6 +300,36 @@ namespace WebapiApplication.ML
         public int? LoginCount { get; set; }
 
         public string Thumbnailpath { get; set; }
+
+        public string qualification { get; set; }
+
+        public string Profession { get; set; }
+
+        public string JobLocation { get; set; }
+
+        public string MaritalStatus { get; set; }
+
+        public string Star { get; set; }
+
+        public string Gothram { get; set; }
+
+        public string TOB { get; set; }
+
+        public int? Property { get; set; }
+
+        public string Income { get; set; }
+
+        public string FFNative { get; set; }
+
+        public string MFNative { get; set; }
+
+        public string PlaceOfBirth { get; set; }
+
+        public bool Intercaste { get; set; }
+
+        public string fathercaste { get; set; }
+
+        public string mothercaste { get; set; }
     }
 
     public class FeeUpdateML
