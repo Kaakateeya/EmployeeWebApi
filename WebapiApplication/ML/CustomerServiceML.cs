@@ -240,6 +240,10 @@ namespace WebapiApplication.ML
         public long? ToEmpownerid { get; set; }
 
         public long? FromEmpownerid { get; set; }
+
+        public string fromEmpmobilenumber { get; set; }
+
+        public string toEmpmobilenumber { get; set; }
     }
 
     public class SearchML
