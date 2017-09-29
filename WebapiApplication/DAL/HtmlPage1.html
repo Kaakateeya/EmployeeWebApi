@@ -445,14 +445,13 @@
 
             $("#80000").click(function () {
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/getnoserviceemailsfromcustomer',
+                    url: 'http://localhost:63006/Api/StaticPages/getdecryptedProfileID',
                     type: 'GET',
                     crossDomain: true,
                     data: {
 
-                        profileid: '311134610',
-                        empid: 2
-                    },
+                        ProfileID: '+33rqWkZSEdfshBCIdr1g3LCk15DstYgYdY2NmNcMvU=',
+                                           },
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));
