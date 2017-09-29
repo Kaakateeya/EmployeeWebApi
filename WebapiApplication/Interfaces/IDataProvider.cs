@@ -375,6 +375,8 @@ namespace WebapiApplication.Interfaces
         int? noserviceemailsfromcustomer(string profileid, int? empid);
 
         ArrayList keywordlikesearch(keywordlikesearch keyword);
+
+        List<GetRegprofilevalidation> RegistrationValidation_Counts(Regprofilevalidation RegValidation);
     }
 
     public interface ISmallPages

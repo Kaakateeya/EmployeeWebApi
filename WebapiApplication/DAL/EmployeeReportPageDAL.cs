@@ -4580,11 +4580,11 @@ namespace WebapiApplication.DAL
                             sh.TotalRows = reader["TotalRows"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : inull;
                             sh.TotalPages = reader["TotalPages"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalPages")) : inull;
                             sh.ProfileStatusID = reader["ProfileStatusID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileStatusID")) : Snull;
-                            sh.ActiveCount = reader["ActiveCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ActiveCount")) : inull;
-                            sh.DeletedCount = reader["DeletedCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DeletedCount")) : inull;
-                            sh.SettledCount = reader["SettledCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SettledCount")) : inull;
-                            sh.InActiveCount = reader["InActiveCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("InActiveCount")) : inull;
-                            sh.MMSerious = reader["MMSerious"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MMSerious")) : inull;
+                            //sh.ActiveCount = reader["ActiveCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ActiveCount")) : inull;
+                            //sh.DeletedCount = reader["DeletedCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DeletedCount")) : inull;
+                            //sh.SettledCount = reader["SettledCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SettledCount")) : inull;
+                            //sh.InActiveCount = reader["InActiveCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("InActiveCount")) : inull;
+                            //sh.MMSerious = reader["MMSerious"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MMSerious")) : inull;
                             sh.TicketID = reader["TicketID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("TicketID")) : Lnull;
                             sh.TicketHistoryID = reader["TicketHisID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketHisID")) : Snull;
                             sh.paid = reader["PaidStatus"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PaidStatus")) : inull;
@@ -4914,6 +4914,95 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearAllPools();
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public List<GetRegprofilevalidation> RegistrationValidation_Counts(Regprofilevalidation partnerdata, string spName)
+        {
+            List<GetRegprofilevalidation> details = new List<GetRegprofilevalidation>();
+            SqlDataReader reader;
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+            string Snull = "--";
+            int? inull = null;
+            Int64? Lnull = null;
+            int status = 0;
+            string empty = "--";
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+
+                SqlParameter[] parm = new SqlParameter[20];
+
+                parm[0] = new SqlParameter("@strMFFNativePlace", SqlDbType.VarChar);
+                parm[0].Value = partnerdata.strMFFNativePlace;
+                parm[1] = new SqlParameter("@strFatherName", SqlDbType.VarChar);
+                parm[1].Value = partnerdata.strFatherName;
+                parm[2] = new SqlParameter("@strMotherName", SqlDbType.VarChar);
+                parm[2].Value = partnerdata.strMotherName;
+                parm[3] = new SqlParameter("@strFFName", SqlDbType.VarChar);
+                parm[3].Value = partnerdata.strFFName;
+                parm[4] = new SqlParameter("@strMFName", SqlDbType.VarChar);
+                parm[4].Value = partnerdata.strMFName;
+                parm[5] = new SqlParameter("@strMFSurName", SqlDbType.VarChar);
+                parm[5].Value = partnerdata.strMFSurName;
+                parm[6] = new SqlParameter("@strCustSurName", SqlDbType.VarChar);
+                parm[6].Value = partnerdata.strCustSurName;
+                parm[7] = new SqlParameter("@strCustName", SqlDbType.VarChar);
+                parm[7].Value = partnerdata.strCustName;
+                parm[8] = new SqlParameter("@strCaste", SqlDbType.VarChar);
+                parm[8].Value = partnerdata.strCaste;
+                parm[9] = new SqlParameter("@strAllPhones", SqlDbType.VarChar);
+                parm[9].Value = partnerdata.strAllPhones;
+                parm[10] = new SqlParameter("@strAllEmailIds", SqlDbType.VarChar);
+                parm[10].Value = partnerdata.strAllEmailIds;
+                parm[11] = new SqlParameter("@intAppicationStatusID", SqlDbType.Int);
+                parm[11].Value = partnerdata.intAppicationStatusID;
+                parm[12] = new SqlParameter("@intEmpID", SqlDbType.Int);
+                parm[12].Value = partnerdata.intEmpID;
+                parm[13] = new SqlParameter("@i_Startindex", SqlDbType.Int);
+                parm[13].Value = partnerdata.i_Startindex;
+                parm[14] = new SqlParameter("@i_EndIndex", SqlDbType.Int);
+                parm[14].Value = partnerdata.i_EndIndex;
+                parm[15] = new SqlParameter("@intGenderID", SqlDbType.Int);
+                parm[15].Value = partnerdata.intGenderID;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        GetRegprofilevalidation sh = new GetRegprofilevalidation();
+                        {
+
+                            sh.ActiveCount = reader["ActiveCnt"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ActiveCnt")) : inull;
+                            sh.DeletedCount = reader["DeletedCnt"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DeletedCnt")) : inull;
+                            sh.SettledCount = reader["SettledCnt"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SettledCnt")) : inull;
+                            sh.InActiveCount = reader["InActiveCnt"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("InActiveCnt")) : inull;
+                            sh.MMSerious = reader["MMSCnt"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MMSCnt")) : inull;
+
+                        }
+                        details.Add(sh);
+
+                    }
+                }
+
+                reader.Close();
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            status = 1;
+            return details;
         }
     }
 }

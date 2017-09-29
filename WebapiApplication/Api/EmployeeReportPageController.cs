@@ -108,6 +108,10 @@ namespace WebapiApplication.Api
 
 
         }
+
+        public List<GetRegprofilevalidation> RegistrationValidation_Counts([FromBody]Regprofilevalidation RegValidation) { return this.IEmployeeReport.RegistrationValidation_Counts(RegValidation); }
+
+
         public List<RegprofilevalidationPlaybutton> getRegistrationValidation_Playbutton(string Profileid) { return this.IEmployeeReport.RegistrationValidation_Playbutton(Profileid); }
 
         public int FeeUpdate(FeeUpdateML mobj) { return this.IEmployeeReport.FeeUpdate(mobj); }
