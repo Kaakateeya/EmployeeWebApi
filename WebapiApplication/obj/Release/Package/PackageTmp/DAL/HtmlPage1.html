@@ -445,14 +445,13 @@
 
             $("#80000").click(function () {
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/getnoserviceemailsfromcustomer',
+                    url: 'http://localhost:63006/Api/StaticPages/getdecryptedProfileID',
                     type: 'GET',
                     crossDomain: true,
                     data: {
 
-                        profileid: '311134610',
-                        empid: 2
-                    },
+                        ProfileID: '+33rqWkZSEdfshBCIdr1g3LCk15DstYgYdY2NmNcMvU=',
+                                           },
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));
@@ -495,10 +494,11 @@
             $("#btngetdata").click(function () {
 
                 $.ajax({
-                    url: 'http://localhost:63006/Api/CustomerPersonal/Search_ViewEditProfile',
-                    type: 'post',
+                    url: 'http://localhost:63006/Api/CustomerPersonalUpdate/getAstroGenerationS3Update',
+                    type: 'get',
                     crossDomain: true,
-                    data: JSON.stringify(jsonbObj),
+                    data: {KeyName:'Images/HoroscopeImages/91022_HaroscopeImage/91022_HaroscopeImage.html',
+                    Path:'D:\EmployeeApplication\Images\HoroscopeImages\91022_HaroscopeImage\91022_HaroscopeImage.html'},
                     contentType: 'application/json',
                     success: function (data, textStatus, xhr) {
                         alert(JSON.stringify(data));
