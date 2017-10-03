@@ -185,4 +185,3 @@ D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.
 D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.FriendlyUrls.xml
 D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.dll
 D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.pdb
-D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.csprojResolveAssemblyReference.cache
