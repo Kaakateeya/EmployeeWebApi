@@ -452,7 +452,9 @@ namespace WebapiApplication.DAL
             //filePath = "D://KaakateeyaMainProject//Kaakateeya//Development_Kaakateeya//kaakateeyaWeb//access//Images//ProfilePics//KMPL_71668_Images//img2.jpg";
 
             string strpath = keyName.Replace("/", "//");
-            filePath = "C://inetpub//wwwroot//access//" + strpath;
+            //filePath = "C://inetpub//wwwroot//access//" + strpath;
+            filePath = "http://emp.kaakateeya.com//" + strpath;
+
             try
             {
                 TransferUtility fileTransferUtility = new
