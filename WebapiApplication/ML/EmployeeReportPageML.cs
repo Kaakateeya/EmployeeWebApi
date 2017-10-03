@@ -294,6 +294,44 @@ namespace WebapiApplication.ML
 
         public long? Row { get; set; }
 
+
+        public string LastLoginDate { get; set; }
+
+        public int? LoginCount { get; set; }
+
+        public string Thumbnailpath { get; set; }
+
+        public string qualification { get; set; }
+
+        public string Profession { get; set; }
+
+        public string JobLocation { get; set; }
+
+        public string MaritalStatus { get; set; }
+
+        public string Star { get; set; }
+
+        public string Gothram { get; set; }
+
+        public string TOB { get; set; }
+
+        public int? Property { get; set; }
+
+        public string Income { get; set; }
+
+        public string FFNative { get; set; }
+
+        public string MFNative { get; set; }
+
+        public string PlaceOfBirth { get; set; }
+
+        public bool Intercaste { get; set; }
+
+        public string fathercaste { get; set; }
+
+        public string mothercaste { get; set; }
+
+        public string currency { get; set; }
     }
 
     public class FeeUpdateML
@@ -787,6 +825,39 @@ namespace WebapiApplication.ML
         public string strProfileID { set; get; }
         public int? NotifyCount { get; set; }
         public int? CategoryID { get; set; }
+    }
+
+    public class keywordlikesearch
+    {
+
+
+        public DataTable dtPartnerPreference { get; set; }
+
+        public int? EmpID { get; set; }
+
+        public int? startindex { get; set; }
+
+        public int? EndIndex { get; set; }
+
+        public string ApplicationStatus { get; set; }
+
+
+        //
+        public string AllContactNo { get; set; }
+        public string AllEmails { get; set; }
+        public string AllSurNames { get; set; }
+        public string AllNatives { get; set; }
+        public string CEducationAll { get; set; }
+        public string CProfAll { get; set; }
+        public string FAllFields { get; set; }
+        public string MAllFields { get; set; }
+        public string Br_AllFields { get; set; }
+        public string Sr_AllFields { get; set; }
+        public string FB_AllFields { get; set; }
+        public string FS_AllFields { get; set; }
+        public string MB_AllFields { get; set; }
+        public string MS_AllFields { get; set; }
+        public string CAll { get; set; }
     }
 }
 

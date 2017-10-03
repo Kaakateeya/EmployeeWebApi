@@ -538,5 +538,12 @@ namespace WebapiApplication.ML
         public int Status { get; set; }
     }
 
+    public class notviewedprofiles
+    {
+        public string ToProfileID { get; set; }
+        public string FromProfileID { get; set; }
+        public Int64? ToCustID { get; set; }
+        public Int64? FromCustID { get; set; }
+    }
 
 }

@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Collections;
 using System.Configuration;
 using KaakateeyaDAL;
+using WebapiApplication.UserDefinedTable;
 
 namespace WebapiApplication.DAL
 {
@@ -454,7 +455,34 @@ namespace WebapiApplication.DAL
                             myprofile.DOR = (reader["DOR"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("DOR")) : empty;
                             myprofile.PaidAmount = (reader["Payment"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Payment")) : empty;
                             myprofile.Row = (reader["Row"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Row")) : iLong;
+
+                            myprofile.LastLoginDate = (reader["LastLoginDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastLoginDate")) : empty;
+                            myprofile.LoginCount = (reader["LoginCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("LoginCount")) : intnull;
+
+                            //27-09-2017   
+                            myprofile.Thumbnailpath = (reader["Thumbnailpath"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Thumbnailpath")) : empty;
+
+                            myprofile.qualification = (reader["qualification"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("qualification")) : empty;
+                            myprofile.Profession = (reader["Profession"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profession")) : empty;
+                            myprofile.JobLocation = (reader["JobLocation"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("JobLocation")) : empty;
+                            myprofile.MaritalStatus = (reader["MaritalStatus"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MaritalStatus")) : empty;
+                            myprofile.Star = (reader["Star"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Star")) : empty;
+                            myprofile.Gothram = (reader["Gothram"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gothram")) : empty;
+                            myprofile.TOB = (reader["TOB"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TOB")) : empty;
+                            myprofile.Property = (reader["Property"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Property")) : intnull;
+                            myprofile.Income = (reader["Income"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Income")) : empty;
+                            myprofile.FFNative = (reader["FFNative"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FFNative")) : empty;
+                            myprofile.MFNative = (reader["MFNative"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MFNative")) : empty;
+                            myprofile.PlaceOfBirth = (reader["PlaceOfBirth"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PlaceOfBirth")) : empty;
+                            myprofile.Intercaste = (reader["Intercaste"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("Intercaste")) : false;
+                            myprofile.fathercaste = (reader["fathercaste"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("fathercaste")) : empty;
+                            myprofile.mothercaste = (reader["mothercaste"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("mothercaste")) : empty;
+
+                            myprofile.currency = (reader["currency"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("currency")) : empty;
+
+                            //
                             arrayList.Add(myprofile);
+
 
                         }
                     }
@@ -655,6 +683,22 @@ namespace WebapiApplication.DAL
                             Binterest.Expressinterestlogid = (reader["Expressinterestlogid"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Expressinterestlogid")) : Lnull;
                             Binterest.fromgenderid = (reader["fromgenderid"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("fromgenderid")) : intnull;
                             Binterest.togenderid = (reader["togenderid"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("togenderid")) : intnull;
+
+                            //26_09_2017_matchfollowup confidential
+                            Binterest.fromIsconfidential = (reader["fromIsconfidential"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("fromIsconfidential")) : intnull;
+                            Binterest.fromHighconfidential = (reader["fromHighconfidential"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("fromHighconfidential")) : intnull;
+                            Binterest.toIsconfidential = (reader["toIsconfidential"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("toIsconfidential")) : intnull;
+                            Binterest.toHighconfidential = (reader["toHighconfidential"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("toHighconfidential")) : intnull;
+
+                            Binterest.FromEmpownerid = (reader["FromEmpownerid"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("FromEmpownerid")) : Lnull;
+                            Binterest.ToEmpownerid = (reader["ToEmpownerid"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("ToEmpownerid")) : Lnull;
+
+                            //28_09_2017_Added Emp number
+
+                            Binterest.fromEmpmobilenumber = (reader["fromEmpmobilenumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("fromEmpmobilenumber")) : null;
+                            Binterest.toEmpmobilenumber = (reader["toEmpmobilenumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("toEmpmobilenumber")) : null;
+
+
                             arrayList.Add(Binterest);
 
                         }
@@ -2144,11 +2188,11 @@ namespace WebapiApplication.DAL
                             sh.TotalRows = reader["TotalRows"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : inull;
                             sh.TotalPages = reader["TotalPages"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalPages")) : inull;
                             sh.ProfileStatusID = reader["ProfileStatusID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileStatusID")) : Snull;
-                            sh.ActiveCount = reader["ActiveCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ActiveCount")) : inull;
-                            sh.DeletedCount = reader["DeletedCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DeletedCount")) : inull;
-                            sh.SettledCount = reader["SettledCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SettledCount")) : inull;
-                            sh.InActiveCount = reader["InActiveCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("InActiveCount")) : inull;
-                            sh.MMSerious = reader["MMSerious"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MMSerious")) : inull;
+                            // sh.ActiveCount = reader["ActiveCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ActiveCount")) : inull;
+                            // sh.DeletedCount = reader["DeletedCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DeletedCount")) : inull;
+                            // sh.SettledCount = reader["SettledCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SettledCount")) : inull;
+                            //  sh.InActiveCount = reader["InActiveCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("InActiveCount")) : inull;
+                            // sh.MMSerious = reader["MMSerious"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MMSerious")) : inull;
                             sh.TicketID = reader["TicketID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("TicketID")) : Lnull;
                             sh.TicketHistoryID = reader["TicketHisID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketHisID")) : Snull;
                             sh.paid = reader["PaidStatus"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PaidStatus")) : inull;
@@ -4536,11 +4580,11 @@ namespace WebapiApplication.DAL
                             sh.TotalRows = reader["TotalRows"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : inull;
                             sh.TotalPages = reader["TotalPages"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalPages")) : inull;
                             sh.ProfileStatusID = reader["ProfileStatusID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileStatusID")) : Snull;
-                            sh.ActiveCount = reader["ActiveCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ActiveCount")) : inull;
-                            sh.DeletedCount = reader["DeletedCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DeletedCount")) : inull;
-                            sh.SettledCount = reader["SettledCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SettledCount")) : inull;
-                            sh.InActiveCount = reader["InActiveCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("InActiveCount")) : inull;
-                            sh.MMSerious = reader["MMSerious"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MMSerious")) : inull;
+                            //sh.ActiveCount = reader["ActiveCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ActiveCount")) : inull;
+                            //sh.DeletedCount = reader["DeletedCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DeletedCount")) : inull;
+                            //sh.SettledCount = reader["SettledCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SettledCount")) : inull;
+                            //sh.InActiveCount = reader["InActiveCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("InActiveCount")) : inull;
+                            //sh.MMSerious = reader["MMSerious"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MMSerious")) : inull;
                             sh.TicketID = reader["TicketID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("TicketID")) : Lnull;
                             sh.TicketHistoryID = reader["TicketHisID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketHisID")) : Snull;
                             sh.paid = reader["PaidStatus"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PaidStatus")) : inull;
@@ -4689,6 +4733,275 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearAllPools();
             }
 
+            return details;
+        }
+
+        public int? notviewedprofilesemails(ExpressInterestInsert Mobj, string spName)
+        {
+
+            int? Istatus = null;
+            int? intStatus = 0;
+
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            SqlDataReader reader;
+
+            SqlParameter[] parm = new SqlParameter[10];
+            try
+            {
+
+
+                parm[0] = new SqlParameter("@TblDetails", SqlDbType.Structured);
+                parm[0].Value = Mobj.dtExpInt;
+                parm[1] = new SqlParameter("@empid", SqlDbType.BigInt);
+                parm[1].Value = Mobj.EmpID;
+
+
+                parm[2] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+                List<Smtpemailsending> li = new List<Smtpemailsending>();
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                if (reader.HasRows)
+                {
+
+                    while (reader.Read())
+                    {
+                        Smtpemailsending smtp = new Smtpemailsending();
+                        {
+                            smtp.profile_name = (reader["profile_name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("profile_name")) : string.Empty;
+                            smtp.recipients = (reader["recipients"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("recipients")) : string.Empty;
+                            smtp.body = (reader["body"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body")) : string.Empty;
+                            smtp.subject = (reader["subject"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("subject")) : string.Empty;
+                            smtp.body_format = (reader["body_format"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body_format")) : string.Empty;
+                            Istatus = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : 0;
+                        }
+                        li.Add(smtp);
+
+                    }
+
+                }
+                intStatus = Istatus != null && Istatus != 0 ? 1 : 0;
+
+                reader.Close();
+                if (li.Count > 0)
+                {
+                    Commonclass.SendMailSmtpMethod(li, "info");
+                }
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return intStatus;
+        }
+
+        public int? noserviceemailsfromcustomer(string profileid, int? empid, string spName)
+        {
+            int? Istatus = null;
+            Int64? lnull = null;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            SqlDataReader reader;
+
+            SqlParameter[] parm = new SqlParameter[5];
+            try
+            {
+                parm[0] = new SqlParameter("@Profileid", SqlDbType.VarChar);
+                parm[0].Value = profileid;
+                parm[1] = new SqlParameter("@EmpID", SqlDbType.Int);
+                parm[1].Value = empid;
+
+                List<Smtpemailsending> li = new List<Smtpemailsending>();
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                List<notviewedprofiles> notviewd = new List<notviewedprofiles>();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        notviewedprofiles noservice = new notviewedprofiles();
+                        {
+                            noservice.FromProfileID = (reader["FromProfileID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromProfileID")) : string.Empty;
+                            noservice.ToProfileID = (reader["ToProfileID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToProfileID")) : string.Empty;
+                            noservice.FromCustID = (reader["FromCustID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("FromCustID")) : lnull;
+                            noservice.ToCustID = (reader["ToCustID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("ToCustID")) : lnull;
+                        }
+                        notviewd.Add(noservice);
+                    }
+                }
+                reader.Close();
+
+                DataTable dtExpress = new DataTable();
+                ExpressInterestInsert EXI = new ExpressInterestInsert();
+                EXI.EmpID = empid;
+                dtExpress = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtExpressInterestTable(), notviewd);
+                if (dtExpress != null && dtExpress.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in dtExpress.Rows)
+                    {
+                        string FromProfileID = dr["FromProfileID"].ToString();
+                        string ToProfileID = dr["ToProfileID"].ToString();
+
+                        dr["Acceptlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + FromProfileID + "&" + "ToProfileID=" + ToProfileID + "&" + "Flag=" + 1);
+                        dr["Rejectlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + FromProfileID + "&" + "ToProfileID=" + ToProfileID + "&" + "Flag=" + 0);
+                        dr["RvrAcceptlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + ToProfileID + "&" + "ToProfileID=" + FromProfileID + "&" + "Flag=" + 1);
+                        dr["RvrRejectlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + ToProfileID + "&" + "ToProfileID=" + FromProfileID + "&" + "Flag=" + 0);
+                        dr["Sendsms"] = (!string.IsNullOrEmpty(dr["Sendsms"].ToString()) && dr["Sendsms"].ToString() == "True") ? true : false;
+                        dr["IsRvrSend"] = (!string.IsNullOrEmpty(dr["IsRvrSend"].ToString()) && dr["IsRvrSend"].ToString() == "True") ? true : false;
+                    }
+                }
+
+                EXI.dtExpInt = dtExpress;
+                Istatus = notviewedprofilesemails(EXI, "[dbo].[usp_GetUnviewedServiceProfilesData]");
+
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Istatus;
+        }
+
+
+
+        public ArrayList keywordlikesearch(keywordlikesearch keyword, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[9];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                parm[0] = new SqlParameter("@TblDetails", SqlDbType.Structured);
+                parm[0].Value = keyword.dtPartnerPreference;
+                parm[1] = new SqlParameter("@ApplicationStatus", SqlDbType.VarChar);
+                parm[1].Value = keyword.ApplicationStatus;
+                parm[2] = new SqlParameter("@intEmpID", SqlDbType.Int);
+                parm[2].Value = keyword.EmpID;
+                parm[3] = new SqlParameter("@i_Startindex", SqlDbType.Int);
+                parm[3].Value = keyword.startindex;
+                parm[4] = new SqlParameter("@i_EndIndex", SqlDbType.Int);
+                parm[4].Value = keyword.EndIndex;
+                parm[5] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[5].Direction = ParameterDirection.Output;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public List<GetRegprofilevalidation> RegistrationValidation_Counts(Regprofilevalidation partnerdata, string spName)
+        {
+            List<GetRegprofilevalidation> details = new List<GetRegprofilevalidation>();
+            SqlDataReader reader;
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+            string Snull = "--";
+            int? inull = null;
+            Int64? Lnull = null;
+            int status = 0;
+            string empty = "--";
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+
+                SqlParameter[] parm = new SqlParameter[20];
+
+                parm[0] = new SqlParameter("@strMFFNativePlace", SqlDbType.VarChar);
+                parm[0].Value = partnerdata.strMFFNativePlace;
+                parm[1] = new SqlParameter("@strFatherName", SqlDbType.VarChar);
+                parm[1].Value = partnerdata.strFatherName;
+                parm[2] = new SqlParameter("@strMotherName", SqlDbType.VarChar);
+                parm[2].Value = partnerdata.strMotherName;
+                parm[3] = new SqlParameter("@strFFName", SqlDbType.VarChar);
+                parm[3].Value = partnerdata.strFFName;
+                parm[4] = new SqlParameter("@strMFName", SqlDbType.VarChar);
+                parm[4].Value = partnerdata.strMFName;
+                parm[5] = new SqlParameter("@strMFSurName", SqlDbType.VarChar);
+                parm[5].Value = partnerdata.strMFSurName;
+                parm[6] = new SqlParameter("@strCustSurName", SqlDbType.VarChar);
+                parm[6].Value = partnerdata.strCustSurName;
+                parm[7] = new SqlParameter("@strCustName", SqlDbType.VarChar);
+                parm[7].Value = partnerdata.strCustName;
+                parm[8] = new SqlParameter("@strCaste", SqlDbType.VarChar);
+                parm[8].Value = partnerdata.strCaste;
+                parm[9] = new SqlParameter("@strAllPhones", SqlDbType.VarChar);
+                parm[9].Value = partnerdata.strAllPhones;
+                parm[10] = new SqlParameter("@strAllEmailIds", SqlDbType.VarChar);
+                parm[10].Value = partnerdata.strAllEmailIds;
+                parm[11] = new SqlParameter("@intAppicationStatusID", SqlDbType.Int);
+                parm[11].Value = partnerdata.intAppicationStatusID;
+                parm[12] = new SqlParameter("@intEmpID", SqlDbType.Int);
+                parm[12].Value = partnerdata.intEmpID;
+                parm[13] = new SqlParameter("@i_Startindex", SqlDbType.Int);
+                parm[13].Value = partnerdata.i_Startindex;
+                parm[14] = new SqlParameter("@i_EndIndex", SqlDbType.Int);
+                parm[14].Value = partnerdata.i_EndIndex;
+                parm[15] = new SqlParameter("@intGenderID", SqlDbType.Int);
+                parm[15].Value = partnerdata.intGenderID;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        GetRegprofilevalidation sh = new GetRegprofilevalidation();
+                        {
+
+                            sh.ActiveCount = reader["ActiveCnt"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ActiveCnt")) : inull;
+                            sh.DeletedCount = reader["DeletedCnt"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DeletedCnt")) : inull;
+                            sh.SettledCount = reader["SettledCnt"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SettledCnt")) : inull;
+                            sh.InActiveCount = reader["InActiveCnt"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("InActiveCnt")) : inull;
+                            sh.MMSerious = reader["MMSCnt"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MMSCnt")) : inull;
+
+                        }
+                        details.Add(sh);
+
+                    }
+                }
+
+                reader.Close();
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+
+            status = 1;
             return details;
         }
     }

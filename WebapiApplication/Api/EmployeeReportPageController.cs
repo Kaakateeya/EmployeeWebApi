@@ -108,6 +108,10 @@ namespace WebapiApplication.Api
 
 
         }
+
+        public List<GetRegprofilevalidation> RegistrationValidation_Counts([FromBody]Regprofilevalidation RegValidation) { return this.IEmployeeReport.RegistrationValidation_Counts(RegValidation); }
+
+
         public List<RegprofilevalidationPlaybutton> getRegistrationValidation_Playbutton(string Profileid) { return this.IEmployeeReport.RegistrationValidation_Playbutton(Profileid); }
 
         public int FeeUpdate(FeeUpdateML mobj) { return this.IEmployeeReport.FeeUpdate(mobj); }
@@ -246,6 +250,19 @@ namespace WebapiApplication.Api
         }
 
         public List<EmpNotifications> employeenotications([FromBody]EmpNotifications empnotification) { return this.IEmployeeReport.employeenotications(empnotification); }
+
+
+        public int? getnoserviceemailsfromcustomer(string profileid, int? empid) { return this.IEmployeeReport.noserviceemailsfromcustomer(profileid, empid); }
+
+        ////
+        public ArrayList keywordlikesearch([FromBody]keywordlikesearch keyword)
+        {
+
+            List<keywordlikesearch> lstkeyword = new List<keywordlikesearch>();
+            lstkeyword.Add(keyword);
+            keyword.dtPartnerPreference = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtlikekeywordsearch(), lstkeyword);
+            return this.IEmployeeReport.keywordlikesearch(keyword);
+        }
     }
 }
 

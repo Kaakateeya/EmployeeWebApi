@@ -53,11 +53,15 @@ namespace WebapiApplication.Implement
 
 
         // RegistrationValidation
+        //old sp:[Usp_Search_RegistrationBefore]
 
-     
-        public List<GetRegprofilevalidation> RegistrationValidation([FromBody]Regprofilevalidation RegValidation) { return new EmployeeReportPageDAL().RegistrationValidation(RegValidation, "[dbo].[Usp_Search_RegistrationBefore]"); }
+        public List<GetRegprofilevalidation> RegistrationValidation([FromBody]Regprofilevalidation RegValidation) { return new EmployeeReportPageDAL().RegistrationValidation(RegValidation, "[dbo].[Usp_Search_RegistrationBefore_Slide]"); }
 
         public List<GetRegprofilevalidationtable> RegistrationValidation_Table([FromBody]Regprofilevalidation RegValidation) { return new EmployeeReportPageDAL().RegistrationValidation_Table(RegValidation, "[dbo].[Usp_Search_RegistrationBefore_Table]"); }
+
+
+        public List<GetRegprofilevalidation> RegistrationValidation_Counts([FromBody]Regprofilevalidation RegValidation) { return new EmployeeReportPageDAL().RegistrationValidation_Counts(RegValidation, "[dbo].[Usp_Search_RegistrationBefore_Count]"); }
+
         
         public List<RegprofilevalidationPlaybutton> RegistrationValidation_Playbutton(string Profileid) { return new EmployeeReportPageDAL().RegistrationValidation_Playbutton(Profileid, "[dbo].[Usp_GetFullInfoofCustomer]"); }
         public int FeeUpdate(FeeUpdateML mobj) { return new EmployeeReportPageDAL().FeeUpdateDalWithInternalMemoUpdate(mobj, "USP_InsertInternalMemo_Marketingslide"); }
@@ -190,6 +194,15 @@ namespace WebapiApplication.Implement
         public ArrayList Oldkmplkeywordlikesearch([FromBody]CreateKeywordLlikesearchReqoldkmpl oldkmpl) { return new EmployeeReportPageDAL().Oldkmplkeywordlikesearch(oldkmpl, "[dbo].[Usp_Search_KeyWord_oldkmpl]"); }
 
         public List<EmpNotifications> employeenotications([FromBody]EmpNotifications empnotification) { return new EmployeeReportPageDAL().employeenotications(empnotification, "[dbo].[usp_GetNotificationdetails_Emp]"); }
+
+        public int? noserviceemailsfromcustomer(string profileid, int? empid) { return new EmployeeReportPageDAL().noserviceemailsfromcustomer(profileid, empid, "[dbo].[usp_GetUnviewedServiceProfiles]"); }
+
+
+        public ArrayList keywordlikesearch([FromBody]keywordlikesearch keyword)
+        {
+            return new EmployeeReportPageDAL().keywordlikesearch(keyword, "[dbo].[Usp_Search_KeyWord_All]");
+        }
+    
     }
 
 }
