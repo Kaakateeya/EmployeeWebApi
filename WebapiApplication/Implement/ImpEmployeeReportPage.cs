@@ -24,7 +24,7 @@ namespace WebapiApplication.Implement
         public int SaveViewedBookmark_Customer(CustSearchMl Mobj) { return new EmployeeReportPageDAL().SaveViewedBookmark_Customer(Mobj, "[dbo].[usp_Cust_ProfileMarked_Insert]"); }
         public ArrayList SendServiceProfileIDs(string ProfileIDs) { return new EmployeeReportPageDAL().SendServiceProfileIDs(ProfileIDs, "[dbo].[usp_SendServiceProfileIDs]"); }
         public ArrayList MatchfollowupSlideShowResult(SearchML Mobj) { return new EmployeeReportPageDAL().MatchfollowupSlideShowResult(Mobj, "[dbo].[Usp_Select_BothSideOneSideInterst_New_NewDesign]"); }
-        public EmployeeMarketingTicketResponse GetmarketingTicketHistoryInfo(EmployeeMarketingTicketRequest Mobj) { return new EmployeeReportPageDAL().GetmarketingTicketHistoryInfo(Mobj, "[dbo].[usp_GetmarketingTicketHistoryInfo_slide_NewDesign]"); }
+        public EmployeeMarketingTicketResponse GetmarketingTicketHistoryInfo(EmployeeMarketingTicketRequest Mobj) { return new EmployeeReportPageDAL().GetmarketingTicketHistoryInfo(Mobj, "[dbo].[usp_GetmarketingTicketHistoryInfo_slide_NewDesign_Profor]"); }
 
         public int MatchFollowupSendSms(EmployeeMarketslidesendmail Mobj) { return new EmployeeReportPageDAL().MatchFollowupSendSms(Mobj, "[dbo].[usp_insert_customerDashboard_SMS]"); }
         public int MatchFollowupMailSend(MatchFollowupMailSend Mobj) { return new EmployeeReportPageDAL().MatchFollowupMailSend(Mobj, "[dbo].[sp_Email_TicketHistoryInfo_slide_New]"); }

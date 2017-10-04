@@ -455,7 +455,10 @@ namespace WebapiApplication.DAL
             //filePath = "C://inetpub//wwwroot//access//" + strpath;
 
             //filePath = "http://emp.kaakateeya.com//" + strpath;
-            filePath = "http://183.82.0.58:9030//" + strpath;
+            //filePath = "http://183.82.0.58:9030//" + strpath;
+
+            filePath = "D://EmployeeAngularSite//Employee//" + strpath;
+          
 
             try
             {
