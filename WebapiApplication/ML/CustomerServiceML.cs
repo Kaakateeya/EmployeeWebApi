@@ -244,6 +244,10 @@ namespace WebapiApplication.ML
         public string fromEmpmobilenumber { get; set; }
 
         public string toEmpmobilenumber { get; set; }
+
+        public string Tosurname { get; set; }
+
+        public string Fromsurname { get; set; }
     }
 
     public class SearchML

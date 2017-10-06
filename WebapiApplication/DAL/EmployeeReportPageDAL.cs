@@ -697,8 +697,9 @@ namespace WebapiApplication.DAL
 
                             Binterest.fromEmpmobilenumber = (reader["fromEmpmobilenumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("fromEmpmobilenumber")) : null;
                             Binterest.toEmpmobilenumber = (reader["toEmpmobilenumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("toEmpmobilenumber")) : null;
-
-
+                            //06_10_2017_Surnames
+                            Binterest.Fromsurname = (reader["Fromsurname"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Fromsurname")) : null;
+                            Binterest.Tosurname = (reader["Tosurname"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Tosurname")) : null;
                             arrayList.Add(Binterest);
 
                         }
