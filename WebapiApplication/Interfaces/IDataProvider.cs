@@ -377,6 +377,8 @@ namespace WebapiApplication.Interfaces
         ArrayList keywordlikesearch(keywordlikesearch keyword);
 
         List<GetRegprofilevalidation> RegistrationValidation_Counts(Regprofilevalidation RegValidation);
+
+        int InsertMatchfollowupExpressinterest(int? fromcustid, int? tocustid, long? logID, string interstTYpe, int? empid);
     }
 
     public interface ISmallPages

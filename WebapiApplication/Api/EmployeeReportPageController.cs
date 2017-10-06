@@ -263,6 +263,11 @@ namespace WebapiApplication.Api
             keyword.dtPartnerPreference = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtlikekeywordsearch(), lstkeyword);
             return this.IEmployeeReport.keywordlikesearch(keyword);
         }
+
+        //06_10_2017
+
+        public int getInsertMatchfollowupExpressinterest([FromUri]int? fromcustid, [FromUri]int? tocustid, [FromUri] long? logID, [FromUri] string interstTYpe, [FromUri] int? empid) { return this.IEmployeeReport.InsertMatchfollowupExpressinterest(fromcustid, tocustid, logID, interstTYpe, empid); }
+
     }
 }
 

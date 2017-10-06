@@ -5007,5 +5007,64 @@ namespace WebapiApplication.DAL
             status = 1;
             return details;
         }
+
+        public int InsertMatchfollowupExpressinterest(int? fromcustid, int? tocustid, long? logID, string interstTYpe, int? empid, string spName)
+        {
+            SqlParameter[] parm = new SqlParameter[12];
+            Smtpemailsending smtp = new Smtpemailsending();
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            SqlDataReader reader;
+            int status = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                parm[0] = new SqlParameter("@fromcustid", SqlDbType.Int);
+                parm[0].Value = fromcustid;
+                parm[1] = new SqlParameter("@tocustid", SqlDbType.Int);
+                parm[1].Value = tocustid;
+                parm[2] = new SqlParameter("@logID", SqlDbType.BigInt);
+                parm[2].Value = logID;
+                parm[3] = new SqlParameter("@interstTYpe", SqlDbType.VarChar);
+                parm[3].Value = interstTYpe;
+                parm[4] = new SqlParameter("@status", SqlDbType.Int);
+                parm[4].Direction = ParameterDirection.Output;
+                parm[5] = new SqlParameter("@empid", SqlDbType.Int);
+                parm[5].Value = empid;
+                DataSet dsMessages = new DataSet();
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        smtp.profile_name = (reader["profile_name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("profile_name")) : string.Empty;
+                        smtp.recipients = (reader["recipients"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("recipients")) : string.Empty;
+                        smtp.body = (reader["body"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body")) : string.Empty;
+                        smtp.subject = (reader["subject"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("subject")) : string.Empty;
+                        smtp.body_format = (reader["body_format"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body_format")) : string.Empty;
+                        smtp.Statusint = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : 0;
+                        li.Add(smtp);
+                    }
+                }
+
+                status = reader.HasRows == true ? smtp.Statusint : 1;
+                Commonclass.SendMailSmtpMethod(li, "exp");
+
+                reader.Close();
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), fromcustid, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return status;
+        }
     }
 }
