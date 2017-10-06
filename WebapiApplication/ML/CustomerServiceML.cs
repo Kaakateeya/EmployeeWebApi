@@ -680,6 +680,8 @@ namespace WebapiApplication.ML
         public Int32? Replaytypeid { get; set; }
         public int? RelationID { get; set; }
 
+
+        public bool? FollowupStatus { get; set; }
     }
 
     public class IncomingOutgoing

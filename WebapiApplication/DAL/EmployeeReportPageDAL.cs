@@ -1302,7 +1302,7 @@ namespace WebapiApplication.DAL
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
 
-            SqlParameter[] parm = new SqlParameter[13];
+            SqlParameter[] parm = new SqlParameter[15];
             SqlDataReader drReader = null;
             try
             {
@@ -1328,16 +1328,18 @@ namespace WebapiApplication.DAL
                 parm[9].Value = Mobj.AssignedEmpID;
                 parm[10] = new SqlParameter("@ReplyTypeID", SqlDbType.Int);
                 parm[10].Value = Mobj.Replaytypeid;
-                parm[11] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[11].Direction = ParameterDirection.Output;
+                parm[11] = new SqlParameter("@FollowupStatus", SqlDbType.Bit);
+                parm[11].Value = Mobj.FollowupStatus;
+                parm[12] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[12].Direction = ParameterDirection.Output;
                 drReader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[11].Value.ToString()).Equals(0))
+                if (string.Compare(System.DBNull.Value.ToString(), parm[12].Value.ToString()).Equals(0))
                 {
                     intStatus = 0;
                 }
                 else
                 {
-                    intStatus = Convert.ToInt32(parm[11].Value);
+                    intStatus = Convert.ToInt32(parm[12].Value);
                 }
             }
             catch (Exception EX)
