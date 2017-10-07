@@ -700,6 +700,10 @@ namespace WebapiApplication.DAL
                             //06_10_2017_Surnames
                             Binterest.Fromsurname = (reader["Fromsurname"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Fromsurname")) : null;
                             Binterest.Tosurname = (reader["Tosurname"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Tosurname")) : null;
+                            //07_10_2017_Employeenames
+                            Binterest.fromonlyempname = (reader["fromonlyempname"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("fromonlyempname")) : null;
+                            Binterest.toonlyempname = (reader["toonlyempname"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("toonlyempname")) : null;
+
                             arrayList.Add(Binterest);
 
                         }
@@ -1328,18 +1332,16 @@ namespace WebapiApplication.DAL
                 parm[9].Value = Mobj.AssignedEmpID;
                 parm[10] = new SqlParameter("@ReplyTypeID", SqlDbType.Int);
                 parm[10].Value = Mobj.Replaytypeid;
-                parm[11] = new SqlParameter("@FollowupStatus", SqlDbType.Bit);
-                parm[11].Value = Mobj.FollowupStatus;
-                parm[12] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[12].Direction = ParameterDirection.Output;
+                parm[11] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[11].Direction = ParameterDirection.Output;
                 drReader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[12].Value.ToString()).Equals(0))
+                if (string.Compare(System.DBNull.Value.ToString(), parm[11].Value.ToString()).Equals(0))
                 {
                     intStatus = 0;
                 }
                 else
                 {
-                    intStatus = Convert.ToInt32(parm[12].Value);
+                    intStatus = Convert.ToInt32(parm[11].Value);
                 }
             }
             catch (Exception EX)

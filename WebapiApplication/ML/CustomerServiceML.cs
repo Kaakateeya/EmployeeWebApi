@@ -248,6 +248,10 @@ namespace WebapiApplication.ML
         public string Tosurname { get; set; }
 
         public string Fromsurname { get; set; }
+
+        public string fromonlyempname { get; set; }
+
+        public string toonlyempname { get; set; }
     }
 
     public class SearchML
