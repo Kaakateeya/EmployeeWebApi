@@ -458,6 +458,11 @@ namespace WebapiApplication.DAL
             //filePath = "http://183.82.0.58:9030//" + strpath;
 
             filePath = "D://EmployeeAngularSite//Employee//" + strpath;
+
+            string pathUser = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+
+
+            //filePath = "C://Employee//" + strpath;
             
 
             try

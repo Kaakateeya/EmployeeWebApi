@@ -144,6 +144,8 @@ namespace WebapiApplication.ML
         public long? CustID { get; set; }
         public int? noofDays { get; set; }
         public string spName { get; set; }
+
+        public int? intEmpId { get; set; }
     }
 
     public class BothsideInterest

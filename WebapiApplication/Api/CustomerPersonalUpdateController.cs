@@ -249,6 +249,7 @@ namespace WebapiApplication.Api
         public int UploadsettlementForm([FromBody]SettlementPaidBalanceDetailsMl settlementForm) { return this.ICustomerpersonalupdate.UploadsettlementForm(settlementForm); }
         public int getAstroGenerationS3Update(string Path, string KeyName) { return this.ICustomerpersonalupdate.AstroGenerationS3Update(Path, KeyName); }
 
+        public int getAstroGenerationS3Update_test(string Path, string KeyName) { return this.ICustomerpersonalupdate.AstroGenerationS3Update(Path, KeyName); }
 
 
     }
