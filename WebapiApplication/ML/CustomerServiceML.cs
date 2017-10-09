@@ -246,6 +246,15 @@ namespace WebapiApplication.ML
         public string fromEmpmobilenumber { get; set; }
 
         public string toEmpmobilenumber { get; set; }
+
+        public string Tosurname { get; set; }
+
+        public string Fromsurname { get; set; }
+
+        public string fromonlyempname { get; set; }
+
+        public string toonlyempname { get; set; }
+        public long? ExpressinterestTologid{get;set;}
     }
 
     public class SearchML
@@ -678,6 +687,8 @@ namespace WebapiApplication.ML
         public Int32? Replaytypeid { get; set; }
         public int? RelationID { get; set; }
 
+
+        public bool? FollowupStatus { get; set; }
     }
 
     public class IncomingOutgoing
