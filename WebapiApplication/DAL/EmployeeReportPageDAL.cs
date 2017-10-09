@@ -681,6 +681,7 @@ namespace WebapiApplication.DAL
                             Binterest.FromExpiryDate = (reader["FromExpiryDate"]) != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("FromExpiryDate")) : dnull;
                             Binterest.ToExpiryDate = (reader["ToExpiryDate"]) != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("ToExpiryDate")) : dnull;
                             Binterest.Expressinterestlogid = (reader["Expressinterestlogid"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Expressinterestlogid")) : Lnull;
+                             Binterest.ExpressinterestTologid = (reader["ExpressinterestTologid"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("ExpressinterestTologid")) : Lnull;
                             Binterest.fromgenderid = (reader["fromgenderid"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("fromgenderid")) : intnull;
                             Binterest.togenderid = (reader["togenderid"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("togenderid")) : intnull;
 
