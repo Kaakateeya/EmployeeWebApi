@@ -379,6 +379,8 @@ namespace WebapiApplication.Interfaces
         List<GetRegprofilevalidation> RegistrationValidation_Counts(Regprofilevalidation RegValidation);
 
         int InsertMatchfollowupExpressinterest(int? fromcustid, int? tocustid, long? logID, string interstTYpe, int? empid);
+
+        ArrayList Marketingtickethistory(int? custid);
     }
 
     public interface ISmallPages

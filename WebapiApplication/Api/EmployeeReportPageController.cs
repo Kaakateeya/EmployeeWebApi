@@ -268,6 +268,10 @@ namespace WebapiApplication.Api
 
         public int getInsertMatchfollowupExpressinterest([FromUri]int? fromcustid, [FromUri]int? tocustid, [FromUri] long? logID, [FromUri] string interstTYpe, [FromUri] int? empid) { return this.IEmployeeReport.InsertMatchfollowupExpressinterest(fromcustid, tocustid, logID, interstTYpe, empid); }
 
+        //11_10_2017_marketingtcket
+        public ArrayList getMarketingtickethistory(int? custid) { return this.IEmployeeReport.Marketingtickethistory(custid); }
+
+
     }
 }
 

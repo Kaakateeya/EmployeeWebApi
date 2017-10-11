@@ -203,6 +203,9 @@ namespace WebapiApplication.Implement
             return new EmployeeReportPageDAL().keywordlikesearch(keyword, "[dbo].[Usp_Search_KeyWord_All]");
         }
         public int InsertMatchfollowupExpressinterest([FromUri]int? fromcustid, [FromUri]int? tocustid, [FromUri] long? logID, [FromUri] string interstTYpe, [FromUri] int? empid) { return new EmployeeReportPageDAL().InsertMatchfollowupExpressinterest(fromcustid, tocustid, logID, interstTYpe, empid, "[dbo].[usp_insert_MatchFollupStatusUpdate]"); }
+
+        public ArrayList Marketingtickethistory(int? custid) { return new EmployeeReportPageDAL().Marketingtickethistory(custid, "[dbo].[usp_GetMarketingTicketHistry_CustomerWise]"); }
+    
     }
 
 }
