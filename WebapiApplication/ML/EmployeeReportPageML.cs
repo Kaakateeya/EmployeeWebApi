@@ -858,6 +858,8 @@ namespace WebapiApplication.ML
         public string MB_AllFields { get; set; }
         public string MS_AllFields { get; set; }
         public string CAll { get; set; }
+        public int? Gender { get; set; }
+
     }
 }
 
