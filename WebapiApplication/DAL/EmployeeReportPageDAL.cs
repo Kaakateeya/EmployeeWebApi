@@ -1135,6 +1135,17 @@ namespace WebapiApplication.DAL
                                 sh.ToOwner = reader["ToOwner"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToOwner")) : string.Empty;
                                 sh.ToCustIDLastName = reader["ToCustIDLastName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToCustIDLastName")) : string.Empty;
                                 sh.CustomerLastName = reader["CustomerLastName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CustomerLastName")) : string.Empty;
+
+                                sh.fromIsconfidential = reader["fromIsconfidential"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("fromIsconfidential")) : inull;
+
+                                sh.fromHighconfidential = reader["fromHighconfidential "] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("fromHighconfidential ")) : inull;
+
+                                sh.toIsconfidential = reader["toIsconfidential"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("toIsconfidential")) : inull;
+
+                                sh.toHighconfidential = reader["toHighconfidential"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("toHighconfidential")) : inull;
+
+                               
+                            
                             }
                             else
                             {
