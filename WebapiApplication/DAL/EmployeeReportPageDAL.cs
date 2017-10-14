@@ -1134,6 +1134,7 @@ namespace WebapiApplication.DAL
                                 sh.FromOwner = reader["FromOwner"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromOwner")) : string.Empty;
                                 sh.ToOwner = reader["ToOwner"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToOwner")) : string.Empty;
                                 sh.ToCustIDLastName = reader["ToCustIDLastName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToCustIDLastName")) : string.Empty;
+                                sh.CustomerLastName = reader["CustomerLastName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CustomerLastName")) : string.Empty;
                             }
                             else
                             {

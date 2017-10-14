@@ -280,6 +280,8 @@ namespace WebapiApplication.ML
         public string ToOwner { get; set; }
 
         public string ToCustIDLastName { get; set; }
+
+        public string CustomerLastName { get; set; }
     }
 
     public class MarketingTicketResponse

@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>C:\Users\Admin\Desktop\183build</_PublishTargetUrl>
-    <_PublishTargetUrl>D:\build_files\14_10_2017_communcicationlogstatus</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\build_files\14_10_2017_matchfollwup</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Api/BindJson .cs">
@@ -161,7 +161,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/20/2017 12:06:44</publishTime>
     </File>
     <File Include="bin/WebapiApplication.dll">
-      <publishTime>10/14/2017 13:00:51</publishTime>
+      <publishTime>10/14/2017 13:34:00</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>05/20/2017 12:06:45</publishTime>
