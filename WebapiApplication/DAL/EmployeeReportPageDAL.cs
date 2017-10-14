@@ -1082,6 +1082,7 @@ namespace WebapiApplication.DAL
             DataTable dt = new DataTable();
             string Snull = "--";
             long? Lnull = null;
+            int? inull = null;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -1125,6 +1126,13 @@ namespace WebapiApplication.DAL
                                 sh.FromName = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
                                 sh.Toname = reader["OppName"] != DBNull.Value ? reader["OppName"].ToString() : null;
                                 sh.MobileNumber = reader["MobileNumber"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MobileNumber")) : Snull;
+                                //14_10_2017_status
+                                sh.GenderID = reader["GenderID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("GenderID")) : inull;
+                                sh.FromCust_InterestStatus = reader["FromCust_InterestStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromCust_InterestStatus")) : string.Empty;
+                                sh.ToCust_InterestStatus = reader["ToCust_InterestStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToCust_InterestStatus")) : string.Empty;
+                                sh.TicketToStatus = reader["TicketToStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketToStatus")) : string.Empty;
+                                
+
                             }
                             else
                             {

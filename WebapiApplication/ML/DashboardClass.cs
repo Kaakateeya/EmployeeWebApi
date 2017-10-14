@@ -266,6 +266,14 @@ namespace WebapiApplication.ML
         public string Toname { get; set; }
         public string MobileNumber { set; get; }
         public int? TicketStatusID { get; set; }
+
+        public int? GenderID { get; set; }
+
+        public string FromCust_InterestStatus { get; set; }
+
+        public string ToCust_InterestStatus { get; set; }
+
+        public string TicketToStatus { get; set; }
     }
 
     public class MarketingTicketResponse
