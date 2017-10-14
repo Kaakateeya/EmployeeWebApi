@@ -274,6 +274,12 @@ namespace WebapiApplication.ML
         public string ToCust_InterestStatus { get; set; }
 
         public string TicketToStatus { get; set; }
+
+        public string FromOwner { get; set; }
+
+        public string ToOwner { get; set; }
+
+        public string ToCustIDLastName { get; set; }
     }
 
     public class MarketingTicketResponse

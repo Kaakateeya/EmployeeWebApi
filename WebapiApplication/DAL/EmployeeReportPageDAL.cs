@@ -1131,8 +1131,9 @@ namespace WebapiApplication.DAL
                                 sh.FromCust_InterestStatus = reader["FromCust_InterestStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromCust_InterestStatus")) : string.Empty;
                                 sh.ToCust_InterestStatus = reader["ToCust_InterestStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToCust_InterestStatus")) : string.Empty;
                                 sh.TicketToStatus = reader["TicketToStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketToStatus")) : string.Empty;
-                                
-
+                                sh.FromOwner = reader["FromOwner"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromOwner")) : string.Empty;
+                                sh.ToOwner = reader["ToOwner"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToOwner")) : string.Empty;
+                                sh.ToCustIDLastName = reader["ToCustIDLastName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToCustIDLastName")) : string.Empty;
                             }
                             else
                             {
