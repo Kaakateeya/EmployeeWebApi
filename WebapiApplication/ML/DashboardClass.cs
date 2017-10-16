@@ -384,6 +384,8 @@ namespace WebapiApplication.ML
         public string number { get; set; }
 
         public string email { get; set; }
+
+        public string CustomerApplicationPhoto { get; set; }
     }
     public class MarketingTicketResponseHistory
     {

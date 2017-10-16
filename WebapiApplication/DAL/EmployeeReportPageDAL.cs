@@ -1239,6 +1239,9 @@ namespace WebapiApplication.DAL
                             Marketing.BranchCode = reader["BranchCode"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("BranchCode"))).ToString() : Snull;
                             Marketing.email = reader["email"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("email"))).ToString() : Snull;
                             Marketing.number = reader["number"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("number"))).ToString() : Snull;
+
+                            Marketing.CustomerApplicationPhoto = reader["CustomerApplicationPhoto"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CustomerApplicationPhoto"))).ToString() : Snull;
+
                         }
                         details.Add(Marketing);
                     }
