@@ -1138,12 +1138,13 @@ namespace WebapiApplication.DAL
 
                                 sh.fromIsconfidential = reader["fromIsconfidential"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("fromIsconfidential")) : inull;
 
-                                sh.fromHighconfidential = reader["fromHighconfidential "] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("fromHighconfidential ")) : inull;
+                                sh.fromHighconfidential = reader["fromHighconfidential"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("fromHighconfidential")) : inull;
 
                                 sh.toIsconfidential = reader["toIsconfidential"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("toIsconfidential")) : inull;
 
                                 sh.toHighconfidential = reader["toHighconfidential"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("toHighconfidential")) : inull;
 
+                                sh.Cust_ProfileInterestsLog_ID = reader["Cust_ProfileInterestsLog_ID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ProfileInterestsLog_ID")) : Lnull;
                                
                             
                             }

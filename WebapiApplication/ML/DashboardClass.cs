@@ -282,6 +282,18 @@ namespace WebapiApplication.ML
         public string ToCustIDLastName { get; set; }
 
         public string CustomerLastName { get; set; }
+
+        public int? fromIsconfidential { get; set; }
+
+        public int? fromHighconfidential { get; set; }
+
+        public int? toIsconfidential { get; set; }
+
+        public int? toHighconfidential { get; set; }
+
+        public long? OppCustID { get; set; }
+
+        public long? Cust_ProfileInterestsLog_ID { get; set; }
     }
 
     public class MarketingTicketResponse
