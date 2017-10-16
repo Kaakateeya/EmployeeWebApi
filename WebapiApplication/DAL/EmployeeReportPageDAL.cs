@@ -1232,6 +1232,13 @@ namespace WebapiApplication.DAL
                             Marketing.ReminderRelationName = reader["ReminderRelationName"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("ReminderRelationName"))).ToString() : Snull;
                             Marketing.Category = reader["Category"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Category"))).ToString() : Snull;
                             Marketing.Reminderbody = reader["Reminderbody"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Reminderbody"))).ToString() : Snull;
+
+                            //16_10_2017 added by lakshmi
+                            Marketing.Cust_Name = reader["Cust_Name"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Cust_Name"))).ToString() : Snull;
+                            Marketing.DOR = reader["DOR"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("DOR"))).ToString() : Snull;
+                            Marketing.BranchCode = reader["BranchCode"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("BranchCode"))).ToString() : Snull;
+                            Marketing.email = reader["email"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("email"))).ToString() : Snull;
+                            Marketing.number = reader["number"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("number"))).ToString() : Snull;
                         }
                         details.Add(Marketing);
                     }

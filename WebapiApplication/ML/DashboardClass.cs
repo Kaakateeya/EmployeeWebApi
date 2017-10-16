@@ -374,6 +374,16 @@ namespace WebapiApplication.ML
         public string Category { get; set; }
 
         public string Reminderbody { get; set; }
+
+        public string Cust_Name { get; set; }
+
+        public string DOR { get; set; }
+
+        public string BranchCode { get; set; }
+
+        public string number { get; set; }
+
+        public string email { get; set; }
     }
     public class MarketingTicketResponseHistory
     {
