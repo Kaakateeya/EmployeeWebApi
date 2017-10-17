@@ -1964,7 +1964,7 @@ namespace WebapiApplication.DAL
 
         public int UpdateExpressIntrestViewfullprofile(UpdateExpressIntrestStatus Mobj, string spName)
         {
-            SqlParameter[] parm = new SqlParameter[8];
+            SqlParameter[] parm = new SqlParameter[9];
             int intStatus = 0;
 
             SqlConnection connection = new SqlConnection();
@@ -1985,13 +1985,15 @@ namespace WebapiApplication.DAL
                 parm[4].Value = Mobj.noofDays;
                 parm[5] = new SqlParameter("@intEmpId", SqlDbType.Int);
                 parm[5].Value = Mobj.intEmpId;
-                parm[6] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[6].Direction = ParameterDirection.Output;
+                parm[6] = new SqlParameter("@strFromStatus", SqlDbType.VarChar);
+                parm[6].Value = Mobj.strFromStatus;
+                parm[7] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[7].Direction = ParameterDirection.Output;
                 DataSet dsMessages = new DataSet();
                 dsMessages = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
 
-                if (string.Compare(System.DBNull.Value.ToString(), parm[6].Value.ToString()) == 0) { intStatus = 0; }
-                else { intStatus = Convert.ToInt32(parm[6].Value); }
+                if (string.Compare(System.DBNull.Value.ToString(), parm[7].Value.ToString()) == 0) { intStatus = 0; }
+                else { intStatus = Convert.ToInt32(parm[7].Value); }
             }
             catch (Exception EX)
             {

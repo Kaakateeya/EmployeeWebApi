@@ -146,6 +146,8 @@ namespace WebapiApplication.ML
         public string spName { get; set; }
 
         public int? intEmpId { get; set; }
+
+        public string strFromStatus { get; set; }
     }
 
     public class BothsideInterest
