@@ -1145,8 +1145,8 @@ namespace WebapiApplication.DAL
                                 sh.toHighconfidential = reader["toHighconfidential"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("toHighconfidential")) : inull;
 
                                 sh.Cust_ProfileInterestsLog_ID = reader["Cust_ProfileInterestsLog_ID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ProfileInterestsLog_ID")) : Lnull;
-                               
-                            
+
+
                             }
                             else
                             {
@@ -5130,6 +5130,54 @@ namespace WebapiApplication.DAL
             }
 
             return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+
+        public int? CloseReminderStatus(closereminder Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[6];
+            Smtpemailsending smtp = new Smtpemailsending();
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            SqlDataReader reader;
+            int? status = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                parm[0] = new SqlParameter("@ReminderID", SqlDbType.BigInt);
+                parm[0].Value = Mobj.Reminderid;
+                parm[1] = new SqlParameter("@ClosedEmpid", SqlDbType.BigInt);
+                parm[1].Value = Mobj.closeEmpid;
+                parm[2] = new SqlParameter("@ClosedReminderreason", SqlDbType.VarChar);
+                parm[2].Value = Mobj.ClosedReminderreason;
+                parm[3] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[3].Direction = ParameterDirection.Output;
+
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[3].Value.ToString()).Equals(0))
+                {
+                    status = 0;
+                }
+                else
+                {
+                    status = Convert.ToInt32(parm[3].Value);
+                }
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), Mobj.Reminderid, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return status;
         }
     }
 }

@@ -381,6 +381,8 @@ namespace WebapiApplication.Interfaces
         int InsertMatchfollowupExpressinterest(int? fromcustid, int? tocustid, long? logID, string interstTYpe, int? empid);
 
         ArrayList Marketingtickethistory(int? custid);
+
+        int? CloseReminderStatus(closereminder Mobj);
     }
 
     public interface ISmallPages

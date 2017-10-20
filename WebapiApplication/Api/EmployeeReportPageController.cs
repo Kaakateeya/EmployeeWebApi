@@ -272,6 +272,8 @@ namespace WebapiApplication.Api
         public ArrayList getMarketingtickethistory(int? custid) { return this.IEmployeeReport.Marketingtickethistory(custid); }
 
 
+        //20_11_2017_Close Reminde Status
+        public int? CloseReminderStatus([FromBody]closereminder Mobj) { return this.IEmployeeReport.CloseReminderStatus(Mobj); }
     }
 }
 

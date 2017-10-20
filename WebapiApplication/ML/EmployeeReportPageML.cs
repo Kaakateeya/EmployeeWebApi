@@ -861,6 +861,13 @@ namespace WebapiApplication.ML
         public int? Gender { get; set; }
 
     }
+    public class closereminder
+    {
+        public long? Reminderid { get; set; }
+        public long? closeEmpid { get; set; }
+        public string ClosedReminderreason { get; set; }
+
+         }
 }
 
 
