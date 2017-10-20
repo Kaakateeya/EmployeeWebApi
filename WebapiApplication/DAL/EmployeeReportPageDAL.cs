@@ -1241,7 +1241,8 @@ namespace WebapiApplication.DAL
                             Marketing.number = reader["number"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("number"))).ToString() : Snull;
 
                             Marketing.CustomerApplicationPhoto = reader["CustomerApplicationPhoto"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CustomerApplicationPhoto"))).ToString() : Snull;
-
+                            //20_10_2017_custid
+                            Marketing.Cust_ID = reader["Cust_ID"] != DBNull.Value ? (reader.GetInt64(reader.GetOrdinal("Cust_ID"))) : iLong;
                         }
                         details.Add(Marketing);
                     }

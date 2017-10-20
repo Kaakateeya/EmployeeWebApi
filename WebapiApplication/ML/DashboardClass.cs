@@ -386,6 +386,8 @@ namespace WebapiApplication.ML
         public string email { get; set; }
 
         public string CustomerApplicationPhoto { get; set; }
+
+        public long? Cust_ID { get; set; }
     }
     public class MarketingTicketResponseHistory
     {
