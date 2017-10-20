@@ -294,6 +294,8 @@ namespace WebapiApplication.ML
         public long? OppCustID { get; set; }
 
         public long? Cust_ProfileInterestsLog_ID { get; set; }
+
+        public string ToEmail { get; set; }
     }
 
     public class MarketingTicketResponse
