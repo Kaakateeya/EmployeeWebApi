@@ -5180,5 +5180,47 @@ namespace WebapiApplication.DAL
             }
             return status;
         }
+
+        public int? ChangeEmppassword(string UserID, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[6];
+            Smtpemailsending smtp = new Smtpemailsending();
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            int? status = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                parm[0] = new SqlParameter("@USERID", SqlDbType.VarChar);
+                parm[0].Value = UserID;
+                parm[1] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[1].Direction = ParameterDirection.Output;
+
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[1].Value.ToString()).Equals(0))
+                {
+                    status = 0;
+                }
+                else
+                {
+                    status = Convert.ToInt32(parm[1].Value);
+                }
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, UserID, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return status;
+        }
     }
 }

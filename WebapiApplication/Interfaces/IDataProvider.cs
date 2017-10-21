@@ -383,6 +383,8 @@ namespace WebapiApplication.Interfaces
         ArrayList Marketingtickethistory(int? custid);
 
         int? CloseReminderStatus(closereminder Mobj);
+
+        int? ChangeEmppassword(string UserID);
     }
 
     public interface ISmallPages

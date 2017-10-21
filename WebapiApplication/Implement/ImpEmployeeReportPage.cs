@@ -208,6 +208,8 @@ namespace WebapiApplication.Implement
 
 
         public int? CloseReminderStatus([FromBody]closereminder Mobj) { return new EmployeeReportPageDAL().CloseReminderStatus(Mobj, "[dbo].[usp_UpdateReminderStatus]"); }
+
+        public int? ChangeEmppassword(string UserID) { return new EmployeeReportPageDAL().ChangeEmppassword(UserID, "[dbo].[usp_ResetEmployeePASSWORD]"); }
     }
 
 }

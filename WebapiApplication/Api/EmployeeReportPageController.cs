@@ -274,6 +274,11 @@ namespace WebapiApplication.Api
 
         //20_11_2017_Close Reminde Status
         public int? CloseReminderStatus([FromBody]closereminder Mobj) { return this.IEmployeeReport.CloseReminderStatus(Mobj); }
+
+
+        //21_10_2017_ChangeempPassword
+        public int? getChangeEmppassword(string UserID) { return this.IEmployeeReport.ChangeEmppassword(UserID); }
+        
     }
 }
 
