@@ -1053,7 +1053,7 @@ namespace WebapiApplication.UserDefinedTable
             dtCreateEmployee.Columns.Add("TypeOfEmployee");
             dtCreateEmployee.Columns.Add("EmployeeStatus");
             dtCreateEmployee.Columns.Add("isLoginAnywhere");
-
+            dtCreateEmployee.Columns.Add("Dashboard_Status");
             return dtCreateEmployee;
         }
 

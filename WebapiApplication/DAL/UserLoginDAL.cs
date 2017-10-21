@@ -190,59 +190,7 @@ namespace WebapiApplication.DAL
                         empDetails.isManagement = !string.IsNullOrEmpty(dtLogin.Rows[0]["isManagement"].ToString()) ? Convert.ToBoolean(dtLogin.Rows[0]["isManagement"].ToString()) : false;
                         empDetails.EmpPhotoPath = !string.IsNullOrEmpty(dtLogin.Rows[0]["EmpPhotoPath"].ToString()) ? dtLogin.Rows[0]["EmpPhotoPath"].ToString() : null;
 
-                        //  MenuItem MenuItemlist = new MenuItem();
-                        //ScrollText scrolltext = new ScrollText();
-                        // StarRating starRating = new StarRating();
-
-                        //if (dsLogin.Tables.Count > 0 && dsLogin.Tables[1].Rows.Count > 0)
-                        //{
-                        //    for (int i = 0; i < dsLogin.Tables[1].Rows.Count; i++)
-                        //    {
-                        //        lstPagePermissions.Add(new MenuItem
-                        //        {
-                        //            MenuID = !string.IsNullOrEmpty(Convert.ToString(dsLogin.Tables[1].Rows[i]["menuid"])) ? Convert.ToInt32(Convert.ToString(dsLogin.Tables[1].Rows[i]["menuid"])) : intNull,
-                        //            ParentMenuID = !string.IsNullOrEmpty(Convert.ToString(dsLogin.Tables[1].Rows[i]["parentmenuid"])) ? (Convert.ToInt32(Convert.ToString(dsLogin.Tables[1].Rows[i]["ParentMenuID"]))) : intNull,
-                        //            View = Convert.ToBoolean(Convert.ToString(dsLogin.Tables[1].Rows[i]["view"])),
-                        //            Add = Convert.ToBoolean(Convert.ToString(dsLogin.Tables[1].Rows[i]["Add"])),
-                        //            Edit = Convert.ToBoolean(Convert.ToString(dsLogin.Tables[1].Rows[i]["Edit"])),
-                        //            Delete = Convert.ToBoolean(Convert.ToString(dsLogin.Tables[1].Rows[i]["Delete"])),
-                        //            URL = Convert.ToString(dsLogin.Tables[1].Rows[i]["PageURL"]),
-                        //            ToolTip = Convert.ToString(dsLogin.Tables[1].Rows[i]["ToolTip"]),
-                        //            Title = Convert.ToString(dsLogin.Tables[1].Rows[i]["MenuName"])
-                        //        });
-                        //    }
-                        //}
-
-                        //if (dsLogin.Tables.Count > 2)
-                        //{
-                        //    if (dsLogin.Tables[2].Rows.Count > 0)
-                        //    {
-                        //        for (int j = 0; j < dsLogin.Tables[2].Rows.Count; j++)
-                        //        {
-                        //            lscroll.Add(new ScrollText
-                        //            {
-                        //                str_scrollText = !string.IsNullOrEmpty(Convert.ToString(dsLogin.Tables[2].Rows[0]["scrolltext"])) ? Convert.ToString(dsLogin.Tables[2].Rows[0]["scrolltext"]) : string.Empty,
-                        //            }
-                        //            );
-                        //        }
-                        //    }
-                        //}
-
-                        //if (dsLogin.Tables.Count >= 3)
-                        //{
-                        //    if (dsLogin.Tables[3].Rows.Count > 0)
-                        //    {
-                        //        for (int j = 0; j < dsLogin.Tables[3].Rows.Count; j++)
-                        //        {
-                        //            lstarrating.Add(new StarRating
-                        //            {
-                        //                str_StarRating = !string.IsNullOrEmpty(Convert.ToString(dsLogin.Tables[3].Rows[0]["presentstar"])) ? Convert.ToString(dsLogin.Tables[3].Rows[0]["presentstar"]) : string.Empty,
-                        //                str_daystar = !string.IsNullOrEmpty(Convert.ToString(dsLogin.Tables[3].Rows[0]["daystar"])) ? Convert.ToString(dsLogin.Tables[3].Rows[0]["daystar"]) : string.Empty,
-                        //            }
-                        //            );
-                        //        }
-                        //    }
-                        //}
+                        empDetails.Dashboard_Status = !string.IsNullOrEmpty(dtLogin.Rows[0]["Dashboard_Status"].ToString()) ? Convert.ToInt32(dtLogin.Rows[0]["Dashboard_Status"]) : intNull;
                     }
                     else
                     {
