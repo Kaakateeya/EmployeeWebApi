@@ -5206,5 +5206,36 @@ namespace WebapiApplication.DAL
             }
             return status;
         }
+
+        public string MatchfollowupTicketStatus(long? Ticketid, string spname)
+        {
+
+            SqlParameter[] parm = new SqlParameter[4];
+            Smtpemailsending smtp = new Smtpemailsending();
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+
+            try
+            {
+                parm[0] = new SqlParameter("@Empticketid", SqlDbType.BigInt);
+                parm[0].Value = Ticketid;
+
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, Ticketid.ToString(), null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return ds.ToString();
+        }
     }
 }

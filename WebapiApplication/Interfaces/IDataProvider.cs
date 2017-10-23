@@ -385,6 +385,8 @@ namespace WebapiApplication.Interfaces
         int? CloseReminderStatus(closereminder Mobj);
 
         int? ChangeEmppassword(string UserID);
+
+        string MatchfollowupTicketStatus(long? Ticketid);
     }
 
     public interface ISmallPages

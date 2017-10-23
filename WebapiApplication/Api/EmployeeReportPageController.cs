@@ -278,7 +278,10 @@ namespace WebapiApplication.Api
 
         //21_10_2017_ChangeempPassword
         public int? getChangeEmppassword(string UserID) { return this.IEmployeeReport.ChangeEmppassword(UserID); }
-        
+
+        //23_10_2017_getmatchfolowupticketSp
+
+        public string getMatchfollowupTicketStatus(long? Ticketid) { return this.IEmployeeReport.MatchfollowupTicketStatus(Ticketid); }
     }
 }
 
