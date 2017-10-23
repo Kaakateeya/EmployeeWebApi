@@ -1589,6 +1589,50 @@ namespace WebapiApplication.DAL
 
             return Status; 
         }
+
+        public ArrayList SettledPrfofilesInfo(settledProfilesRequest Mobj, string spname)
+        {
+
+            SqlParameter[] param = new SqlParameter[9];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                param[0] = new SqlParameter("@i_PaidType", SqlDbType.Int);
+                param[0].Value = Mobj.i_PaidType;
+                param[1] = new SqlParameter("@i_gender", SqlDbType.Int);
+                param[1].Value = Mobj.i_gender;
+                param[2] = new SqlParameter("@i_Region", SqlDbType.VarChar);
+                param[2].Value = Mobj.i_Region;
+                param[3] = new SqlParameter("@t_Branch", SqlDbType.VarChar);
+                param[3].Value = Mobj.t_Branch;
+                param[4] = new SqlParameter("@t_ProfileOwner", SqlDbType.VarChar);
+                param[4].Value = Mobj.t_ProfileOwner;
+                param[5] = new SqlParameter("@d_settleStartDate", SqlDbType.DateTime);
+                param[5].Value = Mobj.d_settleStartDate;
+                param[6] = new SqlParameter("@d_settleEndDate", SqlDbType.DateTime);
+                param[6].Value = Mobj.d_settleEndDate;
+                param[7] = new SqlParameter("@i_Startindex", SqlDbType.Int);
+                param[7].Value = Mobj.i_Startindex;
+                param[8] = new SqlParameter("@i_EndIndex", SqlDbType.Int);
+                param[8].Value = Mobj.i_EndIndex;
+
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, param);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }
 

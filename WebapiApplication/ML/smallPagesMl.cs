@@ -468,7 +468,18 @@ namespace WebapiApplication.ML
         public Int64 ProfileStatusID { set; get; }
     }
 
-
+    public class settledProfilesRequest
+    {
+        public int? i_PaidType { get; set; }
+        public int? i_gender { get; set; }
+        public string i_Region { get; set; }
+        public string t_Branch { get; set; }
+        public string t_ProfileOwner { get; set; }
+        public DateTime? d_settleStartDate { get; set; }
+        public DateTime? d_settleEndDate { get; set; }
+        public int? i_Startindex { get; set; }
+        public int? i_EndIndex { get; set; }
+    }
 
 }
 
