@@ -386,7 +386,7 @@ namespace WebapiApplication.Interfaces
 
         int? ChangeEmppassword(string UserID);
 
-        string MatchfollowupTicketStatus(long? Ticketid);
+        ArrayList MatchfollowupTicketStatus(long? Ticketid);
     }
 
     public interface ISmallPages

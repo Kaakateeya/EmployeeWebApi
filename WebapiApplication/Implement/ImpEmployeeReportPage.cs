@@ -211,7 +211,7 @@ namespace WebapiApplication.Implement
 
         public int? ChangeEmppassword(string UserID) { return new EmployeeReportPageDAL().ChangeEmppassword(UserID, "[dbo].[usp_ResetEmployeePASSWORD]"); }
 
-        public string MatchfollowupTicketStatus(long? Ticketid) { return new EmployeeReportPageDAL().MatchfollowupTicketStatus(Ticketid, "[dbo].[usp_GetMatchFollowupTicketStatus]"); }
+        public ArrayList MatchfollowupTicketStatus(long? Ticketid) { return new EmployeeReportPageDAL().MatchfollowupTicketStatus(Ticketid, "[dbo].[usp_GetMatchFollowupTicketStatus]"); }
     }
 
 }

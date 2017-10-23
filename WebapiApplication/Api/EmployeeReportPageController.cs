@@ -281,7 +281,7 @@ namespace WebapiApplication.Api
 
         //23_10_2017_getmatchfolowupticketSp
 
-        public string getMatchfollowupTicketStatus(long? Ticketid) { return this.IEmployeeReport.MatchfollowupTicketStatus(Ticketid); }
+        public ArrayList getMatchfollowupTicketStatus(long? Ticketid) { return this.IEmployeeReport.MatchfollowupTicketStatus(Ticketid); }
     }
 }
 

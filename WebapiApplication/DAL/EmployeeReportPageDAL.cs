@@ -5207,7 +5207,7 @@ namespace WebapiApplication.DAL
             return status;
         }
 
-        public string MatchfollowupTicketStatus(long? Ticketid, string spname)
+        public ArrayList MatchfollowupTicketStatus(long? Ticketid, string spname)
         {
 
             SqlParameter[] parm = new SqlParameter[4];
@@ -5235,7 +5235,7 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
             }
-            return ds.ToString();
+            return Commonclass.convertdataTableToArrayListTable(ds);
         }
     }
 }
