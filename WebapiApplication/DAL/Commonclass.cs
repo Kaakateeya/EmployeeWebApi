@@ -93,6 +93,7 @@ namespace WebapiApplication.DAL
         //    using (var server = new SmtpClient(StrMailServer.ToString(), Convert.ToInt32(intPort)))
         //    {
         //        server.EnableSsl = true;
+
         //        server.UseDefaultCredentials = true;
         //        server.Credentials = new System.Net.NetworkCredential((message.From).ToString(), Password);
         //        server.Send(message);
@@ -127,10 +128,7 @@ namespace WebapiApplication.DAL
             {
                 Console.WriteLine("Exception caught in CreateTestMessage2(): {0}", ex.ToString());
             }
-            finally
-            {
-                SqlConnection.ClearAllPools();
-            }
+           
         }
 
         public static DataTable returnListDatatable<T>(DataTable dt, List<T> items)

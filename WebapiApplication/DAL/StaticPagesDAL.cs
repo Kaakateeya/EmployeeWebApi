@@ -162,8 +162,9 @@ namespace WebapiApplication.DAL
 
                         li.Add(smtp);
                         status = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : 0;
-                        Commonclass.SendMailSmtpMethod(li, "info");
+                      
                     }
+                    Commonclass.SendMailSmtpMethod(li, "info");
                 }
 
                 reader.Close();
