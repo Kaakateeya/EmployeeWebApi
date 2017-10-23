@@ -5217,13 +5217,27 @@ namespace WebapiApplication.DAL
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
             DataSet ds = new DataSet();
-
+            ArrayList arr = new ArrayList();
+            SqlDataReader reader;
+            string Tktstatus;
             try
             {
                 parm[0] = new SqlParameter("@Empticketid", SqlDbType.BigInt);
                 parm[0].Value = Ticketid;
 
-                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Tktstatus = reader["ToTicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToTicketStatus")) : string.Empty;
+
+                        arr.Add(Tktstatus);
+
+                    }
+                }
+
+                reader.Close();
             }
             catch (Exception EX)
             {
@@ -5235,7 +5249,7 @@ namespace WebapiApplication.DAL
                 SqlConnection.ClearPool(connection);
                 SqlConnection.ClearAllPools();
             }
-            return Commonclass.convertdataTableToArrayListTable(ds);
+            return arr;
         }
     }
 }
