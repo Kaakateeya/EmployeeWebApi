@@ -241,6 +241,8 @@ namespace WebapiApplication.ML
         public string LoginStatus { get; set; }
 
         public bool? isLoginanywhere { get; set; }
+
+        public int? Dashboard_Status { get; set; }
     }
     public class GetEmployeeListRequest
     {
@@ -293,6 +295,7 @@ namespace WebapiApplication.ML
         public DataTable dtEmployeecreation { get; set; }
 
         public bool? isLoginAnywhere { get; set; }
+        public int? Dashboard_Status { get; set; }
     }
 
 
@@ -459,10 +462,10 @@ namespace WebapiApplication.ML
         public Int64? EmpID { get; set; }
         public Int64? RequestedBY { set; get; }
         public Int64? RequestedbyEmpID { set; get; }
-        public int?   RelationshipID { set; get; }
+        public int? RelationshipID { set; get; }
         public string strRelationshipname { set; get; }
         public string strReasonforrestore { set; get; }
-        public Int64  ProfileStatusID { set; get; }
+        public Int64 ProfileStatusID { set; get; }
     }
 
 

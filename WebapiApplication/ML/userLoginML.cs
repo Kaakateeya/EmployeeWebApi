@@ -73,6 +73,8 @@ namespace WebapiApplication.ML
         public bool isManagement { get; set; }
         public string EmpPhotoPath { get; set; }
 
+
+        public int? Dashboard_Status { get; set; }
     }
     public class MenuItem
     {
