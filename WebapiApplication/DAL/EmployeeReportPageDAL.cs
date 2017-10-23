@@ -1131,6 +1131,9 @@ namespace WebapiApplication.DAL
                                 sh.Cust_ProfileInterestsLog_ID = reader["Cust_ProfileInterestsLog_ID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ProfileInterestsLog_ID")) : Lnull;
 
                                 sh.ToEmail = reader["ToEmail"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToEmail")) : Snull;
+
+                                //
+                                sh.Toticketid = reader["Toticketid"] != DBNull.Value ? Convert.ToInt64(reader["Toticketid"]) : Lnull;
                             }
                             else
                             {
