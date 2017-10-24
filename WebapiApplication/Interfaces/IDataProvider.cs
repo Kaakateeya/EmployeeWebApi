@@ -454,6 +454,8 @@ namespace WebapiApplication.Interfaces
         int checkStatus(string whereID, string secondwhereID, string flag);
 
         ArrayList SettledPrfofilesInfo(settledProfilesRequest mobj);
+
+        ArrayList noProfileGrade(noProfileGradeRequest mobj);
     }
 
     public interface IMobileAppDev

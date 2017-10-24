@@ -1598,8 +1598,66 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+                
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public ArrayList noProfileGrade(noProfileGradeRequest Mobj, string spname)
+        {
+            SqlParameter[] param = new SqlParameter[18];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                param[0] = new SqlParameter("@vc_typeofgrade", SqlDbType.VarChar);
+                param[0].Value = Mobj.TypeOFGrade;
+                param[1] = new SqlParameter("@i_ProfileId", SqlDbType.VarChar);
+                param[1].Value = Mobj.StrProfileID;
+                param[2] = new SqlParameter("@i_Gender", SqlDbType.Int);
+                param[2].Value = Mobj.Gender;
+                param[3] = new SqlParameter("@i_ispayment", SqlDbType.Int);
+                param[3].Value = Mobj.PaymentStatus;
+                param[4] = new SqlParameter("@b_isconfidential", SqlDbType.Bit);
+                param[4].Value = Mobj.Confidential;
+                param[5] = new SqlParameter("@t_Applicationstatus", SqlDbType.DateTime);
+                param[5].Value = Commonclass.returndt(Mobj.strApplicationStatus, Mobj.dtApplicationStatus, "Applicationstatus", "ApplicationstatusTable");
+                param[6] = new SqlParameter("@t_Caste", SqlDbType.DateTime);
+                param[6].Value = Commonclass.returndt(Mobj.strCaste, Mobj.dtCaste, "Caste", "CasteTable");
+                param[7] = new SqlParameter("@t_Branch", SqlDbType.Int);
+                param[7].Value = Commonclass.returndt(Mobj.strBranch, Mobj.dtBranch, "Branch", "BranchTable");
+                param[8] = new SqlParameter("@t_ownerofprofile", SqlDbType.Int);
+                param[8].Value = Commonclass.returndt(Mobj.strOwnerOfTheProfile, Mobj.dtOwnerOfTheProfile, "ownerofprofile", "ownerofprofileTable");
+                param[9] = new SqlParameter("@t_gradingtype", SqlDbType.VarChar);
+                param[9].Value = Mobj.GradingType;
+                param[10] = new SqlParameter("@vc_grade", SqlDbType.VarChar);
+                param[10].Value = Mobj.GradeID;
+                param[11] = new SqlParameter("@dt_dorfrom", SqlDbType.DateTime);
+                param[11].Value = Mobj.StartDate;
+                param[12] = new SqlParameter("@dt_dorto", SqlDbType.DateTime);
+                param[12].Value = Mobj.EndDate;
+                param[13] = new SqlParameter("@i_startindex", SqlDbType.Int);
+                param[13].Value = Mobj.From;
+                param[14] = new SqlParameter("@i_endindex", SqlDbType.Int);
+                param[14].Value = Mobj.To;
+                param[15] = new SqlParameter("@i_PageNumber", SqlDbType.Int);
+                param[15].Value = Mobj.PageNumber;
+                param[16] = new SqlParameter("@i_PageSize", SqlDbType.Int);
+                param[16].Value = Mobj.PageSize;
+                param[17] = new SqlParameter("@_Excel", SqlDbType.Int);
+                param[17].Value = Mobj.flag;
+         
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, param);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
