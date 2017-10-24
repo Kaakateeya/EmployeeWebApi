@@ -1661,6 +1661,49 @@ namespace WebapiApplication.DAL
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
+
+        public int insertsettleAmountInfo(insertSettlAmountRequest mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[5];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            SqlDataReader reader = null;
+            int Status = 0;
+            try
+            {
+                parm[0] = new SqlParameter("@i_CustId", SqlDbType.Int);
+                parm[0].Value = mobj.i_CustId;
+                parm[1] = new SqlParameter("@i_SettlementType", SqlDbType.Int);
+                parm[1].Value = mobj.i_SettlementType;
+                parm[2] = new SqlParameter("@i_Discription", SqlDbType.VarChar);
+                parm[2].Value = mobj.i_Discription;
+                parm[3] = new SqlParameter("@s_EnteredBy", SqlDbType.Int);
+                parm[3].Value = mobj.s_EnteredBy;
+                parm[4] = new SqlParameter("@i_Status", SqlDbType.Int);
+                parm[4].Direction = ParameterDirection.Output;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(parm[4].Value.ToString(), System.DBNull.Value.ToString()) == 0)
+                {
+                    Status = 0;
+                }
+                else
+                {
+                    Status = Convert.ToInt32(parm[4].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+
+            return Status; 
+        }
     }
 }
 

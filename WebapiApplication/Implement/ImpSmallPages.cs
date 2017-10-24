@@ -53,5 +53,7 @@ namespace WebapiApplication.Implement
         public int checkStatus(string whereID, string secondwhereID ,string flag) { return dobj.checkStatusDal(whereID,secondwhereID, flag, "[dbo].[usp_checkStatus]"); }
         public ArrayList SettledPrfofilesInfo(settledProfilesRequest mobj) { return dobj.SettledPrfofilesInfo(mobj, "usp_Report_SettleWithMatchMeeting"); }
         public ArrayList noProfileGrade(noProfileGradeRequest mobj) { return dobj.noProfileGrade(mobj, "usp_Reports_NoProfileGrading"); }
+        public int insertsettleAmountInfo(insertSettlAmountRequest mobj) { return dobj.insertsettleAmountInfo(mobj, "usp_Insert_SettleWithMatchMeeting"); }
+
     }
 }

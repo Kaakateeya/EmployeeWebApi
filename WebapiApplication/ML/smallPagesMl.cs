@@ -483,14 +483,6 @@ namespace WebapiApplication.ML
 
     public class noProfileGradeRequest
     {
-        public int? GFamily { get; set; }
-        public int? GEducation { get; set; }
-        public int? GProfession { get; set; }
-        public int? GProperty { get; set; }
-        public int? GPhotos { get; set; }
-        public Int64 CustID { get; set; }
-        public Int64? EmpID { get; set; }
-
         public string TypeOFGrade { get; set; }
         public string StrProfileID { get; set; }
         public int? Gender { get; set; }
@@ -499,32 +491,30 @@ namespace WebapiApplication.ML
         public string GradeID { get; set; }
         public DataTable dtApplicationStatus { get; set; }
         public string strApplicationStatus { get; set; }
-
         public string GradingType { get; set; }
         public DataTable dtBranch { get; set; }
         public string strBranch { get; set; }
-
         public DataTable dtCaste { get; set; }
         public string strCaste { get; set; }
-
         public DataTable dtOwnerOfTheProfile { get; set; }
         public string strOwnerOfTheProfile { get; set; }
-
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public int? From { get; set; }
         public int? To { get; set; }
-
-        //Add
-        public int intlowerBound { get; set; }
-        public int intUpperBound { get; set; }
         public int PageSize { get; set; }
         public int PageNumber { get; set; }
         public int flag { get; set; }
     }
 
 
-
+    public class insertSettlAmountRequest
+    {
+        public int? i_CustId { get; set; }
+        public int? i_SettlementType { get; set; }
+        public string i_Discription { get; set; }
+        public int? s_EnteredBy { get; set; }
+    }
 
 
 

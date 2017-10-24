@@ -456,6 +456,8 @@ namespace WebapiApplication.Interfaces
         ArrayList SettledPrfofilesInfo(settledProfilesRequest mobj);
 
         ArrayList noProfileGrade(noProfileGradeRequest mobj);
+
+        int insertsettleAmountInfo(insertSettlAmountRequest mobj);
     }
 
     public interface IMobileAppDev
