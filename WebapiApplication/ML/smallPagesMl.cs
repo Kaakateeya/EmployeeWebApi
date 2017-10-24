@@ -510,7 +510,8 @@ namespace WebapiApplication.ML
 
     public class insertSettlAmountRequest
     {
-        public int? i_CustId { get; set; }
+        //public int? i_CustId { get; set; }
+        public string s_ProfileID { get; set; }
         public int? i_SettlementType { get; set; }
         public string i_Discription { get; set; }
         public int? s_EnteredBy { get; set; }

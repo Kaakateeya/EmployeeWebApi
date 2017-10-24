@@ -1672,8 +1672,8 @@ namespace WebapiApplication.DAL
             int Status = 0;
             try
             {
-                parm[0] = new SqlParameter("@i_CustId", SqlDbType.Int);
-                parm[0].Value = mobj.i_CustId;
+                parm[0] = new SqlParameter("@s_ProfileID", SqlDbType.Int);
+                parm[0].Value = mobj.s_ProfileID;
                 parm[1] = new SqlParameter("@i_SettlementType", SqlDbType.Int);
                 parm[1].Value = mobj.i_SettlementType;
                 parm[2] = new SqlParameter("@i_Discription", SqlDbType.VarChar);
