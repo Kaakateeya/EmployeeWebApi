@@ -103,8 +103,8 @@ namespace WebapiApplication.DAL
             {
                
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+                //SqlConnection.ClearPool(connection);
+                //SqlConnection.ClearAllPools();
             }
             return istatus;
         }

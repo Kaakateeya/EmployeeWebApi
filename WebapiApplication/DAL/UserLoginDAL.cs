@@ -122,8 +122,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+            
             }
             return userLogin;
         }
@@ -205,8 +204,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+            
             }
 
             return new Tuple<EmpDetailsMl, List<MenuItem>, List<ScrollText>, List<StarRating>, int>(empDetails, lstPagePermissions, lscroll, lstarrating, intstatus);

@@ -124,8 +124,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+              
             }
             return intStatus;
         }
@@ -246,8 +245,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+                
             }
             return arrayList;
         }
@@ -372,8 +370,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+            
             }
             return arrayList;
         }
@@ -418,8 +415,7 @@ namespace WebapiApplication.DAL
             {
               
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+            
             }
             return intStatus;
         }
@@ -447,8 +443,7 @@ namespace WebapiApplication.DAL
             {
                
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+             
             }
             return Commonclass.convertdataTableToArrayList(dsMissingfields);
         }
@@ -497,8 +492,7 @@ namespace WebapiApplication.DAL
             {
                
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+              
             }
             //  return Commonclass.convertdataTableToArrayList(dsSet);
             strResult = "Password :" + strPassword + ";" + "DecPassword :" + DecPassword;
@@ -543,8 +537,7 @@ namespace WebapiApplication.DAL
             {
                 
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+               
             }
             return Commonclass.convertdataTableToArrayList(dataSet);
         }
@@ -585,8 +578,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+             
             }
             return intstatus;
         }
@@ -629,8 +621,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+              
             }
             return intStatus;
         }

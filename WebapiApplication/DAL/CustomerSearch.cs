@@ -109,8 +109,8 @@ namespace WebapiApplication.DAL
             finally
             {
                 con.Close();
-                SqlConnection.ClearPool(con);
-                SqlConnection.ClearAllPools();
+                //SqlConnection.ClearPool(con);
+                //SqlConnection.ClearAllPools();
             }
             return Mobjresult;
         }
@@ -239,9 +239,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 con.Close();
-                SqlConnection.ClearPool(con);
-                SqlConnection.ClearAllPools();
-                //SQLHelper.GetSQLConnection().Dispose();
+             
             }
             return listSearch;
         }
@@ -349,8 +347,7 @@ namespace WebapiApplication.DAL
             {
                
                 con.Close();
-                SqlConnection.ClearPool(con);
-                SqlConnection.ClearAllPools();
+             
             }
             return listSearch;
         }
@@ -393,8 +390,7 @@ namespace WebapiApplication.DAL
             {
               
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+             
             }
             return intStatus;
         }
@@ -457,8 +453,7 @@ namespace WebapiApplication.DAL
             {
              
                 con.Close();
-                SqlConnection.ClearPool(con);
-                SqlConnection.ClearAllPools();
+              
             }
             return listSaveEdit;
         }
@@ -548,8 +543,7 @@ namespace WebapiApplication.DAL
             {
                
                 con.Close();
-                SqlConnection.ClearPool(con);
-                SqlConnection.ClearAllPools();
+              
             }
             return listSearch;
         }
@@ -644,8 +638,8 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+                //SqlConnection.ClearPool(connection);
+                //SqlConnection.ClearAllPools();
             }
             return sh;
         }
@@ -767,8 +761,8 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+                //SqlConnection.ClearPool(connection);
+                //SqlConnection.ClearAllPools();
             }
 
             status = 1;
@@ -893,8 +887,8 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+                //SqlConnection.ClearPool(connection);
+                //SqlConnection.ClearAllPools();
             }
 
             status = 1;

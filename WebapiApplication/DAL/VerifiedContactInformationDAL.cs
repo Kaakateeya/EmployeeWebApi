@@ -62,8 +62,7 @@ namespace WebapiApplication.DAL
             {
                
                 con.Close();
-                SqlConnection.ClearPool(con);
-                SqlConnection.ClearAllPools();
+               
               
             }
             return verification;

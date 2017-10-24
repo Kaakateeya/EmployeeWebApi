@@ -73,7 +73,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                SqlConnection.ClearAllPools();
+                // SqlConnection.ClearAllPools();
             }
         }
 
@@ -128,7 +128,7 @@ namespace WebapiApplication.DAL
             {
                 Console.WriteLine("Exception caught in CreateTestMessage2(): {0}", ex.ToString());
             }
-           
+
         }
 
         public static DataTable returnListDatatable<T>(DataTable dt, List<T> items)
@@ -319,7 +319,7 @@ namespace WebapiApplication.DAL
         public static void ApplicationErrorLog(string ErrorSpName, string ErrorMessage, long? CustID, string PageName, string Type)
         {
             new StaticPagesDAL().DApplicationErrorLog(ErrorSpName, ErrorMessage, CustID, PageName, Type, "[dbo].[usp_ApplicationErrorLog]");
-            SqlConnection.ClearAllPools();
+            //SqlConnection.ClearAllPools();
         }
         public static void PaymentSMS(DataTable dt, string SendPhonenumber)
         {
@@ -339,7 +339,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                SqlConnection.ClearAllPools();
+                // SqlConnection.ClearAllPools();
             }
         }
 
@@ -442,7 +442,7 @@ namespace WebapiApplication.DAL
                 string result1 = cc.SendTextSMS("ykrishna", "summary$1", MobileNumber, "Greeting from Kaakateeya.com ! Your pin Number is " + strMobileverf + " Use this PIN to verify your primary mobile", "smscntry");
             }
 
-            SqlConnection.ClearAllPools();
+            //SqlConnection.ClearAllPools();
         }
 
         public static bool S3upload(string filePath, string keyName)
@@ -512,7 +512,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                SqlConnection.ClearAllPools();
+                // SqlConnection.ClearAllPools();
             }
         }
 
@@ -538,7 +538,9 @@ namespace WebapiApplication.DAL
             {
                 path = !string.IsNullOrEmpty(S3PhotoPathAstro) ? S3PhotoPathAstro + "Images/customernoimages/Horo_no.jpg" : "../../Customer_new/images/Horo_no.jpg";
             }
-            SqlConnection.ClearAllPools();
+
+            //SqlConnection.ClearAllPools();
+
             return path;
         }
 
@@ -585,8 +587,8 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+                //SqlConnection.ClearPool(connection);
+                //SqlConnection.ClearAllPools();
             }
             return iStatus;
         }
@@ -694,7 +696,7 @@ namespace WebapiApplication.DAL
 
                 }
 
-                SqlConnection.ClearAllPools();
+                // SqlConnection.ClearAllPools();
             }
         }
 
@@ -790,12 +792,6 @@ namespace WebapiApplication.DAL
             }
             return cipherText;
         }
-
-
-
-
-
-
 
     }
 }
