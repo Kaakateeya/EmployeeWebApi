@@ -51,5 +51,6 @@ namespace WebapiApplication.Implement
         public ArrayList ProfileDeleteProfilesReport(settleDeleteProfilesReport mobj) { return dobj.ProfileDeleteProfilesReportDal(mobj, "[dbo].[usp_Reports_SettledandDeleteProf]"); }
         //public int restoreProfile(restoreProfile mobj) { return dobj.restoreProfileDal(mobj, "[dbo].[Usp_InsertRestoreRecord]"); }
         public int checkStatus(string whereID, string secondwhereID ,string flag) { return dobj.checkStatusDal(whereID,secondwhereID, flag, "[dbo].[usp_checkStatus]"); }
+        public ArrayList SettledPrfofilesInfo(settledProfilesRequest mobj) { return dobj.SettledPrfofilesInfo(mobj, "usp_Report_SettleWithMatchMeeting"); }
     }
 }

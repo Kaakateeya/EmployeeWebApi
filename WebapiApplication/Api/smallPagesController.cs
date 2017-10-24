@@ -177,6 +177,7 @@ namespace WebapiApplication.Api
         //public int restoreProfile(restoreProfile mobj) { return Iobj.restoreProfile(mobj); }
 
         public int getcheckStatus(string whereID, string secondwhereID, string flag) { return Iobj.checkStatus(whereID,secondwhereID, flag); }
+        public ArrayList SettledProfilesInfo(settledProfilesRequest mobj) { return Iobj.SettledPrfofilesInfo(mobj); }
 
     }
 }

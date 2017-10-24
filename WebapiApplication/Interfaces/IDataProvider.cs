@@ -385,6 +385,8 @@ namespace WebapiApplication.Interfaces
         int? CloseReminderStatus(closereminder Mobj);
 
         int? ChangeEmppassword(string UserID);
+
+        ArrayList MatchfollowupTicketStatus(long? Ticketid);
     }
 
     public interface ISmallPages
@@ -450,6 +452,8 @@ namespace WebapiApplication.Interfaces
         //int restoreProfile(restoreProfile mobj);
 
         int checkStatus(string whereID, string secondwhereID, string flag);
+
+        ArrayList SettledPrfofilesInfo(settledProfilesRequest mobj);
     }
 
     public interface IMobileAppDev

@@ -1129,6 +1129,9 @@ namespace WebapiApplication.DAL
                                 sh.Cust_ProfileInterestsLog_ID = reader["Cust_ProfileInterestsLog_ID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ProfileInterestsLog_ID")) : Lnull;
 
                                 sh.ToEmail = reader["ToEmail"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToEmail")) : Snull;
+
+                                //
+                                sh.Toticketid = reader["Toticketid"] != DBNull.Value ? Convert.ToInt64(reader["Toticketid"]) : Lnull;
                             }
                             else
                             {
@@ -5167,6 +5170,51 @@ namespace WebapiApplication.DAL
               
             }
             return status;
+        }
+
+        public ArrayList MatchfollowupTicketStatus(long? Ticketid, string spname)
+        {
+
+            SqlParameter[] parm = new SqlParameter[4];
+            Smtpemailsending smtp = new Smtpemailsending();
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            ArrayList arr = new ArrayList();
+            SqlDataReader reader;
+            string Tktstatus;
+            try
+            {
+                parm[0] = new SqlParameter("@Empticketid", SqlDbType.BigInt);
+                parm[0].Value = Ticketid;
+
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Tktstatus = reader["ToTicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToTicketStatus")) : string.Empty;
+
+                        arr.Add(Tktstatus);
+
+                    }
+                }
+
+                reader.Close();
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, Ticketid.ToString(), null);
+            }
+            finally
+            {
+                connection.Close();
+                SqlConnection.ClearPool(connection);
+                SqlConnection.ClearAllPools();
+            }
+            return arr;
         }
     }
 }
