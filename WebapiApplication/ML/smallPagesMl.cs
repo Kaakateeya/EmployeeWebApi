@@ -517,6 +517,14 @@ namespace WebapiApplication.ML
         public int? s_EnteredBy { get; set; }
     }
 
+    public class settleInfo
+    {
+        public long? Cust_ID { get; set; }
+        public string paymentStatus { get; set; }
+        public string Discription { get; set; }
+        public string SettledDate { get; set; }
+        public string enteredBy { get; set; }
+    }
 
 
 }

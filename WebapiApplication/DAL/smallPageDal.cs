@@ -1672,7 +1672,7 @@ namespace WebapiApplication.DAL
             int Status = 0;
             try
             {
-                parm[0] = new SqlParameter("@s_ProfileID", SqlDbType.Int);
+                parm[0] = new SqlParameter("@s_ProfileID", SqlDbType.VarChar);
                 parm[0].Value = mobj.s_ProfileID;
                 parm[1] = new SqlParameter("@i_SettlementType", SqlDbType.Int);
                 parm[1].Value = mobj.i_SettlementType;
@@ -1703,6 +1703,52 @@ namespace WebapiApplication.DAL
             }
 
             return Status; 
+        }
+
+        public List<settleInfo> getSettleInfoDal(string profileid, string spname)
+        {
+          
+            SqlParameter[] parm = new SqlParameter[1];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            SqlDataReader reader = null;
+            long? Lnull = null;
+            List<settleInfo> li = new List<settleInfo>();
+            try
+            {
+                parm[0] = new SqlParameter("@s_ProfileID", SqlDbType.VarChar);
+                parm[0].Value = profileid;
+          
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        settleInfo set = new settleInfo();
+                        {
+                            set.Cust_ID = (reader["Cust_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ID")) : Lnull;
+                            set.paymentStatus = (reader["MetaValueDescription"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MetaValueDescription")) : null;
+                            set.Discription = (reader["Discription"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Discription")) : null;
+                            set.SettledDate = (reader["SettledDate"]) != DBNull.Value ? (reader.GetDateTime(reader.GetOrdinal("SettledDate"))).ToString() : null;
+                            set.enteredBy = (reader["FirstName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FirstName")) : null;
+                        }
+                        li.Add(set);
+                    }
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+
+            return li; 
         }
     }
 }
