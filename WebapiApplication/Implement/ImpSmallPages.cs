@@ -54,6 +54,7 @@ namespace WebapiApplication.Implement
         public ArrayList SettledPrfofilesInfo(settledProfilesRequest mobj) { return dobj.SettledPrfofilesInfo(mobj, "usp_Report_SettleWithMatchMeeting"); }
         public ArrayList noProfileGrade(noProfileGradeRequest mobj) { return dobj.noProfileGrade(mobj, "usp_Reports_NoProfileGrading"); }
         public int insertsettleAmountInfo(insertSettlAmountRequest mobj) { return dobj.insertsettleAmountInfo(mobj, "usp_Insert_SettleWithMatchMeeting"); }
+        public List<settleInfo> getSettleInfo(string profileid) { return dobj.getSettleInfoDal(profileid, "usp_select_SettleLog"); }
 
     }
 }

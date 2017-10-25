@@ -458,6 +458,8 @@ namespace WebapiApplication.Interfaces
         ArrayList noProfileGrade(noProfileGradeRequest mobj);
 
         int insertsettleAmountInfo(insertSettlAmountRequest mobj);
+
+        List<settleInfo> getSettleInfo(string profileid);
     }
 
     public interface IMobileAppDev

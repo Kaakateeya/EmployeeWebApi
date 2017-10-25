@@ -179,8 +179,8 @@ namespace WebapiApplication.Api
         public int getcheckStatus(string whereID, string secondwhereID, string flag) { return Iobj.checkStatus(whereID,secondwhereID, flag); }
         public ArrayList SettledProfilesInfo(settledProfilesRequest mobj) { return Iobj.SettledPrfofilesInfo(mobj); }
         public ArrayList noProfileGrade(noProfileGradeRequest mobj) { return Iobj.noProfileGrade(mobj); }
-
         public int insertsettleAmountInfo(insertSettlAmountRequest mobj) { return Iobj.insertsettleAmountInfo(mobj); }
+        public List<settleInfo> getSettleInfo(string profileid) { return Iobj.getSettleInfo(profileid); }
 
     }
 }
