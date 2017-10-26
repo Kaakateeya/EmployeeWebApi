@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>C:\Users\Admin\Desktop\183build</_PublishTargetUrl>
-    <_PublishTargetUrl>D:\build_files\24_10_2017_settlrPage_insert_type</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\build_files\25_10_2017_settlrPage_insert_type</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Api/BindJson .cs">
@@ -74,37 +74,37 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/05/2016 19:37:08</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
-      <publishTime>05/20/2017 12:06:45</publishTime>
+      <publishTime>09/24/2016 12:02:45</publishTime>
     </File>
     <File Include="bin/AspNet.ScriptManager.jQuery.dll">
-      <publishTime>05/20/2017 12:06:43</publishTime>
+      <publishTime>09/24/2016 12:02:46</publishTime>
     </File>
     <File Include="bin/AspNet.ScriptManager.jQuery.UI.Combined.dll">
-      <publishTime>05/20/2017 12:06:43</publishTime>
+      <publishTime>09/24/2016 12:02:46</publishTime>
     </File>
     <File Include="bin/AWSSDK.Core.dll">
-      <publishTime>12/13/2016 11:34:05</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="bin/AWSSDK.S3.dll">
-      <publishTime>12/13/2016 11:34:09</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.AspNet.dll">
-      <publishTime>05/20/2017 12:06:43</publishTime>
+      <publishTime>09/24/2016 12:02:48</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.Core.dll">
-      <publishTime>05/20/2017 12:06:43</publishTime>
+      <publishTime>09/24/2016 12:02:46</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.OAuth.Consumer.dll">
-      <publishTime>05/20/2017 12:06:43</publishTime>
+      <publishTime>09/24/2016 12:02:47</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.OAuth.dll">
-      <publishTime>05/20/2017 12:06:43</publishTime>
+      <publishTime>09/24/2016 12:02:47</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.OpenId.dll">
-      <publishTime>05/20/2017 12:06:43</publishTime>
+      <publishTime>09/24/2016 12:02:47</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.OpenId.RelyingParty.dll">
-      <publishTime>05/20/2017 12:06:43</publishTime>
+      <publishTime>09/24/2016 12:02:47</publishTime>
     </File>
     <File Include="bin/EmailVerification3_CSharp.dll">
       <publishTime>03/03/2016 13:13:08</publishTime>
@@ -119,31 +119,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/03/2016 13:13:08</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>05/20/2017 12:06:43</publishTime>
+      <publishTime>09/24/2016 12:02:48</publishTime>
     </File>
     <File Include="bin/Ionic.Zip.dll">
-      <publishTime>07/29/2017 03:27:42</publishTime>
+      <publishTime>07/31/2017 12:30:29</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
-      <publishTime>05/20/2017 12:06:43</publishTime>
+      <publishTime>09/24/2016 12:02:48</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Membership.OpenAuth.dll">
-      <publishTime>05/20/2017 12:06:44</publishTime>
+      <publishTime>09/24/2016 12:02:48</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Web.Optimization.WebForms.dll">
-      <publishTime>05/20/2017 12:06:44</publishTime>
+      <publishTime>09/24/2016 12:02:48</publishTime>
     </File>
     <File Include="bin/Microsoft.ScriptManager.MSAjax.dll">
-      <publishTime>05/20/2017 12:06:44</publishTime>
+      <publishTime>09/24/2016 12:02:46</publishTime>
     </File>
     <File Include="bin/Microsoft.ScriptManager.WebForms.dll">
-      <publishTime>05/20/2017 12:06:44</publishTime>
+      <publishTime>09/24/2016 12:02:46</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>05/20/2017 12:06:44</publishTime>
+      <publishTime>09/24/2016 12:02:46</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>05/20/2017 12:06:45</publishTime>
+      <publishTime>09/24/2016 12:23:53</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>09/24/2016 12:23:54</publishTime>
@@ -155,91 +155,91 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2016 12:23:55</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>05/20/2017 12:06:44</publishTime>
+      <publishTime>09/24/2016 12:02:46</publishTime>
     </File>
     <File Include="bin/System.Web.Providers.dll">
-      <publishTime>05/20/2017 12:06:44</publishTime>
+      <publishTime>09/24/2016 12:02:45</publishTime>
     </File>
     <File Include="bin/WebapiApplication.dll">
-      <publishTime>10/24/2017 19:05:00</publishTime>
+      <publishTime>10/25/2017 19:00:42</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
-      <publishTime>05/20/2017 12:06:45</publishTime>
+      <publishTime>09/24/2016 12:02:45</publishTime>
     </File>
     <File Include="Customer_new/Employee_new/EmployeeViewFullProfile.aspx">
-      <publishTime>10/16/2017 17:30:03</publishTime>
+      <publishTime>10/20/2017 11:18:34</publishTime>
     </File>
     <File Include="DAL/HtmlPage1.html">
-      <publishTime>10/13/2017 18:42:00</publishTime>
+      <publishTime>10/20/2017 11:18:34</publishTime>
     </File>
     <File Include="DAL/TestAngular.html">
-      <publishTime>06/14/2017 10:52:30</publishTime>
+      <publishTime>06/17/2017 13:53:34</publishTime>
     </File>
     <File Include="DAL/TestDesign.html">
-      <publishTime>03/09/2017 12:23:02</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>09/24/2016 12:02:42</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/24/2016 12:23:56</publishTime>
+      <publishTime>05/20/2017 12:21:10</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/configuration.svcinfo">
-      <publishTime>12/06/2016 16:55:59</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/configuration91.svcinfo">
-      <publishTime>12/06/2016 16:55:59</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/Reference.svcmap">
-      <publishTime>12/06/2016 16:55:59</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/service.disco">
-      <publishTime>12/06/2016 16:55:59</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/service.wsdl">
-      <publishTime>12/06/2016 16:55:59</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/WebapiApplication.ServiceReference1.GetbalanceResponse.datasource">
-      <publishTime>12/06/2016 16:56:01</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/WebapiApplication.ServiceReference1.GetDeliveryReportResponse.datasource">
-      <publishTime>12/06/2016 16:56:01</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/WebapiApplication.ServiceReference1.getInboxResponse.datasource">
-      <publishTime>12/06/2016 16:56:00</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/WebapiApplication.ServiceReference1.MarkRead_inboxResponse.datasource">
-      <publishTime>12/06/2016 16:56:00</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/WebapiApplication.ServiceReference1.Mark_UnRead_inboxResponse.datasource">
-      <publishTime>12/06/2016 16:56:00</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/WebapiApplication.ServiceReference1.SendBinarySMSResponse.datasource">
-      <publishTime>12/06/2016 16:56:00</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/WebapiApplication.ServiceReference1.SendFlashSMSResponse.datasource">
-      <publishTime>12/06/2016 16:56:00</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/WebapiApplication.ServiceReference1.SendLOGOResponse.datasource">
-      <publishTime>12/06/2016 16:56:00</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/WebapiApplication.ServiceReference1.sendMultiSMSResponse.datasource">
-      <publishTime>12/06/2016 16:56:01</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/WebapiApplication.ServiceReference1.SendPictureSMSResponse.datasource">
-      <publishTime>12/06/2016 16:56:00</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/WebapiApplication.ServiceReference1.SendRingToneResponse.datasource">
-      <publishTime>12/06/2016 16:56:00</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/WebapiApplication.ServiceReference1.SendTextSMSResponse.datasource">
-      <publishTime>12/06/2016 16:56:00</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/WebapiApplication.ServiceReference1.SendUnicodeSMSResponse.datasource">
-      <publishTime>12/06/2016 16:56:00</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/WebapiApplication.ServiceReference1.SendWapPushResponse.datasource">
-      <publishTime>12/06/2016 16:56:00</publishTime>
+      <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="SMSC_CLIENT/configuration.svcinfo">
       <publishTime>12/05/2016 19:28:46</publishTime>
@@ -260,7 +260,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/05/2016 19:28:46</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/24/2017 17:55:36</publishTime>
+      <publishTime>10/25/2017 19:10:58</publishTime>
     </File>
   </ItemGroup>
 </Project>
