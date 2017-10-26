@@ -1803,7 +1803,7 @@ namespace WebapiApplication.DAL
                 parm[5].Value = mobj.GProfession;
                 parm[6] = new SqlParameter("@GProperty", SqlDbType.Int);
                 parm[6].Value = mobj.GProperty;
-                parm[7] = new SqlParameter("@i_Status", SqlDbType.Int);
+                parm[7] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[7].Direction = ParameterDirection.Output;
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
                 if (string.Compare(parm[7].Value.ToString(), System.DBNull.Value.ToString()) == 0)
