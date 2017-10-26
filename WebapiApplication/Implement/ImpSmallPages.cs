@@ -55,6 +55,7 @@ namespace WebapiApplication.Implement
         public ArrayList noProfileGrade(noProfileGradeRequest mobj) { return dobj.noProfileGrade(mobj, "usp_Reports_NoProfileGrading"); }
         public int insertsettleAmountInfo(insertSettlAmountRequest mobj) { return dobj.insertsettleAmountInfo(mobj, "usp_Insert_SettleWithMatchMeeting"); }
         public List<settleInfo> getSettleInfo(string profileid) { return dobj.getSettleInfoDal(profileid, "usp_select_SettleLog"); }
-
+        public ArrayList GetDataStaging(string CustID) { return dobj.GetDataStaging(CustID, "usp_getDataStaging"); }
+        public int UpdateGrading(NoProfileGradingMl mobj) { return dobj.UpdateGradingdal(mobj, "Usp_InsertProfileGrading"); }
     }
 }

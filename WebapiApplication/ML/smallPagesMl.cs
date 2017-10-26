@@ -526,7 +526,6 @@ namespace WebapiApplication.ML
         public string enteredBy { get; set; }
     }
 
-
 }
 
 

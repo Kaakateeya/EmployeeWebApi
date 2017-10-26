@@ -181,6 +181,8 @@ namespace WebapiApplication.Api
         public ArrayList noProfileGrade(noProfileGradeRequest mobj) { return Iobj.noProfileGrade(mobj); }
         public int insertsettleAmountInfo(insertSettlAmountRequest mobj) { return Iobj.insertsettleAmountInfo(mobj); }
         public List<settleInfo> getSettleInfo(string profileid) { return Iobj.getSettleInfo(profileid); }
+        public ArrayList GetDataStaging(string CustID) { return Iobj.GetDataStaging(CustID); }
+        public int UpdateGrading(NoProfileGradingMl mobj) { return Iobj.UpdateGrading(mobj); }
 
     }
 }

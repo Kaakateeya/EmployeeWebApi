@@ -1622,13 +1622,13 @@ namespace WebapiApplication.DAL
                 param[3].Value = Mobj.PaymentStatus;
                 param[4] = new SqlParameter("@b_isconfidential", SqlDbType.Bit);
                 param[4].Value = Mobj.Confidential;
-                param[5] = new SqlParameter("@t_Applicationstatus", SqlDbType.DateTime);
+                param[5] = new SqlParameter("@t_Applicationstatus", SqlDbType.Structured);
                 param[5].Value = Commonclass.returndt(Mobj.strApplicationStatus, Mobj.dtApplicationStatus, "Applicationstatus", "ApplicationstatusTable");
-                param[6] = new SqlParameter("@t_Caste", SqlDbType.DateTime);
+                param[6] = new SqlParameter("@t_Caste", SqlDbType.Structured);
                 param[6].Value = Commonclass.returndt(Mobj.strCaste, Mobj.dtCaste, "Caste", "CasteTable");
-                param[7] = new SqlParameter("@t_Branch", SqlDbType.Int);
+                param[7] = new SqlParameter("@t_Branch", SqlDbType.Structured);
                 param[7].Value = Commonclass.returndt(Mobj.strBranch, Mobj.dtBranch, "Branch", "BranchTable");
-                param[8] = new SqlParameter("@t_ownerofprofile", SqlDbType.Int);
+                param[8] = new SqlParameter("@t_ownerofprofile", SqlDbType.Structured);
                 param[8].Value = Commonclass.returndt(Mobj.strOwnerOfTheProfile, Mobj.dtOwnerOfTheProfile, "ownerofprofile", "ownerofprofileTable");
                 param[9] = new SqlParameter("@t_gradingtype", SqlDbType.VarChar);
                 param[9].Value = Mobj.GradingType;
@@ -1638,14 +1638,17 @@ namespace WebapiApplication.DAL
                 param[11].Value = Mobj.StartDate;
                 param[12] = new SqlParameter("@dt_dorto", SqlDbType.DateTime);
                 param[12].Value = Mobj.EndDate;
-                param[13] = new SqlParameter("@i_startindex", SqlDbType.Int);
-                param[13].Value = Mobj.From;
-                param[14] = new SqlParameter("@i_endindex", SqlDbType.Int);
-                param[14].Value = Mobj.To;
-                param[15] = new SqlParameter("@i_PageNumber", SqlDbType.Int);
-                param[15].Value = Mobj.PageNumber;
-                param[16] = new SqlParameter("@i_PageSize", SqlDbType.Int);
-                param[16].Value = Mobj.PageSize;
+
+                param[13] = new SqlParameter("@i_PageSize", SqlDbType.Int);
+                param[13].Value = Mobj.PageSize;
+                param[14] = new SqlParameter("@i_PageNumber", SqlDbType.Int);
+                param[14].Value = Mobj.PageNumber;
+
+                param[15] = new SqlParameter("@i_startindex", SqlDbType.Int);
+                param[15].Value = Mobj.From;
+                param[16] = new SqlParameter("@i_endindex", SqlDbType.Int);
+                param[16].Value = Mobj.To;
+              
                 param[17] = new SqlParameter("@_Excel", SqlDbType.Int);
                 param[17].Value = Mobj.flag;
          
@@ -1749,6 +1752,80 @@ namespace WebapiApplication.DAL
             }
 
             return li; 
+        }
+
+        public ArrayList GetDataStaging(string CustID, string spname)
+        {
+            SqlParameter[] param = new SqlParameter[1];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                param[0] = new SqlParameter("@CustId", SqlDbType.VarChar);
+                param[0].Value = CustID;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, param);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public int UpdateGradingdal(NoProfileGradingMl mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[8];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            SqlDataReader reader = null;
+            int Status = 0;
+            try
+            {
+                parm[0] = new SqlParameter("@CustId", SqlDbType.BigInt);
+                parm[0].Value = mobj.CustID;
+                parm[1] = new SqlParameter("@EmpID", SqlDbType.BigInt);
+                parm[1].Value = mobj.EmpID;
+                parm[2] = new SqlParameter("@GFamily", SqlDbType.Int);
+                parm[2].Value = mobj.GFamily;
+                parm[3] = new SqlParameter("@GPhotos", SqlDbType.Int);
+                parm[3].Value = mobj.GPhotos;
+                parm[4] = new SqlParameter("@GEducation", SqlDbType.Int);
+                parm[4].Value = mobj.GEducation;
+                parm[5] = new SqlParameter("@GProfession", SqlDbType.Int);
+                parm[5].Value = mobj.GProfession;
+                parm[6] = new SqlParameter("@GProperty", SqlDbType.Int);
+                parm[6].Value = mobj.GProperty;
+                parm[7] = new SqlParameter("@i_Status", SqlDbType.Int);
+                parm[7].Direction = ParameterDirection.Output;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(parm[7].Value.ToString(), System.DBNull.Value.ToString()) == 0)
+                {
+                    Status = 0;
+                }
+                else
+                {
+                    Status = Convert.ToInt32(parm[7].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+
+            return Status; 
         }
     }
 }

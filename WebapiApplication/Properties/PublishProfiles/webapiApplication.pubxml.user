@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>C:\Users\Admin\Desktop\183build</_PublishTargetUrl>
-    <_PublishTargetUrl>D:\build_files\24_10_2017_settlrPage_insert_type</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\build_files\26_10_2017_noProfileGrading</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Api/BindJson .cs">
@@ -161,7 +161,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/20/2017 12:06:44</publishTime>
     </File>
     <File Include="bin/WebapiApplication.dll">
-      <publishTime>10/24/2017 19:05:00</publishTime>
+      <publishTime>10/26/2017 13:04:50</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>05/20/2017 12:06:45</publishTime>

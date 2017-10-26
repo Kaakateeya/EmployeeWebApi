@@ -460,6 +460,10 @@ namespace WebapiApplication.Interfaces
         int insertsettleAmountInfo(insertSettlAmountRequest mobj);
 
         List<settleInfo> getSettleInfo(string profileid);
+
+        ArrayList GetDataStaging(string CustID);
+
+        int UpdateGrading(NoProfileGradingMl mobj);
     }
 
     public interface IMobileAppDev
