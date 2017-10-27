@@ -282,6 +282,11 @@ namespace WebapiApplication.Api
         //23_10_2017_getmatchfolowupticketSp
 
         public ArrayList getMatchfollowupTicketStatus(long? Ticketid) { return this.IEmployeeReport.MatchfollowupTicketStatus(Ticketid); }
+
+
+        //27_10_2017_RestoredProfileid in Customer Profile Settings
+
+        public int? RestoredProfileidupdate([FromBody]RestoredProfileid Mobj) { return this.IEmployeeReport.RestoredProfileidupdate(Mobj); }
     }
 }
 

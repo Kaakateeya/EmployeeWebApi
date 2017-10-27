@@ -867,7 +867,19 @@ namespace WebapiApplication.ML
         public long? closeEmpid { get; set; }
         public string ClosedReminderreason { get; set; }
 
-         }
+    }
+
+    public class RestoredProfileid
+    {
+        public long? CustID { get; set; }
+        public long? EmpID { get; set; }
+        public int? RequestedBY { get; set; }
+        public long? RequestedBYEmpID { get; set; }
+        public int? RelationshipID { get; set; }
+        public string Relationshipname { get; set; }
+        public string Reasonforrestore { get; set; }
+        public int? PriviousProfileStatus { get; set; }
+    }
 }
 
 

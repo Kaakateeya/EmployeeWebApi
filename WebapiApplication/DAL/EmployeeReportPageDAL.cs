@@ -5216,5 +5216,60 @@ namespace WebapiApplication.DAL
             }
             return arr;
         }
+
+        public int? RestoredProfileidupdate(RestoredProfileid Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[12];
+            Smtpemailsending smtp = new Smtpemailsending();
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            int? status = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                parm[0] = new SqlParameter("@CustID", SqlDbType.BigInt);
+                parm[0].Value = Mobj.CustID;
+                parm[1] = new SqlParameter("@EmpID", SqlDbType.BigInt);
+                parm[1].Value = Mobj.EmpID;
+                parm[2] = new SqlParameter("@RequestedBY", SqlDbType.Int);
+                parm[2].Value = Mobj.RequestedBY;
+                parm[3] = new SqlParameter("@RequestedBYEmpID", SqlDbType.BigInt);
+                parm[3].Value = Mobj.RequestedBYEmpID;
+                parm[4] = new SqlParameter("@RelationshipID", SqlDbType.Int);
+                parm[4].Value = Mobj.RelationshipID;
+                parm[5] = new SqlParameter("@Relationshipname", SqlDbType.VarChar);
+                parm[5].Value = Mobj.Relationshipname;
+                parm[6] = new SqlParameter("@Reasonforrestore", SqlDbType.VarChar);
+                parm[6].Value = Mobj.Reasonforrestore;
+                parm[7] = new SqlParameter("@PriviousProfileStatus", SqlDbType.Int);
+                parm[7].Value = Mobj.PriviousProfileStatus;
+                parm[8] = new SqlParameter("@status", SqlDbType.Int);
+                parm[8].Direction = ParameterDirection.Output;
+
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[8].Value.ToString()).Equals(0))
+                {
+                    status = 0;
+                }
+                else
+                {
+                    status = Convert.ToInt32(parm[8].Value);
+                }
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message),Mobj.CustID,null, null);
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+            return status;
+        }
     }
 }
