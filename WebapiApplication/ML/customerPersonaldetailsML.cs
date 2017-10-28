@@ -1651,4 +1651,29 @@ namespace WebapiApplication.ML
         public string KeyName { get; set; }
         public string strTestPath { get; set; }
     }
+
+    public class ListOfServicesTakenM1
+    {
+        public Int64? AppUserId { get; set; }
+        public int intlowerBound { get; set; }
+        public int intUpperBound { get; set; }
+        public int PageSize { get; set; }
+        public int PageNumber { get; set; }
+        public int flag { get; set; }
+        public DataTable ApplicationStatus { get; set; }
+        public DataTable Caste { get; set; }
+        public DataTable Branch { get; set; }
+        public DataTable OwneroftheProfile { get; set; }
+        public DataTable servicetakeby { get; set; }
+        public int? IsConfidential { get; set; }
+        public string ServiceTakenFromDate { get; set; }
+        public int? StartIndex { get; set; }
+        public int? EndIndex { get; set; }
+        public int? ResultFlag { get; set; }
+        public string ServiceTakenToDate { get; set; }
+    }
+
+
+
+
 }

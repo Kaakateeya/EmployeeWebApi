@@ -464,6 +464,8 @@ namespace WebapiApplication.Interfaces
         ArrayList GetDataStaging(string CustID);
 
         int UpdateGrading(NoProfileGradingMl mobj);
+
+        ArrayList listOFServiceGiven(ListOfServicesTakenM1 mobj);
     }
 
     public interface IMobileAppDev

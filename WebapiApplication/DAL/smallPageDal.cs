@@ -1827,6 +1827,63 @@ namespace WebapiApplication.DAL
 
             return Status; 
         }
+
+        public ArrayList listOFServiceGivenDal(ListOfServicesTakenM1 mobj, string spname)
+        {
+            SqlParameter[] param = new SqlParameter[17];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                param[0] = new SqlParameter("@i_AppUserId", SqlDbType.Int);
+                param[0].Value = mobj.AppUserId;
+                param[1] = new SqlParameter("@d_StartDate", SqlDbType.DateTime);
+                param[1].Value = mobj.ServiceTakenFromDate;
+                param[2] = new SqlParameter("@d_EndDate", SqlDbType.DateTime);
+                param[2].Value = mobj.ServiceTakenToDate;
+                param[3] = new SqlParameter("@b_isConfidential", SqlDbType.Bit);
+                param[3].Value = mobj.IsConfidential;
+                param[4] = new SqlParameter("@t_Branch", SqlDbType.Structured);
+                param[4].Value = mobj.Branch;
+                param[5] = new SqlParameter("@t_Caste", SqlDbType.Structured);
+                param[5].Value = mobj.Caste;
+                param[6] = new SqlParameter("@t_Status", SqlDbType.Structured);
+                param[6].Value = mobj.ApplicationStatus;
+                param[7] = new SqlParameter("@t_ProfileOwner", SqlDbType.Structured);
+                param[7].Value = mobj.OwneroftheProfile;
+                param[8] = new SqlParameter("@i_startindex", SqlDbType.Int);
+                param[8].Value = mobj.StartIndex;
+                param[9] = new SqlParameter("@i_endindex", SqlDbType.Int);
+                param[9].Value = mobj.EndIndex;
+                param[10] = new SqlParameter("@i_Flag", SqlDbType.Int);
+                param[10].Value = mobj.ResultFlag;
+                param[11] = new SqlParameter("@serviceempid", SqlDbType.Structured);
+                param[11].Value = mobj.servicetakeby;
+                param[12] = new SqlParameter("@i_From", SqlDbType.Int);
+                param[12].Value = mobj.intlowerBound;
+                param[13] = new SqlParameter("@i_To", SqlDbType.Int);
+                param[13].Value = mobj.intUpperBound;
+                param[14] = new SqlParameter("@i_PageSize", SqlDbType.Int);
+                param[14].Value = mobj.PageSize;
+                param[15] = new SqlParameter("@i_PageNumber", SqlDbType.Int);
+                param[15].Value = mobj.PageNumber;
+                param[16] = new SqlParameter("@_Excel", SqlDbType.Int);
+                param[16].Value = mobj.flag;
+             
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, param);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }
 

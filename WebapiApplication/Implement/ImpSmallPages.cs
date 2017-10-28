@@ -57,5 +57,6 @@ namespace WebapiApplication.Implement
         public List<settleInfo> getSettleInfo(string profileid) { return dobj.getSettleInfoDal(profileid, "usp_select_SettleLog"); }
         public ArrayList GetDataStaging(string CustID) { return dobj.GetDataStaging(CustID, "usp_getDataStaging"); }
         public int UpdateGrading(NoProfileGradingMl mobj) { return dobj.UpdateGradingdal(mobj, "Usp_InsertProfileGrading"); }
+        public ArrayList listOFServiceGiven(ListOfServicesTakenM1 mobj) { return dobj.listOFServiceGivenDal(mobj, "usp_Reports_ExpressInterestSearch"); }
     }
 }

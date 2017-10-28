@@ -184,5 +184,7 @@ namespace WebapiApplication.Api
         public ArrayList GetDataStaging(string CustID) { return Iobj.GetDataStaging(CustID); }
         public int UpdateGrading(NoProfileGradingMl mobj) { return Iobj.UpdateGrading(mobj); }
 
+        public ArrayList listOFServiceGiven(ListOfServicesTakenM1 mobj) { return Iobj.listOFServiceGiven(mobj); }
+
     }
 }
