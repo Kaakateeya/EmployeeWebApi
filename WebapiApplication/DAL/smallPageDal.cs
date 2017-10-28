@@ -1846,13 +1846,13 @@ namespace WebapiApplication.DAL
                 param[3] = new SqlParameter("@b_isConfidential", SqlDbType.Bit);
                 param[3].Value = mobj.IsConfidential;
                 param[4] = new SqlParameter("@t_Branch", SqlDbType.Structured);
-                param[4].Value = mobj.Branch;
+                param[4].Value = Commonclass.returndt(mobj.strBranch, mobj.dtBranch, "branch", "branchTable");
                 param[5] = new SqlParameter("@t_Caste", SqlDbType.Structured);
-                param[5].Value = mobj.Caste;
+                param[5].Value = Commonclass.returndt(mobj.strCaste, mobj.dtCaste, "caste", "casteTable");
                 param[6] = new SqlParameter("@t_Status", SqlDbType.Structured);
-                param[6].Value = mobj.ApplicationStatus;
+                param[6].Value = Commonclass.returndt(mobj.strApplicationStatus, mobj.dtApplicationStatus, "ApplicationStatus", "ApplicationStatusTable");
                 param[7] = new SqlParameter("@t_ProfileOwner", SqlDbType.Structured);
-                param[7].Value = mobj.OwneroftheProfile;
+                param[7].Value = Commonclass.returndt(mobj.strOwneroftheProfile, mobj.dtOwneroftheProfile, "OwneroftheProfile", "OwneroftheProfileTable");
                 param[8] = new SqlParameter("@i_startindex", SqlDbType.Int);
                 param[8].Value = mobj.StartIndex;
                 param[9] = new SqlParameter("@i_endindex", SqlDbType.Int);
@@ -1860,7 +1860,7 @@ namespace WebapiApplication.DAL
                 param[10] = new SqlParameter("@i_Flag", SqlDbType.Int);
                 param[10].Value = mobj.ResultFlag;
                 param[11] = new SqlParameter("@serviceempid", SqlDbType.Structured);
-                param[11].Value = mobj.servicetakeby;
+                param[11].Value = Commonclass.returndt(mobj.strservicetakeby, mobj.dtservicetakeby, "servicetakeby", "servicetakebyTable");
                 param[12] = new SqlParameter("@i_From", SqlDbType.Int);
                 param[12].Value = mobj.intlowerBound;
                 param[13] = new SqlParameter("@i_To", SqlDbType.Int);

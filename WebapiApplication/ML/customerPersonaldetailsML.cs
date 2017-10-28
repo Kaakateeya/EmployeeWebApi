@@ -1660,11 +1660,17 @@ namespace WebapiApplication.ML
         public int PageSize { get; set; }
         public int PageNumber { get; set; }
         public int flag { get; set; }
-        public DataTable ApplicationStatus { get; set; }
-        public DataTable Caste { get; set; }
-        public DataTable Branch { get; set; }
-        public DataTable OwneroftheProfile { get; set; }
-        public DataTable servicetakeby { get; set; }
+        public DataTable dtApplicationStatus { get; set; }
+        public string strApplicationStatus { get; set; }
+        public DataTable dtCaste { get; set; }
+        public string strCaste { get; set; }
+
+        public DataTable dtBranch { get; set; }
+        public string strBranch { get; set; }
+        public DataTable dtOwneroftheProfile { get; set; }
+        public string strOwneroftheProfile { get; set; }
+        public DataTable dtservicetakeby { get; set; }
+        public string strservicetakeby { get; set; }
         public int? IsConfidential { get; set; }
         public string ServiceTakenFromDate { get; set; }
         public int? StartIndex { get; set; }
