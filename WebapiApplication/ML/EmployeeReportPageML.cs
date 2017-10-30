@@ -1187,9 +1187,9 @@ namespace WebapiApplication.ML
         //public string IsSeriousMatch { get; set; }
         //public string AllEmails { get; set; }
 
-        //public DataTable dtPartnerPreference { get; set; }
+        public DataTable dtPartnerPreference { get; set; }
 
-        //public string strShowprofile { get; set; }
+        public string strShowprofile { get; set; }
     }
 }
 
