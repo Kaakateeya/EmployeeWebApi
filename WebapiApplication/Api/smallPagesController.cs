@@ -185,6 +185,7 @@ namespace WebapiApplication.Api
         public int UpdateGrading(NoProfileGradingMl mobj) { return Iobj.UpdateGrading(mobj); }
 
         public ArrayList listOFServiceGiven(ListOfServicesTakenM1 mobj) { return Iobj.listOFServiceGiven(mobj); }
+        public ArrayList emailBouncelist(EmailBounceReports mobj) { return Iobj.emailBouncelist(mobj); }
 
     }
 }

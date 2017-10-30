@@ -1884,6 +1884,69 @@ namespace WebapiApplication.DAL
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
+
+
+
+        public ArrayList emailBouncelistdal(EmailBounceReports mobj, string spname)
+        {
+            SqlParameter[] param = new SqlParameter[18];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                param[0] = new SqlParameter("@vc_ProfileID", SqlDbType.VarChar);
+                param[0].Value = mobj.strProfileID;
+                param[1] = new SqlParameter("@vc_BouncedEmail", SqlDbType.VarChar);
+                param[1].Value = mobj.BouncedEmail;
+                param[2] = new SqlParameter("@t_ApplStatus", SqlDbType.Structured);
+                param[2].Value = Commonclass.returndt(mobj.strAppllicationStatus, mobj.dtAppllicationStatus, "AppllicationStatus", "AppllicationStatusTabel");
+                param[3] = new SqlParameter("@b_Confidential", SqlDbType.Bit);
+                param[3].Value = mobj.isConfidential;
+                param[4] = new SqlParameter("@t_Caste", SqlDbType.Structured);
+                param[4].Value = Commonclass.returndt(mobj.strCaste, mobj.dtCaste, "Caste", "CasteTabel");
+                param[5] = new SqlParameter("@t_Branch", SqlDbType.Structured);
+                param[5].Value = Commonclass.returndt(mobj.strBranch, mobj.dtBranch, "Branch", "BranchTabel");
+                param[6] = new SqlParameter("@t_ProfileOwner", SqlDbType.Structured);
+                param[6].Value = Commonclass.returndt(mobj.strOwnerOfProfile, mobj.dtOwnerOfProfile, "ProfileOwner", "ProfileOwnerTabel");
+                param[7] = new SqlParameter("@dt_StartDate", SqlDbType.DateTime);
+                param[7].Value = mobj.StartDate;
+                param[8] = new SqlParameter("@dt_EndDate", SqlDbType.DateTime);
+                param[8].Value = mobj.EndDate;
+                param[9] = new SqlParameter("@t_ModifiedBy", SqlDbType.Structured);
+                param[9].Value = Commonclass.returndt(mobj.strModifiedBy, mobj.dtModifiedBy, "ModifiedBy", "ModifiedByTabel");
+                param[10] = new SqlParameter("@dt_ModifiedStartDate", SqlDbType.DateTime);
+                param[10].Value = mobj.ModifiedStartDate;
+                param[11] = new SqlParameter("@dt_ModifiedEndDate", SqlDbType.DateTime);
+                param[11].Value = mobj.ModifiedEndDate;
+                param[12] = new SqlParameter("@i_GenderId", SqlDbType.Int);
+                param[12].Value = mobj.GenderID;
+                param[13] = new SqlParameter("@i_From", SqlDbType.Int);
+                param[13].Value = mobj.rangeFrom;
+                param[14] = new SqlParameter("@i_To", SqlDbType.Int);
+                param[14].Value = mobj.rangeTo;
+                param[15] = new SqlParameter("@i_PageSize", SqlDbType.Int);
+                param[15].Value = mobj.PageSize;
+                param[16] = new SqlParameter("@i_PageNumber", SqlDbType.Int);
+                param[16].Value = mobj.PageNumber;
+                param[17] = new SqlParameter("@_Excel", SqlDbType.Int);
+                param[17].Value = mobj.flag;
+              
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, param);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+
     }
 }
 
