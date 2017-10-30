@@ -5373,7 +5373,7 @@ namespace WebapiApplication.DAL
             {
                 connection.Close();
             }
-            return Commonclass.convertdataTableToArrayListTable(ds);
+            return array;
         }
     }
 }
