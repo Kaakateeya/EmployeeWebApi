@@ -1672,11 +1672,11 @@ namespace WebapiApplication.ML
         public DataTable dtservicetakeby { get; set; }
         public string strservicetakeby { get; set; }
         public int? IsConfidential { get; set; }
-        public string ServiceTakenFromDate { get; set; }
+        public DateTime? ServiceTakenFromDate { get; set; }
         public int? StartIndex { get; set; }
         public int? EndIndex { get; set; }
         public int? ResultFlag { get; set; }
-        public string ServiceTakenToDate { get; set; }
+        public DateTime? ServiceTakenToDate { get; set; }
     }
 
     public class EmailBounceReports
