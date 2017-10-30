@@ -5290,7 +5290,7 @@ namespace WebapiApplication.DAL
                 parm[0] = new SqlParameter("@TblDetails", SqlDbType.Structured);
                 parm[0].Value = Mobj.dtPartnerPreference;
                 parm[1] = new SqlParameter("@ApplicationStatus", SqlDbType.VarChar);
-                parm[1].Value = Mobj.strShowprofile;
+                parm[1].Value = Mobj.ApplicationStatus;
                 parm[2] = new SqlParameter("@intEmpID", SqlDbType.Int);
                 parm[2].Value = Mobj.EmpID;
                 parm[3] = new SqlParameter("@i_Startindex", SqlDbType.Int);
