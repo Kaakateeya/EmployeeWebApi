@@ -1259,11 +1259,306 @@ namespace WebapiApplication.UserDefinedTable
             dtCreate.Columns.Add("MS_AllFields");
             dtCreate.Columns.Add("CAll");
             dtCreate.Columns.Add("Gender");
-          
             return dtCreate;
+        }
+
+        public static DataTable dtlikekeywordsearchnew()
+        {
+             
+
+            DataTable dtCreate = new DataTable();
+            //
+
+            dtCreate.Columns.Add("Gender");
+            dtCreate.Columns.Add("maritalstatus");
+            dtCreate.Columns.Add("FromAge");
+            dtCreate.Columns.Add("ToAge");
+            dtCreate.Columns.Add("FromHeight");
+            dtCreate.Columns.Add("ToHeight");
+            dtCreate.Columns.Add("Caste");
+
+            //Candidate details
+
+            dtCreate.Columns.Add("CEducationAll");
+            dtCreate.Columns.Add("CEducationCategory");
+            dtCreate.Columns.Add("CEduGroup");
+            dtCreate.Columns.Add("CEduSplecialization");
+            dtCreate.Columns.Add("CEduUniversity");
+            dtCreate.Columns.Add("CEduCollege");
+            dtCreate.Columns.Add("CEduCountry");
+            dtCreate.Columns.Add("CEduState");
+            dtCreate.Columns.Add("CEduDistrict");
+            dtCreate.Columns.Add("CEduCity");
+            dtCreate.Columns.Add("CEduMerits");
+            dtCreate.Columns.Add("CEduPass_Year");
+
+            //profesion
+            dtCreate.Columns.Add("CProfAll");
+            dtCreate.Columns.Add("EmployeedIn");
+            dtCreate.Columns.Add("Professionalgroup");
+            dtCreate.Columns.Add("Profession");
+            dtCreate.Columns.Add("Companyname");
+            dtCreate.Columns.Add("monthlysalary");
+            dtCreate.Columns.Add("countryworking");
+            dtCreate.Columns.Add("stateworking");
+            dtCreate.Columns.Add("districtworking");
+            dtCreate.Columns.Add("cityworking");
+            dtCreate.Columns.Add("workingfromdate");
+            dtCreate.Columns.Add("professionDetails");
 
 
 
+
+
+            //Father
+            dtCreate.Columns.Add("FFirstName");
+            dtCreate.Columns.Add("FEducationDetails");
+            dtCreate.Columns.Add("FProfessionDetails");
+            dtCreate.Columns.Add("FCompanyId");
+            dtCreate.Columns.Add("FJobLocation");
+            dtCreate.Columns.Add("FNumber");
+            dtCreate.Columns.Add("Femail");
+            dtCreate.Columns.Add("FFatherName");
+            dtCreate.Columns.Add("FFatherContactNumber");
+            dtCreate.Columns.Add("FFStateName");
+            dtCreate.Columns.Add("FFDistrictName");
+            dtCreate.Columns.Add("FFNativePlace");
+            dtCreate.Columns.Add("FAllFields");
+
+            //Mother
+            //06/06/2016
+
+            dtCreate.Columns.Add("MFirstName");
+            dtCreate.Columns.Add("MLastName");
+            dtCreate.Columns.Add("MEducationDetails");
+            dtCreate.Columns.Add("MProfessionDetails");
+            dtCreate.Columns.Add("MCompanyId");
+            dtCreate.Columns.Add("MJobLocation");
+            dtCreate.Columns.Add("MNumber");
+            dtCreate.Columns.Add("Memail");
+            dtCreate.Columns.Add("MFatherFirstName");
+            dtCreate.Columns.Add("MFatherLastName");
+            dtCreate.Columns.Add("MFatherContactNumber");
+            dtCreate.Columns.Add("MFStateName");
+            dtCreate.Columns.Add("MFDistrictName");
+            dtCreate.Columns.Add("MFNativePlace");
+            dtCreate.Columns.Add("MAllFields");
+
+            //Brother
+            dtCreate.Columns.Add("Br_AllFields");
+            dtCreate.Columns.Add("Br_Name");
+            dtCreate.Columns.Add("Br_Education");
+            dtCreate.Columns.Add("Br_Profession");
+            dtCreate.Columns.Add("Br_CompanyNAME");
+            dtCreate.Columns.Add("Br_Joblocation");
+            dtCreate.Columns.Add("BrContactNo");
+
+            dtCreate.Columns.Add("Br_Email");
+            dtCreate.Columns.Add("Brw_Name");
+            dtCreate.Columns.Add("Brw_Education");
+            dtCreate.Columns.Add("Brw_Profession");
+            dtCreate.Columns.Add("Brw_CompanyNAME");
+            dtCreate.Columns.Add("Brw_Joblocation");
+            dtCreate.Columns.Add("BrwContactNo");
+
+            dtCreate.Columns.Add("Brw_Email");
+            dtCreate.Columns.Add("Brwf_Surname");
+            dtCreate.Columns.Add("Brwf_Name");
+            dtCreate.Columns.Add("BrwfStateName");
+            dtCreate.Columns.Add("BrwfDistrictName");
+            dtCreate.Columns.Add("BrwfCity");
+            //Sister
+            dtCreate.Columns.Add("Sr_AllFields");
+            dtCreate.Columns.Add("Sr_Name");
+            dtCreate.Columns.Add("Sr_Education");
+            dtCreate.Columns.Add("Sr_Profession");
+            dtCreate.Columns.Add("Sr_CompanyNAME");
+            dtCreate.Columns.Add("Sr_Joblocation");
+            dtCreate.Columns.Add("SrContactNo");
+
+            dtCreate.Columns.Add("Sr_Email");
+            dtCreate.Columns.Add("Srh_Name");
+            dtCreate.Columns.Add("Srh_Education");
+            dtCreate.Columns.Add("Srh_Profession");
+            dtCreate.Columns.Add("Srh_CompanyNAME");
+            dtCreate.Columns.Add("Srh_Joblocation");
+            dtCreate.Columns.Add("SrhContactNo");
+
+            dtCreate.Columns.Add("Srh_Email");
+            dtCreate.Columns.Add("Srhf_Surname");
+            dtCreate.Columns.Add("Srhf_Name");
+            dtCreate.Columns.Add("SrhfStateName");
+            dtCreate.Columns.Add("SrhfDistrictName");
+            dtCreate.Columns.Add("SrhfCity");
+
+            //Father Brother
+            dtCreate.Columns.Add("FB_AllFields");
+            dtCreate.Columns.Add("FB_ElderYounger");
+            dtCreate.Columns.Add("FB_Name");
+            dtCreate.Columns.Add("FB_Education");
+            dtCreate.Columns.Add("FB_Profession");
+            dtCreate.Columns.Add("FB_Contactnumber");
+            dtCreate.Columns.Add("FB_Email");
+            dtCreate.Columns.Add("FB_professionlocation");
+            dtCreate.Columns.Add("FS_AllFields");
+            dtCreate.Columns.Add("FS_Name");
+            dtCreate.Columns.Add("FSH_Surname");
+            dtCreate.Columns.Add("FSH_Name");
+            dtCreate.Columns.Add("FSH_Education");
+            dtCreate.Columns.Add("FSH_Profession");
+            dtCreate.Columns.Add("FSHContactNo");
+            dtCreate.Columns.Add("FSH_Email");
+            dtCreate.Columns.Add("FSH_ProfessionLocation");
+            dtCreate.Columns.Add("FSHStateName");
+            dtCreate.Columns.Add("FSHDistrictName");
+            dtCreate.Columns.Add("FSHCityName");
+            dtCreate.Columns.Add("MB_AllFields");
+            dtCreate.Columns.Add("MB_Name");
+            dtCreate.Columns.Add("MB_Education");
+            dtCreate.Columns.Add("MB_Profession");
+            dtCreate.Columns.Add("MB_ContactNo");
+            dtCreate.Columns.Add("MB_Email");
+            dtCreate.Columns.Add("MB_professionlocation");
+            dtCreate.Columns.Add("MS_AllFields");
+            dtCreate.Columns.Add("MS_Name");
+            dtCreate.Columns.Add("MSH_Surname");
+            dtCreate.Columns.Add("MSH_Name");
+            dtCreate.Columns.Add("MSH_Education");
+            dtCreate.Columns.Add("MSH_Profession");
+            dtCreate.Columns.Add("MSH_ContactNo");
+            dtCreate.Columns.Add("MSH_Email");
+            dtCreate.Columns.Add("MSH_ProfessionLocation");
+            dtCreate.Columns.Add("MSHStateName");
+            dtCreate.Columns.Add("MSHDistrictName");
+            dtCreate.Columns.Add("MSHCityName");
+
+            // Add Kiran 20/08/2016
+
+            dtCreate.Columns.Add("CDOB");
+            dtCreate.Columns.Add("CColor");
+            dtCreate.Columns.Add("CPhotos");
+            dtCreate.Columns.Add("CBornCitigen");
+            dtCreate.Columns.Add("CRelision");
+            dtCreate.Columns.Add("CMotherTongue");
+            dtCreate.Columns.Add("CApplicationStat");
+            dtCreate.Columns.Add("CDomicile");
+            dtCreate.Columns.Add("CRegionalOfBranc");
+            dtCreate.Columns.Add("CBranch");
+            dtCreate.Columns.Add("CDateofReg");
+            dtCreate.Columns.Add("CRegStatus");
+            dtCreate.Columns.Add("CPhotoGrade");
+            dtCreate.Columns.Add("CEducationGrade");
+            dtCreate.Columns.Add("CPropertyGrade");
+            dtCreate.Columns.Add("CFamilyGrade");
+            dtCreate.Columns.Add("CProfessionGrade");
+            dtCreate.Columns.Add("CPhysicalStatus ");
+            dtCreate.Columns.Add("CDrink");
+            dtCreate.Columns.Add("CSmoke");
+            dtCreate.Columns.Add("CDiet");
+            dtCreate.Columns.Add("CBodyType");
+            dtCreate.Columns.Add("CParentCaste");
+            dtCreate.Columns.Add("CAboutMe");
+            dtCreate.Columns.Add("CAboutFamily");
+            dtCreate.Columns.Add("CWebsiteStatus");
+            dtCreate.Columns.Add("CCountryOfBirth");
+            dtCreate.Columns.Add("CStateOfBirth");
+            dtCreate.Columns.Add("CDistrictOfBirth");
+            dtCreate.Columns.Add("CCityOfBirth");
+            dtCreate.Columns.Add("CStarLanguage");
+            dtCreate.Columns.Add("CStar");
+            dtCreate.Columns.Add("CPaadam");
+            dtCreate.Columns.Add("CLagnam");
+            dtCreate.Columns.Add("CRaasi");
+            dtCreate.Columns.Add("CGothram");
+            dtCreate.Columns.Add("CMaternalGothram");
+            dtCreate.Columns.Add("CKujadosham");
+            dtCreate.Columns.Add("CHouseflatNumner");
+            dtCreate.Columns.Add("CApartmentName");
+            dtCreate.Columns.Add("CStreetName");
+            dtCreate.Columns.Add("CAreaName");
+            dtCreate.Columns.Add("CLandmark");
+            dtCreate.Columns.Add("CCountry");
+            dtCreate.Columns.Add("CSate");
+            dtCreate.Columns.Add("CDistrict");
+            dtCreate.Columns.Add("CCity");
+            dtCreate.Columns.Add("CZippin");
+
+            dtCreate.Columns.Add("SFName");
+            dtCreate.Columns.Add("SLName");
+            dtCreate.Columns.Add("SpouseEducation");
+            dtCreate.Columns.Add("SpouseProfession");
+            dtCreate.Columns.Add("SpouseMarriedOn");
+            dtCreate.Columns.Add("SpouseSeparatedDate");
+            dtCreate.Columns.Add("SpouseLegallyDivorced");
+            dtCreate.Columns.Add("SouseFatherName");
+            dtCreate.Columns.Add("SpouseFatherSurname");
+            dtCreate.Columns.Add("Spouseaboutpreviousmarriage");
+            dtCreate.Columns.Add("SpousefamilyPlaning");
+            dtCreate.Columns.Add("SspouseNoOfChildrens");
+
+            dtCreate.Columns.Add("RefName");
+            dtCreate.Columns.Add("RefSurname");
+            dtCreate.Columns.Add("Refprofession");
+            dtCreate.Columns.Add("Refcountry");
+            dtCreate.Columns.Add("RefState");
+            dtCreate.Columns.Add("RefDistrict");
+            dtCreate.Columns.Add("RefNativePlace");
+            dtCreate.Columns.Add("RefPresentLocation");
+            dtCreate.Columns.Add("RefMobile");
+            dtCreate.Columns.Add("ReflandLine");
+            dtCreate.Columns.Add("RefEmail");
+            dtCreate.Columns.Add("RefNarration");
+
+            dtCreate.Columns.Add("CFName");
+            dtCreate.Columns.Add("CLName");
+            dtCreate.Columns.Add("CpropertyType");
+            dtCreate.Columns.Add("CPropertyValue");
+            dtCreate.Columns.Add("CPropertyDescription");
+            //
+            dtCreate.Columns.Add("Pr_Age_fr");
+            dtCreate.Columns.Add("Pr_Age_to");
+            dtCreate.Columns.Add("Pr_Hight_fr");
+            dtCreate.Columns.Add("Pr_Hight_to");
+            dtCreate.Columns.Add("Pr_MotherTongue");
+            dtCreate.Columns.Add("Pr_Religion");
+            dtCreate.Columns.Add("Pr_Caste");
+            dtCreate.Columns.Add("Pr_SubCaste");
+            dtCreate.Columns.Add("Pr_MaritalStatus");
+            dtCreate.Columns.Add("Pr_Education");
+            dtCreate.Columns.Add("Pr_Profession");
+            dtCreate.Columns.Add("Pr_Mangalic");
+            dtCreate.Columns.Add("Pr_StarLanguage");
+            dtCreate.Columns.Add("Pr_NonPreferredStar");
+            dtCreate.Columns.Add("Pr_Diet");
+            dtCreate.Columns.Add("Pr_PreferredCountry");
+            dtCreate.Columns.Add("Pr_PreferredState");
+            dtCreate.Columns.Add("Pr_Region");
+            dtCreate.Columns.Add("Pr_Branch");
+
+            //contct All
+            dtCreate.Columns.Add("CContactAddress_All");
+            //dtCreate.Columns.Add("CAll");
+            //dtCreate.Columns.Add("ContactNo_All");
+            ////Added By lakshmi
+            //dtCreate.Columns.Add("SLegallyDivorcedDate");
+            //dtCreate.Columns.Add("SNoofChilds_Boys");
+            //dtCreate.Columns.Add("SNoofChilds_Girls");
+            //dtCreate.Columns.Add("CSinceDate");
+            //dtCreate.Columns.Add("CArrivalDate");
+            //dtCreate.Columns.Add("CDepartureDate");
+            //dtCreate.Columns.Add("CVisaSatus");
+            //dtCreate.Columns.Add("CSalaryCurrency");
+            //dtCreate.Columns.Add("CTimeofBirth");
+            //dtCreate.Columns.Add("CMeternalGothram");
+            //dtCreate.Columns.Add("RefRelationShipType");
+            //dtCreate.Columns.Add("CProfileGrade");
+            //dtCreate.Columns.Add("CPhotoProtectStatus");
+            //dtCreate.Columns.Add("CConfidentialStatus");
+            //dtCreate.Columns.Add("CHighConfidentialStatus");
+            //dtCreate.Columns.Add("IsSeriousMatch");
+            //dtCreate.Columns.Add("AllEmails");
+            return dtCreate;
+                    
         }
     }
 }

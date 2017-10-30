@@ -287,6 +287,15 @@ namespace WebapiApplication.Api
         //27_10_2017_RestoredProfileid in Customer Profile Settings
 
         public int? RestoredProfileidupdate([FromBody]RestoredProfileid Mobj) { return this.IEmployeeReport.RestoredProfileidupdate(Mobj); }
+
+        public ArrayList KeywordlikeSearchnewpage([FromBody]newkeywordlikesrch Mobj)
+        {
+            List<newkeywordlikesrch> lstkeyword = new List<newkeywordlikesrch>();
+            lstkeyword.Add(Mobj);
+            Mobj.dtPartnerPreference = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtlikekeywordsearchnew(), lstkeyword);
+            return this.IEmployeeReport.KeywordlikeSearchnewpage(Mobj);
+        }
+
     }
 }
 

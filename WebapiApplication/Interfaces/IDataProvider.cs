@@ -389,6 +389,8 @@ namespace WebapiApplication.Interfaces
         ArrayList MatchfollowupTicketStatus(long? Ticketid);
 
         int? RestoredProfileidupdate(RestoredProfileid Mobj);
+
+        ArrayList KeywordlikeSearchnewpage(newkeywordlikesrch Mobj);
     }
 
     public interface ISmallPages
