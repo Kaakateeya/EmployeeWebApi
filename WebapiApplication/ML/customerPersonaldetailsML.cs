@@ -1679,6 +1679,32 @@ namespace WebapiApplication.ML
         public string ServiceTakenToDate { get; set; }
     }
 
+    public class EmailBounceReports
+    {
+        public string strProfileID{ get; set; }
+        public string BouncedEmail{ get; set; }
+        public DataTable dtAppllicationStatus{ get; set; }
+        public string strAppllicationStatus { get; set; }
+        public bool? isConfidential{ get; set; }
+        public string strCaste{ get; set; }
+        public DataTable dtCaste { get; set; }
+        public DataTable dtBranch{ get; set; }
+        public string strBranch { get; set; }
+        public DataTable dtOwnerOfProfile{ get; set; }
+        public string strOwnerOfProfile { get; set; }
+        public DateTime? StartDate{ get; set; }
+        public DateTime? EndDate{ get; set; }
+        public DataTable dtModifiedBy{ get; set; }
+        public string strModifiedBy { get; set; }
+        public DateTime? ModifiedStartDate{ get; set; }
+        public DateTime? ModifiedEndDate{ get; set; }
+        public int? GenderID{ get; set; }
+        public int? rangeFrom{ get; set; }
+        public int? rangeTo{ get; set; }
+        public int PageSize { get; set; }
+        public int PageNumber { get; set; }
+        public int flag { get; set; }
+    }
 
 
 

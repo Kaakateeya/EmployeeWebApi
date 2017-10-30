@@ -468,6 +468,8 @@ namespace WebapiApplication.Interfaces
         int UpdateGrading(NoProfileGradingMl mobj);
 
         ArrayList listOFServiceGiven(ListOfServicesTakenM1 mobj);
+
+        ArrayList emailBouncelist(EmailBounceReports mobj);
     }
 
     public interface IMobileAppDev
