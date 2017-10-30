@@ -5320,7 +5320,9 @@ namespace WebapiApplication.DAL
                             sh.DOB = reader["DOB"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("DOB")) : Snull;
                             sh.Age = reader["Age"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Age")) : inull;
                             sh.Height = reader["Height"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Height")) : Snull;
-                            sh.Caste = (reader["MotherTongue"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("MotherTongue")) + "-") : "") + (reader["Caste"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Caste")).ToString()) : Snull) + (reader["SubCaste"] != DBNull.Value ? ("(" + (reader.GetString(reader.GetOrdinal("SubCaste"))) + ")") : "");
+                            sh.Caste = reader["Caste"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Caste")) : Snull;
+                            sh.MotherTongue = reader["MotherTongue"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MotherTongue")) : Snull;
+                           // sh.Caste = (reader["MotherTongue"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("MotherTongue")) + "-") : "") + (reader["Caste"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Caste")).ToString()) : Snull) + (reader["SubCaste"] != DBNull.Value ? ("(" + (reader.GetString(reader.GetOrdinal("SubCaste"))) + ")") : "");
                             sh.EduGroupnamenew = reader["EduGroupnamenew"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("EduGroupnamenew")) : Snull;
                             sh.Profession = reader["Profession"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profession")) : Snull;
                             sh.JobLocation = reader["JobLocation"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("JobLocation")) : Snull;
@@ -5353,11 +5355,10 @@ namespace WebapiApplication.DAL
                             sh.fathercaste = reader["fathercaste"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("fathercaste")) : Snull;
                             sh.mothercaste = reader["mothercaste"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("mothercaste")) : Snull;
                             sh.PhotoCount = reader["PhotoCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PhotoCount")) : inull;
-                            sh.TotalRowsKeyword = reader["TotalRows"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : inull;
+                            sh.TotalRows = reader["TotalRows"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : inull;
                             sh.countrylivingin = reader["CountryLivingin"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CountryLivingin")) : Snull;
                             sh.CustomerApplicationPhoto = reader["CustomerApplicationPhoto"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CustomerApplicationPhoto"))) : Snull;
-                            sh.CustomerFullPhoto = reader["CustomerFullPhoto"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CustomerFullPhoto"))) : Snull;
-                            sh.companyname = reader["Company Name"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Company Name"))) : Snull;
+                            sh.CompanyName = reader["Company Name"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Company Name"))) : Snull;
                         }
                         array.Add(sh);
                     }

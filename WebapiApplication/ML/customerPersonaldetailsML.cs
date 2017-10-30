@@ -1265,6 +1265,10 @@ namespace WebapiApplication.ML
         public long? Cust_ProfileInterestsLog_ID { get; set; }
         public string FTicketStatus { set; get; }
         public string TTicketStatus { set; get; }
+
+        public string MotherTongue { get; set; }
+
+        public string CompanyName { get; set; }
     }
 
     public class EmployeeSearch
