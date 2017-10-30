@@ -1537,26 +1537,26 @@ namespace WebapiApplication.UserDefinedTable
 
             //contct All
             dtCreate.Columns.Add("CContactAddress_All");
-            dtCreate.Columns.Add("CAll");
-            dtCreate.Columns.Add("ContactNo_All");
-            //Added By lakshmi
-            dtCreate.Columns.Add("SLegallyDivorcedDate");
-            dtCreate.Columns.Add("SNoofChilds_Boys");
-            dtCreate.Columns.Add("SNoofChilds_Girls");
-            dtCreate.Columns.Add("CSinceDate");
-            dtCreate.Columns.Add("CArrivalDate");
-            dtCreate.Columns.Add("CDepartureDate");
-            dtCreate.Columns.Add("CVisaSatus");
-            dtCreate.Columns.Add("CSalaryCurrency");
-            dtCreate.Columns.Add("CTimeofBirth");
-            dtCreate.Columns.Add("CMeternalGothram");
-            dtCreate.Columns.Add("RefRelationShipType");
-            dtCreate.Columns.Add("CProfileGrade");
-            dtCreate.Columns.Add("CPhotoProtectStatus");
-            dtCreate.Columns.Add("CConfidentialStatus");
-            dtCreate.Columns.Add("CHighConfidentialStatus");
-            dtCreate.Columns.Add("IsSeriousMatch");
-            dtCreate.Columns.Add("AllEmails");
+            //dtCreate.Columns.Add("CAll");
+            //dtCreate.Columns.Add("ContactNo_All");
+            ////Added By lakshmi
+            //dtCreate.Columns.Add("SLegallyDivorcedDate");
+            //dtCreate.Columns.Add("SNoofChilds_Boys");
+            //dtCreate.Columns.Add("SNoofChilds_Girls");
+            //dtCreate.Columns.Add("CSinceDate");
+            //dtCreate.Columns.Add("CArrivalDate");
+            //dtCreate.Columns.Add("CDepartureDate");
+            //dtCreate.Columns.Add("CVisaSatus");
+            //dtCreate.Columns.Add("CSalaryCurrency");
+            //dtCreate.Columns.Add("CTimeofBirth");
+            //dtCreate.Columns.Add("CMeternalGothram");
+            //dtCreate.Columns.Add("RefRelationShipType");
+            //dtCreate.Columns.Add("CProfileGrade");
+            //dtCreate.Columns.Add("CPhotoProtectStatus");
+            //dtCreate.Columns.Add("CConfidentialStatus");
+            //dtCreate.Columns.Add("CHighConfidentialStatus");
+            //dtCreate.Columns.Add("IsSeriousMatch");
+            //dtCreate.Columns.Add("AllEmails");
             return dtCreate;
                     
         }

@@ -1166,30 +1166,30 @@ namespace WebapiApplication.ML
 
         //contct All
         public string CContactAddress_All { set; get; }
-        public string CAll { get; set; }
-        public string ContactNo_All { get; set; }
-        //
-        public string SLegallyDivorcedDate { get; set; }
-        public string SNoofChilds_Boys { get; set; }
-        public string SNoofChilds_Girls { get; set; }
-        public string CSinceDate { get; set; }
-        public string CArrivalDate { get; set; }
-        public string CDepartureDate { get; set; }
-        public string CVisaSatus { get; set; }
-        public string CSalaryCurrency { get; set; }
-        public string CTimeofBirth { get; set; }
-        public string CMeternalGothram { get; set; }
-        public string RefRelationShipType { get; set; }
-        public string CProfileGrade { get; set; }
-        public string CPhotoProtectStatus { get; set; }
-        public string CConfidentialStatus { get; set; }
-        public string CHighConfidentialStatus { get; set; }
-        public string IsSeriousMatch { get; set; }
-        public string AllEmails { get; set; }
+        //public string CAll { get; set; }
+        //public string ContactNo_All { get; set; }
+        ////
+        //public string SLegallyDivorcedDate { get; set; }
+        //public string SNoofChilds_Boys { get; set; }
+        //public string SNoofChilds_Girls { get; set; }
+        //public string CSinceDate { get; set; }
+        //public string CArrivalDate { get; set; }
+        //public string CDepartureDate { get; set; }
+        //public string CVisaSatus { get; set; }
+        //public string CSalaryCurrency { get; set; }
+        //public string CTimeofBirth { get; set; }
+        //public string CMeternalGothram { get; set; }
+        //public string RefRelationShipType { get; set; }
+        //public string CProfileGrade { get; set; }
+        //public string CPhotoProtectStatus { get; set; }
+        //public string CConfidentialStatus { get; set; }
+        //public string CHighConfidentialStatus { get; set; }
+        //public string IsSeriousMatch { get; set; }
+        //public string AllEmails { get; set; }
 
-        public DataTable dtPartnerPreference { get; set; }
+        //public DataTable dtPartnerPreference { get; set; }
 
-        public string strShowprofile { get; set; }
+        //public string strShowprofile { get; set; }
     }
 }
 
