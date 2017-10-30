@@ -215,6 +215,10 @@ namespace WebapiApplication.Implement
 
 
         public int? RestoredProfileidupdate([FromBody]RestoredProfileid Mobj) { return new EmployeeReportPageDAL().RestoredProfileidupdate(Mobj, "[dbo].[Usp_InsertRestoreRecord]"); }
+
+
+        public ArrayList KeywordlikeSearchnewpage([FromBody]newkeywordlikesrch Mobj) { return new EmployeeReportPageDAL().KeywordlikeSearchnewpage(Mobj, "[dbo].[Usp_Search_KeyWord]"); }
+    
     }
 
 }

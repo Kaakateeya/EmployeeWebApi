@@ -974,7 +974,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
             }
             return intStatus;
         }
@@ -1051,7 +1051,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
             }
             return intStatus;
         }
@@ -1163,7 +1163,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             return details;
@@ -1242,7 +1242,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             return details;
@@ -1310,7 +1310,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
             return 1;
         }
@@ -1367,7 +1367,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             return intStatus;
@@ -1428,7 +1428,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-            
+
             }
             return intStatus;
         }
@@ -1472,7 +1472,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
             }
             return intStatus;
         }
@@ -1516,7 +1516,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-               
+
             }
             return intStatus;
         }
@@ -1558,7 +1558,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             return intStatus;
@@ -1607,7 +1607,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
             return 1;
         }
@@ -1843,7 +1843,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-               
+
             }
 
             return Commonclass.convertdataTableToArrayListTable(ds);
@@ -1981,7 +1981,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             if (Mobj.isRvrflag == "RVR")
@@ -2044,7 +2044,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
             }
             return status;
         }
@@ -2119,7 +2119,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-            
+
             }
             return intStatus;
         }
@@ -3994,7 +3994,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-            
+
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
@@ -4035,7 +4035,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
 
             }
             return intStatus;
@@ -4098,7 +4098,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             return status;
@@ -4155,7 +4155,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-               
+
 
             }
             return intStatus;
@@ -4221,7 +4221,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-               
+
 
             }
             return intStatus;
@@ -4260,7 +4260,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
 
             }
             return intStatus;
@@ -4304,7 +4304,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-            
+
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
@@ -4362,7 +4362,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
 
             }
             return arrayList;
@@ -4409,7 +4409,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-            
+
             }
             return intStatus;
         }
@@ -4470,7 +4470,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-            
+
             }
             return Mobj.i_flag == 1 || Mobj.i_flag == 2 || Mobj.i_flag == 3 ? arrayList : Commonclass.convertdataTableToArrayListTable(ds);
         }
@@ -4503,7 +4503,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
@@ -4603,7 +4603,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-               
+
             }
 
             status = 1;
@@ -4664,7 +4664,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             return details;
@@ -4726,7 +4726,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
             }
 
             return details;
@@ -4794,7 +4794,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
             }
             return intStatus;
         }
@@ -4867,7 +4867,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
             return Istatus;
         }
@@ -4904,7 +4904,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-               
+
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
@@ -4990,7 +4990,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-               
+
             }
 
             status = 1;
@@ -5050,7 +5050,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-            
+
             }
             return status;
         }
@@ -5078,7 +5078,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             return Commonclass.convertdataTableToArrayListTable(ds);
@@ -5126,7 +5126,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
             return status;
         }
@@ -5167,7 +5167,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
             return status;
         }
@@ -5262,7 +5262,7 @@ namespace WebapiApplication.DAL
             }
             catch (Exception EX)
             {
-                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message),Mobj.CustID,null, null);
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), Mobj.CustID, null, null);
             }
             finally
             {
@@ -5270,6 +5270,110 @@ namespace WebapiApplication.DAL
 
             }
             return status;
+        }
+
+        public ArrayList KeywordlikeSearchnewpage(newkeywordlikesrch Mobj, string spName)
+        {
+            SqlParameter[] parm = new SqlParameter[9];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            DataSet ds = new DataSet();
+            SqlDataReader reader;
+            string Snull = "--";
+            int? inull = null;
+            bool? bnull = null;
+            Int64? Lnull = null;
+            ArrayList array = new ArrayList();
+            try
+            {
+                parm[0] = new SqlParameter("@TblDetails", SqlDbType.Structured);
+                parm[0].Value = Mobj.dtPartnerPreference;
+                parm[1] = new SqlParameter("@ApplicationStatus", SqlDbType.VarChar);
+                parm[1].Value = Mobj.strShowprofile;
+                parm[2] = new SqlParameter("@intEmpID", SqlDbType.Int);
+                parm[2].Value = Mobj.EmpID;
+                parm[3] = new SqlParameter("@i_Startindex", SqlDbType.Int);
+                parm[3].Value = Mobj.startindex;
+                parm[4] = new SqlParameter("@i_EndIndex", SqlDbType.Int);
+                parm[4].Value = Mobj.EndIndex;
+                parm[5] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[5].Direction = ParameterDirection.Output;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        slideshowNew sh = new slideshowNew();
+
+                        {
+                            sh.Cust_ID = reader["Cust_ID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Cust_ID")) : Snull;
+                            sh.paid = reader["paid"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("paid")) : inull;
+                            sh.ProfileID = reader["ProfileID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileID")) : Snull;
+                            sh.KMPLID = reader["KMPLID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("KMPLID")) : Snull;
+                            sh.IsConfidential = reader["IsConfidential"] != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("IsConfidential")) : bnull;
+                            sh.SuperConfidentila = reader["SuperConfidentila"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SuperConfidentila")) : inull;
+                            sh.FirstName = reader["FirstName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FirstName")) : Snull;
+                            sh.LastName = reader["LastName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastName")) : Snull;
+                            sh.Name = reader["FirstName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FirstName")) : Snull;
+                            sh.SurName = reader["LastName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastName")) : Snull;
+                            sh.DOB = reader["DOB"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("DOB")) : Snull;
+                            sh.Age = reader["Age"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Age")) : inull;
+                            sh.Height = reader["Height"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Height")) : Snull;
+                            sh.Caste = (reader["MotherTongue"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("MotherTongue")) + "-") : "") + (reader["Caste"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Caste")).ToString()) : Snull) + (reader["SubCaste"] != DBNull.Value ? ("(" + (reader.GetString(reader.GetOrdinal("SubCaste"))) + ")") : "");
+                            sh.EduGroupnamenew = reader["EduGroupnamenew"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("EduGroupnamenew")) : Snull;
+                            sh.Profession = reader["Profession"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profession")) : Snull;
+                            sh.JobLocation = reader["JobLocation"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("JobLocation")) : Snull;
+                            sh.Income = reader["Income"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Income")) : Snull;
+                            sh.Property = reader["Property"] != DBNull.Value ? reader.GetDouble(reader.GetOrdinal("Property")).ToString() : Snull;
+                            sh.PlaceOfBirth = reader["PlaceOfBirth"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("PlaceOfBirth")) : Snull;
+                            sh.TOB = reader["TOB"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TOB")) : Snull;
+                            sh.Gothram = reader["Gothram"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gothram")) : Snull;
+                            sh.Star = reader["Star"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Star")) : Snull;
+                            sh.FFNative = reader["FF Native"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FF Native")) : Snull;
+                            sh.MFNative = reader["MF Native"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MF Native")) : Snull;
+                            sh.Gender = reader["Gender"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gender")) : Snull;
+                            sh.PhotoNames = reader["PhotoNames"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("PhotoNames")) : Snull;
+                            sh.Photo = reader["Photo"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Photo")) : Snull;
+                            sh.ApplicationPhotoPath = reader["ApplicationPhotoPath"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ApplicationPhotoPath")) : Snull;
+                            sh.HoroscopeStatus = reader["HoroscopeStatus"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("HoroscopeStatus")) : inull;
+                            sh.HoroscopePath = reader["HoroscopePath"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("HoroscopePath")) : Snull;
+                            sh.email = reader["email"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("email")) : Snull;
+                            sh.NoOfBrothers = reader["NoOfBrothers"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfBrothers")) : inull;
+                            sh.NoOfSisters = reader["NoOfSisters"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfSisters")) : inull;
+                            sh.CasteID = reader["CasteID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("CasteID")) : inull;
+                            sh.HeightInCentimeters = reader["HeightInCentimeters"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("HeightInCentimeters")) : inull;
+                            sh.MaritalStatusID = reader["MaritalStatusID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MaritalStatusID")) : inull;
+                            sh.maritalstatus = reader["MaritalStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MaritalStatus")) : Snull;
+                            sh.Color = reader["Color"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Color")) : Snull;
+                            sh.Education = reader["EducationGroup"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("EducationGroup")) : Snull;
+                            sh.EducationGroup = reader["EducationGroup"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("EducationGroup")) : Snull;
+                            sh.currency = reader["currency"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("currency")) : Snull;
+                            sh.Intercaste = reader["Intercaste"] != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("Intercaste")) : bnull;
+                            sh.fathercaste = reader["fathercaste"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("fathercaste")) : Snull;
+                            sh.mothercaste = reader["mothercaste"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("mothercaste")) : Snull;
+                            sh.PhotoCount = reader["PhotoCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PhotoCount")) : inull;
+                            sh.TotalRowsKeyword = reader["TotalRows"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : inull;
+                            sh.countrylivingin = reader["CountryLivingin"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CountryLivingin")) : Snull;
+                            sh.CustomerApplicationPhoto = reader["CustomerApplicationPhoto"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CustomerApplicationPhoto"))) : Snull;
+                            sh.CustomerFullPhoto = reader["CustomerFullPhoto"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CustomerFullPhoto"))) : Snull;
+                            sh.companyname = reader["Company Name"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Company Name"))) : Snull;
+                        }
+                        array.Add(sh);
+                    }
+
+                }
+                reader.Close();
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
         }
     }
 }
