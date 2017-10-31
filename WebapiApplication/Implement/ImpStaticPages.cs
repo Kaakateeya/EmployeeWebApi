@@ -51,7 +51,7 @@ namespace WebapiApplication.Implement
         public int MissingFieldsupdate_Customerdetails(MissingFieldsUpdateRequest Mobj) { return new StaticPagesDAL().MissingFieldsupdate_Customerdetails(Mobj, "[dbo].[usp_Customer_Missingfields]"); }
         public int InsertUnpaidStatus(string fromCustID, string ToCustID, int? Empid, string typeofAction) { return new StaticPagesDAL().InsertUnpaidStatus(fromCustID, ToCustID, Empid, typeofAction, "[dbo].[usp_insert_MarketingTicketHistory]"); }
         public int InsertExpressViewTicket(long? FromCustID, long? ToCustID, string DecriptedText, string strtypeOfReport) { return new StaticPagesDAL().InsertExpressViewTicket(FromCustID, ToCustID, Commonclass.Encrypt(DecriptedText), strtypeOfReport, "[dbo].[Usp_InsertExpressViewTicket_new_NewDesign]"); }
-        public int UpdateExpressIntrestViewfullprofile(UpdateExpressIntrestStatus Mobj) { return new StaticPagesDAL().UpdateExpressIntrestViewfullprofile(Mobj, "[dbo].[Usp_UpdateExpressIntrestStatus_new_NewDesign]"); }
+        public int UpdateExpressIntrestViewfullprofile(UpdateExpressIntrestStatus Mobj) { return new StaticPagesDAL().UpdateExpressIntrestViewfullprofile(Mobj, "[dbo].[Usp_UpdateExpressIntrestStatus_Employee_New]"); }
         public string Customerfilldata(long? CustomerCustID) { return new StaticPagesDAL().Customerfilldata(CustomerCustID, "[dbo].[usp_CustomermissindDatagetting_Load]"); }
         public string EmilVerificationCode(string VerificationCode, int? i_EmilMobileVerification, int? CustContactNumbersID, int? IsVerified) { return new StaticPagesDAL().EmilVerificationCode(VerificationCode, "[dbo].[usp_EmilVerificationCode_NewDesign]", i_EmilMobileVerification, CustContactNumbersID, IsVerified); }
         public void ApplicationErrorLog(string ErrorSpName, string ErrorMessage, long? CustID, string PageName, string Type) { Commonclass.ApplicationErrorLog(ErrorSpName, ErrorMessage, CustID, PageName, Type); }
@@ -67,7 +67,7 @@ namespace WebapiApplication.Implement
 
 
         public ArrayList CustomerHomePageDesignData(string flag, int? casteID, long? CustID, int? intStartIndex, int? intEndIndex, int? GenderID, int? isActive) { return new StaticPagesDAL().CustomerHomePageDesignDataDal(flag, casteID, CustID, intStartIndex, intEndIndex, GenderID,isActive, "[dbo].[CustomerDesign_SEO]"); }
-        public Tuple<string,int> ViewSettlementform(string Profileid) { return new StaticPagesDAL().ViewSettlementform(Profileid, "USP_Getimageurl_Viewsettlement"); }
+        public Tuple<string, int> ViewSettlementform(string Profileid) { return new StaticPagesDAL().ViewSettlementform(Profileid, "usp_View_Upload_settlement"); }
 
         public int CheckprofileIDSelect(string Profileid) { return new StaticPagesDAL().CheckprofileIDSelect(Profileid, "usp_SelectProfileID"); }
 
@@ -77,7 +77,7 @@ namespace WebapiApplication.Implement
         public ArrayList CustomerParofileIDbasePayment(string ProfileID, int? BranchID) { return new StaticPagesDAL().CustomerParofileIDbasePayment(ProfileID, BranchID, "[dbo].[usp_getSearchMemberShipPackege]"); }
         public ArrayList CustomerUnauthorizedPayments(string BranchID, string StartDate, string EndDate, string Region) { return new StaticPagesDAL().CustomerUnauthorizedPayments(BranchID, StartDate, EndDate, Region, "[dbo].[usp_get_CustUnauthorizedPaymentDetails_NewDesign]"); }
 
-        public ViewProfileInputInbit InbitdataInfo(string ProfileID, int? empid) { return new StaticPagesDAL().InbitdataInfo(ProfileID, empid, "[dbo].[usp_getInBitInformation]"); }
+        public ViewProfileInputInbit InbitdataInfo(string ProfileID, int? empid) { return new StaticPagesDAL().InbitdataInfo(ProfileID, empid, "[dbo].[usp_getInBitInformation_NewDesign]"); }
         public NoDataFoundDisplay NoDataFoundDisplay(string ProfileID) { return new StaticPagesDAL().NoDataFoundDisplay(ProfileID, "[dbo].[usp_Profile_NoDataFound]"); }
         public int brokerEmailMobilenumberexists(int? iflagEmailmobile, string EmailMobile) { return new StaticPagesDAL().EmailMobilenumberexists(iflagEmailmobile, EmailMobile, "[dbo].[usp_EmailMobilenumberexists_BrokerProfiles]"); }
     }

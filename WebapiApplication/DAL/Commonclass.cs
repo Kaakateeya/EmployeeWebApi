@@ -73,7 +73,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                SqlConnection.ClearAllPools();
+                // SqlConnection.ClearAllPools();
             }
         }
 
@@ -93,6 +93,7 @@ namespace WebapiApplication.DAL
         //    using (var server = new SmtpClient(StrMailServer.ToString(), Convert.ToInt32(intPort)))
         //    {
         //        server.EnableSsl = true;
+
         //        server.UseDefaultCredentials = true;
         //        server.Credentials = new System.Net.NetworkCredential((message.From).ToString(), Password);
         //        server.Send(message);
@@ -127,10 +128,7 @@ namespace WebapiApplication.DAL
             {
                 Console.WriteLine("Exception caught in CreateTestMessage2(): {0}", ex.ToString());
             }
-            finally
-            {
-                SqlConnection.ClearAllPools();
-            }
+
         }
 
         public static DataTable returnListDatatable<T>(DataTable dt, List<T> items)
@@ -321,7 +319,7 @@ namespace WebapiApplication.DAL
         public static void ApplicationErrorLog(string ErrorSpName, string ErrorMessage, long? CustID, string PageName, string Type)
         {
             new StaticPagesDAL().DApplicationErrorLog(ErrorSpName, ErrorMessage, CustID, PageName, Type, "[dbo].[usp_ApplicationErrorLog]");
-            SqlConnection.ClearAllPools();
+            //SqlConnection.ClearAllPools();
         }
         public static void PaymentSMS(DataTable dt, string SendPhonenumber)
         {
@@ -341,7 +339,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                SqlConnection.ClearAllPools();
+                // SqlConnection.ClearAllPools();
             }
         }
 
@@ -444,12 +442,23 @@ namespace WebapiApplication.DAL
                 string result1 = cc.SendTextSMS("ykrishna", "summary$1", MobileNumber, "Greeting from Kaakateeya.com ! Your pin Number is " + strMobileverf + " Use this PIN to verify your primary mobile", "smscntry");
             }
 
-            SqlConnection.ClearAllPools();
+            //SqlConnection.ClearAllPools();
         }
 
         public static bool S3upload(string filePath, string keyName)
         {
             //filePath = "D://KaakateeyaMainProject//Kaakateeya//Development_Kaakateeya//kaakateeyaWeb//access//Images//ProfilePics//KMPL_71668_Images//img2.jpg";
+
+            string strpath = keyName.Replace("/", "//");
+            //filePath = "C://inetpub//wwwroot//access//" + strpath;
+
+            //filePath = "http://emp.kaakateeya.com//" + strpath;
+            //filePath = "http://183.82.0.58:9030//" + strpath;
+
+            //filePath = "D://EmployeeAngularSite//Employee//" + strpath;
+
+            filePath = "C://EmployeeAngularProject//Employee//" + strpath;
+
             try
             {
                 TransferUtility fileTransferUtility = new
@@ -503,7 +512,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-                SqlConnection.ClearAllPools();
+                // SqlConnection.ClearAllPools();
             }
         }
 
@@ -529,7 +538,9 @@ namespace WebapiApplication.DAL
             {
                 path = !string.IsNullOrEmpty(S3PhotoPathAstro) ? S3PhotoPathAstro + "Images/customernoimages/Horo_no.jpg" : "../../Customer_new/images/Horo_no.jpg";
             }
-            SqlConnection.ClearAllPools();
+
+            //SqlConnection.ClearAllPools();
+
             return path;
         }
 
@@ -576,8 +587,8 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+                //SqlConnection.ClearPool(connection);
+                //SqlConnection.ClearAllPools();
             }
             return iStatus;
         }
@@ -685,7 +696,7 @@ namespace WebapiApplication.DAL
 
                 }
 
-                SqlConnection.ClearAllPools();
+                // SqlConnection.ClearAllPools();
             }
         }
 
@@ -757,6 +768,29 @@ namespace WebapiApplication.DAL
                 }
             }
             return clearText;
+        }
+
+
+        public static string Decrypt_new(string cipherText)
+        {
+            string EncryptionKey = "MAKV2SPBNI99212";
+            byte[] cipherBytes = Convert.FromBase64String(cipherText);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(cipherBytes, 0, cipherBytes.Length);
+                        cs.Close();
+                    }
+                    cipherText = Encoding.Unicode.GetString(ms.ToArray());
+                }
+            }
+            return cipherText;
         }
 
     }

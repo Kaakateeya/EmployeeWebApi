@@ -82,8 +82,7 @@ namespace WebapiApplication.DAL
             {
               
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+            
             }
             return arrayList;
         }
@@ -113,8 +112,7 @@ namespace WebapiApplication.DAL
             {
                
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+              
             }
             return status;
         }
@@ -164,8 +162,7 @@ namespace WebapiApplication.DAL
             {
               
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+               
             }
             return intStatus;
         }
@@ -206,8 +203,7 @@ namespace WebapiApplication.DAL
             {
                
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+              
             }
 
             if (dsPayment.Tables.Count == 0)
@@ -273,8 +269,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+              
             }
             if (dsPaymentDetails.Tables.Count == 0) { dsPaymentDetails = null; }
             return IntStatus;
@@ -344,8 +339,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+             
             }
             if (dsPaymentDetails.Tables.Count == 0) { dsPaymentDetails = null; }
             return IntStatus;
@@ -416,8 +410,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+              
             }
             return arrayList;
 
@@ -452,8 +445,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+             
             }
 
             if (dsPayment.Tables.Count == 0)
@@ -529,8 +521,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+              
             }
 
             if (dsPayment.Tables.Count == 0)
@@ -560,8 +551,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+            
             }
             return dset;
         }

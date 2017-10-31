@@ -367,6 +367,8 @@ namespace WebapiApplication.ML
         public string strMotherName { get; set; }
         public int? intAppicationStatusID { get; set; }
         public int? intGenderID { set; get; }
+
+        public int? intflag { get; set; }
     }
 
     public class RegprofilevalidationPlaybutton
@@ -421,33 +423,13 @@ namespace WebapiApplication.ML
         public string TicketHistoryID { get; set; }
         public Int64? Cust_ID { get; set; }
         public int? paid { get; set; }
-        // public int? NoOfBrothers { get; set; }
-        // public int? NoOfSisters { get; set; }
-        // public int? Age { get; set; }
-        //public string DOB { get; set; }
-        // public string TOB { get; set; }
-        // public string Gothram { get; set; }
-        // public string fathercaste { get; set; }
-        //    public string mothercaste { get; set; }
-        // public string maritalstatus { get; set; }
-       // public string Star { get; set; }
-       // public string Height { get; set; }
-       // public string EducationGroup { get; set; }
-       // public string EduGroupnamenew { get; set; }
-       // public string Profession { get; set; }
-      //  public string JobLocation { get; set; }
-      //  public string Color { get; set; }
-       // public string Income { get; set; }
-       // public string FFNative { get; set; }
-      //  public string MFNative { get; set; }
-       // public string Property { get; set; }
+
         public int? PhotoCount { get; set; }
         public string CustomerFullPhoto { get; set; }
         public object KMPL { get; set; }
         public object IsConfidential { get; set; }
         public object SuperConfidentila { get; set; }
         public object HoroscopeStatus { get; set; }
-        // public string PlaceOfBirth { get; set; }
         public string Intercaste { get; set; }
 
         public string SRCount { get; set; }
@@ -466,7 +448,7 @@ namespace WebapiApplication.ML
 
         public string EmpUserName { get; set; }
 
-     //   public string EmpName { get; set; }
+
 
         public string SAForm { get; set; }
 
@@ -474,26 +456,66 @@ namespace WebapiApplication.ML
 
         public bool CEmailVerStatus { get; set; }
 
-       // public string Reason4InActive { get; set; }
 
-        //public long? Cust_Family_ID { get; set; }
 
         public int? CountryCodeID { get; set; }
 
-        //public string CreatedDate { get; set; }
 
         public string Primarynumber { get; set; }
 
         public string Primaryemail { get; set; }
 
-        //public string ContactNumber { get; set; }
 
-        //public string UserName { get; set; }
         public int? ProfileGrade { get; set; }
         public string mothertongue { get; set; }
         public string CustomerApplicationPhoto { get; set; }
     }
 
+    public class GetRegprofilevalidationtable
+    {
+
+        public string ViewfullProfileID { get; set; }
+
+        public string ProfileID { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string Caste { get; set; }
+
+        public string DOR { get; set; }
+
+        public string BranchCode { get; set; }
+
+        public string ProfileOwner { get; set; }
+
+        public int? TotalRows { get; set; }
+
+        public string ProfileStatusID { get; set; }
+
+        public int? ActiveCount { get; set; }
+
+        public int? DeletedCount { get; set; }
+
+        public int? TotalPages { get; set; }
+
+        public int? InActiveCount { get; set; }
+
+        public int? SettledCount { get; set; }
+
+        public int? MMSerious { get; set; }
+
+        public long? TicketID { get; set; }
+
+        public string TicketHistoryID { get; set; }
+
+        public int? paid { get; set; }
+
+        public long? Cust_ID { get; set; }
+
+        public long? Emp_Ticket_ID { get; set; }
+    }
 
     //Resend or rvrsend
 
@@ -516,5 +538,12 @@ namespace WebapiApplication.ML
         public int Status { get; set; }
     }
 
+    public class notviewedprofiles
+    {
+        public string ToProfileID { get; set; }
+        public string FromProfileID { get; set; }
+        public Int64? ToCustID { get; set; }
+        public Int64? FromCustID { get; set; }
+    }
 
 }

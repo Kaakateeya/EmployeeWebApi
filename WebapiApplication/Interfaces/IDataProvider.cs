@@ -124,6 +124,8 @@ namespace WebapiApplication.Interfaces
         int UploadsettlementForm(SettlementPaidBalanceDetailsMl settlementForm);
 
         int AstroGenerationS3Update(string Path, string KeyName);
+
+        ArrayList Emplanding_counts_TablesDisplay(EmployeeLandingCount ecount);
     }
     public interface IStaticPages
     {
@@ -246,7 +248,7 @@ namespace WebapiApplication.Interfaces
         int MatchFollowupSendSms(EmployeeMarketslidesendmail Mobj);
         int MatchFollowupMailSend(MatchFollowupMailSend Mobj);
         List<TicketHistoryinfoResponse> MatchFollowupTicketinformation(long? Ticketid, char Type);
-        List<MarketingTicketResponse> MarketingTicketinformation(long? Ticketid, char Type);
+        List<MarketingTicketResponseinfo> MarketingTicketinformation(long? Ticketid, char Type);
         int MatchFollowupResendMail(MatchFollowupResendMail Mobj);
         int Insertout_incomingcallCommunicationlogData(TicketCallHistory Mobj);
 
@@ -308,7 +310,7 @@ namespace WebapiApplication.Interfaces
 
         ArrayList presentunpaidmember(int? EmpID);
 
-        int UpadteMacAddess(string strProfileID, int? BranchID);
+        int UpadteMacAddess(string strProfileID, string ipaddresss2, int? BranchID);
 
         ArrayList customermeassgeverification(messagesverification Mobj);
 
@@ -348,6 +350,47 @@ namespace WebapiApplication.Interfaces
         int? sendEmail_factResetPassword(string profileid, string p);
 
         int? sendEmail_ResetPassword(string profileid);
+
+        int Successstoriesupload(emplyeeSuccessStoryML Mobj);
+
+        int? Marketingticketstatus(long? ticketid, string EmpID);
+
+        ArrayList AdminReportsAllProfiles(int? i_EmpID, string i_BranchID, int? i_Region, string v_MacAddress, int? flag, string v_ProfileOwnerEmpID);
+
+        ArrayList CheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB);
+
+        int? InsertResonForNoService(insetnoserice Mobj);
+
+        ArrayList Oldkmplkeywordlikesearch(CreateKeywordLlikesearchReqoldkmpl oldkmpl);
+
+        ArrayList Nomatchesreasons(nomatchesreason Mobj);
+
+        List<GetRegprofilevalidationtable> RegistrationValidation_Table(Regprofilevalidation RegValidation);
+
+        List<MarketingTicketResponseHistory> MarketingTickethistory(long? Ticketid, char Type);
+
+
+        List<EmpNotifications> employeenotications(EmpNotifications empnotification);
+
+        int? noserviceemailsfromcustomer(string profileid, int? empid);
+
+        ArrayList keywordlikesearch(keywordlikesearch keyword);
+
+        List<GetRegprofilevalidation> RegistrationValidation_Counts(Regprofilevalidation RegValidation);
+
+        int InsertMatchfollowupExpressinterest(int? fromcustid, int? tocustid, long? logID, string interstTYpe, int? empid);
+
+        ArrayList Marketingtickethistory(int? custid);
+
+        int? CloseReminderStatus(closereminder Mobj);
+
+        int? ChangeEmppassword(string UserID);
+
+        ArrayList MatchfollowupTicketStatus(long? Ticketid);
+
+        int? RestoredProfileidupdate(RestoredProfileid Mobj);
+
+        ArrayList KeywordlikeSearchnewpage(newkeywordlikesrch Mobj);
     }
 
     public interface ISmallPages
@@ -375,15 +418,68 @@ namespace WebapiApplication.Interfaces
         List<GetEmployeeList> employeeList(GetEmployeeListRequest mobj);
 
         int employeeCreation(EmployeeCreationInput mobj);
+
+        string getLoginName(int intHomeBrchID);
+
+        EmpAssignCounts getEmpWorkAssignCounts(int EmpID);
+
+        int setEmpAssignCounts(EmpAssignCounts mobj);
+        ArrayList loginLogOutReport(EmpLoginLogoutReportML mobj);
+
+        ArrayList empWorksheet(EmpWorkSheetMl mobj);
+
+        int getinsertImagepath(long whereId, string strvalue, string flag);
+
+        int empLogout(int empid);
+
+        ArrayList mediaterRegValidation(mediaterRegFormValidation mobj);
+
+        ArrayList EmployeeCommunicationLogNew(CommunicationRequest mobj);
+
+        int deleteSettleForm(int settleID);
+
+        ArrayList ViewSuccessStories(viewSuccessStoriesRequest sObj);
+
+        Tuple<int, ArrayList> GetbrideGroomData(string profileID, int iFlag);
+        Tuple<int, ArrayList> GetbrideGroomDataNew(string profileID, int iFlag);
+
+        int createSuccessStories(createSuccessStoryRequest mobj);
+
+        int deleteSucessStories(string sucessStoryID, string brideProfileID, string groomProfileID);
+
+        ArrayList matchMeetingCountReport(matchMeetingCountMl mobj);
+
+        ArrayList matchMeetingCountInfo(matchMeetingCountInfoMl mobj);
+
+        ArrayList ProfileDeleteProfilesReport(settleDeleteProfilesReport mobj);
+
+        //int restoreProfile(restoreProfile mobj);
+
+        int checkStatus(string whereID, string secondwhereID, string flag);
+
+        ArrayList SettledPrfofilesInfo(settledProfilesRequest mobj);
+
+        ArrayList noProfileGrade(noProfileGradeRequest mobj);
+
+        int insertsettleAmountInfo(insertSettlAmountRequest mobj);
+
+        List<settleInfo> getSettleInfo(string profileid);
+
+        ArrayList GetDataStaging(string CustID);
+
+        int UpdateGrading(NoProfileGradingMl mobj);
+
+        ArrayList listOFServiceGiven(ListOfServicesTakenM1 mobj);
+
+        ArrayList emailBouncelist(EmailBounceReports mobj);
     }
 
     public interface IMobileAppDev
     {
         ArrayList getMobileAppLandingDisplay(int? CustID, int? PaidStatus, int? Startindex, int? EndIndex);
         ArrayList UpdateCustomerEmailMobileNumber_Verification(MobileEmailVerf Mobj);
+        ArrayList MobileLandingOrderDisplay(long? CustID, int? Startindex, int? EndIndex);
     }
-
-
 
 }
 

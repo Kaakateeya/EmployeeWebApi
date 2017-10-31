@@ -144,8 +144,8 @@ namespace WebapiApplication.DAL
             {
 
                 con.Close();
-                SqlConnection.ClearPool(con);
-                SqlConnection.ClearAllPools();
+                //SqlConnection.ClearPool(con);
+                //SqlConnection.ClearAllPools();
             }
             return land;
         }
@@ -193,8 +193,8 @@ namespace WebapiApplication.DAL
             {
 
                 con.Close();
-                SqlConnection.ClearPool(con);
-                SqlConnection.ClearAllPools();
+                //SqlConnection.ClearPool(con);
+                //SqlConnection.ClearAllPools();
             }
 
             return land;
@@ -245,8 +245,8 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+                //SqlConnection.ClearPool(connection);
+                //SqlConnection.ClearAllPools();
             }
 
             return PartnerLi;
@@ -339,7 +339,7 @@ namespace WebapiApplication.DAL
                 Partnercls.RequestDate = reader["RequestDate"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("RequestDate")) : null;
             }
 
-            SqlConnection.ClearAllPools();
+           // SqlConnection.ClearAllPools();
             return Partnercls;
         }
         public List<DashboardRequestChats> DgetCustometExpressIntrestDashBoardchats(long? CustID, int? Status, int iStartIndex, int iEndIndex, string spName)
@@ -414,8 +414,8 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+                //SqlConnection.ClearPool(connection);
+                //SqlConnection.ClearAllPools();
             }
             return dropdownfilling;
         }
@@ -493,8 +493,8 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+                //SqlConnection.ClearPool(connection);
+                //SqlConnection.ClearAllPools();
             }
             return details;
         }
@@ -555,8 +555,8 @@ namespace WebapiApplication.DAL
             {
                
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+                //SqlConnection.ClearPool(connection);
+                //SqlConnection.ClearAllPools();
             }
             return arrayList;
         }
@@ -624,8 +624,8 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+                //SqlConnection.ClearPool(connection);
+                //SqlConnection.ClearAllPools();
             }
             return status;
         }
@@ -682,8 +682,8 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                SqlConnection.ClearPool(connection);
-                SqlConnection.ClearAllPools();
+                //SqlConnection.ClearPool(connection);
+                //SqlConnection.ClearAllPools();
             }
             return status;
         }

@@ -186,9 +186,21 @@ namespace WebapiApplication.Api
             ecount.EndIndex = EndIndex;
             ecount.strTableType = strTableType;
             ecount.intLoadStatus = intLoadStatus;
-            return this.ICustomerpersonalupdate.Emplanding_counts_Admin(ecount);
 
+            if (string.IsNullOrEmpty(strTableType))
+            {
+                return this.ICustomerpersonalupdate.Emplanding_counts_TablesDisplay(ecount);
+            }
+            else
+            {
+                return this.ICustomerpersonalupdate.Emplanding_counts_Admin(ecount);
+            }
+           
         }
+
+
+
+
 
         // Edit/View 
 
@@ -236,8 +248,8 @@ namespace WebapiApplication.Api
         public HoroGeneration getGenerateHoroscorpe(int? customerid, string EmpIDQueryString, int? intDay, int? intMonth, int? intYear, int? CityID) { return this.ICustomerpersonalupdate.GenerateHoroscorpe(customerid, EmpIDQueryString, intDay, intMonth, intYear, CityID); }
         public int UploadsettlementForm([FromBody]SettlementPaidBalanceDetailsMl settlementForm) { return this.ICustomerpersonalupdate.UploadsettlementForm(settlementForm); }
         public int getAstroGenerationS3Update(string Path, string KeyName) { return this.ICustomerpersonalupdate.AstroGenerationS3Update(Path, KeyName); }
+        public int getAstroGenerationS3Update_test(string Path, string KeyName) { return this.ICustomerpersonalupdate.AstroGenerationS3Update(Path, KeyName); }
 
-       
 
     }
 }

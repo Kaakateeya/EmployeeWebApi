@@ -266,6 +266,38 @@ namespace WebapiApplication.ML
         public string Toname { get; set; }
         public string MobileNumber { set; get; }
         public int? TicketStatusID { get; set; }
+
+        public int? GenderID { get; set; }
+
+        public string FromCust_InterestStatus { get; set; }
+
+        public string ToCust_InterestStatus { get; set; }
+
+        public string TicketToStatus { get; set; }
+
+        public string FromOwner { get; set; }
+
+        public string ToOwner { get; set; }
+
+        public string ToCustIDLastName { get; set; }
+
+        public string CustomerLastName { get; set; }
+
+        public int? fromIsconfidential { get; set; }
+
+        public int? fromHighconfidential { get; set; }
+
+        public int? toIsconfidential { get; set; }
+
+        public int? toHighconfidential { get; set; }
+
+        public long? OppCustID { get; set; }
+
+        public long? Cust_ProfileInterestsLog_ID { get; set; }
+
+        public string ToEmail { get; set; }
+
+        public long? Toticketid { get; set; }
     }
 
     public class MarketingTicketResponse
@@ -306,6 +338,82 @@ namespace WebapiApplication.ML
         public string Category { get; set; }
 
         public string Reminderbody { get; set; }
+    }
+    public class MarketingTicketResponseinfo
+    {
+
+
+        public string TicketID { get; set; }
+
+        public int? TotalRows { get; set; }
+
+        public long? Emp_Ticket_ID { get; set; }
+
+        public string TicketStatus { get; set; }
+
+        public string TicketOpenedOn { get; set; }
+
+        public string Prirority { get; set; }
+
+        public string EmpName { get; set; }
+
+        public string PrimaryContactNumber { get; set; }
+
+        public int? NoofDays { get; set; }
+
+        public string ProfileID { get; set; }
+
+        public string HighPriority { get; set; }
+
+        public long? ReminderID { get; set; }
+
+        public string ReminderDate { get; set; }
+
+        public int? TicketTypeID { get; set; }
+
+        public long? ReminderRelationID { get; set; }
+
+        public string ReminderRelationName { get; set; }
+
+        public string Category { get; set; }
+
+        public string Reminderbody { get; set; }
+
+        public string Cust_Name { get; set; }
+
+        public string DOR { get; set; }
+
+        public string BranchCode { get; set; }
+
+        public string number { get; set; }
+
+        public string email { get; set; }
+
+        public string CustomerApplicationPhoto { get; set; }
+
+        public long? Cust_ID { get; set; }
+    }
+    public class MarketingTicketResponseHistory
+    {
+
+
+        public string TicketType { get; set; }
+
+        public DateTime? ReplyDatenew { get; set; }
+
+        public string ReplyDate { get; set; }
+
+        public string NAME { get; set; }
+
+        public string CallStatus { get; set; }
+
+        public string CallReceivedBy { get; set; }
+
+        public string RelationShip { get; set; }
+
+        public string ReplyDesc { get; set; }
+
+        public string MatchmeetingStatus { get; set; }
     }
 
 }

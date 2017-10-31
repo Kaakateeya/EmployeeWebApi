@@ -45,7 +45,8 @@ namespace WebapiApplication.Api
 
         public List<TicketHistoryinfoResponse> getMatchFollowupTicketinformation(long? Ticketid, char Type) { return this.IEmployeeReport.MatchFollowupTicketinformation(Ticketid, Type); }
 
-        public List<MarketingTicketResponse> getMarketingTicketinformation(long? Ticketid, char Type) { return this.IEmployeeReport.MarketingTicketinformation(Ticketid, Type); }
+        public List<MarketingTicketResponseinfo> getMarketingTicketinformation(long? Ticketid, char Type) { return this.IEmployeeReport.MarketingTicketinformation(Ticketid, Type); }
+        public List<MarketingTicketResponseHistory> getMarketingTickethistory(long? Ticketid, char Type) { return this.IEmployeeReport.MarketingTickethistory(Ticketid, Type); }
 
         public int MatchFollowupResendMail([FromBody]MatchFollowupResendMail ResendMail)
         {
@@ -65,8 +66,8 @@ namespace WebapiApplication.Api
 
         //public List<EmpCommunication> getEmployeeCommunicationLog(string ProfileID, int? intEmpId) { return this.IEmployeeReport.EmployeeCommunicationLog(ProfileID, intEmpId); }
         public ArrayList getEmployeeCommunicationLog(string ProfileID, int? intEmpId) { return this.IEmployeeReport.EmployeeCommunicationLog(ProfileID, intEmpId); }
-       
-        
+
+
         public Tuple<int, List<CommunicationLogResult>> EmployeeCommunicationLogRvrAndResend([FromBody]RvrRequest Mobj)
         {
             if (Mobj.isRvrflag == "RVR")
@@ -95,7 +96,22 @@ namespace WebapiApplication.Api
 
         // RegistrationValidation
 
-        public List<GetRegprofilevalidation> RegistrationValidation([FromBody]Regprofilevalidation RegValidation) { return this.IEmployeeReport.RegistrationValidation(RegValidation); }
+        public List<GetRegprofilevalidation> RegistrationValidation([FromBody]Regprofilevalidation RegValidation)
+        {
+            return this.IEmployeeReport.RegistrationValidation(RegValidation);
+
+        }
+        public List<GetRegprofilevalidationtable> RegistrationValidationtable([FromBody]Regprofilevalidation RegValidation)
+        {
+
+            return this.IEmployeeReport.RegistrationValidation_Table(RegValidation);
+
+
+        }
+
+        public List<GetRegprofilevalidation> RegistrationValidation_Counts([FromBody]Regprofilevalidation RegValidation) { return this.IEmployeeReport.RegistrationValidation_Counts(RegValidation); }
+
+
         public List<RegprofilevalidationPlaybutton> getRegistrationValidation_Playbutton(string Profileid) { return this.IEmployeeReport.RegistrationValidation_Playbutton(Profileid); }
 
         public int FeeUpdate(FeeUpdateML mobj) { return this.IEmployeeReport.FeeUpdate(mobj); }
@@ -148,7 +164,7 @@ namespace WebapiApplication.Api
 
         public ArrayList getDuplicateProfiles(string profileID) { return this.IEmployeeReport.getDuplicateProfiles(profileID); }
 
-        public ArrayList getmmSeriesData(string profileID, int empid) { return this.IEmployeeReport.getmmSeriesData(profileID,empid); }
+        public ArrayList getmmSeriesData(string profileID, int empid) { return this.IEmployeeReport.getmmSeriesData(profileID, empid); }
         public ArrayList Guestticketcreation([FromBody]guestticketcreation Mobj) { return this.IEmployeeReport.Guestticketcreation(Mobj); }
 
 
@@ -159,7 +175,7 @@ namespace WebapiApplication.Api
         public int getprofileidexistornot(string profileid) { return this.IEmployeeReport.profileidexistornot(profileid); }
         public ArrayList getpresentunpaidmembers(int? EmpID) { return this.IEmployeeReport.presentunpaidmember(EmpID); }
 
-        public int getUpadteMacAddess(string strProfileID, int? BranchID) { return this.IEmployeeReport.UpadteMacAddess(strProfileID, BranchID); }
+        public int getUpadteMacAddess(string strProfileID, string ipaddresss2, int? BranchID) { return this.IEmployeeReport.UpadteMacAddess(strProfileID, ipaddresss2, BranchID); }
 
         public ArrayList customermeassgeverification([FromBody]messagesverification Mobj) { return this.IEmployeeReport.customermeassgeverification(Mobj); }
 
@@ -185,14 +201,17 @@ namespace WebapiApplication.Api
         public int EmployeepaymentreportsSendsms([FromBody]paymentreportsms Mobj) { return this.IEmployeeReport.EmployeepaymentreportsSendsms(Mobj); }
 
         public ArrayList getPaymentoffersbasedonselect(string Profileid, int? casteid) { return this.IEmployeeReport.Paymentoffersbasedonselect(Profileid, casteid); }
-       /// <summary>
-       /// 
-       /// </summary>
-       /// <param name="Mobj"></param>
-       /// <returns></returns>
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mobj"></param>
+        /// <returns></returns>
+        /// 
+
         public int Editanddeleteupdateoffers([FromBody]paymenteditdelete Mobj) { return this.IEmployeeReport.Editanddeleteupdateoffers(Mobj); }
 
-      
+
         public int getVerifyProfileid(string profileid) { return this.IEmployeeReport.VerifyProfileid(profileid); }
 
 
@@ -205,6 +224,77 @@ namespace WebapiApplication.Api
         public int? getsendEmail_factResetPassword(string profileid) { return this.IEmployeeReport.sendEmail_factResetPassword(profileid, Commonclass.profileidEncrypt(profileid)); }
 
         public int? getsendEmail_ResetPassword(string profileid) { return this.IEmployeeReport.sendEmail_ResetPassword(profileid); }
+
+
+        public int Successstoriesupload([FromBody]emplyeeSuccessStoryML Mobj) { return this.IEmployeeReport.Successstoriesupload(Mobj); }
+
+        public int? getMarketingticketstatus(Int64? ticketid, string EmpID) { return this.IEmployeeReport.Marketingticketstatus(ticketid, EmpID); }
+
+        public ArrayList getAdminReportsAllProfiles(int? i_EmpID, string i_BranchID, int? i_Region, string v_MacAddress, int? flag, string v_ProfileOwnerEmpID) { return this.IEmployeeReport.AdminReportsAllProfiles(i_EmpID, i_BranchID, i_Region, v_MacAddress, flag, v_ProfileOwnerEmpID); }
+
+        public ArrayList getCheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB) { return this.IEmployeeReport.CheckSurNameNamedob(strSurName, StrName, dtDOB); }
+
+        public int? InsertResonForNoService([FromBody]insetnoserice Mobj) { return this.IEmployeeReport.InsertResonForNoService(Mobj); }
+
+        //string v_EmpID, int? i_Region, string v_Branch, int? i_flag, int? i_Cust_ID, string v_Reason, int? i_Authorized
+        public ArrayList Nomatchesreasons([FromBody]nomatchesreason Mobj) { return this.IEmployeeReport.Nomatchesreasons(Mobj); }
+
+
+        public ArrayList Oldkmplkeywordlikesearch([FromBody]CreateKeywordLlikesearchReqoldkmpl oldkmpl)
+        {
+            int status = 0;
+            List<CreateKeywordLlikesearchReqoldkmpl> lstkmpl = new List<CreateKeywordLlikesearchReqoldkmpl>();
+            lstkmpl.Add(oldkmpl);
+            oldkmpl.dtPartnerPreference = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtkeywordsearch(), lstkmpl);
+            return this.IEmployeeReport.Oldkmplkeywordlikesearch(oldkmpl);
+        }
+
+        public List<EmpNotifications> employeenotications([FromBody]EmpNotifications empnotification) { return this.IEmployeeReport.employeenotications(empnotification); }
+
+
+        public int? getnoserviceemailsfromcustomer(string profileid, int? empid) { return this.IEmployeeReport.noserviceemailsfromcustomer(profileid, empid); }
+
+        ////
+        public ArrayList keywordlikesearch([FromBody]keywordlikesearch keyword)
+        {
+
+            List<keywordlikesearch> lstkeyword = new List<keywordlikesearch>();
+            lstkeyword.Add(keyword);
+            keyword.dtPartnerPreference = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtlikekeywordsearch(), lstkeyword);
+            return this.IEmployeeReport.keywordlikesearch(keyword);
+        }
+
+        //06_10_2017
+
+        public int getInsertMatchfollowupExpressinterest([FromUri]int? fromcustid, [FromUri]int? tocustid, [FromUri] long? logID, [FromUri] string interstTYpe, [FromUri] int? empid) { return this.IEmployeeReport.InsertMatchfollowupExpressinterest(fromcustid, tocustid, logID, interstTYpe, empid); }
+
+        //11_10_2017_marketingtcket
+        public ArrayList getMarketingtickethistory(int? custid) { return this.IEmployeeReport.Marketingtickethistory(custid); }
+
+
+        //20_11_2017_Close Reminde Status
+        public int? CloseReminderStatus([FromBody]closereminder Mobj) { return this.IEmployeeReport.CloseReminderStatus(Mobj); }
+
+
+        //21_10_2017_ChangeempPassword
+        public int? getChangeEmppassword(string UserID) { return this.IEmployeeReport.ChangeEmppassword(UserID); }
+
+        //23_10_2017_getmatchfolowupticketSp
+
+        public ArrayList getMatchfollowupTicketStatus(long? Ticketid) { return this.IEmployeeReport.MatchfollowupTicketStatus(Ticketid); }
+
+
+        //27_10_2017_RestoredProfileid in Customer Profile Settings
+
+        public int? RestoredProfileidupdate([FromBody]RestoredProfileid Mobj) { return this.IEmployeeReport.RestoredProfileidupdate(Mobj); }
+
+        public ArrayList KeywordlikeSearchnewpage([FromBody]newkeywordlikesrch Mobj)
+        {
+            List<newkeywordlikesrch> lstkeyword = new List<newkeywordlikesrch>();
+            lstkeyword.Add(Mobj);
+            Mobj.dtPartnerPreference = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtlikekeywordsearchnew(), lstkeyword);
+            return this.IEmployeeReport.KeywordlikeSearchnewpage(Mobj);
+        }
 
     }
 }

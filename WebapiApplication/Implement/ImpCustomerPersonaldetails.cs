@@ -45,7 +45,7 @@ namespace WebapiApplication.Implement
         public int CandidateContactsendmailtoemailverify(long? CustID) { return customerdetails.CandidateContactsendmailtoemailverify(CustID, "[dbo].[Usp_ResendEmailVerficationLink]"); }
         public ArrayList ProfileIDPlaybutton(string ProfileID) { return customerdetails.ProfileIDPlaybutton(ProfileID, "[dbo].[Usp_GetFullInfoofCustomer_NewDesign]"); }
         public ArrayList ViewAllCustomersSettledeleteinfo(string CustID, string typeofdata) { return customerdetails.ViewAllCustomersSettledeleteinfo(CustID, typeofdata, "[dbo].[usp_ViewSettleDeleteProfiledsinfo_NewDesign]"); }
-        public ArrayList Search_ViewEditProfile(ViewEditProfileSearch Mobj) { return customerdetails.Search_ViewEditProfile(Mobj, "[dbo].[Usp_Search_ViewEditProfile]"); }
+        public ArrayList Search_ViewEditProfile(ViewEditProfileSearch Mobj) { return customerdetails.Search_ViewEditProfile(Mobj, Mobj.isSlide == true ? "[dbo].[Usp_Search_ViewEditProfile_Slide]" : "[dbo].[Usp_Search_ViewEditProfile_Table]"); }
 
     }
 
@@ -75,6 +75,11 @@ namespace WebapiApplication.Implement
         public int AstroDetailsUpdateDelete(AstroUploadDelete astroupdate) { return customerdetails.AstroDetailsUpdateDelete(astroupdate, "[dbo].[usp_AstroUpload_Delete]"); }
         public HoroGeneration GenerateHoroscorpe(int? customerid, string EmpIDQueryString, int? intDay, int? intMonth, int? intYear, int? CityID) { return customerdetails.GenerateHoroscorpe(customerid, EmpIDQueryString, intDay, intMonth, intYear, CityID); }
         public ArrayList Emplanding_counts_Admin(EmployeeLandingCount ecount) { return customerdetails.Emplanding_counts_Admin(ecount, "[dbo].[usp_emplanding_counts_Admin_New]"); }
+
+        public ArrayList Emplanding_counts_TablesDisplay(EmployeeLandingCount ecount) { return customerdetails.Emplanding_counts_TablesDisplay(ecount, "[dbo].[usp_emplanding_counts_Admin_New]"); }
+
+        
+
         public int UpdateSpoucedetails_Customersetails(UpdatePersonaldetails customerpersonaldetails) { return customerdetails.UpdateSpoucedetails_Customersetails(customerpersonaldetails, "[dbo].[usp_edit_Spoucedetails_CustomerEdit]"); }
         public int UpdateSpouseChildDetails(UpdatePersonaldetails customerpersonaldetails) { return customerdetails.UpdateSpouseChildDetails(customerpersonaldetails, "[dbo].[usp_edit_SpoucedetailsChildern_CustomerEdit_NewDesign]"); }
         public int CustomerContactDetails_Update(ContactDetals Mobj) { return customerdetails.CustomerContactDetails_Update(Mobj, "[dbo].[usp_edit_CustomerContactNumbers_EmployeeEdit_NewDesign]"); }

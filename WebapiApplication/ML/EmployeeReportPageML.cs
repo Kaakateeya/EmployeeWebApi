@@ -294,6 +294,44 @@ namespace WebapiApplication.ML
 
         public long? Row { get; set; }
 
+
+        public string LastLoginDate { get; set; }
+
+        public int? LoginCount { get; set; }
+
+        public string Thumbnailpath { get; set; }
+
+        public string qualification { get; set; }
+
+        public string Profession { get; set; }
+
+        public string JobLocation { get; set; }
+
+        public string MaritalStatus { get; set; }
+
+        public string Star { get; set; }
+
+        public string Gothram { get; set; }
+
+        public string TOB { get; set; }
+
+        public int? Property { get; set; }
+
+        public string Income { get; set; }
+
+        public string FFNative { get; set; }
+
+        public string MFNative { get; set; }
+
+        public string PlaceOfBirth { get; set; }
+
+        public bool Intercaste { get; set; }
+
+        public string fathercaste { get; set; }
+
+        public string mothercaste { get; set; }
+
+        public string currency { get; set; }
     }
 
     public class FeeUpdateML
@@ -432,13 +470,13 @@ namespace WebapiApplication.ML
     public class employeepaymentedit
     {
 
-        public Int64? Empid { get; set; }
-
-        public string aggredamount { get; set; }
-
-        public string paidamount { get; set; }
-
-        public string paymentdescription { get; set; }
+        public int? Empid { get; set; }
+        public int? intpaymentid { get; set; }
+        public int? intPaymentHisId { get; set; }
+        public string ProfileID { get; set; }
+        public Decimal? decgreedAmount { get; set; }
+        public Decimal? decPaidAmount { get; set; }
+        public string strPaydescription { get; set; }
     }
     public class insertemailsbounce
     {
@@ -529,7 +567,630 @@ namespace WebapiApplication.ML
         public int? intFlagID { get; set; }
     }
 
+    public class emplyeeSuccessStoryML
+    {
 
+
+
+        public Int64? EmpID { get; set; }
+
+        public Int64? BrideID { get; set; }
+
+        public string Bridename { get; set; }
+
+        public Int64? GroomID { get; set; }
+
+        public string Groomname { get; set; }
+
+        public DateTime? StartDate { get; set; }
+
+        public DateTime? EndDate { get; set; }
+
+        public string Attachphoto { get; set; }
+
+        public string SuccesSstory { get; set; }
+
+        public bool Displayinweb { get; set; }
+
+        public int? flag { get; set; }
+
+        public string strSuccessstories { get; set; }
+    }
+
+
+    public class insetnoserice
+    {
+        public int? intCust_ID { get; set; }
+
+        public string strProfileID { get; set; }
+
+        public int? intTicketOwnerID { get; set; }
+
+        public string strReason { get; set; }
+
+        public int? intEnteredBy { get; set; }
+    }
+    public class responsechksurname
+    {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Profileid { get; set; }
+        public int? Status { get; set; }
+    }
+    public class CreateKeywordLlikesearchReqoldkmpl
+    {
+
+
+        public string CEducationalDetails { get; set; }
+        public string CEducationCategory { get; set; }
+        public string CEduUniversity { get; set; }
+        public string CSecondaryQualification { get; set; }
+        public string CPrimaryQualification { get; set; }
+        public string CQualificationDetails { get; set; }
+        public string CJobLocation { get; set; }
+        public string Companyname { get; set; }
+        public string CMonthlysalary { get; set; }
+        public string CProfession { get; set; }
+        public string CprofessionDetails { get; set; }
+        public string CPropertyDetails { get; set; }
+        public string CpropertyType { get; set; }
+        public string CPropertyValue { get; set; }
+        public string CPlaceOfBirth { get; set; }
+        public string CGothram { get; set; }
+        public string CKujadosham { get; set; }
+        public string CLagnam { get; set; }
+        public string CMaternalGothram { get; set; }
+        public string CMotherTongue { get; set; }
+        public string CPaadam { get; set; }
+        public string CRaasi { get; set; }
+        public string CStar { get; set; }
+        public string CStarLanguage { get; set; }
+        public string CTimeofBirth { get; set; }
+        public string CApplicationStatus { get; set; }
+        public string Caste { get; set; }
+        public string CBornCitigen { get; set; }
+        public string CContactAddress { get; set; }
+        public string CContactNo { get; set; }
+        public string CDateofReg { get; set; }
+        public string CDOB { get; set; }
+        public string CEmailID { get; set; }
+        public string CFName { get; set; }
+        public string CLName { get; set; }
+        public string CPhotos { get; set; }
+        public string CRelision { get; set; }
+        public string CSubCaste { get; set; }
+        public string CFromAge { get; set; }
+        public string CFromHeight { get; set; }
+        public string CGender { get; set; }
+        public string CMaritalstatus { get; set; }
+        public string CToAge { get; set; }
+        public string CToHeight { get; set; }
+        public string CCityOfLiving { get; set; }
+        public string CDistrictOfLiving { get; set; }
+        public string CDomicile { get; set; }
+        public string CStateOfLiving { get; set; }
+        public string CPhNosOffice { get; set; }
+        public string CResidence { get; set; }
+        public string CMobile { get; set; }
+        public string CSecondary_EmailID { get; set; }
+        public string CPermt_Add { get; set; }
+        public string CNotes { get; set; }
+        public string CKnown_Language { get; set; }
+        public string CDiet { get; set; }
+        public string CSmoker { get; set; }
+        public string CDrinker { get; set; }
+        public string CBodyType { get; set; }
+        public string CFamilyValue { get; set; }
+        public string PAgeFrom { get; set; }
+        public string PAgeTo { get; set; }
+        public string PHeightFrom { get; set; }
+        public string PHeightTo { get; set; }
+        public string PCaste { get; set; }
+        public string PSubCaste { get; set; }
+        public string PCategory { get; set; }
+        public string PQualifications { get; set; }
+        public string PProfession { get; set; }
+        public string PJobPreference { get; set; }
+        public string PLocation { get; set; }
+        public string PAbroadPrefer { get; set; }
+        public string PCountry { get; set; }
+        public string PState { get; set; }
+        public string PDistrict { get; set; }
+        public string PMotherTongue { get; set; }
+        public string PComplexion { get; set; }
+        public string PPrefStars { get; set; }
+        public string PNonPrefStars { get; set; }
+        public string CBName { get; set; }
+        public string CBType { get; set; }
+        public string CBEducation { get; set; }
+        public string CBProfession { get; set; }
+        public string CBDesignation { get; set; }
+        public string CBJobLocation { get; set; }
+        public string CBPhone { get; set; }
+        public string CBEmail { get; set; }
+        public string CBWName { get; set; }
+        public string CBWEducation { get; set; }
+        public string CBWProfession { get; set; }
+        public string CBWDesignation { get; set; }
+        public string CBWPhone { get; set; }
+        public string CBWEmailId { get; set; }
+        public string CBWFatherName { get; set; }
+        public string CBWFatherSName { get; set; }
+        public string CBWFPhoneNumber { get; set; }
+        public string CBWFNativePlace { get; set; }
+        public string CSName { get; set; }
+        public string CSType { get; set; }
+        public string CSEducation { get; set; }
+        public string CSDesignation { get; set; }
+        public string CSJobLocation { get; set; }
+        public string CSPNumber { get; set; }
+        public string CSEmailID { get; set; }
+        public string CSHFirstName { get; set; }
+        public string CSHSurName { get; set; }
+        public string CSHEducation { get; set; }
+        public string CSHProfession { get; set; }
+        public string CSHDesignation { get; set; }
+        public string CSHNumber { get; set; }
+        public string CSHEmailID { get; set; }
+        public string CSHFName { get; set; }
+        public string CSHFPNumbe { get; set; }
+        public string CSHFNative { get; set; }
+        public string CSHCaste { get; set; }
+        public string FName { get; set; }
+        public string FEducation { get; set; }
+        public string FProfession { get; set; }
+        public string FPhone { get; set; }
+        public string FEmailId { get; set; }
+        public string FFName { get; set; }
+        public string FFPhone { get; set; }
+        public string FFEmailID { get; set; }
+        public string FFState { get; set; }
+        public string FFDistrict { get; set; }
+        public string FFNative { get; set; }
+        public string MName { get; set; }
+        public string MEducation { get; set; }
+        public string MProfession { get; set; }
+        public string MPhone { get; set; }
+        public string MEmailId { get; set; }
+        public string MFName { get; set; }
+        public string MFPhone { get; set; }
+        public string MFEmailID { get; set; }
+        public string MFState { get; set; }
+        public string MFDistrict { get; set; }
+        public string MFNative { get; set; }
+        public string MBName { get; set; }
+        public string MBType { get; set; }
+        public string MBProfession { get; set; }
+        public string MBPNumber { get; set; }
+        public string MBEmailId { get; set; }
+        public string MSName { get; set; }
+        public string MSType { get; set; }
+        public string MSHFName { get; set; }
+        public string MSHSName { get; set; }
+        public string MSHNative { get; set; }
+        public string MSHProfession { get; set; }
+        public string MSHPNumber { get; set; }
+        public string MSHEmailID { get; set; }
+        public string FBName { get; set; }
+        public string FBType { get; set; }
+        public string FBProfession { get; set; }
+        public string FBPNuFBer { get; set; }
+        public string FBEmailId { get; set; }
+        public string FSName { get; set; }
+        public string FSType { get; set; }
+        public string FSHFName { get; set; }
+        public string FSHSName { get; set; }
+        public string FSHNative { get; set; }
+        public string FSHProfession { get; set; }
+        public string FSHPNuFBer { get; set; }
+        public string FSHEmailID { get; set; }
+        public string CandidateAll { get; set; }
+        public string FatherAll { get; set; }
+        public string MotherAll { get; set; }
+        public string BrotherAll { get; set; }
+        public string SisterAll { get; set; }
+        public string MotherBortherAll { get; set; }
+        public string MotherSisterAll { get; set; }
+        public string FatherBrotheAll { get; set; }
+        public string FatherSisterAll { get; set; }
+        public string startindex { get; set; }
+        public string EndIndex { get; set; }
+        public string EmpID { get; set; }
+
+        public DataTable dtPartnerPreference { get; set; }
+    }
+    public class nomatchesreason
+    {
+        public string v_EmpID { get; set; }
+        public int? i_Region { get; set; }
+        public string v_Branch { get; set; }
+        public int? i_flag { get; set; }
+        public int? i_Cust_ID { get; set; }
+        public string v_Reason { get; set; }
+        public int? i_Authorized { get; set; }
+        public int? startindex { get; set; }
+        public int? endindex { get; set; }
+
+
+    }
+    public class EmpNotifications
+    {
+        public Int64? ICustID { get; set; }
+        public string strActionName { set; get; }
+        public int? iEmpID { set; get; }
+        public int i_display { set; get; }
+        public int? iNotificationID { set; get; }
+        public string strCustomerPhoto { set; get; }
+        public string strCustomerName { set; get; }
+        public string strProfileID { set; get; }
+        public int? NotifyCount { get; set; }
+        public int? CategoryID { get; set; }
+    }
+
+    public class keywordlikesearch
+    {
+
+
+        public DataTable dtPartnerPreference { get; set; }
+
+        public int? EmpID { get; set; }
+
+        public int? startindex { get; set; }
+
+        public int? EndIndex { get; set; }
+
+        public string ApplicationStatus { get; set; }
+
+
+        //
+        public string AllContactNo { get; set; }
+        public string AllEmails { get; set; }
+        public string AllSurNames { get; set; }
+        public string AllNatives { get; set; }
+        public string CEducationAll { get; set; }
+        public string CProfAll { get; set; }
+        public string FAllFields { get; set; }
+        public string MAllFields { get; set; }
+        public string Br_AllFields { get; set; }
+        public string Sr_AllFields { get; set; }
+        public string FB_AllFields { get; set; }
+        public string FS_AllFields { get; set; }
+        public string MB_AllFields { get; set; }
+        public string MS_AllFields { get; set; }
+        public string CAll { get; set; }
+        public int? Gender { get; set; }
+
+    }
+    public class closereminder
+    {
+        public long? Reminderid { get; set; }
+        public long? closeEmpid { get; set; }
+        public string ClosedReminderreason { get; set; }
+
+    }
+
+    public class RestoredProfileid
+    {
+        public long? CustID { get; set; }
+        public long? EmpID { get; set; }
+        public int? RequestedBY { get; set; }
+        public long? RequestedBYEmpID { get; set; }
+        public int? RelationshipID { get; set; }
+        public string Relationshipname { get; set; }
+        public string Reasonforrestore { get; set; }
+        public int? PriviousProfileStatus { get; set; }
+    }
+   
+
+    public class newkeywordlikesrch
+    {
+        //Candidates
+        public string Gender { get; set; }
+        public string maritalstatus { get; set; }
+        public string FromAge { get; set; }
+        public string ToAge { get; set; }
+        public string FromHeight { get; set; }
+        public string ToHeight { get; set; }
+        public string Caste { get; set; }
+
+        //
+        public string CEducationAll { get; set; }
+        public string CEducationCategory { get; set; }
+        public string CEduGroup { get; set; }
+        public string CEduSplecialization { get; set; }
+        public string CEduUniversity { get; set; }
+        public string CEduCollege { get; set; }
+        public string CEduCountry { get; set; }
+        public string CEduState { get; set; }
+        public string CEduDistrict { get; set; }
+        public string CEduCity { get; set; }
+        public string CEduMerits { get; set; }
+        public string CEduPass_Year { get; set; }
+
+        //Profession
+        public string CProfAll { get; set; }
+        public string EmployeedIn { get; set; }
+        public string Professionalgroup { get; set; }
+        public string Profession { get; set; }
+        public string Companyname { get; set; }
+        public string monthlysalary { get; set; }
+
+        public string countryworking { get; set; }
+        public string stateworking { get; set; }
+        public string districtworking { get; set; }
+        public string cityworking { get; set; }
+        public string workingfromdate { get; set; }
+        public string professionDetails { get; set; }
+
+        //Add Kiran 20/08/2016
+
+        public string CDOB { get; set; }
+        public string CColor { get; set; }
+        public string CPhotos { get; set; }
+        public string CBornCitigen { get; set; }
+        public string CRelision { get; set; }
+        public string CMotherTongue { get; set; }
+        public string CApplicationStatus { get; set; }
+        public string CDomicile { get; set; }
+        public string CRegionalOfBranch { get; set; }
+        public string CBranch { get; set; }
+        public string CDateofReg { get; set; }
+        public string CRegStatus { get; set; }
+        public string CPhotoGrade { get; set; }
+        public string CEducationGrade { get; set; }
+        public string CPropertyGrade { get; set; }
+        public string CFamilyGrade { get; set; }
+        public string CProfessionGrade { get; set; }
+        public string CPhysicalStatus { get; set; }
+        public string CDrink { get; set; }
+        public string CSmoke { get; set; }
+        public string CDiet { get; set; }
+        public string CBodyType { get; set; }
+        public string CParentCaste { get; set; }
+        public string CAboutMe { get; set; }
+        public string CAboutFamily { get; set; }
+        public string CWebsiteStatus { get; set; }
+        public string CCountryOfBirth { get; set; }
+        public string CStateOfBirth { get; set; }
+        public string CDistrictOfBirth { get; set; }
+        public string CCityOfBirth { get; set; }
+        public string CStarLanguage { get; set; }
+        public string CStar { get; set; }
+        public string CPaadam { get; set; }
+        public string CLagnam { get; set; }
+        public string CRaasi { get; set; }
+        public string CGothram { get; set; }
+        public string CMaternalGothram { get; set; }
+        public string CKujadosham { get; set; }
+        public string CHouseflatNumner { get; set; }
+        public string CApartmentName { get; set; }
+        public string CStreetName { get; set; }
+        public string CAreaName { get; set; }
+        public string CLandmark { get; set; }
+        public string CCountry { get; set; }
+        public string CSate { get; set; }
+        public string CDistrict { get; set; }
+        public string CCity { get; set; }
+        public string CZippin { get; set; }
+
+        public string SFName { get; set; }
+        public string SLName { get; set; }
+        public string SpouseEducation { get; set; }
+        public string SpouseProfession { get; set; }
+        public string SpouseMarriedOn { get; set; }
+        public string SpouseSeparatedDate { get; set; }
+        public string SpouseLegallyDivorced { get; set; }
+        public string SouseFatherName { get; set; }
+        public string SpouseFatherSurname { get; set; }
+        public string Spouseaboutpreviousmarriage { get; set; }
+        public string SpousefamilyPlaning { get; set; }
+        public string SspouseNoOfChildrens { get; set; }
+
+
+        public string RefName { get; set; }
+        public string RefSurname { get; set; }
+        public string Refprofession { get; set; }
+        public string Refcountry { get; set; }
+        public string RefState { get; set; }
+        public string RefDistrict { get; set; }
+        public string RefNativePlace { get; set; }
+        public string RefPresentLocation { get; set; }
+        public string RefMobile { get; set; }
+        public string ReflandLine { get; set; }
+        public string RefEmail { get; set; }
+        public string RefNarration { get; set; }
+
+        public string CFName { get; set; }
+        public string CLName { get; set; }
+        public string CpropertyType { get; set; }
+        public string CPropertyValue { get; set; }
+        public string CPropertyDescription { get; set; }
+        //
+        public string FFirstName { get; set; }
+        public string FEducationDetails { get; set; }
+        public string FProfessionDetails { get; set; }
+        public string FCompanyId { get; set; }
+        public string FJobLocation { get; set; }
+        public string FNumber { get; set; }
+        public string Femail { get; set; }
+        public string FFatherName { get; set; }
+        public string FFatherContactNumber { get; set; }
+        public string FFStateName { get; set; }
+        public string FFDistrictName { get; set; }
+        public string FFNativePlace { get; set; }
+        public string FAllFields { get; set; }
+
+        //Mother
+        //06/06/2016
+
+        public string MFirstName { get; set; }
+        public string MLastName { get; set; }
+        public string MEducationDetails { get; set; }
+        public string MProfessionDetails { get; set; }
+        public string MCompanyId { get; set; }
+        public string MJobLocation { get; set; }
+        public string MNumber { get; set; }
+        public string Memail { get; set; }
+        public string MFatherFirstName { get; set; }
+        public string MFatherLastName { get; set; }
+        public string MFatherContactNumber { get; set; }
+        public string MFStateName { get; set; }
+        public string MFDistrictName { get; set; }
+        public string MFNativePlace { get; set; }
+        public string MAllFields { get; set; }
+
+        //Brother
+        public string Br_AllFields { get; set; }
+        public string Br_Name { get; set; }
+        public string Br_Education { get; set; }
+        public string Br_Profession { get; set; }
+        public string Br_CompanyNAME { get; set; }
+        public string Br_Joblocation { get; set; }
+        public string BrContactNo { get; set; }
+
+        public string Br_Email { get; set; }
+        public string Brw_Name { get; set; }
+        public string Brw_Education { get; set; }
+        public string Brw_Profession { get; set; }
+        public string Brw_CompanyNAME { get; set; }
+        public string Brw_Joblocation { get; set; }
+        public string BrwContactNo { get; set; }
+
+        public string Brw_Email { get; set; }
+        public string Brwf_Surname { get; set; }
+        public string Brwf_Name { get; set; }
+        public string BrwfStateName { get; set; }
+        public string BrwfDistrictName { get; set; }
+        public string BrwfCity { get; set; }
+        //Sister
+        public string Sr_AllFields { get; set; }
+        public string Sr_Name { get; set; }
+        public string Sr_Education { get; set; }
+        public string Sr_Profession { get; set; }
+        public string Sr_CompanyNAME { get; set; }
+        public string Sr_Joblocation { get; set; }
+        public string SrContactNo { get; set; }
+
+        public string Sr_Email { get; set; }
+        public string Srh_Name { get; set; }
+        public string Srh_Education { get; set; }
+        public string Srh_Profession { get; set; }
+        public string Srh_CompanyNAME { get; set; }
+        public string Srh_Joblocation { get; set; }
+        public string SrhContactNo { get; set; }
+
+        public string Srh_Email { get; set; }
+        public string Srhf_Surname { get; set; }
+        public string Srhf_Name { get; set; }
+        public string SrhfStateName { get; set; }
+        public string SrhfDistrictName { get; set; }
+        public string SrhfCity { get; set; }
+        //father brother
+        public string FB_AllFields { get; set; }
+        public string FB_ElderYounger { get; set; }
+        public string FB_Name { get; set; }
+        public string FB_Education { get; set; }
+        public string FB_Profession { get; set; }
+        public string FB_Contactnumber { get; set; }
+        public string FB_Email { get; set; }
+        public string FB_professionlocation { get; set; }
+        //father sister
+        public string FS_AllFields { get; set; }
+        public string FS_Name { get; set; }
+        public string FSH_Surname { get; set; }
+        public string FSH_Name { get; set; }
+        public string FSH_Education { get; set; }
+        public string FSH_Profession { get; set; }
+        public string FSHContactNo { get; set; }
+        public string FSH_Email { get; set; }
+        public string FSH_ProfessionLocation { get; set; }
+        public string FSHStateName { get; set; }
+        public string FSHDistrictName { get; set; }
+        public string FSHCityName { get; set; }
+
+        //mother brother
+        public string MB_AllFields { get; set; }
+        public string MB_Name { get; set; }
+        public string MB_Education { get; set; }
+        public string MB_Profession { get; set; }
+        public string MB_ContactNo { get; set; }
+        public string MB_Email { get; set; }
+        public string MB_professionlocation { get; set; }
+        //mother sister
+        public string MS_AllFields { get; set; }
+        public string MS_Name { get; set; }
+        public string MSH_Surname { get; set; }
+        public string MSH_Name { get; set; }
+        public string MSH_Education { get; set; }
+        public string MSH_Profession { get; set; }
+        public string MSH_ContactNo { get; set; }
+        public string MSH_Email { get; set; }
+        public string MSH_ProfessionLocation { get; set; }
+        public string MSHStateName { get; set; }
+        public string MSHDistrictName { get; set; }
+        public string MSHCityName { get; set; }
+
+        //
+
+
+        public string startindex { get; set; }
+
+        public string EndIndex { get; set; }
+
+        public string EmpID { get; set; }
+
+        public string ApplicationStatus { get; set; }
+        public int? CDomiciletext { get; set; }
+
+        //Add Kiran 13/09/2016
+
+        public string Pr_Age_fr { set; get; }
+        public string Pr_Age_to { set; get; }
+        public string Pr_Hight_fr { set; get; }
+        public string Pr_Hight_to { set; get; }
+        public string Pr_MotherTongue { set; get; }
+        public string Pr_Religion { set; get; }
+        public string Pr_Caste { set; get; }
+        public string Pr_SubCaste { set; get; }
+        public string Pr_MaritalStatus { set; get; }
+        public string Pr_Education { set; get; }
+        public string Pr_Profession { set; get; }
+        public string Pr_Mangalic { set; get; }
+        public string Pr_StarLanguage { set; get; }
+        public string Pr_NonPreferredStar { set; get; }
+        public string Pr_Diet { set; get; }
+        public string Pr_PreferredCountry { set; get; }
+        public string Pr_PreferredState { set; get; }
+        public string Pr_Region { set; get; }
+        public string Pr_Branch { set; get; }
+
+        //contct All
+        public string CContactAddress_All { set; get; }
+        //public string CAll { get; set; }
+        //public string ContactNo_All { get; set; }
+        ////
+        //public string SLegallyDivorcedDate { get; set; }
+        //public string SNoofChilds_Boys { get; set; }
+        //public string SNoofChilds_Girls { get; set; }
+        //public string CSinceDate { get; set; }
+        //public string CArrivalDate { get; set; }
+        //public string CDepartureDate { get; set; }
+        //public string CVisaSatus { get; set; }
+        //public string CSalaryCurrency { get; set; }
+        //public string CTimeofBirth { get; set; }
+        //public string CMeternalGothram { get; set; }
+        //public string RefRelationShipType { get; set; }
+        //public string CProfileGrade { get; set; }
+        //public string CPhotoProtectStatus { get; set; }
+        //public string CConfidentialStatus { get; set; }
+        //public string CHighConfidentialStatus { get; set; }
+        //public string IsSeriousMatch { get; set; }
+        //public string AllEmails { get; set; }
+
+        public DataTable dtPartnerPreference { get; set; }
+
+        public string strShowprofile { get; set; }
+    }
 }
 
 

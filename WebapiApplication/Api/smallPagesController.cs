@@ -16,38 +16,13 @@ using System.Web.UI;
 using Ionic.Zip;
 using WebapiApplication.DAL;
 using System.Net.Http.Headers;
+using WebapiApplication.UserDefinedTable;
 
 namespace WebapiApplication.Api
 {
     public class smallPagesController : ApiController
     {
-        //// GET api/<controller>
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
-
-        //// GET api/<controller>/5
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
-        //// POST api/<controller>
-        //public void Post([FromBody]string value)
-        //{
-        //}
-
-        //// PUT api/<controller>/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
-
-        //// DELETE api/<controller>/5
-        //public void Delete(int id)
-        //{
-        //}
-
+      
         //private readonly ISmallPages Iobj = new ImpSmallPages();
         private readonly ISmallPages Iobj;
 
@@ -169,9 +144,48 @@ namespace WebapiApplication.Api
 
         public int employeeCreation(EmployeeCreationInput mobj)
         {
+            mobj.Password = !string.IsNullOrEmpty(mobj.Password) ? Commonclass.Encrypt(mobj.Password) : mobj.Password;
+            List<EmployeeCreationInput> lstEmp = new List<EmployeeCreationInput>();
+            lstEmp.Add(mobj);
+            mobj.dtEmployeecreation = Commonclass.returnListDatatable(PersonaldetailsUDTables.getEmployeeDatanew(), lstEmp);
             return Iobj.employeeCreation(mobj);
         }
 
+        public string getLoginName(int intHomeBrchID) { return Iobj.getLoginName(intHomeBrchID); }
+        public EmpAssignCounts getEmpWorkAssignCounts(int EmpID) { return Iobj.getEmpWorkAssignCounts(EmpID); }
+
+        public int setEmpAssignCounts(EmpAssignCounts mobj) { return Iobj.setEmpAssignCounts(mobj); }
+        public ArrayList loginLogOutReport(EmpLoginLogoutReportML mobj) { return Iobj.loginLogOutReport(mobj); }
+        public int getinsertImagepath(long whereId, string strvalue, string flag) { return Iobj.getinsertImagepath(whereId, strvalue, flag); }
+
+        public ArrayList empWorksheet(EmpWorkSheetMl mobj) { return Iobj.empWorksheet(mobj); }
+        public int getEmpLogout(int empid) { return Iobj.empLogout(empid); }
+        public ArrayList mediaterRegValidation(mediaterRegFormValidation mobj) { return Iobj.mediaterRegValidation(mobj); }
+        public ArrayList EmployeeCommunicationLogNew(CommunicationRequest mobj) { return Iobj.EmployeeCommunicationLogNew(mobj); }
+        public int getdeleteSettleForm(int settleID) { return Iobj.deleteSettleForm(settleID); }
+
+        public ArrayList ViewSuccessStories(viewSuccessStoriesRequest sObj) { return Iobj.ViewSuccessStories(sObj); }
+        public Tuple<int, ArrayList> GetbrideGroomData(string profileID, int iFlag) { return Iobj.GetbrideGroomData(profileID, iFlag); }
+        public Tuple<int, ArrayList> GetbrideGroomDataNew(string profileID, int iFlag) { return Iobj.GetbrideGroomDataNew(profileID, iFlag); }
+
+        public int createSuccessStories(createSuccessStoryRequest mobj) { return Iobj.createSuccessStories(mobj); }
+        [HttpGet]
+        public int deleteSucessStories(string sucessStoryID, string brideProfileID, string groomProfileID) { return Iobj.deleteSucessStories(sucessStoryID,brideProfileID, groomProfileID); }
+        public ArrayList matchMeetingCountReport(matchMeetingCountMl mobj) { return Iobj.matchMeetingCountReport(mobj); }
+        public ArrayList matchMeetingCountInfo(matchMeetingCountInfoMl mobj) { return Iobj.matchMeetingCountInfo(mobj); }
+        public ArrayList settleDeleteProfilesReport(settleDeleteProfilesReport mobj) { return Iobj.ProfileDeleteProfilesReport(mobj); }
+        //public int restoreProfile(restoreProfile mobj) { return Iobj.restoreProfile(mobj); }
+
+        public int getcheckStatus(string whereID, string secondwhereID, string flag) { return Iobj.checkStatus(whereID,secondwhereID, flag); }
+        public ArrayList SettledProfilesInfo(settledProfilesRequest mobj) { return Iobj.SettledPrfofilesInfo(mobj); }
+        public ArrayList noProfileGrade(noProfileGradeRequest mobj) { return Iobj.noProfileGrade(mobj); }
+        public int insertsettleAmountInfo(insertSettlAmountRequest mobj) { return Iobj.insertsettleAmountInfo(mobj); }
+        public List<settleInfo> getSettleInfo(string profileid) { return Iobj.getSettleInfo(profileid); }
+        public ArrayList GetDataStaging(string CustID) { return Iobj.GetDataStaging(CustID); }
+        public int UpdateGrading(NoProfileGradingMl mobj) { return Iobj.UpdateGrading(mobj); }
+
+        public ArrayList listOFServiceGiven(ListOfServicesTakenM1 mobj) { return Iobj.listOFServiceGiven(mobj); }
+        public ArrayList emailBouncelist(EmailBounceReports mobj) { return Iobj.emailBouncelist(mobj); }
 
     }
 }

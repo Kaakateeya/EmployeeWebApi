@@ -625,7 +625,7 @@ namespace WebapiApplication.ML
         public string latitude { get; set; }
         public string strTime { get; set; }
         public string oldcityname { get; set; }
-        public const string fullpath = "http://kaakateeya.com/access/Images/HoroscopeImages/";
+        public const string fullpath = "http://localhost:7000/showHoro";
         public const string str = "http://www.astrovisiononline.com/avservices/singlepagehoro/inserttolsdb_v3.php?data=<DATA><BIRTHDATA><CUSTID>";
 
         public int? CityOfBirthID { get; set; }
@@ -741,53 +741,11 @@ namespace WebapiApplication.ML
     public class ViewAllCustomersSearch
     {
 
-        public long? CustID { get; set; }
-        public string LastName { get; set; }
-        public string CasteName { get; set; }
-        public string ProfileOwner { get; set; }
-        public string LoginStatus { get; set; }
-        public string Height { get; set; }
-        public string FirstName { get; set; }
-        public string educationgroup { get; set; }
-        public int? GenderID { get; set; }
-        public string Gender { get; set; }
-        public string Age { get; set; }
-        public int? ProfileStatusID { get; set; }
-        public string Confidential { get; set; }
-        public string ProfileID { get; set; }
-        public int? TotalRows { get; set; }
-        public int? Totalpages { get; set; }
-        public string Profession { get; set; }
-        public long? FamilyID { get; set; }
-        public string MotherTongueName { get; set; }
-        public string Email { get; set; }
-        public long? Cust_Family_ID { get; set; }
-        public string CreatedDate { get; set; }
-        public string Reason4InActive { get; set; }
-        public int? CountryCodeID { get; set; }
-        public int? MatchMeetingCount { get; set; }
-        public string TicketID { get; set; }
-        public string SAForm { get; set; }
-        public bool CEmailVerStatus { get; set; }
-        public bool CNumberVerStatus { get; set; }
-        public string Points { get; set; }
-        public string ExpiryDate { get; set; }
-        public string SRCount { get; set; }
-        public string UserName { get; set; }
-        public string EmpName { get; set; }
-        public string ContactNumber { get; set; }
-        public string PaidAmount { get; set; }
-        public string HoroScopeImage { get; set; }
-        public string Primarynumber { get; set; }
-        public string Primaryemail { get; set; }
-        public string EmpUserName { get; set; }
-        public string ProfileOwnername { get; set; }
-        public long? Emp_Ticket_ID { get; set; }
-        public string offlinepaidcls { get; set; }
-        public string onlinepaidcls { get; set; }
-        public string offlinepaid { get; set; }
-        public string onlinepaid { get; set; }
+
         public string Cust_ID { get; set; }
+
+        public string ProfileID { get; set; }
+
         public string KMPLID { get; set; }
 
         public int? paid { get; set; }
@@ -796,55 +754,50 @@ namespace WebapiApplication.ML
 
         public bool SuperConfidentila { get; set; }
 
-        public int? NoOfSisters { get; set; }
+        public string FirstName { get; set; }
 
-        public int? NoOfBrothers { get; set; }
+        public string LastName { get; set; }
 
         public string Caste { get; set; }
 
         public int? ProfileGrade { get; set; }
 
+        public int? TotalRows { get; set; }
+        public string SRCount { get; set; }
+
+        public string ExpiryDate { get; set; }
+
+        public string Points { get; set; }
+
+        public bool CNumberVerStatus { get; set; }
+
+        public bool CEmailVerStatus { get; set; }
+
+        public string SAForm { get; set; }
+
+        public string TicketID { get; set; }
+
+        public int? MatchMeetingCount { get; set; }
+
+        public int? CountryCodeID { get; set; }
+
+        public string Reason4InActive { get; set; }
+
         public string mothertongue { get; set; }
 
         public int? PhotoCount { get; set; }
 
+        public string CreatedDate { get; set; }
+
+        public long? Cust_Family_ID { get; set; }
+
+        public string Gender { get; set; }
+
         public string SubCaste { get; set; }
-
-        public string Color { get; set; }
-
-        public string EducationGroup { get; set; }
-
-        public string JobLocation { get; set; }
-
-        public string countrylivingin { get; set; }
-
-        public string MaritalStatusID { get; set; }
-
-        public string Star { get; set; }
-
-        public string Gothram { get; set; }
-
-        public string educationspecialisation { get; set; }
-
-        public string EduGroupnamenew { get; set; }
-
-        public string TOB { get; set; }
-
-        public string Employeedin { get; set; }
-
-        public string Income { get; set; }
-
-        public string FFNative { get; set; }
-
-        public string MFNative { get; set; }
-
-        public string PlaceOfBirth { get; set; }
 
         public string Photo { get; set; }
 
         public string PhotoNames { get; set; }
-
-        public string currency { get; set; }
 
         public bool Ownerflag { get; set; }
 
@@ -856,27 +809,98 @@ namespace WebapiApplication.ML
 
         public string OwnerName { get; set; }
 
-        public string DOB { get; set; }
+        public int? HoroscopeStatus { get; set; }
 
-        public string LastLoginDate { get; set; }
+        public long? Emp_Ticket_ID { get; set; }
 
-        public string DOR { get; set; }
+        public string ProfileOwnername { get; set; }
+
+        public string EmpUserName { get; set; }
+
+        public string Primaryemail { get; set; }
+
+        public string Primarynumber { get; set; }
+
+        public string HoroScopeImage { get; set; }
 
         public string ApplicationPhotoPath { get; set; }
 
-        public int? HoroscopeStatus { get; set; }
+        public string LastLoginDate { get; set; }
 
-        public string serviceDate { get; set; }
+        public string PaidAmount { get; set; }
 
-        public int? Property { get; set; }
+        public string DOR { get; set; }
+    }
+    public class ViewAllCustomersSearchnew
+    {
+        public long? CustID { get; set; }
 
-        public int? LoginCount { get; set; }
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string CasteName { get; set; }
+
+        public string ProfileOwner { get; set; }
+
+        public string Height { get; set; }
+
+        public string LoginStatus { get; set; }
+
+        public string educationgroup { get; set; }
+
+        public string Age { get; set; }
+
+        public int? GenderID { get; set; }
+
+        public int? ProfileStatusID { get; set; }
+
+        public string Confidential { get; set; }
+
+        public string ProfileID { get; set; }
+
+        public int? TotalRows { get; set; }
+
+        public int? Totalpages { get; set; }
+
+        public string Profession { get; set; }
+    }
+    public class ViewAllCustomersSearchtable
+    {
+
+        public long? CustID { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string CasteName { get; set; }
+
+        public string ProfileOwner { get; set; }
+
+        public string Height { get; set; }
+
+        public string LoginStatus { get; set; }
+
+        public string educationgroup { get; set; }
+
+        public string Age { get; set; }
+
+        public int? GenderID { get; set; }
+
+        public int? ProfileStatusID { get; set; }
+
+        public string Confidential { get; set; }
+
+        public string ProfileID { get; set; }
+
+        public int? TotalRows { get; set; }
+        public string Profession { get; set; }
 
         public int? PaidSatus { get; set; }
 
         public long? ProfileOwnerID { get; set; }
     }
-
     public class ProfilePaymentGridView
     {
         public string ProfileID { get; set; }
@@ -1155,6 +1179,8 @@ namespace WebapiApplication.ML
         public string Gotram { get; set; }
 
         public string Surname { get; set; }
+
+        public string SubCasteID { get; set; }
     }
 
     public class slideshowNew
@@ -1239,6 +1265,10 @@ namespace WebapiApplication.ML
         public long? Cust_ProfileInterestsLog_ID { get; set; }
         public string FTicketStatus { set; get; }
         public string TTicketStatus { set; get; }
+
+        public string MotherTongue { get; set; }
+
+        public string CompanyName { get; set; }
     }
 
     public class EmployeeSearch
@@ -1306,7 +1336,10 @@ namespace WebapiApplication.ML
         public string DOBTo { set; get; }
         public string EmpIds { set; get; }
         // public int? ParentInterCaste { set; get; }
-
+        public string SubCasteID { set; get; }
+        //08/09/2017 added by lakshmi
+        public int? FatherCaste { set; get; }
+        public int? MotherCaste { set; get; }
     }
 
     public class TAdvanceSearch
@@ -1429,6 +1462,10 @@ namespace WebapiApplication.ML
         public string EmpIds { set; get; }
         // public int? ParentInterCaste { set; get; }
 
+        public string SubCasteID { set; get; }
+        //08/09/2017 added by lakshmi
+        public int? FatherCaste { set; get; }
+        public int? MotherCaste { set; get; }
     }
 
     //property details
@@ -1618,4 +1655,190 @@ namespace WebapiApplication.ML
         public string KeyName { get; set; }
         public string strTestPath { get; set; }
     }
+
+    public class ListOfServicesTakenM1
+    {
+        public Int64? AppUserId { get; set; }
+        public int intlowerBound { get; set; }
+        public int intUpperBound { get; set; }
+        public int PageSize { get; set; }
+        public int PageNumber { get; set; }
+        public int flag { get; set; }
+        public DataTable dtApplicationStatus { get; set; }
+        public string strApplicationStatus { get; set; }
+        public DataTable dtCaste { get; set; }
+        public string strCaste { get; set; }
+
+        public DataTable dtBranch { get; set; }
+        public string strBranch { get; set; }
+        public DataTable dtOwneroftheProfile { get; set; }
+        public string strOwneroftheProfile { get; set; }
+        public DataTable dtservicetakeby { get; set; }
+        public string strservicetakeby { get; set; }
+        public int? IsConfidential { get; set; }
+        public DateTime? ServiceTakenFromDate { get; set; }
+        public int? StartIndex { get; set; }
+        public int? EndIndex { get; set; }
+        public int? ResultFlag { get; set; }
+        public DateTime? ServiceTakenToDate { get; set; }
+    }
+
+    public class EmailBounceReports
+    {
+        public string strProfileID{ get; set; }
+        public string BouncedEmail{ get; set; }
+        public DataTable dtAppllicationStatus{ get; set; }
+        public string strAppllicationStatus { get; set; }
+        public bool? isConfidential{ get; set; }
+        public string strCaste{ get; set; }
+        public DataTable dtCaste { get; set; }
+        public DataTable dtBranch{ get; set; }
+        public string strBranch { get; set; }
+        public DataTable dtOwnerOfProfile{ get; set; }
+        public string strOwnerOfProfile { get; set; }
+        public DateTime? StartDate{ get; set; }
+        public DateTime? EndDate{ get; set; }
+        public DataTable dtModifiedBy{ get; set; }
+        public string strModifiedBy { get; set; }
+        public DateTime? ModifiedStartDate{ get; set; }
+        public DateTime? ModifiedEndDate{ get; set; }
+        public int? GenderID{ get; set; }
+        public int? rangeFrom{ get; set; }
+        public int? rangeTo{ get; set; }
+        public int PageSize { get; set; }
+        public int PageNumber { get; set; }
+        public int flag { get; set; }
+    }
+
+
+    public class keywordslideshowNew
+    {
+        public string Cust_ID { get; set; }
+        public int? paid { get; set; }
+        public string ProfileID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Name { get; set; }
+        public string SurName { get; set; }
+        public string DOB { get; set; }
+        public int? Age { get; set; }
+        public string Height { get; set; }
+        public string Caste { get; set; }
+        public string Education { get; set; }
+        public string EducationGroup { get; set; }
+        public string EduGroupnamenew { get; set; }
+        public string Profession { get; set; }
+        public string JobLocation { get; set; }
+        public string Income { get; set; }
+        public string Property { get; set; }
+        public string companyname { get; set; }
+        public string PlaceOfBirth { get; set; }
+        public string TOB { get; set; }
+        public string Gothram { get; set; }
+        public string Star { get; set; }
+        public string FFNative { get; set; }
+        public string MFNative { get; set; }
+        public string KMPLID { get; set; }
+        public bool? IsConfidential { get; set; }
+        public int? SuperConfidentila { get; set; }
+        public int? HoroscopeStatus { get; set; }
+        public string PhotoNames { get; set; }
+        public string Photo { get; set; }
+        public string ApplicationPhotoPath { get; set; }
+        public string HoroscopePath { get; set; }
+        public string email { get; set; }
+        public int? NoOfBrothers { get; set; }
+        public int? NoOfSisters { get; set; }
+        public int? CasteID { get; set; }
+        public int? HeightInCentimeters { get; set; }
+        public int? MaritalStatusID { get; set; }
+        public string Color { get; set; }
+        public string currency { get; set; }
+        public bool? Intercaste { get; set; }
+        public string fathercaste { get; set; }
+        public string mothercaste { get; set; }
+        public int? PhotoCount { get; set; }
+        public string imageurl { get; set; }
+        public object Agemin { get; set; }
+        public object Agemax { get; set; }
+        public object Heightmin { get; set; }
+        public object Heightmax { get; set; }
+        public string serviceDate { get; set; }
+        public string maritalstatus { get; set; }
+        public Int64? TotalRows { get; set; }
+        public string Totalpages { get; set; }
+        public string MinHeight { get; set; }
+        public string MaxHeight { get; set; }
+        public string AgeMax { get; set; }
+        public string GenderID { get; set; }
+        public string SubCaste { get; set; }
+        public string mothertongue { get; set; }
+        public string countrylivingin { get; set; }
+        public string educationspecialisation { get; set; }
+        public string Employeedin { get; set; }
+        public bool Ownerflag { get; set; }
+        public string RegistrationDate { get; set; }
+        public int? ProfileStatusID { get; set; }
+        public string Gender { get; set; }
+        public string CustomerApplicationPhoto { get; set; }
+        public string CustomerFullPhoto { get; set; }
+        public Int32? TotalRowsKeyword { get; set; }
+        public string OppStatus { get; set; }
+        public string FromTicketIdSuf { get; set; }
+        public string ToTicketIDSuf { get; set; }
+        public long? FromTicketID { get; set; }
+        public string Mystatus { get; set; }
+        public long? ToTicketID { get; set; }
+
+        public long? Cust_ProfileInterestsLog_ID { get; set; }
+        public string FTicketStatus { set; get; }
+        public string TTicketStatus { set; get; }
+
+        public string MotherTongue { get; set; }
+
+        public string CompanyName { get; set; }
+
+        public string LastLoginDT { get; set; }
+
+        public string LastLoginDate { get; set; }
+
+        public int? LoginCount { get; set; }
+
+        public int? ProfileGrade { get; set; }
+
+        public int? IsPaidMember { get; set; }
+
+        public string OwnerName { get; set; }
+
+        public string SRCount { get; set; }
+
+        public string ExpiryDate { get; set; }
+
+        public string Points { get; set; }
+
+        public string TicketID { get; set; }
+
+        public long? Emp_Ticket_ID { get; set; }
+
+        public int? MatchMeetingCount { get; set; }
+
+        public string ProfileOwnername { get; set; }
+
+        public string EmpUserName { get; set; }
+
+        public string SAForm { get; set; }
+
+        public bool? CNumberVerStatus { get; set; }
+
+        public bool? CEmailVerStatus { get; set; }
+
+        public string Primarynumber { get; set; }
+
+        public string Primaryemail { get; set; }
+
+        public string Payment { get; set; }
+
+        public string CreatedDate { get; set; }
+    }
+
 }

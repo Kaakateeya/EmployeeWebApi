@@ -144,6 +144,10 @@ namespace WebapiApplication.ML
         public long? CustID { get; set; }
         public int? noofDays { get; set; }
         public string spName { get; set; }
+
+        public int? intEmpId { get; set; }
+
+        public string strFromStatus { get; set; }
     }
 
     public class BothsideInterest
@@ -222,6 +226,37 @@ namespace WebapiApplication.ML
         public int? ToPaidStatus { get; set; }
         public DateTime? FromExpiryDate { get; set; }
         public DateTime? ToExpiryDate { get; set; }
+
+        public long? Expressinterestlogid { get; set; }
+
+        public int? fromgenderid { get; set; }
+
+        public int? togenderid { get; set; }
+
+        public int? fromIsconfidential { get; set; }
+
+        public int? fromHighconfidential { get; set; }
+
+        public int? toIsconfidential { get; set; }
+
+        public int? toHighconfidential { get; set; }
+
+        public long? ToEmpownerid { get; set; }
+
+        public long? FromEmpownerid { get; set; }
+
+        public string fromEmpmobilenumber { get; set; }
+
+        public string toEmpmobilenumber { get; set; }
+
+        public string Tosurname { get; set; }
+
+        public string Fromsurname { get; set; }
+
+        public string fromonlyempname { get; set; }
+
+        public string toonlyempname { get; set; }
+        public long? ExpressinterestTologid{get;set;}
     }
 
     public class SearchML
@@ -654,6 +689,8 @@ namespace WebapiApplication.ML
         public Int32? Replaytypeid { get; set; }
         public int? RelationID { get; set; }
 
+
+        public bool? FollowupStatus { get; set; }
     }
 
     public class IncomingOutgoing

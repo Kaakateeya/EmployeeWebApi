@@ -205,58 +205,82 @@
             }
 
 
+            //var Mobj = {
+            //    "customerpersonaldetails": {
+            //        "FromCustID": 20556,
+            //        "EmpID": "2",
+            //        "emailaddress": "lakshmidevi407@gmail.com,kusumurugopalkrishna@gmail.com,kusumurugopalkrishna@gmail.com"
+            //    },
+            //    "GetDetails": [{
+            //        "FromProfileID": "010205568",
+            //        "ToProfileID": "210069845",
+            //        "EmpID": "2",
+            //        "ModeofService": 350,
+            //        "RelationShipID": 40,
+            //        "Name": "P.CHANDRIKA ",
+            //        "TypeOfService": 366,
+            //        "ProfileType": 358,
+            //        "Sendsms": 0,
+            //        "IsRvrSend": 1,
+            //        "SelectedImages": "img3.Jpg,img2.Jpg,img1.Jpg",
+            //        "Acceptlink": "",
+            //        "Rejectlink": "",
+            //        "EmailAddress": "lakshmidevi407@gmail.com,kusumurugopalkrishna@gmail.com,kusumurugopalkrishna@gmail.com",
+            //        "RVRAcceptlink": "",
+            //        "RVRRejectlink": ""
+            //    }, {
+            //        "FromProfileID": "010205568",
+            //        "ToProfileID": "210069818",
+            //        "EmpID": "2",
+            //        "ModeofService": 350,
+            //        "RelationShipID": 40,
+            //        "Name": "P.CHANDRIKA ",
+            //        "TypeOfService": 366,
+            //        "ProfileType": 358,
+            //        "Sendsms": 0,
+            //        "IsRvrSend": 1,
+            //        "SelectedImages": "img3.Jpg,img2.Jpg,img1.Jpg",
+            //        "Acceptlink": "",
+            //        "Rejectlink": "",
+            //        "EmailAddress": "lakshmidevi407@gmail.com,kusumurugopalkrishna@gmail.com,kusumurugopalkrishna@gmail.com",
+            //        "RVRAcceptlink": "",
+            //        "RVRRejectlink": ""
+            //    }]
+            //};
             var Mobj = {
-                "customerpersonaldetails": {
-                    "FromCustID": 20556,
-                    "EmpID": "2",
-                    "emailaddress": "lakshmidevi407@gmail.com,kusumurugopalkrishna@gmail.com,kusumurugopalkrishna@gmail.com"
-                },
                 "GetDetails": [{
-                    "FromProfileID": "010205568",
-                    "ToProfileID": "210069845",
-                    "EmpID": "2",
-                    "ModeofService": 350,
-                    "RelationShipID": 40,
-                    "Name": "P.CHANDRIKA ",
-                    "TypeOfService": 366,
-                    "ProfileType": 358,
-                    "Sendsms": 0,
-                    "IsRvrSend": 1,
-                    "SelectedImages": "img3.Jpg,img2.Jpg,img1.Jpg",
-                    "Acceptlink": "",
-                    "Rejectlink": "",
-                    "EmailAddress": "lakshmidevi407@gmail.com,kusumurugopalkrishna@gmail.com,kusumurugopalkrishna@gmail.com",
-                    "RVRAcceptlink": "",
-                    "RVRRejectlink": ""
-                }, {
-                    "FromProfileID": "010205568",
-                    "ToProfileID": "210069818",
-                    "EmpID": "2",
-                    "ModeofService": 350,
-                    "RelationShipID": 40,
-                    "Name": "P.CHANDRIKA ",
-                    "TypeOfService": 366,
-                    "ProfileType": 358,
-                    "Sendsms": 0,
-                    "IsRvrSend": 1,
-                    "SelectedImages": "img3.Jpg,img2.Jpg,img1.Jpg",
-                    "Acceptlink": "",
-                    "Rejectlink": "",
-                    "EmailAddress": "lakshmidevi407@gmail.com,kusumurugopalkrishna@gmail.com,kusumurugopalkrishna@gmail.com",
-                    "RVRAcceptlink": "",
-                    "RVRRejectlink": ""
-                }]
-            };
+                    Acceptlink: "",
+                    EmailAddress: "lakshmidevi407@gmail.com,hfshj@gmail.com",
+                    EmpID: "2",
+                    FromProfileID: "310910220",
+                    IsRvrSend: 1,
+                    ModeofService: 353,
+                    ProfileType: 358,
+                    RVRAcceptlink: "",
+                    RVRRejectlink: "",
+                    Rejectlink: "",
+                    RelationShipID: 0,
+                    SelectedImages: "img1.jpg,img2.jpg",
+                    Sendsms: 1,
+                    ToProfileID: "010970105",
+                    TypeOfService: 366
+                }],
+                "customerpersonaldetails": {
+                    EmpID: "2",
+                    FromCustID: 91022,
+                    emailaddress: "lakshmidevi407@gmail.com,hfshj@gmail.com"
+                }
 
+            };
             $("#Display").click(function() {
 
                 alert(Mobj);
 
                 $.ajax({
-                    url: 'http://localhost:63006/Api/MobileAppLanding/UpdateCustomerEmailMobileNumber_Verification',
-                    type: 'POST',
+                    url: 'http://localhost:63006/Api/ExpressInterest/ExpressInterest',
+                    type: 'get',
                     crossDomain: true,
-                    data: JSON.stringify(MobjMob),
+                    data: {ttttt:'fff'},
                     contentType: 'application/json',
                     success: function(data, textStatus, xhr) {
                         alert(JSON.stringify(data));
@@ -324,11 +348,26 @@
                     flag: 0,
                     profileownerid: null
                 }
+                var inputobj2 = {
+                    CityID: '',
+                    EmpIDQueryString: 2,
+                    customerid: 91035,
+                    intDay: 22,
+                    intMonth: 8,
+                    intYear: 1990
+                }
                 $.ajax({
-                    url: 'http://localhost:63006/Api/EmployeeReportPage/EmplyeepaymentReportspayment',
-                    type: 'POST',
+                    url: 'http://localhost:63006/Api/CustomerPersonalUpdate/getGenerateHoroscorpe',
+                    type: 'GET',
                     crossDomain: true,
-                    data: JSON.stringify(inputobj),
+                    data: {
+                        CityID: '',
+                        EmpIDQueryString: 2,
+                        customerid: 91035,
+                        intDay: 22,
+                        intMonth: 8,
+                        intYear: 1990
+                    },
                     contentType: 'application/json',
                     success: function(data, textStatus, xhr) {
                         alert(JSON.stringify(data));
@@ -406,14 +445,12 @@
 
             $("#80000").click(function() {
                 $.ajax({
-                    url: 'http://localhost:63006/Api/MobileAppLanding/getMobileAppLandingDisplay',
+                    url: 'http://localhost:63006/Api/StaticPages/getdecryptedProfileID',
                     type: 'GET',
                     crossDomain: true,
                     data: {
-                        CustID: '91022',
-                        PaidStatus: '1',
-                        Startindex: '1',
-                        EndIndex: '9'
+
+                        ProfileID: '+33rqWkZSEdfshBCIdr1g3LCk15DstYgYdY2NmNcMvU=',
                     },
                     contentType: 'application/json',
                     success: function(data, textStatus, xhr) {
@@ -451,21 +488,31 @@
             //});
 
 
-            var jsonbObj = [{
-                custid: '91022',
-                profileid: '310910220',
-                photoname: 'img2.jpg'
-            }, {
-                custid: '91022',
-                profileid: '310910220',
-                photoname: 'img1.jpg'
-            }];
+            var jsonbObj = {
+                "strMFFNativePlace": "",
+                "strFatherName": "",
+                "strMotherName": "",
+                "strFFName": "",
+                "strMFName": "",
+                "strMFSurName": "",
+                "strCustSurName": "yalamanchi",
+                "strCustName": "",
+                "strCaste": "",
+                "strAllPhones": "",
+                "strAllEmailIds": "",
+                "intAppicationStatusID": "",
+                "intGenderID": "",
+                "intEmpID": "2",
+                "i_Startindex": 1,
+                "i_EndIndex": 100,
+                "intflag": 0
+            };
 
 
             $("#btngetdata").click(function() {
-                alert(1);
+
                 $.ajax({
-                    url: 'http://http://183.82.0.58:8025/Api/smallPages/downloadImages',
+                    url: 'http://localhost:63006/Api/EmployeeReportPage/RegistrationValidationtable',
                     type: 'post',
                     crossDomain: true,
                     data: JSON.stringify(jsonbObj),
@@ -507,23 +554,580 @@
 </head>
 
 <body>
+    <html xmlns="http://www.w3.org/1999/xhtml">
 
-    <input type="button" id="Save" value="Save Data" />
-    <input type="button" id="Display" value="Display" />
-    <input type="button" id="test" value="Test" />
-    <input type="button" id="ClassData" value="ClassData" />
-    <input type="button" id="ClassData1" value="KKKK" />
-    <input type="button" id="ClassData2" value="Local" />
-    <input type="button" id="8070" value="8070" />
-    <input type="button" id="Display12" value="Display12" />
-    <input type="button" id="80000" value="80000" />
-    <input type="button" id="btngetdata" value="getdata" />
+    <head id="Head1" runat="server">
+        <title>Welcome to Kaakateeya</title>
+    </head>
 
-    <div id="result"></div>
-    <div>
-        Test Display
-        <a onclick="yourFunction(); return false;">One Way</a>
-    </div>
-</body>
+    <body>
+        <form id="form1" runat="server">
+            <div>
+                <b>IA=InActive,NSC=Noservice Count,&nbsp;&nbsp;&nbsp;WEB=No web Login, &nbsp;&nbsp;&nbsp; WOP=Without Photo,               
+                <br />
+                    <br />
+                    WOH=Without Horoscope,&nbsp;&nbsp;&nbsp;&nbsp;EMNV=Email&Mobile Not Verified.</b>
+                <br />
+                <br />
+            </div>
+            <div>
+                <b>Total=10618  IA=10,                Paid=1285,                &nbsp;&nbsp;&nbsp;Unpaid=9332,&nbsp;&nbsp;&nbsp; NSC=338<br />
+                    <br />
+                    WEB=6967,&nbsp;&nbsp;&nbsp;&nbsp;, WOP=3957,&nbsp;&nbsp;&nbsp;&nbsp;WOH =4608,&nbsp;&nbsp;&nbsp;&nbsp;EMNV=7143,&nbsp;&nbsp;&nbsp;&nbsp;Verf=10 </b>
+                <br />
+                <br />
+            </div>
+            </tr>
+            <table width="550px" style='border-style: solid; border-width: 3px;'>
+                <tr>
+                    <td style='width: 10px;'><b>EmpName  </b></td>
+                    <td style='width: 15px;'><b>Branch</b></td>
+                    <td style='width: 15px;'><b>Total</b></td>
+                    <td style='width: 15px;'><b>IA</b></td>
+                    <td style='width: 15px;'><b>Paid</b></td>
+                    <td style='width: 15px;'><b>Unpaid</b></td>
+                    <td style='width: 15px;'><b>NSC</b></td>
+                    <td style='width: 15px;'><b>WEB</b></td>
+                    <td style='width: 15px;'><b>WOP</b></td>
+                    <td style='width: 15px;'><b>WOH</b></td>
+                    <td style='width: 15px;'><b>EMNV</b></td>
+                    <td style='width: 15px;'><b>Verf</b></td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width: 15px;'>Neeraja</td>
+                    <td style='width: 15px;'>PY</td>
+                    <td style='width: 15px;'>2</td>
+                    <td style='width: 15px;'>0</td>
+                    <td style='width: 15px;'>0</td>
+                    <td style='width: 15px;'>2</td>
+                    <td style='width: 15px;'>-----</td>
+                    <td style='width: 15px;'>2</td>
+                    <td style='width: 15px;'>1</td>
+                    <td style='width: 15px;'>1</td>
+                    <td style='width: 15px;'>2</td>
+                    <td style='width: 15px;'>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width: 15px;'>Kalpana</td>
+                    <td style='width: 15px;'>PY</td>
+                    <td style='width: 15px;'>90</td>
+                    <td style='width: 15px;'>0</td>
+                    <td style='width: 15px;'>2</td>
+                    <td style='width: 15px;'>88</td>
+                    <td style='width: 15px;'>17</td>
+                    <td style='width: 15px;'>67</td>
+                    <td style='width: 15px;'>43</td>
+                    <td style='width: 15px;'>32</td>
+                    <td style='width: 15px;'>71</td>
+                    <td style='width: 15px;'>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width: 15px;'>Nithyapriya</td>
+                    <td style='width: 15px;'>PY</td>
+                    <td style='width: 15px;'>330</td>
+                    <td style='width: 15px;'>0</td>
+                    <td style='width: 15px;'>24</td>
+                    <td style='width: 15px;'>306</td>
+                    <td style='width: 15px;'>40</td>
+                    <td style='width: 15px;'>238</td>
+                    <td style='width: 15px;'>136</td>
+                    <td style='width: 15px;'>130</td>
+                    <td style='width: 15px;'>256</td>
+                    <td style='width: 15px;'>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width: 15px;'>Charmila</td>
+                    <td style='width: 15px;'>VE</td>
+                    <td style='width: 15px;'>357</td>
+                    <td style='width: 15px;'>0</td>
+                    <td style='width: 15px;'>20</td>
+                    <td style='width: 15px;'>337</td>
+                    <td style='width: 15px;'>5</td>
+                    <td style='width: 15px;'>265</td>
+                    <td style='width: 15px;'>132</td>
+                    <td style='width: 15px;'>165</td>
+                    <td style='width: 15px;'>231</td>
+                    <td style='width: 15px;'>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width: 15px;'>Vijaya</td>
+                    <td style='width: 15px;'>VE</td>
+                    <td style='width: 15px;'>332</td>
+                    <td style='width: 15px;'>0</td>
+                    <td style='width: 15px;'>41</td>
+                    <td style='width: 15px;'>291</td>
+                    <td style='width: 15px;'>9</td>
+                    <td style='width: 15px;'>270</td>
+                    <td style='width: 15px;'>119</td>
+                    <td style='width: 15px;'>157</td>
+                    <td style='width: 15px;'>232</td>
+                    <td style='width: 15px;'>1</td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width: 15px;'>Vijayakumari</td>
+                    <td style='width: 15px;'>MI</td>
+                    <td style='width: 15px;'>294</td>
+                    <td style='width: 15px;'>0</td>
+                    <td style='width: 15px;'>10</td>
+                    <td style='width: 15px;'>284</td>
+                    <td style='width: 15px;'>3</td>
+                    <td style='width: 15px;'>240</td>
+                    <td style='width: 15px;'>157</td>
+                    <td style='width: 15px;'>165</td>
+                    <td style='width: 15px;'>238</td>
+                    <td style='width: 15px;'>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width: 15px;'>parvathi</td>
+                    <td style='width: 15px;'>MI</td>
+                    <td style='width: 15px;'>264</td>
+                    <td style='width: 15px;'>0</td>
+                    <td style='width: 15px;'>17</td>
+                    <td style='width: 15px;'>247</td>
+                    <td style='width: 15px;'>1</td>
+                    <td style='width: 15px;'>200</td>
+                    <td style='width: 15px;'>153</td>
+                    <td style='width: 15px;'>174</td>
+                    <td style='width: 15px;'>212</td>
+                    <td style='width: 15px;'>0</td>
+                </tr>
 
-</html>
+
+                <tr>
+                    <td style='width: 15px;'>Dhanalakshmi</td>
+                    <td style='width: 15px;'>M1</td>
+                    <td style='width: 15px;'>431</td>
+                    <td style='width: 15px;'>1</td>
+                    <td style='width: 15px;'>30</td>
+                    <td style='width: 15px;'>401</td>
+                    <td style='width: 15px;'>5</td>
+                    <td style='width: 15px;'>301</td>
+                    <td style='width: 15px;'>200</td>
+                    <td style='width: 15px;'>239</td>
+                    <td style='width: 15px;'>310</td>
+                    <td style='width: 15px;'>1</td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width: 15px;'>DHATCHAYANI</td>
+                    <td style='width: 15px;'>M1</td>
+                    <td style='width: 15px;'>493</td>
+                    <td style='width: 15px;'>0</td>
+                    <td style='width: 15px;'>36</td>
+                    <td style='width: 15px;'>457</td>
+                    <td style='width: 15px;'>-----</td>
+                    <td style='width: 15px;'>352</td>
+                    <td style='width: 15px;'>180</td>
+                    <td style='width: 15px;'>225</td>
+                    <td style='width: 15px;'>367</td>
+                    <td style='width: 15px;'>1</td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width: 15px;'>Pushpavathi</td>
+                    <td style='width: 15px;'>CE</td>
+                    <td style='width: 15px;'>118</td>
+                    <td style='width: 15px;'>0</td>
+                    <td style='width: 15px;'>7</td>
+                    <td style='width: 15px;'>111</td>
+                    <td style='width: 15px;'>-----</td>
+                    <td style='width: 15px;'>83</td>
+                    <td style='width: 15px;'>42</td>
+                    <td style='width: 15px;'>57</td>
+                    <td style='width: 15px;'>92</td>
+                    <td style='width: 15px;'>0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                    <td>
+                        <hr width="100%" align="right">
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width: 15px;'>Venishree</td>
+                    <td style='width: 15px;'>CE</td>
+                    <td style='width: 15px;'>313</td>
+                    <td style='width: 15px;'>0</td>
+                    <td style='width: 15px;'>6</td>
+                    <td style='width: 15px;'>307</td>
+                    <td style='width: 15px;'>20</td>
+                    <td style='width: 15px;'>207</td>
+                    <td style='width: 15px;'>72</td>
+                    <td style='width: 15px;'>84</td>
+                    <td style='width: 15px;'>210</td>
+                    <td style='width: 15px;'>0</td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td style='width: 15px;'>Geethapriya</td>
+                    <td style='width: 15px;'>M2</td>
+                    <td style='width: 15px;'>96</td>
+                    <td style='width: 15px;'>0</td>
+                    <td style='width: 15px;'>0</td>
+                    <td style='width: 15px;'>96</td>
+                    <td style='width: 15px;'>-----</td>
+                    <td style='width: 15px;'>8
+                        <input type="button" id="Save" value="Save Data" />
+                        <input type="button" id="Display" value="Display" />
+                        <input type="button" id="test" value="Test" />
+                        <input type="button" id="ClassData" value="ClassData" />
+                        <input type="button" id="ClassData1" value="KKKK" />
+                        <input type="button" id="ClassData2" value="Local" />
+                        <input type="button" id="8070" value="8070" />
+                        <input type="button" id="Display12" value="Display12" />
+                        <input type="button" id="80000" value="80000" />
+                        <input type="button" id="btngetdata" value="getdata" />
+
+                        <div id="result"></div>
+                        <div>
+                            Test Display
+                            <a onclick="yourFunction(); return false;">One Way</a>
+                        </div>
+    </body>
+
+    </html>
