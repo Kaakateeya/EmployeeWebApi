@@ -279,6 +279,7 @@ namespace WebapiApplication.UserDefinedTable
             dtPartberPref.Columns.Add("GenderID");
             dtPartberPref.Columns.Add("Region");
             dtPartberPref.Columns.Add("Branch");
+            dtPartberPref.Columns.Add("Domacile");
             return dtPartberPref;
         }
 

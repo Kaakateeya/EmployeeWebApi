@@ -87,6 +87,10 @@ namespace WebapiApplication.Api
 
         public string getdecryptedProfileID(string ProfileID) { return Commonclass.Decrypt_new(ProfileID); }
 
+
+        public string getencryptedProfileID(string ProfileID) { return Commonclass.profileidEncrypt(ProfileID); }
+
+
     }
 }
 

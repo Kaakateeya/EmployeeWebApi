@@ -392,6 +392,7 @@ namespace WebapiApplication.DAL
                         MObjPartnerML.RegionName = (reader["RegionName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("RegionName")) : null;
                         MObjPartnerML.BranchName = (reader["BranchName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("BranchName")) : null;
                         MObjPartnerML.EmpLastModificationDate = (reader["EmpLastModificationDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpLastModificationDate")) : null;
+                        MObjPartnerML.Domicel = (reader["Domicel"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Domicel")) : null;
                         arrayList.Add(MObjPartnerML);
                     }
                 }

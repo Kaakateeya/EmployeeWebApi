@@ -262,6 +262,7 @@ namespace WebapiApplication.ML
         public int? GenderID { get; set; }
         public string Region { get; set; }
         public string Branch { get; set; }
+        public string Domacile { get; set; }
     }
     public class TSibBrother
     {
@@ -1128,6 +1129,8 @@ namespace WebapiApplication.ML
         public int? startindex { get; set; }
 
         public int? EndIndex { get; set; }
+
+        public string Domicel { get; set; }
     }
 
 
