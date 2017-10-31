@@ -5304,7 +5304,7 @@ namespace WebapiApplication.DAL
                 {
                     while (reader.Read())
                     {
-                        slideshowNew sh = new slideshowNew();
+                        keywordslideshowNew sh = new keywordslideshowNew();
 
                         {
                             sh.Cust_ID = reader["Cust_ID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Cust_ID")) : Snull;
@@ -5320,7 +5320,9 @@ namespace WebapiApplication.DAL
                             sh.DOB = reader["DOB"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("DOB")) : Snull;
                             sh.Age = reader["Age"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Age")) : inull;
                             sh.Height = reader["Height"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Height")) : Snull;
-                            sh.Caste = (reader["MotherTongue"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("MotherTongue")) + "-") : "") + (reader["Caste"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Caste")).ToString()) : Snull) + (reader["SubCaste"] != DBNull.Value ? ("(" + (reader.GetString(reader.GetOrdinal("SubCaste"))) + ")") : "");
+                            sh.Caste = reader["Caste"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Caste")) : Snull;
+                            sh.MotherTongue = reader["MotherTongue"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MotherTongue")) : Snull;
+                            // sh.Caste = (reader["MotherTongue"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("MotherTongue")) + "-") : "") + (reader["Caste"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Caste")).ToString()) : Snull) + (reader["SubCaste"] != DBNull.Value ? ("(" + (reader.GetString(reader.GetOrdinal("SubCaste"))) + ")") : "");
                             sh.EduGroupnamenew = reader["EduGroupnamenew"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("EduGroupnamenew")) : Snull;
                             sh.Profession = reader["Profession"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profession")) : Snull;
                             sh.JobLocation = reader["JobLocation"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("JobLocation")) : Snull;
@@ -5330,8 +5332,8 @@ namespace WebapiApplication.DAL
                             sh.TOB = reader["TOB"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TOB")) : Snull;
                             sh.Gothram = reader["Gothram"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gothram")) : Snull;
                             sh.Star = reader["Star"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Star")) : Snull;
-                            sh.FFNative = reader["FF Native"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FF Native")) : Snull;
-                            sh.MFNative = reader["MF Native"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MF Native")) : Snull;
+                            sh.FFNative = reader["FFNative"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FFNative")) : Snull;
+                            sh.MFNative = reader["MFNative"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MFNative")) : Snull;
                             sh.Gender = reader["Gender"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gender")) : Snull;
                             sh.PhotoNames = reader["PhotoNames"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("PhotoNames")) : Snull;
                             sh.Photo = reader["Photo"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Photo")) : Snull;
@@ -5353,11 +5355,35 @@ namespace WebapiApplication.DAL
                             sh.fathercaste = reader["fathercaste"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("fathercaste")) : Snull;
                             sh.mothercaste = reader["mothercaste"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("mothercaste")) : Snull;
                             sh.PhotoCount = reader["PhotoCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PhotoCount")) : inull;
-                            sh.TotalRowsKeyword = reader["TotalRows"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : inull;
+                            sh.TotalRows = reader["TotalRows"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : inull;
                             sh.countrylivingin = reader["CountryLivingin"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CountryLivingin")) : Snull;
                             sh.CustomerApplicationPhoto = reader["CustomerApplicationPhoto"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CustomerApplicationPhoto"))) : Snull;
-                            sh.CustomerFullPhoto = reader["CustomerFullPhoto"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CustomerFullPhoto"))) : Snull;
-                            sh.companyname = reader["Company Name"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Company Name"))) : Snull;
+                            sh.CompanyName = reader["CompanyName"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CompanyName"))) : Snull;
+                            //Added by lakshmi 31_10_2017_keywordlikesearch
+                            sh.LastLoginDT = reader["LastLoginDT"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("LastLoginDT"))) : Snull;
+                            sh.LastLoginDate = reader["LastLoginDate"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("LastLoginDate"))) : Snull;
+                            sh.LoginCount = reader["LoginCount"] != DBNull.Value ? (reader.GetInt32(reader.GetOrdinal("LoginCount"))) : inull;
+                            sh.ProfileStatusID = reader["ProfileStatusID"] != DBNull.Value ? (reader.GetInt32(reader.GetOrdinal("ProfileStatusID"))) : inull;
+                            sh.ProfileGrade = reader["ProfileGrade"] != DBNull.Value ? (reader.GetInt32(reader.GetOrdinal("ProfileGrade"))) : inull;
+                            sh.IsPaidMember = reader["IsPaidMember"] != DBNull.Value ? (reader.GetInt32(reader.GetOrdinal("IsPaidMember"))) : inull;
+                            sh.OwnerName = reader["OwnerName"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("OwnerName"))) : Snull;
+                            sh.RegistrationDate = reader["RegistrationDate"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("RegistrationDate"))) : Snull;
+                            sh.SRCount = reader["SRCount"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("SRCount"))) : Snull;
+                            sh.ExpiryDate = reader["ExpiryDate"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("ExpiryDate"))) : Snull;
+                            sh.Points = reader["Points"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Points"))) : Snull;
+                            sh.TicketID = reader["TicketID"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("TicketID"))) : Snull;
+                            sh.Emp_Ticket_ID = reader["Emp_Ticket_ID"] != DBNull.Value ? (reader.GetInt64(reader.GetOrdinal("Emp_Ticket_ID"))) : Lnull;
+                            sh.MatchMeetingCount = reader["MatchMeetingCount"] != DBNull.Value ? (reader.GetInt32(reader.GetOrdinal("MatchMeetingCount"))) : inull;
+                            sh.ProfileOwnername = reader["ProfileOwnername"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("ProfileOwnername"))) : Snull;
+                            sh.EmpUserName = reader["EmpUserName"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("EmpUserName"))) : Snull;
+                            sh.SAForm = reader["SAForm"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("SAForm"))) : Snull;
+                            sh.CNumberVerStatus = reader["CNumberVerStatus"] != DBNull.Value ? (reader.GetBoolean(reader.GetOrdinal("CNumberVerStatus"))) : bnull;
+                            sh.CEmailVerStatus = reader["CEmailVerStatus"] != DBNull.Value ? (reader.GetBoolean(reader.GetOrdinal("CEmailVerStatus"))) : bnull;
+                            sh.Primarynumber = reader["Primarynumber"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Primarynumber"))) : Snull;
+                            sh.Primaryemail = reader["Primaryemail"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Primaryemail"))) : Snull;
+                            sh.Payment = reader["Payment"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Payment"))) : Snull;
+                            sh.CreatedDate = reader["CreatedDate"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CreatedDate"))) : Snull;
+
                         }
                         array.Add(sh);
                     }
