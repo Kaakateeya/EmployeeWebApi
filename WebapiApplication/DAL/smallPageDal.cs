@@ -1605,7 +1605,7 @@ namespace WebapiApplication.DAL
 
         public ArrayList noProfileGrade(noProfileGradeRequest Mobj, string spname)
         {
-            SqlParameter[] param = new SqlParameter[18];
+            SqlParameter[] param = new SqlParameter[19];
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -1630,27 +1630,26 @@ namespace WebapiApplication.DAL
                 param[7].Value = Commonclass.returndt(Mobj.strBranch, Mobj.dtBranch, "Branch", "BranchTable");
                 param[8] = new SqlParameter("@t_ownerofprofile", SqlDbType.Structured);
                 param[8].Value = Commonclass.returndt(Mobj.strOwnerOfTheProfile, Mobj.dtOwnerOfTheProfile, "ownerofprofile", "ownerofprofileTable");
-                param[9] = new SqlParameter("@t_gradingtype", SqlDbType.VarChar);
-                param[9].Value = Mobj.GradingType;
-                param[10] = new SqlParameter("@vc_grade", SqlDbType.VarChar);
-                param[10].Value = Mobj.GradeID;
-                param[11] = new SqlParameter("@dt_dorfrom", SqlDbType.DateTime);
-                param[11].Value = Mobj.StartDate;
-                param[12] = new SqlParameter("@dt_dorto", SqlDbType.DateTime);
-                param[12].Value = Mobj.EndDate;
-
-                param[13] = new SqlParameter("@i_PageSize", SqlDbType.Int);
-                param[13].Value = Mobj.PageSize;
-                param[14] = new SqlParameter("@i_PageNumber", SqlDbType.Int);
-                param[14].Value = Mobj.PageNumber;
-
-                param[15] = new SqlParameter("@i_startindex", SqlDbType.Int);
-                param[15].Value = Mobj.From;
-                param[16] = new SqlParameter("@i_endindex", SqlDbType.Int);
-                param[16].Value = Mobj.To;
-              
-                param[17] = new SqlParameter("@_Excel", SqlDbType.Int);
-                param[17].Value = Mobj.flag;
+                param[9] = new SqlParameter("@t_Region", SqlDbType.Structured);
+                param[9].Value = Commonclass.returndt(Mobj.strRegion, Mobj.dtRegion, "region", "regionTable");
+                param[10] = new SqlParameter("@t_gradingtype", SqlDbType.VarChar);
+                param[10].Value = Mobj.GradingType;
+                param[11] = new SqlParameter("@vc_grade", SqlDbType.VarChar);
+                param[11].Value = Mobj.GradeID;
+                param[12] = new SqlParameter("@dt_dorfrom", SqlDbType.DateTime);
+                param[12].Value = Mobj.StartDate;
+                param[13] = new SqlParameter("@dt_dorto", SqlDbType.DateTime);
+                param[13].Value = Mobj.EndDate;
+                param[14] = new SqlParameter("@i_PageSize", SqlDbType.Int);
+                param[14].Value = Mobj.PageSize;
+                param[15] = new SqlParameter("@i_PageNumber", SqlDbType.Int);
+                param[15].Value = Mobj.PageNumber;
+                param[16] = new SqlParameter("@i_startindex", SqlDbType.Int);
+                param[16].Value = Mobj.From;
+                param[17] = new SqlParameter("@i_endindex", SqlDbType.Int);
+                param[17].Value = Mobj.To;
+                param[18] = new SqlParameter("@_Excel", SqlDbType.Int);
+                param[18].Value = Mobj.flag;
          
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, param);
             }
