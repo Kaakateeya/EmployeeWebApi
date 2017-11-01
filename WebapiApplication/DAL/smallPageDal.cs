@@ -40,7 +40,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
@@ -105,7 +105,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
             return new Tuple<int, ArrayList>(intStatus, Commonclass.convertdataTableToArrayListTable(ds));
         }
@@ -148,7 +148,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             return new Tuple<int, ArrayList>(intStatus, Commonclass.convertdataTableToArrayListTable(ds));
@@ -196,7 +196,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
             return new Tuple<ArrayList, int, int, int, int>(Commonclass.convertdataTableToArrayListTable(ds), intStatus, CasteStatus, FromStatus, ToStatus);
         }
@@ -233,7 +233,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-            
+
             }
 
             return intStatus;
@@ -285,7 +285,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-            
+
             }
 
             return intStatus;
@@ -350,7 +350,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
             }
 
             return li;
@@ -396,7 +396,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-               
+
             }
 
             return intStatus;
@@ -472,7 +472,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             return li;
@@ -512,7 +512,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-            
+
             }
 
             return intStatus;
@@ -622,7 +622,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
             }
 
             return liEmp;
@@ -672,7 +672,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             return intStatus;
@@ -715,7 +715,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-          
+
             }
 
             return strUserID;
@@ -765,7 +765,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
             }
 
             return mobj;
@@ -827,7 +827,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             return Status;
@@ -880,7 +880,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-            
+
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
@@ -922,7 +922,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             return Status;
@@ -971,7 +971,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-               
+
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
@@ -1006,7 +1006,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-           
+
             }
 
             return intstatus;
@@ -1042,7 +1042,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             return Commonclass.convertdataTableToArrayListTable(ds);
@@ -1084,7 +1084,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             return Commonclass.convertdataTableToArrayListTable(ds);
@@ -1124,7 +1124,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             return Status;
@@ -1173,7 +1173,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-               
+
             }
 
             return Commonclass.convertdataTableToArrayListTable(ds);
@@ -1215,7 +1215,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-               
+
             }
 
             return new Tuple<int, ArrayList>(intStatus, Commonclass.convertdataTableToArrayListTable(ds));
@@ -1282,7 +1282,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
             }
 
             return Status;
@@ -1324,7 +1324,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             return Status;
@@ -1363,7 +1363,7 @@ namespace WebapiApplication.DAL
                 parm[10].Value = mobj.SerialnoFrom;
                 parm[11] = new SqlParameter("@i_SubTo", SqlDbType.Int);
                 parm[11].Value = mobj.serialnoto;
-               
+
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
             }
             catch (Exception EX)
@@ -1373,7 +1373,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-               
+
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
@@ -1404,7 +1404,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
@@ -1461,7 +1461,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-           
+
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
@@ -1554,10 +1554,10 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
-            return Status; 
+            return Status;
         }
 
         public ArrayList SettledPrfofilesInfo(settledProfilesRequest Mobj, string spname)
@@ -1598,7 +1598,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-                
+
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
@@ -1650,7 +1650,7 @@ namespace WebapiApplication.DAL
                 param[17].Value = Mobj.To;
                 param[18] = new SqlParameter("@_Excel", SqlDbType.Int);
                 param[18].Value = Mobj.flag;
-         
+
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, param);
             }
             catch (Exception EX)
@@ -1704,12 +1704,12 @@ namespace WebapiApplication.DAL
 
             }
 
-            return Status; 
+            return Status;
         }
 
         public List<settleInfo> getSettleInfoDal(string profileid, string spname)
         {
-          
+
             SqlParameter[] parm = new SqlParameter[1];
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
@@ -1721,7 +1721,7 @@ namespace WebapiApplication.DAL
             {
                 parm[0] = new SqlParameter("@s_ProfileID", SqlDbType.VarChar);
                 parm[0].Value = profileid;
-          
+
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
 
                 if (reader.HasRows)
@@ -1750,7 +1750,7 @@ namespace WebapiApplication.DAL
 
             }
 
-            return li; 
+            return li;
         }
 
         public ArrayList GetDataStaging(string CustID, string spname)
@@ -1824,7 +1824,7 @@ namespace WebapiApplication.DAL
 
             }
 
-            return Status; 
+            return Status;
         }
 
         public ArrayList listOFServiceGivenDal(ListOfServicesTakenM1 mobj, string spname)
@@ -1870,7 +1870,7 @@ namespace WebapiApplication.DAL
                 param[15].Value = mobj.PageNumber;
                 param[16] = new SqlParameter("@_Excel", SqlDbType.Int);
                 param[16].Value = mobj.flag;
-             
+
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, param);
             }
             catch (Exception EX)
@@ -1888,7 +1888,7 @@ namespace WebapiApplication.DAL
 
         public ArrayList emailBouncelistdal(EmailBounceReports mobj, string spname)
         {
-            SqlParameter[] param = new SqlParameter[18];
+            SqlParameter[] param = new SqlParameter[20];
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -1909,29 +1909,31 @@ namespace WebapiApplication.DAL
                 param[5].Value = Commonclass.returndt(mobj.strBranch, mobj.dtBranch, "Branch", "BranchTabel");
                 param[6] = new SqlParameter("@t_ProfileOwner", SqlDbType.Structured);
                 param[6].Value = Commonclass.returndt(mobj.strOwnerOfProfile, mobj.dtOwnerOfProfile, "ProfileOwner", "ProfileOwnerTabel");
-                param[7] = new SqlParameter("@dt_StartDate", SqlDbType.DateTime);
-                param[7].Value = mobj.StartDate;
-                param[8] = new SqlParameter("@dt_EndDate", SqlDbType.DateTime);
-                param[8].Value = mobj.EndDate;
-                param[9] = new SqlParameter("@t_ModifiedBy", SqlDbType.Structured);
-                param[9].Value = Commonclass.returndt(mobj.strModifiedBy, mobj.dtModifiedBy, "ModifiedBy", "ModifiedByTabel");
-                param[10] = new SqlParameter("@dt_ModifiedStartDate", SqlDbType.DateTime);
-                param[10].Value = mobj.ModifiedStartDate;
-                param[11] = new SqlParameter("@dt_ModifiedEndDate", SqlDbType.DateTime);
-                param[11].Value = mobj.ModifiedEndDate;
-                param[12] = new SqlParameter("@i_GenderId", SqlDbType.Int);
-                param[12].Value = mobj.GenderID;
-                param[13] = new SqlParameter("@i_From", SqlDbType.Int);
-                param[13].Value = mobj.rangeFrom;
-                param[14] = new SqlParameter("@i_To", SqlDbType.Int);
-                param[14].Value = mobj.rangeTo;
-                param[15] = new SqlParameter("@i_PageSize", SqlDbType.Int);
-                param[15].Value = mobj.PageSize;
-                param[16] = new SqlParameter("@i_PageNumber", SqlDbType.Int);
-                param[16].Value = mobj.PageNumber;
-                param[17] = new SqlParameter("@_Excel", SqlDbType.Int);
-                param[17].Value = mobj.flag;
-              
+                param[7] = new SqlParameter("@t_RegionID", SqlDbType.Structured);
+                param[7].Value = Commonclass.returndt(mobj.strRegion, mobj.dtRegion, "Region", "Regiontable");
+                param[8] = new SqlParameter("@dt_StartDate", SqlDbType.DateTime);
+                param[8].Value = mobj.StartDate;
+                param[9] = new SqlParameter("@dt_EndDate", SqlDbType.DateTime);
+                param[9].Value = mobj.EndDate;
+                param[10] = new SqlParameter("@t_ModifiedBy", SqlDbType.Structured);
+                param[10].Value = Commonclass.returndt(mobj.strModifiedBy, mobj.dtModifiedBy, "ModifiedBy", "ModifiedByTabel");
+                param[11] = new SqlParameter("@dt_ModifiedStartDate", SqlDbType.DateTime);
+                param[11].Value = mobj.ModifiedStartDate;
+                param[12] = new SqlParameter("@dt_ModifiedEndDate", SqlDbType.DateTime);
+                param[12].Value = mobj.ModifiedEndDate;
+                param[13] = new SqlParameter("@i_GenderId", SqlDbType.Int);
+                param[13].Value = mobj.GenderID;
+                param[14] = new SqlParameter("@i_From", SqlDbType.Int);
+                param[14].Value = mobj.rangeFrom;
+                param[15] = new SqlParameter("@i_To", SqlDbType.Int);
+                param[15].Value = mobj.rangeTo;
+                param[16] = new SqlParameter("@i_PageSize", SqlDbType.Int);
+                param[16].Value = mobj.PageSize;
+                param[17] = new SqlParameter("@i_PageNumber", SqlDbType.Int);
+                param[17].Value = mobj.PageNumber;
+                param[18] = new SqlParameter("@_Excel", SqlDbType.Int);
+                param[18].Value = mobj.flag;
+
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, param);
             }
             catch (Exception EX)

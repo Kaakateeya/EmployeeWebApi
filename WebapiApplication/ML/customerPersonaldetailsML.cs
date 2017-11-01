@@ -1711,6 +1711,10 @@ namespace WebapiApplication.ML
         public int PageSize { get; set; }
         public int PageNumber { get; set; }
         public int flag { get; set; }
+
+        public DataTable dtRegion { get; set; }
+
+        public string strRegion { get; set; }
     }
 
 
