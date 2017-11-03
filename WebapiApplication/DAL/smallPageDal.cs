@@ -1927,12 +1927,12 @@ namespace WebapiApplication.DAL
                 param[14].Value = mobj.rangeFrom;
                 param[15] = new SqlParameter("@i_To", SqlDbType.Int);
                 param[15].Value = mobj.rangeTo;
-                param[16] = new SqlParameter("@i_PageSize", SqlDbType.Int);
-                param[16].Value = mobj.PageSize;
-                param[17] = new SqlParameter("@i_PageNumber", SqlDbType.Int);
-                param[17].Value = mobj.PageNumber;
-                param[18] = new SqlParameter("@_Excel", SqlDbType.Int);
-                param[18].Value = mobj.flag;
+                //param[16] = new SqlParameter("@i_PageSize", SqlDbType.Int);
+                //param[16].Value = mobj.PageSize;
+                //param[17] = new SqlParameter("@i_PageNumber", SqlDbType.Int);
+                //param[17].Value = mobj.PageNumber;
+                param[16] = new SqlParameter("@_Excel", SqlDbType.Int);
+                param[16].Value = mobj.flag;
 
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, param);
             }

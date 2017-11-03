@@ -296,6 +296,10 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.KeywordlikeSearchnewpage(Mobj);
         }
 
+        public ArrayList MasterDataselect([FromBody]MasterData Mobj) { return this.IEmployeeReport.MasterDataselect(Mobj); }
+
+        public int MasterdataInsertUpdate([FromBody]MasterInsertUpdate Mobj) { return this.IEmployeeReport.MasterdataInsertUpdate(Mobj); }
+
     }
 }
 

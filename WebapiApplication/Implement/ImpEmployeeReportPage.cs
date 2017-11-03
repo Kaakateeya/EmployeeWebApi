@@ -218,7 +218,12 @@ namespace WebapiApplication.Implement
 
 
         public ArrayList KeywordlikeSearchnewpage([FromBody]newkeywordlikesrch Mobj) { return new EmployeeReportPageDAL().KeywordlikeSearchnewpage(Mobj, "[dbo].[Usp_Search_KeyWord_Single]"); }
-    
+
+
+        public ArrayList MasterDataselect([FromBody]MasterData Mobj) { return new EmployeeReportPageDAL().MasterDataselect(Mobj, "[dbo].[usp_MasterData_Select]"); }
+
+
+        public int MasterdataInsertUpdate([FromBody]MasterInsertUpdate Mobj) { return new EmployeeReportPageDAL().MasterdataInsertUpdate(Mobj, "[dbo].[usp_MasterData_InsertUpdate]"); }
     }
 
 }

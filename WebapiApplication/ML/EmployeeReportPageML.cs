@@ -1191,6 +1191,39 @@ namespace WebapiApplication.ML
 
         public string strShowprofile { get; set; }
     }
+
+    public class MasterData
+    {
+        public int AppuserID { get; set; }
+        public string MasterType { get; set; }
+        public int? MasterTypeID { get; set; }
+        public int? DependentId { get; set; }
+        public bool? StatusCode { get; set; }
+    }
+    public class MasterInsertUpdate
+    {
+        public int? AppUserId { get; set; }
+        public string Name { get; set; }
+        public string CountryCode { get; set; }
+        public string CountryCurrency { get; set; }
+        public int? MobileLength { get; set; }
+        public int? landlineLength { get; set; }
+        public bool StatusCode { get; set; }
+        public string MasterType { get; set; }
+        public int? MasterTypeID { get; set; }
+        public int? DependentId { get; set; }
+        public int? DependentDistrictIDId { get; set; }
+        public int? SubDependentId { get; set; }
+        public float? MinWords { get; set; }
+        public float? MaxWords { get; set; }
+        public float? CostPOBox { get; set; }
+        public int? LanguageID { get; set; }
+        public string Comments { get; set; }
+        public float? ExtraWordPrice { get; set; }
+        public string TamilStarName { get; set; }
+        public string KannadaStarName { get; set; }
+
+    }
 }
 
 

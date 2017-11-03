@@ -3733,7 +3733,7 @@ namespace WebapiApplication.DAL
                 cmd.Parameters.AddWithValue("@i_Region", Mobj.Region);
                 cmd.Parameters.AddWithValue("@b_IsConfidential", Mobj.Confidential);
                 cmd.Parameters.AddWithValue("@b_IsBalance", Mobj.IsAmountThere);
-                // cmd.Parameters.AddWithValue("@t_ProfileOwnerId", Commonclass.returndt(Mobj.profileownerid, Mobj.OwnerOFProfile, "ProfileOwner", "ProfileOwner"));
+                cmd.Parameters.AddWithValue("@t_ProfileOwnerId", Commonclass.returndt(Mobj.profileownerid, Mobj.OwnerOFProfile, "ProfileOwner", "ProfileOwner"));
                 cmd.Parameters.AddWithValue("@t_ApplicationStatus", Commonclass.returndt(Mobj.ApplicationStatusid, Mobj.ApplicationStatus, "Applicationstatus", "Applicationstatus"));
                 cmd.Parameters.AddWithValue("@i_PaidFrom", Mobj.FromAmount);
                 cmd.Parameters.AddWithValue("@i_PaidTo", Mobj.ToAmount);
@@ -5400,6 +5400,128 @@ namespace WebapiApplication.DAL
                 connection.Close();
             }
             return array;
+        }
+
+        public ArrayList MasterDataselect(MasterData Mobj, string spName)
+        {
+
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[10];
+                parm[0] = new SqlParameter("@i_AppUserId", SqlDbType.Int);
+                parm[0].Value = Mobj.AppuserID;
+                parm[1] = new SqlParameter("@vc_MasterType", SqlDbType.VarChar);
+                parm[1].Value = Mobj.MasterType;
+                parm[2] = new SqlParameter("@i_DependentId", SqlDbType.Int);
+                parm[2].Value = Mobj.DependentId;
+                parm[3] = new SqlParameter("@i_MasterTypeID", SqlDbType.Int);
+                parm[3].Value = Mobj.MasterTypeID;
+                parm[4] = new SqlParameter("@b_StatusCode", SqlDbType.Bit);
+                parm[4].Value = Mobj.StatusCode;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public int MasterdataInsertUpdate(MasterInsertUpdate Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[25];
+            Smtpemailsending smtp = new Smtpemailsending();
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            int status = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                parm[0] = new SqlParameter("@i_AppUserId", SqlDbType.BigInt);
+                parm[0].Value = Mobj.AppUserId;
+                parm[1] = new SqlParameter("@vc_Name", SqlDbType.BigInt);
+                parm[1].Value = Mobj.Name;
+                parm[2] = new SqlParameter("@vc_CountryCode", SqlDbType.Int);
+                parm[2].Value = Mobj.CountryCode;
+                parm[3] = new SqlParameter("@vc_CountryCurrency", SqlDbType.BigInt);
+                parm[3].Value = Mobj.CountryCurrency;
+                parm[4] = new SqlParameter("@i_MobileLength", SqlDbType.Int);
+                parm[4].Value = Mobj.MobileLength;
+                parm[5] = new SqlParameter("@i_landlineLength", SqlDbType.VarChar);
+                parm[5].Value = Mobj.landlineLength;
+                parm[6] = new SqlParameter("@b_StatusCode", SqlDbType.VarChar);
+                parm[6].Value = Mobj.StatusCode;
+                parm[7] = new SqlParameter("@vc_MasterType", SqlDbType.Int);
+                parm[7].Value = Mobj.MasterType;
+                parm[8] = new SqlParameter("@i_DependentId", SqlDbType.Int);
+                parm[8].Value = Mobj.DependentId;
+
+                parm[9] = new SqlParameter("@i_DependentDistrictId", SqlDbType.Int);
+                parm[9].Value = Mobj.DependentDistrictIDId;
+
+                parm[10] = new SqlParameter("@i_SubDependentId", SqlDbType.Int);
+                parm[10].Value = Mobj.SubDependentId;
+
+                parm[11] = new SqlParameter("@i_MinWords", SqlDbType.Int);
+                parm[11].Value = Mobj.MinWords;
+                parm[12] = new SqlParameter("@i_MaxWords", SqlDbType.Int);
+                parm[12].Value = Mobj.MaxWords;
+                parm[13] = new SqlParameter("@i_CostPOBox", SqlDbType.Int);
+                parm[13].Value = Mobj.CostPOBox;
+                parm[14] = new SqlParameter("@i_LanguageID", SqlDbType.Int);
+                parm[14].Value = Mobj.LanguageID;
+
+                parm[15] = new SqlParameter("@vc_Comments", SqlDbType.Int);
+                parm[15].Value = Mobj.Comments;
+                parm[16] = new SqlParameter("@i_ExtraWordPrice", SqlDbType.Int);
+                parm[16].Value = Mobj.ExtraWordPrice;
+                parm[17] = new SqlParameter("@vc_TamilStarName", SqlDbType.Int);
+                parm[17].Value = Mobj.TamilStarName;
+                parm[18] = new SqlParameter("@vc_KannadaStarName", SqlDbType.Int);
+                parm[18].Value = Mobj.KannadaStarName;
+                parm[19] = new SqlParameter("@i_MasterTypeID", SqlDbType.Int);
+                parm[19].Value = Mobj.MasterTypeID;
+                parm[20] = new SqlParameter("@O_MasterTypeID", SqlDbType.Int);
+                parm[20].Value = 0;
+                parm[21] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[21].Direction = ParameterDirection.Output;
+
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[21].Value.ToString()).Equals(0))
+                {
+                    status = 0;
+                }
+                else
+                {
+                    status = Convert.ToInt32(parm[21].Value);
+                }
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), Mobj.AppUserId, null, null);
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+            return status;
         }
     }
 }

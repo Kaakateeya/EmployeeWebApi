@@ -391,6 +391,10 @@ namespace WebapiApplication.Interfaces
         int? RestoredProfileidupdate(RestoredProfileid Mobj);
 
         ArrayList KeywordlikeSearchnewpage(newkeywordlikesrch Mobj);
+
+        ArrayList MasterDataselect(MasterData Mobj);
+
+        int MasterdataInsertUpdate(MasterInsertUpdate Mobj);
     }
 
     public interface ISmallPages
