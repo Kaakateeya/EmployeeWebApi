@@ -1224,6 +1224,23 @@ namespace WebapiApplication.ML
         public string KannadaStarName { get; set; }
 
     }
+
+    public class ticketverification
+    {
+
+        public long? Empid { get; set; }
+
+        public string Profileid { get; set; }
+
+        public int? Emp_commisionTicketid { get; set; }
+
+        public Decimal? PaidAmount { get; set; }
+
+        public Decimal? commisionAmount { get; set; }
+    }
+
+
+
 }
 
 

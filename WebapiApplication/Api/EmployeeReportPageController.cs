@@ -300,6 +300,16 @@ namespace WebapiApplication.Api
 
         public int MasterdataInsertUpdate([FromBody]MasterInsertUpdate Mobj) { return this.IEmployeeReport.MasterdataInsertUpdate(Mobj); }
 
+        //04-11-2017 custidbased select for makrting
+
+        public ArrayList getCustomerinfobasedoncustid(string custids, int Empid) { return this.IEmployeeReport.Customerinfobasedoncustid(custids, Empid); }
+
+
+        //06_11_2017_ update maketing ticket verification
+
+
+        public int? updatemarketingvrfycation([FromBody]ticketverification Mobj) { return this.IEmployeeReport.updatemarketingvrfycation(Mobj); }
+
     }
 }
 

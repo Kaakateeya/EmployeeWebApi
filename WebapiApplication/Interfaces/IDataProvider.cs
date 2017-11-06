@@ -395,6 +395,10 @@ namespace WebapiApplication.Interfaces
         ArrayList MasterDataselect(MasterData Mobj);
 
         int MasterdataInsertUpdate(MasterInsertUpdate Mobj);
+
+        ArrayList Customerinfobasedoncustid(string custids, int Empid);
+
+        int? updatemarketingvrfycation(ticketverification Mobj);
     }
 
     public interface ISmallPages

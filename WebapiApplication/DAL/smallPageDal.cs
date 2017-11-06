@@ -1917,22 +1917,18 @@ namespace WebapiApplication.DAL
                 param[9].Value = mobj.EndDate;
                 param[10] = new SqlParameter("@t_ModifiedBy", SqlDbType.Structured);
                 param[10].Value = Commonclass.returndt(mobj.strModifiedBy, mobj.dtModifiedBy, "ModifiedBy", "ModifiedByTabel");
-                param[11] = new SqlParameter("@dt_ModifiedStartDate", SqlDbType.DateTime);
-                param[11].Value = mobj.ModifiedStartDate;
-                param[12] = new SqlParameter("@dt_ModifiedEndDate", SqlDbType.DateTime);
-                param[12].Value = mobj.ModifiedEndDate;
-                param[13] = new SqlParameter("@i_GenderId", SqlDbType.Int);
-                param[13].Value = mobj.GenderID;
-                param[14] = new SqlParameter("@i_From", SqlDbType.Int);
-                param[14].Value = mobj.rangeFrom;
-                param[15] = new SqlParameter("@i_To", SqlDbType.Int);
-                param[15].Value = mobj.rangeTo;
-                //param[16] = new SqlParameter("@i_PageSize", SqlDbType.Int);
-                //param[16].Value = mobj.PageSize;
-                //param[17] = new SqlParameter("@i_PageNumber", SqlDbType.Int);
-                //param[17].Value = mobj.PageNumber;
-                param[16] = new SqlParameter("@_Excel", SqlDbType.Int);
-                param[16].Value = mobj.flag;
+                //param[11] = new SqlParameter("@dt_ModifiedStartDate", SqlDbType.DateTime);
+                //param[11].Value = mobj.ModifiedStartDate;
+                //param[12] = new SqlParameter("@dt_ModifiedEndDate", SqlDbType.DateTime);
+                //param[12].Value = mobj.ModifiedEndDate;
+                param[11] = new SqlParameter("@i_GenderId", SqlDbType.Int);
+                param[11].Value = mobj.GenderID;
+                param[12] = new SqlParameter("@i_From", SqlDbType.Int);
+                param[12].Value = mobj.rangeFrom;
+                param[13] = new SqlParameter("@i_To", SqlDbType.Int);
+                param[13].Value = mobj.rangeTo;
+                param[14] = new SqlParameter("@_Excel", SqlDbType.Int);
+                param[14].Value = mobj.flag;
 
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, param);
             }

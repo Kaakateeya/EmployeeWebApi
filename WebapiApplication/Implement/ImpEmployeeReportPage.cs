@@ -224,6 +224,13 @@ namespace WebapiApplication.Implement
 
 
         public int MasterdataInsertUpdate([FromBody]MasterInsertUpdate Mobj) { return new EmployeeReportPageDAL().MasterdataInsertUpdate(Mobj, "[dbo].[usp_MasterData_InsertUpdate]"); }
+
+
+        public ArrayList Customerinfobasedoncustid(string custids, int Empid) { return new EmployeeReportPageDAL().Customerinfobasedoncustid(custids,Empid, "[dbo].[usp_GetEmpDetails_Commession]"); }
+
+
+        public int? updatemarketingvrfycation([FromBody]ticketverification Mobj) { return new EmployeeReportPageDAL().updatemarketingvrfycation(Mobj, "[dbo].[usp_updatemarketingcommission]"); }
+    
     }
 
 }
