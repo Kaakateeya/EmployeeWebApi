@@ -1237,6 +1237,8 @@ namespace WebapiApplication.ML
         public Decimal? PaidAmount { get; set; }
 
         public Decimal? commisionAmount { get; set; }
+
+        public Boolean? TicketMrkedStatus { get; set; }
     }
 
 

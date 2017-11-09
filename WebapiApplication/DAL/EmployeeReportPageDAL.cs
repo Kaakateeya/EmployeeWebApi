@@ -5575,18 +5575,20 @@ namespace WebapiApplication.DAL
                 parm[3].Value = Mobj.PaidAmount;
                 parm[4] = new SqlParameter("@commisionAmount", SqlDbType.Decimal);
                 parm[4].Value = Mobj.commisionAmount;
-                parm[5] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[5].Direction = ParameterDirection.Output;
+                parm[5] = new SqlParameter("@TicketMrkedStatus", SqlDbType.Bit);
+                parm[5].Value = Mobj.TicketMrkedStatus;
+                parm[6] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[6].Direction = ParameterDirection.Output;
 
                 DataSet ds = new DataSet();
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[5].Value.ToString()).Equals(0))
+                if (string.Compare(System.DBNull.Value.ToString(), parm[6].Value.ToString()).Equals(0))
                 {
                     status = 0;
                 }
                 else
                 {
-                    status = Convert.ToInt32(parm[5].Value);
+                    status = Convert.ToInt32(parm[6].Value);
                 }
 
             }
