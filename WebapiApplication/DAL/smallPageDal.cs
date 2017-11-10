@@ -1380,7 +1380,7 @@ namespace WebapiApplication.DAL
 
         public ArrayList matchMeetingCountInfoDal(matchMeetingCountInfoMl Mobj, string spname)
         {
-            SqlParameter[] param = new SqlParameter[4];
+            SqlParameter[] param = new SqlParameter[12];
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -1395,6 +1395,18 @@ namespace WebapiApplication.DAL
                 param[2].Value = Mobj.MMCustID;
                 param[3] = new SqlParameter("@i_Meid", SqlDbType.Int);
                 param[3].Value = Mobj.MMCustID2;
+                param[4] = new SqlParameter("@t_Branch", SqlDbType.Structured);
+                param[4].Value = Commonclass.returndt(Mobj.strBranch, Mobj.dtBranch, "branch", "branchTable");
+                param[5] = new SqlParameter("@t_Caste", SqlDbType.Structured);
+                param[5].Value = Commonclass.returndt(Mobj.strCaste, Mobj.dtCaste, "caste", "castetable");
+                param[6] = new SqlParameter("@d_StartDate", SqlDbType.DateTime);
+                param[6].Value = Mobj.FromDate;
+                param[7] = new SqlParameter("@d_EndDate", SqlDbType.DateTime);
+                param[7].Value = Mobj.toDate;
+                param[8] = new SqlParameter("@i_SubFrom", SqlDbType.Int);
+                param[8].Value = Mobj.SerialnoFrom;
+                param[9] = new SqlParameter("@i_SubTo", SqlDbType.Int);
+                param[9].Value = Mobj.serialnoto;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, param);
             }
             catch (Exception EX)

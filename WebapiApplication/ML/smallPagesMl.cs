@@ -426,6 +426,22 @@ namespace WebapiApplication.ML
         public int? Empid { get; set; }
         public int? MMCustID { get; set; }
         public int? MMCustID2 { get; set; }
+
+        public string strBranch { get; set; }
+
+        public DataTable dtBranch { get; set; }
+
+        public string strCaste { get; set; }
+
+        public DataTable dtCaste { get; set; }
+
+        public DateTime? toDate { get; set; }
+
+        public DateTime? FromDate { get; set; }
+
+        public int? SerialnoFrom { get; set; }
+
+        public int? serialnoto { get; set; }
     }
 
 
