@@ -297,19 +297,13 @@ namespace WebapiApplication.Api
         }
 
         public ArrayList MasterDataselect([FromBody]MasterData Mobj) { return this.IEmployeeReport.MasterDataselect(Mobj); }
-
         public int MasterdataInsertUpdate([FromBody]MasterInsertUpdate Mobj) { return this.IEmployeeReport.MasterdataInsertUpdate(Mobj); }
-
         //04-11-2017 custidbased select for makrting
-
         public ArrayList getCustomerinfobasedoncustid(string custids, int Empid) { return this.IEmployeeReport.Customerinfobasedoncustid(custids, Empid); }
-
-
         //06_11_2017_ update maketing ticket verification
-
-
         public int? updatemarketingvrfycation([FromBody]ticketverification Mobj) { return this.IEmployeeReport.updatemarketingvrfycation(Mobj); }
-
+        //10-11-2017 Get Menulist dyanamically
+        public ArrayList getEmployeeMenulist(long? Empid) { return this.IEmployeeReport.EmployeeMenulist(Empid); }
     }
 }
 

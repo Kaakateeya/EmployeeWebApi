@@ -230,7 +230,8 @@ namespace WebapiApplication.Implement
 
 
         public int? updatemarketingvrfycation([FromBody]ticketverification Mobj) { return new EmployeeReportPageDAL().updatemarketingvrfycation(Mobj, "[dbo].[usp_updatemarketingcommission]"); }
-    
+
+        public ArrayList EmployeeMenulist(long? Empid) { return new EmployeeReportPageDAL().EmployeeMenulist(Empid, "[dbo].[usp_Employeemenulist]"); }
     }
 
 }

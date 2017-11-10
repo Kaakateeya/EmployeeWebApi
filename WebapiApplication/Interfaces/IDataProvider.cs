@@ -399,6 +399,8 @@ namespace WebapiApplication.Interfaces
         ArrayList Customerinfobasedoncustid(string custids, int Empid);
 
         int? updatemarketingvrfycation(ticketverification Mobj);
+
+        ArrayList EmployeeMenulist(long? Empid);
     }
 
     public interface ISmallPages

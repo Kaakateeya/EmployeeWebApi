@@ -5603,5 +5603,32 @@ namespace WebapiApplication.DAL
             }
             return status;
         }
+
+        public ArrayList EmployeeMenulist(long? Empid, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[2];
+                parm[0] = new SqlParameter("@EmpID", SqlDbType.BigInt);
+                parm[0].Value = Empid;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }
