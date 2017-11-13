@@ -860,6 +860,10 @@ namespace WebapiApplication.ML
         public string CAll { get; set; }
         public int? Gender { get; set; }
 
+
+        public string Caste { get; set; }
+
+        public int? Age { get; set; }
     }
     public class closereminder
     {
@@ -880,7 +884,7 @@ namespace WebapiApplication.ML
         public string Reasonforrestore { get; set; }
         public int? PriviousProfileStatus { get; set; }
     }
-   
+
 
     public class newkeywordlikesrch
     {
@@ -1241,9 +1245,30 @@ namespace WebapiApplication.ML
         public Boolean? TicketMrkedStatus { get; set; }
     }
 
+    public class updatedeletecustomer
+    {
+        public DateTime? Engagementdate { get; set; }
+        public string EngagementVenue { get; set; }
+        public DateTime? Marriagedate { get; set; }
+        public string MarriageVenue { get; set; }
+        public string DelSurname { get; set; }
+        public string DelName1 { get; set; }
+        public string DelFatherName { get; set; }
+        public string DelNative { get; set; }
+        public string DelEducation { get; set; }
+        public string DelProfession { get; set; }
+        public int? DelReasonForDelete { get; set; }
+        public int? DelRelationship { get; set; }
+        public string DelRelationshipName { get; set; }
+        public string Narriation { get; set; }
+        public int? ID { get; set; }
 
+        public string Joblocation { get; set; }
 
+        public int? AuthorizationStatus { get; set; }
+    }
 }
+
 
 
 

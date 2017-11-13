@@ -232,6 +232,12 @@ namespace WebapiApplication.Implement
         public int? updatemarketingvrfycation([FromBody]ticketverification Mobj) { return new EmployeeReportPageDAL().updatemarketingvrfycation(Mobj, "[dbo].[usp_updatemarketingcommission]"); }
 
         public ArrayList EmployeeMenulist(long? Empid) { return new EmployeeReportPageDAL().EmployeeMenulist(Empid, "[dbo].[usp_Employeemenulist]"); }
+
+        public int? Updatedeletecustomerdetails([FromBody]updatedeletecustomer Mobj) { return new EmployeeReportPageDAL().Updatedeletecustomerdetails(Mobj, "[dbo].[usp_UpdateDeletedMatchesProfiles]"); }
+
+
+        public int? Updatedeletecustomerdetails_new([FromBody]updatedeletecustomer Mobj) { return new EmployeeReportPageDAL().Updatedeletecustomerdetails_new(Mobj, "[dbo].[usp_UpdateDeletedMatchesProfiles_new]"); }
+    
     }
 
 }

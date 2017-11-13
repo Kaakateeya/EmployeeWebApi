@@ -4876,7 +4876,7 @@ namespace WebapiApplication.DAL
 
         public ArrayList keywordlikesearch(keywordlikesearch keyword, string spname)
         {
-            SqlParameter[] parm = new SqlParameter[9];
+            SqlParameter[] parm = new SqlParameter[10];
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -4887,14 +4887,18 @@ namespace WebapiApplication.DAL
                 parm[0].Value = keyword.dtPartnerPreference;
                 parm[1] = new SqlParameter("@ApplicationStatus", SqlDbType.VarChar);
                 parm[1].Value = keyword.ApplicationStatus;
-                parm[2] = new SqlParameter("@intEmpID", SqlDbType.Int);
-                parm[2].Value = keyword.EmpID;
-                parm[3] = new SqlParameter("@i_Startindex", SqlDbType.Int);
-                parm[3].Value = keyword.startindex;
-                parm[4] = new SqlParameter("@i_EndIndex", SqlDbType.Int);
-                parm[4].Value = keyword.EndIndex;
-                parm[5] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[5].Direction = ParameterDirection.Output;
+                parm[2] = new SqlParameter("@Caste", SqlDbType.VarChar);
+                parm[2].Value = keyword.Caste;
+                parm[3] = new SqlParameter("@Age", SqlDbType.Int);
+                parm[3].Value = keyword.Age;
+                parm[4] = new SqlParameter("@intEmpID", SqlDbType.Int);
+                parm[4].Value = keyword.EmpID;
+                parm[5] = new SqlParameter("@i_Startindex", SqlDbType.Int);
+                parm[5].Value = keyword.startindex;
+                parm[6] = new SqlParameter("@i_EndIndex", SqlDbType.Int);
+                parm[6].Value = keyword.EndIndex;
+                parm[7] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[7].Direction = ParameterDirection.Output;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
             }
             catch (Exception EX)
@@ -5629,6 +5633,131 @@ namespace WebapiApplication.DAL
             }
 
             return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public int? Updatedeletecustomerdetails(updatedeletecustomer Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[17];
+            Smtpemailsending smtp = new Smtpemailsending();
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            int status = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                parm[0] = new SqlParameter("@Engagementdate", SqlDbType.DateTime);
+                parm[0].Value = Mobj.Engagementdate;
+                parm[1] = new SqlParameter("@EngagementVenue", SqlDbType.VarChar, 500);
+                parm[1].Value = Mobj.EngagementVenue;
+                parm[2] = new SqlParameter("@Marriagedate", SqlDbType.DateTime);
+                parm[2].Value = Mobj.Marriagedate;
+                parm[3] = new SqlParameter("@MarriageVenue", SqlDbType.VarChar, 500);
+                parm[3].Value = Mobj.MarriageVenue;
+                parm[4] = new SqlParameter("@Surname", SqlDbType.VarChar, 250);
+                parm[4].Value = Mobj.DelSurname;
+                parm[5] = new SqlParameter("@Name", SqlDbType.VarChar, 250);
+                parm[5].Value = Mobj.DelName1;
+                parm[6] = new SqlParameter("@FatherName", SqlDbType.VarChar, 250);
+                parm[6].Value = Mobj.DelFatherName;
+                parm[7] = new SqlParameter("@Native", SqlDbType.VarChar, 250);
+                parm[7].Value = Mobj.DelNative;
+                parm[8] = new SqlParameter("@Education", SqlDbType.VarChar, 250);
+                parm[8].Value = Mobj.DelEducation;
+                parm[9] = new SqlParameter("@Profession", SqlDbType.VarChar, 250);
+                parm[9].Value = Mobj.DelProfession;
+                parm[10] = new SqlParameter("@ReasonForDelete", SqlDbType.Int);
+                parm[10].Value = Mobj.DelReasonForDelete;
+                parm[11] = new SqlParameter("@Relationship", SqlDbType.Int);
+                parm[11].Value = Mobj.DelRelationship;
+                parm[12] = new SqlParameter("@RelationshipName", SqlDbType.VarChar, 250);
+                parm[12].Value = Mobj.DelRelationshipName;
+                parm[13] = new SqlParameter("@Narriation", SqlDbType.VarChar, 8000);
+                parm[13].Value = Mobj.Narriation;
+                parm[14] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[14].Direction = ParameterDirection.Output;
+                parm[15] = new SqlParameter("@ID", SqlDbType.Int);
+                parm[15].Value = Mobj.ID;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[14].Value.ToString()).Equals(0))
+                {
+                    status = 0;
+                }
+                else
+                {
+                    status = Convert.ToInt32(parm[14].Value);
+                }
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), Convert.ToInt64(Mobj.ID), null, null);
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+            return status;
+        }
+
+        public int? Updatedeletecustomerdetails_new(updatedeletecustomer Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[14];
+            Smtpemailsending smtp = new Smtpemailsending();
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            int status = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                parm[1] = new SqlParameter("@Surname", SqlDbType.VarChar, 250);
+                parm[1].Value = Mobj.DelSurname;
+                parm[2] = new SqlParameter("@Name", SqlDbType.VarChar, 250);
+                parm[2].Value = Mobj.DelName1;
+                parm[3] = new SqlParameter("@FatherName", SqlDbType.VarChar, 250);
+                parm[3].Value = Mobj.DelFatherName;
+                parm[4] = new SqlParameter("@Education", SqlDbType.VarChar, 250);
+                parm[4].Value = Mobj.DelEducation;
+                parm[5] = new SqlParameter("@Profession", SqlDbType.VarChar, 250);
+                parm[5].Value = Mobj.DelProfession;
+                parm[6] = new SqlParameter("@Relationship", SqlDbType.Int);
+                parm[6].Value = Mobj.DelRelationship;
+                parm[7] = new SqlParameter("@Joblocation", SqlDbType.VarChar, 500);
+                parm[7].Value = Mobj.Joblocation;
+                parm[8] = new SqlParameter("@Narriation", SqlDbType.VarChar, 8000);
+                parm[8].Value = Mobj.Narriation;
+                parm[9] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[9].Direction = ParameterDirection.Output;
+                parm[10] = new SqlParameter("@ID", SqlDbType.Int);
+                parm[10].Value = Mobj.ID;
+                parm[11] = new SqlParameter("@AuthorizationStatus", SqlDbType.Int);
+                parm[11].Value = Mobj.AuthorizationStatus;
+
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[9].Value.ToString()).Equals(0))
+                {
+                    status = 0;
+                }
+                else
+                {
+                    status = Convert.ToInt32(parm[9].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), Convert.ToInt64(Mobj.ID), null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return status;
         }
     }
 }

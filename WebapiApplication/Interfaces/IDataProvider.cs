@@ -401,6 +401,10 @@ namespace WebapiApplication.Interfaces
         int? updatemarketingvrfycation(ticketverification Mobj);
 
         ArrayList EmployeeMenulist(long? Empid);
+
+        int? Updatedeletecustomerdetails(updatedeletecustomer Mobj);
+
+        int? Updatedeletecustomerdetails_new(updatedeletecustomer Mobj);
     }
 
     public interface ISmallPages

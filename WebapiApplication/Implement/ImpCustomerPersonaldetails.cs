@@ -74,9 +74,9 @@ namespace WebapiApplication.Implement
         public int PhotoPassword(long? CustID, int? ipassword) { return customerdetails.PhotoPassword(CustID, ipassword, "[dbo].[usp_PhotoPassword]"); }
         public int AstroDetailsUpdateDelete(AstroUploadDelete astroupdate) { return customerdetails.AstroDetailsUpdateDelete(astroupdate, "[dbo].[usp_AstroUpload_Delete]"); }
         public HoroGeneration GenerateHoroscorpe(int? customerid, string EmpIDQueryString, int? intDay, int? intMonth, int? intYear, int? CityID) { return customerdetails.GenerateHoroscorpe(customerid, EmpIDQueryString, intDay, intMonth, intYear, CityID); }
-        public ArrayList Emplanding_counts_Admin(EmployeeLandingCount ecount) { return customerdetails.Emplanding_counts_Admin(ecount, "[dbo].[usp_emplanding_counts_Admin_New]"); }
+        public ArrayList Emplanding_counts_Admin(EmployeeLandingCount ecount) { return customerdetails.Emplanding_counts_Admin(ecount, "[dbo].[usp_emplanding_counts_Admin_New_1111]"); }//usp_emplanding_counts_Admin_New
 
-        public ArrayList Emplanding_counts_TablesDisplay(EmployeeLandingCount ecount) { return customerdetails.Emplanding_counts_TablesDisplay(ecount, "[dbo].[usp_emplanding_counts_Admin_New]"); }
+        public ArrayList Emplanding_counts_TablesDisplay(EmployeeLandingCount ecount) { return customerdetails.Emplanding_counts_TablesDisplay(ecount, "[dbo].[usp_emplanding_counts_Admin_New_1111]"); }//usp_emplanding_counts_Admin_New
 
         
 

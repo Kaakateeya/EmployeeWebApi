@@ -304,6 +304,15 @@ namespace WebapiApplication.Api
         public int? updatemarketingvrfycation([FromBody]ticketverification Mobj) { return this.IEmployeeReport.updatemarketingvrfycation(Mobj); }
         //10-11-2017 Get Menulist dyanamically
         public ArrayList getEmployeeMenulist(long? Empid) { return this.IEmployeeReport.EmployeeMenulist(Empid); }
+
+        //11_11_2017_UpdateDeleteCustomerdetails
+
+        public int? Updatedeletecustomerdetails([FromBody]updatedeletecustomer Mobj) { return this.IEmployeeReport.Updatedeletecustomerdetails(Mobj); }
+
+        //13_11_2017_New UpdateDeleteCustomerdetails
+        public int? Updatedeletecustomerdetails_new([FromBody]updatedeletecustomer Mobj) { return this.IEmployeeReport.Updatedeletecustomerdetails_new(Mobj); }
+
+
     }
 }
 
