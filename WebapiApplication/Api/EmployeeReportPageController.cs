@@ -312,7 +312,9 @@ namespace WebapiApplication.Api
         //13_11_2017_New UpdateDeleteCustomerdetails
         public int? Updatedeletecustomerdetails_new([FromBody]updatedeletecustomer Mobj) { return this.IEmployeeReport.Updatedeletecustomerdetails_new(Mobj); }
 
+        //14_11_2017_Employee Permissions
 
+        public ArrayList getEmployeePermissions(string Empuserid, long? Pageid, int? flag) { return this.IEmployeeReport.EmployeePermissions(Empuserid, Pageid, flag); }
     }
 }
 

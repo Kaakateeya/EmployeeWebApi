@@ -1266,6 +1266,8 @@ namespace WebapiApplication.ML
         public string Joblocation { get; set; }
 
         public int? AuthorizationStatus { get; set; }
+
+        public long? Authorizeempid { get; set; }
     }
 }
 

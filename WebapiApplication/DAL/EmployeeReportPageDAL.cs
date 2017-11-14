@@ -5737,6 +5737,8 @@ namespace WebapiApplication.DAL
                 parm[10].Value = Mobj.ID;
                 parm[11] = new SqlParameter("@AuthorizationStatus", SqlDbType.Int);
                 parm[11].Value = Mobj.AuthorizationStatus;
+                parm[12] = new SqlParameter("@Authorizeempid", SqlDbType.BigInt);
+                parm[12].Value = Mobj.Authorizeempid;
 
                 DataSet ds = new DataSet();
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
@@ -5758,6 +5760,37 @@ namespace WebapiApplication.DAL
                 connection.Close();
             }
             return status;
+        }
+
+        public ArrayList EmployeePermissions(string Empuserid, long? Pageid, int? flag, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[5];
+                parm[0] = new SqlParameter("@empuserid", SqlDbType.VarChar);
+                parm[0].Value = Empuserid;
+                parm[1] = new SqlParameter("@Pageid", SqlDbType.BigInt);
+                parm[1].Value = Pageid;
+                parm[2] = new SqlParameter("@flag", SqlDbType.Int);
+                parm[2].Value = flag;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+
+            return Commonclass.convertdataTableToArrayListTable(ds);
         }
     }
 }
