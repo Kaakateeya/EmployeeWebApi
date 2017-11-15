@@ -5792,5 +5792,103 @@ namespace WebapiApplication.DAL
 
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
+
+        public int? Updateinsertemployeepermission(Employeepermission Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[8];
+            Smtpemailsending smtp = new Smtpemailsending();
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            int status = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                parm[1] = new SqlParameter("@EmployeeID", SqlDbType.VarChar);
+                parm[1].Value = Mobj.EmployeeID;
+                parm[2] = new SqlParameter("@dtPagePermissions", SqlDbType.Structured);
+                parm[2].Value = Mobj.dtPagePermissions;
+                parm[3] = new SqlParameter("@CreatedEmpID", SqlDbType.BigInt);
+                parm[3].Value = Mobj.CreatedEmpID;
+                parm[4] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[4].Direction = ParameterDirection.Output;
+                parm[5] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
+                parm[5].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[4].Value.ToString()).Equals(0))
+                {
+                    status = 0;
+                }
+                else
+                {
+                    status = Convert.ToInt32(parm[4].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), Convert.ToInt64(Mobj.EmployeeID), null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return status;
+        }
+
+        public ArrayList EmployeeReportsCounts(EmpCountsreport Mobj, string spName)
+        {
+
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[16];
+                parm[0] = new SqlParameter("@Branch", SqlDbType.Structured);
+                parm[0].Value = Commonclass.returndt(Mobj.strBranch, Mobj.dtBranch, "branch", "branchTable");
+                parm[1] = new SqlParameter("@strEmpIDs", SqlDbType.Structured);
+                parm[1].Value = Commonclass.returndt(Mobj.strEmpIDs, Mobj.dtEmpids, "Employee", "EmployeeTable");
+                parm[2] = new SqlParameter("@intRegion", SqlDbType.Int);
+                parm[2].Value = Mobj.intRegion;
+                parm[3] = new SqlParameter("@intStartIndex", SqlDbType.Int);
+                parm[3].Value = Mobj.intStartIndex;
+                parm[4] = new SqlParameter("@intEndIndex", SqlDbType.Int);
+                parm[4].Value = Mobj.intEndIndex;
+                parm[5] = new SqlParameter("@intServiceDate", SqlDbType.Int);
+                parm[5].Value = Mobj.intServiceDate;
+                parm[6] = new SqlParameter("@intPaymentExp", SqlDbType.Int);
+                parm[6].Value = Mobj.intPaymentExp;
+                parm[7] = new SqlParameter("@intNoPhoto", SqlDbType.Int);
+                parm[7].Value = Mobj.intNoPhoto;
+                parm[8] = new SqlParameter("@intNOtYetVerified", SqlDbType.Int);
+                parm[8].Value = Mobj.intNOtYetVerified;
+                parm[9] = new SqlParameter("@intUnPaid", SqlDbType.Int);
+                parm[9].Value = Mobj.intUnPaid;
+                parm[10] = new SqlParameter("@intInactive", SqlDbType.Int);
+                parm[10].Value = Mobj.intInactive;
+                parm[11] = new SqlParameter("@intEmailBounce", SqlDbType.Int);
+                parm[11].Value = Mobj.intEmailBounce;
+                parm[12] = new SqlParameter("@intNoSAFirm", SqlDbType.Int);
+                parm[12].Value = Mobj.intNoSAFirm;
+                parm[13] = new SqlParameter("@inrPresentInIndia", SqlDbType.Int);
+                parm[13].Value = Mobj.inrPresentInIndia;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }

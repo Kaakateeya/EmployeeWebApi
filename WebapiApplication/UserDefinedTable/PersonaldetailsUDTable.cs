@@ -1265,7 +1265,7 @@ namespace WebapiApplication.UserDefinedTable
 
         public static DataTable dtlikekeywordsearchnew()
         {
-             
+
 
             DataTable dtCreate = new DataTable();
             //
@@ -1559,7 +1559,20 @@ namespace WebapiApplication.UserDefinedTable
             //dtCreate.Columns.Add("IsSeriousMatch");
             //dtCreate.Columns.Add("AllEmails");
             return dtCreate;
-                    
+
+        }
+
+
+
+        public static DataTable dtemppermission()
+        {
+            DataTable dtCreate = new DataTable();
+            dtCreate.Columns.Add("PageID");
+            dtCreate.Columns.Add("IsView");
+            dtCreate.Columns.Add("IsAdd");
+            dtCreate.Columns.Add("IsEdit");
+            dtCreate.Columns.Add("IsDelete");
+            return dtCreate;
         }
     }
 }

@@ -1269,6 +1269,53 @@ namespace WebapiApplication.ML
 
         public long? Authorizeempid { get; set; }
     }
+
+    public class Employeepermission
+    {
+        public string EmployeeID { get; set; }
+        public DataTable dtPagePermissions { get; set; }
+        public long? CreatedEmpID { get; set; }
+        public int? PageID { get; set; }
+        public Boolean? IsView { get; set; }
+        public Boolean? IsAdd { get; set; }
+        public Boolean? IsDelete { get; set; }
+    }
+
+    public class EmpCountsreport
+    {
+
+        public DataTable dtBranch { get; set; }
+
+        public string strBranch { get; set; }
+
+        public string strEmpIDs { get; set; }
+
+        public DataTable dtEmpids { get; set; }
+
+        public int? intRegion { get; set; }
+
+        public int? intStartIndex { get; set; }
+
+        public int? intEndIndex { get; set; }
+
+        public int? intServiceDate { get; set; }
+
+        public int? intPaymentExp { get; set; }
+
+        public int? intNoPhoto { get; set; }
+
+        public int? intNOtYetVerified { get; set; }
+
+        public int? intUnPaid { get; set; }
+
+        public int? intInactive { get; set; }
+
+        public int? intEmailBounce { get; set; }
+
+        public int? intNoSAFirm { get; set; }
+
+        public int? inrPresentInIndia { get; set; }
+    }
 }
 
 

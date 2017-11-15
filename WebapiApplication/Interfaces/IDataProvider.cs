@@ -407,6 +407,10 @@ namespace WebapiApplication.Interfaces
         int? Updatedeletecustomerdetails_new(updatedeletecustomer Mobj);
 
         ArrayList EmployeePermissions(string Empuserid, long? Pageid, int? flag);
+
+        int? Updateinsertemployeepermission(Employeepermission Mobj);
+
+        ArrayList EmployeeReportsCounts(EmpCountsreport Mobj);
     }
 
     public interface ISmallPages

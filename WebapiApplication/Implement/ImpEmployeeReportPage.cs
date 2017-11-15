@@ -239,6 +239,12 @@ namespace WebapiApplication.Implement
         public int? Updatedeletecustomerdetails_new([FromBody]updatedeletecustomer Mobj) { return new EmployeeReportPageDAL().Updatedeletecustomerdetails_new(Mobj, "[dbo].[usp_UpdateDeletedMatchesProfiles_new]"); }
 
         public ArrayList EmployeePermissions(string Empuserid, long? Pageid, int? flag) { return new EmployeeReportPageDAL().EmployeePermissions(Empuserid, Pageid, flag, "[dbo].[usp_getPagesForRoles_New]"); }
+
+        public int? Updateinsertemployeepermission([FromBody]Employeepermission Mobj) { return new EmployeeReportPageDAL().Updateinsertemployeepermission(Mobj, "[dbo].[usp_CreatePagePermissionsforEmployee_newpage]"); }
+
+        public ArrayList EmployeeReportsCounts([FromBody]EmpCountsreport Mobj) { return new EmployeeReportPageDAL().EmployeeReportsCounts(Mobj, "[dbo].[usp_Report_Employee_Counts]"); }
+
+    
     }
 
 }

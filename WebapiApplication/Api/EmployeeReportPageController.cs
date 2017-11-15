@@ -242,7 +242,6 @@ namespace WebapiApplication.Api
 
         public ArrayList Oldkmplkeywordlikesearch([FromBody]CreateKeywordLlikesearchReqoldkmpl oldkmpl)
         {
-            int status = 0;
             List<CreateKeywordLlikesearchReqoldkmpl> lstkmpl = new List<CreateKeywordLlikesearchReqoldkmpl>();
             lstkmpl.Add(oldkmpl);
             oldkmpl.dtPartnerPreference = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtkeywordsearch(), lstkmpl);
@@ -315,6 +314,20 @@ namespace WebapiApplication.Api
         //14_11_2017_Employee Permissions
 
         public ArrayList getEmployeePermissions(string Empuserid, long? Pageid, int? flag) { return this.IEmployeeReport.EmployeePermissions(Empuserid, Pageid, flag); }
+
+        //15_11_2017_Employee Permission insert update
+        public int? Updateinsertemployeepermission([FromBody]Employeepermission Mobj)
+        {
+
+            List<Employeepermission> permission = new List<Employeepermission>();
+            permission.Add(Mobj);
+            Mobj.dtPagePermissions = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtemppermission(), permission);
+            return this.IEmployeeReport.Updateinsertemployeepermission(Mobj);
+        }
+        //15_11_2017_Counts Sp
+
+        public ArrayList EmployeeReportsCounts([FromBody]EmpCountsreport Mobj) { return this.IEmployeeReport.EmployeeReportsCounts(Mobj); }
+
     }
 }
 
