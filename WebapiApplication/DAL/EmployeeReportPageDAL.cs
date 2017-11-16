@@ -5455,21 +5455,21 @@ namespace WebapiApplication.DAL
 
             try
             {
-                parm[0] = new SqlParameter("@i_AppUserId", SqlDbType.BigInt);
+                parm[0] = new SqlParameter("@i_AppUserId", SqlDbType.Int);
                 parm[0].Value = Mobj.AppUserId;
-                parm[1] = new SqlParameter("@vc_Name", SqlDbType.BigInt);
+                parm[1] = new SqlParameter("@vc_Name", SqlDbType.VarChar);
                 parm[1].Value = Mobj.Name;
-                parm[2] = new SqlParameter("@vc_CountryCode", SqlDbType.Int);
+                parm[2] = new SqlParameter("@vc_CountryCode", SqlDbType.VarChar);
                 parm[2].Value = Mobj.CountryCode;
-                parm[3] = new SqlParameter("@vc_CountryCurrency", SqlDbType.BigInt);
+                parm[3] = new SqlParameter("@vc_CountryCurrency", SqlDbType.VarChar);
                 parm[3].Value = Mobj.CountryCurrency;
                 parm[4] = new SqlParameter("@i_MobileLength", SqlDbType.Int);
                 parm[4].Value = Mobj.MobileLength;
-                parm[5] = new SqlParameter("@i_landlineLength", SqlDbType.VarChar);
+                parm[5] = new SqlParameter("@i_landlineLength", SqlDbType.Int);
                 parm[5].Value = Mobj.landlineLength;
-                parm[6] = new SqlParameter("@b_StatusCode", SqlDbType.VarChar);
+                parm[6] = new SqlParameter("@b_StatusCode", SqlDbType.Bit);
                 parm[6].Value = Mobj.StatusCode;
-                parm[7] = new SqlParameter("@vc_MasterType", SqlDbType.Int);
+                parm[7] = new SqlParameter("@vc_MasterType", SqlDbType.VarChar);
                 parm[7].Value = Mobj.MasterType;
                 parm[8] = new SqlParameter("@i_DependentId", SqlDbType.Int);
                 parm[8].Value = Mobj.DependentId;
@@ -5480,22 +5480,22 @@ namespace WebapiApplication.DAL
                 parm[10] = new SqlParameter("@i_SubDependentId", SqlDbType.Int);
                 parm[10].Value = Mobj.SubDependentId;
 
-                parm[11] = new SqlParameter("@i_MinWords", SqlDbType.Int);
+                parm[11] = new SqlParameter("@i_MinWords", SqlDbType.Float);
                 parm[11].Value = Mobj.MinWords;
-                parm[12] = new SqlParameter("@i_MaxWords", SqlDbType.Int);
+                parm[12] = new SqlParameter("@i_MaxWords", SqlDbType.Float);
                 parm[12].Value = Mobj.MaxWords;
-                parm[13] = new SqlParameter("@i_CostPOBox", SqlDbType.Int);
+                parm[13] = new SqlParameter("@i_CostPOBox", SqlDbType.Float);
                 parm[13].Value = Mobj.CostPOBox;
                 parm[14] = new SqlParameter("@i_LanguageID", SqlDbType.Int);
                 parm[14].Value = Mobj.LanguageID;
 
-                parm[15] = new SqlParameter("@vc_Comments", SqlDbType.Int);
+                parm[15] = new SqlParameter("@vc_Comments", SqlDbType.VarChar);
                 parm[15].Value = Mobj.Comments;
-                parm[16] = new SqlParameter("@i_ExtraWordPrice", SqlDbType.Int);
+                parm[16] = new SqlParameter("@i_ExtraWordPrice", SqlDbType.Float);
                 parm[16].Value = Mobj.ExtraWordPrice;
-                parm[17] = new SqlParameter("@vc_TamilStarName", SqlDbType.Int);
+                parm[17] = new SqlParameter("@vc_TamilStarName", SqlDbType.VarChar);
                 parm[17].Value = Mobj.TamilStarName;
-                parm[18] = new SqlParameter("@vc_KannadaStarName", SqlDbType.Int);
+                parm[18] = new SqlParameter("@vc_KannadaStarName", SqlDbType.VarChar);
                 parm[18].Value = Mobj.KannadaStarName;
                 parm[19] = new SqlParameter("@i_MasterTypeID", SqlDbType.Int);
                 parm[19].Value = Mobj.MasterTypeID;
@@ -5715,40 +5715,40 @@ namespace WebapiApplication.DAL
 
             try
             {
-                parm[1] = new SqlParameter("@Surname", SqlDbType.VarChar, 250);
-                parm[1].Value = Mobj.DelSurname;
-                parm[2] = new SqlParameter("@Name", SqlDbType.VarChar, 250);
-                parm[2].Value = Mobj.DelName1;
-                parm[3] = new SqlParameter("@FatherName", SqlDbType.VarChar, 250);
-                parm[3].Value = Mobj.DelFatherName;
-                parm[4] = new SqlParameter("@Education", SqlDbType.VarChar, 250);
-                parm[4].Value = Mobj.DelEducation;
-                parm[5] = new SqlParameter("@Profession", SqlDbType.VarChar, 250);
-                parm[5].Value = Mobj.DelProfession;
-                parm[6] = new SqlParameter("@Relationship", SqlDbType.Int);
-                parm[6].Value = Mobj.DelRelationship;
-                parm[7] = new SqlParameter("@Joblocation", SqlDbType.VarChar, 500);
-                parm[7].Value = Mobj.Joblocation;
-                parm[8] = new SqlParameter("@Narriation", SqlDbType.VarChar, 8000);
-                parm[8].Value = Mobj.Narriation;
-                parm[9] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[9].Direction = ParameterDirection.Output;
-                parm[10] = new SqlParameter("@ID", SqlDbType.Int);
-                parm[10].Value = Mobj.ID;
-                parm[11] = new SqlParameter("@AuthorizationStatus", SqlDbType.Int);
-                parm[11].Value = Mobj.AuthorizationStatus;
-                parm[12] = new SqlParameter("@Authorizeempid", SqlDbType.BigInt);
-                parm[12].Value = Mobj.Authorizeempid;
+                parm[0] = new SqlParameter("@Surname", SqlDbType.VarChar, 250);
+                parm[0].Value = Mobj.DelSurname;
+                parm[1] = new SqlParameter("@Name", SqlDbType.VarChar, 250);
+                parm[1].Value = Mobj.DelName1;
+                parm[2] = new SqlParameter("@FatherName", SqlDbType.VarChar, 250);
+                parm[2].Value = Mobj.DelFatherName;
+                parm[3] = new SqlParameter("@Education", SqlDbType.VarChar, 250);
+                parm[3].Value = Mobj.DelEducation;
+                parm[4] = new SqlParameter("@Profession", SqlDbType.VarChar, 250);
+                parm[4].Value = Mobj.DelProfession;
+                parm[5] = new SqlParameter("@Relationship", SqlDbType.Int);
+                parm[5].Value = Mobj.DelRelationship;
+                parm[6] = new SqlParameter("@Joblocation", SqlDbType.VarChar, 500);
+                parm[6].Value = Mobj.Joblocation;
+                parm[7] = new SqlParameter("@Narriation", SqlDbType.VarChar, 8000);
+                parm[7].Value = Mobj.Narriation;
+                parm[8] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[8].Direction = ParameterDirection.Output;
+                parm[9] = new SqlParameter("@ID", SqlDbType.Int);
+                parm[9].Value = Mobj.ID;
+                parm[10] = new SqlParameter("@AuthorizationStatus", SqlDbType.Int);
+                parm[10].Value = Mobj.AuthorizationStatus;
+                parm[11] = new SqlParameter("@Authorizeempid", SqlDbType.BigInt);
+                parm[11].Value = Mobj.Authorizeempid;
 
                 DataSet ds = new DataSet();
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[9].Value.ToString()).Equals(0))
+                if (string.Compare(System.DBNull.Value.ToString(), parm[8].Value.ToString()).Equals(0))
                 {
                     status = 0;
                 }
                 else
                 {
-                    status = Convert.ToInt32(parm[9].Value);
+                    status = Convert.ToInt32(parm[8].Value);
                 }
             }
             catch (Exception EX)
@@ -5805,25 +5805,25 @@ namespace WebapiApplication.DAL
 
             try
             {
-                parm[1] = new SqlParameter("@EmployeeID", SqlDbType.VarChar);
-                parm[1].Value = Mobj.EmployeeID;
-                parm[2] = new SqlParameter("@dtPagePermissions", SqlDbType.Structured);
-                parm[2].Value = Mobj.dtPagePermissions;
-                parm[3] = new SqlParameter("@CreatedEmpID", SqlDbType.BigInt);
-                parm[3].Value = Mobj.CreatedEmpID;
-                parm[4] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[0] = new SqlParameter("@EmployeeID", SqlDbType.VarChar);
+                parm[0].Value = Mobj.EmployeeID;
+                parm[1] = new SqlParameter("@dtPagePermissions", SqlDbType.Structured);
+                parm[1].Value = Mobj.dtPagePermissions;
+                parm[2] = new SqlParameter("@CreatedEmpID", SqlDbType.BigInt);
+                parm[2].Value = Mobj.CreatedEmpID;
+                parm[3] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[3].Direction = ParameterDirection.Output;
+                parm[4] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
                 parm[4].Direction = ParameterDirection.Output;
-                parm[5] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
-                parm[5].Direction = ParameterDirection.Output;
                 DataSet ds = new DataSet();
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[4].Value.ToString()).Equals(0))
+                if (string.Compare(System.DBNull.Value.ToString(), parm[3].Value.ToString()).Equals(0))
                 {
                     status = 0;
                 }
                 else
                 {
-                    status = Convert.ToInt32(parm[4].Value);
+                    status = Convert.ToInt32(parm[3].Value);
                 }
             }
             catch (Exception EX)
@@ -5889,6 +5889,44 @@ namespace WebapiApplication.DAL
             }
 
             return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public int? updateprofilebranchid(string Profileid, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[8];
+            Smtpemailsending smtp = new Smtpemailsending();
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            int status = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                parm[0] = new SqlParameter("@ProfileID", SqlDbType.VarChar);
+                parm[0].Value = Profileid;
+                parm[1] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[1].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[1].Value.ToString()).Equals(0))
+                {
+                    status = 0;
+                }
+                else
+                {
+                    status = Convert.ToInt32(parm[1].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), Convert.ToInt64(Profileid), null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return status;
         }
     }
 }

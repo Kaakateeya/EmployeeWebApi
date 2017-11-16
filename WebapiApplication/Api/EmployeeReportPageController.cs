@@ -327,6 +327,9 @@ namespace WebapiApplication.Api
         //15_11_2017_Counts Sp
 
         public ArrayList EmployeeReportsCounts([FromBody]EmpCountsreport Mobj) { return this.IEmployeeReport.EmployeeReportsCounts(Mobj); }
+        //16_11_2017_employee bracnchid
+        public int? getupdateprofilebranchid(string Profileid) { return this.IEmployeeReport.updateprofilebranchid(Profileid); }
+
 
     }
 }

@@ -411,6 +411,8 @@ namespace WebapiApplication.Interfaces
         int? Updateinsertemployeepermission(Employeepermission Mobj);
 
         ArrayList EmployeeReportsCounts(EmpCountsreport Mobj);
+
+        int? updateprofilebranchid(string Profileid);
     }
 
     public interface ISmallPages
