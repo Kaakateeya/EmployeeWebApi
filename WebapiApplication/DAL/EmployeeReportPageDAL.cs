@@ -5762,7 +5762,7 @@ namespace WebapiApplication.DAL
             return status;
         }
 
-        public ArrayList EmployeePermissions(string Empuserid, long? Pageid, int? flag, string spName)
+        public ArrayList EmployeePermissions(int? Empuserid, string Pageid, int? flag, string spName)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection();
@@ -5771,9 +5771,9 @@ namespace WebapiApplication.DAL
             try
             {
                 SqlParameter[] parm = new SqlParameter[5];
-                parm[0] = new SqlParameter("@empuserid", SqlDbType.VarChar);
+                parm[0] = new SqlParameter("@i_EmpID", SqlDbType.Int);
                 parm[0].Value = Empuserid;
-                parm[1] = new SqlParameter("@Pageid", SqlDbType.BigInt);
+                parm[1] = new SqlParameter("@v_permissionpages", SqlDbType.VarChar);
                 parm[1].Value = Pageid;
                 parm[2] = new SqlParameter("@flag", SqlDbType.Int);
                 parm[2].Value = flag;

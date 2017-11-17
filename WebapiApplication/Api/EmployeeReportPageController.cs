@@ -313,7 +313,7 @@ namespace WebapiApplication.Api
 
         //14_11_2017_Employee Permissions
 
-        public ArrayList getEmployeePermissions(string Empuserid, long? Pageid, int? flag) { return this.IEmployeeReport.EmployeePermissions(Empuserid, Pageid, flag); }
+        public ArrayList getEmployeePermissions(int? Empuserid, string Pageid, int? flag) { return this.IEmployeeReport.EmployeePermissions(Empuserid, Pageid, flag); }
 
         //15_11_2017_Employee Permission insert update
         public int? Updateinsertemployeepermission([FromBody]Employeepermission Mobj)

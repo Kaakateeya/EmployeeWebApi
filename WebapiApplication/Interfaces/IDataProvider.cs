@@ -406,7 +406,7 @@ namespace WebapiApplication.Interfaces
 
         int? Updatedeletecustomerdetails_new(updatedeletecustomer Mobj);
 
-        ArrayList EmployeePermissions(string Empuserid, long? Pageid, int? flag);
+        ArrayList EmployeePermissions(int? Empuserid, string Pageid, int? flag);
 
         int? Updateinsertemployeepermission(Employeepermission Mobj);
 
