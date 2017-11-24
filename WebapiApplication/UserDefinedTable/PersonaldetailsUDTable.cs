@@ -1452,7 +1452,7 @@ namespace WebapiApplication.UserDefinedTable
             dtCreate.Columns.Add("CPropertyGrade");
             dtCreate.Columns.Add("CFamilyGrade");
             dtCreate.Columns.Add("CProfessionGrade");
-            dtCreate.Columns.Add("CPhysicalStatus ");
+            dtCreate.Columns.Add("CPhysicalStatus");
             dtCreate.Columns.Add("CDrink");
             dtCreate.Columns.Add("CSmoke");
             dtCreate.Columns.Add("CDiet");
