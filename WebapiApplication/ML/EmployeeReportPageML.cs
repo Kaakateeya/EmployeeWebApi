@@ -859,11 +859,15 @@ namespace WebapiApplication.ML
         public string MS_AllFields { get; set; }
         public string CAll { get; set; }
         public int? Gender { get; set; }
-
-
         public string Caste { get; set; }
-
         public int? Age { get; set; }
+
+        public int? AgeFr { get; set; }
+        public int? AgeTo { get; set; }
+        public float? HeightFr { get; set; }
+        public float? HeightTo { get; set; }
+        public int? Democel { get; set; }
+
     }
     public class closereminder
     {

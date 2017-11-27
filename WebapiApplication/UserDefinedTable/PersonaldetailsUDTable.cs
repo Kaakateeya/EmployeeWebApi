@@ -1260,6 +1260,12 @@ namespace WebapiApplication.UserDefinedTable
             dtCreate.Columns.Add("MS_AllFields");
             dtCreate.Columns.Add("CAll");
             dtCreate.Columns.Add("Gender");
+            //
+            dtCreate.Columns.Add("AgeFr");
+            dtCreate.Columns.Add("AgeTo");
+            dtCreate.Columns.Add("HeightFr");
+            dtCreate.Columns.Add("HeightTo");
+            dtCreate.Columns.Add("Democel");
             return dtCreate;
         }
 
