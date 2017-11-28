@@ -280,6 +280,8 @@ namespace WebapiApplication.UserDefinedTable
             dtPartberPref.Columns.Add("Region");
             dtPartberPref.Columns.Add("Branch");
             dtPartberPref.Columns.Add("Domacile");
+            //dtPartberPref.Columns.Add("CityID");
+
             return dtPartberPref;
         }
 

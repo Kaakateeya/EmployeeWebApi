@@ -263,6 +263,7 @@ namespace WebapiApplication.ML
         public string Region { get; set; }
         public string Branch { get; set; }
         public string Domacile { get; set; }
+        //public string CityID { get; set; }
     }
     public class TSibBrother
     {
