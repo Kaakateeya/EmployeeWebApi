@@ -1049,7 +1049,8 @@ namespace WebapiApplication.DAL
 
                         string Strkeyname = "Images/HoroscopeImages/" + strCustDtryName + "/" + FileName;
                         string strHoro = Strkeyname.Replace("/", "\\");
-                        string strPath = "C:\\inetpub\\wwwroot\\access\\" + strHoro;
+                        //string strPath = "C:\\inetpub\\wwwroot\\access\\" + strHoro;
+                        string strPath = "C:\\EmployeeAngularProject_New\\EmployeeProject\\" + strHoro;
                         string strTestPath = System.IO.Path.Combine(System.Environment.CurrentDirectory, strPath);
                         horogeneration.KeyName = Strkeyname;
                         horogeneration.Path = Strpaths3;

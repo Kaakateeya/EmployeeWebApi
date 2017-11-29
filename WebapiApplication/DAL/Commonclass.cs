@@ -457,8 +457,8 @@ namespace WebapiApplication.DAL
 
             //filePath = "D://EmployeeAngularSite//Employee//" + strpath;
 
-            filePath = "C://EmployeeAngularProject//Employee//" + strpath;
-
+            //filePath = "C://EmployeeAngularProject//Employee//" + strpath;
+            filePath = "C://EmployeeAngularProject_New//EmployeeProject//" + strpath;
             try
             {
                 TransferUtility fileTransferUtility = new
