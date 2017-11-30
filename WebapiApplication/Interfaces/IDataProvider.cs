@@ -413,6 +413,8 @@ namespace WebapiApplication.Interfaces
         ArrayList EmployeeReportsCounts(EmpCountsreport Mobj);
 
         int? updateprofilebranchid(string Profileid);
+
+        int? inserttorestoretable(long? Profileid);
     }
 
     public interface ISmallPages

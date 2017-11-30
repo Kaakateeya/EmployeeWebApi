@@ -330,7 +330,7 @@ namespace WebapiApplication.Api
         //16_11_2017_employee bracnchid
         public int? getupdateprofilebranchid(string Profileid) { return this.IEmployeeReport.updateprofilebranchid(Profileid); }
 
-
+        public int? getinserttorestoretable(long? Profileid) { return this.IEmployeeReport.inserttorestoretable(Profileid); }
     }
 }
 

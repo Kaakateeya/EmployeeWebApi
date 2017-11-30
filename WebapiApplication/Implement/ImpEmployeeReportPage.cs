@@ -245,6 +245,9 @@ namespace WebapiApplication.Implement
         public ArrayList EmployeeReportsCounts([FromBody]EmpCountsreport Mobj) { return new EmployeeReportPageDAL().EmployeeReportsCounts(Mobj, "[dbo].[usp_Report_Employee_Counts]"); }
 
         public int? updateprofilebranchid(string Profileid) { return new EmployeeReportPageDAL().updateprofilebranchid(Profileid, "[dbo].[usp_updateprofilebranchid]"); }
+
+        public int? inserttorestoretable(long? Profileid) { return new EmployeeReportPageDAL().inserttorestoretable(Profileid, "[dbo].[usp_kumar_insertrecordintoallfields]"); }
+    
     }
 
 }

@@ -5928,5 +5928,43 @@ namespace WebapiApplication.DAL
             }
             return status;
         }
+
+        public int? inserttorestoretable(long? Profileid, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[8];
+            Smtpemailsending smtp = new Smtpemailsending();
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            int status = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                parm[0] = new SqlParameter("@profileid", SqlDbType.BigInt);
+                parm[0].Value = Profileid;
+                parm[1] = new SqlParameter("@status", SqlDbType.Int);
+                parm[1].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[1].Value.ToString()).Equals(0))
+                {
+                    status = 0;
+                }
+                else
+                {
+                    status = Convert.ToInt32(parm[1].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), Convert.ToInt64(Profileid), null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return status;
+        }
     }
 }
