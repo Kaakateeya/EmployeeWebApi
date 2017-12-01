@@ -1320,6 +1320,17 @@ namespace WebapiApplication.ML
 
         public int? inrPresentInIndia { get; set; }
     }
+
+    public class bankamount
+    {
+
+        public string Bankname { get; set; }
+        public string modeofdeposit { get; set; }
+        public float? depositamount { get; set; }
+        public int? depositedby { get; set; }
+        public DateTime? depositeddate { get; set; }
+        public string Description { get; set; }
+    }
 }
 
 

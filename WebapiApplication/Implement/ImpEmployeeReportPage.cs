@@ -246,8 +246,9 @@ namespace WebapiApplication.Implement
 
         public int? updateprofilebranchid(string Profileid) { return new EmployeeReportPageDAL().updateprofilebranchid(Profileid, "[dbo].[usp_updateprofilebranchid]"); }
 
-        public int? inserttorestoretable(long? Profileid) { return new EmployeeReportPageDAL().inserttorestoretable(Profileid, "[dbo].[usp_kumar_insertrecordintoallfields]"); }
-    
+        public int? inserttorestoretable(long? Profileid) { return new EmployeeReportPageDAL().inserttorestoretable(Profileid, "[dbo].[usp_emp_InsertintoAllfields_AJS]"); }
+
+        public int? InsertamountintoBank([FromBody]bankamount Mobj) { return new EmployeeReportPageDAL().InsertamountintoBank(Mobj, "[dbo].[USP_EMP_BANKDEPOSIT_AJS]"); }
     }
 
 }
