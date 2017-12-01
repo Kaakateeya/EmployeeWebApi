@@ -9,6 +9,7 @@ using System.Collections;
 using System.Configuration;
 using KaakateeyaDAL;
 using WebapiApplication.UserDefinedTable;
+using WebapiApplication.ServiceReference1;
 
 namespace WebapiApplication.DAL
 {
@@ -6002,6 +6003,9 @@ namespace WebapiApplication.DAL
                 else
                 {
                     status = Convert.ToInt32(parm[6].Value);
+                    ServiceSoapClient cc = new ServiceSoapClient();
+                    string result1 = cc.SendTextSMS("ykrishna", "summary$1", "9848344977", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
+                    string result2 = cc.SendTextSMS("ykrishna", "summary$1", "9396999999", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");              
                 }
             }
             catch (Exception EX)

@@ -1330,6 +1330,8 @@ namespace WebapiApplication.ML
         public int? depositedby { get; set; }
         public DateTime? depositeddate { get; set; }
         public string Description { get; set; }
+        public string LoginEmpName { get; set; }
+        public string usernameemployeeid { get; set; }
     }
 }
 
