@@ -5966,5 +5966,53 @@ namespace WebapiApplication.DAL
             }
             return status;
         }
+
+        public int? InsertamountintoBank(bankamount Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[8];
+            Smtpemailsending smtp = new Smtpemailsending();
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            int status = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+                parm[0] = new SqlParameter("@Bankname", SqlDbType.VarChar);
+                parm[0].Value = Mobj.Bankname;
+                parm[1] = new SqlParameter("@modeofdeposit", SqlDbType.VarChar);
+                parm[1].Value = Mobj.modeofdeposit;
+                parm[2] = new SqlParameter("@depositamount", SqlDbType.Float);
+                parm[2].Value = Mobj.depositamount;
+                parm[3] = new SqlParameter("@depositedby", SqlDbType.Int);
+                parm[3].Value = Mobj.depositedby;
+                parm[4] = new SqlParameter("@depositeddate", SqlDbType.DateTime);
+                parm[4].Value = Mobj.depositeddate;
+                parm[5] = new SqlParameter("@Description", SqlDbType.VarChar);
+                parm[5].Value = Mobj.Description;
+                parm[6] = new SqlParameter("@status", SqlDbType.Int);
+                parm[6].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[6].Value.ToString()).Equals(0))
+                {
+                    status = 0;
+                }
+                else
+                {
+                    status = Convert.ToInt32(parm[6].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return status;
+        }
     }
 }

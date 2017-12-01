@@ -331,6 +331,10 @@ namespace WebapiApplication.Api
         public int? getupdateprofilebranchid(string Profileid) { return this.IEmployeeReport.updateprofilebranchid(Profileid); }
 
         public int? getinserttorestoretable(long? Profileid) { return this.IEmployeeReport.inserttorestoretable(Profileid); }
+
+        //01_12_2017_Amount deposited in Bank
+
+        public int? InsertamountintoBank([FromBody]bankamount Mobj) { return this.IEmployeeReport.InsertamountintoBank(Mobj); }
     }
 }
 

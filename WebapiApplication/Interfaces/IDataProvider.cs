@@ -415,6 +415,8 @@ namespace WebapiApplication.Interfaces
         int? updateprofilebranchid(string Profileid);
 
         int? inserttorestoretable(long? Profileid);
+
+        int? InsertamountintoBank(bankamount Mobj);
     }
 
     public interface ISmallPages
