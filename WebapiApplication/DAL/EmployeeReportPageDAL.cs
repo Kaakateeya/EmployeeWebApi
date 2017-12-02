@@ -10,7 +10,7 @@ using System.Configuration;
 using KaakateeyaDAL;
 using WebapiApplication.UserDefinedTable;
 using WebapiApplication.ServiceReference1;
-
+using Dapper;
 namespace WebapiApplication.DAL
 {
 
@@ -6023,258 +6023,71 @@ namespace WebapiApplication.DAL
             return status;
         }
 
-        public static List<T> DataReaderMapToList<T>(IDataReader dr)
-        {
-            List<T> list = new List<T>();
-            T obj = default(T);
-            while (dr.Read())
-            {
-                obj = Activator.CreateInstance<T>();
-                foreach (EmployeeMarketingTicketResponse prop in obj.GetType().GetProperties())
-                {
-                    if (!object.Equals(dr[prop.Name], DBNull.Value))
-                    {
-                        prop.SetValue(obj, dr[prop.Name], null);
-                    }
-                }
-                list.Add(obj);
-            }
-            return list;
-        }
+      
 
         public EmployeeMarketingTicketResponse GetMarketingTicketHistoryInfo_New(EmployeeMarketingTketRequestNew Mobj, string spName)
         {
-            EmployeeMarketingTicketResponse MarketingTicketResponse = new EmployeeMarketingTicketResponse();
-
-            string strErrorMsg = string.Empty;
-            int? intnull = null;
-            Int64? longnull = null;
-
+            EmployeeMarketingTicketResponse responseBody = new EmployeeMarketingTicketResponse();
+           
             SqlParameter[] parm = new SqlParameter[30];
-            SqlDataReader drReader = null;
-
-            SqlConnection connection = new SqlConnection();
-            connection = SQLHelper.GetSQLConnection();
-            connection.Open();
-
-            try
-            {
-                parm[0] = new SqlParameter("@i_EmpID", SqlDbType.BigInt);
-                parm[0].Value =  Mobj.i_EmpID;
-
-                parm[1] = new SqlParameter("@i_PageFrom", SqlDbType.BigInt);
-                parm[1].Value = Mobj.i_PageFrom;
-
-                parm[2] = new SqlParameter("@i_PageTo", SqlDbType.BigInt);
-                parm[2].Value = Mobj.i_PageTo;
-                
-                parm[3] = new SqlParameter("@v_EmpIDs", SqlDbType.VarChar, 1000);
-                parm[3].Value = Mobj.strEmpName;
-
-                parm[4] = new SqlParameter("@v_BranchIDs", SqlDbType.VarChar, 1000);
-                parm[4].Value =  Mobj.strBranch;
-
-          
-
-                parm[5] = new SqlParameter("@dt_FromProceedDate", SqlDbType.DateTime);
-                parm[5].Value = Mobj.dtFromProceedDate;
-
-                parm[6] = new SqlParameter("@dt_ToProceedDate", SqlDbType.DateTime);
-                parm[6].Value = Mobj.dtToProceedDate;
-
-                parm[7] = new SqlParameter("@i_days", SqlDbType.Int);
-                parm[7].Value = Mobj.i_days;
 
            
 
-                parm[8] = new SqlParameter("@i_RegionID", SqlDbType.Int);
-                parm[8].Value = Mobj.i_RegionID;
+            try
+            {
+                var p = new DynamicParameters();
+                p.Add("@i_EmpID", Mobj.i_EmpID);
+                p.Add("@i_PageFrom", Mobj.i_PageFrom);
+                p.Add("@i_PageTo", Mobj.i_PageTo);
+                p.Add("@v_EmpIDs", Mobj.strEmpName);
+                p.Add("@v_BranchIDs", Mobj.strBranch);
+                p.Add("@dt_FromProceedDate", Mobj.dtFromProceedDate);
 
-                parm[9] = new SqlParameter("@i_TicketId", SqlDbType.VarChar);
-                parm[9].Value = Mobj.i_TicketId;
+                p.Add("@dt_ToProceedDate", Mobj.dtToProceedDate);
+                p.Add("@i_days", Mobj.i_days);
 
+                p.Add("@i_RegionID", Mobj.i_RegionID);
+                p.Add("@i_TicketId", Mobj.i_TicketId);
+                p.Add("@i_EmailId", Mobj.i_EmailId);
+                p.Add("@i_PhoneNumber", Mobj.i_PhoneNumber);
 
-                parm[10] = new SqlParameter("@i_EmailId", SqlDbType.VarChar);
-                parm[10].Value = Mobj.i_EmailId;
-
-
-                parm[11] = new SqlParameter("@i_PhoneNumber", SqlDbType.VarChar);
-                parm[11].Value = Mobj.i_PhoneNumber;
-
-                parm[12] = new SqlParameter("@i_ProfileId", SqlDbType.VarChar);
-                parm[12].Value = Mobj.i_ProfileId;
-
-                parm[13] = new SqlParameter("@dt_FromReminderDate", SqlDbType.DateTime);
-                parm[13].Value = Mobj.dt_FromRemainderdate;
-
-                parm[14] = new SqlParameter("@dt_ToReminderDate", SqlDbType.DateTime);
-                parm[14].Value = Mobj.dt_ToReminderdate;
+                p.Add("@i_ProfileId", Mobj.i_ProfileId);
+                p.Add("@dt_FromReminderDate", Mobj.dt_FromRemainderdate);
 
 
-                parm[15] = new SqlParameter("@b_unpaidProfiles", SqlDbType.Bit);
-                parm[15].Value = Mobj.b_unpaidProfiles;
+                p.Add("@dt_ToReminderDate", Mobj.dt_ToReminderdate);
+                p.Add("@b_unpaidProfiles", Mobj.b_unpaidProfiles);
+                p.Add("@v_Marketreminder", Mobj.v_MarketremindeFlag);
+                p.Add("@i_UnmarriedSiblingDetails", Mobj.v_siblingflag);
 
+                p.Add("@i_GuestTickets", Mobj.v_guestticketflag);
+                p.Add("@i_Onlineeexpiry", Mobj.v_OnlineExprd);
 
-                parm[16] = new SqlParameter("@v_Marketreminder", SqlDbType.Bit);
-                parm[16].Value = Mobj.v_MarketremindeFlag;
+                p.Add("@V_Notpay", Mobj.V_Notpay);
+                responseBody.Marketingslideticket = new List<EmployeeMarketingslideticket>();
+                responseBody.MarketingslideHistory = new List<EmployeeMarketingslideHistory>();
 
-                parm[17] = new SqlParameter("@i_UnmarriedSiblingDetails", SqlDbType.Bit);
-                parm[17].Value = Mobj.v_siblingflag;
+                using (IDbConnection conn = SQLHelper.GetSQLConnection())
+                {
+                    IEnumerable<dynamic> results = conn.Query(sql: spName, param: p, commandType: CommandType.StoredProcedure);
+                    var reader = conn.QueryMultiple(spName, param: p, commandType: CommandType.StoredProcedure);
+                    var userdetails = reader.Read<EmployeeMarketingslideticket>().ToList();
+                    var salarydetails = reader.Read<EmployeeMarketingslideHistory>().ToList();
+                    responseBody.Marketingslideticket = userdetails;
+                    responseBody.MarketingslideHistory = salarydetails;
+                }                
 
-                parm[18] = new SqlParameter("@i_GuestTickets", SqlDbType.Bit);
-                parm[18].Value = Mobj.v_guestticketflag;
-
-                parm[19] = new SqlParameter("@i_Onlineeexpiry", SqlDbType.Bit);
-                parm[19].Value = Mobj.v_OnlineExprd;
-              
-                parm[20] = new SqlParameter("@V_Notpay", SqlDbType.Bit);
-                parm[20].Value = Mobj.V_Notpay;
-
-                drReader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
-
-                List<EmployeeMarketingslideticket> ticket = new List<EmployeeMarketingslideticket>();
-                List<EmployeeMarketingslideHistory> ticketHistory = new List<EmployeeMarketingslideHistory>();
-
-               List<EmployeeMarketingslideticket> personList = new List<EmployeeMarketingslideticket>();
-               personList = DataReaderMapToList<EmployeeMarketingslideticket>(drReader);
-
-                using (DataReader reader = ...)
-{    
-   List<CustomerDTO> customers = reader.AutoMap<CustomerDTO>()
-                                    .ToList();
-}
-
-
-
-
-
-
-
-                //if (drReader.HasRows)
-                //{
-
-                //    while (drReader.Read())
-                //    {
-
-                //        ticket.Add(new EmployeeMarketingslideticket
-                //        {
-
-                //            Emp_Ticket_ID = (drReader["Emp_Ticket_ID"]) != DBNull.Value ? drReader.GetInt64(drReader.GetOrdinal("Emp_Ticket_ID")).ToString() : string.Empty,
-                //            TotalRows = (drReader["TotalRows"]) != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("TotalRows")).ToString() : string.Empty,
-                //            TicketID = (drReader["TicketID"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("TicketID")).ToString() : string.Empty,
-                //            CustomerName = (drReader["CustomerName"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("CustomerName")).ToString() : string.Empty,
-                //          //  Category = (drReader["Category"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("Category")).ToString() : string.Empty,
-                //            TicketStatus = (drReader["TicketStatus"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("TicketStatus")).ToString() : string.Empty,
-                //            ProfileID = (drReader["ProfileID"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("ProfileID")).ToString() : string.Empty,
-                //            RegistrationDate = (drReader["RegistrationDate"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("RegistrationDate")).ToString() : string.Empty,
-                //            MybookMarkedProfCount = (drReader["MybookMarkedProfCount"]) != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("MybookMarkedProfCount")).ToString() : string.Empty,
-                //            WhobookmarkedCount = (drReader["WhobookmarkedCount"]) != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("WhobookmarkedCount")).ToString() : string.Empty,
-                //            RectViewedProfCount = (drReader["RectViewedProfCount"]) != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("RectViewedProfCount")).ToString() : string.Empty,
-                //            RectWhoViewedCout = (drReader["RectWhoViewedCout"]) != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("RectWhoViewedCout")).ToString() : string.Empty,
-                //            IgnoreProfileCount = (drReader["IgnoreProfileCount"]) != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("IgnoreProfileCount")).ToString() : string.Empty,
-                //            SentPhotoRequestCount = (drReader["SentPhotoRequestCount"]) != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("SentPhotoRequestCount")).ToString() : string.Empty,
-                //            CustID = (drReader["CustID"]) != DBNull.Value ? drReader.GetInt64(drReader.GetOrdinal("CustID")).ToString() : string.Empty,
-                //            EmpPhoto = (drReader["EmpPhoto"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("EmpPhoto")).ToString() : string.Empty,
-                //            EmpName = (drReader["EmpName"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("EmpName")).ToString() : string.Empty,
-                //            LoginCount = (drReader["LoginCount"]) != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("LoginCount")).ToString() : string.Empty,
-                //            TicketOpenedOn = (drReader["TicketOpenedOn"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("TicketOpenedOn")).ToString() : string.Empty,
-                //            ReminderID = (drReader["ReminderID"]) != DBNull.Value ? drReader.GetInt64(drReader.GetOrdinal("ReminderID")) : longnull,
-                //            EmpMobilenumber = (drReader["EmpMobilenumber"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("EmpMobilenumber")).ToString() : string.Empty,
-                //            ReminderTime = (drReader["ReminderTime"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("ReminderTime")).ToString() : string.Empty,
-                //            ProfileStatusID = drReader["ProfileStatusID"] != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("ProfileStatusID")) : intnull,
-                //            Reminderbody = drReader["ReminderBody"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("ReminderBody")) : string.Empty,
-                //            NoofDays = drReader["NoofDays"] != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("NoofDays")) : 0,
-                //            Feedetails = (drReader["Feedetails"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("Feedetails")) : string.Empty,
-                //            SettlementValue = drReader["SettlementValue"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("SettlementValue")) : string.Empty,
-                //             PD = (drReader["PD"]) != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("PD")) : intnull,
-                //            DPD = (drReader["DPD"]) != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("DPD")) : intnull,
-                //            ViewCount = (drReader["ViewCount"]) != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("ViewCount")) : intnull,
-                //            NView = (drReader["NView"]) != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("NView")) : intnull,
-                //            BI = (drReader["BI"]) != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("BI")) : intnull,
-                //            OppI = (drReader["OppI"]) != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("OppI")) : intnull,
-
-                //            ServiceDate = drReader["ServiceDate"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("ServiceDate")) : string.Empty,
-                //            SAPath = drReader["SAFORM"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("SAFORM")) : string.Empty,
-                //            FatherName = drReader["FatherName"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("FatherName")) : string.Empty,
-                //            PrimaryEmail = (drReader["PrimaryEmail"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("PrimaryEmail")).ToString() : string.Empty,
-                //            PrimaryContactNumber = (drReader["PrimaryContactNumber"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("PrimaryContactNumber")).ToString() : string.Empty,
-                //            PrimaryContactNumberCountyCode = (drReader["PrimaryContactNumberCountyCode"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("PrimaryContactNumberCountyCode")).ToString() : string.Empty,
-                //            primaryCountryID = drReader["PrimaryContactNumberCountyID"] != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("PrimaryContactNumberCountyID")) : intnull,
-                //            isEmailVerified = (drReader["isEmailVerified"]) != DBNull.Value ? drReader.GetBoolean(drReader.GetOrdinal("isEmailVerified")).ToString() : string.Empty,
-                //            IsMobileVerified = (drReader["IsMobileVerified"]) != DBNull.Value ? drReader.GetBoolean(drReader.GetOrdinal("IsMobileVerified")).ToString() : string.Empty,
-                //            IsCustContactNumbersID = drReader["IsCustContactNumbersID"] != DBNull.Value ? drReader.GetInt64(drReader.GetOrdinal("IsCustContactNumbersID")) : longnull,
-                //            onlinePayment = (drReader["onlinePayment"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("onlinePayment")) : string.Empty,
-                //            offlinePayment = (drReader["offlinePayment"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("offlinePayment")) : string.Empty,
-                //            settleddeleted = (drReader["settleddeleted"]) != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("settleddeleted")) : intnull,
-                //            registeredBranch = (drReader["registeredBranch"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("registeredBranch")).ToString() : string.Empty,
-                //                                      ReminderDate = (drReader["ReminderDate"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("ReminderDate")).ToString() : string.Empty,
-                //            Lastlogin = (drReader["Lastlogin"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("Lastlogin")).ToString() : string.Empty,
-                          
-                //            NodataFound = drReader["NodataFound"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("NodataFound")) : string.Empty,
-                //            Photo = drReader["PhotoPath"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("PhotoPath")) : string.Empty,
-                //            TicketTypeID = drReader["TicketTypeID"] != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("TicketTypeID")).ToString() : string.Empty,
-                //            ReminderRelationID = drReader["ReminderRelationID"] != DBNull.Value ? drReader.GetInt64(drReader.GetOrdinal("ReminderRelationID")) : longnull,
-                //            ReminderRelationName = drReader["ReminderRelationName"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("ReminderRelationName")) : string.Empty,
-
-                //        });
-
-                //    }
-
-                //    MarketingTicketResponse.Marketingslideticket = ticket;
-
-                //}
-
-                //drReader.NextResult();
-
-                //if (drReader.HasRows)
-                //{
-                //    while (drReader.Read())
-                //    {
-                //        ticketHistory.Add(new EmployeeMarketingslideHistory
-                //        {
-
-                //            TicketType = drReader["TicketType"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("TicketType")) : string.Empty,
-                //            Emp_Ticket_ID = drReader["Emp_Ticket_ID"] != DBNull.Value ? drReader.GetInt64(drReader.GetOrdinal("Emp_Ticket_ID")).ToString() : string.Empty,
-                //            TicketID = drReader["TicketID"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("TicketID")).ToString() : string.Empty,
-                //            ReplyDatenew = drReader["ReplyDatenew"] != DBNull.Value ? drReader.GetDateTime(drReader.GetOrdinal("ReplyDatenew")).ToString() : string.Empty,
-                //            MatchmeetingStatus = drReader["MatchmeetingStatus"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("MatchmeetingStatus")).ToString() : string.Empty,
-                //            MatchMeetingReason = drReader["MatchMeetingReason"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("MatchMeetingReason")).ToString() : string.Empty,
-                //            NoOfDays = drReader["NoOfDays"] != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("NoOfDays")).ToString() : string.Empty,
-                //            //ExpressintrestID = drReader["ExpressintrestID"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("ExpressintrestID")).ToString() : string.Empty,
-                //            NAME = drReader["NAME"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("NAME")).ToString() : string.Empty,
-                //            ReplyDesc = drReader["ReplyDesc"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("ReplyDesc")).ToString() : string.Empty,
-                //            CallStatus = drReader["CallStatus"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("CallStatus")).ToString() : string.Empty,
-                //            CallReceivedBy = drReader["CallReceivedBy"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("CallReceivedBy")).ToString() : string.Empty,
-                //            CallDiscussion = drReader["CallDiscussion"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("CallDiscussion")).ToString() : string.Empty,
-                //            //EmpRed = drReader["EmpRed"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("EmpRed")).ToString() : string.Empty,
-                //            RelationShip = drReader["RelationShip"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("RelationShip")).ToString() : string.Empty,
-                //            //Number = drReader["Number"] != DBNull.Value ? drReader.GetInt64(drReader.GetOrdinal("Number")).ToString() : string.Empty,
-                //            ReplyDate = drReader["ReplyDate"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("ReplyDate")).ToString() : string.Empty,
-                //            TicketingCallHistoryID = drReader["TicketingCallHistoryID"] != DBNull.Value ? drReader.GetInt64(drReader.GetOrdinal("TicketingCallHistoryID")).ToString() : string.Empty,
-                //            //RelationShipID = drReader["RelationShipID"] != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("RelationShipID")).ToString() : string.Empty,
-                //            //TicketTypeID = drReader["TicketTypeID"] != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("TicketTypeID")).ToString() : string.Empty,
-                //            ReminderRelationName = drReader["ReminderRelationName"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("ReminderRelationName")) : string.Empty,
-                //            //ReminderRelation = drReader["ReminderRelation"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("ReminderRelation")) : string.Empty,
-                //            //ReminderRelationID = drReader["ReminderRelationID"] != DBNull.Value ? drReader.GetInt64(drReader.GetOrdinal("ReminderRelationID")) : longnull
-
-                //        });
-                //    }
-
-                //    MarketingTicketResponse.MarketingslideHistory = ticketHistory;
-                //}
             }
             catch (Exception EX)
             {
                 Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
             }
-            finally
-            {
-                connection.Close();
-                //SqlConnection.ClearPool(connection);
-                //SqlConnection.ClearAllPools();
-            }
+           
 
-            return MarketingTicketResponse;
+            return responseBody;
         }
+
+
+        
     }
 }
