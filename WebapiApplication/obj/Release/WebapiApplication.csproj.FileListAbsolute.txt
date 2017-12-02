@@ -282,3 +282,7 @@ D:\EmployeeWebApi\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.Friendly
 D:\EmployeeWebApi\EmployeeWebApi\WebapiApplication\obj\Release\WebapiApplication.csprojResolveAssemblyReference.cache
 D:\EmployeeWebApi\EmployeeWebApi\WebapiApplication\obj\Release\WebapiApplication.dll
 D:\EmployeeWebApi\EmployeeWebApi\WebapiApplication\obj\Release\WebapiApplication.pdb
+D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\bin\Dapper.dll
+D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\bin\System.Data.SqlClient.dll
+D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\bin\Dapper.pdb
+D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\bin\Dapper.xml

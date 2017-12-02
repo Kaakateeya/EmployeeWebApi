@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>C:\Users\Admin\Desktop\183build</_PublishTargetUrl>
-    <_PublishTargetUrl>D:\build_files\02_12_2017_marketingpage</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\build_files\02_12_2017_marketingpagepagedymnaice</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Api/BindJson .cs">
@@ -88,6 +88,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/AWSSDK.S3.dll">
       <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
+    <File Include="bin/Dapper.dll">
+      <publishTime>12/02/2017 17:48:04</publishTime>
+    </File>
     <File Include="bin/DotNetOpenAuth.AspNet.dll">
       <publishTime>09/24/2016 12:02:48</publishTime>
     </File>
@@ -145,6 +148,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>09/24/2016 12:23:53</publishTime>
     </File>
+    <File Include="bin/System.Data.SqlClient.dll">
+      <publishTime>12/02/2017 18:05:12</publishTime>
+    </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>09/24/2016 12:23:54</publishTime>
     </File>
@@ -161,13 +167,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2016 12:02:45</publishTime>
     </File>
     <File Include="bin/WebapiApplication.dll">
-      <publishTime>12/02/2017 13:43:49</publishTime>
+      <publishTime>12/02/2017 19:23:17</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/24/2016 12:02:45</publishTime>
     </File>
     <File Include="Customer_new/Employee_new/EmployeeViewFullProfile.aspx">
-      <publishTime>10/31/2017 15:45:51</publishTime>
+      <publishTime>12/02/2017 16:51:59</publishTime>
     </File>
     <File Include="DAL/HtmlPage1.html">
       <publishTime>10/31/2017 15:45:51</publishTime>
@@ -182,7 +188,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>05/20/2017 12:21:10</publishTime>
+      <publishTime>12/02/2017 18:05:12</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/configuration.svcinfo">
       <publishTime>05/20/2017 12:21:09</publishTime>
@@ -260,7 +266,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/05/2016 19:28:46</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/29/2017 16:07:38</publishTime>
+      <publishTime>12/02/2017 19:23:17</publishTime>
     </File>
   </ItemGroup>
 </Project>

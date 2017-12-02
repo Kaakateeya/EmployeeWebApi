@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using WebapiApplication.ML;
 using WebapiApplication.ServiceReference1;
+using WebapiApplication.UserDefinedTable;
 using Dapper;
 namespace WebapiApplication.DAL
 {
@@ -87,21 +88,15 @@ namespace WebapiApplication.DAL
                 parm[0].Value = CustID;
                 parm[1] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[1].Direction = ParameterDirection.Output;
-               using (var multipleresult = connection.QueryMultiple(“sp_GetContact_Address”, new { id = id }, commandType: CommandType.StoredProcedure))
-                {
-                   var contact = multipleresult.Read<Contact>().SingleOrDefault();
-                   var Addresses = multipleresult.Read<Address>().ToList();
-                   if (contact != null && Addresses != null)
-                   {
-                      contact.Addresses.AddRange(Addresses);
-                   }
-                }
+
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
+
                         MobjMarketing = new MarketingSldeshow();
+
 
                         MobjMarketing.Cust_ID = (reader["Cust_ID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Cust_ID")) : null;
                         MobjMarketing.paid = (reader["paid"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("paid")) : iNull;
@@ -149,8 +144,10 @@ namespace WebapiApplication.DAL
 
                         arrayList.Add(MobjMarketing);
                     }
+
                 }
                 reader.Close();
+
             }
             catch (Exception EX)
             {
@@ -164,6 +161,7 @@ namespace WebapiApplication.DAL
             }
 
             return arrayList;
+
         }
 
         public ArrayList MyProfileBindings(string flag, string ID, string spName)

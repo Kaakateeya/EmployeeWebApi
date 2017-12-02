@@ -200,3 +200,7 @@ D:\EmployeeWebApi\WebapiApplication\bin\Dapper.dll
 D:\EmployeeWebApi\WebapiApplication\bin\System.Data.SqlClient.dll
 D:\EmployeeWebApi\WebapiApplication\bin\Dapper.pdb
 D:\EmployeeWebApi\WebapiApplication\bin\Dapper.xml
+D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\bin\Dapper.dll
+D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\bin\System.Data.SqlClient.dll
+D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\bin\Dapper.pdb
+D:\EmployeewebApplication\EmployeeWebApi\WebapiApplication\bin\Dapper.xml
