@@ -6041,7 +6041,7 @@ namespace WebapiApplication.DAL
             try
             {
                 parm[0] = new SqlParameter("@i_EmpID", SqlDbType.BigInt);
-                parm[0].Value = Mobj.v_MarketremindeFlag == true ? Mobj.i_EmpID : null;
+                parm[0].Value =  Mobj.i_EmpID;
 
                 parm[1] = new SqlParameter("@i_PageFrom", SqlDbType.BigInt);
                 parm[1].Value = Mobj.i_PageFrom;
@@ -6050,10 +6050,10 @@ namespace WebapiApplication.DAL
                 parm[2].Value = Mobj.i_PageTo;
                 
                 parm[3] = new SqlParameter("@v_EmpIDs", SqlDbType.VarChar, 1000);
-                parm[3].Value = Mobj.v_MarketremindeFlag == true ? null : Mobj.strEmpName;
+                parm[3].Value = Mobj.strEmpName;
 
                 parm[4] = new SqlParameter("@v_BranchIDs", SqlDbType.VarChar, 1000);
-                parm[4].Value = Mobj.v_MarketremindeFlag == true ? null : Mobj.strBranch;
+                parm[4].Value =  Mobj.strBranch;
 
           
 
