@@ -335,6 +335,10 @@ namespace WebapiApplication.Api
         //01_12_2017_Amount deposited in Bank
 
         public int? InsertamountintoBank([FromBody]bankamount Mobj) { return this.IEmployeeReport.InsertamountintoBank(Mobj); }
+
+        //02_12_2017_New Markting Sp Modification
+
+        public EmployeeMarketingTicketResponse MarketingTicketHistoryInfo_New([FromBody]EmployeeMarketingTketRequestNew Mobj) { return this.IEmployeeReport.GetMarketingTicketHistoryInfo_New(Mobj); }
     }
 }
 

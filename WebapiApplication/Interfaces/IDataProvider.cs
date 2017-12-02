@@ -417,6 +417,8 @@ namespace WebapiApplication.Interfaces
         int? inserttorestoretable(long? Profileid);
 
         int? InsertamountintoBank(bankamount Mobj);
+
+        EmployeeMarketingTicketResponse GetMarketingTicketHistoryInfo_New(EmployeeMarketingTketRequestNew Mobj);
     }
 
     public interface ISmallPages

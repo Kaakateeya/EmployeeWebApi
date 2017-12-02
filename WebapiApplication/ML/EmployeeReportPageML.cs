@@ -1332,6 +1332,39 @@ namespace WebapiApplication.ML
         public string Description { get; set; }
         public string LoginEmpName { get; set; }
         public string usernameemployeeid { get; set; }
+        public string Typeofamount { get; set; }
+    }
+
+    public class EmployeeMarketingTketRequestNew
+    {
+        public string strBranch { set; get; }
+        public string strEmpName { set; get; }
+        public int? i_isAdmin { set; get; }
+        public int? i_EmpID { set; get; }
+        public int? i_PageFrom { set; get; }
+        public int? i_PageTo { set; get; }
+        public DateTime? dtFromProceedDate { get; set; }
+        public DateTime? dtToProceedDate { get; set; }
+        public int? i_days { set; get; }
+        public int? i_RegionID { get; set; }
+        public Boolean? v_MarketremindeFlag { get; set; }
+        public Boolean? v_siblingflag { get; set; }
+        public Boolean? v_guestticketflag { get; set; }
+        public Boolean? v_OnlineExprd { get; set; }
+        public int? v_OfflineExprd { get; set; }
+        public string i_TicketId { get; set; }
+        public string i_EmailId { get; set; }
+        public string i_PhoneNumber { get; set; }
+        public string i_Name { get; set; }
+        public DateTime? dt_Opendate { get; set; }
+        public string i_ProfileId { get; set; }
+        public string i_Category { get; set; }
+        public string i_Ticketstatus { get; set; }
+        public DateTime? dt_FromRemainderdate { get; set; }
+        public DateTime? dt_ToReminderdate { get; set; }
+        public int? i_Excelflag { get; set; }
+        public Boolean? V_Notpay { get; set; }
+        public Boolean? b_unpaidProfiles { get; set; }
     }
 }
 

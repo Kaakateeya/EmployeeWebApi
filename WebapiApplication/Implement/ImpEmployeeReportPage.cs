@@ -249,6 +249,8 @@ namespace WebapiApplication.Implement
         public int? inserttorestoretable(long? Profileid) { return new EmployeeReportPageDAL().inserttorestoretable(Profileid, "[dbo].[usp_emp_InsertintoAllfields_AJS]"); }
 
         public int? InsertamountintoBank([FromBody]bankamount Mobj) { return new EmployeeReportPageDAL().InsertamountintoBank(Mobj, "[dbo].[USP_EMP_BANKDEPOSIT_AJS]"); }
+
+        public EmployeeMarketingTicketResponse GetMarketingTicketHistoryInfo_New([FromBody]EmployeeMarketingTketRequestNew Mobj) { return new EmployeeReportPageDAL().GetMarketingTicketHistoryInfo_New(Mobj, "[dbo].[usp_GetmarketingTicketHistoryInfo_refactory]"); }
     }
 
 }
