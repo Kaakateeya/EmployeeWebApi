@@ -185,3 +185,15 @@ D:\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.FriendlyUrls.xml
 D:\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.dll
 D:\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.pdb
 D:\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.csprojResolveAssemblyReference.cache
+D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification3_CSharp.dll
+D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification3_CSharp.XmlSerializers.dll
+D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification6_CSharp.dll
+D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification6_CSharp.XmlSerializers.dll
+D:\EmployeeWebApi\WebapiApplication\bin\System.Net.Http.Formatting.dll
+D:\EmployeeWebApi\WebapiApplication\bin\System.Web.Http.dll
+D:\EmployeeWebApi\WebapiApplication\bin\System.Web.Http.WebHost.dll
+D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification3_CSharp.pdb
+D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification6_CSharp.pdb
+D:\EmployeeWebApi\WebapiApplication\bin\System.Net.Http.Formatting.xml
+D:\EmployeeWebApi\WebapiApplication\bin\System.Web.Http.xml
+D:\EmployeeWebApi\WebapiApplication\bin\System.Web.Http.WebHost.xml
