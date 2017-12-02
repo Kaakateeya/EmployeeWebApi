@@ -1,17 +1,13 @@
-﻿using System;
+﻿using KaakateeyaDAL;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
-using WebapiApplication.ML;
-using System.Data.SqlClient;
-using System.Collections;
 using System.Configuration;
-using KaakateeyaDAL;
+using System.Data;
+using System.Data.SqlClient;
+using WebapiApplication.ML;
 
 namespace WebapiApplication.DAL
 {
-
     public class Dashboard
     {
         public DashboardClass LandingCountsDal(int? CustID, string TypeOfReport, int pagefrom, int pageto, string spName)
@@ -50,12 +46,10 @@ namespace WebapiApplication.DAL
 
                     if (reader.HasRows)
                     {
-
                         while (reader.Read())
                         {
                             LandingPartnerMenu liCount = new LandingPartnerMenu();
                             {
-
                                 liCount.SaveSearchCount = reader["SavesSearchCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SavesSearchCount")) : inull;
                                 liCount.WhobookmarkedCount = reader["WhoBookmarkedCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("WhoBookmarkedCount")) : inull;
                                 liCount.MybookMarkedProfCount = reader["BookmarkCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("BookmarkCount")) : inull;
@@ -84,7 +78,6 @@ namespace WebapiApplication.DAL
                                 liCount.ReceivedProtectedReject = reader["ReceivedProtectedRejectCount"] != DBNull.Value ? Convert.ToInt32(reader.GetString(reader.GetOrdinal("ReceivedProtectedRejectCount"))) : inull;
                                 land.DashBoardCounts = liCount;
                             }
-
                         }
                     }
                     reader.NextResult();
@@ -119,7 +112,6 @@ namespace WebapiApplication.DAL
                             Pcls.MaskDiv = (!string.IsNullOrEmpty(Pcls.ProfilePhotoName) && (Pcls.IsReviewed == true && Pcls.IsActive == true)) ? " " : ((!string.IsNullOrEmpty(Pcls.ProfilePhotoName) && (Pcls.IsReviewed == true || Pcls.IsActive == true)) ? "divCSSclass clearfix" : "cssMaskupload clearfix");
                             land.PersonalInfo = Pcls;
                         }
-
                     }
                     reader.NextResult();
                     if (reader.HasRows)
@@ -142,13 +134,13 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 con.Close();
                 //SqlConnection.ClearPool(con);
                 //SqlConnection.ClearAllPools();
             }
             return land;
         }
+
         public DashboardClass GetPartnerProfilesDal(int? CustID, string TypeOfReport, int pagefrom, int pageto, string spName)
         {
             DashboardClass land = new DashboardClass();
@@ -191,7 +183,6 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 con.Close();
                 //SqlConnection.ClearPool(con);
                 //SqlConnection.ClearAllPools();
@@ -251,9 +242,9 @@ namespace WebapiApplication.DAL
 
             return PartnerLi;
         }
+
         public PartnerProfilesLatest ReturnPartnerProfilesClass(SqlDataReader reader, string Type)
         {
-
             int? inull = null;
             bool? bnull = null;
             DateTime? dnull = null;
@@ -339,9 +330,10 @@ namespace WebapiApplication.DAL
                 Partnercls.RequestDate = reader["RequestDate"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("RequestDate")) : null;
             }
 
-           // SqlConnection.ClearAllPools();
+            // SqlConnection.ClearAllPools();
             return Partnercls;
         }
+
         public List<DashboardRequestChats> DgetCustometExpressIntrestDashBoardchats(long? CustID, int? Status, int iStartIndex, int iEndIndex, string spName)
         {
             List<DashboardRequestChats> dropdownfilling = new List<DashboardRequestChats>();
@@ -369,7 +361,6 @@ namespace WebapiApplication.DAL
                     {
                         DashboardRequestChats dashboardchats = new DashboardRequestChats
                         {
-
                             ProfileID = (reader["ProfileID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("ProfileID")) : iNULL64,
                             Cust_MessageLink_Id = (reader["Cust_MessageLink_Id"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_MessageLink_Id")) : iNULL64,
                             Cust_MessageHistory_Id = (reader["Cust_MessageHistory_Id"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_MessageHistory_Id")) : iNULL64,
@@ -396,15 +387,12 @@ namespace WebapiApplication.DAL
                             Photo = (reader["Photo"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Photo")) : null,
                             TotalRows = (reader["TotalRows"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : iNULL,
                             Totalpages = (reader["Totalpages"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Totalpages")) : iNULL
-
                         };
 
                         dropdownfilling.Add(dashboardchats);
                     }
                 }
                 reader.Close();
-
-
             }
             catch (Exception EX)
             {
@@ -412,13 +400,13 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
             }
             return dropdownfilling;
         }
+
         public List<TicketHistoryinfoResponse> GetTicketinformationDal(long? Ticketid, char Type, string spName)
         {
             List<TicketHistoryinfoResponse> details = new List<TicketHistoryinfoResponse>();
@@ -463,7 +451,6 @@ namespace WebapiApplication.DAL
                                 sh.FromName = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
                                 sh.Toname = reader["OppName"] != DBNull.Value ? reader["OppName"].ToString() : null;
                                 sh.TicketStatusID = reader["TicketStatusID"] != DBNull.Value ? Convert.ToInt32(reader["TicketStatusID"]) : inull;
-
                             }
                             else
                             {
@@ -491,13 +478,13 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
             }
             return details;
         }
+
         public List<CommunicationHistry> GetCustometMessagesCount(CommunicationHistoryReq Mobj, string spName)
         {
             SqlParameter[] parm = new SqlParameter[7];
@@ -553,13 +540,13 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-               
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
             }
             return arrayList;
         }
+
         public int InsertExpressViewTicket(long? FromCustID, long? ToCustID, string EncriptedText, string strtypeOfReport, string spName)
         {
             int? Istatus = null;
@@ -629,6 +616,7 @@ namespace WebapiApplication.DAL
             }
             return status;
         }
+
         public int InsertCustomerExpressinterest(int? fromcustid, int? tocustid, long? logID, string interstTYpe, int? empid, string spName)
         {
             SqlParameter[] parm = new SqlParameter[12];

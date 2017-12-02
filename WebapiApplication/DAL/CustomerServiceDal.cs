@@ -1,14 +1,9 @@
-﻿using System;
+﻿using KaakateeyaDAL;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data;
-using WebapiApplication.ML;
 using System.Data.SqlClient;
-using System.Collections;
-using System.Configuration;
-using KaakateeyaDAL;
-
+using WebapiApplication.ML;
 
 namespace WebapiApplication.DAL
 {
@@ -63,7 +58,6 @@ namespace WebapiApplication.DAL
 
                 if (reader.HasRows)
                 {
-
                     while (reader.Read())
                     {
                         Smtpemailsending smtp = new Smtpemailsending();
@@ -80,7 +74,7 @@ namespace WebapiApplication.DAL
                     }
                 }
                 reader.Close();
-               
+
                 if (MobjViewprofile.TypeofInsert == "I" || MobjViewprofile.TypeofInsert == "RP" || MobjViewprofile.TypeofInsert == "TH")
                 {
                     if (string.Compare(parm[11].Value.ToString(), System.DBNull.Value.ToString()) == 0) { istatus = 0; } else { istatus = Convert.ToInt32(parm[11].Value); }
@@ -101,13 +95,11 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-               
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
             }
             return istatus;
         }
-
     }
 }

@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
-using WebapiApplication.ML;
-using System.Data.SqlClient;
-using System.Collections;
 using System.Configuration;
-using KaakateeyaDAL;
+using System.Data;
+using System.Data.SqlClient;
+using WebapiApplication.ML;
 
 namespace WebapiApplication.DAL
 {
@@ -20,7 +16,6 @@ namespace WebapiApplication.DAL
             connection.Open();
             try
             {
-
                 SqlCommand command = new SqlCommand(Spname, connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@v_dflag", dependencyName);
@@ -50,7 +45,6 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-               
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
@@ -65,7 +59,6 @@ namespace WebapiApplication.DAL
             connection.Open();
             try
             {
-
                 SqlCommand command = new SqlCommand(Spname, connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@v_dflag", dependencyName);
@@ -96,11 +89,9 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-              
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
             }
             return Dependency;
         }
@@ -112,7 +103,6 @@ namespace WebapiApplication.DAL
             connection.Open();
             try
             {
-
                 SqlCommand command = new SqlCommand(Spname, connection);
 
                 command.CommandType = CommandType.StoredProcedure;
@@ -145,7 +135,6 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-              
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
@@ -160,7 +149,6 @@ namespace WebapiApplication.DAL
             connection.Open();
             try
             {
-                
                 SqlCommand command = new SqlCommand(Spname, connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@v_dflag", strDropdownname);
@@ -187,7 +175,6 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-               
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();

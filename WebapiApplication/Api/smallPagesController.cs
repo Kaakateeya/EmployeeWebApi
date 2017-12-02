@@ -1,28 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using WebapiApplication.Interfaces;
-using WebapiApplication.Implement;
-using System.Collections;
-using WebapiApplication.ML;
-using System.IO;
-using Amazon.S3;
+﻿using Amazon.S3;
 using Amazon.S3.Model;
-using System.Web;
-using System.Web.UI;
-using Ionic.Zip;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Web.Http;
 using WebapiApplication.DAL;
-using System.Net.Http.Headers;
+using WebapiApplication.Implement;
+using WebapiApplication.Interfaces;
+using WebapiApplication.ML;
 using WebapiApplication.UserDefinedTable;
 
 namespace WebapiApplication.Api
 {
     public class smallPagesController : ApiController
     {
-      
         //private readonly ISmallPages Iobj = new ImpSmallPages();
         private readonly ISmallPages Iobj;
 
@@ -41,7 +32,6 @@ namespace WebapiApplication.Api
         {
             return Iobj.matchMeetingEntryForm(mobj);
         }
-
 
         public Tuple<int, ArrayList> GetEmployeeName(string profileID, int BridegroomFlag)
         {
@@ -62,6 +52,7 @@ namespace WebapiApplication.Api
         {
             return Iobj.brokerFormInsert(mobj);
         }
+
         public List<MyassignedPhotosOutPut> myAssignedPhotos(myassignedPhotoInputMl mobj)
         {
             return Iobj.myAssignedPhotos(mobj);
@@ -74,7 +65,6 @@ namespace WebapiApplication.Api
 
         public string downloadImages([FromBody]List<downloadInput> li)
         {
-
             List<downloadInput> listval = li;
             string strpathreturn = "";
             if (listval.Count > 0)
@@ -109,8 +99,6 @@ namespace WebapiApplication.Api
 
         public void AmazonLoad(string keyName, string dest)
         {
-
-
             IAmazonS3 client;
             using (client = new AmazonS3Client(Amazon.RegionEndpoint.APSouth1))
             {
@@ -122,7 +110,6 @@ namespace WebapiApplication.Api
                 using (GetObjectResponse response = client.GetObject(request))
                 {
                     response.WriteResponseStreamToFile(dest, false);
-
                 }
             }
         }
@@ -151,41 +138,139 @@ namespace WebapiApplication.Api
             return Iobj.employeeCreation(mobj);
         }
 
-        public string getLoginName(int intHomeBrchID) { return Iobj.getLoginName(intHomeBrchID); }
-        public EmpAssignCounts getEmpWorkAssignCounts(int EmpID) { return Iobj.getEmpWorkAssignCounts(EmpID); }
+        public string getLoginName(int intHomeBrchID)
+        {
+            return Iobj.getLoginName(intHomeBrchID);
+        }
 
-        public int setEmpAssignCounts(EmpAssignCounts mobj) { return Iobj.setEmpAssignCounts(mobj); }
-        public ArrayList loginLogOutReport(EmpLoginLogoutReportML mobj) { return Iobj.loginLogOutReport(mobj); }
-        public int getinsertImagepath(long whereId, string strvalue, string flag) { return Iobj.getinsertImagepath(whereId, strvalue, flag); }
+        public EmpAssignCounts getEmpWorkAssignCounts(int EmpID)
+        {
+            return Iobj.getEmpWorkAssignCounts(EmpID);
+        }
 
-        public ArrayList empWorksheet(EmpWorkSheetMl mobj) { return Iobj.empWorksheet(mobj); }
-        public int getEmpLogout(int empid) { return Iobj.empLogout(empid); }
-        public ArrayList mediaterRegValidation(mediaterRegFormValidation mobj) { return Iobj.mediaterRegValidation(mobj); }
-        public ArrayList EmployeeCommunicationLogNew(CommunicationRequest mobj) { return Iobj.EmployeeCommunicationLogNew(mobj); }
-        public int getdeleteSettleForm(int settleID) { return Iobj.deleteSettleForm(settleID); }
+        public int setEmpAssignCounts(EmpAssignCounts mobj)
+        {
+            return Iobj.setEmpAssignCounts(mobj);
+        }
 
-        public ArrayList ViewSuccessStories(viewSuccessStoriesRequest sObj) { return Iobj.ViewSuccessStories(sObj); }
-        public Tuple<int, ArrayList> GetbrideGroomData(string profileID, int iFlag) { return Iobj.GetbrideGroomData(profileID, iFlag); }
-        public Tuple<int, ArrayList> GetbrideGroomDataNew(string profileID, int iFlag) { return Iobj.GetbrideGroomDataNew(profileID, iFlag); }
+        public ArrayList loginLogOutReport(EmpLoginLogoutReportML mobj)
+        {
+            return Iobj.loginLogOutReport(mobj);
+        }
 
-        public int createSuccessStories(createSuccessStoryRequest mobj) { return Iobj.createSuccessStories(mobj); }
+        public int getinsertImagepath(long whereId, string strvalue, string flag)
+        {
+            return Iobj.getinsertImagepath(whereId, strvalue, flag);
+        }
+
+        public ArrayList empWorksheet(EmpWorkSheetMl mobj)
+        {
+            return Iobj.empWorksheet(mobj);
+        }
+
+        public int getEmpLogout(int empid)
+        {
+            return Iobj.empLogout(empid);
+        }
+
+        public ArrayList mediaterRegValidation(mediaterRegFormValidation mobj)
+        {
+            return Iobj.mediaterRegValidation(mobj);
+        }
+
+        public ArrayList EmployeeCommunicationLogNew(CommunicationRequest mobj)
+        {
+            return Iobj.EmployeeCommunicationLogNew(mobj);
+        }
+
+        public int getdeleteSettleForm(int settleID)
+        {
+            return Iobj.deleteSettleForm(settleID);
+        }
+
+        public ArrayList ViewSuccessStories(viewSuccessStoriesRequest sObj)
+        {
+            return Iobj.ViewSuccessStories(sObj);
+        }
+
+        public Tuple<int, ArrayList> GetbrideGroomData(string profileID, int iFlag)
+        {
+            return Iobj.GetbrideGroomData(profileID, iFlag);
+        }
+
+        public Tuple<int, ArrayList> GetbrideGroomDataNew(string profileID, int iFlag)
+        {
+            return Iobj.GetbrideGroomDataNew(profileID, iFlag);
+        }
+
+        public int createSuccessStories(createSuccessStoryRequest mobj)
+        {
+            return Iobj.createSuccessStories(mobj);
+        }
+
         [HttpGet]
-        public int deleteSucessStories(string sucessStoryID, string brideProfileID, string groomProfileID) { return Iobj.deleteSucessStories(sucessStoryID,brideProfileID, groomProfileID); }
-        public ArrayList matchMeetingCountReport(matchMeetingCountMl mobj) { return Iobj.matchMeetingCountReport(mobj); }
-        public ArrayList matchMeetingCountInfo(matchMeetingCountInfoMl mobj) { return Iobj.matchMeetingCountInfo(mobj); }
-        public ArrayList settleDeleteProfilesReport(settleDeleteProfilesReport mobj) { return Iobj.ProfileDeleteProfilesReport(mobj); }
+        public int deleteSucessStories(string sucessStoryID, string brideProfileID, string groomProfileID) { return Iobj.deleteSucessStories(sucessStoryID, brideProfileID, groomProfileID); }
+
+        public ArrayList matchMeetingCountReport(matchMeetingCountMl mobj)
+        {
+            return Iobj.matchMeetingCountReport(mobj);
+        }
+
+        public ArrayList matchMeetingCountInfo(matchMeetingCountInfoMl mobj)
+        {
+            return Iobj.matchMeetingCountInfo(mobj);
+        }
+
+        public ArrayList settleDeleteProfilesReport(settleDeleteProfilesReport mobj)
+        {
+            return Iobj.ProfileDeleteProfilesReport(mobj);
+        }
+
         //public int restoreProfile(restoreProfile mobj) { return Iobj.restoreProfile(mobj); }
 
-        public int getcheckStatus(string whereID, string secondwhereID, string flag) { return Iobj.checkStatus(whereID,secondwhereID, flag); }
-        public ArrayList SettledProfilesInfo(settledProfilesRequest mobj) { return Iobj.SettledPrfofilesInfo(mobj); }
-        public ArrayList noProfileGrade(noProfileGradeRequest mobj) { return Iobj.noProfileGrade(mobj); }
-        public int insertsettleAmountInfo(insertSettlAmountRequest mobj) { return Iobj.insertsettleAmountInfo(mobj); }
-        public List<settleInfo> getSettleInfo(string profileid) { return Iobj.getSettleInfo(profileid); }
-        public ArrayList GetDataStaging(string CustID) { return Iobj.GetDataStaging(CustID); }
-        public int UpdateGrading(NoProfileGradingMl mobj) { return Iobj.UpdateGrading(mobj); }
+        public int getcheckStatus(string whereID, string secondwhereID, string flag)
+        {
+            return Iobj.checkStatus(whereID, secondwhereID, flag);
+        }
 
-        public ArrayList listOFServiceGiven(ListOfServicesTakenM1 mobj) { return Iobj.listOFServiceGiven(mobj); }
-        public ArrayList emailBouncelist(EmailBounceReports mobj) { return Iobj.emailBouncelist(mobj); }
+        public ArrayList SettledProfilesInfo(settledProfilesRequest mobj)
+        {
+            return Iobj.SettledPrfofilesInfo(mobj);
+        }
 
+        public ArrayList noProfileGrade(noProfileGradeRequest mobj)
+        {
+            return Iobj.noProfileGrade(mobj);
+        }
+
+        public int insertsettleAmountInfo(insertSettlAmountRequest mobj)
+        {
+            return Iobj.insertsettleAmountInfo(mobj);
+        }
+
+        public List<settleInfo> getSettleInfo(string profileid)
+        {
+            return Iobj.getSettleInfo(profileid);
+        }
+
+        public ArrayList GetDataStaging(string CustID)
+        {
+            return Iobj.GetDataStaging(CustID);
+        }
+
+        public int UpdateGrading(NoProfileGradingMl mobj)
+        {
+            return Iobj.UpdateGrading(mobj);
+        }
+
+        public ArrayList listOFServiceGiven(ListOfServicesTakenM1 mobj)
+        {
+            return Iobj.listOFServiceGiven(mobj);
+        }
+
+        public ArrayList emailBouncelist(EmailBounceReports mobj)
+        {
+            return Iobj.emailBouncelist(mobj);
+        }
     }
 }

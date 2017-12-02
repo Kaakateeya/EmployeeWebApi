@@ -44,6 +44,10 @@
     <Reference Include="AWSSDK.S3">
       <HintPath>..\..\..\..\..\Desktop\s3_dlls\AWSSDK.S3.dll</HintPath>
     </Reference>
+    <Reference Include="Dapper, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EmailVerification3_CSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\Dev_new\Dev\Kaakateeya\Development_Kaakateeya\kaakateeyaWeb\Bin\EmailVerification3_CSharp.dll</HintPath>

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
-using System.Net.Http;
-using System.Net.Http.Headers;
+﻿using System.Web.Http;
 
 namespace WebapiApplication.App_Start
 {
@@ -13,7 +8,7 @@ namespace WebapiApplication.App_Start
         {
             config.Routes.MapHttpRoute(
            name: "DefaultApi",
-          //name: "ReportingApi",
+                //name: "ReportingApi",
         routeTemplate: "api/{controller}/{action}/{id}",
         defaults: new { id = RouteParameter.Optional }
                );

@@ -1,22 +1,20 @@
-﻿using System;
+﻿using KaakateeyaDAL;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
-using System.Data;
 using WebapiApplication.ML;
-using System.Data.SqlClient;
-using System.Collections;
-using System.Configuration;
-using KaakateeyaDAL;
-using WebapiApplication.UserDefinedTable;
 using WebapiApplication.ServiceReference1;
+using WebapiApplication.UserDefinedTable;
 
 namespace WebapiApplication.DAL
 {
-
     public class EmployeeReportPageDAL
     {
-
         public int SaveViewedBookmark_Customer(CustSearchMl Mobj, string spName)
         {
             int intStatus = 0;
@@ -68,6 +66,7 @@ namespace WebapiApplication.DAL
             }
             return intStatus;
         }
+
         public ArrayList MarketingSldeshowshortlistprofiles(string CustID, string spName)
         {
             ArrayList arrayList = new ArrayList();
@@ -89,15 +88,21 @@ namespace WebapiApplication.DAL
                 parm[0].Value = CustID;
                 parm[1] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[1].Direction = ParameterDirection.Output;
-
+               using (var multipleresult = connection.QueryMultiple(“sp_GetContact_Address”, new { id = id }, commandType: CommandType.StoredProcedure))
+                {
+                   var contact = multipleresult.Read<Contact>().SingleOrDefault();
+                   var Addresses = multipleresult.Read<Address>().ToList();
+                   if (contact != null && Addresses != null)
+                   {
+                      contact.Addresses.AddRange(Addresses);
+                   }
+                }
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
-
                         MobjMarketing = new MarketingSldeshow();
-
 
                         MobjMarketing.Cust_ID = (reader["Cust_ID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Cust_ID")) : null;
                         MobjMarketing.paid = (reader["paid"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("paid")) : iNull;
@@ -145,10 +150,8 @@ namespace WebapiApplication.DAL
 
                         arrayList.Add(MobjMarketing);
                     }
-
                 }
                 reader.Close();
-
             }
             catch (Exception EX)
             {
@@ -162,7 +165,6 @@ namespace WebapiApplication.DAL
             }
 
             return arrayList;
-
         }
 
         public ArrayList MyProfileBindings(string flag, string ID, string spName)
@@ -197,7 +199,6 @@ namespace WebapiApplication.DAL
                         Myprofilebind.CountryCode = (reader["ddlName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ddlName")) : null;
                         arrayList.Add(Myprofilebind);
                     }
-
                 }
                 reader.NextResult();
                 if (reader.HasRows)
@@ -236,7 +237,6 @@ namespace WebapiApplication.DAL
                     }
                 }
                 reader.Close();
-
             }
             catch (Exception EX)
             {
@@ -266,7 +266,6 @@ namespace WebapiApplication.DAL
 
             try
             {
-
                 parm[0] = new SqlParameter("@v_dflag", SqlDbType.VarChar);
                 parm[0].Value = flag;
                 parm[1] = new SqlParameter("@ID", SqlDbType.VarChar);
@@ -300,9 +299,6 @@ namespace WebapiApplication.DAL
             }
             return arrayList;
         }
-
-
-
 
         public ArrayList MyprofileAllslides(myprofileRequest Mobj, string spName)
         {
@@ -401,12 +397,10 @@ namespace WebapiApplication.DAL
                 int count = reader.FieldCount;
                 if (reader.HasRows)
                 {
-
                     while (reader.Read())
                     {
                         myprofile = new myprofileResponse();
                         {
-
                             myprofile.Cust_ID = (reader["Cust_ID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Cust_ID")) : empty;
                             myprofile.ProfileID = (reader["ProfileID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileID")) : empty;
                             myprofile.KMPLID = (reader["KMPLID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("KMPLID")) : empty;
@@ -460,7 +454,7 @@ namespace WebapiApplication.DAL
                             myprofile.LastLoginDate = (reader["LastLoginDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastLoginDate")) : empty;
                             myprofile.LoginCount = (reader["LoginCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("LoginCount")) : intnull;
 
-                            //27-09-2017   
+                            //27-09-2017
                             myprofile.Thumbnailpath = (reader["Thumbnailpath"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Thumbnailpath")) : empty;
 
                             myprofile.qualification = (reader["qualification"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("qualification")) : empty;
@@ -483,8 +477,6 @@ namespace WebapiApplication.DAL
 
                             //
                             arrayList.Add(myprofile);
-
-
                         }
                     }
                 }
@@ -501,8 +493,8 @@ namespace WebapiApplication.DAL
                 //SqlConnection.ClearAllPools();
             }
             return arrayList;
-
         }
+
         public ArrayList SendServiceProfileIDs(string ProfileIDs, string spName)
         {
             ArrayList arrayList = new ArrayList();
@@ -691,14 +683,11 @@ namespace WebapiApplication.DAL
                             Binterest.toonlyempname = (reader["toonlyempname"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("toonlyempname")) : null;
 
                             arrayList.Add(Binterest);
-
                         }
                     }
-
                 }
 
                 reader.Close();
-
             }
             catch (Exception EX)
             {
@@ -715,7 +704,6 @@ namespace WebapiApplication.DAL
 
         public EmployeeMarketingTicketResponse GetmarketingTicketHistoryInfo(EmployeeMarketingTicketRequest Mobj, string spName)
         {
-
             EmployeeMarketingTicketResponse MarketingTicketResponse = new EmployeeMarketingTicketResponse();
 
             string strErrorMsg = string.Empty;
@@ -809,13 +797,10 @@ namespace WebapiApplication.DAL
 
                 if (drReader.HasRows)
                 {
-
                     while (drReader.Read())
                     {
-
                         ticket.Add(new EmployeeMarketingslideticket
                         {
-
                             CustID = (drReader["CustID"]) != DBNull.Value ? drReader.GetInt64(drReader.GetOrdinal("CustID")).ToString() : string.Empty,
                             TicketID = (drReader["TicketID"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("TicketID")).ToString() : string.Empty,
                             CustomerName = (drReader["CustomerName"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("CustomerName")).ToString() : string.Empty,
@@ -870,13 +855,10 @@ namespace WebapiApplication.DAL
                             SAPath = drReader["SAFORM"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("SAFORM")) : string.Empty,
                             primaryCountryID = drReader["PrimaryContactNumberCountyID"] != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("PrimaryContactNumberCountyID")) : intnull,
                             FatherName = drReader["FatherName"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("FatherName")) : string.Empty
-
                         });
-
                     }
 
                     MarketingTicketResponse.Marketingslideticket = ticket;
-
                 }
 
                 drReader.NextResult();
@@ -887,7 +869,6 @@ namespace WebapiApplication.DAL
                     {
                         ticketHistory.Add(new EmployeeMarketingslideHistory
                         {
-
                             TicketType = drReader["TicketType"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("TicketType")) : string.Empty,
                             Emp_Ticket_ID = drReader["Emp_Ticket_ID"] != DBNull.Value ? drReader.GetInt64(drReader.GetOrdinal("Emp_Ticket_ID")).ToString() : string.Empty,
                             TicketID = drReader["TicketID"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("TicketID")).ToString() : string.Empty,
@@ -911,7 +892,6 @@ namespace WebapiApplication.DAL
                             ReminderRelationName = drReader["ReminderRelationName"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("ReminderRelationName")) : string.Empty,
                             //ReminderRelation = drReader["ReminderRelation"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("ReminderRelation")) : string.Empty,
                             //ReminderRelationID = drReader["ReminderRelationID"] != DBNull.Value ? drReader.GetInt64(drReader.GetOrdinal("ReminderRelationID")) : longnull
-
                         });
                     }
 
@@ -975,14 +955,12 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return intStatus;
         }
 
         public int MatchFollowupMailSend(MatchFollowupMailSend Mobj, string spName)
         {
-
             int? Istatus = null;
             int intStatus = 0;
 
@@ -1022,7 +1000,6 @@ namespace WebapiApplication.DAL
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (reader.HasRows)
                 {
-
                     while (reader.Read())
                     {
                         Smtpemailsending smtp = new Smtpemailsending();
@@ -1035,15 +1012,12 @@ namespace WebapiApplication.DAL
                             Istatus = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : 0;
                         }
                         li.Add(smtp);
-
                     }
-
                 }
                 intStatus = Istatus != null && Istatus != 0 ? 1 : 0;
 
                 reader.Close();
                 Commonclass.SendMailSmtpMethod(li, "info");
-
             }
             catch (Exception EX)
             {
@@ -1052,7 +1026,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return intStatus;
         }
@@ -1072,7 +1045,6 @@ namespace WebapiApplication.DAL
 
             try
             {
-
                 SqlParameter[] parm = new SqlParameter[6];
 
                 parm[0] = new SqlParameter("@TicketID ", SqlDbType.BigInt);
@@ -1084,14 +1056,12 @@ namespace WebapiApplication.DAL
 
                 if (reader.HasRows)
                 {
-
                     while (reader.Read())
                     {
                         TicketHistoryinfoResponse sh = new TicketHistoryinfoResponse();
                         {
                             if (Type == 'I')
                             {
-
                                 sh.Ticket = reader["Ticket"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Ticket")) : Snull;
                                 sh.CustomerName = reader["CustomerName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CustomerName")) : Snull;
                                 sh.HistoryLastUpdated = reader["HistoryLastUpdated"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("HistoryLastUpdated")) : Snull;
@@ -1146,9 +1116,6 @@ namespace WebapiApplication.DAL
                                 sh.CallResult = reader["CallResult"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CallResult")) : Snull;
                                 sh.TicketInfo = reader["TicketInfo"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketInfo")) : Snull;
                                 sh.TicketCreatedDatehistry = reader["TicketCreated"] != DBNull.Value ? (reader.GetDateTime(reader.GetOrdinal("TicketCreated"))).ToString() : Snull;
-
-
-
                             }
                         }
                         details.Add(sh);
@@ -1164,7 +1131,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
 
             return details;
@@ -1172,7 +1138,6 @@ namespace WebapiApplication.DAL
 
         public List<MarketingTicketResponseinfo> MarketingTicketinformation(long? Ticketid, char Type, string spName)
         {
-
             List<MarketingTicketResponseinfo> details = new List<MarketingTicketResponseinfo>();
             SqlDataReader reader;
             DataSet ds = new DataSet();
@@ -1234,7 +1199,6 @@ namespace WebapiApplication.DAL
                 }
 
                 reader.Close();
-
             }
             catch (Exception EX)
             {
@@ -1243,16 +1207,13 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
 
             return details;
-
         }
 
         public int MatchFollowupResendMail(MatchFollowupResendMail Mobj, string spName)
         {
-
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -1296,13 +1257,11 @@ namespace WebapiApplication.DAL
                         }
                         li.Add(smtp);
                     }
-
                 }
                 //intStatus = Istatus != null ? 1 : 0;
 
                 reader.Close();
                 Commonclass.SendMailSmtpMethod(li, "info");
-
             }
             catch (Exception EX)
             {
@@ -1311,7 +1270,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return 1;
         }
@@ -1368,7 +1326,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
 
             return intStatus;
@@ -1429,10 +1386,10 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return intStatus;
         }
+
         public int ReaasignEmployee(long? TicketID, long? AssignedEmpID, long? EmpID, int? StatusID, string spName)
         {
             SqlParameter[] parm = new SqlParameter[6];
@@ -1473,10 +1430,10 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return intStatus;
         }
+
         public int InsertInternalMemo(string Message, long? TicketID, long? EmpID, long? AssignedEmpID, string spName)
         {
             SqlParameter[] parm = new SqlParameter[6];
@@ -1517,10 +1474,10 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return intStatus;
         }
+
         public int ClosedTickets(string ReasonforClose, long? TicketID, long? EmpID, string spName)
         {
             int intStatus = 0;
@@ -1559,11 +1516,11 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
 
             return intStatus;
         }
+
         public int SendNumbersMatchfollowup(long? LFromCustID, long? LToCustID, int? empid, string mailTxt, string spName)
         {
             string strval = string.Empty;
@@ -1596,7 +1553,6 @@ namespace WebapiApplication.DAL
                         smtp.body_format = (reader["body_format"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body_format")) : string.Empty;
 
                         li.Add(smtp);
-
                     }
                 }
                 Commonclass.SendMailSmtpMethod(li, "info");
@@ -1608,7 +1564,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return 1;
         }
@@ -1651,7 +1606,6 @@ namespace WebapiApplication.DAL
         //            {
         //                CommunicationLogResult display = new CommunicationLogResult();
         //                {
-
         //                    display.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader["ProfileID"]).ToString() : null;
         //                    display.Name = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
         //                    display.ServiceDate = reader["ServiceDate"] != DBNull.Value ? reader["ServiceDate"].ToString() : null;
@@ -1816,7 +1770,6 @@ namespace WebapiApplication.DAL
         //}
         public ArrayList EmployeeCommunicationLog(string ProfileID, int? intEmpId, string spName)
         {
-
             SqlDataReader reader;
             int? iNull = null;
             Int64? LNull = null;
@@ -1834,8 +1787,6 @@ namespace WebapiApplication.DAL
                 parm[1] = new SqlParameter("@intEmpId", SqlDbType.Int);
                 parm[1].Value = intEmpId;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
-
-
             }
             catch (Exception EX)
             {
@@ -1844,7 +1795,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
 
             return Commonclass.convertdataTableToArrayListTable(ds);
@@ -1852,7 +1802,6 @@ namespace WebapiApplication.DAL
 
         public Tuple<int, List<CommunicationLogResult>> EmployeeCommunicationLogRvrAndResend(RvrRequest Mobj, string spName)
         {
-
             SqlParameter[] parm = new SqlParameter[13];
             List<CommunicationLogResult> details3 = new List<CommunicationLogResult>();
             int intStatus = 0;
@@ -1897,13 +1846,10 @@ namespace WebapiApplication.DAL
 
                 if (Mobj.isRvrflag == "RVR")
                 {
-
                     if (reader.HasRows)
                     {
-
                         while (reader.Read())
                         {
-
                             smtp.profile_name = (reader["profile_name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("profile_name")) : string.Empty;
                             smtp.recipients = (reader["recipients"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("recipients")) : string.Empty;
                             smtp.body = (reader["body"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body")) : string.Empty;
@@ -1915,7 +1861,6 @@ namespace WebapiApplication.DAL
                     }
                     Commonclass.SendMailSmtpMethod(li, "exp");
                     intStatus = smtp.Statusint;
-
                 }
                 else if (Mobj.isRvrflag == "RS")
                 {
@@ -1937,7 +1882,6 @@ namespace WebapiApplication.DAL
                                 //display.paid = reader["Paid"] != DBNull.Value ? Convert.ToInt32(reader["Paid"]) : iNull;
                                 //display.ProfileStatus = reader["ProfileStatus"] != DBNull.Value ? reader["ProfileStatus"].ToString() : null;
 
-
                                 display.ProfileID = reader["ProfileID"] != DBNull.Value ? (reader["ProfileID"]).ToString() : null;
                                 display.NAME = reader["Name"] != DBNull.Value ? reader["Name"].ToString() : null;
                                 display.ResendDate = reader["ResendDate"] != DBNull.Value ? reader["ResendDate"].ToString() : null;
@@ -1952,15 +1896,12 @@ namespace WebapiApplication.DAL
                             }
                             details3.Add(display);
                         }
-
                     }
                     reader.NextResult();
                     if (reader.HasRows)
                     {
-
                         while (reader.Read())
                         {
-
                             smtp.profile_name = (reader["profile_name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("profile_name")) : string.Empty;
                             smtp.recipients = (reader["recipients"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("recipients")) : string.Empty;
                             smtp.body = (reader["body"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body")) : string.Empty;
@@ -1982,7 +1923,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
 
             if (Mobj.isRvrflag == "RVR")
@@ -2021,10 +1961,8 @@ namespace WebapiApplication.DAL
 
                 if (reader.HasRows)
                 {
-
                     while (reader.Read())
                     {
-
                         smtp.profile_name = (reader["profile_name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("profile_name")) : string.Empty;
                         smtp.recipients = (reader["recipients"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("recipients")) : string.Empty;
                         smtp.body = (reader["body"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body")) : string.Empty;
@@ -2045,7 +1983,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return status;
         }
@@ -2091,7 +2028,6 @@ namespace WebapiApplication.DAL
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (reader.HasRows)
                 {
-
                     while (reader.Read())
                     {
                         Smtpemailsending smtp = new Smtpemailsending();
@@ -2104,14 +2040,11 @@ namespace WebapiApplication.DAL
                             Istatus = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : 0;
                         }
                         li.Add(smtp);
-
                     }
-
                 }
                 intStatus = Istatus != null && Istatus != 0 ? 1 : 0;
                 reader.Close();
                 Commonclass.SendMailSmtpMethod(li, "info");
-
             }
             catch (Exception EX)
             {
@@ -2120,11 +2053,9 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return intStatus;
         }
-
 
         #endregion
 
@@ -2147,7 +2078,6 @@ namespace WebapiApplication.DAL
 
             try
             {
-
                 SqlParameter[] parm = new SqlParameter[20];
 
                 parm[0] = new SqlParameter("@strMFFNativePlace", SqlDbType.VarChar);
@@ -2234,7 +2164,6 @@ namespace WebapiApplication.DAL
                             sh.CustomerApplicationPhoto = (reader["CustomerFullPhoto"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("CustomerFullPhoto")) : empty;
                         }
                         details.Add(sh);
-
                     }
                 }
 
@@ -2271,7 +2200,6 @@ namespace WebapiApplication.DAL
 
             try
             {
-
                 SqlParameter[] parm = new SqlParameter[2];
                 parm[0] = new SqlParameter("@ProfileID", SqlDbType.VarChar, 200);
                 parm[0].Value = Profileid;
@@ -2302,7 +2230,6 @@ namespace WebapiApplication.DAL
                             sh.Nview = reader["notview"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("notview")) : inull;
                             sh.BI = reader["bothinterst"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("bothinterst")) : inull;
                             sh.OppI = reader["OppI"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("OppI")) : inull;
-
                         }
                         details.Add(sh);
                     }
@@ -2323,7 +2250,6 @@ namespace WebapiApplication.DAL
             status = 1;
             return details;
         }
-
 
         public int FeeUpdateDalWithInternalMemoUpdate(FeeUpdateML Mobj, string spname)
         {
@@ -2483,8 +2409,6 @@ namespace WebapiApplication.DAL
             return intStatus;
         }
 
-
-
         public int uploadSettlementFormDal(uploadFormMl Mobj, string spname)
         {
             SqlParameter[] parm = new SqlParameter[13];
@@ -2545,7 +2469,6 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
             }
             return intStatus;
         }
@@ -2589,11 +2512,8 @@ namespace WebapiApplication.DAL
             return intStatus;
         }
 
-
         public List<BothsideInterestObjs> ServiceSlideshowdata(Servicesslideslideshowbasedonprofile Mobj, string spname)
         {
-
-
             SqlDataReader reader;
             List<BothsideInterestserveice> li = new List<BothsideInterestserveice>();
             List<BothsideInterestserveice> li1 = new List<BothsideInterestserveice>();
@@ -2632,7 +2552,6 @@ namespace WebapiApplication.DAL
                 {
                     while (reader.Read())
                     {
-
                         BothsideInterestserveice Binterest = new BothsideInterestserveice();
                         {
                             Binterest.RowID = (reader["RowID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("RowID")) : Lnull;
@@ -2691,8 +2610,6 @@ namespace WebapiApplication.DAL
                             Binterest.ISRvrSend = (reader["ISRvrSend"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ISRvrSend")) : intnull;
                             Binterest.PaidStatus = (reader["PaidStatus"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PaidStatus")) : empty;
                             Binterest.ApplicationPhoto = (reader["ApplicationPhoto"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ApplicationPhoto")) : empty;
-
-
                         }
                         li.Add(Binterest);
                     }
@@ -2716,11 +2633,9 @@ namespace WebapiApplication.DAL
                         }
                         li1.Add(Binterest);
                     }
-
                 }
                 objlist.Add(new BothsideInterestObjs { BothsideInterest = li1 });
                 reader.Close();
-
             }
             catch (Exception EX)
             {
@@ -2738,7 +2653,6 @@ namespace WebapiApplication.DAL
 
         public int settledprofilesInsertionDal(SettledDeletedML Mobj, string spname)
         {
-
             SqlParameter[] parm = new SqlParameter[20];
             int status = 0;
 
@@ -2793,7 +2707,6 @@ namespace WebapiApplication.DAL
                 {
                     status = Convert.ToInt32(parm[13].Value);
                 }
-
             }
             catch (Exception EX)
             {
@@ -2955,7 +2868,6 @@ namespace WebapiApplication.DAL
                 cmd.Parameters.AddWithValue("@i_PageFrom", Mobj.PageFrom);
                 cmd.Parameters.AddWithValue("@i_PageTo", Mobj.PageTo);
 
-
                 dareview.SelectCommand = cmd;
                 dareview.Fill(dtreviewsettings);
             }
@@ -3050,7 +2962,6 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
             }
             return intStatus;
         }
@@ -3116,7 +3027,6 @@ namespace WebapiApplication.DAL
             return Commonclass.convertdataTableToArrayListTable(guestticket);
         }
 
-
         public int ChangeEmployeePassword(int? EmpID, string EmpoldPassword, string EmpNewPassword, string spname)
         {
             SqlParameter[] parm = new SqlParameter[10];
@@ -3154,8 +3064,6 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
-
             }
             return intStatus;
         }
@@ -3174,7 +3082,6 @@ namespace WebapiApplication.DAL
                 parm[1] = new SqlParameter("@intEmpId", SqlDbType.Int);
                 parm[1].Value = empid;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-
             }
             catch (Exception EX)
             {
@@ -3185,14 +3092,10 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
-
             }
-
 
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
-
 
         public int CheckemployeePassord(int? EmpID, string Emppassword, string spname)
         {
@@ -3229,8 +3132,6 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
-
             }
             return intStatus;
         }
@@ -3268,8 +3169,6 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
-
             }
             return intStatus;
         }
@@ -3288,7 +3187,6 @@ namespace WebapiApplication.DAL
                 parm[1] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[1].Direction = ParameterDirection.Output;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-
             }
             catch (Exception EX)
             {
@@ -3299,14 +3197,10 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
-
             }
-
 
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
-
 
         public int UpadteMacAddess(string strProfileID, string ipaddresss2, int? BranchID, string spname)
         {
@@ -3345,16 +3239,12 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
-
             }
             return intStatus;
         }
 
-
         public ArrayList customermeassgeverification(messagesverification Mobj, string spname)
         {
-
             SqlParameter[] parm = new SqlParameter[10];
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
@@ -3386,7 +3276,6 @@ namespace WebapiApplication.DAL
                 {
                     intStatus = Convert.ToInt32(parm[6].Value);
                 }
-
             }
             catch (Exception EX)
             {
@@ -3450,12 +3339,9 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
-
             }
             return intStatus;
         }
-
 
         public int Editpaymentpointexpdate(EditpaymentpointS Mobj, string spname)
         {
@@ -3500,14 +3386,12 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
             }
             return intStatus;
         }
 
         public ArrayList Paymentexentionpointsdays(string Profileid, string spname)
         {
-
             SqlParameter[] parm = new SqlParameter[3];
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
@@ -3615,7 +3499,6 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
             }
             return intStatus;
         }
@@ -3671,7 +3554,6 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
             }
             return intStatus;
         }
@@ -3709,7 +3591,6 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
             }
             return intStatus;
         }
@@ -3724,7 +3605,6 @@ namespace WebapiApplication.DAL
             SqlDataAdapter daParentDetails = new SqlDataAdapter();
             try
             {
-
                 SqlCommand cmd = new SqlCommand(spname, connection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@vc_ProfileId", Mobj.StrProfileID);
@@ -3762,8 +3642,6 @@ namespace WebapiApplication.DAL
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
 
-
-
         public int SendMailRegidtrationFeeDetails(long? CustID, string spname)
         {
             SqlParameter[] param = new SqlParameter[4];
@@ -3797,12 +3675,9 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
             }
             return intStatus;
         }
-
-
 
         public int EmployeepaymentreportsSendsms(paymentreportsms Mobj, string spname)
         {
@@ -3845,7 +3720,6 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
             }
             return intStatus;
         }
@@ -3922,10 +3796,10 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
             }
             return intStatus;
         }
+
         /// <summary>
         /// A.Lakshmi---07-08-2017
         /// </summary>
@@ -3965,10 +3839,10 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
             }
             return intStatus;
         }
+
         /// <summary>
         /// A.Lakshmi---07-08-2017
         /// </summary>
@@ -3995,10 +3869,10 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
+
         /// <summary>
         /// A.Lakshmi---07-08-2017
         /// </summary>
@@ -4036,18 +3910,17 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
-
             }
             return intStatus;
         }
+
         /// <summary>
         /// A.Lakshmi---07-08-2017
         /// </summary>
         /// <param name="profileid">profileid--varchar</param>
         ///    /// <param name="Encryptedtext">Encryptedtext--encrypted profileid</param>
         /// <returns>int status</returns>
-        /// To send Factsheet email 
+        /// To send Factsheet email
         public int? sendEmail_factResetPassword(string profileid, string Encryptedtext, string spName)
         {
             int? status = 0;
@@ -4060,7 +3933,6 @@ namespace WebapiApplication.DAL
 
             try
             {
-
                 SqlParameter[] parm = new SqlParameter[5];
                 parm[0] = new SqlParameter("@PROFILEID", SqlDbType.VarChar);
                 parm[0].Value = profileid;
@@ -4073,7 +3945,6 @@ namespace WebapiApplication.DAL
 
                 if (reader.HasRows)
                 {
-
                     while (reader.Read())
                     {
                         li.Clear();
@@ -4099,18 +3970,18 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
 
             return status;
         }
+
         /// <summary>
         /// A.Lakshmi---07-08-2017
         /// </summary>
         /// <param name="profileid">profileid--varchar</param>
         ///    /// <param name="Encryptedtext">Encryptedtext--encrypted profileid</param>
         /// <returns>int status</returns>
-        /// To send forget password email 
+        /// To send forget password email
         public int? sendEmail_ResetPassword(string profileid, string spname)
         {
             SqlDataReader reader;
@@ -4131,7 +4002,6 @@ namespace WebapiApplication.DAL
 
                 if (reader.HasRows)
                 {
-
                     while (reader.Read())
                     {
                         li.Clear();
@@ -4156,8 +4026,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
-
             }
             return intStatus;
         }
@@ -4222,8 +4090,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
-
             }
             return intStatus;
         }
@@ -4261,13 +4127,12 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
-
             }
             return intStatus;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="i_EmpID"></param>
         /// <param name="i_BranchID"></param>
@@ -4305,7 +4170,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
@@ -4348,10 +4212,8 @@ namespace WebapiApplication.DAL
                             response.Surname = (reader["LastName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastName")) : string.Empty;
                             response.Status = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : intStatus;
                             arrayList.Add(response);
-
                         }
                     }
-
                 }
 
                 reader.Close();
@@ -4363,8 +4225,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
-
             }
             return arrayList;
         }
@@ -4410,7 +4270,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return intStatus;
         }
@@ -4441,7 +4300,6 @@ namespace WebapiApplication.DAL
                 parm[6] = new SqlParameter("@i_Authorized", SqlDbType.Int);
                 parm[6].Value = Mobj.i_Authorized;
 
-
                 parm[7] = new SqlParameter("@i_Startindex", SqlDbType.Int);
                 parm[7].Value = Mobj.startindex;
                 parm[8] = new SqlParameter("@i_EndIndex", SqlDbType.Int);
@@ -4471,7 +4329,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return Mobj.i_flag == 1 || Mobj.i_flag == 2 || Mobj.i_flag == 3 ? arrayList : Commonclass.convertdataTableToArrayListTable(ds);
         }
@@ -4504,7 +4361,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
@@ -4526,7 +4382,6 @@ namespace WebapiApplication.DAL
 
             try
             {
-
                 SqlParameter[] parm = new SqlParameter[20];
 
                 parm[0] = new SqlParameter("@strMFFNativePlace", SqlDbType.VarChar);
@@ -4604,7 +4459,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
 
             status = 1;
@@ -4637,7 +4491,6 @@ namespace WebapiApplication.DAL
                     {
                         MarketingTicketResponseHistory Marketing = new MarketingTicketResponseHistory();
                         {
-
                             Marketing.TicketType = reader["TicketType"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketType")) : Snull;
                             Marketing.ReplyDatenew = reader["ReplyDatenew"] != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("ReplyDatenew")) : dtTime;
                             Marketing.ReplyDate = reader["ReplyDate"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ReplyDate")) : null;
@@ -4647,8 +4500,6 @@ namespace WebapiApplication.DAL
                             Marketing.RelationShip = reader["RelationShip"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("RelationShip"))).ToString() : Snull;
                             Marketing.ReplyDesc = reader["ReplyDesc"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("ReplyDesc"))).ToString() : Snull;
                             Marketing.MatchmeetingStatus = reader["MatchmeetingStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MatchmeetingStatus")) : Snull;
-
-
                         }
 
                         details.Add(Marketing);
@@ -4656,7 +4507,6 @@ namespace WebapiApplication.DAL
                 }
 
                 reader.Close();
-
             }
             catch (Exception EX)
             {
@@ -4665,7 +4515,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
 
             return details;
@@ -4711,14 +4560,12 @@ namespace WebapiApplication.DAL
                             display.NotifyCount = reader["NotifyCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NotifyCount")) : iNull;
                             display.CategoryID = reader["CategoryID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("CategoryID")) : iNull;
                             display.ICustID = reader["Cust_ID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ID")) : lnull;
-
                         }
                         details.Add(display);
                     }
                 }
 
                 reader.Close();
-
             }
             catch (Exception EX)
             {
@@ -4727,7 +4574,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
 
             return details;
@@ -4735,7 +4581,6 @@ namespace WebapiApplication.DAL
 
         public int? notviewedprofilesemails(ExpressInterestInsert Mobj, string spName)
         {
-
             int? Istatus = null;
             int? intStatus = 0;
 
@@ -4748,13 +4593,10 @@ namespace WebapiApplication.DAL
             SqlParameter[] parm = new SqlParameter[10];
             try
             {
-
-
                 parm[0] = new SqlParameter("@TblDetails", SqlDbType.Structured);
                 parm[0].Value = Mobj.dtExpInt;
                 parm[1] = new SqlParameter("@empid", SqlDbType.BigInt);
                 parm[1].Value = Mobj.EmpID;
-
 
                 parm[2] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[2].Direction = ParameterDirection.Output;
@@ -4762,7 +4604,6 @@ namespace WebapiApplication.DAL
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (reader.HasRows)
                 {
-
                     while (reader.Read())
                     {
                         Smtpemailsending smtp = new Smtpemailsending();
@@ -4775,9 +4616,7 @@ namespace WebapiApplication.DAL
                             Istatus = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : 0;
                         }
                         li.Add(smtp);
-
                     }
-
                 }
                 intStatus = Istatus != null && Istatus != 0 ? 1 : 0;
 
@@ -4786,7 +4625,6 @@ namespace WebapiApplication.DAL
                 {
                     Commonclass.SendMailSmtpMethod(li, "info");
                 }
-
             }
             catch (Exception EX)
             {
@@ -4795,7 +4633,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return intStatus;
         }
@@ -4858,8 +4695,6 @@ namespace WebapiApplication.DAL
 
                 EXI.dtExpInt = dtExpress;
                 Istatus = notviewedprofilesemails(EXI, "[dbo].[usp_GetUnviewedServiceProfilesData]");
-
-
             }
             catch (Exception EX)
             {
@@ -4868,12 +4703,9 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return Istatus;
         }
-
-
 
         public ArrayList keywordlikesearch(keywordlikesearch keyword, string spname)
         {
@@ -4909,7 +4741,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
@@ -4931,7 +4762,6 @@ namespace WebapiApplication.DAL
 
             try
             {
-
                 SqlParameter[] parm = new SqlParameter[20];
 
                 parm[0] = new SqlParameter("@strMFFNativePlace", SqlDbType.VarChar);
@@ -4973,16 +4803,13 @@ namespace WebapiApplication.DAL
                     {
                         GetRegprofilevalidation sh = new GetRegprofilevalidation();
                         {
-
                             sh.ActiveCount = reader["ActiveCnt"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ActiveCnt")) : inull;
                             sh.DeletedCount = reader["DeletedCnt"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DeletedCnt")) : inull;
                             sh.SettledCount = reader["SettledCnt"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SettledCnt")) : inull;
                             sh.InActiveCount = reader["InActiveCnt"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("InActiveCnt")) : inull;
                             sh.MMSerious = reader["MMSCnt"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MMSCnt")) : inull;
-
                         }
                         details.Add(sh);
-
                     }
                 }
 
@@ -4995,7 +4822,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
 
             status = 1;
@@ -5055,14 +4881,12 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return status;
         }
 
         public ArrayList Marketingtickethistory(int? custid, string spName)
         {
-
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
@@ -5074,7 +4898,6 @@ namespace WebapiApplication.DAL
                 parm[0] = new SqlParameter("@intCust_id", SqlDbType.Int);
                 parm[0].Value = custid;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
-
             }
             catch (Exception EX)
             {
@@ -5083,12 +4906,10 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
 
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
-
 
         public int? CloseReminderStatus(closereminder Mobj, string spname)
         {
@@ -5122,7 +4943,6 @@ namespace WebapiApplication.DAL
                 {
                     status = Convert.ToInt32(parm[3].Value);
                 }
-
             }
             catch (Exception EX)
             {
@@ -5131,7 +4951,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return status;
         }
@@ -5163,7 +4982,6 @@ namespace WebapiApplication.DAL
                 {
                     status = Convert.ToInt32(parm[1].Value);
                 }
-
             }
             catch (Exception EX)
             {
@@ -5172,14 +4990,12 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return status;
         }
 
         public ArrayList MatchfollowupTicketStatus(long? Ticketid, string spname)
         {
-
             SqlParameter[] parm = new SqlParameter[4];
             Smtpemailsending smtp = new Smtpemailsending();
             List<Smtpemailsending> li = new List<Smtpemailsending>();
@@ -5203,7 +5019,6 @@ namespace WebapiApplication.DAL
                         Tktstatus = reader["ToTicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToTicketStatus")) : string.Empty;
 
                         arr.Add(Tktstatus);
-
                     }
                 }
 
@@ -5263,7 +5078,6 @@ namespace WebapiApplication.DAL
                 {
                     status = Convert.ToInt32(parm[8].Value);
                 }
-
             }
             catch (Exception EX)
             {
@@ -5272,7 +5086,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return status;
         }
@@ -5388,11 +5201,9 @@ namespace WebapiApplication.DAL
                             sh.Primaryemail = reader["Primaryemail"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Primaryemail"))) : Snull;
                             sh.Payment = reader["Payment"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Payment"))) : Snull;
                             sh.CreatedDate = reader["CreatedDate"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CreatedDate"))) : Snull;
-
                         }
                         array.Add(sh);
                     }
-
                 }
                 reader.Close();
             }
@@ -5409,7 +5220,6 @@ namespace WebapiApplication.DAL
 
         public ArrayList MasterDataselect(MasterData Mobj, string spName)
         {
-
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
@@ -5429,7 +5239,6 @@ namespace WebapiApplication.DAL
                 parm[4] = new SqlParameter("@b_StatusCode", SqlDbType.Bit);
                 parm[4].Value = Mobj.StatusCode;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
-
             }
             catch (Exception EX)
             {
@@ -5438,7 +5247,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
 
             return Commonclass.convertdataTableToArrayListTable(ds);
@@ -5515,7 +5323,6 @@ namespace WebapiApplication.DAL
                 {
                     status = Convert.ToInt32(parm[21].Value);
                 }
-
             }
             catch (Exception EX)
             {
@@ -5524,7 +5331,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return status;
         }
@@ -5543,7 +5349,6 @@ namespace WebapiApplication.DAL
                 parm[1] = new SqlParameter("@intEmpID", SqlDbType.Int);
                 parm[1].Value = Empid;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
-
             }
             catch (Exception EX)
             {
@@ -5552,7 +5357,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
 
             return Commonclass.convertdataTableToArrayListTable(ds);
@@ -5595,7 +5399,6 @@ namespace WebapiApplication.DAL
                 {
                     status = Convert.ToInt32(parm[6].Value);
                 }
-
             }
             catch (Exception EX)
             {
@@ -5604,7 +5407,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return status;
         }
@@ -5621,7 +5423,6 @@ namespace WebapiApplication.DAL
                 parm[0] = new SqlParameter("@EmpID", SqlDbType.BigInt);
                 parm[0].Value = Empid;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
-
             }
             catch (Exception EX)
             {
@@ -5630,7 +5431,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
 
             return Commonclass.convertdataTableToArrayListTable(ds);
@@ -5690,7 +5490,6 @@ namespace WebapiApplication.DAL
                 {
                     status = Convert.ToInt32(parm[14].Value);
                 }
-
             }
             catch (Exception EX)
             {
@@ -5699,7 +5498,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
             return status;
         }
@@ -5779,7 +5577,6 @@ namespace WebapiApplication.DAL
                 parm[2] = new SqlParameter("@flag", SqlDbType.Int);
                 parm[2].Value = flag;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
-
             }
             catch (Exception EX)
             {
@@ -5788,7 +5585,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
 
             return Commonclass.convertdataTableToArrayListTable(ds);
@@ -5840,7 +5636,6 @@ namespace WebapiApplication.DAL
 
         public ArrayList EmployeeReportsCounts(EmpCountsreport Mobj, string spName)
         {
-
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
@@ -5877,7 +5672,6 @@ namespace WebapiApplication.DAL
                 parm[13] = new SqlParameter("@inrPresentInIndia", SqlDbType.Int);
                 parm[13].Value = Mobj.inrPresentInIndia;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
-
             }
             catch (Exception EX)
             {
@@ -5886,7 +5680,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-
             }
 
             return Commonclass.convertdataTableToArrayListTable(ds);
@@ -6009,7 +5802,7 @@ namespace WebapiApplication.DAL
                     //9848344977
                     string result1 = cc.SendTextSMS("ykrishna", "summary$1", "9848344977", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
                     //9396999999
-                    string result2 = cc.SendTextSMS("ykrishna", "summary$1", "9396999999", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");              
+                    string result2 = cc.SendTextSMS("ykrishna", "summary$1", "9396999999", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
                 }
             }
             catch (Exception EX)
@@ -6048,14 +5841,12 @@ namespace WebapiApplication.DAL
 
                 parm[2] = new SqlParameter("@i_PageTo", SqlDbType.BigInt);
                 parm[2].Value = Mobj.i_PageTo;
-                
+
                 parm[3] = new SqlParameter("@v_EmpIDs", SqlDbType.VarChar, 1000);
                 parm[3].Value = Mobj.strEmpName;
 
                 parm[4] = new SqlParameter("@v_BranchIDs", SqlDbType.VarChar, 1000);
                 parm[4].Value =  Mobj.strBranch;
-
-          
 
                 parm[5] = new SqlParameter("@dt_FromProceedDate", SqlDbType.DateTime);
                 parm[5].Value = Mobj.dtFromProceedDate;
@@ -6066,18 +5857,14 @@ namespace WebapiApplication.DAL
                 parm[7] = new SqlParameter("@i_days", SqlDbType.Int);
                 parm[7].Value = Mobj.i_days;
 
-           
-
                 parm[8] = new SqlParameter("@i_RegionID", SqlDbType.Int);
                 parm[8].Value = Mobj.i_RegionID;
 
                 parm[9] = new SqlParameter("@i_TicketId", SqlDbType.VarChar);
                 parm[9].Value = Mobj.i_TicketId;
 
-
                 parm[10] = new SqlParameter("@i_EmailId", SqlDbType.VarChar);
                 parm[10].Value = Mobj.i_EmailId;
-
 
                 parm[11] = new SqlParameter("@i_PhoneNumber", SqlDbType.VarChar);
                 parm[11].Value = Mobj.i_PhoneNumber;
@@ -6091,10 +5878,8 @@ namespace WebapiApplication.DAL
                 parm[14] = new SqlParameter("@dt_ToReminderDate", SqlDbType.DateTime);
                 parm[14].Value = Mobj.dt_ToReminderdate;
 
-
                 parm[15] = new SqlParameter("@b_unpaidProfiles", SqlDbType.Bit);
                 parm[15].Value = Mobj.b_unpaidProfiles;
-
 
                 parm[16] = new SqlParameter("@v_Marketreminder", SqlDbType.Bit);
                 parm[16].Value = Mobj.v_MarketremindeFlag;
@@ -6107,7 +5892,7 @@ namespace WebapiApplication.DAL
 
                 parm[19] = new SqlParameter("@i_Onlineeexpiry", SqlDbType.Bit);
                 parm[19].Value = Mobj.v_OnlineExprd;
-              
+
                 parm[20] = new SqlParameter("@V_Notpay", SqlDbType.Bit);
                 parm[20].Value = Mobj.V_Notpay;
 
@@ -6118,13 +5903,10 @@ namespace WebapiApplication.DAL
 
                 if (drReader.HasRows)
                 {
-
                     while (drReader.Read())
                     {
-
                         ticket.Add(new EmployeeMarketingslideticket
                         {
-
                             CustID = (drReader["CustID"]) != DBNull.Value ? drReader.GetInt64(drReader.GetOrdinal("CustID")).ToString() : string.Empty,
                             TicketID = (drReader["TicketID"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("TicketID")).ToString() : string.Empty,
                             CustomerName = (drReader["CustomerName"]) != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("CustomerName")).ToString() : string.Empty,
@@ -6179,13 +5961,10 @@ namespace WebapiApplication.DAL
                             SAPath = drReader["SAFORM"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("SAFORM")) : string.Empty,
                             primaryCountryID = drReader["PrimaryContactNumberCountyID"] != DBNull.Value ? drReader.GetInt32(drReader.GetOrdinal("PrimaryContactNumberCountyID")) : intnull,
                             FatherName = drReader["FatherName"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("FatherName")) : string.Empty
-
                         });
-
                     }
 
                     MarketingTicketResponse.Marketingslideticket = ticket;
-
                 }
 
                 drReader.NextResult();
@@ -6196,7 +5975,6 @@ namespace WebapiApplication.DAL
                     {
                         ticketHistory.Add(new EmployeeMarketingslideHistory
                         {
-
                             TicketType = drReader["TicketType"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("TicketType")) : string.Empty,
                             Emp_Ticket_ID = drReader["Emp_Ticket_ID"] != DBNull.Value ? drReader.GetInt64(drReader.GetOrdinal("Emp_Ticket_ID")).ToString() : string.Empty,
                             TicketID = drReader["TicketID"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("TicketID")).ToString() : string.Empty,
@@ -6220,7 +5998,6 @@ namespace WebapiApplication.DAL
                             ReminderRelationName = drReader["ReminderRelationName"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("ReminderRelationName")) : string.Empty,
                             //ReminderRelation = drReader["ReminderRelation"] != DBNull.Value ? drReader.GetString(drReader.GetOrdinal("ReminderRelation")) : string.Empty,
                             //ReminderRelationID = drReader["ReminderRelationID"] != DBNull.Value ? drReader.GetInt64(drReader.GetOrdinal("ReminderRelationID")) : longnull
-
                         });
                     }
 

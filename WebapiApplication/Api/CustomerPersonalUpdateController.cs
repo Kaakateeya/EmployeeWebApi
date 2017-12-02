@@ -1,21 +1,24 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections;
-using System.Data;
-using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Web.Http;
-using WebapiApplication.ML;
+using WebapiApplication.DAL;
 using WebapiApplication.Implement;
 using WebapiApplication.Interfaces;
-using System.Collections.Generic;
-using WebapiApplication.DAL;
+using WebapiApplication.ML;
 using WebapiApplication.UserDefinedTable;
-using Newtonsoft.Json.Linq;
 
 namespace WebapiApplication.Api
 {
     public class CustomerPersonalUpdateController : ApiController
     {
-        private readonly ICustomerPersonaldetailsUpdate ICustomerpersonalupdate; public CustomerPersonalUpdateController() : base() { this.ICustomerpersonalupdate = new ImpCustomerPersonaldetailsUpdate(); }
+        private readonly ICustomerPersonaldetailsUpdate ICustomerpersonalupdate;
+        public CustomerPersonalUpdateController()
+            : base()
+        {
+            this.ICustomerpersonalupdate = new ImpCustomerPersonaldetailsUpdate();
+        }
 
         public int CustomerPersonalUpdateEducationdetail([FromBody]JObject Cedetails)
         {
@@ -66,6 +69,7 @@ namespace WebapiApplication.Api
             customerpersonaldetails.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtcreaPhysicalAttributedetails(), lstProf);
             return this.ICustomerpersonalupdate.CustomerPhysicalAttributesUpdatedetails(customerpersonaldetails);
         }
+
         public int CustomerPartnerPreferencesUpdatedetails([FromBody]JObject CgetDetails)
         {
             TCustomerPartnerPreferences TCustomer = CgetDetails["GetDetails"].ToObject<TCustomerPartnerPreferences>();
@@ -75,6 +79,7 @@ namespace WebapiApplication.Api
             customerpersonaldetails.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtCreatePartnerPreferences(), lstProf);
             return this.ICustomerpersonalupdate.CustomerPartnerPreferencesUpdatedetails(customerpersonaldetails);
         }
+
         public int CustomerSibBrotherUpdatedetails([FromBody]JObject CgetDetails)
         {
             TSibBrother SibBrother = CgetDetails["GetDetails"].ToObject<TSibBrother>();
@@ -104,6 +109,7 @@ namespace WebapiApplication.Api
             customerpersonaldetails.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtcreateAstrodetail(), lstAstro);
             return this.ICustomerpersonalupdate.CustomerAstrodetailsUpdatedetails(customerpersonaldetails);
         }
+
         public int CustomerPropertyUpdatedetails([FromBody]JObject CgetDetails)
         {
             TeditProperty editProperty = CgetDetails["GetDetails"].ToObject<TeditProperty>();
@@ -113,6 +119,7 @@ namespace WebapiApplication.Api
             customerpersonaldetails.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtcreatePropertydetails(), lsteditProperty);
             return this.ICustomerpersonalupdate.CustomerPropertyUpdatedetails(customerpersonaldetails);
         }
+
         public int CustomerFathersBrotherUpdatedetails([FromBody]JObject CgetDetails)
         {
             TeditFB editFB = CgetDetails["GetDetails"].ToObject<TeditFB>();
@@ -122,6 +129,7 @@ namespace WebapiApplication.Api
             customerpersonaldetails.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtcreateFathersBrotherDetail(), lsteditFB);
             return this.ICustomerpersonalupdate.CustomerFathersBrotherUpdatedetails(customerpersonaldetails);
         }
+
         public int CustomerFathersSisterUpdatedetails([FromBody]JObject CgetDetails)
         {
             TeditFS editFS = CgetDetails["GetDetails"].ToObject<TeditFS>();
@@ -131,6 +139,7 @@ namespace WebapiApplication.Api
             customerpersonaldetails.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtcreateFathersSisterDetail(), lsteditFS);
             return this.ICustomerpersonalupdate.CustomerFathersSisterUpdatedetails(customerpersonaldetails);
         }
+
         public int CustomerMotherBrotherUpdatedetails([FromBody]JObject CgetDetails)
         {
             TeditMB editMB = CgetDetails["GetDetails"].ToObject<TeditMB>();
@@ -140,6 +149,7 @@ namespace WebapiApplication.Api
             customerpersonaldetails.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtcreateMotherBrotherDetail(), lstTeditMB);
             return this.ICustomerpersonalupdate.CustomerMotherBrotherUpdatedetails(customerpersonaldetails);
         }
+
         public int CustomerMotherSisterUpdatedetails([FromBody]JObject CgetDetails)
         {
             TeditMS editMS = CgetDetails["GetDetails"].ToObject<TeditMS>();
@@ -152,33 +162,31 @@ namespace WebapiApplication.Api
 
         public int CustomerReferencedetailsUpdatedetails([FromBody]JObject CgetDetails)
         {
-
             TeditReference editReference = CgetDetails["GetDetails"].ToObject<TeditReference>();
             UpdatePersonaldetails customerpersonaldetails = CgetDetails["customerpersonaldetails"].ToObject<UpdatePersonaldetails>();
             List<TeditReference> lstRef = new List<TeditReference>();
             lstRef.Add(editReference);
             customerpersonaldetails.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtcreateDatatableReferenceDetail(), lstRef);
             return this.ICustomerpersonalupdate.CustomerReferencedetailsUpdatedetails(customerpersonaldetails);
-
         }
 
-        public int UpdateSibblingCounts(SibblingCounts sibcount) { return this.ICustomerpersonalupdate.UpdateSibblingCounts(sibcount); }
+        public int UpdateSibblingCounts(SibblingCounts sibcount)
+        {
+            return this.ICustomerpersonalupdate.UpdateSibblingCounts(sibcount);
+        }
 
         public ArrayList Savephotosofcustomer([FromBody]JObject CgetDetails)
         {
-
             TuploadPhoto edituploadPhoto = CgetDetails["GetDetails"].ToObject<TuploadPhoto>();
             UpdatePersonaldetails customerpersonaldetails = CgetDetails["customerpersonaldetails"].ToObject<UpdatePersonaldetails>();
             List<TuploadPhoto> lstuploadPhoto = new List<TuploadPhoto>();
             lstuploadPhoto.Add(edituploadPhoto);
             customerpersonaldetails.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtSavephotosofcustomer(), lstuploadPhoto);
             return this.ICustomerpersonalupdate.Savephotosofcustomer(customerpersonaldetails);
-
         }
 
         public ArrayList getEmplanding_counts_Admin(string OwnerName, string Branchname, int? StartIndex, int? EndIndex, string strTableType, int? intLoadStatus)
         {
-
             EmployeeLandingCount ecount = new EmployeeLandingCount();
             ecount.Branch = Commonclass.getTableData(Branchname, "Branch");
             ecount.owner = Commonclass.getTableData(OwnerName, "owner");
@@ -195,14 +203,9 @@ namespace WebapiApplication.Api
             {
                 return this.ICustomerpersonalupdate.Emplanding_counts_Admin(ecount);
             }
-           
         }
 
-
-
-
-
-        // Edit/View 
+        // Edit/View
 
         public int UpdateSpoucedetails_Customersetails([FromBody]JObject CgetDetails)
         {
@@ -234,24 +237,66 @@ namespace WebapiApplication.Api
             return this.ICustomerpersonalupdate.UpdatePersonalDetails_Customersetails(customerpersonaldetails);
         }
 
-        public int CustomerContactDetails_Update([FromBody]ContactDetals Mobj) { return this.ICustomerpersonalupdate.CustomerContactDetails_Update(Mobj); }
-        public int CustomerProfileSetting_Gradeselection([FromBody]NoProfileGradingMl Mobj) { return this.ICustomerpersonalupdate.CustomerProfileSetting_Gradeselection(Mobj); }
-        public int getCustomerSectionsDeletions(string sectioname, long? CustID, long? identityid) { return this.ICustomerpersonalupdate.CustomerSectionsDeletions(sectioname, CustID, identityid); }
-        public NoDataFoundDisplay getNoDataInformationLinkDisplay(string ProfileID) { return this.ICustomerpersonalupdate.NoDataInformationLinkDisplay(ProfileID); }
-        public int CustomerProfileSetting_ProfileSetting([FromBody] UpdateprofileeMl Mobj) { return this.ICustomerpersonalupdate.CustomerProfileSetting_ProfileSetting(Mobj); }
-        public int UpdateContactdetails_Reference([FromBody] ContactdetailsRef Mobj) { return this.ICustomerpersonalupdate.UpdateContactdetails_Reference(Mobj); }
+        public int CustomerContactDetails_Update([FromBody]ContactDetals Mobj)
+        {
+            return this.ICustomerpersonalupdate.CustomerContactDetails_Update(Mobj);
+        }
+
+        public int CustomerProfileSetting_Gradeselection([FromBody]NoProfileGradingMl Mobj)
+        {
+            return this.ICustomerpersonalupdate.CustomerProfileSetting_Gradeselection(Mobj);
+        }
+
+        public int getCustomerSectionsDeletions(string sectioname, long? CustID, long? identityid)
+        {
+            return this.ICustomerpersonalupdate.CustomerSectionsDeletions(sectioname, CustID, identityid);
+        }
+
+        public NoDataFoundDisplay getNoDataInformationLinkDisplay(string ProfileID)
+        {
+            return this.ICustomerpersonalupdate.NoDataInformationLinkDisplay(ProfileID);
+        }
+
+        public int CustomerProfileSetting_ProfileSetting([FromBody] UpdateprofileeMl Mobj)
+        {
+            return this.ICustomerpersonalupdate.CustomerProfileSetting_ProfileSetting(Mobj);
+        }
+
+        public int UpdateContactdetails_Reference([FromBody] ContactdetailsRef Mobj)
+        {
+            return this.ICustomerpersonalupdate.UpdateContactdetails_Reference(Mobj);
+        }
 
         //
 
-        public int getPhotoPassword([FromUri]Int64? CustID, [FromUri]int? ipassword) { return this.ICustomerpersonalupdate.PhotoPassword(CustID, ipassword); }
-        public int AstroDetailsUpdateDelete([FromBody]AstroUploadDelete astroupdate) { return this.ICustomerpersonalupdate.AstroDetailsUpdateDelete(astroupdate); }
-        public HoroGeneration getGenerateHoroscorpe(int? customerid, string EmpIDQueryString, int? intDay, int? intMonth, int? intYear, int? CityID) { return this.ICustomerpersonalupdate.GenerateHoroscorpe(customerid, EmpIDQueryString, intDay, intMonth, intYear, CityID); }
-        public int UploadsettlementForm([FromBody]SettlementPaidBalanceDetailsMl settlementForm) { return this.ICustomerpersonalupdate.UploadsettlementForm(settlementForm); }
-        public int getAstroGenerationS3Update(string Path, string KeyName) { return this.ICustomerpersonalupdate.AstroGenerationS3Update(Path, KeyName); }
-        public int getAstroGenerationS3Update_test(string Path, string KeyName) { return this.ICustomerpersonalupdate.AstroGenerationS3Update(Path, KeyName); }
+        public int getPhotoPassword([FromUri]Int64? CustID, [FromUri]int? ipassword)
+        {
+            return this.ICustomerpersonalupdate.PhotoPassword(CustID, ipassword);
+        }
 
+        public int AstroDetailsUpdateDelete([FromBody]AstroUploadDelete astroupdate)
+        {
+            return this.ICustomerpersonalupdate.AstroDetailsUpdateDelete(astroupdate);
+        }
 
+        public HoroGeneration getGenerateHoroscorpe(int? customerid, string EmpIDQueryString, int? intDay, int? intMonth, int? intYear, int? CityID)
+        {
+            return this.ICustomerpersonalupdate.GenerateHoroscorpe(customerid, EmpIDQueryString, intDay, intMonth, intYear, CityID);
+        }
+
+        public int UploadsettlementForm([FromBody]SettlementPaidBalanceDetailsMl settlementForm)
+        {
+            return this.ICustomerpersonalupdate.UploadsettlementForm(settlementForm);
+        }
+
+        public int getAstroGenerationS3Update(string Path, string KeyName)
+        {
+            return this.ICustomerpersonalupdate.AstroGenerationS3Update(Path, KeyName);
+        }
+
+        public int getAstroGenerationS3Update_test(string Path, string KeyName)
+        {
+            return this.ICustomerpersonalupdate.AstroGenerationS3Update(Path, KeyName);
+        }
     }
 }
-
-

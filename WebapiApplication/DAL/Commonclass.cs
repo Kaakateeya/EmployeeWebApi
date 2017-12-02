@@ -1,26 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
-using WebapiApplication.ML;
-using System.Data.SqlClient;
-using System.Collections;
-using System.Configuration;
-using KaakateeyaDAL;
-using System.Reflection;
-using System.Net.Mail;
-using System.Threading;
-using System.Security.Cryptography;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using WebapiApplication.UserDefinedTable;
-using System.IO;
-using WebapiApplication.ServiceReference1;
-using Amazon;
-using Amazon.S3;
-using Amazon.S3.Model;
+﻿using Amazon.S3;
 using Amazon.S3.Transfer;
+using KaakateeyaDAL;
+using Newtonsoft.Json;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
+using System.Net.Mail;
+using System.Reflection;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading;
+using WebapiApplication.ML;
+using WebapiApplication.ServiceReference1;
 
 namespace WebapiApplication.DAL
 {
@@ -85,7 +80,6 @@ namespace WebapiApplication.DAL
 
         //private static void SendMailThread(MailMessage message, string Password)
         //{
-
         //    string StrMailServer = ConfigurationManager.AppSettings["MailHost"].ToString();
 
         //    int intPort = Convert.ToInt32(ConfigurationManager.AppSettings["MailHostPort"].ToString());
@@ -128,7 +122,6 @@ namespace WebapiApplication.DAL
             {
                 Console.WriteLine("Exception caught in CreateTestMessage2(): {0}", ex.ToString());
             }
-
         }
 
         public static DataTable returnListDatatable<T>(DataTable dt, List<T> items)
@@ -142,13 +135,10 @@ namespace WebapiApplication.DAL
                 dt.Rows.Add(dr);
                 for (int i = 0; i < dtnew.Columns.Count; i++)
                 {
-
                     for (int j = 0; j < Props.Length; j++)
                     {
-
                         if (dtnew.Columns[i].ColumnName == Props[j].Name)
                         {
-
                             dtnew.Rows[flag][dtnew.Columns[i].ColumnName] = Props[j].GetValue(item, null);
                         }
                     }
@@ -158,6 +148,7 @@ namespace WebapiApplication.DAL
             }
             return dtnew;
         }
+
         public static string Decrypt(string encrypted)
         {
             string Password;
@@ -172,6 +163,7 @@ namespace WebapiApplication.DAL
             string decrypted = ASCIIEncoding.ASCII.GetString(des.CreateDecryptor().TransformFinalBlock(buff, 0, buff.Length));
             return (decrypted);
         }
+
         public static string Encrypt(string strProfileID)
         {
             string password;
@@ -186,6 +178,7 @@ namespace WebapiApplication.DAL
             string encrypted = Convert.ToBase64String(des.CreateEncryptor().TransformFinalBlock(buff, 0, buff.Length));
             return (encrypted);
         }
+
         public static ArrayList convertdataTableToArrayList(DataSet dtSet)
         {
             ArrayList arraylist = new ArrayList();
@@ -199,10 +192,8 @@ namespace WebapiApplication.DAL
             return arraylist;
         }
 
-
         public static ArrayList convertdataTableToArrayListTable(DataSet dtSet)
         {
-
             ArrayList arraylist = new ArrayList();
 
             if (dtSet != null && dtSet.Tables.Count > 0)
@@ -215,7 +206,6 @@ namespace WebapiApplication.DAL
 
             return arraylist;
         }
-
 
         public static ArrayList convertdataTableToArrayGridbind(DataTable dt)
         {
@@ -252,7 +242,6 @@ namespace WebapiApplication.DAL
 
         public static string getEncryptedExpressIntrestString(string strActualText)
         {
-
             RijndaelManaged rijndaelCipher = new RijndaelManaged();
             byte[] plainText = Encoding.Unicode.GetBytes(strActualText);
             PasswordDeriveBytes SecretKey = new PasswordDeriveBytes(ENCRYPTION_KEY, SALT);
@@ -269,6 +258,7 @@ namespace WebapiApplication.DAL
                 }
             }
         }
+
         public static string ReturnEncryptLink(string type, string fromProfileID, string toprofileID)
         {
             if (!string.IsNullOrEmpty(fromProfileID) && !string.IsNullOrEmpty(toprofileID))
@@ -276,8 +266,6 @@ namespace WebapiApplication.DAL
             else
                 return null;
         }
-
-
 
         public static CustSearchMl CustomerViewProfileEncriptedText(CustSearchMl MobjViewprofile)
         {
@@ -290,9 +278,13 @@ namespace WebapiApplication.DAL
             }
             return MobjViewprofile;
         }
-        public static string createTicketEncriptedText(string fromCustID, string TocustID) { return getEncryptedExpressIntrestString("FromProfileID=" + TocustID + "&" + "ToProfileID=" + fromCustID + "&" + "Flag=" + 1); }
-        public static string GlobalImgPath = "http://d16o2fcjgzj2wp.cloudfront.net/";
 
+        public static string createTicketEncriptedText(string fromCustID, string TocustID)
+        {
+            return getEncryptedExpressIntrestString("FromProfileID=" + TocustID + "&" + "ToProfileID=" + fromCustID + "&" + "Flag=" + 1);
+        }
+
+        public static string GlobalImgPath = "http://d16o2fcjgzj2wp.cloudfront.net/";
 
         public static DataTable returndt(string commaseperate, DataTable dt, string colname, string tName)
         {
@@ -305,6 +297,7 @@ namespace WebapiApplication.DAL
 
             return dt;
         }
+
         public static DataTable returndatatable(int? nullable, DataTable dt, string colname, string tName)
         {
             dt = new DataTable(tName);
@@ -316,11 +309,13 @@ namespace WebapiApplication.DAL
             }
             return dt;
         }
+
         public static void ApplicationErrorLog(string ErrorSpName, string ErrorMessage, long? CustID, string PageName, string Type)
         {
             new StaticPagesDAL().DApplicationErrorLog(ErrorSpName, ErrorMessage, CustID, PageName, Type, "[dbo].[usp_ApplicationErrorLog]");
             //SqlConnection.ClearAllPools();
         }
+
         public static void PaymentSMS(DataTable dt, string SendPhonenumber)
         {
             string strMobilenumber = "9392696969";
@@ -343,7 +338,6 @@ namespace WebapiApplication.DAL
             }
         }
 
-
         public static void PaymentinsertSMS(DataSet dsPaymentDetails, PaymentInsertML Mobj)
         {
             string page = string.Empty;
@@ -352,7 +346,6 @@ namespace WebapiApplication.DAL
             string strVerificationText = string.Empty;
             if (dsPaymentDetails != null)
             {
-
                 string lblBalAmount = (Convert.ToDecimal(Mobj.dtPaymentDetails.Rows[0]["AgreedAmount"]) - Convert.ToDecimal(Mobj.dtPaymentDetails.Rows[0]["AmountPaid"])).ToString();
                 string lblPaymentID = dsPaymentDetails.Tables[0].Rows[0]["paymentid"].ToString();
                 PaymentDAL payment = new PaymentDAL();
@@ -394,7 +387,6 @@ namespace WebapiApplication.DAL
                     {
                         if (Mobj.dtPaymentDetails.Rows[0]["ProfileID"] != null)
                         {
-
                             string strProfileID = Mobj.dtPaymentDetails.Rows[0]["ProfileID"].ToString();
                             dtProfileID = payment.Bgepay_RegionProfileID(strProfileID);
 
@@ -403,32 +395,26 @@ namespace WebapiApplication.DAL
                                 string strRegion = dtProfileID.Rows[0]["Region"].ToString();
                                 if (strRegion == "409")
                                 {
-
                                     string result1 = cc.SendTextSMS("ykrishna", "summary$1", "9841282222", strVerificationText, "smscntry");
                                     //string result1 = cc.SendTextSMS("ykrishna", "summary$1", "9492117548", strVerificationText, "smscntry");
-
                                 }
                                 else
                                 {
-
                                     string result2 = cc.SendTextSMS("ykrishna", "summary$1", "9848355213", strVerificationText, "smscntry");
                                     // string result2 = cc.SendTextSMS("ykrishna", "summary$1", "8341287876", strVerificationText, "smscntry");
-
                                 }
                             }
-
                         }
                         //dsPaymentDetails.Tables[0].Rows[0]["Number"] = "9492117548";
                         string result = cc.SendTextSMS("ykrishna", "summary$1", dsPaymentDetails.Tables[0].Rows[0]["Number"].ToString(), strVerificationText, "smscntry");
                     }
                     catch (Exception ee)
                     {
-
                     }
                 }
-
             }
         }
+
         public static void ResendMobileSMS(int? iCountryID, int? iCCode, string MobileNumber, string strMobileverf)
         {
             ServiceSoapClient cc = new ServiceSoapClient();
@@ -467,17 +453,14 @@ namespace WebapiApplication.DAL
                 //TransferUtility utility = new TransferUtility();
                 //utility.UploadDirectory(directoryPath, bucketName);
 
-
                 // 1. Upload a file, file name is used as the object key name.
                 //fileTransferUtility.Upload(filePath, bucketName);
                 //Console.WriteLine("Upload 1 completed");
-
 
                 //// 2. Specify object key name explicitly.
                 //fileTransferUtility.Upload(filePath,
                 //                      	bucketName, keyName);
                 //Console.WriteLine("Upload 2 completed");
-
 
                 //// 3. Upload data from a type of System.IO.Stream.
                 //using (FileStream fileToUpload =
@@ -487,7 +470,6 @@ namespace WebapiApplication.DAL
                 //                           	bucketName, keyName);
                 //}
                 //Console.WriteLine("Upload 3 completed");
-
 
                 // 4.Specify advanced settings/options.
                 TransferUtilityUploadRequest fileTransferUtilityRequest = new TransferUtilityUploadRequest
@@ -520,7 +502,6 @@ namespace WebapiApplication.DAL
 
         public static string gethorophotoS3(string cust_id, string HoroscopeImageName)
         {
-
             Int64? int64null = null;
 
             Int64? custid = !string.IsNullOrEmpty(cust_id) ? Convert.ToInt64(cust_id) : int64null;
@@ -546,7 +527,6 @@ namespace WebapiApplication.DAL
 
         public static DataTable getTableData(string str, string col)
         {
-
             DataTable tbl = new DataTable();
             tbl.Columns.Add(col, typeof(string));
 
@@ -657,6 +637,7 @@ namespace WebapiApplication.DAL
                                     }
 
                                     break;
+
                                 case "ToTable":
 
                                     if (dset.Tables[intICount].Rows.Count > 0)
@@ -689,11 +670,8 @@ namespace WebapiApplication.DAL
 
                                     break;
                             }
-
                         }
                     }
-
-
                 }
 
                 // SqlConnection.ClearAllPools();
@@ -702,7 +680,6 @@ namespace WebapiApplication.DAL
 
         public static void GetSmsNum(int? iCountryID, string strMessage, string strMobileOther)
         {
-
             ServiceSoapClient cc = new ServiceSoapClient();
 
             strMessage = strMessage + " from kaakateeya.com";
@@ -715,7 +692,6 @@ namespace WebapiApplication.DAL
             {
                 string result = cc.SendTextSMS("ykrishna", "summary$1", strMobileOther, strMessage, "smscntry");
             }
-
         }
 
         public static int SendSms_new(EmployeeMarketslidesendmail Mobj)
@@ -735,11 +711,9 @@ namespace WebapiApplication.DAL
                     {
                         string result = cc.SendTextSMS("ykrishna", "summary$1", Mobj.strMobileNumber.Trim(), "Dear " + Mobj.strName.Trim() + "," + Mobj.strbody + " Support:" + Mobj.strEmpname + " : 91-" + Mobj.strEmpmobileNumber + "   www.kaakateeya.com ", "smscntry");
                     }
-
                 }
                 catch (Exception ee)
                 {
-
                 }
                 return intStatus;
             }
@@ -770,7 +744,6 @@ namespace WebapiApplication.DAL
             return clearText;
         }
 
-
         public static string Decrypt_new(string cipherText)
         {
             string EncryptionKey = "MAKV2SPBNI99212";
@@ -792,6 +765,5 @@ namespace WebapiApplication.DAL
             }
             return cipherText;
         }
-
     }
 }

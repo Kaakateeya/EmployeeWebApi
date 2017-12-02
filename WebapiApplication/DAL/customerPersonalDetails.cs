@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
-using WebapiApplication.ML;
-using System.Data.SqlClient;
+﻿using KaakateeyaDAL;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Configuration;
-using KaakateeyaDAL;
-using System.IO;
+using System.Data;
+using System.Data.SqlClient;
 using System.Web;
+using WebapiApplication.ML;
 
 namespace WebapiApplication.DAL
 {
@@ -39,7 +36,6 @@ namespace WebapiApplication.DAL
                 {
                     if (reader.Read())
                     {
-
                         MobjPersonalsML = new CustomerPersonalDetails();
                         MobjPersonalsML.Cust_ID = (reader["Cust_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ID")) : intNull;
                         MobjPersonalsML.ProfileID = (reader["ProfileID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileID")) : null;
@@ -70,13 +66,11 @@ namespace WebapiApplication.DAL
                         MobjPersonalsML.GenderID = (reader["GenderID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("GenderID")) : iNull;
                         MobjPersonalsML.ProfileOwner = (reader["ProfileOwner"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("ProfileOwner")) : intNull;
                         MobjPersonalsML.PaidStatus = (reader["PaidStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PaidStatus")) : iNull;
-
                     }
                 }
 
                 reader.Close();
             }
-
             catch (Exception EX)
             {
                 Commonclass.ApplicationErrorLog("[dbo].[Usp_getcustomerinformation_NewDesign]", Convert.ToString(EX.Message), Convert.ToInt64(CustID), null, null);
@@ -86,11 +80,10 @@ namespace WebapiApplication.DAL
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
-
             }
             return MobjPersonalsML;
-
         }
+
         public int DCustomerPersonal_insertUpdateDetails(UpdatePersonaldetails MobjEdudetails, string strSpName, string strTableparam)
         {
             int iStatus = 0;
@@ -121,16 +114,15 @@ namespace WebapiApplication.DAL
             {
                 Commonclass.ApplicationErrorLog(strSpName, Convert.ToString(ex.Message), MobjEdudetails.intCusID, null, null);
             }
-
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
             }
             return iStatus;
         }
+
         public ArrayList DgetUpdateEducationdetailsDAL(long? intCusID, string strSpname)
         {
             ArrayList arrayList = new ArrayList();
@@ -150,7 +142,6 @@ namespace WebapiApplication.DAL
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, strSpname, parm);
                 if (reader.HasRows)
                 {
-
                     while (reader.Read())
                     {
                         UpdateEducationdetailsML MobjEdu = new UpdateEducationdetailsML();
@@ -185,26 +176,23 @@ namespace WebapiApplication.DAL
 
                         arrayList.Add(MobjEdu);
                     }
-
                 }
 
                 reader.Close();
-
             }
-
             catch (Exception EX)
             {
                 Commonclass.ApplicationErrorLog(strSpname, Convert.ToString(EX.Message), intCusID, null, null);
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
             }
             return arrayList;
         }
+
         public ArrayList DgetUpdateProfessionDetailsDAL(long? intCusID, string strSpname)
         {
             ArrayList arrayList = new ArrayList();
@@ -226,7 +214,6 @@ namespace WebapiApplication.DAL
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, strSpname, parm);
                 if (reader.HasRows)
                 {
-
                     while (reader.Read())
                     {
                         UpdateProfessionML MobjProf = new UpdateProfessionML();
@@ -270,7 +257,6 @@ namespace WebapiApplication.DAL
                 }
 
                 reader.Close();
-
             }
             catch (Exception EX)
             {
@@ -278,13 +264,13 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
             }
             return arrayList;
         }
+
         public ArrayList DgetParentDetailsDisplay(long? intCusID, string strSpname)
         {
             DataSet dsParentdetails = new DataSet();
@@ -303,7 +289,6 @@ namespace WebapiApplication.DAL
             catch (Exception Ex)
             {
                 Commonclass.ApplicationErrorLog(strSpname, Convert.ToString(Ex.Message), intCusID, null, null);
-
             }
             finally
             {
@@ -316,7 +301,6 @@ namespace WebapiApplication.DAL
 
         public ArrayList DgetCustomerpartnerpreferencesDetailsDisplay(long? intCusID, string strSpname)
         {
-
             ArrayList arrayList = new ArrayList();
             SqlParameter[] parm = new SqlParameter[5];
             SqlDataReader reader;
@@ -405,13 +389,13 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
             }
             return arrayList;
         }
+
         public ArrayList DgetsiblingsDetailsDisplay(long? intCusID, string strSpname)
         {
             ArrayList arrayList = new ArrayList();
@@ -430,7 +414,6 @@ namespace WebapiApplication.DAL
                 parm[2] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[2].Direction = ParameterDirection.Output;
                 dssibling = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, strSpname, parm);
-
             }
             catch (Exception ex)
             {
@@ -438,7 +421,6 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
@@ -461,7 +443,6 @@ namespace WebapiApplication.DAL
                 cmd.Parameters.AddWithValue("@Custid", intCusID);
                 daParentDetails.SelectCommand = cmd;
                 daParentDetails.Fill(dtAstrodetails);
-
             }
             catch (Exception Ex)
             {
@@ -469,7 +450,6 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
@@ -477,6 +457,7 @@ namespace WebapiApplication.DAL
 
             return Commonclass.convertdataTableToArrayList(dtAstrodetails);
         }
+
         public ArrayList DgetPropertyDetailsDisplay(long? intCusID, string strSpname)
         {
             ArrayList arrayList = new ArrayList();
@@ -528,21 +509,19 @@ namespace WebapiApplication.DAL
 
                 reader.Close();
             }
-
             catch (Exception EX)
             {
                 Commonclass.ApplicationErrorLog(strSpname, Convert.ToString(EX.Message), intCusID, null, null);
-
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
             }
             return arrayList;
         }
+
         public ArrayList DgetRelativeDetailsDisplay(long? intCusID, string strSpname)
         {
             ArrayList arrayList = new ArrayList();
@@ -567,16 +546,15 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
             }
             return Commonclass.convertdataTableToArrayList(dsRelativedetails);
         }
+
         public ArrayList DgetReferenceViewDetailsDisplay(long? intCusID, string strSpname)
         {
-
             SqlParameter[] parm = new SqlParameter[5];
             ArrayList arrayList = new ArrayList();
             int? iNull = null;
@@ -636,7 +614,6 @@ namespace WebapiApplication.DAL
                     }
                 }
                 reader.Close();
-
             }
             catch (Exception EX)
             {
@@ -644,13 +621,13 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
             }
             return arrayList;
         }
+
         public ArrayList DGetphotosofCustomer(string Custid, int? EmpIDQueryInt, string spName)
         {
             ArrayList arrayList = new ArrayList();
@@ -704,7 +681,6 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
@@ -744,7 +720,6 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
@@ -781,7 +756,6 @@ namespace WebapiApplication.DAL
                 parm[7].Direction = ParameterDirection.Output;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
                 if (string.Compare(parm[7].Value.ToString(), System.DBNull.Value.ToString()) == 0) { iStatus = 0; } else { iStatus = Convert.ToInt32(parm[7].Value); }
-
             }
             catch (Exception EX)
             {
@@ -789,13 +763,13 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
             }
             return iStatus;
         }
+
         public ArrayList Savephotosofcustomer(UpdatePersonaldetails savePhoto, string spName)
         {
             ArrayList arrayList = new ArrayList();
@@ -852,7 +826,6 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
@@ -892,6 +865,7 @@ namespace WebapiApplication.DAL
             }
             return iStatus;
         }
+
         public int AstroDetailsUpdateDelete(AstroUploadDelete astroupdate, string spName)
         {
             int iStatus = 0;
@@ -934,6 +908,7 @@ namespace WebapiApplication.DAL
             }
             return iStatus;
         }
+
         public List<GenerateHoroML> GeneaterHorosupport(int? customerid, int? CityID)
         {
             SqlParameter[] param = new SqlParameter[3];
@@ -974,7 +949,6 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
@@ -1056,7 +1030,6 @@ namespace WebapiApplication.DAL
                         horogeneration.Path = Strpaths3;
                         horogeneration.AstroGeneration = str;
                         horogeneration.strTestPath = strTestPath;
-
                     }
                 }
             }
@@ -1068,7 +1041,6 @@ namespace WebapiApplication.DAL
 
         public ArrayList Emplanding_counts_Admin(EmployeeLandingCount employeecount, string strSpName)
         {
-
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -1106,7 +1078,6 @@ namespace WebapiApplication.DAL
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
 
-
         /// <summary>
         /// create Date : 31/08/2017
         /// created By: S.A.Kiran
@@ -1116,7 +1087,7 @@ namespace WebapiApplication.DAL
         /// <param name="ID"></param>
         /// <param name="spName"></param>
         /// <returns></returns>
-        /// 
+        ///
 
         public ArrayList Emplanding_counts_TablesDisplay(EmployeeLandingCount employeecount, string strSpName)
         {
@@ -1160,7 +1131,6 @@ namespace WebapiApplication.DAL
 
                     while (reader.Read())
                     {
-
                         _EmpAdminCount = new Emplanding_counts();
                         _EmpAdminCount.TableName = (reader["TableName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TableName")) : null;
                         _EmpAdminCount.Profileid = (reader["Profileid"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profileid")) : null;
@@ -1181,7 +1151,6 @@ namespace WebapiApplication.DAL
                         {
                             _EmpAdminCount.Tickets = (reader["Tickets"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Tickets")) : null;
                             _EmpAdminCount.TicketID = (reader["TicketID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("TicketID")) : i64null;
-
                         }
                         if (_EmpAdminCount.TableName == "No Sa Form For Paid Profiles")
                         {
@@ -1201,9 +1170,7 @@ namespace WebapiApplication.DAL
                     reader.NextResult();
                 }
 
-
                 reader.Close();
-
             }
             catch (Exception EX)
             {
@@ -1218,7 +1185,6 @@ namespace WebapiApplication.DAL
             return arrayList;
         }
 
-
         public ArrayList CustomerPersonaloffice_purpose(string flag, string ID, string AboutProfile, int? IsConfidential, int? HighConfendential, string strSpname)
         {
             ArrayList arrayList = new ArrayList();
@@ -1230,7 +1196,6 @@ namespace WebapiApplication.DAL
 
             try
             {
-
                 SqlCommand cmd = new SqlCommand(strSpname, connection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@v_dflag", flag);
@@ -1241,7 +1206,6 @@ namespace WebapiApplication.DAL
 
                 daParentDetails.SelectCommand = cmd;
                 daParentDetails.Fill(dtAstrodetails);
-
             }
             catch (Exception Ex)
             {
@@ -1256,9 +1220,9 @@ namespace WebapiApplication.DAL
 
             return Commonclass.convertdataTableToArrayList(dtAstrodetails);
         }
+
         public ArrayList CustomerPersonalContact_Details(long? intCusID, string strSpname)
         {
-
             DataSet dscontactsALL = new DataSet();
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
@@ -1293,6 +1257,7 @@ namespace WebapiApplication.DAL
             }
             return Commonclass.convertdataTableToArrayList(dscontactsALL);
         }
+
         public ArrayList CustomerPersonalSpouse_Details(long? intCusID, string strSpname)
         {
             DataSet dssibling = new DataSet();
@@ -1302,7 +1267,6 @@ namespace WebapiApplication.DAL
             int iStatus = 0;
             try
             {
-
                 SqlParameter[] parm = new SqlParameter[5];
                 parm[0] = new SqlParameter("@CustomerID", SqlDbType.Int);
                 parm[0].Value = intCusID;
@@ -1325,13 +1289,13 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
             }
             return Commonclass.convertdataTableToArrayList(dssibling);
         }
+
         public ArrayList CustomerprofilesettingDetails(long? intCusID, string strSpname)
         {
             DataSet dsprofilesettings = new DataSet();
@@ -1458,6 +1422,7 @@ namespace WebapiApplication.DAL
             }
             return iStatus;
         }
+
         public int CustomerContactDetails_Update(ContactDetals mobCandidateContact, string strSpname)
         {
             int iStatus = 0;
@@ -1556,6 +1521,7 @@ namespace WebapiApplication.DAL
 
             return iStatus;
         }
+
         public int CustomerProfileSetting_ProfileSetting(UpdateprofileeMl mobjprofile, string strSpname)
         {
             int iStatus = 0;
@@ -1624,6 +1590,7 @@ namespace WebapiApplication.DAL
             }
             return iStatus;
         }
+
         public int CustomerProfileSetting_Gradeselection(NoProfileGradingMl Mobj, string strSpname)
         {
             int status = 0;
@@ -1669,6 +1636,7 @@ namespace WebapiApplication.DAL
             }
             return status;
         }
+
         public int UpdatePersonalDetails_Customersetails(UpdatePersonaldetails mobjpersonal, string strSpname)
         {
             int iStatus = 0;
@@ -1727,7 +1695,6 @@ namespace WebapiApplication.DAL
                 SqlParameter[] parm = new SqlParameter[2];
                 parm[0] = new SqlParameter("@ProfileID", SqlDbType.VarChar);
                 parm[0].Value = ProfileID;
-
 
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, strSpname, parm);
                 if (reader.HasRows)
@@ -1873,7 +1840,6 @@ namespace WebapiApplication.DAL
                 parm[0] = new SqlParameter("@cust_Id", SqlDbType.Int);
                 parm[0].Value = CustID;
                 dspersonal = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, strSpname, parm);
-
             }
             catch (Exception Ex)
             {
@@ -1942,10 +1908,8 @@ namespace WebapiApplication.DAL
                         MobjPersonalsML.Profession = (reader["Profession"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profession")) : null;
                         arrayList.Add(MobjPersonalsML);
                     }
-
                 }
                 reader.Close();
-
             }
             catch (Exception EX)
             {
@@ -1958,7 +1922,6 @@ namespace WebapiApplication.DAL
                 //SqlConnection.ClearAllPools();
             }
             return arrayList;
-
         }
 
         public ArrayList ViewAllCustomersKMPLProfileID(int? EmpID, string SearchData, string spName)
@@ -2001,7 +1964,6 @@ namespace WebapiApplication.DAL
                 //SqlConnection.ClearAllPools();
             }
             return Commonclass.convertdataTableToArrayList(dsCustomerList);
-
         }
 
         public ArrayList CustomerPersonalMenuReview(long? CustID, int? iReview, string SectionID, string strSpname)
@@ -2021,7 +1983,6 @@ namespace WebapiApplication.DAL
                 cmd.Parameters.AddWithValue("@SectionID", SectionID);
                 daParentDetails.SelectCommand = cmd;
                 daParentDetails.Fill(dtAstrodetails);
-
             }
             catch (Exception Ex)
             {
@@ -2029,7 +1990,6 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
@@ -2040,7 +2000,6 @@ namespace WebapiApplication.DAL
 
         public ArrayList Search_ViewEditProfile(ViewEditProfileSearch Mobj, string spName)
         {
-
             ArrayList arrayList = new ArrayList();
             SqlParameter[] parm = new SqlParameter[12];
             SqlDataReader reader;
@@ -2107,11 +2066,9 @@ namespace WebapiApplication.DAL
                             MobjPersonalstable.PaidSatus = (reader["PaidSatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PaidSatus")) : iNull;
                             MobjPersonalstable.ProfileOwnerID = (reader["ProfileOwnerID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("ProfileOwnerID")) : intNull;
                             arrayList.Add(MobjPersonalstable);
-
                         }
                     }
                 }
-
                 else
                 {
                     if (reader.HasRows)
@@ -2181,11 +2138,10 @@ namespace WebapiApplication.DAL
                 //SqlConnection.ClearAllPools();
             }
             return arrayList;
-
         }
+
         //public ArrayList Search_ViewEditProfile(ViewEditProfileSearch Mobj, string spName)
         //{
-
         //    ArrayList arrayList = new ArrayList();
         //    SqlParameter[] parm = new SqlParameter[12];
         //    SqlDataReader reader;
@@ -2328,8 +2284,6 @@ namespace WebapiApplication.DAL
 
         //}
 
-
-
         public int CustomerphotoRequestDisplay(string profileid, int? EMPID, long? ticketIDs, string strSpname)
         {
             SqlParameter[] parm = new SqlParameter[5];
@@ -2358,7 +2312,6 @@ namespace WebapiApplication.DAL
                 {
                     while (reader.Read())
                     {
-
                         smtp.profile_name = (reader["profile_name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("profile_name")) : string.Empty;
                         smtp.recipients = (reader["recipients"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("recipients")) : string.Empty;
                         smtp.body = (reader["body"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body")) : string.Empty;
@@ -2378,13 +2331,13 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
             }
             return intStatus;
         }
+
         public ArrayList CandidateContactdetailsRelationName(long? CustID, int? PrimaryMobileRel, int? PrimaryEmailRel, int? iflage, string strSpname)
         {
             ArrayList arrayList = new ArrayList();
@@ -2403,7 +2356,6 @@ namespace WebapiApplication.DAL
                 cmd.Parameters.AddWithValue("@iflage", iflage);
                 daParentDetails.SelectCommand = cmd;
                 daParentDetails.Fill(dtCandidateContact);
-
             }
             catch (Exception Ex)
             {
@@ -2411,7 +2363,6 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
@@ -2443,7 +2394,6 @@ namespace WebapiApplication.DAL
                 {
                     while (reader.Read())
                     {
-
                         smtp.profile_name = (reader["profile_name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("profile_name")) : string.Empty;
                         smtp.recipients = (reader["recipients"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("recipients")) : string.Empty;
                         smtp.body = (reader["body"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body")) : string.Empty;
@@ -2463,7 +2413,6 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
@@ -2515,11 +2464,9 @@ namespace WebapiApplication.DAL
                         profileplay.TicketID = (reader["TicketID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TicketID")) : iNull;
                         profileplay.TicketNumber = (reader["TicketNumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketNumber")) : null;
                         arrayList.Add(profileplay);
-
                     }
                 }
                 reader.Close();
-
             }
             catch (Exception EX)
             {
@@ -2536,7 +2483,6 @@ namespace WebapiApplication.DAL
 
         public ArrayList ViewAllCustomersSettledeleteinfo(string CustID, string typeofdata, string strSpname)
         {
-
             ArrayList arrayList = new ArrayList();
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
@@ -2565,7 +2511,6 @@ namespace WebapiApplication.DAL
             }
 
             return Commonclass.convertdataTableToArrayList(dsPlaybutton);
-
         }
 
         public int UploadsettlementForm(SettlementPaidBalanceDetailsMl Mobj, string strSpname)
@@ -2627,7 +2572,8 @@ namespace WebapiApplication.DAL
         }
 
         public static string PathChange = ConfigurationManager.AppSettings["PathChange"];
-        string withouraccesspathhoro = "~\\Images\\";
+        private string withouraccesspathhoro = "~\\Images\\";
+
         public int AstroGenerationUpdate(string Path, string KeyName)
         {
             int iresult = 0;
@@ -2642,4 +2588,3 @@ namespace WebapiApplication.DAL
         }
     }
 }
-

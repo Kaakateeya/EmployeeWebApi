@@ -1,13 +1,11 @@
-﻿using System;
+﻿using KaakateeyaDAL;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
-using WebapiApplication.ML;
-using System.Data.SqlClient;
-using System.Collections;
 using System.Configuration;
-using KaakateeyaDAL;
+using System.Data;
+using System.Data.SqlClient;
+using WebapiApplication.ML;
+using Dapper;
 
 namespace WebapiApplication.DAL
 {
@@ -114,6 +112,7 @@ namespace WebapiApplication.DAL
             }
             return Mobjresult;
         }
+
         public List<QuicksearchResultML> GeneralandAdvancedSearch(PrimaryInformationMl search, string spName)
         {
             List<QuicksearchResultML> listSearch = new List<QuicksearchResultML>();
@@ -223,7 +222,6 @@ namespace WebapiApplication.DAL
                                 Mobjresult.Photo = (reader["PhotoPath"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PhotoPath")) : string.Empty;
                                 Mobjresult.Photofullpath = (reader["FullPhotoPath"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FullPhotoPath")) : string.Empty;
                                 Mobjresult.DistName = (reader["DistName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("DistName")) : string.Empty;
-
                             }
 
                             listSearch.Add(Mobjresult);
@@ -239,7 +237,6 @@ namespace WebapiApplication.DAL
             finally
             {
                 con.Close();
-             
             }
             return listSearch;
         }
@@ -345,9 +342,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-               
                 con.Close();
-             
             }
             return listSearch;
         }
@@ -362,7 +357,6 @@ namespace WebapiApplication.DAL
             connection.Open();
             try
             {
-
                 parm[0] = new SqlParameter(strParam, SqlDbType.Structured);
                 parm[0].Value = dataTable;
                 parm[1] = new SqlParameter("@CustID", SqlDbType.Int);
@@ -388,22 +382,23 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-              
                 connection.Close();
-             
             }
             return intStatus;
         }
+
         public List<QuicksearchResultML> CustomerGeneralandAdvancedSavedSearch(PrimaryInformationMl primaryInfo, DataTable dtTableValues, string SavedSearchSp, string saveParam, string searchSp)
         {
             int iResult = CustomerAdvanceGeneralProfileIDsearchSave(dtTableValues, primaryInfo.intCusID, primaryInfo.iupdateFlag, SavedSearchSp, saveParam);
             return GeneralandAdvancedSearch(primaryInfo, searchSp);
         }
+
         public List<QuicksearchResultML> CustomerProfileIDSavedSearch(ProfileIDSearch profileIDsearch, DataTable dtTableValues, string SavedSearchSp, string saveParam, string searchSp)
         {
             int iResult = CustomerAdvanceGeneralProfileIDsearchSave(dtTableValues, profileIDsearch.intCusID, profileIDsearch.iupdateFlag, SavedSearchSp, saveParam);
             return ProfileIdsearch(profileIDsearch, searchSp);
         }
+
         public List<SearchResultSaveEditML> SearchResultSaveEdit(long? Cust_ID, string SaveSearchName, int? iEditDelete, string spName)
         {
             List<SearchResultSaveEditML> listSaveEdit = new List<SearchResultSaveEditML>();
@@ -451,9 +446,7 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-             
                 con.Close();
-              
             }
             return listSaveEdit;
         }
@@ -541,15 +534,12 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-               
                 con.Close();
-              
             }
             return listSearch;
         }
 
-        // Employee Searches 
-
+        // Employee Searches
 
         public GetPrimaryDataCustomerResponse GetPrimaryInformationDal(int? CustID, int? EmpID, string spName)
         {
@@ -557,7 +547,7 @@ namespace WebapiApplication.DAL
             SqlDataReader reader;
             DataSet ds = new DataSet();
             DataTable dt = new DataTable();
-            DateTime? dnull=null;
+            DateTime? dnull = null;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -573,10 +563,8 @@ namespace WebapiApplication.DAL
 
                 if (reader.HasRows)
                 {
-
                     while (reader.Read())
                     {
-
                         sh.GenderID = reader["GenderID"] != DBNull.Value ? reader["GenderID"].ToString() : "0";
                         sh.AgeMin = reader["AgeMin"] != DBNull.Value ? reader["AgeMin"].ToString() : "0";
                         sh.AgeMax = reader["AgeMax"] != DBNull.Value ? reader["AgeMax"].ToString() : "0";
@@ -622,13 +610,10 @@ namespace WebapiApplication.DAL
                         sh.Gotram = reader["Gotram"] != DBNull.Value ? reader["Gotram"].ToString() : "";
                         sh.Surname = reader["Surname"] != DBNull.Value ? reader["Surname"].ToString() : "";
                         sh.SubCasteID = reader["SubCasteID"] != DBNull.Value ? reader["SubCasteID"].ToString() : "";
-
-
                     }
                 }
 
                 reader.Close();
-
             }
             catch (Exception EX)
             {
@@ -636,7 +621,6 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
@@ -651,19 +635,13 @@ namespace WebapiApplication.DAL
             DataSet ds = new DataSet();
             DataTable dt = new DataTable();
 
-            int status = 0;
-            string Snull = "--";
-            int? inull = null;
-            bool? bnull = null;
-            Int64? Lnull = null;
-
+            
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
 
             try
             {
-
                 SqlParameter[] parm = new SqlParameter[6];
 
                 parm[0] = new SqlParameter("@TblDetails", SqlDbType.Structured);
@@ -679,80 +657,89 @@ namespace WebapiApplication.DAL
                 parm[5] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[5].Direction = ParameterDirection.Output;
 
-                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
-                if (reader.HasRows)
+               // reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                using (IDbConnection conn = SQLHelper.GetSQLConnection())
                 {
+                    IEnumerable<dynamic> results = conn.Query(sql: spName, param: parm, commandType: CommandType.StoredProcedure);
 
-                    while (reader.Read())
-                    {
-                        slideshowNew sh = new slideshowNew();
-                        {
+                    //var readermg = conn.QueryMultiple(spName, parm, commandType: CommandType.StoredProcedure);
+                    //details = (List<slideshowNew>)readermg.Read<List<slideshowNew>>();
 
-                            sh.Cust_ID = reader["Cust_ID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Cust_ID")) : Snull;
-                            sh.paid = reader["paid"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("paid")) : inull;
-                            sh.ProfileID = reader["ProfileID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileID")) : Snull;
-                            sh.KMPLID = reader["KMPLID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("KMPLID")) : Snull;
-                            sh.IsConfidential = reader["IsConfidential"] != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("IsConfidential")) : bnull;
-                            sh.SuperConfidentila = reader["SuperConfidentila"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SuperConfidentila")) : inull;
-                            sh.FirstName = reader["FirstName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FirstName")) : Snull;
-                            sh.LastName = reader["LastName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastName")) : Snull;
-                            sh.PhotoNames = reader["PhotoNames"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("PhotoNames")) : Snull;
-                            sh.Photo = reader["Photo"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Photo")) : Snull;
-                            sh.ApplicationPhotoPath = reader["ApplicationPhotoPath"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ApplicationPhotoPath")) : Snull;
-                            sh.HoroscopeStatus = reader["HoroscopeStatus"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("HoroscopeStatus")) : inull;
-                            sh.HoroscopePath = reader["HoroscopePath"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("HoroscopePath")) : Snull;
-                            sh.email = reader["email"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("email")) : Snull;
-                            sh.NoOfBrothers = reader["NoOfBrothers"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfBrothers")) : inull;
-                            sh.NoOfSisters = reader["NoOfSisters"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfSisters")) : inull;
-                            sh.CasteID = reader["CasteID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("CasteID")) : inull;
-                            sh.HeightInCentimeters = reader["HeightInCentimeters"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("HeightInCentimeters")) : inull;
-                            sh.MaritalStatusID = reader["MaritalStatusID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MaritalStatusID")) : inull;
-                            sh.DOB = reader["DOB"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("DOB")) : Snull;
-                            sh.Age = reader["Age"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Age")) : inull;
-                            sh.TOB = reader["TOB"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TOB")) : Snull;
-                            sh.PlaceOfBirth = reader["PlaceOfBirth"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("PlaceOfBirth")) : Snull;
-                            sh.Gothram = reader["Gothram"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gothram")) : Snull;
-                            sh.Caste = (reader["MotherTongue"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("MotherTongue")) + "-") : "") + (reader["Caste"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Caste")).ToString()) : Snull) + (reader["SubCaste"] != DBNull.Value ? ("(" + (reader.GetString(reader.GetOrdinal("SubCaste"))) + ")") : "");
-                            sh.maritalstatus = reader["MaritalStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MaritalStatus")) : Snull;
-                            sh.Star = reader["Star"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Star")) : Snull;
-                            sh.Color = reader["Color"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Color")) : Snull;
-                            sh.Height = reader["Height"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Height")) : Snull;
-                            sh.EducationGroup = reader["EducationGroup"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("EducationGroup")) : Snull;
-                            sh.EduGroupnamenew = reader["EduGroupnamenew"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("EduGroupnamenew")) : Snull;
-                            sh.Profession = reader["Profession"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profession")) : Snull;
-                            sh.JobLocation = reader["JobLocation"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("JobLocation")) : Snull;
-                            sh.Income = reader["Income"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Income")) : Snull;
-                            sh.currency = reader["currency"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("currency")) : Snull;
-                            sh.FFNative = reader["FF Native"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FF Native")) : Snull;
-                            sh.MFNative = reader["MF Native"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MF Native")) : Snull;
-                            sh.Property = reader["Property"] != DBNull.Value ? reader.GetDouble(reader.GetOrdinal("Property")).ToString() : Snull;
-                            sh.Intercaste = reader["Intercaste"] != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("Intercaste")) : bnull;
-                            sh.fathercaste = reader["fathercaste"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("fathercaste")) : Snull;
-                            sh.mothercaste = reader["mothercaste"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("mothercaste")) : Snull;
-                            sh.PhotoCount = reader["PhotoCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PhotoCount")) : inull;
-                            //   sh.imageurl = Masterdropdown.getProfilepicFullphotowithoutaccess(reader["Cust_ID")) ? reader["Cust_ID") ): "0");
-                            sh.serviceDate = reader["CreatedDate"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CreatedDate")) : string.Empty;
-                            sh.TotalRows = reader["TotalRows"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("TotalRows")) : Lnull;
-                            sh.Gender = reader["Gender"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gender")) : Snull;
-                            sh.countrylivingin = reader["CountryLivingin"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CountryLivingin")) : Snull;
-                            sh.CustomerFullPhoto = reader["CustomerFullPhoto"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CustomerFullPhoto")) : Snull;
-
-                            sh.Mystatus = reader["Mystatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Mystatus")) : Snull;
-                            sh.OppStatus = reader["OppStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("OppStatus")) : Snull;
-                            sh.FromTicketIdSuf = reader["FromTicketIdSuf"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromTicketIdSuf")) : Snull;
-                            sh.ToTicketIDSuf = reader["ToTicketIDSuf"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToTicketIDSuf")) : Snull;
-                            sh.FromTicketID = reader["FromTicketID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("FromTicketID")) : Lnull;
-                            sh.ToTicketID = reader["ToTicketID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("ToTicketID")) : Lnull;
-                            sh.Cust_ProfileInterestsLog_ID = reader["Cust_ProfileInterestsLog_ID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ProfileInterestsLog_ID")) : Lnull;
-                            sh.FTicketStatus = reader["FTicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FTicketStatus")) : Snull;
-                            sh.TTicketStatus = reader["TTicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TTicketStatus")) : Snull;
-                        }
-                        details.Add(sh);
-                    }
+                    var readermg = conn.QueryMultiple(spName, param: parm, commandType: CommandType.StoredProcedure);
+                    //details = (List<slideshowNew>)readermg.Read<List<slideshowNew>>();
+                   // var salarydetails = reader.Read<dynamic>().ToList();
                 }
+               
+                //if (reader.HasRows)
+                //{
+                //    while (reader.Read())
+                //    {
+                //        slideshowNew sh = new slideshowNew();
+                //        {
+                //            sh.Cust_ID = reader["Cust_ID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Cust_ID")) : Snull;
+                //            sh.paid = reader["paid"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("paid")) : inull;
+                //            sh.ProfileID = reader["ProfileID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileID")) : Snull;
+                //            sh.KMPLID = reader["KMPLID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("KMPLID")) : Snull;
+                //            sh.IsConfidential = reader["IsConfidential"] != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("IsConfidential")) : bnull;
+                //            sh.SuperConfidentila = reader["SuperConfidentila"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("SuperConfidentila")) : inull;
+                //            sh.FirstName = reader["FirstName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FirstName")) : Snull;
+                //            sh.LastName = reader["LastName"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastName")) : Snull;
+                //            sh.PhotoNames = reader["PhotoNames"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("PhotoNames")) : Snull;
+                //            sh.Photo = reader["Photo"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Photo")) : Snull;
+                //            sh.ApplicationPhotoPath = reader["ApplicationPhotoPath"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ApplicationPhotoPath")) : Snull;
+                //            sh.HoroscopeStatus = reader["HoroscopeStatus"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("HoroscopeStatus")) : inull;
+                //            sh.HoroscopePath = reader["HoroscopePath"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("HoroscopePath")) : Snull;
+                //            sh.email = reader["email"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("email")) : Snull;
+                //            sh.NoOfBrothers = reader["NoOfBrothers"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfBrothers")) : inull;
+                //            sh.NoOfSisters = reader["NoOfSisters"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfSisters")) : inull;
+                //            sh.CasteID = reader["CasteID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("CasteID")) : inull;
+                //            sh.HeightInCentimeters = reader["HeightInCentimeters"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("HeightInCentimeters")) : inull;
+                //            sh.MaritalStatusID = reader["MaritalStatusID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MaritalStatusID")) : inull;
+                //            sh.DOB = reader["DOB"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("DOB")) : Snull;
+                //            sh.Age = reader["Age"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Age")) : inull;
+                //            sh.TOB = reader["TOB"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TOB")) : Snull;
+                //            sh.PlaceOfBirth = reader["PlaceOfBirth"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("PlaceOfBirth")) : Snull;
+                //            sh.Gothram = reader["Gothram"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gothram")) : Snull;
+                //            sh.Caste = (reader["MotherTongue"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("MotherTongue")) + "-") : "") + (reader["Caste"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Caste")).ToString()) : Snull) + (reader["SubCaste"] != DBNull.Value ? ("(" + (reader.GetString(reader.GetOrdinal("SubCaste"))) + ")") : "");
+                //            sh.maritalstatus = reader["MaritalStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MaritalStatus")) : Snull;
+                //            sh.Star = reader["Star"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Star")) : Snull;
+                //            sh.Color = reader["Color"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Color")) : Snull;
+                //            sh.Height = reader["Height"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Height")) : Snull;
+                //            sh.EducationGroup = reader["EducationGroup"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("EducationGroup")) : Snull;
+                //            sh.EduGroupnamenew = reader["EduGroupnamenew"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("EduGroupnamenew")) : Snull;
+                //            sh.Profession = reader["Profession"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profession")) : Snull;
+                //            sh.JobLocation = reader["JobLocation"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("JobLocation")) : Snull;
+                //            sh.Income = reader["Income"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Income")) : Snull;
+                //            sh.currency = reader["currency"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("currency")) : Snull;
+                //            sh.FFNative = reader["FF Native"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FF Native")) : Snull;
+                //            sh.MFNative = reader["MF Native"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MF Native")) : Snull;
+                //            sh.Property = reader["Property"] != DBNull.Value ? reader.GetDouble(reader.GetOrdinal("Property")).ToString() : Snull;
+                //            sh.Intercaste = reader["Intercaste"] != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("Intercaste")) : bnull;
+                //            sh.fathercaste = reader["fathercaste"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("fathercaste")) : Snull;
+                //            sh.mothercaste = reader["mothercaste"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("mothercaste")) : Snull;
+                //            sh.PhotoCount = reader["PhotoCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PhotoCount")) : inull;
+                //            //   sh.imageurl = Masterdropdown.getProfilepicFullphotowithoutaccess(reader["Cust_ID")) ? reader["Cust_ID") ): "0");
+                //            sh.serviceDate = reader["CreatedDate"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CreatedDate")) : string.Empty;
+                //            sh.TotalRows = reader["TotalRows"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("TotalRows")) : Lnull;
+                //            sh.Gender = reader["Gender"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gender")) : Snull;
+                //            sh.countrylivingin = reader["CountryLivingin"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CountryLivingin")) : Snull;
+                //            sh.CustomerFullPhoto = reader["CustomerFullPhoto"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CustomerFullPhoto")) : Snull;
 
-                reader.Close();
+                //            sh.Mystatus = reader["Mystatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Mystatus")) : Snull;
+                //            sh.OppStatus = reader["OppStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("OppStatus")) : Snull;
+                //            sh.FromTicketIdSuf = reader["FromTicketIdSuf"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromTicketIdSuf")) : Snull;
+                //            sh.ToTicketIDSuf = reader["ToTicketIDSuf"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToTicketIDSuf")) : Snull;
+                //            sh.FromTicketID = reader["FromTicketID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("FromTicketID")) : Lnull;
+                //            sh.ToTicketID = reader["ToTicketID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("ToTicketID")) : Lnull;
+                //            sh.Cust_ProfileInterestsLog_ID = reader["Cust_ProfileInterestsLog_ID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ProfileInterestsLog_ID")) : Lnull;
+                //            sh.FTicketStatus = reader["FTicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FTicketStatus")) : Snull;
+                //            sh.TTicketStatus = reader["TTicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TTicketStatus")) : Snull;
+                //        }
+                //        details.Add(sh);
+                //    }
+                //}
 
+                //reader.Close();
             }
             catch (Exception EX)
             {
@@ -785,7 +772,6 @@ namespace WebapiApplication.DAL
             connection.Open();
             try
             {
-
                 SqlParameter[] parm = new SqlParameter[6];
 
                 parm[0] = new SqlParameter("@TblDetails", SqlDbType.Structured);
@@ -805,12 +791,10 @@ namespace WebapiApplication.DAL
 
                 if (reader.HasRows)
                 {
-
                     while (reader.Read())
                     {
                         slideshowNew sh = new slideshowNew();
                         {
-
                             sh.Cust_ID = reader["Cust_ID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Cust_ID")) : Snull;
                             sh.paid = reader["paid"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("paid")) : inull;
                             sh.ProfileID = reader["ProfileID"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileID")) : Snull;
@@ -860,7 +844,6 @@ namespace WebapiApplication.DAL
                             sh.countrylivingin = reader["CountryLivingin"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CountryLivingin")) : Snull;
                             sh.CustomerFullPhoto = reader["CustomerFullPhoto"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CustomerFullPhoto")) : Snull;
 
-
                             sh.Mystatus = reader["Mystatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Mystatus")) : Snull;
                             sh.OppStatus = reader["OppStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("OppStatus")) : Snull;
                             sh.FromTicketIdSuf = reader["FromTicketIdSuf"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromTicketIdSuf")) : Snull;
@@ -870,14 +853,12 @@ namespace WebapiApplication.DAL
                             sh.Cust_ProfileInterestsLog_ID = reader["Cust_ProfileInterestsLog_ID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ProfileInterestsLog_ID")) : Lnull;
                             sh.FTicketStatus = reader["FTicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FTicketStatus")) : Snull;
                             sh.TTicketStatus = reader["TTicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TTicketStatus")) : Snull;
-
                         }
                         details.Add(sh);
                     }
                 }
 
                 reader.Close();
-
             }
             catch (Exception EX)
             {
@@ -885,7 +866,6 @@ namespace WebapiApplication.DAL
             }
             finally
             {
-
                 connection.Close();
                 //SqlConnection.ClearPool(connection);
                 //SqlConnection.ClearAllPools();
@@ -893,11 +873,6 @@ namespace WebapiApplication.DAL
 
             status = 1;
             return details;
-
         }
-
-
-
-
     }
 }
