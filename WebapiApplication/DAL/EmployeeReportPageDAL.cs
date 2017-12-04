@@ -5796,10 +5796,17 @@ namespace WebapiApplication.DAL
                 {
                     status = Convert.ToInt32(parm[7].Value);
                     ServiceSoapClient cc = new ServiceSoapClient();
-                    //9848344977
-                    string result1 = cc.SendTextSMS("ykrishna", "summary$1", "9848344977", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
-                    //9396999999
-                    string result2 = cc.SendTextSMS("ykrishna", "summary$1", "9396999999", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
+
+                    if (Mobj.empRegionID == "409")
+                    {
+                        string result1 = cc.SendTextSMS("ykrishna", "summary$1", "9848344977", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
+                        string result2 = cc.SendTextSMS("ykrishna", "summary$1", "9841282222", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
+                    }
+                    else
+                    {
+                        string result3 = cc.SendTextSMS("ykrishna", "summary$1", "9848344977", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
+                        string result4 = cc.SendTextSMS("ykrishna", "summary$1", "9848355213", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
+                    }
                 }
             }
             catch (Exception EX)
@@ -5813,15 +5820,15 @@ namespace WebapiApplication.DAL
             return status;
         }
 
-      
+
 
         public EmployeeMarketingTicketResponse GetMarketingTicketHistoryInfo_New(EmployeeMarketingTketRequestNew Mobj, string spName)
         {
             EmployeeMarketingTicketResponse responseBody = new EmployeeMarketingTicketResponse();
-           
+
             SqlParameter[] parm = new SqlParameter[30];
 
-           
+
 
             try
             {
@@ -5865,19 +5872,19 @@ namespace WebapiApplication.DAL
                     var salarydetails = reader.Read<EmployeeMarketingslideHistory>().ToList();
                     responseBody.Marketingslideticket = userdetails;
                     responseBody.MarketingslideHistory = salarydetails;
-                }                
+                }
 
             }
             catch (Exception EX)
             {
                 Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
             }
-           
+
 
             return responseBody;
         }
 
 
-        
+
     }
 }
