@@ -566,5 +566,11 @@ namespace WebapiApplication.Api
         {
             return this.IEmployeeReport.GetMarketingTicketHistoryInfo_New(Mobj);
         }
+        //04_12_2017_Employeemenu permissions
+
+        public ArrayList getdeselectPagePermissions(int? Empid,string Pageid,int? flag)
+        {
+            return this.IEmployeeReport.deselectPagePermissions(Empid, Pageid, flag);
+        }
     }
 }

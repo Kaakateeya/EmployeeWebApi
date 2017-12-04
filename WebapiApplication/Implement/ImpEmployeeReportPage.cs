@@ -251,6 +251,12 @@ namespace WebapiApplication.Implement
         public int? InsertamountintoBank([FromBody]bankamount Mobj) { return new EmployeeReportPageDAL().InsertamountintoBank(Mobj, "[dbo].[USP_EMP_BANKDEPOSIT_AJS]"); }
 
         public EmployeeMarketingTicketResponse GetMarketingTicketHistoryInfo_New([FromBody]EmployeeMarketingTketRequestNew Mobj) { return new EmployeeReportPageDAL().GetMarketingTicketHistoryInfo_New(Mobj, "[dbo].[usp_GetmarketingTicketHistoryInfo_refactory]"); }
+
+        public ArrayList deselectPagePermissions(int? Empid,string Pageid,int? flag)
+        {
+            return new EmployeeReportPageDAL().deselectPagePermissions(Empid,Pageid,flag, "[dbo].[USP_EMP_UNASSIGNEDPAGES_AJS]");
+        }
+    
     }
 
 }

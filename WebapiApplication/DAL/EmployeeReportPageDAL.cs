@@ -5886,5 +5886,36 @@ namespace WebapiApplication.DAL
 
 
 
+
+        public ArrayList deselectPagePermissions(int? Empid, string pageid, int? flag, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[6];
+                parm[0] = new SqlParameter("@empid", SqlDbType.Int);
+                parm[0].Value = Empid;
+                parm[1] = new SqlParameter("@pageid", SqlDbType.VarChar);
+                parm[1].Value = pageid;
+                parm[2] = new SqlParameter("@flag", SqlDbType.Int);
+                parm[2].Value = flag;
+                parm[3] = new SqlParameter("@status", SqlDbType.Int);
+                parm[3].Direction = ParameterDirection.Output;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }

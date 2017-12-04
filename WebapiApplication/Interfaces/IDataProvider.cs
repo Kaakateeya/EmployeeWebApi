@@ -419,6 +419,8 @@ namespace WebapiApplication.Interfaces
         int? InsertamountintoBank(bankamount Mobj);
 
         EmployeeMarketingTicketResponse GetMarketingTicketHistoryInfo_New(EmployeeMarketingTketRequestNew Mobj);
+
+        ArrayList deselectPagePermissions(int? Empid, string Pageid, int? flag);
     }
 
     public interface ISmallPages
