@@ -381,6 +381,7 @@ namespace WebapiApplication.ML
         public string FatherName { get; set; }
     }
 
+
     public class EmployeeMarketingslideHistory
     {
 
@@ -405,8 +406,6 @@ namespace WebapiApplication.ML
         public string Photo { set; get; }
         public string CustID { set; get; }
 
-
-
         public string TicketingCallHistoryID { get; set; }
 
         public string RelationShipID { get; set; }
@@ -417,6 +416,7 @@ namespace WebapiApplication.ML
         public string ReminderRelation { get; set; }
 
         public string ReminderRelationName { get; set; }
+
     }
     public class EmployeeMarketingTicketRequest
     {

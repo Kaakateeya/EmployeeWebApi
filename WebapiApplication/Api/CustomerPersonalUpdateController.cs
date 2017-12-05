@@ -32,12 +32,14 @@ namespace WebapiApplication.Api
 
         public int CustomerPersonalUpdateProfessionDetails([FromBody]JObject CProfessiondetails)
         {
+
             CutomerProfessiondetails customerProfession = CProfessiondetails["customerProfession"].ToObject<CutomerProfessiondetails>();
             UpdatePersonaldetails customerpersonaldetails = CProfessiondetails["customerpersonaldetails"].ToObject<UpdatePersonaldetails>();
             List<CutomerProfessiondetails> lstProf = new List<CutomerProfessiondetails>();
             lstProf.Add(customerProfession);
             customerpersonaldetails.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.createDataTableprofessiondetails(), lstProf);
             return this.ICustomerpersonalupdate.getProfessionDetails_Customer(customerpersonaldetails);
+
         }
 
         public int CustomerParentUpdatedetails([FromBody]JObject CgetDetails)
@@ -188,12 +190,15 @@ namespace WebapiApplication.Api
         public ArrayList getEmplanding_counts_Admin(string OwnerName, string Branchname, int? StartIndex, int? EndIndex, string strTableType, int? intLoadStatus)
         {
             EmployeeLandingCount ecount = new EmployeeLandingCount();
-            ecount.Branch = Commonclass.getTableData(Branchname, "Branch");
-            ecount.owner = Commonclass.getTableData(OwnerName, "owner");
+            //ecount.Branch = Commonclass.getTableData(Branchname, "Branch");
+            //ecount.owner = Commonclass.getTableData(OwnerName, "owner");
+            int? inull = null;
             ecount.StartIndex = StartIndex;
             ecount.EndIndex = EndIndex;
             ecount.strTableType = strTableType;
             ecount.intLoadStatus = intLoadStatus;
+            ecount.intownerName = !string.IsNullOrEmpty(OwnerName) ? Convert.ToInt32(OwnerName) : inull;
+            // ecount.strbranchName = Branchname;
 
             if (string.IsNullOrEmpty(strTableType))
             {
