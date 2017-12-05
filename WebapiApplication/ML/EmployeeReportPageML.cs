@@ -1333,6 +1333,7 @@ namespace WebapiApplication.ML
         public string LoginEmpName { get; set; }
         public string usernameemployeeid { get; set; }
         public string Typeofamount { get; set; }
+        public string empRegionID { get; set; }
     }
 
     public class EmployeeMarketingTketRequestNew

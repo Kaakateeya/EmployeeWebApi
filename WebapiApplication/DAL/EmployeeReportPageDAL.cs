@@ -5797,10 +5797,17 @@ namespace WebapiApplication.DAL
                 {
                     status = Convert.ToInt32(parm[7].Value);
                     ServiceSoapClient cc = new ServiceSoapClient();
-                    //9848344977
-                    string result1 = cc.SendTextSMS("ykrishna", "summary$1", "9848344977", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
-                    //9396999999
-                    string result2 = cc.SendTextSMS("ykrishna", "summary$1", "9396999999", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
+
+                    if (Mobj.empRegionID == "409")
+                    {
+                        string result1 = cc.SendTextSMS("ykrishna", "summary$1", "9848344977", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
+                        string result2 = cc.SendTextSMS("ykrishna", "summary$1", "9841282222", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
+                    }
+                    else
+                    {
+                        string result3 = cc.SendTextSMS("ykrishna", "summary$1", "9848344977", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
+                        string result4 = cc.SendTextSMS("ykrishna", "summary$1", "9848355213", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
+                    }
                 }
             }
             catch (Exception EX)
@@ -5821,6 +5828,8 @@ namespace WebapiApplication.DAL
             EmployeeMarketingTicketResponse responseBody = new EmployeeMarketingTicketResponse();
 
             SqlParameter[] parm = new SqlParameter[30];
+
+
 
             try
             {
@@ -5873,10 +5882,7 @@ namespace WebapiApplication.DAL
 
                     responseBody.Marketingslideticket = userdetails;
                     responseBody.MarketingslideHistory = salarydetails;
-
-                
                 }
-
 
             }
 
@@ -5890,5 +5896,36 @@ namespace WebapiApplication.DAL
 
 
 
+
+        public ArrayList deselectPagePermissions(int? Empid, string pageid, int? flag, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[6];
+                parm[0] = new SqlParameter("@empid", SqlDbType.Int);
+                parm[0].Value = Empid;
+                parm[1] = new SqlParameter("@pageid", SqlDbType.VarChar);
+                parm[1].Value = pageid;
+                parm[2] = new SqlParameter("@flag", SqlDbType.Int);
+                parm[2].Value = flag;
+                parm[3] = new SqlParameter("@status", SqlDbType.Int);
+                parm[3].Direction = ParameterDirection.Output;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }
