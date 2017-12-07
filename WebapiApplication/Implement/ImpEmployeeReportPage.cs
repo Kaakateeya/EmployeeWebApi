@@ -266,6 +266,10 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().bankNamesreport("[dbo].[USP_EMP_GETBANKNAMES_AJS]");
         }
+        public ArrayList employeeDailyworkreport([FromBody]employeeworkreport Mobj)
+        {
+            return new EmployeeReportPageDAL().employeeDailyworkreport(Mobj, "[dbo].[USP_EMP_EMP_DAILYREPORTOFWORK_AJS]");
+        }
     }
 
 }

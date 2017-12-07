@@ -5981,5 +5981,39 @@ namespace WebapiApplication.DAL
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
+
+        public ArrayList employeeDailyworkreport(employeeworkreport Mobj, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[7];
+                parm[0] = new SqlParameter("@EMPID", SqlDbType.VarChar);
+                parm[0].Value = Mobj.EMPID;
+                parm[1] = new SqlParameter("@BRANCHID", SqlDbType.VarChar);
+                parm[1].Value = Mobj.BRANCHID;
+                parm[2] = new SqlParameter("@REGIONID", SqlDbType.VarChar);
+                parm[2].Value = Mobj.REGIONID;
+                parm[3] = new SqlParameter("@MARKETCOUNT", SqlDbType.Int);
+                parm[3].Value = Mobj.MARKETCOUNT;
+                parm[4] = new SqlParameter("@MATCHFOLLOWUPCOUNT", SqlDbType.Int);
+                parm[4].Value = Mobj.MATCHFOLLOWUPCOUNT;
+                parm[5] = new SqlParameter("@SERVICECOUNT", SqlDbType.Int);
+                parm[5].Value = Mobj.SERVICECOUNT;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }

@@ -425,6 +425,8 @@ namespace WebapiApplication.Interfaces
         ArrayList bankdepositedreport(bankamountreport Mobj);
 
         ArrayList bankNamesreport();
+
+        ArrayList employeeDailyworkreport(employeeworkreport Mobj);
     }
 
     public interface ISmallPages

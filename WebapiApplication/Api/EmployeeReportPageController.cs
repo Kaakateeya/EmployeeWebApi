@@ -582,5 +582,10 @@ namespace WebapiApplication.Api
         {
             return this.IEmployeeReport.bankNamesreport();
         }
+        //07_12_2017_EmployeeDaily Work Report
+        public ArrayList employeeDailyworkreport([FromBody]employeeworkreport Mobj)
+        {
+            return this.IEmployeeReport.employeeDailyworkreport(Mobj);
+        }
     }
 }

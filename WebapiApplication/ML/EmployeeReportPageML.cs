@@ -1378,6 +1378,22 @@ namespace WebapiApplication.ML
         public DateTime? fromdate { get; set; }
         public DateTime? todate { get; set; }
     }
+
+    public class employeeworkreport
+    {
+
+        public string EMPID { get; set; }
+
+        public string BRANCHID { get; set; }
+
+        public string REGIONID { get; set; }
+
+        public int? MARKETCOUNT { get; set; }
+
+        public int? MATCHFOLLOWUPCOUNT { get; set; }
+
+        public int? SERVICECOUNT { get; set; }
+    }
 }
 
 
