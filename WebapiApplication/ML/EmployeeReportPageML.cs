@@ -1386,7 +1386,7 @@ namespace WebapiApplication.ML
 
         public string BRANCHID { get; set; }
 
-        public string REGIONID { get; set; }
+        public int? intWeekStatus { get; set; }
 
         public int? MARKETCOUNT { get; set; }
 

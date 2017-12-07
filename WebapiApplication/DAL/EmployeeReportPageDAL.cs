@@ -5835,7 +5835,7 @@ namespace WebapiApplication.DAL
             {
 
                 var p = new DynamicParameters();
-                
+
                 p.Add("@i_EmpID", Mobj.i_EmpID);
                 p.Add("@i_PageFrom", Mobj.i_PageFrom);
                 p.Add("@i_PageTo", Mobj.i_PageTo);
@@ -5872,7 +5872,7 @@ namespace WebapiApplication.DAL
 
                 using (IDbConnection conn = SQLHelper.GetSQLConnection())
                 {
-                
+
                     IEnumerable<dynamic> results = conn.Query(sql: spName, param: p, commandType: CommandType.StoredProcedure);
                     var reader = conn.QueryMultiple(spName, param: p, commandType: CommandType.StoredProcedure);
 
@@ -5995,14 +5995,14 @@ namespace WebapiApplication.DAL
                 parm[0].Value = Mobj.EMPID;
                 parm[1] = new SqlParameter("@BRANCHID", SqlDbType.VarChar);
                 parm[1].Value = Mobj.BRANCHID;
-                parm[2] = new SqlParameter("@REGIONID", SqlDbType.VarChar);
-                parm[2].Value = Mobj.REGIONID;
-                parm[3] = new SqlParameter("@MARKETCOUNT", SqlDbType.Int);
-                parm[3].Value = Mobj.MARKETCOUNT;
-                parm[4] = new SqlParameter("@MATCHFOLLOWUPCOUNT", SqlDbType.Int);
-                parm[4].Value = Mobj.MATCHFOLLOWUPCOUNT;
-                parm[5] = new SqlParameter("@SERVICECOUNT", SqlDbType.Int);
-                parm[5].Value = Mobj.SERVICECOUNT;
+                parm[2] = new SqlParameter("@MARKETCOUNT", SqlDbType.Int);
+                parm[2].Value = Mobj.MARKETCOUNT;
+                parm[3] = new SqlParameter("@MATCHFOLLOWUPCOUNT", SqlDbType.Int);
+                parm[3].Value = Mobj.MATCHFOLLOWUPCOUNT;
+                parm[4] = new SqlParameter("@SERVICECOUNT", SqlDbType.Int);
+                parm[4].Value = Mobj.SERVICECOUNT;
+                parm[5] = new SqlParameter("@intWeekStatus", SqlDbType.Int);
+                parm[5].Value = Mobj.intWeekStatus;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)
