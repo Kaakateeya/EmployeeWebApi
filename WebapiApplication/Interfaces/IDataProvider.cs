@@ -421,6 +421,10 @@ namespace WebapiApplication.Interfaces
         EmployeeMarketingTicketResponse GetMarketingTicketHistoryInfo_New(EmployeeMarketingTketRequestNew Mobj);
 
         ArrayList deselectPagePermissions(int? Empid, string Pageid, int? flag);
+
+        ArrayList bankdepositedreport(bankamountreport Mobj);
+
+        ArrayList bankNamesreport();
     }
 
     public interface ISmallPages

@@ -5917,5 +5917,59 @@ namespace WebapiApplication.DAL
 
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
+
+        public ArrayList bankdepositedreport(bankamountreport Mobj, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[7];
+                parm[0] = new SqlParameter("@bankname", SqlDbType.VarChar);
+                parm[0].Value = Mobj.bankname;
+                parm[1] = new SqlParameter("@modeofdeposit", SqlDbType.VarChar);
+                parm[1].Value = Mobj.modeofdeposit;
+                parm[2] = new SqlParameter("@branch", SqlDbType.VarChar);
+                parm[2].Value = Mobj.branch;
+                parm[3] = new SqlParameter("@fromdate", SqlDbType.DateTime);
+                parm[3].Value = Mobj.fromdate;
+                parm[4] = new SqlParameter("@todate", SqlDbType.DateTime);
+                parm[4].Value = Mobj.todate;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public ArrayList bankNamesreport(string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[7];
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }

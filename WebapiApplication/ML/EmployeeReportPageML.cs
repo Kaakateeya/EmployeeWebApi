@@ -1367,6 +1367,15 @@ namespace WebapiApplication.ML
         public Boolean? V_Notpay { get; set; }
         public Boolean? b_unpaidProfiles { get; set; }
     }
+
+    public class bankamountreport
+    {
+        public string bankname { get; set; }
+        public string modeofdeposit { get; set; }
+        public string branch { get; set; }
+        public DateTime? fromdate { get; set; }
+        public DateTime? todate { get; set; }
+    }
 }
 
 

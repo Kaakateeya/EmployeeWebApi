@@ -256,7 +256,14 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().deselectPagePermissions(Empid,Pageid,flag, "[dbo].[USP_EMP_UNASSIGNEDPAGES_AJS]");
         }
-    
+        public ArrayList bankdepositedreport([FromBody]bankamountreport Mobj)
+        {
+            return new EmployeeReportPageDAL().bankdepositedreport(Mobj, "[dbo].[USP_EMP_BANKDEPOSITSrpt_AJS]");
+        }
+        public ArrayList bankNamesreport()
+        {
+            return new EmployeeReportPageDAL().bankNamesreport("[dbo].[USP_EMP_GETBANKNAMES_AJS]");
+        }
     }
 
 }
