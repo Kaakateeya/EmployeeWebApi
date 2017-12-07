@@ -1338,6 +1338,7 @@ namespace WebapiApplication.ML
 
     public class EmployeeMarketingTketRequestNew
     {
+        
         public string strBranch { set; get; }
         public string strEmpName { set; get; }
         public int? i_isAdmin { set; get; }
@@ -1366,6 +1367,7 @@ namespace WebapiApplication.ML
         public int? i_Excelflag { get; set; }
         public Boolean? V_Notpay { get; set; }
         public Boolean? b_unpaidProfiles { get; set; }
+
     }
 
     public class bankamountreport

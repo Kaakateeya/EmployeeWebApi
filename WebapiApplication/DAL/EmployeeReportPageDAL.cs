@@ -11,6 +11,7 @@ using WebapiApplication.ML;
 using WebapiApplication.ServiceReference1;
 using WebapiApplication.UserDefinedTable;
 using Dapper;
+
 namespace WebapiApplication.DAL
 {
     public class EmployeeReportPageDAL
@@ -5832,7 +5833,9 @@ namespace WebapiApplication.DAL
 
             try
             {
+
                 var p = new DynamicParameters();
+                
                 p.Add("@i_EmpID", Mobj.i_EmpID);
                 p.Add("@i_PageFrom", Mobj.i_PageFrom);
                 p.Add("@i_PageTo", Mobj.i_PageTo);
@@ -5851,9 +5854,9 @@ namespace WebapiApplication.DAL
                 p.Add("@i_ProfileId", Mobj.i_ProfileId);
                 p.Add("@dt_FromReminderDate", Mobj.dt_FromRemainderdate);
 
-
                 p.Add("@dt_ToReminderDate", Mobj.dt_ToReminderdate);
                 p.Add("@b_unpaidProfiles", Mobj.b_unpaidProfiles);
+
                 p.Add("@v_Marketreminder", Mobj.v_MarketremindeFlag);
                 p.Add("@i_UnmarriedSiblingDetails", Mobj.v_siblingflag);
 
@@ -5861,25 +5864,32 @@ namespace WebapiApplication.DAL
                 p.Add("@i_Onlineeexpiry", Mobj.v_OnlineExprd);
 
                 p.Add("@V_Notpay", Mobj.V_Notpay);
+
+
                 responseBody.Marketingslideticket = new List<EmployeeMarketingslideticket>();
                 responseBody.MarketingslideHistory = new List<EmployeeMarketingslideHistory>();
 
+
                 using (IDbConnection conn = SQLHelper.GetSQLConnection())
                 {
+                
                     IEnumerable<dynamic> results = conn.Query(sql: spName, param: p, commandType: CommandType.StoredProcedure);
                     var reader = conn.QueryMultiple(spName, param: p, commandType: CommandType.StoredProcedure);
+
+
                     var userdetails = reader.Read<EmployeeMarketingslideticket>().ToList();
                     var salarydetails = reader.Read<EmployeeMarketingslideHistory>().ToList();
+
                     responseBody.Marketingslideticket = userdetails;
                     responseBody.MarketingslideHistory = salarydetails;
                 }
 
             }
+
             catch (Exception EX)
             {
                 Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
             }
-
 
             return responseBody;
         }

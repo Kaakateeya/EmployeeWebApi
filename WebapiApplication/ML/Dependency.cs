@@ -52,5 +52,7 @@ namespace WebapiApplication.ML
         public int? NotificationID { get; set; }
       
     }
+
+
    
 }

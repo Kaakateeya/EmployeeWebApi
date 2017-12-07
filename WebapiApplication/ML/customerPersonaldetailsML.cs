@@ -1047,6 +1047,10 @@ namespace WebapiApplication.ML
         public int? EndIndex { get; set; }
         public int? intLoadStatus { get; set; }
 
+        public int?  intownerName {set;get;}
+        public string strbranchName { set; get; }
+
+
     }
 
 
