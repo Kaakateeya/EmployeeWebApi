@@ -1338,7 +1338,7 @@ namespace WebapiApplication.ML
 
     public class EmployeeMarketingTketRequestNew
     {
-        
+
         public string strBranch { set; get; }
         public string strEmpName { set; get; }
         public int? i_isAdmin { set; get; }
@@ -1383,16 +1383,14 @@ namespace WebapiApplication.ML
     {
 
         public string EMPID { get; set; }
-
         public string BRANCHID { get; set; }
-
-        public int? intWeekStatus { get; set; }
-
         public int? MARKETCOUNT { get; set; }
-
         public int? MATCHFOLLOWUPCOUNT { get; set; }
-
         public int? SERVICECOUNT { get; set; }
+        public string dtFromDate { get; set; }
+        public string dtToDate { get; set; }
+        public int? intStartIndex { get; set; }
+        public int? intEndIndex { get; set; }
     }
 }
 

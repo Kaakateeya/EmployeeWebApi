@@ -268,7 +268,7 @@ namespace WebapiApplication.Implement
         }
         public ArrayList employeeDailyworkreport([FromBody]employeeworkreport Mobj)
         {
-            return new EmployeeReportPageDAL().employeeDailyworkreport(Mobj, "[dbo].[USP_EMP_EMP_DAILYREPORTOFWORK_AJS]");
+            return new EmployeeReportPageDAL().employeeDailyworkreport(Mobj, "[dbo].[USP_EMP_DAILYREPORTOFWORK_AJS]");
         }
     }
 

@@ -5990,7 +5990,7 @@ namespace WebapiApplication.DAL
             connection.Open();
             try
             {
-                SqlParameter[] parm = new SqlParameter[7];
+                SqlParameter[] parm = new SqlParameter[10];
                 parm[0] = new SqlParameter("@EMPID", SqlDbType.VarChar);
                 parm[0].Value = Mobj.EMPID;
                 parm[1] = new SqlParameter("@BRANCHID", SqlDbType.VarChar);
@@ -6001,8 +6001,14 @@ namespace WebapiApplication.DAL
                 parm[3].Value = Mobj.MATCHFOLLOWUPCOUNT;
                 parm[4] = new SqlParameter("@SERVICECOUNT", SqlDbType.Int);
                 parm[4].Value = Mobj.SERVICECOUNT;
-                parm[5] = new SqlParameter("@intWeekStatus", SqlDbType.Int);
-                parm[5].Value = Mobj.intWeekStatus;
+                parm[5] = new SqlParameter("@dtFromDate", SqlDbType.VarChar);
+                parm[5].Value = Mobj.dtFromDate;
+                parm[6] = new SqlParameter("@dtToDate", SqlDbType.VarChar);
+                parm[6].Value = Mobj.dtToDate;
+                parm[7] = new SqlParameter("@intStartIndex", SqlDbType.Int);
+                parm[7].Value = Mobj.intStartIndex;
+                parm[8] = new SqlParameter("@intEndIndex", SqlDbType.Int);
+                parm[8].Value = Mobj.intEndIndex;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)
