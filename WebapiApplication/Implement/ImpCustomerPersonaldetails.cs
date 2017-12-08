@@ -76,7 +76,7 @@ namespace WebapiApplication.Implement
         public HoroGeneration GenerateHoroscorpe(int? customerid, string EmpIDQueryString, int? intDay, int? intMonth, int? intYear, int? CityID) { return customerdetails.GenerateHoroscorpe(customerid, EmpIDQueryString, intDay, intMonth, intYear, CityID); }
         public ArrayList Emplanding_counts_Admin(EmployeeLandingCount ecount) { return customerdetails.Emplanding_counts_Admin(ecount, "[dbo].[usp_emp_emplanding_counts_Admin_New_AJS]"); }//usp_emplanding_counts_Admin_New
 
-        public ArrayList Emplanding_counts_TablesDisplay(EmployeeLandingCount ecount) { return customerdetails.Emplanding_counts_TablesDisplay(ecount, "[dbo].[usp_emp_emplanding_counts_Admin_New_AJS_del]"); }//usp_emplanding_counts_Admin_New
+        public ArrayList Emplanding_counts_TablesDisplay(EmployeeLandingCount ecount) { return customerdetails.Emplanding_counts_TablesDisplay(ecount, "[dbo].[usp_emp_emplanding_counts_Admin_New_AJS]"); }//usp_emplanding_counts_Admin_New
 
         
 

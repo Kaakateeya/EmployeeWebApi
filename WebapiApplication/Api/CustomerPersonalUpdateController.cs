@@ -190,15 +190,15 @@ namespace WebapiApplication.Api
         public ArrayList getEmplanding_counts_Admin(string OwnerName, string Branchname, int? StartIndex, int? EndIndex, string strTableType, int? intLoadStatus)
         {
             EmployeeLandingCount ecount = new EmployeeLandingCount();
-            //ecount.Branch = Commonclass.getTableData(Branchname, "Branch");
-            //ecount.owner = Commonclass.getTableData(OwnerName, "owner");
+            ecount.Branch = Commonclass.getTableData(Branchname, "Branch");
+            ecount.owner = Commonclass.getTableData(OwnerName, "owner");
             int? inull = null;
             ecount.StartIndex = StartIndex;
             ecount.EndIndex = EndIndex;
             ecount.strTableType = strTableType;
             ecount.intLoadStatus = intLoadStatus;
             ecount.intownerName = !string.IsNullOrEmpty(OwnerName) ? Convert.ToInt32(OwnerName) : inull;
-            // ecount.strbranchName = Branchname;
+            ecount.strbranchName = Branchname;
 
             if (string.IsNullOrEmpty(strTableType))
             {

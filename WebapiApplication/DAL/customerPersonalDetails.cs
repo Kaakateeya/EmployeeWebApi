@@ -1097,156 +1097,156 @@ namespace WebapiApplication.DAL
 
         #region  start ------------------ >
 
-        //public ArrayList Emplanding_counts_TablesDisplay(EmployeeLandingCount employeecount, string strSpName)
-        //{
-        //    ArrayList arrayList = new ArrayList();
-        //    SqlParameter[] parm = new SqlParameter[10];
-        //    SqlDataReader reader;
-
-        //    int? iNull = null;
-        //    Int64? i64null = null;
-        //    bool? ibool = null;
-
-        //    //DateTime? idate = null;
-
-        //    Emplanding_counts _EmpAdminCount = null;
-        //    SqlConnection connection = new SqlConnection();
-        //    connection = SQLHelper.GetSQLConnection();
-        //    connection.Open();
-
-        //    List<Emplanding_counts> empcount = null;
-
-        //    try
-        //    {
-        //        parm[0] = new SqlParameter("@owner", SqlDbType.Structured);
-        //        parm[0].Value = employeecount.owner;
-        //        parm[1] = new SqlParameter("@Branch", SqlDbType.Structured);
-        //        parm[1].Value = employeecount.Branch;
-        //        parm[2] = new SqlParameter("@intStartIndex", SqlDbType.Int);
-        //        parm[2].Value = employeecount.StartIndex;
-        //        parm[3] = new SqlParameter("@intEndIndex", SqlDbType.Int);
-        //        parm[3].Value = employeecount.EndIndex;
-        //        parm[4] = new SqlParameter("@strTableType", SqlDbType.VarChar);
-        //        parm[4].Value = employeecount.strTableType;
-        //        parm[5] = new SqlParameter("@intLoadStatus", SqlDbType.Int);
-        //        parm[5].Value = employeecount.intLoadStatus;
-
-        //        reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, strSpName, parm);
-
-        //        while (reader.HasRows)
-        //        {
-        //            empcount = new List<Emplanding_counts>();
-
-        //            while (reader.Read())
-        //            {
-        //                _EmpAdminCount = new Emplanding_counts();
-        //                _EmpAdminCount.TableName = (reader["TableName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TableName")) : null;
-        //                _EmpAdminCount.Profileid = (reader["Profileid"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profileid")) : null;
-        //                _EmpAdminCount.Name = (reader["Name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Name")) : null;
-        //                _EmpAdminCount.ServiceCount = (reader["ServiceCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ServiceCount")) : iNull;
-        //                _EmpAdminCount.Date = (reader["Date"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Date")) : null;
-        //                _EmpAdminCount.Photo = (reader["Photo"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Photo")) : null;
-
-        //                if (_EmpAdminCount.TableName != "No Photos Customers" && _EmpAdminCount.TableName != "Not Yet Verified Contact Details")
-        //                {
-        //                    _EmpAdminCount.PaidStatus = (reader["PaidStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PaidStatus")) : iNull;
-        //                }
-        //                if (_EmpAdminCount.TableName == "Inactive Customers")
-        //                {
-        //                    _EmpAdminCount.Reason4InActive = (reader["Reason4InActive"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Reason4InActive")) : null;
-        //                }
-        //                if (_EmpAdminCount.TableName == "Marketing Tickets Assigned Since 10 Days" || _EmpAdminCount.TableName == "Marketing Ticket Expiry With in Two days")
-        //                {
-        //                    _EmpAdminCount.Tickets = (reader["Tickets"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Tickets")) : null;
-        //                    _EmpAdminCount.TicketID = (reader["TicketID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("TicketID")) : i64null;
-        //                }
-        //                if (_EmpAdminCount.TableName == "No Sa Form For Paid Profiles")
-        //                {
-        //                    _EmpAdminCount.SAFormStatus = (reader["SAFormStatus"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("SAFormStatus")) : null;
-        //                }
-        //                if (_EmpAdminCount.TableName == "Customer Notification Status")
-        //                {
-        //                    _EmpAdminCount.ReadStatus = (reader["ReadStatus"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("ReadStatus")) : ibool;
-
-        //                    _EmpAdminCount.NotificationID = (reader["NotificationID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NotificationID")) : iNull;
-        //                }
-
-        //                empcount.Add(_EmpAdminCount);
-        //            }
-
-        //            arrayList.Add(empcount);
-        //            reader.NextResult();
-        //        }
-
-        //        reader.Close();
-        //    }
-        //    catch (Exception EX)
-        //    {
-        //        Commonclass.ApplicationErrorLog(strSpName, Convert.ToString(EX.Message), null, null, null);
-        //    }
-        //    finally
-        //    {
-        //        connection.Close();
-        //        //SqlConnection.ClearPool(connection);
-        //        //SqlConnection.ClearAllPools();
-        //    }
-        //    return arrayList;
-        //}
-
-
-        public ArrayList Emplanding_counts_TablesDisplay(EmployeeLandingCount employeecount, string spName)
+        public ArrayList Emplanding_counts_TablesDisplay(EmployeeLandingCount employeecount, string strSpName)
         {
-
             ArrayList arrayList = new ArrayList();
-            // SqlParameter[] parm = new SqlParameter[10];
+            SqlParameter[] parm = new SqlParameter[10];
+            SqlDataReader reader;
+
+            int? iNull = null;
+            Int64? i64null = null;
+            bool? ibool = null;
+
+            //DateTime? idate = null;
+
+            Emplanding_counts _EmpAdminCount = null;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            List<Emplanding_counts> empcount = null;
 
             try
             {
+                parm[0] = new SqlParameter("@owner", SqlDbType.Structured);
+                parm[0].Value = employeecount.owner;
+                parm[1] = new SqlParameter("@Branch", SqlDbType.Structured);
+                parm[1].Value = employeecount.Branch;
+                parm[2] = new SqlParameter("@intStartIndex", SqlDbType.Int);
+                parm[2].Value = employeecount.StartIndex;
+                parm[3] = new SqlParameter("@intEndIndex", SqlDbType.Int);
+                parm[3].Value = employeecount.EndIndex;
+                parm[4] = new SqlParameter("@strTableType", SqlDbType.VarChar);
+                parm[4].Value = employeecount.strTableType;
+                parm[5] = new SqlParameter("@intLoadStatus", SqlDbType.Int);
+                parm[5].Value = employeecount.intLoadStatus;
 
-                var dynamicparam = new DynamicParameters();
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, strSpName, parm);
 
-                dynamicparam.Add("@owner", employeecount.intownerName);
-                // dynamicparam.Add("@Branch", employeecount.strbranchName);
-                dynamicparam.Add("@intStartIndex", employeecount.StartIndex);
-                dynamicparam.Add("@intEndIndex", employeecount.EndIndex);
-                dynamicparam.Add("@strTableType", employeecount.strTableType);
-                dynamicparam.Add("@intLoadStatus", employeecount.intLoadStatus);
-
-                using (IDbConnection conn = SQLHelper.GetSQLConnection())
+                while (reader.HasRows)
                 {
+                    empcount = new List<Emplanding_counts>();
 
-                    //  IEnumerable<dynamic> results = conn.Query(sql: spName, param: dynamicparam, commandType: CommandType.StoredProcedure);
-
-                    var reader = conn.QueryMultiple(spName, param: dynamicparam, commandType: CommandType.StoredProcedure);
-
-                    for (int icount = 0; icount < 14; icount++)
+                    while (reader.Read())
                     {
-                        if (reader.IsConsumed == false)
+                        _EmpAdminCount = new Emplanding_counts();
+                        _EmpAdminCount.TableName = (reader["TableName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TableName")) : null;
+                        _EmpAdminCount.Profileid = (reader["Profileid"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Profileid")) : null;
+                        _EmpAdminCount.Name = (reader["Name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Name")) : null;
+                        _EmpAdminCount.ServiceCount = (reader["ServiceCount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ServiceCount")) : iNull;
+                        _EmpAdminCount.Date = (reader["Date"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Date")) : null;
+                        _EmpAdminCount.Photo = (reader["Photo"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Photo")) : null;
+
+                        if (_EmpAdminCount.TableName != "No Photos Customers" && _EmpAdminCount.TableName != "Not Yet Verified Contact Details")
                         {
-                            var userdetails = reader.Read<Emplanding_counts>().ToList();
-                            arrayList.Add(userdetails);
+                            _EmpAdminCount.PaidStatus = (reader["PaidStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PaidStatus")) : iNull;
+                        }
+                        if (_EmpAdminCount.TableName == "Inactive Customers")
+                        {
+                            _EmpAdminCount.Reason4InActive = (reader["Reason4InActive"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Reason4InActive")) : null;
+                        }
+                        if (_EmpAdminCount.TableName == "Marketing Tickets Assigned Since 10 Days" || _EmpAdminCount.TableName == "Marketing Ticket Expiry With in Two days")
+                        {
+                            _EmpAdminCount.Tickets = (reader["Tickets"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Tickets")) : null;
+                            _EmpAdminCount.TicketID = (reader["TicketID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("TicketID")) : i64null;
+                        }
+                        if (_EmpAdminCount.TableName == "No Sa Form For Paid Profiles")
+                        {
+                            _EmpAdminCount.SAFormStatus = (reader["SAFormStatus"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("SAFormStatus")) : null;
+                        }
+                        if (_EmpAdminCount.TableName == "Customer Notification Status")
+                        {
+                            _EmpAdminCount.ReadStatus = (reader["ReadStatus"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("ReadStatus")) : ibool;
+
+                            _EmpAdminCount.NotificationID = (reader["NotificationID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NotificationID")) : iNull;
                         }
 
+                        empcount.Add(_EmpAdminCount);
                     }
 
-                    reader.Dispose();
-
-
+                    arrayList.Add(empcount);
+                    reader.NextResult();
                 }
+
+                reader.Close();
             }
             catch (Exception EX)
             {
-                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+                Commonclass.ApplicationErrorLog(strSpName, Convert.ToString(EX.Message), null, null, null);
             }
-            //finally
-            //{
-            //    connection.Close();
-
-            //}
-
+            finally
+            {
+                connection.Close();
+                //SqlConnection.ClearPool(connection);
+                //SqlConnection.ClearAllPools();
+            }
             return arrayList;
-
         }
+
+
+        //public ArrayList Emplanding_counts_TablesDisplay(EmployeeLandingCount employeecount, string spName)
+        //{
+
+        //    ArrayList arrayList = new ArrayList();
+        //    // SqlParameter[] parm = new SqlParameter[10];
+
+        //    try
+        //    {
+
+        //        var dynamicparam = new DynamicParameters();
+
+        //        dynamicparam.Add("@owner", employeecount.intownerName);
+        //        // dynamicparam.Add("@Branch", employeecount.strbranchName);
+        //        dynamicparam.Add("@intStartIndex", employeecount.StartIndex);
+        //        dynamicparam.Add("@intEndIndex", employeecount.EndIndex);
+        //        dynamicparam.Add("@strTableType", employeecount.strTableType);
+        //        dynamicparam.Add("@intLoadStatus", employeecount.intLoadStatus);
+
+        //        using (IDbConnection conn = SQLHelper.GetSQLConnection())
+        //        {
+
+        //            //  IEnumerable<dynamic> results = conn.Query(sql: spName, param: dynamicparam, commandType: CommandType.StoredProcedure);
+
+        //            var reader = conn.QueryMultiple(spName, param: dynamicparam, commandType: CommandType.StoredProcedure);
+
+        //            for (int icount = 0; icount < 14; icount++)
+        //            {
+        //                if (reader.IsConsumed == false)
+        //                {
+        //                    var userdetails = reader.Read<Emplanding_counts>().ToList();
+        //                    arrayList.Add(userdetails);
+        //                }
+
+        //            }
+
+        //            reader.Dispose();
+
+
+        //        }
+        //    }
+        //    catch (Exception EX)
+        //    {
+        //        Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+        //    }
+        //    //finally
+        //    //{
+        //    //    connection.Close();
+
+        //    //}
+
+        //    return arrayList;
+
+        //}
 
 
         #endregion ----------------------------- >
