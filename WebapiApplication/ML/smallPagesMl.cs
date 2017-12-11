@@ -243,6 +243,10 @@ namespace WebapiApplication.ML
         public bool? isLoginanywhere { get; set; }
 
         public int? Dashboard_Status { get; set; }
+
+        public string loginfrom { get; set; }
+
+        public string loginto { get; set; }
     }
     public class GetEmployeeListRequest
     {
@@ -296,6 +300,9 @@ namespace WebapiApplication.ML
 
         public bool? isLoginAnywhere { get; set; }
         public int? Dashboard_Status { get; set; }
+
+        public string loginfrom { get; set; }
+        public string loginto { get; set; }
     }
 
 

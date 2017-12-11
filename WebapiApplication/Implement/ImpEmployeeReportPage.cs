@@ -262,13 +262,17 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().bankdepositedreport(Mobj, "[dbo].[USP_EMP_BANKDEPOSITSrpt_AJS]");
         }
-        public ArrayList bankNamesreport()
+        public ArrayList bankNamesreport(int? RegionId)
         {
-            return new EmployeeReportPageDAL().bankNamesreport("[dbo].[USP_EMP_GETBANKNAMES_AJS]");
+            return new EmployeeReportPageDAL().bankNamesreport(RegionId,"[dbo].[USP_EMP_GETBANKNAMES_AJS]");
         }
         public ArrayList employeeDailyworkreport([FromBody]employeeworkreport Mobj)
         {
             return new EmployeeReportPageDAL().employeeDailyworkreport(Mobj, "[dbo].[USP_EMP_DAILYREPORTOFWORK_AJS]");
+        }
+        public ArrayList Employeecustomerprint(string strProfileID, int? intAdminId)
+        {
+            return new EmployeeReportPageDAL().Employeecustomerprint(strProfileID, intAdminId, "[dbo].[usp_Emp_CustomerPrint_PartialPaid_AJS]");
         }
     }
 

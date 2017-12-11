@@ -5960,7 +5960,7 @@ namespace WebapiApplication.DAL
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
 
-        public ArrayList bankNamesreport(string spName)
+        public ArrayList bankNamesreport(int? RegionId, string spName)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection();
@@ -5968,7 +5968,9 @@ namespace WebapiApplication.DAL
             connection.Open();
             try
             {
-                SqlParameter[] parm = new SqlParameter[7];
+                SqlParameter[] parm = new SqlParameter[2];
+                parm[0] = new SqlParameter("@RegionId", SqlDbType.Int);
+                parm[0].Value = RegionId;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)
@@ -6009,6 +6011,32 @@ namespace WebapiApplication.DAL
                 parm[7].Value = Mobj.intStartIndex;
                 parm[8] = new SqlParameter("@intEndIndex", SqlDbType.Int);
                 parm[8].Value = Mobj.intEndIndex;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public ArrayList Employeecustomerprint(string strProfileID, int? intAdminId, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[3];
+                parm[0] = new SqlParameter("@strProfileID", SqlDbType.VarChar);
+                parm[0].Value = strProfileID;
+                parm[1] = new SqlParameter("@intAdminId", SqlDbType.Int);
+                parm[1].Value = intAdminId;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)

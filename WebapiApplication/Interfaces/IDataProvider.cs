@@ -424,9 +424,11 @@ namespace WebapiApplication.Interfaces
 
         ArrayList bankdepositedreport(bankamountreport Mobj);
 
-        ArrayList bankNamesreport();
+        ArrayList bankNamesreport(int? RegionId);
 
         ArrayList employeeDailyworkreport(employeeworkreport Mobj);
+
+        ArrayList Employeecustomerprint(string strProfileID, int? intAdminId);
     }
 
     public interface ISmallPages

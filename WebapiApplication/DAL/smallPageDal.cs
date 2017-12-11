@@ -610,6 +610,8 @@ namespace WebapiApplication.DAL
                         Gemp.LoginStatus = reader["LoginStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("LoginStatus")) : null;
                         Gemp.isLoginanywhere = reader["isLoginanywhere"] != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("isLoginanywhere")) : bnull;
                         Gemp.Dashboard_Status = reader["Dashboard_Status"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Dashboard_Status")) : 0;
+                        Gemp.loginfrom = reader["loginfrom"] != DBNull.Value ? (reader.GetDateTime(reader.GetOrdinal("loginfrom"))).ToString() : null;
+                        Gemp.loginto = reader["loginto"] != DBNull.Value ? (reader.GetDateTime(reader.GetOrdinal("loginto"))).ToString() : null;
 
                         liEmp.Add(Gemp);
                     }

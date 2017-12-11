@@ -578,14 +578,19 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.bankdepositedreport(Mobj);
         }
         //05_12_2017_Banknames
-        public ArrayList getbankNamesreport()
+        public ArrayList getbankNamesreport(int? RegionId)
         {
-            return this.IEmployeeReport.bankNamesreport();
+            return this.IEmployeeReport.bankNamesreport(RegionId);
         }
         //07_12_2017_EmployeeDaily Work Report
         public ArrayList employeeDailyworkreport([FromBody]employeeworkreport Mobj)
         {
             return this.IEmployeeReport.employeeDailyworkreport(Mobj);
+        }
+        //11_12_2017_EmployeeViewfull profile
+        public ArrayList getEmployeecustomerprint(string strProfileID, int? intAdminId)
+        {
+            return this.IEmployeeReport.Employeecustomerprint(strProfileID, intAdminId);
         }
     }
 }
