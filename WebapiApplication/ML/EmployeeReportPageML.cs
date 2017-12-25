@@ -1198,6 +1198,31 @@ namespace WebapiApplication.ML
         public DataTable dtPartnerPreference { get; set; }
 
         public string strShowprofile { get; set; }
+
+        public string monthlysalary_To { set; get; }
+        public string CSubCaste { set; get; }
+
+        public string Arrivaldatefrom { set; get; }
+        public string Arrivaldateto { set; get; }
+        public string Departuredatefrom { set; get; }
+        public string DeparturedateTo { set; get; }
+        public string Residingsincefrom { set; get; }
+        public string ResidingsinceTo { set; get; }
+        public string Sp_NoofChilds_Boys { set; get; }
+        public string Sp_NoofChilds_Girls { set; get; }
+        public string C_PropertyValue_To { set; get; }
+        public string VisaStatus { set; get; }
+        public string C_SibCount_Bro { set; get; }
+        public string C_SibCount_Sis { set; get; }
+        public string C_ParentCaste { set; get; }
+        public string C_FatherCaste { set; get; }
+        public string C_MotherName { set; get; }
+        public string Ref_RelationShipType { set; get; }
+        public string C_FamilyStatusGrade { set; get; }
+        public string C_ProfileGrade { set; get; }
+
+        //
+        public string Pr_WillingtoSecondMrg { set; get; }
     }
 
     public class MasterData
@@ -1334,6 +1359,7 @@ namespace WebapiApplication.ML
         public string usernameemployeeid { get; set; }
         public string Typeofamount { get; set; }
         public string empRegionID { get; set; }
+        public string Banknametext { get; set; }
     }
 
     public class EmployeeMarketingTketRequestNew
@@ -1375,8 +1401,10 @@ namespace WebapiApplication.ML
         public string bankname { get; set; }
         public string modeofdeposit { get; set; }
         public string branch { get; set; }
-        public DateTime? fromdate { get; set; }
-        public DateTime? todate { get; set; }
+        public string fromdate { get; set; }
+        public string todate { get; set; }
+
+        public int? empid { get; set; }
     }
 
     public class employeeworkreport
@@ -1391,6 +1419,8 @@ namespace WebapiApplication.ML
         public string dtToDate { get; set; }
         public int? intStartIndex { get; set; }
         public int? intEndIndex { get; set; }
+
+        public string intRegionID { get; set; }
     }
 }
 

@@ -45,8 +45,8 @@ namespace WebapiApplication.Implement
         public int CandidateContactsendmailtoemailverify(long? CustID) { return customerdetails.CandidateContactsendmailtoemailverify(CustID, "[dbo].[Usp_ResendEmailVerficationLink]"); }
         public ArrayList ProfileIDPlaybutton(string ProfileID) { return customerdetails.ProfileIDPlaybutton(ProfileID, "[dbo].[Usp_GetFullInfoofCustomer_NewDesign]"); }
         public ArrayList ViewAllCustomersSettledeleteinfo(string CustID, string typeofdata) { return customerdetails.ViewAllCustomersSettledeleteinfo(CustID, typeofdata, "[dbo].[usp_ViewSettleDeleteProfiledsinfo_NewDesign]"); }
-        public ArrayList Search_ViewEditProfile(ViewEditProfileSearch Mobj) { return customerdetails.Search_ViewEditProfile(Mobj, Mobj.isSlide == true ? "[dbo].[Usp_Search_ViewEditProfile_Slide]" : "[dbo].[Usp_Search_ViewEditProfile_Table]"); }
-
+        public ArrayList Search_ViewEditProfile(ViewEditProfileSearch Mobj) { return customerdetails.Search_ViewEditProfile(Mobj, Mobj.isSlide == true ? "[dbo].[Usp_Emp_ViewEditProfileSLIDE_AJS]" : "[dbo].[Usp_Emp_ViewEditProfile_AJS]"); }// "[dbo].[Usp_Search_ViewEditProfile_Slide]" : "[dbo].[Usp_Search_ViewEditProfile_Table]"
+        public ArrayList getNoPhotoStatus(long custid) { return customerdetails.getNoPhotoStatusDal(custid, "GetPhotoStatusForUpload"); }
     }
 
     public class ImpCustomerPersonaldetailsUpdate : ICustomerPersonaldetailsUpdate

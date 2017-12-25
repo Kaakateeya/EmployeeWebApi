@@ -86,6 +86,8 @@ namespace WebapiApplication.ML
         public Int64? Admin { get; set; }
 
         public string EmpLastModificationDate { get; set; }
+
+        public bool? employment_type { get; set; }
     }
 
     //Table Formate
@@ -263,6 +265,7 @@ namespace WebapiApplication.ML
         public string Region { get; set; }
         public string Branch { get; set; }
         public string Domacile { get; set; }
+        public string WillingtoSecondMarriage { get; set; }
         //public string CityID { get; set; }
     }
     public class TSibBrother
@@ -1137,6 +1140,8 @@ namespace WebapiApplication.ML
         public int? EndIndex { get; set; }
 
         public string Domicel { get; set; }
+
+        public string WillingtoSecondMarriage { get; set; }
     }
 
 
@@ -1853,5 +1858,9 @@ namespace WebapiApplication.ML
 
         public string CreatedDate { get; set; }
     }
-
+    public class PhotosendMail
+    {
+        public int? GenderID { set; get; }
+        public int? Status { set; get; }
+    }
 }

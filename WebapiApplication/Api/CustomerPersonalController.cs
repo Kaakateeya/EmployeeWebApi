@@ -159,5 +159,6 @@ namespace WebapiApplication.Api
         {
             return this.ICustomerpersonal.getDiscribeYour(CustID, AboutYourself, flag, "[dbo].[usp_Partnerpreference_DiscribeYourPartner]");
         }
+        public ArrayList getNoPhotoStatus(long custid) { return this.ICustomerpersonal.getNoPhotoStatus(custid); }
     }
 }

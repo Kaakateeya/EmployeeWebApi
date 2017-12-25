@@ -568,9 +568,15 @@ namespace WebapiApplication.Api
         }
         //04_12_2017_Employeemenu permissions
 
-        public ArrayList getdeselectPagePermissions(int? Empid, string Pageid, int? flag)
+        public List<EmployeeUnassignedPages> getdeselectPagePermissions(int? Empid, string Pageid, int? flag)
         {
             return this.IEmployeeReport.deselectPagePermissions(Empid, Pageid, flag);
+        }
+        //04_12_2017_Employeemenu permissions update
+
+        public ArrayList getdeselectPagePermissionsupdate(int? Empid, string Pageid, int? flag)
+        {
+            return this.IEmployeeReport.deselectPagePermissionsupdate(Empid, Pageid, flag);
         }
         //05_12_2017_Bankdeposit  Report 
         public ArrayList bankdepositedreport([FromBody]bankamountreport Mobj)

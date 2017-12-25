@@ -280,6 +280,7 @@ namespace WebapiApplication.UserDefinedTable
             dtPartberPref.Columns.Add("Region");
             dtPartberPref.Columns.Add("Branch");
             dtPartberPref.Columns.Add("Domacile");
+            dtPartberPref.Columns.Add("WillingtoSecondMarriage");
             //dtPartberPref.Columns.Add("CityID");
 
             return dtPartberPref;
@@ -1569,6 +1570,38 @@ namespace WebapiApplication.UserDefinedTable
             //dtCreate.Columns.Add("CHighConfidentialStatus");
             //dtCreate.Columns.Add("IsSeriousMatch");
             //dtCreate.Columns.Add("AllEmails");
+
+            dtCreate.Columns.Add("monthlysalary_To");
+            dtCreate.Columns.Add("CSubCaste");
+            //
+            dtCreate.Columns.Add("Arrivaldatefrom");
+            dtCreate.Columns.Add("Arrivaldateto");
+            dtCreate.Columns.Add("Departuredatefrom");
+            dtCreate.Columns.Add("DeparturedateTo");
+            dtCreate.Columns.Add("Residingsincefrom");
+            dtCreate.Columns.Add("ResidingsinceTo");
+
+            //
+
+            dtCreate.Columns.Add("Sp_NoofChilds_Boys");
+            dtCreate.Columns.Add("Sp_NoofChilds_Girls");
+            dtCreate.Columns.Add("C_PropertyValue_To");
+            dtCreate.Columns.Add("VisaStatus");
+            dtCreate.Columns.Add("C_SibCount_Bro");
+
+
+            dtCreate.Columns.Add("C_SibCount_Sis");
+            dtCreate.Columns.Add("C_ParentCaste");
+            dtCreate.Columns.Add("C_FatherCaste");
+            dtCreate.Columns.Add("C_MotherName");
+            dtCreate.Columns.Add("Ref_RelationShipType");
+            dtCreate.Columns.Add("C_FamilyStatusGrade");
+            dtCreate.Columns.Add("C_ProfileGrade");
+
+
+            //
+            dtCreate.Columns.Add("Pr_WillingtoSecondMrg");
+
             return dtCreate;
 
         }

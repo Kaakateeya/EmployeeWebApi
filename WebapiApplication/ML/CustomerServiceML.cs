@@ -286,6 +286,9 @@ namespace WebapiApplication.ML
         public List<EmployeeMarketingslideHistory> MarketingslideHistory { get; set; }
 
     }
+    public class EmployeeUnassignedPages {
+        public int pageid { get; set; }
+    }
 
     public class EmployeeMarketingslideticket
     {

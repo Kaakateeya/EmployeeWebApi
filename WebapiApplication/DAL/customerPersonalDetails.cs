@@ -257,6 +257,7 @@ namespace WebapiApplication.DAL
                         MobjProf.Cust_Profession_ID = (reader["Cust_Profession_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_Profession_ID")) : intNull;
                         MobjProf.reviewstatus = (reader["reviewstatus"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("reviewstatus")) : bnull;
                         MobjProf.EmpLastModificationDate = (reader["EmpLastModificationDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpLastModificationDate")) : null;
+                        MobjProf.employment_type = (reader["employment_type"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("employment_type")) : bnull;
 
                         arrayList.Add(MobjProf);
                     }
@@ -383,6 +384,7 @@ namespace WebapiApplication.DAL
                         MObjPartnerML.BranchName = (reader["BranchName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("BranchName")) : null;
                         MObjPartnerML.EmpLastModificationDate = (reader["EmpLastModificationDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpLastModificationDate")) : null;
                         MObjPartnerML.Domicel = (reader["Domicel"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Domicel")) : null;
+                        MObjPartnerML.WillingtoSecondMarriage = (reader["WillingtoSecondMarriage"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("WillingtoSecondMarriage")) : null;
                         arrayList.Add(MObjPartnerML);
                     }
                 }
@@ -2655,6 +2657,60 @@ namespace WebapiApplication.DAL
             }
 
             return iresult;
+        }
+
+        public ArrayList getNoPhotoStatusDal(long custid, string spName)
+        {
+            int iStatus = 0;
+
+            SqlParameter[] parm = new SqlParameter[2];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            ArrayList arrayList = new ArrayList();
+            SqlDataReader reader;
+            PhotosendMail Mail = null;
+            int? int32 = null;
+            try
+            {
+                parm[0] = new SqlParameter("@custid", SqlDbType.BigInt);
+                parm[0].Value = custid;
+                parm[1] = new SqlParameter("@intStatusID", SqlDbType.Int);
+                parm[1].Direction = ParameterDirection.Output;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                if (reader.HasRows)
+                {
+                    if (reader.Read())
+                    {
+                        Mail = new PhotosendMail();
+                        Mail.GenderID = reader["GenderID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("GenderID")) : int32;
+                        Mail.Status = reader["Status"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : int32;
+
+                    }
+                }
+                arrayList.Add(Mail);
+                reader.Close();
+
+                //if (string.Compare(parm[1].Value.ToString(), System.DBNull.Value.ToString()) == 0)
+                //{
+                //    iStatus = 0;
+                //}
+                //else
+                //{
+                //    iStatus = Convert.ToInt32(parm[1].Value);
+                //}
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), custid, "GetPhotoStatusForUpload", null);
+            }
+            finally
+            {
+                connection.Close();
+                //SqlConnection.ClearPool(connection);
+                //SqlConnection.ClearAllPools();
+            }
+            return arrayList;
         }
     }
 }

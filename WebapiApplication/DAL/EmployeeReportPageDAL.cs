@@ -5151,9 +5151,9 @@ namespace WebapiApplication.DAL
                             sh.FFNative = reader["FFNative"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FFNative")) : Snull;
                             sh.MFNative = reader["MFNative"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MFNative")) : Snull;
                             sh.Gender = reader["Gender"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gender")) : Snull;
-                            sh.PhotoNames = reader["PhotoNames"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("PhotoNames")) : Snull;
-                            sh.Photo = reader["Photo"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Photo")) : Snull;
-                            sh.ApplicationPhotoPath = reader["ApplicationPhotoPath"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ApplicationPhotoPath")) : Snull;
+                            //sh.PhotoNames = reader["PhotoNames"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("PhotoNames")) : Snull;
+                            sh.Photo = reader["CustomerFullPhoto"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CustomerFullPhoto")) : Snull;
+                            // sh.ApplicationPhotoPath = reader["ApplicationPhotoPath"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ApplicationPhotoPath")) : Snull;
                             sh.HoroscopeStatus = reader["HoroscopeStatus"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("HoroscopeStatus")) : inull;
                             sh.HoroscopePath = reader["HoroscopePath"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("HoroscopePath")) : Snull;
                             sh.email = reader["email"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("email")) : Snull;
@@ -5173,7 +5173,7 @@ namespace WebapiApplication.DAL
                             sh.PhotoCount = reader["PhotoCount"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PhotoCount")) : inull;
                             sh.TotalRows = reader["TotalRows"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TotalRows")) : inull;
                             sh.countrylivingin = reader["CountryLivingin"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("CountryLivingin")) : Snull;
-                            sh.CustomerApplicationPhoto = reader["CustomerApplicationPhoto"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CustomerApplicationPhoto"))) : Snull;
+                            //sh.CustomerApplicationPhoto = reader["CustomerApplicationPhoto"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CustomerApplicationPhoto"))) : Snull;
                             sh.CompanyName = reader["CompanyName"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CompanyName"))) : Snull;
                             //Added by lakshmi 31_10_2017_keywordlikesearch
                             sh.LastLoginDT = reader["LastLoginDT"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("LastLoginDT"))) : Snull;
@@ -5800,13 +5800,13 @@ namespace WebapiApplication.DAL
 
                     if (Mobj.empRegionID == "409")
                     {
-                        string result1 = cc.SendTextSMS("ykrishna", "summary$1", "9848344977", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
-                        string result2 = cc.SendTextSMS("ykrishna", "summary$1", "9841282222", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
+                        string result1 = cc.SendTextSMS("ykrishna", "summary$1", "9848344977", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Banknametext + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
+                        string result2 = cc.SendTextSMS("ykrishna", "summary$1", "9841282222", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Banknametext + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
                     }
                     else
                     {
-                        string result3 = cc.SendTextSMS("ykrishna", "summary$1", "9848344977", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
-                        string result4 = cc.SendTextSMS("ykrishna", "summary$1", "9848355213", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Bankname + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
+                        string result3 = cc.SendTextSMS("ykrishna", "summary$1", "9848344977", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Banknametext + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
+                        string result4 = cc.SendTextSMS("ykrishna", "summary$1", "9848355213", "" + Mobj.depositamount + " " + Mobj.modeofdeposit + " desposited in " + Mobj.Banknametext + " by " + Mobj.LoginEmpName + "(" + Mobj.usernameemployeeid + ")", "smscntry");
                     }
                 }
             }
@@ -5897,24 +5897,41 @@ namespace WebapiApplication.DAL
 
 
 
-        public ArrayList deselectPagePermissions(int? Empid, string pageid, int? flag, string spName)
+        public List<EmployeeUnassignedPages> deselectPagePermissions(int? Empid, string pageid, int? flag, string spName)
         {
-            DataSet ds = new DataSet();
+            List<EmployeeUnassignedPages> response = new List<EmployeeUnassignedPages>();
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
             try
             {
-                SqlParameter[] parm = new SqlParameter[6];
-                parm[0] = new SqlParameter("@empid", SqlDbType.Int);
-                parm[0].Value = Empid;
-                parm[1] = new SqlParameter("@pageid", SqlDbType.VarChar);
-                parm[1].Value = pageid;
-                parm[2] = new SqlParameter("@flag", SqlDbType.Int);
-                parm[2].Value = flag;
-                parm[3] = new SqlParameter("@status", SqlDbType.Int);
-                parm[3].Direction = ParameterDirection.Output;
-                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+                //SqlParameter[] parm = new SqlParameter[6];
+                //parm[0] = new SqlParameter("@empid", SqlDbType.Int);
+                //parm[0].Value = Empid;
+                //parm[1] = new SqlParameter("@pageid", SqlDbType.VarChar);
+                //parm[1].Value = pageid;
+                //parm[2] = new SqlParameter("@flag", SqlDbType.Int);
+                //parm[2].Value = flag;
+                //parm[3] = new SqlParameter("@status", SqlDbType.Int);
+                //parm[3].Direction = ParameterDirection.Output;
+                //    ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+
+
+                var p = new DynamicParameters();
+
+                p.Add("@empid", Empid);
+                p.Add("@pageid", pageid);
+                p.Add("@flag", flag);
+                p.Add("@status", ParameterDirection.Output);
+
+                using (IDbConnection conn = SQLHelper.GetSQLConnection())
+                {
+                    var reader = conn.QueryMultiple(spName, param: p, commandType: CommandType.StoredProcedure);
+                    var userdetails = reader.Read<EmployeeUnassignedPages>().ToList();
+                    response = userdetails;
+                }
+
+
             }
             catch (Exception EX)
             {
@@ -5924,8 +5941,8 @@ namespace WebapiApplication.DAL
             {
                 connection.Close();
             }
+            return response;
 
-            return Commonclass.convertdataTableToArrayListTable(ds);
         }
 
         public ArrayList bankdepositedreport(bankamountreport Mobj, string spName)
@@ -5943,10 +5960,13 @@ namespace WebapiApplication.DAL
                 parm[1].Value = Mobj.modeofdeposit;
                 parm[2] = new SqlParameter("@branch", SqlDbType.VarChar);
                 parm[2].Value = Mobj.branch;
-                parm[3] = new SqlParameter("@fromdate", SqlDbType.DateTime);
+                parm[3] = new SqlParameter("@fromdate", SqlDbType.VarChar);
                 parm[3].Value = Mobj.fromdate;
-                parm[4] = new SqlParameter("@todate", SqlDbType.DateTime);
+                parm[4] = new SqlParameter("@todate", SqlDbType.VarChar);
                 parm[4].Value = Mobj.todate;
+                parm[5] = new SqlParameter("@empid", SqlDbType.Int);
+                parm[5].Value = Mobj.empid;
+
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)
@@ -5992,7 +6012,7 @@ namespace WebapiApplication.DAL
             connection.Open();
             try
             {
-                SqlParameter[] parm = new SqlParameter[10];
+                SqlParameter[] parm = new SqlParameter[11];
                 parm[0] = new SqlParameter("@EMPID", SqlDbType.VarChar);
                 parm[0].Value = Mobj.EMPID;
                 parm[1] = new SqlParameter("@BRANCHID", SqlDbType.VarChar);
@@ -6011,6 +6031,9 @@ namespace WebapiApplication.DAL
                 parm[7].Value = Mobj.intStartIndex;
                 parm[8] = new SqlParameter("@intEndIndex", SqlDbType.Int);
                 parm[8].Value = Mobj.intEndIndex;
+                parm[9] = new SqlParameter("@intRegionID", SqlDbType.VarChar);
+                parm[9].Value = Mobj.intRegionID;
+
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)
@@ -6037,6 +6060,36 @@ namespace WebapiApplication.DAL
                 parm[0].Value = strProfileID;
                 parm[1] = new SqlParameter("@intAdminId", SqlDbType.Int);
                 parm[1].Value = intAdminId;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public ArrayList deselectPagePermissionsupdate(int? Empid, string Pageid, int? flag, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[6];
+                parm[0] = new SqlParameter("@empid", SqlDbType.Int);
+                parm[0].Value = Empid;
+                parm[1] = new SqlParameter("@pageid", SqlDbType.VarChar);
+                parm[1].Value = Pageid;
+                parm[2] = new SqlParameter("@flag", SqlDbType.Int);
+                parm[2].Value = flag;
+                parm[3] = new SqlParameter("@status", SqlDbType.Int);
+                parm[3].Direction = ParameterDirection.Output;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)

@@ -254,10 +254,16 @@ namespace WebapiApplication.Implement
 
         public EmployeeMarketingTicketResponse GetMarketingTicketHistoryInfo_New([FromBody]EmployeeMarketingTketRequestNew Mobj) { return new EmployeeReportPageDAL().GetMarketingTicketHistoryInfo_New(Mobj, "[dbo].[usp_GetmarketingTicketHistoryInfo_refactory]"); }
 
-        public ArrayList deselectPagePermissions(int? Empid,string Pageid,int? flag)
+        public List<EmployeeUnassignedPages> deselectPagePermissions(int? Empid, string Pageid, int? flag)
         {
             return new EmployeeReportPageDAL().deselectPagePermissions(Empid,Pageid,flag, "[dbo].[USP_EMP_UNASSIGNEDPAGES_AJS]");
         }
+
+        public ArrayList deselectPagePermissionsupdate(int? Empid, string Pageid, int? flag)
+        {
+            return new EmployeeReportPageDAL().deselectPagePermissionsupdate(Empid, Pageid, flag, "[dbo].[USP_EMP_UNASSIGNEDPAGES_AJS]");
+        }
+
         public ArrayList bankdepositedreport([FromBody]bankamountreport Mobj)
         {
             return new EmployeeReportPageDAL().bankdepositedreport(Mobj, "[dbo].[USP_EMP_BANKDEPOSITSrpt_AJS]");

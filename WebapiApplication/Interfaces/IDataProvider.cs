@@ -87,6 +87,8 @@ namespace WebapiApplication.Interfaces
         ArrayList ProfileIDPlaybutton(string ProfileID);
         ArrayList ViewAllCustomersSettledeleteinfo(string CustID, string typeofdata);
         ArrayList Search_ViewEditProfile(ViewEditProfileSearch Mobj);
+
+        ArrayList getNoPhotoStatus(long custid);
     }
     public interface ICustomerPersonaldetailsUpdate
     {
@@ -420,7 +422,7 @@ namespace WebapiApplication.Interfaces
 
         EmployeeMarketingTicketResponse GetMarketingTicketHistoryInfo_New(EmployeeMarketingTketRequestNew Mobj);
 
-        ArrayList deselectPagePermissions(int? Empid, string Pageid, int? flag);
+        List<EmployeeUnassignedPages> deselectPagePermissions(int? Empid, string Pageid, int? flag);
 
         ArrayList bankdepositedreport(bankamountreport Mobj);
 
@@ -429,6 +431,8 @@ namespace WebapiApplication.Interfaces
         ArrayList employeeDailyworkreport(employeeworkreport Mobj);
 
         ArrayList Employeecustomerprint(string strProfileID, int? intAdminId);
+
+        ArrayList deselectPagePermissionsupdate(int? Empid, string Pageid, int? flag);
     }
 
     public interface ISmallPages
