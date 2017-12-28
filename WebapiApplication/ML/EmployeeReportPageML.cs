@@ -868,6 +868,8 @@ namespace WebapiApplication.ML
         public float? HeightTo { get; set; }
         public int? Democel { get; set; }
 
+        public string SP_AllFields { get; set; }
+
     }
     public class closereminder
     {
@@ -1223,6 +1225,14 @@ namespace WebapiApplication.ML
 
         //
         public string Pr_WillingtoSecondMrg { set; get; }
+        //
+        public string CB_MarriedStatus { set; get; }
+        public string CB_YEStatus { set; get; }
+        public string CS_MarriedStatus { set; get; }
+        public string CS_YEStatus { set; get; }
+        public string CFS_YEStatus { set; get; }
+        public string CMS_YEStatus { set; get; }
+        public string CMB_YEStatus { set; get; }
     }
 
     public class MasterData

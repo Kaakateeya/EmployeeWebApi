@@ -1195,6 +1195,10 @@ namespace WebapiApplication.ML
         public string Surname { get; set; }
 
         public string SubCasteID { get; set; }
+
+        public string SelfCaste { get; set; }
+
+        public string selfmaritalstatusid { get; set; }
     }
 
     public class slideshowNew

@@ -610,6 +610,9 @@ namespace WebapiApplication.DAL
                         sh.Gotram = reader["Gotram"] != DBNull.Value ? reader["Gotram"].ToString() : "";
                         sh.Surname = reader["Surname"] != DBNull.Value ? reader["Surname"].ToString() : "";
                         sh.SubCasteID = reader["SubCasteID"] != DBNull.Value ? reader["SubCasteID"].ToString() : "";
+
+                        sh.SelfCaste = reader["SelfCaste"] != DBNull.Value ? reader["SelfCaste"].ToString() : "";
+                        sh.selfmaritalstatusid = reader["selfmaritalstatusid"] != DBNull.Value ? reader["selfmaritalstatusid"].ToString() : "";
                     }
                 }
 

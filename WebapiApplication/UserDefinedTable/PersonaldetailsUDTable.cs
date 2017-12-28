@@ -1272,6 +1272,8 @@ namespace WebapiApplication.UserDefinedTable
             dtCreate.Columns.Add("HeightFr");
             dtCreate.Columns.Add("HeightTo");
             dtCreate.Columns.Add("Democel");
+            dtCreate.Columns.Add("SP_AllFields");
+            
             return dtCreate;
         }
 
@@ -1601,7 +1603,14 @@ namespace WebapiApplication.UserDefinedTable
 
             //
             dtCreate.Columns.Add("Pr_WillingtoSecondMrg");
-
+            //
+            dtCreate.Columns.Add("CB_MarriedStatus");
+            dtCreate.Columns.Add("CB_YEStatus");
+            dtCreate.Columns.Add("CS_MarriedStatus");
+            dtCreate.Columns.Add("CS_YEStatus");
+            dtCreate.Columns.Add("CFS_YEStatus");
+            dtCreate.Columns.Add("CMS_YEStatus");
+            dtCreate.Columns.Add("CMB_YEStatus");
             return dtCreate;
 
         }
