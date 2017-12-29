@@ -833,6 +833,9 @@ namespace WebapiApplication.UserDefinedTable
             //08/09/2017 Added by lakshmi
             dtGeneralsearch.Columns.Add("FatherCaste");
             dtGeneralsearch.Columns.Add("MotherCaste");
+            //
+            dtGeneralsearch.Columns.Add("Divorce_NoofChild");
+            dtGeneralsearch.Columns.Add("Divorce_Service");
             return dtGeneralsearch;
         }
 
@@ -959,6 +962,10 @@ namespace WebapiApplication.UserDefinedTable
             //08/09/2017 Added by lakshmi
             dtAdvancesearch.Columns.Add("FatherCaste");
             dtAdvancesearch.Columns.Add("MotherCaste");
+
+            dtAdvancesearch.Columns.Add("Divorce_NoofChild");
+            dtAdvancesearch.Columns.Add("Divorce_Service");
+
             return dtAdvancesearch;
         }
 
@@ -1273,7 +1280,7 @@ namespace WebapiApplication.UserDefinedTable
             dtCreate.Columns.Add("HeightTo");
             dtCreate.Columns.Add("Democel");
             dtCreate.Columns.Add("SP_AllFields");
-            
+
             return dtCreate;
         }
 

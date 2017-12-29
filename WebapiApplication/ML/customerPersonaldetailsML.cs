@@ -1358,6 +1358,10 @@ namespace WebapiApplication.ML
         //08/09/2017 added by lakshmi
         public int? FatherCaste { set; get; }
         public int? MotherCaste { set; get; }
+        //29_12_2017 added by lakshmi
+
+        public string Divorce_NoofChild { set; get; }
+        public string Divorce_Service { set; get; }
     }
 
     public class TAdvanceSearch
@@ -1484,6 +1488,9 @@ namespace WebapiApplication.ML
         //08/09/2017 added by lakshmi
         public int? FatherCaste { set; get; }
         public int? MotherCaste { set; get; }
+        //29_12_2017 added by lakshmi
+        public string Divorce_NoofChild { set; get; }
+        public string Divorce_Service { set; get; }
     }
 
     //property details
