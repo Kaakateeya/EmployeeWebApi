@@ -241,7 +241,7 @@ namespace WebapiApplication.DAL
 
         public int brokerFormInsertDal(brokerEntryForm mobj, string spname)
         {
-            SqlParameter[] parm = new SqlParameter[9];
+            SqlParameter[] parm = new SqlParameter[14];
             int intStatus = 0;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
@@ -265,17 +265,22 @@ namespace WebapiApplication.DAL
                 parm[6].Value = mobj.BranchID;
                 parm[7] = new SqlParameter("@whatsappNumber", SqlDbType.VarChar, 20);
                 parm[7].Value = mobj.whatsappNumber;
-                parm[8] = new SqlParameter("@status", SqlDbType.Int);
-                parm[8].Direction = ParameterDirection.Output;
-
+                parm[8] = new SqlParameter("@CountyCode", SqlDbType.Int);
+                parm[8].Value = mobj.CountyCode;
+                parm[9] = new SqlParameter("@AreaCode", SqlDbType.VarChar, 20);
+                parm[9].Value = mobj.AreaCode;
+                parm[10] = new SqlParameter("@LandNumber", SqlDbType.VarChar, 20);
+                parm[10].Value = mobj.LandNumber;
+                parm[11] = new SqlParameter("@status", SqlDbType.Int);
+                parm[11].Direction = ParameterDirection.Output;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), Convert.ToString(parm[8].Value)).Equals(0))
+                if (string.Compare(System.DBNull.Value.ToString(), Convert.ToString(parm[11].Value)).Equals(0))
                 {
                     intStatus = 0;
                 }
                 else
                 {
-                    intStatus = Convert.ToInt32(parm[8].Value);
+                    intStatus = Convert.ToInt32(parm[11].Value);
                 }
             }
             catch (Exception EX)

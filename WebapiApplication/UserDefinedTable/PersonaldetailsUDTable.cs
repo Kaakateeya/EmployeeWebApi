@@ -1618,6 +1618,10 @@ namespace WebapiApplication.UserDefinedTable
             dtCreate.Columns.Add("CFS_YEStatus");
             dtCreate.Columns.Add("CMS_YEStatus");
             dtCreate.Columns.Add("CMB_YEStatus");
+            //
+            dtCreate.Columns.Add("Pr_ProfessionDetails");
+            dtCreate.Columns.Add("Pr_NativeLocation");
+            dtCreate.Columns.Add("Pr_PreferredStar");
             return dtCreate;
 
         }

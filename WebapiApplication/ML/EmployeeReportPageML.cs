@@ -1233,6 +1233,10 @@ namespace WebapiApplication.ML
         public string CFS_YEStatus { set; get; }
         public string CMS_YEStatus { set; get; }
         public string CMB_YEStatus { set; get; }
+        public string Pr_ProfessionDetails { set; get; }
+        public string Pr_NativeLocation { set; get; }
+
+        public string Pr_PreferredStar { set; get; }
     }
 
     public class MasterData

@@ -43,6 +43,12 @@ namespace WebapiApplication.ML
         public int? BranchID { get; set; }
 
         public string whatsappNumber { get; set; }
+
+        public int? CountyCode { get; set; }
+
+        public string AreaCode { get; set; }
+
+        public string LandNumber { get; set; }
     }
 
     public class myassignedPhotoInputMl
