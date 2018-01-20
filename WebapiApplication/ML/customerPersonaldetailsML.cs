@@ -929,6 +929,8 @@ namespace WebapiApplication.ML
         public int? PaymentHist_ID { get; set; }
 
         public Int64? CustId { get; set; }
+
+        public int? PaidStatus { get; set; }
     }
 
     public class UpdatePersonaldetails
