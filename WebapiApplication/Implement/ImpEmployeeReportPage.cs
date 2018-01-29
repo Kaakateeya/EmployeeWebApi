@@ -280,6 +280,18 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().Employeecustomerprint(strProfileID, intAdminId, "[dbo].[usp_Emp_CustomerPrint_PartialPaid_AJS]");
         }
+        public ArrayList EmployeeWorkgrade(string EMPID, string dtFromDate, string dtToDate)
+        {
+            return new EmployeeReportPageDAL().EmployeeWorkgrade(EMPID, dtFromDate, dtToDate, "[dbo].[USP_EMP_DAILYREPORTOFWORK_DayWise_AJS]");
+        }
+        public ArrayList EmployeeWorkperformance(string intRegionID)
+        {
+            return new EmployeeReportPageDAL().EmployeeWorkperformance(intRegionID, "[dbo].[USP_EMP_DAILYREPORTOFWORK_Performance_AJS]");
+        }
+        public int? OpenMatchfollowupticket(Int64? ticketid, string EmpID)
+        {
+            return new EmployeeReportPageDAL().OpenMatchfollowupticket(ticketid, EmpID, "[dbo].[usp_Emp_UpdateTicketStatus_Ajs]");
+        }
     }
 
 }

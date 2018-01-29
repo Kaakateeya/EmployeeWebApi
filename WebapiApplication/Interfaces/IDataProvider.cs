@@ -433,6 +433,12 @@ namespace WebapiApplication.Interfaces
         ArrayList Employeecustomerprint(string strProfileID, int? intAdminId);
 
         ArrayList deselectPagePermissionsupdate(int? Empid, string Pageid, int? flag);
+
+        ArrayList EmployeeWorkgrade(string EMPID, string dtFromDate, string dtToDate);
+
+        ArrayList EmployeeWorkperformance(string intRegionID);
+
+        int? OpenMatchfollowupticket(long? ticketid, string EmpID);
     }
 
     public interface ISmallPages

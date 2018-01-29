@@ -470,9 +470,8 @@ namespace WebapiApplication.DAL
                             myprofile.Intercaste = (reader["Intercaste"]) != DBNull.Value ? reader.GetBoolean(reader.GetOrdinal("Intercaste")) : false;
                             myprofile.fathercaste = (reader["fathercaste"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("fathercaste")) : empty;
                             myprofile.mothercaste = (reader["mothercaste"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("mothercaste")) : empty;
-
                             myprofile.currency = (reader["currency"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("currency")) : empty;
-
+                            myprofile.ProfileStatusID = (reader["ProfileStatusID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ProfileStatusID")) : intnull;
                             //
                             arrayList.Add(myprofile);
                         }
@@ -5116,6 +5115,7 @@ namespace WebapiApplication.DAL
                 parm[5] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[5].Direction = ParameterDirection.Output;
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+
                 if (reader.HasRows)
                 {
                     while (reader.Read())
@@ -5199,7 +5199,9 @@ namespace WebapiApplication.DAL
                             sh.Primaryemail = reader["Primaryemail"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Primaryemail"))) : Snull;
                             sh.Payment = reader["Payment"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Payment"))) : Snull;
                             sh.CreatedDate = reader["CreatedDate"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CreatedDate"))) : Snull;
+
                         }
+
                         array.Add(sh);
                     }
                 }
@@ -5237,6 +5239,7 @@ namespace WebapiApplication.DAL
                 parm[4] = new SqlParameter("@b_StatusCode", SqlDbType.Bit);
                 parm[4].Value = Mobj.StatusCode;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+
             }
             catch (Exception EX)
             {
@@ -6101,6 +6104,96 @@ namespace WebapiApplication.DAL
                 connection.Close();
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public ArrayList EmployeeWorkgrade(string EMPID, string dtFromDate, string dtToDate, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[6];
+                parm[0] = new SqlParameter("@EMPID", SqlDbType.VarChar);
+                parm[0].Value = EMPID;
+                parm[1] = new SqlParameter("@dtFromDate", SqlDbType.VarChar);
+                parm[1].Value = dtFromDate;
+                parm[2] = new SqlParameter("@dtToDate", SqlDbType.VarChar);
+                parm[2].Value = dtToDate;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public ArrayList EmployeeWorkperformance(string intRegionID, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[2];
+                parm[0] = new SqlParameter("@intRegionID", SqlDbType.VarChar);
+                parm[0].Value = intRegionID;
+             
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public int? OpenMatchfollowupticket(long? ticketid, string EmpID, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[5];
+            int intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@intTicketID", SqlDbType.BigInt);
+                parm[0].Value = ticketid;
+                parm[1] = new SqlParameter("@intEmpID", SqlDbType.VarChar);
+                parm[1].Value = EmpID;
+                parm[2] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[2].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[2].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return intStatus;
         }
     }
 }

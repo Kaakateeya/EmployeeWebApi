@@ -332,6 +332,8 @@ namespace WebapiApplication.ML
         public string mothercaste { get; set; }
 
         public string currency { get; set; }
+
+        public int? ProfileStatusID { get; set; }
     }
 
     public class FeeUpdateML

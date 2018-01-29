@@ -47,7 +47,7 @@ namespace WebapiApplication.DAL
 
         public Tuple<int, ArrayList> matchMeetingEntryFormDal(matchMeetingEntryForm Mobj, string spname)
         {
-            SqlParameter[] parm = new SqlParameter[16];
+            SqlParameter[] parm = new SqlParameter[20];
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -70,32 +70,36 @@ namespace WebapiApplication.DAL
                 parm[5].Value = Mobj.GroomRelaionName;
                 parm[6] = new SqlParameter("@MatchMeetingArrangedBy", SqlDbType.BigInt);
                 parm[6].Value = Mobj.EmpID;
-                parm[7] = new SqlParameter("@Notes", SqlDbType.VarChar, 8000);
-                parm[7].Value = Mobj.Notes;
-                parm[8] = new SqlParameter("@EmpID", SqlDbType.BigInt);
-                parm[8].Value = Mobj.CreatedEMPID;
-                parm[9] = new SqlParameter("@BCode", SqlDbType.Int);
-                parm[9].Value = Mobj.BCode;
-                parm[10] = new SqlParameter("@BLand", SqlDbType.VarChar, 100);
-                parm[10].Value = Mobj.BLand;
-                parm[11] = new SqlParameter("@BMobile", SqlDbType.VarChar, 100);
-                parm[11].Value = Mobj.BMobile;
-                parm[12] = new SqlParameter("@GCode", SqlDbType.Int);
-                parm[12].Value = Mobj.GCode;
-                parm[13] = new SqlParameter("@GLand", SqlDbType.VarChar, 100);
-                parm[13].Value = Mobj.GLand;
-                parm[14] = new SqlParameter("@GMobile", SqlDbType.VarChar, 100);
-                parm[14].Value = Mobj.GMobile;
-                parm[15] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[15].Direction = ParameterDirection.Output;
+
+                parm[7] = new SqlParameter("@MatchMeetingArrangedGroom", SqlDbType.BigInt);
+                parm[7].Value = Mobj.EmpIDgroom;
+
+                parm[8] = new SqlParameter("@Notes", SqlDbType.VarChar, 8000);
+                parm[8].Value = Mobj.Notes;
+                parm[9] = new SqlParameter("@EmpID", SqlDbType.BigInt);
+                parm[9].Value = Mobj.CreatedEMPID;
+                parm[10] = new SqlParameter("@BCode", SqlDbType.Int);
+                parm[10].Value = Mobj.BCode;
+                parm[11] = new SqlParameter("@BLand", SqlDbType.VarChar, 100);
+                parm[11].Value = Mobj.BLand;
+                parm[12] = new SqlParameter("@BMobile", SqlDbType.VarChar, 100);
+                parm[12].Value = Mobj.BMobile;
+                parm[13] = new SqlParameter("@GCode", SqlDbType.Int);
+                parm[13].Value = Mobj.GCode;
+                parm[14] = new SqlParameter("@GLand", SqlDbType.VarChar, 100);
+                parm[14].Value = Mobj.GLand;
+                parm[15] = new SqlParameter("@GMobile", SqlDbType.VarChar, 100);
+                parm[15].Value = Mobj.GMobile;
+                parm[16] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[16].Direction = ParameterDirection.Output;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(parm[15].Value.ToString(), System.DBNull.Value.ToString()) == 0)
+                if (string.Compare(parm[16].Value.ToString(), System.DBNull.Value.ToString()) == 0)
                 {
                     intStatus = 0;
                 }
                 else
                 {
-                    intStatus = Convert.ToInt32(parm[15].Value);
+                    intStatus = Convert.ToInt32(parm[16].Value);
                 }
             }
             catch (Exception EX)

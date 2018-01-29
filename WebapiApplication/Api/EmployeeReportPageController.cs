@@ -598,5 +598,25 @@ namespace WebapiApplication.Api
         {
             return this.IEmployeeReport.Employeecustomerprint(strProfileID, intAdminId);
         }
+
+        //20_01_2018 Employee Work grade
+
+        public ArrayList getEmployeeWorkgrade(string EMPID, string dtFromDate, string dtToDate)
+        {
+            return this.IEmployeeReport.EmployeeWorkgrade(EMPID, dtFromDate, dtToDate);
+        }
+
+        //20_01_2018 Employee Work Poor perfarmance
+
+        public ArrayList getEmployeeWorkperformance(string intRegionID)
+        {
+            return this.IEmployeeReport.EmployeeWorkperformance(intRegionID);
+        }
+
+        //29_01_2018 open ticket
+        public int? getOpenMatchfollowupticket(Int64? ticketid, string EmpID)
+        {
+            return this.IEmployeeReport.OpenMatchfollowupticket(ticketid, EmpID);
+        }
     }
 }

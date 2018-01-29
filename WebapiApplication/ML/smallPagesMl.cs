@@ -31,6 +31,8 @@ namespace WebapiApplication.ML
         public int? GCode { get; set; }
         public string GLand { get; set; }
         public string GMobile { get; set; }
+
+        public Int64 EmpIDgroom { get; set; }
     }
     public class brokerEntryForm
     {
