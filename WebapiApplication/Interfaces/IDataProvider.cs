@@ -57,6 +57,11 @@ namespace WebapiApplication.Interfaces
         GetPrimaryDataCustomerResponse PrimaryCustomerDataResponse(int? CustID, int? EmpID);
         List<slideshowNew> ShowDataForEmployeeGeneral(EmployeeSearch employeesearch);
         List<slideshowNew> ShowDataForEmployeeAdvanceSearch(EmployeeSearch employeesearch);
+
+
+        List<slideshowNew> ShowDataForEmployeeGeneral_Nocastebar(EmployeeSearch employeesearch);
+
+        List<slideshowNew> ShowDataForEmployeeAdvanceSearch_Nocastebar(EmployeeSearch employeesearch);
     }
     public interface ICustomerPersonaldetails
     {

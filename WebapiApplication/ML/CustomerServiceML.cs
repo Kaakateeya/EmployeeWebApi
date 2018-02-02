@@ -257,6 +257,10 @@ namespace WebapiApplication.ML
 
         public string toonlyempname { get; set; }
         public long? ExpressinterestTologid{get;set;}
+
+        public string MFPFromEntered { get; set; }
+
+        public string MFPToEntered { get; set; }
     }
 
     public class SearchML

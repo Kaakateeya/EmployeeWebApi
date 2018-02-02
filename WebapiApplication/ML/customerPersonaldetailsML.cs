@@ -1144,6 +1144,8 @@ namespace WebapiApplication.ML
         public string Domicel { get; set; }
 
         public string WillingtoSecondMarriage { get; set; }
+
+        public int? selfmaritalstatus { get; set; }
     }
 
 

@@ -91,5 +91,26 @@ namespace WebapiApplication.Api
             employeesearch.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtcreateDatatableShowDataForEmployeeAdvanceSearch(), lstAdvance);
             return this.ICustomerSearch.ShowDataForEmployeeAdvanceSearch(employeesearch);
         }
+        ////// Employee General search for No castebar
+        public List<slideshowNew> ShowDataForEmployeeGeneral_Nocastebar([FromBody]JObject CgetDetails)
+        {
+            TGeneralSearch generalsearch = CgetDetails["GetDetails"].ToObject<TGeneralSearch>();
+            EmployeeSearch employeesearch = CgetDetails["customerpersonaldetails"].ToObject<EmployeeSearch>();
+            List<TGeneralSearch> lstGeneral = new List<TGeneralSearch>();
+            lstGeneral.Add(generalsearch);
+            employeesearch.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtcreateDatatableShowDataForEmployeeGeneral(), lstGeneral);
+            return this.ICustomerSearch.ShowDataForEmployeeGeneral_Nocastebar(employeesearch);
+        }
+
+        ////// Employee Advanced search for No castebar
+        public List<slideshowNew> ShowDataForEmployeeAdvanceSearch_Nocastebar([FromBody]JObject CgetDetails)
+        {
+            TAdvanceSearch advancesearch = CgetDetails["GetDetails"].ToObject<TAdvanceSearch>();
+            EmployeeSearch employeesearch = CgetDetails["customerpersonaldetails"].ToObject<EmployeeSearch>();
+            List<TAdvanceSearch> lstAdvance = new List<TAdvanceSearch>();
+            lstAdvance.Add(advancesearch);
+            employeesearch.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtcreateDatatableShowDataForEmployeeAdvanceSearch(), lstAdvance);
+            return this.ICustomerSearch.ShowDataForEmployeeAdvanceSearch_Nocastebar(employeesearch);
+        }
     }
 }
