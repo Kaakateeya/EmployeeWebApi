@@ -6149,7 +6149,7 @@ namespace WebapiApplication.DAL
                 SqlParameter[] parm = new SqlParameter[2];
                 parm[0] = new SqlParameter("@intRegionID", SqlDbType.VarChar);
                 parm[0].Value = intRegionID;
-             
+
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)
@@ -6198,6 +6198,63 @@ namespace WebapiApplication.DAL
                 connection.Close();
             }
             return intStatus;
+        }
+
+        public ArrayList SettlementReasonbasedonEmp(string empid, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[2];
+                parm[0] = new SqlParameter("@empid", SqlDbType.VarChar);
+                parm[0].Value = empid;
+
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public ArrayList Dontshowservice(long cust_id, string toprofileid, int empid, string Relation_type, int flag, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[7];
+                parm[0] = new SqlParameter("@cust_id", SqlDbType.BigInt);
+                parm[0].Value = cust_id;
+                parm[1] = new SqlParameter("@tocust_id", SqlDbType.VarChar);
+                parm[1].Value = toprofileid;
+                parm[2] = new SqlParameter("@empid", SqlDbType.Int);
+                parm[2].Value = empid;
+                parm[3] = new SqlParameter("@Relation_type", SqlDbType.VarChar);
+                parm[3].Value = Relation_type;
+                parm[4] = new SqlParameter("@flag", SqlDbType.Int);
+                parm[4].Value = flag;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
         }
     }
 }

@@ -1203,6 +1203,10 @@ namespace WebapiApplication.ML
         public string SelfCaste { get; set; }
 
         public string selfmaritalstatusid { get; set; }
+
+        public string selfAge { get; set; }
+
+        public string selfheightID { get; set; }
     }
 
     public class slideshowNew

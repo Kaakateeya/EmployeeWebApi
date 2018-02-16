@@ -292,6 +292,16 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().OpenMatchfollowupticket(ticketid, EmpID, "[dbo].[usp_Emp_UpdateTicketStatus_Ajs]");
         }
+
+        public ArrayList SettlementReasonbasedonEmp(string empid)
+        {
+            return new EmployeeReportPageDAL().SettlementReasonbasedonEmp(empid, "[dbo].[usp_emp_getempdetails_ajs]");
+        }
+
+        public ArrayList Dontshowservice(long cust_id, string toprofileid, int empid, string Relation_type, int flag)
+        {
+            return new EmployeeReportPageDAL().Dontshowservice(cust_id, toprofileid, empid, Relation_type, flag, "[dbo].[Usp_Emp_insert_Cust_Dontshowslideshow_Ajs]");
+        }
     }
 
 }

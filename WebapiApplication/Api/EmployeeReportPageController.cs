@@ -619,5 +619,17 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.OpenMatchfollowupticket(ticketid, EmpID);
         }
 
+        //05_02_2017_empsettlement reason
+        public ArrayList getSettlementReasonbasedonEmp(string empid)
+        {
+            return this.IEmployeeReport.SettlementReasonbasedonEmp(empid);
+        }
+        //13-02_2018_Customer dont show sevice
+        public ArrayList getDontshowservice(long cust_id, string toProfileid, int empid, string Relation_type,int flag)
+        {
+            return this.IEmployeeReport.Dontshowservice(cust_id, toProfileid, empid, Relation_type, flag);
+        }
+
+
     }
 }

@@ -444,6 +444,10 @@ namespace WebapiApplication.Interfaces
         ArrayList EmployeeWorkperformance(string intRegionID);
 
         int? OpenMatchfollowupticket(long? ticketid, string EmpID);
+
+        ArrayList SettlementReasonbasedonEmp(string empid);
+
+        ArrayList Dontshowservice(long cust_id, string toprofileid, int empid, string Relation_type, int flag);
     }
 
     public interface ISmallPages

@@ -613,6 +613,11 @@ namespace WebapiApplication.DAL
 
                         sh.SelfCaste = reader["SelfCaste"] != DBNull.Value ? reader["SelfCaste"].ToString() : "";
                         sh.selfmaritalstatusid = reader["selfmaritalstatusid"] != DBNull.Value ? reader["selfmaritalstatusid"].ToString() : "";
+
+                        //
+                        sh.selfAge = reader["selfAge"] != DBNull.Value ? reader["selfAge"].ToString() : "0";
+                        sh.selfheightID = reader["selfheightID"] != DBNull.Value ? reader["selfheightID"].ToString() : "0";
+
                     }
                 }
 
