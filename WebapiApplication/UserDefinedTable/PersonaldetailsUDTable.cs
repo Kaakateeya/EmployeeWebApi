@@ -1622,6 +1622,7 @@ namespace WebapiApplication.UserDefinedTable
             dtCreate.Columns.Add("Pr_ProfessionDetails");
             dtCreate.Columns.Add("Pr_NativeLocation");
             dtCreate.Columns.Add("Pr_PreferredStar");
+            dtCreate.Columns.Add("C_ArrivalBetween100Days");
             return dtCreate;
 
         }

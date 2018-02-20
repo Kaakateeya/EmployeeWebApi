@@ -1239,6 +1239,9 @@ namespace WebapiApplication.ML
         public string Pr_NativeLocation { set; get; }
 
         public string Pr_PreferredStar { set; get; }
+
+        public int? C_ArrivalBetween100Days { set; get; }
+
     }
 
     public class MasterData
