@@ -34,8 +34,8 @@ namespace WebapiApplication.Implement
         public List<MarketingTicketResponseinfo> MarketingTicketinformation(long? Ticketid, char Type) { return new EmployeeReportPageDAL().MarketingTicketinformation(Ticketid, Type, "[dbo].[usp_GetMarketingTicketHistry_IdBased]"); }
 
         public List<MarketingTicketResponseHistory> MarketingTickethistory(long? Ticketid, char Type) { return new EmployeeReportPageDAL().MarketingTickethistory(Ticketid, Type, "[dbo].[usp_GetMarketingTicketHistry_IdBased]"); }
-        
-        
+
+
         public int MatchFollowupResendMail(MatchFollowupResendMail Mobj) { return new EmployeeReportPageDAL().MatchFollowupResendMail(Mobj, "[dbo].[sp_Email_singleBothsideinterest]"); }
         public int Insertout_incomingcallCommunicationlogData(TicketCallHistory Mobj) { return new EmployeeReportPageDAL().Insertout_incomingcallCommunicationlogData(Mobj, "[dbo].[Usp_Insert_MatchFollowupTickethistory]"); }
         public int Insertout_incomingcallData(IncomingOutgoing Mobj) { return new EmployeeReportPageDAL().Insertout_incomingcallData(Mobj, "[dbo].[Usp_InsertOut_incomongCall]"); }
@@ -64,7 +64,7 @@ namespace WebapiApplication.Implement
 
         public List<GetRegprofilevalidation> RegistrationValidation_Counts([FromBody]Regprofilevalidation RegValidation) { return new EmployeeReportPageDAL().RegistrationValidation_Counts(RegValidation, "[dbo].[Usp_Search_RegistrationBefore_Count]"); }
 
-        
+
         public List<RegprofilevalidationPlaybutton> RegistrationValidation_Playbutton(string Profileid) { return new EmployeeReportPageDAL().RegistrationValidation_Playbutton(Profileid, "[dbo].[Usp_GetFullInfoofCustomer]"); }
         public int FeeUpdate(FeeUpdateML mobj) { return new EmployeeReportPageDAL().FeeUpdateDalWithInternalMemoUpdate(mobj, "USP_InsertInternalMemo_Marketingslide"); }
 
@@ -183,7 +183,7 @@ namespace WebapiApplication.Implement
 
         public int? Marketingticketstatus(Int64? ticketid, string EmpID) { return new EmployeeReportPageDAL().Marketingticketstatus(ticketid, EmpID, "[dbo].[usp_UpdateTicketStatus]"); }
 
-        public ArrayList AdminReportsAllProfiles(int? i_EmpID, string i_BranchID, int? i_Region, string v_MacAddress, int? flag, string v_ProfileOwnerEmpID) { return new EmployeeReportPageDAL().AdminReportsAllProfiles(i_EmpID, i_BranchID, i_Region, v_MacAddress, flag,v_ProfileOwnerEmpID, "[dbo].[usp_Emp_SchedulerWorkPending]"); }
+        public ArrayList AdminReportsAllProfiles(int? i_EmpID, string i_BranchID, int? i_Region, string v_MacAddress, int? flag, string v_ProfileOwnerEmpID) { return new EmployeeReportPageDAL().AdminReportsAllProfiles(i_EmpID, i_BranchID, i_Region, v_MacAddress, flag, v_ProfileOwnerEmpID, "[dbo].[usp_Emp_SchedulerWorkPending]"); }
 
 
         public ArrayList CheckSurNameNamedob(string strSurName, string StrName, DateTime? dtDOB) { return new EmployeeReportPageDAL().CheckSurNameNamedob(strSurName, StrName, dtDOB, "[dbo].[usp_CheckSurNameName]"); }
@@ -228,7 +228,7 @@ namespace WebapiApplication.Implement
         public int MasterdataInsertUpdate([FromBody]MasterInsertUpdate Mobj) { return new EmployeeReportPageDAL().MasterdataInsertUpdate(Mobj, "[dbo].[usp_MasterData_InsertUpdate]"); }
 
 
-        public ArrayList Customerinfobasedoncustid(string custids, int Empid) { return new EmployeeReportPageDAL().Customerinfobasedoncustid(custids,Empid, "[dbo].[usp_GetEmpDetails_Commession]"); }
+        public ArrayList Customerinfobasedoncustid(string custids, int Empid) { return new EmployeeReportPageDAL().Customerinfobasedoncustid(custids, Empid, "[dbo].[usp_GetEmpDetails_Commession]"); }
 
 
         public int? updatemarketingvrfycation([FromBody]ticketverification Mobj) { return new EmployeeReportPageDAL().updatemarketingvrfycation(Mobj, "[dbo].[usp_updatemarketingcommission]"); }
@@ -256,7 +256,7 @@ namespace WebapiApplication.Implement
 
         public List<EmployeeUnassignedPages> deselectPagePermissions(int? Empid, string Pageid, int? flag)
         {
-            return new EmployeeReportPageDAL().deselectPagePermissions(Empid,Pageid,flag, "[dbo].[USP_EMP_UNASSIGNEDPAGES_AJS]");
+            return new EmployeeReportPageDAL().deselectPagePermissions(Empid, Pageid, flag, "[dbo].[USP_EMP_UNASSIGNEDPAGES_AJS]");
         }
 
         public ArrayList deselectPagePermissionsupdate(int? Empid, string Pageid, int? flag)
@@ -270,7 +270,7 @@ namespace WebapiApplication.Implement
         }
         public ArrayList bankNamesreport(int? RegionId)
         {
-            return new EmployeeReportPageDAL().bankNamesreport(RegionId,"[dbo].[USP_EMP_GETBANKNAMES_AJS]");
+            return new EmployeeReportPageDAL().bankNamesreport(RegionId, "[dbo].[USP_EMP_GETBANKNAMES_AJS]");
         }
         public ArrayList employeeDailyworkreport([FromBody]employeeworkreport Mobj)
         {
@@ -302,6 +302,21 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().Dontshowservice(cust_id, toprofileid, empid, Relation_type, flag, "[dbo].[Usp_Emp_insert_Cust_Dontshowslideshow_Ajs]");
         }
+
+        public ArrayList NewmatchfollowupticketCreation(long fromcust_id, long tocust_id)
+        {
+            return new EmployeeReportPageDAL().NewmatchfollowupticketCreation(fromcust_id, tocust_id, "[dbo].[Usp_InsertExpressOppMatchFollowup]");
+        }
+        public int? Remindercreation(long fromcust_id, long tocust_id, int? empid, long intTicketID, DateTime? dtRemainderDate)
+        {
+            return new EmployeeReportPageDAL().Remindercreation(fromcust_id, tocust_id, empid, intTicketID, dtRemainderDate, "[dbo].[Usp_InsertTicketRemainderCall]");
+        }
+
+        public int? Partnerpreference_Indetailedata(long? CustID, string indetaileddesc)
+        {
+            return new EmployeeReportPageDAL().Partnerpreference_Indetailedata(CustID, indetaileddesc, "[dbo].[Usp_InsertPartnerPrefferIndetaildReq]");
+        }
+
     }
 
 }

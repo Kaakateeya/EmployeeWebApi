@@ -682,6 +682,9 @@ namespace WebapiApplication.DAL
                             Binterest.MFPFromEntered = (reader["MFPFromEntered"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MFPFromEntered")) : null;
                             Binterest.MFPToEntered = (reader["MFPToEntered"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MFPToEntered")) : null;
 
+                            Binterest.FromRemDate = (reader["FromRemDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromRemDate")) : null;
+                            Binterest.ToRemDate = (reader["ToRemDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToRemDate")) : null;
+
 
                             arrayList.Add(Binterest);
                         }
@@ -6255,6 +6258,120 @@ namespace WebapiApplication.DAL
                 connection.Close();
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public ArrayList NewmatchfollowupticketCreation(long fromcust_id, long tocust_id, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[3];
+                parm[0] = new SqlParameter("@fromcust_id", SqlDbType.BigInt);
+                parm[0].Value = fromcust_id;
+                parm[1] = new SqlParameter("@tocust_id", SqlDbType.BigInt);
+                parm[1].Value = tocust_id;
+
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public int? Remindercreation(long fromcust_id, long tocust_id, int? empid, long intTicketID, DateTime? dtRemainderDate, string spname)
+        {
+
+            SqlParameter[] parm = new SqlParameter[8];
+            int? intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@fromcust_id", SqlDbType.BigInt);
+                parm[0].Value = fromcust_id;
+                parm[1] = new SqlParameter("@tocust_id", SqlDbType.BigInt);
+                parm[1].Value = tocust_id;
+
+
+                parm[2] = new SqlParameter("@inEmpID", SqlDbType.Int);
+                parm[2].Value = empid;
+
+                parm[3] = new SqlParameter("@intTicketID", SqlDbType.BigInt);
+                parm[3].Value = intTicketID;
+
+                parm[4] = new SqlParameter("@dtRemainderDate", SqlDbType.DateTime);
+                parm[4].Value = dtRemainderDate;
+
+                parm[5] = new SqlParameter("@intStatus", SqlDbType.Int);
+                parm[5].Direction = ParameterDirection.Output;
+
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[5].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[5].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return intStatus;
+        }
+
+        public int? Partnerpreference_Indetailedata(long? CustID, string indetaileddesc, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[5];
+            int? intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@fromcust_id", SqlDbType.BigInt);
+                parm[0].Value = CustID;
+                parm[1] = new SqlParameter("@strIndetaildReq", SqlDbType.VarChar);
+                parm[1].Value = indetaileddesc;
+                parm[2] = new SqlParameter("@intStatus", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[2].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[2].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return intStatus;
         }
     }
 }

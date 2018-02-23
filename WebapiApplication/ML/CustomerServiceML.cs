@@ -261,6 +261,10 @@ namespace WebapiApplication.ML
         public string MFPFromEntered { get; set; }
 
         public string MFPToEntered { get; set; }
+
+        public string ToRemDate { get; set; }
+
+        public string FromRemDate { get; set; }
     }
 
     public class SearchML

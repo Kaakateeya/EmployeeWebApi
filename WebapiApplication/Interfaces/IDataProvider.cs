@@ -448,6 +448,12 @@ namespace WebapiApplication.Interfaces
         ArrayList SettlementReasonbasedonEmp(string empid);
 
         ArrayList Dontshowservice(long cust_id, string toprofileid, int empid, string Relation_type, int flag);
+
+        ArrayList NewmatchfollowupticketCreation(long fromcust_id, long tocust_id);
+
+        int? Remindercreation(long fromcust_id, long tocust_id, int? empid, long intTicketID, DateTime? dtRemainderDate);
+
+        int? Partnerpreference_Indetailedata(long? CustID, string indetaileddesc);
     }
 
     public interface ISmallPages

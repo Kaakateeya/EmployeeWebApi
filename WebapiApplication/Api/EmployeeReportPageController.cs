@@ -630,6 +630,25 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.Dontshowservice(cust_id, toProfileid, empid, Relation_type, flag);
         }
 
+        // 22_02_2017 Employee match followup Newticket Creation
+
+        public ArrayList getNewmatchfollowupticketCreation(long fromcust_id, long tocust_id)
+        {
+            return this.IEmployeeReport.NewmatchfollowupticketCreation(fromcust_id, tocust_id);
+        }
+
+        // 22_02_2017 Employee match followup create reminder  Creation
+
+        public int? getRemindercreation(long fromcust_id, long tocust_id, int? empid, long intTicketID, DateTime? dtRemainderDate)
+        {
+            return this.IEmployeeReport.Remindercreation(fromcust_id, tocust_id, empid, intTicketID, dtRemainderDate);
+        }
+
+        // 23_02_2018 customer partner preference indetailed details
+        public int? getPartnerpreference_Indetailedata(long? CustID, string indetaileddesc)
+        {
+            return this.IEmployeeReport.Partnerpreference_Indetailedata(CustID, indetaileddesc);
+        }
 
     }
 }
