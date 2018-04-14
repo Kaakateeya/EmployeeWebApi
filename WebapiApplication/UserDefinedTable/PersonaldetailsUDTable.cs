@@ -1623,6 +1623,10 @@ namespace WebapiApplication.UserDefinedTable
             dtCreate.Columns.Add("Pr_NativeLocation");
             dtCreate.Columns.Add("Pr_PreferredStar");
             dtCreate.Columns.Add("C_ArrivalBetween100Days");
+            dtCreate.Columns.Add("C_DepartureBetween100Days");
+
+            dtCreate.Columns.Add("PaidStatus");
+
             return dtCreate;
 
         }

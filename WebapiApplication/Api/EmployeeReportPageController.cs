@@ -7,6 +7,7 @@ using WebapiApplication.Implement;
 using WebapiApplication.Interfaces;
 using WebapiApplication.ML;
 using WebapiApplication.UserDefinedTable;
+using WebapiApplication.ServiceReference1;
 
 namespace WebapiApplication.Api
 {
@@ -625,7 +626,7 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.SettlementReasonbasedonEmp(empid);
         }
         //13-02_2018_Customer dont show sevice
-        public ArrayList getDontshowservice(long cust_id, string toProfileid, int empid, string Relation_type,int flag)
+        public ArrayList getDontshowservice(long cust_id, string toProfileid, int empid, string Relation_type, int flag)
         {
             return this.IEmployeeReport.Dontshowservice(cust_id, toProfileid, empid, Relation_type, flag);
         }
@@ -649,6 +650,16 @@ namespace WebapiApplication.Api
         {
             return this.IEmployeeReport.Partnerpreference_Indetailedata(CustID, indetaileddesc);
         }
+
+        // 07_03_2018 Employee sms 
+
+        public int? Employeesmsformatchfollowup([FromBody]employeesmsmatchfollowup Mobj)
+        {
+            ServiceSoapClient cc = new ServiceSoapClient();
+            string result1 = cc.SendTextSMS("ykrishna", "summary$1", Mobj.Mobilenumber, Mobj.Matchfollouptext, "smscntry");
+            return 1;
+        }
+
 
     }
 }

@@ -1239,9 +1239,10 @@ namespace WebapiApplication.ML
         public string Pr_NativeLocation { set; get; }
 
         public string Pr_PreferredStar { set; get; }
+        public string C_ArrivalBetween100Days { set; get; }
+        public string C_DepartureBetween100Days { set; get; }
 
-        public int? C_ArrivalBetween100Days { set; get; }
-
+        public string PaidStatus { get; set; }
     }
 
     public class MasterData
@@ -1440,6 +1441,14 @@ namespace WebapiApplication.ML
         public int? intEndIndex { get; set; }
 
         public string intRegionID { get; set; }
+    }
+
+    public class employeesmsmatchfollowup
+    {
+
+
+        public string Mobilenumber { get; set; }
+        public string Matchfollouptext { get; set; }
     }
 }
 

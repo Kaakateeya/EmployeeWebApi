@@ -390,6 +390,7 @@ namespace WebapiApplication.ML
         public int? primaryCountryID { get; set; }
 
         public string FatherName { get; set; }
+        public int? paidStatus {get;set;}
     }
 
 
