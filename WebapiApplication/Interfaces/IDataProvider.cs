@@ -454,6 +454,8 @@ namespace WebapiApplication.Interfaces
         int? Remindercreation(long fromcust_id, long tocust_id, int? empid, long intTicketID, DateTime? dtRemainderDate);
 
         int? Partnerpreference_Indetailedata(long? CustID, string indetaileddesc);
+
+        getCustomerinfoKeyword InfoCustomer(string Profileid);
     }
 
     public interface ISmallPages

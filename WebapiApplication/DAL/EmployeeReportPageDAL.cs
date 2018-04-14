@@ -6374,5 +6374,43 @@ namespace WebapiApplication.DAL
             }
             return intStatus;
         }
+
+        public getCustomerinfoKeyword InfoCustomer(string Profileid, string spName)
+        {
+
+            getCustomerinfoKeyword custinfo = new getCustomerinfoKeyword();
+            SqlParameter[] parm = new SqlParameter[10];
+            SqlDataReader reader;
+            Int64? iNull = null;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@strProfileId", SqlDbType.VarChar);
+                parm[0].Value = Profileid;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        custinfo.ProfileID = (reader["ProfileID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileID")) : null;
+                        custinfo.Cust_ID = (reader["Cust_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ID")) : iNull;
+                        custinfo.FullName = (reader["FullName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FullName")) : null;
+                        custinfo.PhotoPath = (reader["PhotoPath"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PhotoPath")) : null;
+                    }
+                }
+                reader.Close();
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return custinfo;
+        }
     }
 }

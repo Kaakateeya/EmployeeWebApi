@@ -1445,10 +1445,16 @@ namespace WebapiApplication.ML
 
     public class employeesmsmatchfollowup
     {
-
-
         public string Mobilenumber { get; set; }
         public string Matchfollouptext { get; set; }
+    }
+
+    public class getCustomerinfoKeyword
+    {
+        public string ProfileID { get; set; }
+        public long? Cust_ID { get; set; }
+        public string FullName { get; set; }
+        public string PhotoPath { get; set; }
     }
 }
 

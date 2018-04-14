@@ -660,6 +660,11 @@ namespace WebapiApplication.Api
             return 1;
         }
 
+        public getCustomerinfoKeyword getInfoCustomer(string Profileid)
+        {
+            return this.IEmployeeReport.InfoCustomer(Profileid);
+        }
+        
 
     }
 }
