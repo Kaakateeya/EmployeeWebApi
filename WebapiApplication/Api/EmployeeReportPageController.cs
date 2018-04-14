@@ -664,7 +664,10 @@ namespace WebapiApplication.Api
         {
             return this.IEmployeeReport.InfoCustomer(Profileid);
         }
-        
+        public int? sendkeywordsearchemal([FromBody]keywordsearchemail Mobj)
+        {
+            return this.IEmployeeReport.sendkeywordsearchemal(Mobj);
+        }
 
     }
 }

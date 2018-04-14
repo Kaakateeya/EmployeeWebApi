@@ -1456,6 +1456,13 @@ namespace WebapiApplication.ML
         public string FullName { get; set; }
         public string PhotoPath { get; set; }
     }
+    public class keywordsearchemail
+    {
+        public string strProfilid { get; set; }
+        public string strtoprofilids { get; set; }
+        public DataTable dtnotviewedprofiles { get; set; }
+    }
+
 }
 
 

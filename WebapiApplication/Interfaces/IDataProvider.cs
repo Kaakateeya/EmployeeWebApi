@@ -456,6 +456,8 @@ namespace WebapiApplication.Interfaces
         int? Partnerpreference_Indetailedata(long? CustID, string indetaileddesc);
 
         getCustomerinfoKeyword InfoCustomer(string Profileid);
+
+        int? sendkeywordsearchemal(keywordsearchemail Mobj);
     }
 
     public interface ISmallPages
