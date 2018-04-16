@@ -6413,6 +6413,31 @@ namespace WebapiApplication.DAL
             return custinfo;
         }
 
+
+        public DataTable createSendServiceKeywordSearch(string fromProfileID, string toProfileIDs)
+        {
+            string strarraytoProfileID = null;
+            DataTable dtEncript = new DataTable();
+            dtEncript.Columns.Add("FromProfileID");
+            dtEncript.Columns.Add("toProfileID");
+            dtEncript.Columns.Add("AcceptEncript");
+
+            string[] splitData = !string.IsNullOrEmpty(toProfileIDs) ? toProfileIDs.Split(',') : null;
+
+            if (splitData != null)
+            {
+                for (int iarraycount = 0; splitData.Length > iarraycount; iarraycount++)
+                {
+                    strarraytoProfileID = splitData[iarraycount].ToString();
+                    string EncriptedText = Commonclass.ReturnEncryptLink("Accept", (!string.IsNullOrEmpty(fromProfileID) ? fromProfileID : null), (!string.IsNullOrEmpty(strarraytoProfileID) ? strarraytoProfileID : null));
+                    dtEncript.Rows.Add(fromProfileID, strarraytoProfileID, EncriptedText);
+                }
+            }
+
+
+            return dtEncript;
+        }
+
         public int? sendkeywordsearchemal(keywordsearchemail Mobj, string spName)
         {
             int? Istatus = null;
@@ -6422,7 +6447,7 @@ namespace WebapiApplication.DAL
             connection.Open();
 
             SqlDataReader reader;
-
+            Mobj.dtnotviewedprofiles = createSendServiceKeywordSearch(Mobj.strProfilid, Mobj.strtoprofilids);
             SqlParameter[] parm = new SqlParameter[5];
             try
             {
@@ -6432,9 +6457,10 @@ namespace WebapiApplication.DAL
                 parm[1].Value = Mobj.strtoprofilids;
                 parm[2] = new SqlParameter("@dtnotviewedprofiles", SqlDbType.Structured);
                 parm[2].Value = Mobj.dtnotviewedprofiles;
-               
+
                 List<Smtpemailsending> li = new List<Smtpemailsending>();
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+
                 if (reader.HasRows)
                 {
                     while (reader.Read())
