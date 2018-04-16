@@ -6374,5 +6374,97 @@ namespace WebapiApplication.DAL
             }
             return intStatus;
         }
+
+        public getCustomerinfoKeyword InfoCustomer(string Profileid, string spName)
+        {
+
+            getCustomerinfoKeyword custinfo = new getCustomerinfoKeyword();
+            SqlParameter[] parm = new SqlParameter[10];
+            SqlDataReader reader;
+            Int64? iNull = null;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@strProfileId", SqlDbType.VarChar);
+                parm[0].Value = Profileid;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        custinfo.ProfileID = (reader["ProfileID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileID")) : null;
+                        custinfo.Cust_ID = (reader["Cust_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ID")) : iNull;
+                        custinfo.FullName = (reader["FullName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FullName")) : null;
+                        custinfo.PhotoPath = (reader["PhotoPath"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PhotoPath")) : null;
+                    }
+                }
+                reader.Close();
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return custinfo;
+        }
+
+        public int? sendkeywordsearchemal(keywordsearchemail Mobj, string spName)
+        {
+            int? Istatus = null;
+            int? intStatus = null;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            SqlDataReader reader;
+
+            SqlParameter[] parm = new SqlParameter[5];
+            try
+            {
+                parm[0] = new SqlParameter("@v_FromprofileID", SqlDbType.VarChar);
+                parm[0].Value = Mobj.strProfilid;
+                parm[1] = new SqlParameter("@v_toProfileID", SqlDbType.VarChar);
+                parm[1].Value = Mobj.strtoprofilids;
+                parm[2] = new SqlParameter("@dtnotviewedprofiles", SqlDbType.Structured);
+                parm[2].Value = Mobj.dtnotviewedprofiles;
+               
+                List<Smtpemailsending> li = new List<Smtpemailsending>();
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Smtpemailsending smtp = new Smtpemailsending();
+                        {
+                            smtp.profile_name = (reader["profile_name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("profile_name")) : string.Empty;
+                            smtp.recipients = (reader["recipients"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("recipients")) : string.Empty;
+                            smtp.body = (reader["body"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body")) : string.Empty;
+                            smtp.subject = (reader["subject"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("subject")) : string.Empty;
+                            smtp.body_format = (reader["body_format"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("body_format")) : string.Empty;
+                            Istatus = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : 0;
+                        }
+                        li.Add(smtp);
+                    }
+                }
+                intStatus = Istatus != null && Istatus != 0 ? 1 : 0;
+
+                reader.Close();
+                Commonclass.SendMailSmtpMethod(li, "info");
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return intStatus;
+        }
     }
 }

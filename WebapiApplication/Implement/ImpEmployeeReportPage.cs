@@ -316,7 +316,14 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().Partnerpreference_Indetailedata(CustID, indetaileddesc, "[dbo].[Usp_InsertPartnerPrefferIndetaildReq]");
         }
-
+        public getCustomerinfoKeyword InfoCustomer(string Profileid)
+        {
+            return new EmployeeReportPageDAL().InfoCustomer(Profileid, "[dbo].[usp_Emp_GetProfileInfo]");
+        }
+        public int? sendkeywordsearchemal([FromBody]keywordsearchemail Mobj)
+        {
+            return new EmployeeReportPageDAL().sendkeywordsearchemal(Mobj, "[dbo].[sp_email_UnPaidCustService]");
+        }
     }
 
 }

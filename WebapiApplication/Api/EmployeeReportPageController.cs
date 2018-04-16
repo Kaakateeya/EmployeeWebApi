@@ -660,6 +660,14 @@ namespace WebapiApplication.Api
             return 1;
         }
 
+        public getCustomerinfoKeyword getInfoCustomer(string Profileid)
+        {
+            return this.IEmployeeReport.InfoCustomer(Profileid);
+        }
+        public int? sendkeywordsearchemal([FromBody]keywordsearchemail Mobj)
+        {
+            return this.IEmployeeReport.sendkeywordsearchemal(Mobj);
+        }
 
     }
 }
