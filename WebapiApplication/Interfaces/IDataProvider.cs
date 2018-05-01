@@ -539,6 +539,8 @@ namespace WebapiApplication.Interfaces
         ArrayList listOFServiceGiven(ListOfServicesTakenM1 mobj);
 
         ArrayList emailBouncelist(EmailBounceReports mobj);
+
+        int EmpStatusformConfidential(string intProfileID, int empId);
     }
 
     public interface IMobileAppDev

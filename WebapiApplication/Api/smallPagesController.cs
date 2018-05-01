@@ -232,7 +232,10 @@ namespace WebapiApplication.Api
         {
             return Iobj.checkStatus(whereID, secondwhereID, flag);
         }
-
+        public int getEmpStatusformConfidential(string intProfileID, int  empId)
+        {
+            return Iobj.EmpStatusformConfidential(intProfileID, empId);
+        }
         public ArrayList SettledProfilesInfo(settledProfilesRequest mobj)
         {
             return Iobj.SettledPrfofilesInfo(mobj);

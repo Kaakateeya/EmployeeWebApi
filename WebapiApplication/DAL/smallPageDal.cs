@@ -1966,7 +1966,44 @@ namespace WebapiApplication.DAL
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
 
+        public int EmpStatusformConfidential(string intProfileID, int empId, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[4];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            SqlDataReader reader = null;
+            int Status = 0;
+            try
+            {
+                parm[0] = new SqlParameter("@intProfileID", SqlDbType.VarChar);
+                parm[0].Value = intProfileID;
+                parm[1] = new SqlParameter("@intAdminID", SqlDbType.Int);
+                parm[1].Value = empId;
+                parm[2] = new SqlParameter("@status", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(parm[2].Value.ToString(), System.DBNull.Value.ToString()) == 0)
+                {
+                    Status = 0;
+                }
+                else
+                {
+                    Status = Convert.ToInt32(parm[2].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
 
+            }
+
+            return Status;
+        }
     }
 }
 
