@@ -200,14 +200,14 @@ namespace WebapiApplication.Api
             ecount.intownerName = !string.IsNullOrEmpty(OwnerName) ? Convert.ToInt32(OwnerName) : inull;
             ecount.strbranchName = Branchname;
 
-            if (string.IsNullOrEmpty(strTableType))
-            {
-                return this.ICustomerpersonalupdate.Emplanding_counts_TablesDisplay(ecount);
-            }
-            else
-            {
+            //if (string.IsNullOrEmpty(strTableType))
+            //{
+            //    return this.ICustomerpersonalupdate.Emplanding_counts_TablesDisplay(ecount);
+            //}
+            //else
+            //{
                 return this.ICustomerpersonalupdate.Emplanding_counts_Admin(ecount);
-            }
+            //}
         }
 
         // Edit/View
@@ -276,7 +276,7 @@ namespace WebapiApplication.Api
 
         public int getPhotoPassword([FromUri]Int64? CustID, [FromUri]int? ipassword)
         {
-            return this.ICustomerpersonalupdate.PhotoPassword(CustID, ipassword);
+            return this.ICustomerpersonalupdate.PhotoPassword(CustID, ipassword); 
         }
 
         public int AstroDetailsUpdateDelete([FromBody]AstroUploadDelete astroupdate)
