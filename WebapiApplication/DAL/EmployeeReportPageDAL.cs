@@ -6414,7 +6414,7 @@ namespace WebapiApplication.DAL
         }
 
 
-        public DataTable createSendServiceKeywordSearch(string fromProfileID, string toProfileIDs)
+        public DataTable createSendServiceKeywordSearch(string fromProfileID, string toProfileIDs, bool ischk)
         {
             string strarraytoProfileID = null;
             DataTable dtEncript = new DataTable();
@@ -6426,11 +6426,29 @@ namespace WebapiApplication.DAL
 
             if (splitData != null)
             {
-                for (int iarraycount = 0; splitData.Length > iarraycount; iarraycount++)
+                if (ischk == false)
                 {
-                    strarraytoProfileID = splitData[iarraycount].ToString();
-                    string EncriptedText = Commonclass.ReturnEncryptLink("Accept", (!string.IsNullOrEmpty(fromProfileID) ? fromProfileID : null), (!string.IsNullOrEmpty(strarraytoProfileID) ? strarraytoProfileID : null));
-                    dtEncript.Rows.Add(fromProfileID, strarraytoProfileID, EncriptedText);
+                    for (int iarraycount = 0; splitData.Length > iarraycount; iarraycount++)
+                    {
+                        strarraytoProfileID = splitData[iarraycount].ToString();
+                        string EncriptedText = Commonclass.ReturnEncryptLink("Accept", (!string.IsNullOrEmpty(strarraytoProfileID) ? strarraytoProfileID : null), (!string.IsNullOrEmpty(fromProfileID) ? fromProfileID : null));
+                        dtEncript.Rows.Add(strarraytoProfileID, fromProfileID, EncriptedText, 0);
+                    }
+                }
+                else
+                {
+                    for (int iarraycount = 0; splitData.Length > iarraycount; iarraycount++)
+                    {
+                        strarraytoProfileID = splitData[iarraycount].ToString();
+                        string EncriptedText = Commonclass.ReturnEncryptLink("Accept", (!string.IsNullOrEmpty(fromProfileID) ? fromProfileID : null), (!string.IsNullOrEmpty(strarraytoProfileID) ? strarraytoProfileID : null));
+                        dtEncript.Rows.Add(fromProfileID, strarraytoProfileID, EncriptedText, 1);
+                    }
+                    for (int iarraycount = 0; splitData.Length > iarraycount; iarraycount++)
+                    {
+                        strarraytoProfileID = splitData[iarraycount].ToString();
+                        string EncriptedText = Commonclass.ReturnEncryptLink("Accept", (!string.IsNullOrEmpty(strarraytoProfileID) ? strarraytoProfileID : null), (!string.IsNullOrEmpty(fromProfileID) ? fromProfileID : null));
+                        dtEncript.Rows.Add(strarraytoProfileID, fromProfileID, EncriptedText, 0);
+                    }
                 }
             }
 
@@ -6447,7 +6465,7 @@ namespace WebapiApplication.DAL
             connection.Open();
 
             SqlDataReader reader;
-            Mobj.dtnotviewedprofiles = createSendServiceKeywordSearch(Mobj.strProfilid, Mobj.strtoprofilids);
+            Mobj.dtnotviewedprofiles = createSendServiceKeywordSearch(Mobj.strProfilid, Mobj.strtoprofilids, Mobj.chkRvr);
             SqlParameter[] parm = new SqlParameter[5];
             try
             {

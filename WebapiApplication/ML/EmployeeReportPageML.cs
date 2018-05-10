@@ -1460,6 +1460,7 @@ namespace WebapiApplication.ML
     {
         public string strProfilid { get; set; }
         public string strtoprofilids { get; set; }
+        public bool chkRvr { get; set; }
         public DataTable dtnotviewedprofiles { get; set; }
     }
 
