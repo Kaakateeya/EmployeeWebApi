@@ -324,6 +324,12 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().sendkeywordsearchemal(Mobj, "[dbo].[sp_email_UnPaidCustService]");
         }
+
+        public getCustomerinfoKeyword PhotosOfCustomers(string Profileids)
+        {
+            return new EmployeeReportPageDAL().PhotosOfCustomers(Profileids, "[dbo].[usp_Emp_SendProfileInfo_Keyword]");
+        }
+
     }
 
 }

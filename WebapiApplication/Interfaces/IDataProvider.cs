@@ -458,6 +458,8 @@ namespace WebapiApplication.Interfaces
         getCustomerinfoKeyword InfoCustomer(string Profileid);
 
         int? sendkeywordsearchemal(keywordsearchemail Mobj);
+
+        getCustomerinfoKeyword PhotosOfCustomers(string Profileids);
     }
 
     public interface ISmallPages
