@@ -668,7 +668,7 @@ namespace WebapiApplication.Api
         {
             return this.IEmployeeReport.sendkeywordsearchemal(Mobj);
         }
-        public getCustomerinfoKeyword getPhotosOfCustomers(string Profileids)
+        public List<getCustomerinfoKeyword> getPhotosOfCustomers(string Profileids)
         {
             return this.IEmployeeReport.PhotosOfCustomers(Profileids);
         }

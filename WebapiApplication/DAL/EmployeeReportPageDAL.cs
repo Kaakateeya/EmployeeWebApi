@@ -6511,9 +6511,10 @@ namespace WebapiApplication.DAL
             return intStatus;
         }
 
-        public getCustomerinfoKeyword PhotosOfCustomers(string Profileids, string spName)
+        public List<getCustomerinfoKeyword> PhotosOfCustomers(string Profileids, string spName)
         {
-            getCustomerinfoKeyword custinfo = new getCustomerinfoKeyword();
+            List<getCustomerinfoKeyword> custinfoli = new List<getCustomerinfoKeyword>();
+            // getCustomerinfoKeyword custinfo = new getCustomerinfoKeyword();
             SqlParameter[] parm = new SqlParameter[1];
             SqlDataReader reader;
             Int64? iNull = null;
@@ -6529,11 +6530,16 @@ namespace WebapiApplication.DAL
                 {
                     while (reader.Read())
                     {
-                        custinfo.ProfileID = (reader["ProfileID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileID")) : null;
-                        custinfo.Cust_ID = (reader["Cust_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ID")) : iNull;
-                        custinfo.FullName = (reader["FullName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FullName")) : null;
-                        custinfo.PhotoPath = (reader["PhotoPath"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PhotoPath")) : null;
+                        getCustomerinfoKeyword custinfo = new getCustomerinfoKeyword();
+                        {
+                            custinfo.ProfileID = (reader["ProfileID"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileID")) : null;
+                            custinfo.Cust_ID = (reader["Cust_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ID")) : iNull;
+                            custinfo.FullName = (reader["FullName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FullName")) : null;
+                            custinfo.PhotoPath = (reader["PhotoPath"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PhotoPath")) : null;
+                        }
+                        custinfoli.Add(custinfo);
                     }
+
                 }
                 reader.Close();
             }
@@ -6545,7 +6551,7 @@ namespace WebapiApplication.DAL
             {
                 connection.Close();
             }
-            return custinfo;
+            return custinfoli;
         }
     }
 }

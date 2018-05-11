@@ -459,7 +459,7 @@ namespace WebapiApplication.Interfaces
 
         int? sendkeywordsearchemal(keywordsearchemail Mobj);
 
-        getCustomerinfoKeyword PhotosOfCustomers(string Profileids);
+        List<getCustomerinfoKeyword> PhotosOfCustomers(string Profileids);
     }
 
     public interface ISmallPages
