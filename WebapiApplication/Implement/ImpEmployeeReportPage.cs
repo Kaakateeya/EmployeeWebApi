@@ -330,6 +330,8 @@ namespace WebapiApplication.Implement
             return new EmployeeReportPageDAL().PhotosOfCustomers(Profileids, "[dbo].[usp_Emp_SendProfileInfo_Keyword]");
         }
 
+        public ArrayList UnMatchfollowupSlideShowResult(SearchML Mobj) { return new EmployeeReportPageDAL().UnMatchfollowupSlideShowResult(Mobj, "[dbo].[Usp_Select_BothSideOneSideInterst_New_NewDesign_UnPaid]"); }
+
     }
 
 }

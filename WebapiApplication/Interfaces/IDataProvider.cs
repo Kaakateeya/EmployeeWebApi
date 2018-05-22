@@ -460,6 +460,8 @@ namespace WebapiApplication.Interfaces
         int? sendkeywordsearchemal(keywordsearchemail Mobj);
 
         List<getCustomerinfoKeyword> PhotosOfCustomers(string Profileids);
+
+        ArrayList UnMatchfollowupSlideShowResult(SearchML Mobj);
     }
 
     public interface ISmallPages

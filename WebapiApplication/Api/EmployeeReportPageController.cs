@@ -673,5 +673,15 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.PhotosOfCustomers(Profileids);
         }
 
+         // 22_05_2018 UnPaid Matchfollowup slide show
+
+        public ArrayList UnMatchfollowupSlideShowResult([FromBody]SearchML Mobj)
+        {
+            Mobj.ProfileOwner = Commonclass.getTableData(Mobj.strProfileOwner, "owner");
+            Mobj.ProfileOwnerBranch = Commonclass.getTableData(Mobj.strProfileOwnerBranch, "branch");
+            Mobj.region = Commonclass.getTableData(Mobj.strregion, "region");
+            return this.IEmployeeReport.UnMatchfollowupSlideShowResult(Mobj);
+        }
+
     }
 }
