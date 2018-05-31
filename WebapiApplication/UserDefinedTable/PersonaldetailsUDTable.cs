@@ -1627,6 +1627,13 @@ namespace WebapiApplication.UserDefinedTable
 
             dtCreate.Columns.Add("PaidStatus");
 
+            dtCreate.Columns.Add("sp_LegallyDivercedOn");
+            dtCreate.Columns.Add("C_Edu_School_Study");
+            dtCreate.Columns.Add("C_Edu_Inter_Study");
+            dtCreate.Columns.Add("C_Edu_Degree_Study");
+            dtCreate.Columns.Add("C_Edu_PG_Study");
+            dtCreate.Columns.Add("C_Edu_PHd_Study");
+            dtCreate.Columns.Add("Sp_Father_Native");
             return dtCreate;
 
         }

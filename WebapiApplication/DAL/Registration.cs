@@ -201,6 +201,9 @@ namespace WebapiApplication.DAL
                 parm[25] = new SqlParameter("@intSubCasteID", SqlDbType.Int);
                 parm[25].Value = Mobj.intSubCasteID;
 
+                parm[26] = new SqlParameter("@intProfileType", SqlDbType.Int);
+                parm[26].Value = Mobj.intProfileType;
+
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (reader.HasRows)
                 {

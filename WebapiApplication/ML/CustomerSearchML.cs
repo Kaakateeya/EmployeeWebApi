@@ -138,6 +138,8 @@ namespace WebapiApplication.ML
         public int? intSubCasteID { set; get; }
 
         public int? BrokerNameID { get; set; }
+
+        public int? intProfileType { get; set; }
     }
 
     public class CustomerHomePageSearch

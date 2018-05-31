@@ -369,14 +369,14 @@ namespace WebapiApplication.DAL
                             {
                                 strgender = "Ms";
                             }
-                            strbranchcode = "at" + ' ' + dtProfileID.Rows[0]["BranchesName"].ToString();
+                            strbranchcode = dtProfileID.Rows[0]["BranchesName"].ToString();
                         }
                     }
                     if (Mobj.dtPaymentDetails.Rows.Count > 0)
                     {
                         ProfileID = Mobj.dtPaymentDetails.Rows[0]["ProfileID"].ToString();
                         AmountPaid = Mobj.dtPaymentDetails.Rows[0]["AmountPaid"].ToString();
-                        strVerificationText = strgender + '.' + dsPaymentDetails.Tables[0].Rows[0]["Name"].ToString() + ", thank you for the payment of  Rs." + AmountPaid + "/ at" + ' ' + strbranchcode + " and your profile id is : " + ProfileID + ".... Kaakateeya.com";
+                        strVerificationText = strgender + '.' + dsPaymentDetails.Tables[0].Rows[0]["Name"].ToString() + ", thank you for the payment of  Rs." + AmountPaid + "/ @" + strbranchcode + " and your profile id is : " + ProfileID + ".... Kaakateeya.com";
                     }
                     else
                     {
@@ -769,9 +769,9 @@ namespace WebapiApplication.DAL
         public static string profileidEncrypt(string clearText)
         {
 
-            string en = base64Encode(clearText).Replace("=", "100").Replace("+", "200").Replace("#", "300").Replace("!", "400").Replace(";", "500").Replace("'", "600").Replace("/", "700").Replace("\\", "800");;
+            string en = base64Encode(clearText).Replace("=", "100").Replace("+", "200").Replace("#", "300").Replace("!", "400").Replace(";", "500").Replace("'", "600").Replace("/", "700").Replace("\\", "800"); ;
 
-           // string strdecode = base64Decode(en);
+            // string strdecode = base64Decode(en);
             return en;
         }
 
@@ -813,8 +813,8 @@ namespace WebapiApplication.DAL
             //}
             //return cipherText;
             string strdecode = base64Decode(cipherText);
-            return strdecode; 
+            return strdecode;
         }
-        
+
     }
 }

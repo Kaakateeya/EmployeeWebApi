@@ -1243,6 +1243,13 @@ namespace WebapiApplication.ML
         public string C_DepartureBetween100Days { set; get; }
 
         public string PaidStatus { get; set; }
+        public string sp_LegallyDivercedOn { get; set; }
+        public string C_Edu_School_Study { get; set; }
+        public string C_Edu_Inter_Study { get; set; }
+        public string C_Edu_Degree_Study { get; set; }
+        public string C_Edu_PG_Study { get; set; }
+        public string C_Edu_PHd_Study { get; set; }
+        public string Sp_Father_Native { get; set; }
     }
 
     public class MasterData
