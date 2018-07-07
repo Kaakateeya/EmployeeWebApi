@@ -387,6 +387,9 @@ namespace WebapiApplication.DAL
                         MObjPartnerML.WillingtoSecondMarriage = (reader["WillingtoSecondMarriage"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("WillingtoSecondMarriage")) : null;
                         MObjPartnerML.selfmaritalstatus = (reader["selfmaritalstatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("selfmaritalstatus")) : iNull;
                         MObjPartnerML.InDetailedReq = (reader["InDetailedReq"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("InDetailedReq")) : null;
+                        MObjPartnerML.DistrictName = (reader["DistrictName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("DistrictName")) : null;
+
+
                         arrayList.Add(MObjPartnerML);
                     }
                 }

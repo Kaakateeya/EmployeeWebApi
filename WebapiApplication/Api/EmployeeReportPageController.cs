@@ -683,5 +683,18 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.UnMatchfollowupSlideShowResult(Mobj);
         }
 
+        public int? InsertMonthlyBills([FromBody]insertmonthlybills Mobj)
+        {
+            return this.IEmployeeReport.InsertMonthlyBills(Mobj);
+        }
+        public ArrayList PartnerPreferenceEditData([FromBody]employeeEditpartnerInfo Mobj)
+        {
+            return this.IEmployeeReport.PartnerPreferenceEditData(Mobj);
+        }
+
+        public int? PartnerPreferenceModifileddata([FromBody]employeemodifiedpartner Mobj)
+        {
+            return this.IEmployeeReport.PartnerPreferenceModifileddata(Mobj);
+        }
     }
 }

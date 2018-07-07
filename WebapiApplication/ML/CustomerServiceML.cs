@@ -1059,6 +1059,28 @@ namespace WebapiApplication.ML
         public Int64? EmpID { set; get; }
         public int? i_Reviewpending { set; get; }
     }
-
+    public class insertmonthlybills
+    {
+        public DateTime? paymentdate { set; get; }
+        public int? paymenttype { set; get; }
+        public string paymentnarration { set; get; }
+        public int? Empid { set; get; }
+    }
+    public class employeeEditpartnerInfo
+    {
+        public string strprofileID { set; get; }
+        public DateTime? dtFromdate { set; get; }
+        public DateTime? dtTodate { set; get; }
+        public string intSessionValues { set; get; }
+        public int? startindex { set; get; }
+        public int? endindex { set; get; }
+    }
+    public class employeemodifiedpartner
+    {
+        public int Entryid { set; get; }
+        public int Empid { set; get; }
+        public int flag { set; get; }
+        public Int64? custid { set; get; }
+    }
 }
 

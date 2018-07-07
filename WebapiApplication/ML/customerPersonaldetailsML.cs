@@ -1148,6 +1148,8 @@ namespace WebapiApplication.ML
         public int? selfmaritalstatus { get; set; }
 
         public string InDetailedReq { get; set; }
+
+        public string DistrictName { get; set; }
     }
 
 

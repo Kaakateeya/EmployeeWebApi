@@ -332,6 +332,18 @@ namespace WebapiApplication.Implement
 
         public ArrayList UnMatchfollowupSlideShowResult(SearchML Mobj) { return new EmployeeReportPageDAL().UnMatchfollowupSlideShowResult(Mobj, "[dbo].[Usp_Select_BothSideOneSideInterst_New_NewDesign_UnPaid]"); }
 
+        public int? InsertMonthlyBills([FromBody]insertmonthlybills Mobj)
+        {
+            return new EmployeeReportPageDAL().InsertMonthlyBills(Mobj, "[dbo].[usp_MonthlyPayments]");
+        }
+        public ArrayList PartnerPreferenceEditData([FromBody]employeeEditpartnerInfo Mobj)
+        {
+            return new EmployeeReportPageDAL().PartnerPreferenceEditData(Mobj, "[dbo].[usp_cust_GetPartialEditInfor]");
+        }
+        public int? PartnerPreferenceModifileddata([FromBody]employeemodifiedpartner Mobj)
+        {
+            return new EmployeeReportPageDAL().PartnerPreferenceModifileddata(Mobj, "[dbo].[usp_cust_UpdatePartialEditInfor]");
+        }
     }
 
 }

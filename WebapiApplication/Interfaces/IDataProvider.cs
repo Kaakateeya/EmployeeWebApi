@@ -462,6 +462,12 @@ namespace WebapiApplication.Interfaces
         List<getCustomerinfoKeyword> PhotosOfCustomers(string Profileids);
 
         ArrayList UnMatchfollowupSlideShowResult(SearchML Mobj);
+
+        int? InsertMonthlyBills(insertmonthlybills Mobj);
+
+        ArrayList PartnerPreferenceEditData(employeeEditpartnerInfo Mobj);
+
+        int? PartnerPreferenceModifileddata(employeemodifiedpartner Mobj);
     }
 
     public interface ISmallPages

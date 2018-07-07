@@ -6719,5 +6719,121 @@ namespace WebapiApplication.DAL
             }
             return arrayList;
         }
+
+        public int? InsertMonthlyBills(insertmonthlybills Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[6];
+            int? intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@dtaymentDate", SqlDbType.DateTime);
+                parm[0].Value = Mobj.paymentdate;
+                parm[1] = new SqlParameter("@PaymentType", SqlDbType.Int);
+                parm[1].Value = Mobj.paymenttype;
+                parm[2] = new SqlParameter("@strNarration", SqlDbType.VarChar);
+                parm[2].Value = Mobj.paymentnarration;
+                parm[3] = new SqlParameter("@intEmpID", SqlDbType.Int);
+                parm[3].Value = Mobj.Empid;
+                parm[4] = new SqlParameter("@intStatus", SqlDbType.Int);
+                parm[4].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[4].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[4].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return intStatus;
+        }
+
+        public ArrayList PartnerPreferenceEditData(employeeEditpartnerInfo Mobj, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[7];
+                parm[0] = new SqlParameter("@strprofileID", SqlDbType.VarChar);
+                parm[0].Value = Mobj.strprofileID;
+                parm[1] = new SqlParameter("@dtFromdate", SqlDbType.DateTime);
+                parm[1].Value = Mobj.dtFromdate;
+                parm[2] = new SqlParameter("@dtTodate", SqlDbType.DateTime);
+                parm[2].Value = Mobj.dtTodate;
+                parm[3] = new SqlParameter("@intSessionValues", SqlDbType.VarChar);
+                parm[3].Value = Mobj.intSessionValues;
+                parm[4] = new SqlParameter("@intStartId", SqlDbType.Int);
+                parm[4].Value = Mobj.startindex;
+                parm[5] = new SqlParameter("@intEndId", SqlDbType.Int);
+                parm[5].Value = Mobj.endindex;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public int? PartnerPreferenceModifileddata(employeemodifiedpartner Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[6];
+            int? intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@intEntryid", SqlDbType.Int);
+                parm[0].Value = Mobj.Entryid;
+                parm[1] = new SqlParameter("@intEmpid", SqlDbType.Int);
+                parm[1].Value = Mobj.Empid;
+                parm[2] = new SqlParameter("@intReadStatus", SqlDbType.Int);
+                parm[2].Value = Mobj.flag;
+                parm[3] = new SqlParameter("@intcustid", SqlDbType.Int);
+                parm[3].Value = Mobj.custid;
+                parm[4] = new SqlParameter("@intStatus", SqlDbType.Int);
+                parm[4].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[4].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[4].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return intStatus;
+        }
     }
 }
