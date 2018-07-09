@@ -696,5 +696,11 @@ namespace WebapiApplication.Api
         {
             return this.IEmployeeReport.PartnerPreferenceModifileddata(Mobj);
         }
+
+        public ArrayList RegistrationprofilesInformation([FromBody]employeRegistrationInfo Mobj)
+        {
+            return this.IEmployeeReport.RegistrationprofilesInformation(Mobj);
+        }
+
     }
 }

@@ -6835,5 +6835,39 @@ namespace WebapiApplication.DAL
             }
             return intStatus;
         }
+
+        public ArrayList RegistrationprofilesInformation(employeRegistrationInfo Mobj, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[7];
+                parm[0] = new SqlParameter("@intProfileID", SqlDbType.VarChar);
+                parm[0].Value = Mobj.strprofileID;
+                parm[1] = new SqlParameter("@intCategId", SqlDbType.VarChar);
+                parm[1].Value = Mobj.intSessionValues;
+                parm[2] = new SqlParameter("@dtFromdate", SqlDbType.DateTime);
+                parm[2].Value = Mobj.dtFromdate;
+                parm[3] = new SqlParameter("@dtTodate", SqlDbType.DateTime);
+                parm[3].Value = Mobj.dtTodate;
+                parm[4] = new SqlParameter("@pagefrom", SqlDbType.Int);
+                parm[4].Value = Mobj.startindex;
+                parm[5] = new SqlParameter("@pageto", SqlDbType.Int);
+                parm[5].Value = Mobj.endindex;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }

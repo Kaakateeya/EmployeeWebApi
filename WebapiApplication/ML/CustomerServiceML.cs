@@ -1082,5 +1082,15 @@ namespace WebapiApplication.ML
         public int flag { set; get; }
         public Int64? custid { set; get; }
     }
+
+    public class employeRegistrationInfo
+    {
+        public string strprofileID { set; get; }
+        public DateTime? dtFromdate { set; get; }
+        public DateTime? dtTodate { set; get; }
+        public string intSessionValues { set; get; }
+        public int? startindex { set; get; }
+        public int? endindex { set; get; }
+    }
 }
 

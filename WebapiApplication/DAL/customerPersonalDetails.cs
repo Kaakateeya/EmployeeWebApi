@@ -313,6 +313,7 @@ namespace WebapiApplication.DAL
             SqlDataReader reader;
 
             Int64? intNull = null;
+            decimal? fnull = null;
             int? iNull = null;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
@@ -388,8 +389,8 @@ namespace WebapiApplication.DAL
                         MObjPartnerML.selfmaritalstatus = (reader["selfmaritalstatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("selfmaritalstatus")) : iNull;
                         MObjPartnerML.InDetailedReq = (reader["InDetailedReq"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("InDetailedReq")) : null;
                         MObjPartnerML.DistrictName = (reader["DistrictName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("DistrictName")) : null;
-
-
+                        MObjPartnerML.Property_from = (reader["Property_from"]) != DBNull.Value ? reader.GetDecimal(reader.GetOrdinal("Property_from")) : fnull;
+                        MObjPartnerML.Property_to = (reader["Property_to"]) != DBNull.Value ? reader.GetDecimal(reader.GetOrdinal("Property_to")) : fnull;
                         arrayList.Add(MObjPartnerML);
                     }
                 }

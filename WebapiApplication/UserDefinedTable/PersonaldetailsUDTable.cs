@@ -281,6 +281,10 @@ namespace WebapiApplication.UserDefinedTable
             dtPartberPref.Columns.Add("Branch");
             dtPartberPref.Columns.Add("Domacile");
             dtPartberPref.Columns.Add("WillingtoSecondMarriage");
+
+            dtPartberPref.Columns.Add("Property_From");
+            dtPartberPref.Columns.Add("Property_To");
+
             //dtPartberPref.Columns.Add("CityID");
 
             return dtPartberPref;

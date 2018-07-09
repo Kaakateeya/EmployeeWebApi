@@ -344,6 +344,11 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().PartnerPreferenceModifileddata(Mobj, "[dbo].[usp_cust_UpdatePartialEditInfor]");
         }
+
+        public ArrayList RegistrationprofilesInformation([FromBody]employeRegistrationInfo Mobj)
+        {
+            return new EmployeeReportPageDAL().RegistrationprofilesInformation(Mobj, "[dbo].[usp_cust_TypesofProfilesReg_AJS]");
+        }
     }
 
 }

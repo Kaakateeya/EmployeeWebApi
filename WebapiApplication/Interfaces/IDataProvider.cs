@@ -468,6 +468,8 @@ namespace WebapiApplication.Interfaces
         ArrayList PartnerPreferenceEditData(employeeEditpartnerInfo Mobj);
 
         int? PartnerPreferenceModifileddata(employeemodifiedpartner Mobj);
+
+        ArrayList RegistrationprofilesInformation(employeRegistrationInfo Mobj);
     }
 
     public interface ISmallPages

@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>C:\Users\Admin\Desktop\183build</_PublishTargetUrl>
-    <_PublishTargetUrl>D:\build_files\27_06_2018_Employeepartnerpreference</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\build_files\09_07_2018_EmployeePartnerpreference123</_PublishTargetUrl>
     <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
     <LastUsedPlatform>Any CPU</LastUsedPlatform>
   </PropertyGroup>
@@ -178,7 +178,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2016 12:02:45</publishTime>
     </File>
     <File Include="bin/WebapiApplication.dll">
-      <publishTime>07/07/2018 12:19:15</publishTime>
+      <publishTime>07/09/2018 17:17:28</publishTime>
     </File>
     <File Include="bin/WebapiApplication.pdb">
       <publishTime>12/02/2017 19:28:22</publishTime>
@@ -280,7 +280,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/05/2016 19:28:46</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/10/2018 16:13:58</publishTime>
+      <publishTime>07/09/2018 17:05:12</publishTime>
     </File>
   </ItemGroup>
 </Project>

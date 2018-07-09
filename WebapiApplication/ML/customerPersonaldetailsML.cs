@@ -266,6 +266,8 @@ namespace WebapiApplication.ML
         public string Branch { get; set; }
         public string Domacile { get; set; }
         public string WillingtoSecondMarriage { get; set; }
+        public float? Property_From { get; set; }
+        public float? Property_To { get; set; }
         //public string CityID { get; set; }
     }
     public class TSibBrother
@@ -1150,6 +1152,10 @@ namespace WebapiApplication.ML
         public string InDetailedReq { get; set; }
 
         public string DistrictName { get; set; }
+
+        public decimal? Property_from { get; set; }
+
+        public decimal? Property_to { get; set; }
     }
 
 
