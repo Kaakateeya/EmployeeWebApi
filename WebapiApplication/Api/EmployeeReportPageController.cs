@@ -702,5 +702,30 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.RegistrationprofilesInformation(Mobj);
         }
 
+        public ArrayList getCompareSearchResultsInfo(int? empId)
+        {
+            return this.IEmployeeReport.CompareSearchResultsInfo(empId);
+        }
+        public List<slideshowNew> CompareSearchProfiles([FromBody]compareprofiles Mobj)
+        {
+            return this.IEmployeeReport.CompareSearchProfiles(Mobj.strprofileIDs);
+        }
+
+
+        public ArrayList getKeywordSearchProfileidInfo(string Profileid)
+        {
+            return this.IEmployeeReport.KeywordSearchProfileidInfo(Profileid);
+        }
+
+
+        public ArrayList getMatchfollowupSelectCounts(int? fromEmpid, int? toEmpid)
+        {
+            return this.IEmployeeReport.MatchfollowupSelectCounts(fromEmpid, toEmpid);
+        }
+
+        public ArrayList getMatchfollowupSelectBasedOnEmp(int? fromEmpid, int? toEmpid,int? Pagefrom,int? pageto)
+        {
+            return this.IEmployeeReport.MatchfollowupSelectBasedOnEmp(fromEmpid, toEmpid, Pagefrom, pageto);
+        }
     }
 }

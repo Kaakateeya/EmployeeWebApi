@@ -10,6 +10,8 @@ namespace WebapiApplication.ML
         public int? ID { set; get; }
         public string Name { set; get; }
         public string CountryCode { set; get; }
+
+        public int? Region { get; set; }
     }
     public class MyprofileBranchbind
     {

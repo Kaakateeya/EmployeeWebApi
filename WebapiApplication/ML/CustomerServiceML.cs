@@ -256,7 +256,7 @@ namespace WebapiApplication.ML
         public string fromonlyempname { get; set; }
 
         public string toonlyempname { get; set; }
-        public long? ExpressinterestTologid{get;set;}
+        public long? ExpressinterestTologid { get; set; }
 
         public string MFPFromEntered { get; set; }
 
@@ -294,7 +294,8 @@ namespace WebapiApplication.ML
         public List<EmployeeMarketingslideHistory> MarketingslideHistory { get; set; }
 
     }
-    public class EmployeeUnassignedPages {
+    public class EmployeeUnassignedPages
+    {
         public int pageid { get; set; }
     }
 
@@ -390,7 +391,7 @@ namespace WebapiApplication.ML
         public int? primaryCountryID { get; set; }
 
         public string FatherName { get; set; }
-        public int? paidStatus {get;set;}
+        public int? paidStatus { get; set; }
     }
 
 
@@ -1089,8 +1090,20 @@ namespace WebapiApplication.ML
         public DateTime? dtFromdate { set; get; }
         public DateTime? dtTodate { set; get; }
         public string intSessionValues { set; get; }
+
+        public int? intRegion { set; get; }
+        public string strBranchID { set; get; }
+        public string strProfileOwn { set; get; }
+
         public int? startindex { set; get; }
         public int? endindex { set; get; }
+
+        public int? intchkNotdata { get; set; }
+    }
+    public class compareprofiles
+    {
+        public string strprofileIDs { set; get; }
+
     }
 }
 

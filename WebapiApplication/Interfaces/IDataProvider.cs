@@ -470,6 +470,18 @@ namespace WebapiApplication.Interfaces
         int? PartnerPreferenceModifileddata(employeemodifiedpartner Mobj);
 
         ArrayList RegistrationprofilesInformation(employeRegistrationInfo Mobj);
+
+        ArrayList CompareSearchResultsInfo(int? empId);
+
+        List<slideshowNew> CompareSearchProfiles(string strCustIds);
+
+
+
+        ArrayList KeywordSearchProfileidInfo(string Profileid);
+
+        ArrayList MatchfollowupSelectCounts(int? fromEmpid, int? toEmpid);
+
+        ArrayList MatchfollowupSelectBasedOnEmp(int? fromEmpid, int? toEmpid, int? Pagefrom, int? pageto);
     }
 
     public interface ISmallPages

@@ -349,6 +349,28 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().RegistrationprofilesInformation(Mobj, "[dbo].[usp_cust_TypesofProfilesReg_AJS]");
         }
+        public ArrayList CompareSearchResultsInfo(int? empId)
+        {
+            return new EmployeeReportPageDAL().CompareSearchResultsInfo(empId, "[dbo].[usp_Emp_CompareSearchInfo_AJS]");
+        }
+        public List<slideshowNew> CompareSearchProfiles(string strCustIds)
+        {
+            return new EmployeeReportPageDAL().CompareSearchProfiles(strCustIds, "[dbo].[usp_Emp_CompareSearchProfiles_AJS]");
+        }
+        public ArrayList KeywordSearchProfileidInfo(string Profileid)
+        {
+            return new EmployeeReportPageDAL().KeywordSearchProfileidInfo(Profileid, "[dbo].[Usp_Emp_GetFullInfoofCustomer_AJS]");
+        }
+
+
+        public ArrayList MatchfollowupSelectCounts(int? fromEmpid, int? toEmpid)
+        {
+            return new EmployeeReportPageDAL().MatchfollowupSelectCounts(fromEmpid, toEmpid, "[dbo].[Usp_Select_BothSideOneSideInterst_Count]");
+        }
+        public ArrayList MatchfollowupSelectBasedOnEmp(int? fromEmpid, int? toEmpid, int? Pagefrom, int? pageto)
+        {
+            return new EmployeeReportPageDAL().MatchfollowupSelectBasedOnEmp(fromEmpid, toEmpid, Pagefrom, pageto, "[dbo].[Usp_Select_BothSideOneSideInterst_EmpBase]");
+        }
     }
 
 }

@@ -704,7 +704,7 @@ namespace WebapiApplication.DAL
                             sh.TOB = reader["TOB"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TOB")) : Snull;
                             sh.PlaceOfBirth = reader["PlaceOfBirth"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("PlaceOfBirth")) : Snull;
                             sh.Gothram = reader["Gothram"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gothram")) : Snull;
-                            sh.Caste = (reader["MotherTongue"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("MotherTongue")) + "-") : "") + (reader["Caste"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Caste")).ToString()) : Snull) + (reader["SubCaste"] != DBNull.Value ? ("(" + (reader.GetString(reader.GetOrdinal("SubCaste"))) + ")") : "");
+                            sh.Caste = (reader["MotherTongue"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("MotherTongue")) + "-") : "") + (reader["Caste"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Caste")).ToString()) : Snull) + (reader["SubCaste"] != DBNull.Value ? ("<a class='darkpinkclr'> (" + (reader.GetString(reader.GetOrdinal("SubCaste"))) + ")</a>") : "");
                             sh.maritalstatus = reader["MaritalStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MaritalStatus")) : Snull;
                             sh.Star = reader["Star"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Star")) : Snull;
                             sh.Color = reader["Color"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Color")) : Snull;
@@ -738,6 +738,7 @@ namespace WebapiApplication.DAL
                             sh.Cust_ProfileInterestsLog_ID = reader["Cust_ProfileInterestsLog_ID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ProfileInterestsLog_ID")) : Lnull;
                             sh.FTicketStatus = reader["FTicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FTicketStatus")) : Snull;
                             sh.TTicketStatus = reader["TTicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TTicketStatus")) : Snull;
+                            sh.NoOfChildren = reader["NoOfChildren"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfChildren")) : inull;
                         }
                         details.Add(sh);
                     }
@@ -824,7 +825,7 @@ namespace WebapiApplication.DAL
                             sh.TOB = reader["TOB"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TOB")) : Snull;
                             sh.PlaceOfBirth = reader["PlaceOfBirth"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("PlaceOfBirth")) : Snull;
                             sh.Gothram = reader["Gothram"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gothram")) : Snull;
-                            sh.Caste = (reader["MotherTongue"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("MotherTongue")) + "-") : "") + (reader["Caste"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Caste")).ToString()) : Snull) + (reader["SubCaste"] != DBNull.Value ? ("(" + (reader.GetString(reader.GetOrdinal("SubCaste"))) + ")") : "");
+                            sh.Caste = (reader["MotherTongue"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("MotherTongue")) + "-") : "") + (reader["Caste"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("Caste")).ToString()) : Snull) + (reader["SubCaste"] != DBNull.Value ? ("<a class='darkpinkclr'> (" + (reader.GetString(reader.GetOrdinal("SubCaste"))) + ")</a>") : "");
                             sh.maritalstatus = reader["MaritalStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("MaritalStatus")) : Snull;
                             sh.Star = reader["Star"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Star")) : Snull;
                             sh.Color = reader["Color"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("Color")) : Snull;
@@ -858,6 +859,7 @@ namespace WebapiApplication.DAL
                             sh.Cust_ProfileInterestsLog_ID = reader["Cust_ProfileInterestsLog_ID"] != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ProfileInterestsLog_ID")) : Lnull;
                             sh.FTicketStatus = reader["FTicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("FTicketStatus")) : Snull;
                             sh.TTicketStatus = reader["TTicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TTicketStatus")) : Snull;
+                            sh.NoOfChildren = reader["NoOfChildren"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfChildren")) : inull;
                         }
                         details.Add(sh);
                     }
