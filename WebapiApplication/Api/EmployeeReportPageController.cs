@@ -727,5 +727,35 @@ namespace WebapiApplication.Api
         {
             return this.IEmployeeReport.MatchfollowupSelectBasedOnEmp(fromEmpid, toEmpid, Pagefrom, pageto);
         }
+
+
+        public ArrayList MatchfollowupSlideShowResultForwardBackward([FromBody]SearchML Mobj)
+        {
+            Mobj.ProfileOwner = Commonclass.getTableData(Mobj.strProfileOwner, "owner");
+            Mobj.ProfileOwnerBranch = Commonclass.getTableData(Mobj.strProfileOwnerBranch, "branch");
+            Mobj.region = Commonclass.getTableData(Mobj.strregion, "region");
+            return this.IEmployeeReport.MatchfollowupSlideShowResultForwardBackward(Mobj);
+        }
+
+
+
+
+        public ArrayList getfromExpressToExpressStatusEmail(long? Fromcustid, long? ToCustIds)
+        {
+
+            return this.IEmployeeReport.fromExpressToExpressStatusEmail(Fromcustid, ToCustIds);
+         
+        }
+
+        public ArrayList getViewFullProfilePaidUnpaidEmail(long? fromCustId, long? toCustId)
+        {
+            return this.IEmployeeReport.ViewFullProfilePaidUnpaidEmail(fromCustId, toCustId);
+         
+        }
+        public ArrayList getViewFullProfilePartialInfoEmail(long? fromCustId, long? toCustId)
+        {
+            return this.IEmployeeReport.ViewFullProfilePartialInfoEmail(fromCustId, toCustId);
+        }
+
     }
 }

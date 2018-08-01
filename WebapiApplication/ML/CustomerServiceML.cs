@@ -265,6 +265,8 @@ namespace WebapiApplication.ML
         public string ToRemDate { get; set; }
 
         public string FromRemDate { get; set; }
+
+        public int? RowID { get; set; }
     }
 
     public class SearchML
@@ -285,6 +287,13 @@ namespace WebapiApplication.ML
         public string strProfileOwner { get; set; }
         public string strProfileOwnerBranch { get; set; }
         public string strregion { get; set; }
+
+
+          public int? intViewPoint { get; set; }
+          public int? intBackSear { get; set; }
+          public int? intFowardSear { get; set; }
+
+     
     }
 
     public class EmployeeMarketingTicketResponse

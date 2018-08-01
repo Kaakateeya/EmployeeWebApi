@@ -482,6 +482,14 @@ namespace WebapiApplication.Interfaces
         ArrayList MatchfollowupSelectCounts(int? fromEmpid, int? toEmpid);
 
         ArrayList MatchfollowupSelectBasedOnEmp(int? fromEmpid, int? toEmpid, int? Pagefrom, int? pageto);
+
+        ArrayList MatchfollowupSlideShowResultForwardBackward(SearchML Mobj);
+
+        ArrayList fromExpressToExpressStatusEmail(long? Fromcustid, long? ToCustIds);
+
+        ArrayList ViewFullProfilePaidUnpaidEmail(long? fromCustId, long? toCustId);
+
+        ArrayList ViewFullProfilePartialInfoEmail(long? fromCustId, long? toCustId);
     }
 
     public interface ISmallPages

@@ -1072,6 +1072,7 @@ namespace WebapiApplication.UserDefinedTable
             //
             dtCreateEmployee.Columns.Add("loginfrom");
             dtCreateEmployee.Columns.Add("loginto");
+            dtCreateEmployee.Columns.Add("IsSmartPh");
             return dtCreateEmployee;
         }
 

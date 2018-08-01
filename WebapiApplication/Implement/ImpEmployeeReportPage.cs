@@ -371,6 +371,25 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().MatchfollowupSelectBasedOnEmp(fromEmpid, toEmpid, Pagefrom, pageto, "[dbo].[Usp_Select_BothSideOneSideInterst_EmpBase]");
         }
+        public ArrayList MatchfollowupSlideShowResultForwardBackward(SearchML Mobj) { return new EmployeeReportPageDAL().MatchfollowupSlideShowResultForwardBackward(Mobj, "[dbo].[Usp_Select_BothSideOneSideInterst_ForwardBackward]"); }
+
+
+        public ArrayList fromExpressToExpressStatusEmail(long? Fromcustid, long? ToCustIds)
+        {
+
+            return new EmployeeReportPageDAL().fromExpressToExpressStatusEmail(Fromcustid, ToCustIds, "[dbo].[usp_Cust_GetExpressInterestStatus_AJS]");
+        }
+
+        public ArrayList ViewFullProfilePaidUnpaidEmail(long? fromCustId, long? toCustId)
+        {
+            return new EmployeeReportPageDAL().ViewFullProfilePaidUnpaidEmail(fromCustId, toCustId, "[dbo].[Usp_Cust_GetViewProfile_FullDetails_RoleWise_PaidUnPaid_AJS]");
+
+
+        }
+        public ArrayList ViewFullProfilePartialInfoEmail(long? fromCustId, long? toCustId)
+        {
+            return new EmployeeReportPageDAL().ViewFullProfilePartialInfoEmail(toCustId, fromCustId, "[dbo].[usp_Cust_GetViewProfile_FullDetails_Partial_AJS]");
+        }
     }
 
 }
