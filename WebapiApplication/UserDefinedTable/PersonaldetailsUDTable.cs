@@ -840,6 +840,7 @@ namespace WebapiApplication.UserDefinedTable
             //
             dtGeneralsearch.Columns.Add("Divorce_NoofChild");
             dtGeneralsearch.Columns.Add("Divorce_Service");
+            dtGeneralsearch.Columns.Add("MembershipTypeID");
             return dtGeneralsearch;
         }
 

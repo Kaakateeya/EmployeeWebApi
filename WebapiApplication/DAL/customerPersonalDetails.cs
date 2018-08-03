@@ -2541,6 +2541,25 @@ namespace WebapiApplication.DAL
                         profileplay.Settle = (reader["Settle"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Settle")) : null;
                         profileplay.TicketID = (reader["TicketID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("TicketID")) : iNull;
                         profileplay.TicketNumber = (reader["TicketNumber"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketNumber")) : null;
+                        profileplay.PhotoPath = (reader["PhotoPath"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PhotoPath")) : null;
+                        profileplay.Name = (reader["Name"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Name")) : null;
+
+
+                        // values 03_08_2018
+                        profileplay.receivecount = (reader["receivecount"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("receivecount")) : null;
+                        profileplay.ExpDate = (reader["ExpDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ExpDate")) : null;
+                        profileplay.AllocatedPts = (reader["AllocatedPts"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("AllocatedPts")) : iNull;
+                        profileplay.UsedPts = (reader["UsedPts"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("UsedPts")) : iNull;
+                        profileplay.LastLogin = (reader["LastLogin"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastLogin")) : null;
+                        profileplay.TicketOwner = (reader["TicketOwner"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TicketOwner")) : null;
+                        profileplay.MysideDecisionPen = (reader["MysideDecisionPen"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MysideDecisionPen")) : iNull;
+                        profileplay.MysideNotViewed = (reader["MysideNotViewed"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MysideNotViewed")) : iNull;
+                        profileplay.MysideInterest = (reader["MysideInterest"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MysideInterest")) : iNull;
+                        profileplay.MysideNotInterest = (reader["MysideNotInterest"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("MysideNotInterest")) : iNull;
+                        profileplay.OppsideDecisionPen = (reader["OppsideDecisionPen"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("OppsideDecisionPen")) : iNull;
+                        profileplay.OppsideInterest = (reader["OppsideInterest"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("OppsideInterest")) : iNull;
+                        profileplay.OppsideNotInterest = (reader["OppsideNotInterest"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("OppsideNotInterest")) : iNull;
+                        profileplay.OppNotViewed = (reader["OppNotViewed"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("OppNotViewed")) : iNull;
                         arrayList.Add(profileplay);
                     }
                 }

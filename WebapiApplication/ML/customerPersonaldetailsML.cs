@@ -1382,6 +1382,7 @@ namespace WebapiApplication.ML
 
         public string Divorce_NoofChild { set; get; }
         public string Divorce_Service { set; get; }
+        public string MembershipTypeID { set; get; }
     }
 
     public class TAdvanceSearch
@@ -1606,6 +1607,38 @@ namespace WebapiApplication.ML
         public string Settle { set; get; }
         public int? TicketID { get; set; }
         public string TicketNumber { get; set; }
+
+        public string PhotoPath { get; set; }
+
+        public string Name { get; set; }
+
+        public string receivecount { get; set; }
+
+        public string ExpDate { get; set; }
+
+        public int? AllocatedPts { get; set; }
+
+        public int? UsedPts { get; set; }
+
+        public string LastLogin { get; set; }
+
+        public string TicketOwner { get; set; }
+
+        public int? MysideDecisionPen { get; set; }
+
+        public int? MysideNotViewed { get; set; }
+
+        public int? MysideInterest { get; set; }
+
+        public int? MysideNotInterest { get; set; }
+
+        public int? OppsideDecisionPen { get; set; }
+
+        public int? OppsideInterest { get; set; }
+
+        public int? OppNotViewed { get; set; }
+
+        public int? OppsideNotInterest { get; set; }
     }
 
     public class SettlementPaidBalanceDetailsMl
