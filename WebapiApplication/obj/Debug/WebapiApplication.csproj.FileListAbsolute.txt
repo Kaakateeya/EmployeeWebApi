@@ -205,4 +205,3 @@ D:\EmployeeWebApi\WebapiApplication\bin\EmailVerification6_CSharp.pdb
 D:\EmployeeWebApi\WebapiApplication\bin\System.Net.Http.Formatting.xml
 D:\EmployeeWebApi\WebapiApplication\bin\System.Web.Http.xml
 D:\EmployeeWebApi\WebapiApplication\bin\System.Web.Http.WebHost.xml
-D:\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.csprojResolveAssemblyReference.cache

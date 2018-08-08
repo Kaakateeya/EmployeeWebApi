@@ -1639,6 +1639,10 @@ namespace WebapiApplication.ML
         public int? OppNotViewed { get; set; }
 
         public int? OppsideNotInterest { get; set; }
+
+        public string Gender { get; set; }
+
+        public string PaidStatus { get; set; }
     }
 
     public class SettlementPaidBalanceDetailsMl

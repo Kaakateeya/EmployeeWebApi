@@ -2560,6 +2560,11 @@ namespace WebapiApplication.DAL
                         profileplay.OppsideInterest = (reader["OppsideInterest"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("OppsideInterest")) : iNull;
                         profileplay.OppsideNotInterest = (reader["OppsideNotInterest"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("OppsideNotInterest")) : iNull;
                         profileplay.OppNotViewed = (reader["OppNotViewed"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("OppNotViewed")) : iNull;
+
+                        // added 06_08_2018
+
+                        profileplay.Gender = (reader["Gender"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gender")) : null;
+                        profileplay.PaidStatus = (reader["PaidStatus"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PaidStatus")) : null;
                         arrayList.Add(profileplay);
                     }
                 }

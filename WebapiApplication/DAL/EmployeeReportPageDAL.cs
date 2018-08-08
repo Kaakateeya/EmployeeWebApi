@@ -2541,10 +2541,14 @@ namespace WebapiApplication.DAL
                 parm[2].Value = Mobj.c_intersttype;
                 parm[3] = new SqlParameter("@c_oppintersttype", SqlDbType.VarChar);
                 parm[3].Value = Mobj.c_oppintersttype;
-                parm[4] = new SqlParameter("@pagefrom", SqlDbType.Int);
-                parm[4].Value = Mobj.pagefrom;
-                parm[5] = new SqlParameter("@pageto", SqlDbType.Int);
-                parm[5].Value = Mobj.pageto;
+
+                parm[4] = new SqlParameter("@intApplicationStatus", SqlDbType.VarChar);
+                parm[4].Value = Mobj.intApplicationStatus;
+
+                parm[5] = new SqlParameter("@pagefrom", SqlDbType.Int);
+                parm[5].Value = Mobj.pagefrom;
+                parm[6] = new SqlParameter("@pageto", SqlDbType.Int);
+                parm[6].Value = Mobj.pageto;
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
                 int count = reader.FieldCount;
 
@@ -2616,6 +2620,9 @@ namespace WebapiApplication.DAL
                             Binterest.ISRvrSend = (reader["ISRvrSend"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ISRvrSend")) : intnull;
                             Binterest.PaidStatus = (reader["PaidStatus"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PaidStatus")) : empty;
                             Binterest.ApplicationPhoto = (reader["ApplicationPhoto"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ApplicationPhoto")) : empty;
+                            Binterest.ProfileStatusID = (reader["ProfileStatusID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ProfileStatusID")) : intnull;
+                      
+                        
                         }
                         li.Add(Binterest);
                     }

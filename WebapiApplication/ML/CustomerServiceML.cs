@@ -963,6 +963,8 @@ namespace WebapiApplication.ML
         public string ToOfflineExpiryDate { get; set; }
 
         public string ToonlineExpiryDate { get; set; }
+
+        public int? ProfileStatusID { get; set; }
     }
 
     public class Servicesslideslideshowbasedonprofile
@@ -973,6 +975,8 @@ namespace WebapiApplication.ML
         public string c_oppintersttype { get; set; }
         public int pagefrom { get; set; }
         public int pageto { get; set; }
+
+        public string intApplicationStatus { get; set; }
     }
 
     public class SettledDeletedML
