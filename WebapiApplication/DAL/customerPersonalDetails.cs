@@ -2529,12 +2529,12 @@ namespace WebapiApplication.DAL
                         profileplay.paiddate = (reader["paiddate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("paiddate")) : null;
                         profileplay.sentreceivecount = (reader["sentreceivecount"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("sentreceivecount")) : null;
                         profileplay.photocount = (reader["photocount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("photocount")) : iNull;
-                        profileplay.PD = (reader["PD"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PD")) : iNull;
-                        profileplay.DPD = (reader["DPD"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DPD")) : iNull;
-                        profileplay.lnkView = (reader["lnkView"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("lnkView")) : iNull;
-                        profileplay.notview = (reader["notview"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("notview")) : iNull;
-                        profileplay.bothinterst = (reader["bothinterst"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("bothinterst")) : iNull;
-                        profileplay.OppI = (reader["OppI"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("OppI")) : iNull;
+                        //profileplay.PD = (reader["PD"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PD")) : iNull;
+                        //profileplay.DPD = (reader["DPD"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DPD")) : iNull;
+                       // profileplay.lnkView = (reader["lnkView"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("lnkView")) : iNull;
+                       // profileplay.notview = (reader["notview"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("notview")) : iNull;
+                       // profileplay.bothinterst = (reader["bothinterst"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("bothinterst")) : iNull;
+                       // profileplay.OppI = (reader["OppI"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("OppI")) : iNull;
                         profileplay.custid = (reader["custid"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("custid")) : iNull;
                         profileplay.OWNER = (reader["OWNER"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("OWNER")) : null;
                         profileplay.HoroPhotoName = (reader["HoroPhotoName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("HoroPhotoName")) : null;

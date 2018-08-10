@@ -490,6 +490,8 @@ namespace WebapiApplication.Interfaces
         ArrayList ViewFullProfilePaidUnpaidEmail(long? fromCustId, long? toCustId);
 
         ArrayList ViewFullProfilePartialInfoEmail(long? fromCustId, long? toCustId);
+
+        ArrayList YesterdayMatchfollowups(int? Empid, int? pagefrom, int? pageto);
     }
 
     public interface ISmallPages

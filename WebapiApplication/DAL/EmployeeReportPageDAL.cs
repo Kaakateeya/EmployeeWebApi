@@ -7474,5 +7474,33 @@ namespace WebapiApplication.DAL
             }
             return Commonclass.convertdataTableToArrayList(ds);
         }
+
+        public ArrayList YesterdayMatchfollowups(int? Empid, int? pagefrom, int? pageto, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[4];
+                parm[0] = new SqlParameter("@Empid", SqlDbType.Int);
+                parm[0].Value = Empid;
+                parm[1] = new SqlParameter("@pagefrom", SqlDbType.Int);
+                parm[1].Value = pagefrom;
+                parm[1] = new SqlParameter("@pageto", SqlDbType.Int);
+                parm[1].Value = pageto;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayList(ds);
+        }
     }
 }

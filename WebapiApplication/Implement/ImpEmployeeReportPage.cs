@@ -390,6 +390,13 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().ViewFullProfilePartialInfoEmail(toCustId, fromCustId, "[dbo].[usp_Cust_GetViewProfile_FullDetails_Partial_AJS]");
         }
+
+        public ArrayList YesterdayMatchfollowups(int? Empid, int? pagefrom, int? pageto)
+        {
+            return new EmployeeReportPageDAL().YesterdayMatchfollowups(Empid, pagefrom, pageto, "[dbo].[Usp_Emp_YesterDayMatchFollowUpInfo]");
+
+        }
+
     }
 
 }

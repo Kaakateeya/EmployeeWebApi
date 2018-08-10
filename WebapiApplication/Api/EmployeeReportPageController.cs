@@ -757,5 +757,10 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.ViewFullProfilePartialInfoEmail(fromCustId, toCustId);
         }
 
+        public ArrayList getYesterdayMatchfollowups(int? Empid, int? pagefrom, int? pageto)
+        {
+            return this.IEmployeeReport.YesterdayMatchfollowups(Empid, pagefrom, pageto);
+        }
+
     }
 }
