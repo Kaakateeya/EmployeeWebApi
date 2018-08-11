@@ -1307,6 +1307,8 @@ namespace WebapiApplication.ML
         public string CompanyName { get; set; }
 
         public int? NoOfChildren { get; set; }
+
+        public int? OnlyChild { get; set; }
     }
 
     public class EmployeeSearch

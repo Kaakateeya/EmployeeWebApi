@@ -392,6 +392,10 @@ namespace WebapiApplication.ML
         public string CustomerApplicationPhoto { get; set; }
 
         public long? Cust_ID { get; set; }
+
+        public string PaidAmt { get; set; }
+
+        public string SettleAmt { get; set; }
     }
     public class MarketingTicketResponseHistory
     {
