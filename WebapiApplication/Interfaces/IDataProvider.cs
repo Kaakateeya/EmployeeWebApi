@@ -243,7 +243,7 @@ namespace WebapiApplication.Interfaces
 
         Servicedates getServiceInfo(string FromProfileID, string ToProfileID);
 
-        //DataSet ExpressInterest_sendmultimails(ExpressInterestInsert EXI);
+        DataSet ExpressInterest_sendmultimails(ExpressInterestInsert EXI);
     }
     public interface IEmployeeReportPage
     {
