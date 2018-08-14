@@ -38,7 +38,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
             return Commonclass.convertdataTableToArrayListTable(dset);
         }
@@ -68,10 +68,54 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
             }
             return Commonclass.convertdataTableToArrayListTable(dset);
         }
+
+
+        public DataSet ExpressInterest_sendmultimails(ExpressInterestInsert ExpML, string spName)
+        {
+           
+            List<Smtpemailsending> li = new List<Smtpemailsending>();
+            SqlConnection connection = new SqlConnection();
+            DataSet dtFromTo = new DataSet();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            try
+            {
+
+                SqlParameter[] parm = new SqlParameter[5];
+                parm[0] = new SqlParameter("@cust_Id", SqlDbType.Int);
+                parm[0].Value = ExpML.FromCustID;
+                parm[1] = new SqlParameter("@empid", SqlDbType.BigInt);
+                parm[1].Value = ExpML.EmpID;
+                parm[2] = new SqlParameter("@TblDetails", SqlDbType.Structured);
+                parm[2].Value = ExpML.dtExpInt;
+                parm[3] = new SqlParameter("@emailaddress", SqlDbType.VarChar);
+                parm[3].Value = ExpML.emailaddress;
+                parm[4] = new SqlParameter("@Status", SqlDbType.Int);
+                parm[4].Direction = ParameterDirection.Output;
+
+                //  reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
+                dtFromTo = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+                Commonclass.ExpressInterestSMS(ExpML.dtExpInt, " ");
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+
+            return dtFromTo;
+        }
+
 
 
         public Tuple<List<Smtpemailsending>, int?> ExpressInterest(ExpressInterestInsert ExpML, string spName)
@@ -132,11 +176,14 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
             }
 
             return new Tuple<List<Smtpemailsending>, int?>(li, status);
         }
+
+
+
         public DataSet ExpressInterest_SendSms(string FromProfileID, string ToProfileIDs, string spName)
         {
 
@@ -161,7 +208,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             return ds;
@@ -206,7 +253,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
             }
 
             return servicedate;

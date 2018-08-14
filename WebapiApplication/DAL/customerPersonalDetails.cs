@@ -2565,6 +2565,7 @@ namespace WebapiApplication.DAL
 
                         profileplay.Gender = (reader["Gender"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gender")) : null;
                         profileplay.PaidStatus = (reader["PaidStatus"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PaidStatus")) : null;
+                        profileplay.ProfileStatus = (reader["ProfileStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ProfileStatus")) : iNull;
                         arrayList.Add(profileplay);
                     }
                 }

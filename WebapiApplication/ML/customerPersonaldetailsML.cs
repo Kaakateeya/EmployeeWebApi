@@ -1645,6 +1645,8 @@ namespace WebapiApplication.ML
         public string Gender { get; set; }
 
         public string PaidStatus { get; set; }
+
+        public int? ProfileStatus { get; set; }
     }
 
     public class SettlementPaidBalanceDetailsMl
