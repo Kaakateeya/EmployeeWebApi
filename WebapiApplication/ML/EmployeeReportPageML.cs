@@ -1250,6 +1250,8 @@ namespace WebapiApplication.ML
         public string C_Edu_PG_Study { get; set; }
         public string C_Edu_PHd_Study { get; set; }
         public string Sp_Father_Native { get; set; }
+
+        public string TimeofBirth { get; set; }
     }
 
     public class MasterData

@@ -740,7 +740,7 @@ namespace WebapiApplication.DAL
                             sh.TTicketStatus = reader["TTicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TTicketStatus")) : Snull;
                             sh.NoOfChildren = reader["NoOfChildren"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfChildren")) : inull;
                             sh.OnlyChild = reader["OnlyChild"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("OnlyChild")) : inull;
-
+                            sh.LastService = reader["LastService"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastService")) : Snull;
                         }
                         details.Add(sh);
                     }
@@ -863,6 +863,7 @@ namespace WebapiApplication.DAL
                             sh.TTicketStatus = reader["TTicketStatus"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TTicketStatus")) : Snull;
                             sh.NoOfChildren = reader["NoOfChildren"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfChildren")) : inull;
                             sh.OnlyChild = reader["OnlyChild"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("OnlyChild")) : inull;
+                            sh.LastService = reader["LastService"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastService")) : Snull;
                         }
                         details.Add(sh);
                     }

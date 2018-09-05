@@ -496,6 +496,16 @@ namespace WebapiApplication.Interfaces
         ArrayList ViewFullProfilePartialInfoEmail(long? fromCustId, long? toCustId);
 
         ArrayList YesterdayMatchfollowups(int? Empid, int? pagefrom, int? pageto);
+
+        ArrayList EmpdailyReportPendingService(string intRegionID);
+
+
+
+        ArrayList YesterdayLSTSerive(int? Empid, int? pagefrom, int? pageto);
+
+        ArrayList YesterdaySettledDeletedInActivePhotosUpload(int? Empid);
+
+        EmployeeMarketingTicketResponse UnpaidServiceNotUpdatedTickets(unpaidnotupdated Mobj);
     }
 
     public interface ISmallPages

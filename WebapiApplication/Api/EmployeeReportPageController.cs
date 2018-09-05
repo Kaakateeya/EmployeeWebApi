@@ -761,6 +761,26 @@ namespace WebapiApplication.Api
         {
             return this.IEmployeeReport.YesterdayMatchfollowups(Empid, pagefrom, pageto);
         }
+        // 15_08_2018 
+        public ArrayList getEmpdailyReportPendingService(string intRegionID)
+        {
+            return this.IEmployeeReport.EmpdailyReportPendingService(intRegionID);
+        }
+        //
+        public ArrayList getYesterdayLSTSerives(int? Empid, int? pagefrom, int? pageto)
+        {
+            return this.IEmployeeReport.YesterdayLSTSerive(Empid, pagefrom, pageto);
+        }
+        // 16_08_2018 Deleted/settled/Inactive/MMserious/photos upload
+        public ArrayList getYesterdaySettledDeletedInActivePhotosUpload(int? Empid)
+        {
+            return this.IEmployeeReport.YesterdaySettledDeletedInActivePhotosUpload(Empid);
+        }
 
+        // 04_09_2018 Unpaid Service Not Updated Tickets
+        public EmployeeMarketingTicketResponse UnpaidServiceNotUpdatedTickets([FromBody]unpaidnotupdated Mobj)
+        {
+            return this.IEmployeeReport.UnpaidServiceNotUpdatedTickets(Mobj);
+        }
     }
 }

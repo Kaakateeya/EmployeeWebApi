@@ -70,62 +70,64 @@ namespace WebapiApplication.Api
 
             EXI.dtExpInt = dtExpress;
             dsResult = this.IExpressInterest.ExpressInterest_sendmultimails(EXI);
+          
+            #region
+
+            //if (IsRvrSend == true)
+            //{
+
+            //    DataTable tblFilteredTo = dsResult.Tables[0].AsEnumerable().Where(row => row.Field<String>("FromProfileID") == strfromprofileID).CopyToDataTable();
+
+            //    EXI.dtExpInt = tblFilteredTo;
+
+            //    if (EXI.dtExpInt != null && EXI.dtExpInt.Rows.Count > 0)
+            //    {
 
 
+            //        foreach (DataRow dr in EXI.dtExpInt.Rows)
+            //        {
+            //            string FromProfileID = dr["FromProfileID"].ToString();
+            //            string ToProfileID = dr["ToProfileID"].ToString();
 
-            if (IsRvrSend == true)
-            {
-                EXI.dtExpInt.Rows.Clear();
-                DataTable tblFilteredTo = dsResult.Tables[0].AsEnumerable().Where(row => row.Field<String>("FromProfileID") == strfromprofileID).CopyToDataTable();
-
-                EXI.dtExpInt = tblFilteredTo;
-
-                if (EXI.dtExpInt != null && EXI.dtExpInt.Rows.Count > 0)
-                {
-
-
-                    foreach (DataRow dr in EXI.dtExpInt.Rows)
-                    {
-                        string FromProfileID = dr["FromProfileID"].ToString();
-                        string ToProfileID = dr["ToProfileID"].ToString();
-
-                        if (strtoPRofileID == ToProfileID)
-                        {
-                            dr["Acceptlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + FromProfileID + "&" + "ToProfileID=" + ToProfileID + "&" + "Flag=" + 1);
-                            dr["Rejectlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + FromProfileID + "&" + "ToProfileID=" + ToProfileID + "&" + "Flag=" + 0);
-                            dr["RvrAcceptlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + ToProfileID + "&" + "ToProfileID=" + FromProfileID + "&" + "Flag=" + 1);
-                            dr["RvrRejectlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + ToProfileID + "&" + "ToProfileID=" + FromProfileID + "&" + "Flag=" + 0);
-                            dr["Sendsms"] = (!string.IsNullOrEmpty(dr["Sendsms"].ToString()) && dr["Sendsms"].ToString() == "True") ? true : false;
-                            dr["IsRvrSend"] = (!string.IsNullOrEmpty(dr["IsRvrSend"].ToString()) && dr["IsRvrSend"].ToString() == "True") ? true : false;
-                        }
-                    }
-                    this.IExpressInterest.ExpressInterest(EXI);
-                }
-            }
+            //            if (strfromprofileID == FromProfileID)
+            //            {
+            //                dr["Acceptlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + FromProfileID + "&" + "ToProfileID=" + ToProfileID + "&" + "Flag=" + 1);
+            //                dr["Rejectlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + FromProfileID + "&" + "ToProfileID=" + ToProfileID + "&" + "Flag=" + 0);
+            //                dr["RvrAcceptlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + ToProfileID + "&" + "ToProfileID=" + FromProfileID + "&" + "Flag=" + 1);
+            //                dr["RvrRejectlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + ToProfileID + "&" + "ToProfileID=" + FromProfileID + "&" + "Flag=" + 0);
+            //                dr["Sendsms"] = (!string.IsNullOrEmpty(dr["Sendsms"].ToString()) && dr["Sendsms"].ToString() == "True") ? true : false;
+            //                dr["IsRvrSend"] = (!string.IsNullOrEmpty(dr["IsRvrSend"].ToString()) && dr["IsRvrSend"].ToString() == "True") ? true : false;
+            //            }
+            //        }
+            //        this.IExpressInterest.ExpressInterest(EXI);
+            //    }
+            //}
 
 
+            //EXI.dtExpInt.Rows.Clear();
+            //DataTable tblFiltered = dsResult.Tables[0].AsEnumerable().Where(row => row.Field<String>("FromProfileID") == strtoPRofileID).CopyToDataTable();
 
-            DataTable tblFiltered = dsResult.Tables[0].AsEnumerable().Where(row => row.Field<String>("FromProfileID") == strtoPRofileID).CopyToDataTable();
+            #endregion
 
-            EXI.dtExpInt = tblFiltered;
+            EXI.dtExpInt = dsResult.Tables[0];
 
             if (EXI.dtExpInt != null && EXI.dtExpInt.Rows.Count > 0)
             {
-                
+              
                 foreach (DataRow dr in EXI.dtExpInt.Rows)
                 {
                     string FromProfileID = dr["FromProfileID"].ToString();
                     string ToProfileID = dr["ToProfileID"].ToString();
 
-                    if (strtoPRofileID == FromProfileID)
-                    {
+                    //if (strfromprofileID == ToProfileID)
+                    //{
                         dr["Acceptlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + FromProfileID + "&" + "ToProfileID=" + ToProfileID + "&" + "Flag=" + 1);
                         dr["Rejectlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + FromProfileID + "&" + "ToProfileID=" + ToProfileID + "&" + "Flag=" + 0);
                         dr["RvrAcceptlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + ToProfileID + "&" + "ToProfileID=" + FromProfileID + "&" + "Flag=" + 1);
                         dr["RvrRejectlink"] = Commonclass.getEncryptedExpressIntrestString("FromProfileID=" + ToProfileID + "&" + "ToProfileID=" + FromProfileID + "&" + "Flag=" + 0);
                         dr["Sendsms"] = (!string.IsNullOrEmpty(dr["Sendsms"].ToString()) && dr["Sendsms"].ToString() == "True") ? true : false;
                         dr["IsRvrSend"] = (!string.IsNullOrEmpty(dr["IsRvrSend"].ToString()) && dr["IsRvrSend"].ToString() == "True") ? true : false;
-                    }
+                    //}
                 }
                
             }

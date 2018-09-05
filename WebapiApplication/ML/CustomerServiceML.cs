@@ -279,7 +279,7 @@ namespace WebapiApplication.ML
         public DataTable ProfileOwner { set; get; }
         public DataTable ProfileOwnerBranch { set; get; }
         public int? CustID { get; set; }
-        public bool? oppclose { get; set; }
+        public int? oppclose { get; set; }
         public DataTable region { get; set; }
         public int? Viewedcontacts { get; set; }
         public bool? Empwaiting { get; set; }
@@ -1117,6 +1117,17 @@ namespace WebapiApplication.ML
     {
         public string strprofileIDs { set; get; }
 
+    }
+
+    public class unpaidnotupdated
+    {
+        public int? i_EmpID { set; get; }
+        public int? i_PageFrom { set; get; }
+        public int? i_PageTo { set; get; }
+        public string strRegional { set; get; }
+        public string strBranch { set; get; }
+        public string strProfileowner { set; get; }
+        public int? intGender { set; get; }
     }
 }
 

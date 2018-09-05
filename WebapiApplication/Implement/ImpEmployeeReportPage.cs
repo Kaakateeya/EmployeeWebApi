@@ -396,6 +396,23 @@ namespace WebapiApplication.Implement
             return new EmployeeReportPageDAL().YesterdayMatchfollowups(Empid, pagefrom, pageto, "[dbo].[Usp_Emp_YesterDayMatchFollowUpInfo]");
 
         }
+        public ArrayList EmpdailyReportPendingService(string intRegionID)
+        {
+            return new EmployeeReportPageDAL().EmployeeWorkperformance(intRegionID, "[dbo].[USP_EMP_DAILYREPORTOFWORK_PendingServices_AJS]");
+        }
+
+        public ArrayList YesterdayLSTSerive(int? Empid, int? pagefrom, int? pageto)
+        {
+            return new EmployeeReportPageDAL().YesterdayMatchfollowups(Empid, pagefrom, pageto, "[dbo].[Usp_Emp_YesterDayProcedings_LST]");
+        }
+        public ArrayList YesterdaySettledDeletedInActivePhotosUpload(int? Empid)
+        {
+            return new EmployeeReportPageDAL().YesterdaySettledDeletedInActivePhotosUpload(Empid,"[dbo].[Usp_Emp_YesterDayActiviyStatus_AJS]");
+        }
+        public EmployeeMarketingTicketResponse UnpaidServiceNotUpdatedTickets(unpaidnotupdated Mobj)
+        {
+            return new EmployeeReportPageDAL().UnpaidServiceNotUpdatedTickets(Mobj, "[dbo].[usp_Emp_UnpaidViewedProfiles_NewDesign]");
+        }
 
     }
 

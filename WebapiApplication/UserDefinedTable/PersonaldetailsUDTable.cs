@@ -1640,6 +1640,7 @@ namespace WebapiApplication.UserDefinedTable
             dtCreate.Columns.Add("C_Edu_PG_Study");
             dtCreate.Columns.Add("C_Edu_PHd_Study");
             dtCreate.Columns.Add("Sp_Father_Native");
+            dtCreate.Columns.Add("TimeofBirth");
             return dtCreate;
 
         }
