@@ -1237,11 +1237,9 @@ namespace WebapiApplication.ML
         public string CMB_YEStatus { set; get; }
         public string Pr_ProfessionDetails { set; get; }
         public string Pr_NativeLocation { set; get; }
-
         public string Pr_PreferredStar { set; get; }
         public string C_ArrivalBetween100Days { set; get; }
         public string C_DepartureBetween100Days { set; get; }
-
         public string PaidStatus { get; set; }
         public string sp_LegallyDivercedOn { get; set; }
         public string C_Edu_School_Study { get; set; }
@@ -1250,8 +1248,17 @@ namespace WebapiApplication.ML
         public string C_Edu_PG_Study { get; set; }
         public string C_Edu_PHd_Study { get; set; }
         public string Sp_Father_Native { get; set; }
-
         public string TimeofBirth { get; set; }
+        public string FFAll { get; set; }
+        public string MFALL { get; set; }
+        public string Phones_All { get; set; }
+        public string Emails_All { get; set; }
+        public string Natives_All { get; set; }
+        public string Name_All { get; set; }
+        public string SurName_All { get; set; }
+        public string Caste_All { get; set; }
+        public string Qualification_All { get; set; }
+        public string Profession_All { get; set; }
     }
 
     public class MasterData

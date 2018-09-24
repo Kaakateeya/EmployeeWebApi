@@ -257,6 +257,10 @@ namespace WebapiApplication.ML
         public string loginto { get; set; }
 
         public bool? isSmartPh { get; set; }
+
+        public string AlternateNumber { get; set; }
+
+        public int? TeamHeadID { get; set; }
     }
     public class GetEmployeeListRequest
     {
@@ -315,6 +319,9 @@ namespace WebapiApplication.ML
         public string loginto { get; set; }
 
         public int IsSmartPh { get; set; }
+
+        public string AlternateNumber { get; set; }
+        public int TeamHeadID { get; set; }
     }
 
 

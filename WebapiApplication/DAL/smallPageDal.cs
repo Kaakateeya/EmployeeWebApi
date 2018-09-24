@@ -622,6 +622,8 @@ namespace WebapiApplication.DAL
                         Gemp.loginfrom = reader["loginfrom"] != DBNull.Value ? (reader.GetDateTime(reader.GetOrdinal("loginfrom"))).ToString() : null;
                         Gemp.loginto = reader["loginto"] != DBNull.Value ? (reader.GetDateTime(reader.GetOrdinal("loginto"))).ToString() : null;
                         Gemp.isSmartPh = reader["isSmartPh"] != DBNull.Value ? (reader.GetBoolean(reader.GetOrdinal("isSmartPh"))) : bnull;
+                        Gemp.AlternateNumber = reader["AlternateNumber"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("AlternateNumber"))) : null;
+                        Gemp.TeamHeadID = reader["TeamHeardID"] != DBNull.Value ? (reader.GetInt32(reader.GetOrdinal("TeamHeardID"))) : inull;
                         liEmp.Add(Gemp);
                     }
                 }

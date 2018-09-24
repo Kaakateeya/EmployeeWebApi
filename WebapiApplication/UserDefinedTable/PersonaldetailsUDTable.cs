@@ -1074,6 +1074,8 @@ namespace WebapiApplication.UserDefinedTable
             dtCreateEmployee.Columns.Add("loginfrom");
             dtCreateEmployee.Columns.Add("loginto");
             dtCreateEmployee.Columns.Add("IsSmartPh");
+            dtCreateEmployee.Columns.Add("AlternateNumber");
+            dtCreateEmployee.Columns.Add("TeamHeadID");
             return dtCreateEmployee;
         }
 
@@ -1641,6 +1643,17 @@ namespace WebapiApplication.UserDefinedTable
             dtCreate.Columns.Add("C_Edu_PHd_Study");
             dtCreate.Columns.Add("Sp_Father_Native");
             dtCreate.Columns.Add("TimeofBirth");
+            dtCreate.Columns.Add("FFAll");
+            dtCreate.Columns.Add("MFALL");
+            dtCreate.Columns.Add("Phones_All");
+            dtCreate.Columns.Add("Emails_All");
+            dtCreate.Columns.Add("Natives_All");
+            dtCreate.Columns.Add("Name_All");
+            dtCreate.Columns.Add("SurName_All");
+            dtCreate.Columns.Add("Caste_All");
+            dtCreate.Columns.Add("Qualification_All");
+            dtCreate.Columns.Add("Profession_All");
+       
             return dtCreate;
 
         }

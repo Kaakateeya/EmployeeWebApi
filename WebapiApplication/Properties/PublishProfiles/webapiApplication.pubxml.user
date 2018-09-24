@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>C:\Users\Admin\Desktop\183build</_PublishTargetUrl>
-    <_PublishTargetUrl>D:\build_files\05_09_2018_EmpunpaidServices123233</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\build_files\24_09_2018_Empcreationpage3</_PublishTargetUrl>
     <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
     <LastUsedPlatform>Any CPU</LastUsedPlatform>
   </PropertyGroup>
@@ -157,7 +157,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2016 12:02:46</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>09/24/2016 12:23:53</publishTime>
+      <publishTime>09/06/2018 19:06:45</publishTime>
     </File>
     <File Include="bin/System.Data.SqlClient.dll">
       <publishTime>12/02/2017 18:18:14</publishTime>
@@ -178,7 +178,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2016 12:02:45</publishTime>
     </File>
     <File Include="bin/WebapiApplication.dll">
-      <publishTime>09/05/2018 12:27:17</publishTime>
+      <publishTime>09/24/2018 12:09:43</publishTime>
     </File>
     <File Include="bin/WebapiApplication.pdb">
       <publishTime>12/02/2017 19:28:22</publishTime>
@@ -202,7 +202,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/20/2017 12:21:09</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>12/02/2017 18:18:14</publishTime>
+      <publishTime>09/06/2018 19:06:42</publishTime>
     </File>
     <File Include="Service References/ServiceReference1/configuration.svcinfo">
       <publishTime>05/20/2017 12:21:09</publishTime>
@@ -280,7 +280,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/05/2016 19:28:46</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/14/2018 15:11:23</publishTime>
+      <publishTime>09/24/2018 12:03:08</publishTime>
     </File>
   </ItemGroup>
 </Project>
