@@ -782,5 +782,13 @@ namespace WebapiApplication.Api
         {
             return this.IEmployeeReport.UnpaidServiceNotUpdatedTickets(Mobj);
         }
+
+        // 25_09_2018_emp lst arrival/ departure
+
+        public ArrayList getArrivalDeparturedates()
+        {
+            return this.IEmployeeReport.ArrivalDeparturedates();
+        }
+
     }
 }

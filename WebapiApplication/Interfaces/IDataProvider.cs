@@ -506,6 +506,8 @@ namespace WebapiApplication.Interfaces
         ArrayList YesterdaySettledDeletedInActivePhotosUpload(int? Empid);
 
         EmployeeMarketingTicketResponse UnpaidServiceNotUpdatedTickets(unpaidnotupdated Mobj);
+
+        ArrayList ArrivalDeparturedates();
     }
 
     public interface ISmallPages

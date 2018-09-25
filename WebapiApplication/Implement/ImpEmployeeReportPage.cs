@@ -414,6 +414,11 @@ namespace WebapiApplication.Implement
             return new EmployeeReportPageDAL().UnpaidServiceNotUpdatedTickets(Mobj, "[dbo].[usp_Emp_UnpaidViewedProfiles_NewDesign]");
         }
 
+        public ArrayList ArrivalDeparturedates()
+        {
+            return new EmployeeReportPageDAL().ArrivalDeparturedates("[dbo].[usp_emp_ArrivalDepature]");
+
+        }
     }
 
 }
