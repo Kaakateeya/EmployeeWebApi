@@ -512,6 +512,8 @@ namespace WebapiApplication.Interfaces
         int? InsertSAAmount(int? custid, decimal? saAmount);
 
         ArrayList EmployeeYesterdayWorkPendingReport(unpaidnotupdated mobj);
+
+        ArrayList SchdulepageReport(schdulepageinfo mobj);
     }
 
     public interface ISmallPages
