@@ -304,9 +304,9 @@ namespace WebapiApplication.Api
             return this.ISuccessStories.CustomerParofileIDbasePayment(ProfileID, BranchID);
         }
 
-        public ArrayList getCustomerUnauthorizedPayments(string BranchID, string StartDate, string EndDate, string Region)
+        public ArrayList getCustomerUnauthorizedPayments(string BranchID, string StartDate, string EndDate, string Region, string strProfileID)
         {
-            return this.ISuccessStories.CustomerUnauthorizedPayments(BranchID, StartDate, EndDate, Region);
+            return this.ISuccessStories.CustomerUnauthorizedPayments(BranchID, StartDate, EndDate, Region, strProfileID);
         }
 
         public ViewProfileInputInbit getInbitdataInfo(string ProfileID, int? empid)

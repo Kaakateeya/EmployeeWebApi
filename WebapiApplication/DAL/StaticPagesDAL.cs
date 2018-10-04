@@ -62,7 +62,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-              
+
             }
             return Sucessstories;
         }
@@ -116,7 +116,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-             
+
             }
             return kakBranchnames;
         }
@@ -160,7 +160,7 @@ namespace WebapiApplication.DAL
 
                         li.Add(smtp);
                         status = (reader["Status"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Status")) : 0;
-                      
+
                     }
                     Commonclass.SendMailSmtpMethod(li, "info");
                 }
@@ -176,7 +176,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-              
+
             }
             return status;
         }
@@ -237,7 +237,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-           
+
             }
             return intStatus;
         }
@@ -309,7 +309,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-             
+
             }
             return helpmail;
 
@@ -341,7 +341,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
             }
             return Commonclass.convertdataTableToArrayList(dataset);
         }
@@ -372,7 +372,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-             
+
             }
             DalCustomerExpressinterestBookMarkflag(loggedcustid, ToCustID, strSpname);
             return Commonclass.convertdataTableToArrayList(dataset);
@@ -454,7 +454,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-             
+
             }
             return Expbook;
 
@@ -506,7 +506,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-            
+
             }
 
 
@@ -542,7 +542,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-             
+
             }
             return iGrade;
         }
@@ -587,7 +587,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-           
+
             }
             return photoSlide;
         }
@@ -622,7 +622,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-            
+
             }
 
             return iStatus;
@@ -689,7 +689,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-              
+
             }
 
             return lstprofilesetting;
@@ -721,7 +721,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-              
+
 
             }
             return iStatus;
@@ -782,7 +782,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-            
+
             }
             return status;
 
@@ -815,7 +815,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-             
+
             }
             return pwdStatus;
         }
@@ -848,7 +848,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-             
+
             }
             return iStatus;
         }
@@ -885,7 +885,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-          
+
             }
             return iStatus;
         }
@@ -917,7 +917,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
             }
 
         }
@@ -949,7 +949,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-          
+
             }
             return iStatus;
         }
@@ -981,7 +981,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-         
+
             }
             return iStatus;
         }
@@ -1013,7 +1013,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-            
+
             }
             return Commonclass.convertdataTableToArrayList(dsAdvertisementserach);
         }
@@ -1050,7 +1050,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-             
+
             }
             return Commonclass.convertdataTableToArrayList(ds);
         }
@@ -1089,7 +1089,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-           
+
             }
             return intStatus;
         }
@@ -1135,7 +1135,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-           
+
             }
             return Status;
         }
@@ -1163,7 +1163,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-         
+
             }
             if (ds != null) { if (ds.Tables.Count > 0) { dt = ds.Tables[0]; } }
             return dt;
@@ -1199,7 +1199,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-          
+
             }
             return intStatus;
         }
@@ -1236,7 +1236,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-             
+
             }
             return intStatus;
         }
@@ -1271,7 +1271,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-             
+
             }
             return Status;
         }
@@ -1319,7 +1319,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-           
+
             }
             return Status;
         }
@@ -1399,7 +1399,7 @@ namespace WebapiApplication.DAL
 
 
                 connection.Close();
-              
+
 
             }
             return intstatus;
@@ -1430,7 +1430,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-         
+
             }
             return Commonclass.convertdataTableToArrayList(ds);
         }
@@ -1460,7 +1460,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-        
+
             }
             return status;
         }
@@ -1492,7 +1492,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-             
+
             }
             return ds;
         }
@@ -1540,7 +1540,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-             
+
             }
             return status;
         }
@@ -1612,7 +1612,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-              
+
             }
             return status;
         }
@@ -1863,7 +1863,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-             
+
             }
             return CP;
         }
@@ -1890,7 +1890,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
             }
             return Commonclass.convertdataTableToArrayList(dset);
         }
@@ -1919,7 +1919,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-            
+
             }
             return Commonclass.convertdataTableToArrayList(dset);
         }
@@ -1996,7 +1996,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-           
+
             }
             return Commonclass.convertdataTableToArrayList(ds);
         }
@@ -2029,7 +2029,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-             
+
             }
             return Commonclass.convertdataTableToArrayList(ds);
         }
@@ -2060,7 +2060,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-            
+
             }
             return Commonclass.convertdataTableToArrayList(ds);
         }
@@ -2100,7 +2100,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-            
+
             }
             return Status;
         }
@@ -2142,7 +2142,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-          
+
             }
             if (ds != null)
             {
@@ -2176,7 +2176,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-           
+
             }
             return Commonclass.convertdataTableToArrayList(dset);
         }
@@ -2199,7 +2199,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-       
+
             }
             return Commonclass.convertdataTableToArrayList(dset);
         }
@@ -2258,7 +2258,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-         
+
             }
             return intStatus;
         }
@@ -2299,7 +2299,7 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-          
+
             }
 
             return status;
@@ -2340,7 +2340,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-            
+
             }
             return Commonclass.convertdataTableToArrayListTable(dataset);
         }
@@ -2388,7 +2388,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-            
+
             }
             return new Tuple<string, int>(imageUrl, intStatus);
         }
@@ -2425,7 +2425,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-        
+
             }
             return intStatus;
         }
@@ -2493,7 +2493,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-            
+
             }
             return intStatus;
         }
@@ -2529,7 +2529,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-         
+
             }
             return intStatus;
         }
@@ -2581,15 +2581,15 @@ namespace WebapiApplication.DAL
             {
 
                 connection.Close();
-       
+
             }
             return Commonclass.convertdataTableToArrayListTable(dsProfileSearch);
         }
 
-        public ArrayList CustomerUnauthorizedPayments(string BranchID, string StartDate, string EndDate, string Region, string spName)
+        public ArrayList CustomerUnauthorizedPayments(string BranchID, string StartDate, string EndDate, string Region, string strProfileID, string spName)
         {
             DataSet dsGetUnauthorizedPayments = new DataSet();
-            SqlParameter[] parm = new SqlParameter[6];
+            SqlParameter[] parm = new SqlParameter[7];
 
             int intStatus = 0;
             string strErrorMsg = null;
@@ -2608,26 +2608,28 @@ namespace WebapiApplication.DAL
                 parm[2].Value = EndDate;
                 parm[3] = new SqlParameter("@Region", SqlDbType.VarChar);
                 parm[3].Value = Region;
-                parm[4] = new SqlParameter("@Status", SqlDbType.Int);
-                parm[4].Direction = ParameterDirection.Output;
-                parm[5] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
+                parm[4] = new SqlParameter("@strProfileID", SqlDbType.VarChar);
+                parm[4].Value = strProfileID;
+                parm[5] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[5].Direction = ParameterDirection.Output;
+                parm[6] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
+                parm[6].Direction = ParameterDirection.Output;
                 dsGetUnauthorizedPayments = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[4].Value.ToString()) == 0)
+                if (string.Compare(System.DBNull.Value.ToString(), parm[5].Value.ToString()) == 0)
                 {
                     intStatus = 0;
                 }
                 else
                 {
-                    intStatus = Convert.ToInt32(parm[4].Value);
+                    intStatus = Convert.ToInt32(parm[5].Value);
                 }
-                if (string.Compare(System.DBNull.Value.ToString(), parm[5].Value.ToString()) == 0)
+                if (string.Compare(System.DBNull.Value.ToString(), parm[6].Value.ToString()) == 0)
                 {
                     strErrorMsg = "System.DBNull returned from database";
                 }
                 else
                 {
-                    strErrorMsg = parm[5].Value.ToString();
+                    strErrorMsg = parm[6].Value.ToString();
                 }
             }
             catch (Exception EX)
@@ -2637,7 +2639,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-       
+
             }
 
             if (dsGetUnauthorizedPayments.Tables.Count == 0)
@@ -2689,7 +2691,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-          
+
             }
             return inbit;
         }
@@ -2736,7 +2738,7 @@ namespace WebapiApplication.DAL
             finally
             {
                 connection.Close();
-      
+
             }
             return nodata;
         }

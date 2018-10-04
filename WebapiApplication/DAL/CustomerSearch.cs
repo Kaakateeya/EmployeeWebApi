@@ -548,6 +548,7 @@ namespace WebapiApplication.DAL
             DataSet ds = new DataSet();
             DataTable dt = new DataTable();
             DateTime? dnull = null;
+            int? inull = null;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -618,6 +619,25 @@ namespace WebapiApplication.DAL
                         sh.selfAge = reader["selfAge"] != DBNull.Value ? reader["selfAge"].ToString() : "0";
                         sh.selfheightID = reader["selfheightID"] != DBNull.Value ? reader["selfheightID"].ToString() : "0";
 
+
+                        sh.PD = (reader["PD"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PD")) : inull;
+                        sh.DPD = (reader["DPD"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DPD")) : inull;
+                        sh.lnkView = (reader["lnkView"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("lnkView")) : inull;
+                        sh.notview = (reader["notview"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("notview")) : inull;
+                        sh.totService = (reader["totService"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("totService")) : inull;
+                        sh.ProfileOwnerName = reader["ProfileOwnerName"] != DBNull.Value ? reader["ProfileOwnerName"].ToString() : "";
+
+
+
+                        sh.MembershipExpiryDate = (reader["MembershipExpiryDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("MembershipExpiryDate")) : "";
+                        sh.PaidAmt = (reader["PaidAmt"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PaidAmt")) : "";
+                        sh.PaymentDate = (reader["PaymentDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PaymentDate")) : "";
+                        sh.Max_Allowed_Points = (reader["Max_Allowed_Points"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Max_Allowed_Points")) : inull;
+                        sh.Used_Count = (reader["Used_Count"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("Used_Count")) : inull;
+
+                        sh.ExpStatus = (reader["ExpStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ExpStatus")) : inull;
+
+                        sh.LastLoginDate = (reader["LastLogin"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastLogin")) : "";
                     }
                 }
 

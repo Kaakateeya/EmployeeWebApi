@@ -392,6 +392,10 @@ namespace WebapiApplication.DAL
                 parm[32].Value = Mobj.v_MaritalStatus;
                 parm[33] = new SqlParameter("@i_Domacile", SqlDbType.Int);
                 parm[33].Value = Mobj.i_Domacile;
+
+                parm[34] = new SqlParameter("@intNoActivity", SqlDbType.Int);
+                parm[34].Value = Mobj.noActivity;
+
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 int count = reader.FieldCount;
                 if (reader.HasRows)
@@ -1199,8 +1203,12 @@ namespace WebapiApplication.DAL
                             Marketing.CustomerApplicationPhoto = reader["CustomerApplicationPhoto"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("CustomerApplicationPhoto"))).ToString() : Snull;
                             //20_10_2017_custid
                             Marketing.Cust_ID = reader["Cust_ID"] != DBNull.Value ? (reader.GetInt64(reader.GetOrdinal("Cust_ID"))) : iLong;
-                            Marketing.PaidAmt = reader["PaidAmt"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("PaidAmt"))) : Snull;
+                            Marketing.PaidAmt = reader["PaidAmt"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("PaidAmt"))) : null;
                             Marketing.SettleAmt = reader["SettleAmt"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("SettleAmt"))) : null;
+
+                            Marketing.NoDatafound = reader["NoDatafound"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("NoDatafound"))) : null;
+
+
 
                         }
                         details.Add(Marketing);
@@ -2826,10 +2834,10 @@ namespace WebapiApplication.DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@i_AppUserId", Mobj.EmpID);
                 cmd.Parameters.AddWithValue("@i_ProfileId", Mobj.ProfileID);
-                cmd.Parameters.AddWithValue("@i_Gender", Mobj.Gender);
-                cmd.Parameters.AddWithValue("@i_isConfidential", Mobj.boolIsConfidential);
-                cmd.Parameters.AddWithValue("@dt_DateofRegistrationFrom", Mobj.FromDate);
-                cmd.Parameters.AddWithValue("@dt_DateofRegistrationTo", Mobj.ToDate);
+                // cmd.Parameters.AddWithValue("@i_Gender", Mobj.Gender);
+                // cmd.Parameters.AddWithValue("@i_isConfidential", Mobj.boolIsConfidential);
+                // cmd.Parameters.AddWithValue("@dt_DateofRegistrationFrom", Mobj.FromDate);
+                // cmd.Parameters.AddWithValue("@dt_DateofRegistrationTo", Mobj.ToDate);
                 cmd.Parameters.AddWithValue("@t_CasteIds", Commonclass.returndt(Mobj.castes, Mobj.Caste, "CasteID", "CasteID"));
                 cmd.Parameters.AddWithValue("@t_BranchIds", Commonclass.returndt(Mobj.branches, Mobj.Branch, "BranchID", "BranchID"));
                 cmd.Parameters.AddWithValue("@t_StatusIds", Commonclass.returndt(Mobj.applicationstatus, Mobj.ApplicationStatus, "ApplicationStatusID", "ApplicationStatusID"));
@@ -2837,7 +2845,7 @@ namespace WebapiApplication.DAL
                 cmd.Parameters.AddWithValue("@i_PageNumber", Mobj.PageNumber);
                 cmd.Parameters.AddWithValue("@i_StartIndex", Mobj.intlowerBound);
                 cmd.Parameters.AddWithValue("@I_EndIndex", Mobj.intUpperBound);
-                cmd.Parameters.AddWithValue("@i_Payment", Mobj.PaymentStatus);
+                // cmd.Parameters.AddWithValue("@i_Payment", Mobj.PaymentStatus);
                 daParentDetails.SelectCommand = cmd;
                 daParentDetails.Fill(dtAssignSettings);
             }
@@ -7802,6 +7810,68 @@ namespace WebapiApplication.DAL
             try
             {
                 SqlParameter[] parm = new SqlParameter[2];
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        public int? InsertSAAmount(int? custid, decimal? saAmount, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[4];
+            int? intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@intCust_id", SqlDbType.Int);
+                parm[0].Value = custid;
+                parm[1] = new SqlParameter("@strSettleamt", SqlDbType.Decimal);
+                parm[1].Value = saAmount;
+                parm[2] = new SqlParameter("@intStatus", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[2].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[2].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return intStatus;
+        }
+
+        public ArrayList EmployeeYesterdayWorkPendingReport(unpaidnotupdated mobj, string spName)
+        {
+
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[10];
+                //parm[0] = new SqlParameter("@intCust_id", SqlDbType.Int);
+                //parm[0].Value = custid;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)

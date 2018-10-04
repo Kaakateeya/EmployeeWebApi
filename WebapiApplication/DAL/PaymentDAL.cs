@@ -396,8 +396,10 @@ namespace WebapiApplication.DAL
                         MobjpaymentGridview.PaymentHist_ID = (reader["PaymentHist_ID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PaymentHist_ID")) : iNull;
                         MobjpaymentGridview.CustId = (reader["Cust_ID"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("Cust_ID")) : lNull;
                         MobjpaymentGridview.PaidStatus = (reader["PaidStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PaidStatus")) : iNull;
+                        //
+                        MobjpaymentGridview.SAForm = (reader["SAForm"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("SAForm")) : null;
+                        MobjpaymentGridview.SettlementAmt = (reader["SettlementAmt"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("SettlementAmt")) : null;
                         arrayList.Add(MobjpaymentGridview);
-
                     }
 
                 }

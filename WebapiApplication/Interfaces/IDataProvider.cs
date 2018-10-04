@@ -201,7 +201,7 @@ namespace WebapiApplication.Interfaces
 
         ArrayList CustomerParofileIDbasePayment(string ProfileID, int? BranchID);
 
-        ArrayList CustomerUnauthorizedPayments(string BranchID, string StartDate, string EndDate, string Region);
+        ArrayList CustomerUnauthorizedPayments(string BranchID, string StartDate, string EndDate, string Region, string strProfileID);
 
 
         ViewProfileInputInbit InbitdataInfo(string ProfileID, int? empid);
@@ -508,6 +508,10 @@ namespace WebapiApplication.Interfaces
         EmployeeMarketingTicketResponse UnpaidServiceNotUpdatedTickets(unpaidnotupdated Mobj);
 
         ArrayList ArrivalDeparturedates();
+
+        int? InsertSAAmount(int? custid, decimal? saAmount);
+
+        ArrayList EmployeeYesterdayWorkPendingReport(unpaidnotupdated mobj);
     }
 
     public interface ISmallPages

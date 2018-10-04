@@ -933,6 +933,10 @@ namespace WebapiApplication.ML
         public Int64? CustId { get; set; }
 
         public int? PaidStatus { get; set; }
+
+        public string SAForm { get; set; }
+
+        public string SettlementAmt { get; set; }
     }
 
     public class UpdatePersonaldetails
@@ -1217,6 +1221,32 @@ namespace WebapiApplication.ML
         public string selfAge { get; set; }
 
         public string selfheightID { get; set; }
+
+        public int? PD { get; set; }
+
+        public int? DPD { get; set; }
+
+        public int? lnkView { get; set; }
+
+        public int? notview { get; set; }
+
+        public int? totService { get; set; }
+
+        public string ProfileOwnerName { get; set; }
+
+        public string MembershipExpiryDate { get; set; }
+
+        public string PaidAmt { get; set; }
+
+        public string PaymentDate { get; set; }
+
+        public int? Max_Allowed_Points { get; set; }
+
+        public int? Used_Count { get; set; }
+
+        public int? ExpStatus { get; set; }
+
+        public string LastLoginDate { get; set; }
     }
 
     public class slideshowNew

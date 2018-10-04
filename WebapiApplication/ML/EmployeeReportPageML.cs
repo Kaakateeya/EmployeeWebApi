@@ -182,6 +182,8 @@ namespace WebapiApplication.ML
         public int? intTableType { get; set; }
         public string v_MaritalStatus { get; set; }
         public int? i_Domacile { get; set; }
+
+        public int? noActivity { get; set; }
     }
 
     public class myprofileResponse

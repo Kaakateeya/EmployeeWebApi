@@ -419,6 +419,16 @@ namespace WebapiApplication.Implement
             return new EmployeeReportPageDAL().ArrivalDeparturedates("[dbo].[usp_emp_ArrivalDepature]");
 
         }
+        public int? InsertSAAmount(int? custid, decimal? saAmount)
+        {
+            return new EmployeeReportPageDAL().InsertSAAmount(custid, saAmount, "[dbo].[usp_Emp_UpdateSettleAmt]");
+        }
+
+        public ArrayList EmployeeYesterdayWorkPendingReport([FromBody]unpaidnotupdated mobj)
+        {
+            return new EmployeeReportPageDAL().EmployeeYesterdayWorkPendingReport(mobj, "[dbo].[usp_Emp_UpdateSettleAmt]");
+
+        }
     }
 
 }

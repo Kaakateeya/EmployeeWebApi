@@ -790,5 +790,19 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.ArrivalDeparturedates();
         }
 
+
+        // 28_09_2018_emp lst arrival/ departure
+
+        public int? getInsertSAAmount(int? custid, decimal? saAmount)
+        {
+            return this.IEmployeeReport.InsertSAAmount(custid, saAmount);
+        }
+
+        // 02_10_2018_emp Work pending Report team heads
+
+        public ArrayList EmployeeYesterdayWorkPendingReport([FromBody]unpaidnotupdated mobj)
+        {
+            return this.IEmployeeReport.EmployeeYesterdayWorkPendingReport(mobj);
+        }
     }
 }

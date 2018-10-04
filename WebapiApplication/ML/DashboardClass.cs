@@ -396,6 +396,8 @@ namespace WebapiApplication.ML
         public string PaidAmt { get; set; }
 
         public string SettleAmt { get; set; }
+
+        public string NoDatafound { get; set; }
     }
     public class MarketingTicketResponseHistory
     {
