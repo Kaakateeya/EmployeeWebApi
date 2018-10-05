@@ -429,6 +429,14 @@ namespace WebapiApplication.Implement
             return new EmployeeReportPageDAL().EmployeeYesterdayWorkPendingReport(mobj, "[dbo].[usp_Emp_UpdateSettleAmt]");
 
         }
+
+        // schdulepageinfo
+
+        public ArrayList SchdulepageReport([FromBody]schdulepageinfo mobj)
+        {
+            return new EmployeeReportPageDAL().SchdulepageReport(mobj, "[dbo].[usp_UpdateDisplayScdularReport_AJS]");
+
+        }
     }
 
 }

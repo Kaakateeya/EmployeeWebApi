@@ -792,7 +792,7 @@ namespace WebapiApplication.Api
 
 
         // 28_09_2018_emp lst arrival/ departure
-
+       
         public int? getInsertSAAmount(int? custid, decimal? saAmount)
         {
             return this.IEmployeeReport.InsertSAAmount(custid, saAmount);
@@ -804,6 +804,12 @@ namespace WebapiApplication.Api
         {
             return this.IEmployeeReport.EmployeeYesterdayWorkPendingReport(mobj);
         }
-        
+
+        // schdulepageinfo
+
+        public ArrayList SchdulepageReport([FromBody]schdulepageinfo mobj)
+        {
+            return this.IEmployeeReport.SchdulepageReport(mobj);
+        }
     }
 }

@@ -7884,5 +7884,48 @@ namespace WebapiApplication.DAL
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
+
+        // schdulepageinfo
+
+        public ArrayList SchdulepageReport(schdulepageinfo mobj, string spName)
+        {
+
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[10];
+                parm[0] = new SqlParameter("@schdulename", SqlDbType.VarChar);
+                parm[0].Value = mobj.Schdulename;
+
+                parm[1] = new SqlParameter("@purposepoint", SqlDbType.VarChar);
+                parm[1].Value = mobj.Purposepoint;
+                parm[2] = new SqlParameter("@timeperiod", SqlDbType.Int);
+                parm[2].Value = mobj.Timeperiod;
+
+                parm[3] = new SqlParameter("@spname", SqlDbType.VarChar);
+                parm[3].Value = mobj.Spname;
+
+                parm[4] = new SqlParameter("@iflag", SqlDbType.Int);
+                parm[4].Value = mobj.iflag;
+
+                parm[5] = new SqlParameter("@scdularId", SqlDbType.BigInt);
+                parm[5].Value = mobj.scdularId;
+
+                
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }
