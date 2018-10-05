@@ -800,7 +800,7 @@ namespace WebapiApplication.Api
 
         // 02_10_2018_emp Work pending Report team heads
 
-        public ArrayList EmployeeYesterdayWorkPendingReport([FromBody]unpaidnotupdated mobj)
+        public ArrayList EmployeeYesterdayWorkPendingReport([FromBody]ystryPending mobj)
         {
             return this.IEmployeeReport.EmployeeYesterdayWorkPendingReport(mobj);
         }

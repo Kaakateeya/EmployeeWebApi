@@ -7860,7 +7860,7 @@ namespace WebapiApplication.DAL
             return intStatus;
         }
 
-        public ArrayList EmployeeYesterdayWorkPendingReport(unpaidnotupdated mobj, string spName)
+        public ArrayList EmployeeYesterdayWorkPendingReport(ystryPending mobj, string spName)
         {
 
             DataSet ds = new DataSet();
@@ -7869,9 +7869,13 @@ namespace WebapiApplication.DAL
             connection.Open();
             try
             {
-                SqlParameter[] parm = new SqlParameter[10];
-                //parm[0] = new SqlParameter("@intCust_id", SqlDbType.Int);
-                //parm[0].Value = custid;
+                SqlParameter[] parm = new SqlParameter[4];
+                parm[0] = new SqlParameter("@intReliginid", SqlDbType.Int);
+                parm[0].Value = mobj.strRegional;
+                parm[1] = new SqlParameter("@intReliginid", SqlDbType.VarChar);
+                parm[1].Value = mobj.strBranch;
+                parm[2] = new SqlParameter("@intEmployees", SqlDbType.VarChar);
+                parm[2].Value = mobj.strProfileowner;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)

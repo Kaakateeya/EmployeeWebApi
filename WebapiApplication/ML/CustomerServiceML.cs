@@ -1140,5 +1140,13 @@ namespace WebapiApplication.ML
         public int? iflag { set; get; }
         public long? scdularId { set; get; }
     }
+
+    public class ystryPending
+    {
+        public int? strRegional { set; get; }
+        public string strBranch { set; get; }
+        public string strProfileowner { set; get; }
+    }
+
 }
 

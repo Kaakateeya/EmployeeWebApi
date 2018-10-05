@@ -511,7 +511,7 @@ namespace WebapiApplication.Interfaces
 
         int? InsertSAAmount(int? custid, decimal? saAmount);
 
-        ArrayList EmployeeYesterdayWorkPendingReport(unpaidnotupdated mobj);
+        ArrayList EmployeeYesterdayWorkPendingReport(ystryPending mobj);
 
         ArrayList SchdulepageReport(schdulepageinfo mobj);
     }

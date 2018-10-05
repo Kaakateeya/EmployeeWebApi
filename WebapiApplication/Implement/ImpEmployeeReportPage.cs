@@ -424,7 +424,7 @@ namespace WebapiApplication.Implement
             return new EmployeeReportPageDAL().InsertSAAmount(custid, saAmount, "[dbo].[usp_Emp_UpdateSettleAmt]");
         }
 
-        public ArrayList EmployeeYesterdayWorkPendingReport([FromBody]unpaidnotupdated mobj)
+        public ArrayList EmployeeYesterdayWorkPendingReport([FromBody]ystryPending mobj)
         {
             return new EmployeeReportPageDAL().EmployeeYesterdayWorkPendingReport(mobj, "[dbo].[usp_Emp_UpdateSettleAmt]");
 
