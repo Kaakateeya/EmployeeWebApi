@@ -12,10 +12,12 @@ using WebapiApplication.ServiceReference1;
 using WebapiApplication.UserDefinedTable;
 using Dapper;
 
+
 namespace WebapiApplication.DAL
 {
     public class EmployeeReportPageDAL
     {
+
         public int SaveViewedBookmark_Customer(CustSearchMl Mobj, string spName)
         {
             int intStatus = 0;
@@ -690,7 +692,7 @@ namespace WebapiApplication.DAL
                             Binterest.FromRemDate = (reader["FromRemDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromRemDate")) : null;
                             Binterest.ToRemDate = (reader["ToRemDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToRemDate")) : null;
                             Binterest.RowID = (reader["RowNum"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("RowNum")) : intnull;
-
+                            Binterest.EmpName = (reader["EmpName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpName")) : null;
                             arrayList.Add(Binterest);
                         }
                     }
@@ -1326,6 +1328,12 @@ namespace WebapiApplication.DAL
                 parm[10].Value = Mobj.Replaytypeid;
                 parm[11] = new SqlParameter("@Status", SqlDbType.Int);
                 parm[11].Direction = ParameterDirection.Output;
+
+                parm[12] = new SqlParameter("@intExpressIntID", SqlDbType.Int);
+                parm[12].Value = Mobj.intExpressIntID;
+                parm[13] = new SqlParameter("@intPendingEmpID", SqlDbType.Int);
+                parm[13].Value = Mobj.intPendingEmpID;
+
                 drReader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (string.Compare(System.DBNull.Value.ToString(), parm[11].Value.ToString()).Equals(0))
                 {
@@ -7870,11 +7878,11 @@ namespace WebapiApplication.DAL
             try
             {
                 SqlParameter[] parm = new SqlParameter[4];
-                parm[0] = new SqlParameter("@intReliginid", SqlDbType.Int);
+                parm[0] = new SqlParameter("@intRegion", SqlDbType.Int);
                 parm[0].Value = mobj.strRegional;
-                parm[1] = new SqlParameter("@intReliginid", SqlDbType.VarChar);
+                parm[1] = new SqlParameter("@intBranch", SqlDbType.VarChar);
                 parm[1].Value = mobj.strBranch;
-                parm[2] = new SqlParameter("@intEmployees", SqlDbType.VarChar);
+                parm[2] = new SqlParameter("@intEmpID", SqlDbType.VarChar);
                 parm[2].Value = mobj.strProfileowner;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
@@ -7918,7 +7926,7 @@ namespace WebapiApplication.DAL
                 parm[5] = new SqlParameter("@scdularId", SqlDbType.BigInt);
                 parm[5].Value = mobj.scdularId;
 
-                
+
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)
