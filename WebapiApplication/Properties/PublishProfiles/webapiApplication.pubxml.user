@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>C:\Users\Admin\Desktop\183build</_PublishTargetUrl>
-    <_PublishTargetUrl>D:\build_files\10_10_2018_Ticketformationkkk</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\build_files\10_10_2018_Ticketformationkkkggggxx</_PublishTargetUrl>
     <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
     <LastUsedPlatform>Any CPU</LastUsedPlatform>
   </PropertyGroup>

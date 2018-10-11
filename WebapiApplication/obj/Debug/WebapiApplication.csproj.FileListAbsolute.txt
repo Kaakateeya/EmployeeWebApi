@@ -292,6 +292,5 @@ D:\empwebapi\EmployeeWebApi\WebapiApplication\bin\DotNetOpenAuth.OpenId.RelyingP
 D:\empwebapi\EmployeeWebApi\WebapiApplication\bin\DotNetOpenAuth.AspNet.xml
 D:\empwebapi\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.Membership.OpenAuth.xml
 D:\empwebapi\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.FriendlyUrls.xml
-D:\empwebapi\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.csprojResolveAssemblyReference.cache
 D:\empwebapi\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.dll
 D:\empwebapi\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.pdb
