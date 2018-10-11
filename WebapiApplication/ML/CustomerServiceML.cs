@@ -269,6 +269,8 @@ namespace WebapiApplication.ML
         public int? RowID { get; set; }
 
         public string EmpName { get; set; }
+
+        public int? ExpressInterestID { get; set; }
     }
 
     public class SearchML

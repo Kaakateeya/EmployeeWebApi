@@ -693,6 +693,7 @@ namespace WebapiApplication.DAL
                             Binterest.ToRemDate = (reader["ToRemDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToRemDate")) : null;
                             Binterest.RowID = (reader["RowNum"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("RowNum")) : intnull;
                             Binterest.EmpName = (reader["EmpName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpName")) : null;
+                            Binterest.ExpressInterestID = (reader["ExpressInterestID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ExpressInterestID")) : intnull;
                             arrayList.Add(Binterest);
                         }
                     }
@@ -6725,8 +6726,7 @@ namespace WebapiApplication.DAL
 
                             Binterest.FromRemDate = (reader["FromRemDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromRemDate")) : null;
                             Binterest.ToRemDate = (reader["ToRemDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToRemDate")) : null;
-
-
+                            Binterest.ExpressInterestID = (reader["ExpressInterestID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ExpressInterestID")) : intnull;
                             arrayList.Add(Binterest);
                         }
                     }
@@ -7619,7 +7619,7 @@ namespace WebapiApplication.DAL
                             Binterest.FromRemDate = (reader["FromRemDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromRemDate")) : null;
                             Binterest.ToRemDate = (reader["ToRemDate"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ToRemDate")) : null;
                             Binterest.RowID = (reader["RowNum"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("RowNum")) : intnull;
-
+                            Binterest.ExpressInterestID = (reader["ExpressInterestID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ExpressInterestID")) : intnull;
                             arrayList.Add(Binterest);
                         }
                     }
