@@ -437,6 +437,10 @@ namespace WebapiApplication.Implement
             return new EmployeeReportPageDAL().SchdulepageReport(mobj, "[dbo].[usp_UpdateDisplayScdularReport_AJS]");
 
         }
+        public ArrayList Yesterday48hoursSerives(int? Empid, int? pagefrom, int? pageto)
+        {
+            return new EmployeeReportPageDAL().Yesterday48hoursSerives(Empid, pagefrom, pageto, "[dbo].[Usp_Emp_YesterDay48HoursNoUpdateInfo]");
+        }
     }
 
 }

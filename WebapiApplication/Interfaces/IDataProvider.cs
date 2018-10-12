@@ -514,6 +514,8 @@ namespace WebapiApplication.Interfaces
         ArrayList EmployeeYesterdayWorkPendingReport(ystryPending mobj);
 
         ArrayList SchdulepageReport(schdulepageinfo mobj);
+
+        ArrayList Yesterday48hoursSerives(int? Empid, int? pagefrom, int? pageto);
     }
 
     public interface ISmallPages
