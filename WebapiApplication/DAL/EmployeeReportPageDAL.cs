@@ -694,6 +694,8 @@ namespace WebapiApplication.DAL
                             Binterest.RowID = (reader["RowNum"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("RowNum")) : intnull;
                             Binterest.EmpName = (reader["EmpName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("EmpName")) : null;
                             Binterest.ExpressInterestID = (reader["ExpressInterestID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ExpressInterestID")) : intnull;
+                            Binterest.ServicePending_EmpID = (reader["ServicePending_EmpID"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ServicePending_EmpID")) : intnull;
+                            Binterest.ServicePending_EmpName = (reader["ServicePending_EmpName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ServicePending_EmpName")) : null;
                             arrayList.Add(Binterest);
                         }
                     }

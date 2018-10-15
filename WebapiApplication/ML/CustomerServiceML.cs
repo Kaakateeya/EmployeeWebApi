@@ -271,6 +271,10 @@ namespace WebapiApplication.ML
         public string EmpName { get; set; }
 
         public int? ExpressInterestID { get; set; }
+
+        public int? ServicePending_EmpID { get; set; }
+
+        public string ServicePending_EmpName { get; set; }
     }
 
     public class SearchML
