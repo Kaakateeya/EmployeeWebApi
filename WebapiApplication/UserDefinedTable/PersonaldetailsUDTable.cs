@@ -1030,6 +1030,7 @@ namespace WebapiApplication.UserDefinedTable
             dtMyAuthDetails.Columns.Add("TicketOwnerIDAmt_2");
             dtMyAuthDetails.Columns.Add("MrkTicketVerified");
             dtMyAuthDetails.Columns.Add("Markedted");
+            dtMyAuthDetails.Columns.Add("intRegionID");
             //dtMyAuthDetails.Columns.Add("TotalAmount_Ticket");
             return dtMyAuthDetails;
 

@@ -407,7 +407,7 @@ namespace WebapiApplication.Implement
         }
         public ArrayList YesterdaySettledDeletedInActivePhotosUpload(int? Empid)
         {
-            return new EmployeeReportPageDAL().YesterdaySettledDeletedInActivePhotosUpload(Empid,"[dbo].[Usp_Emp_YesterDayActiviyStatus_AJS]");
+            return new EmployeeReportPageDAL().YesterdaySettledDeletedInActivePhotosUpload(Empid, "[dbo].[Usp_Emp_YesterDayActiviyStatus_AJS]");
         }
         public EmployeeMarketingTicketResponse UnpaidServiceNotUpdatedTickets(unpaidnotupdated Mobj)
         {
@@ -426,7 +426,7 @@ namespace WebapiApplication.Implement
 
         public ArrayList EmployeeYesterdayWorkPendingReport([FromBody]ystryPending mobj)
         {
-            return new EmployeeReportPageDAL().EmployeeYesterdayWorkPendingReport(mobj, "[dbo].[usp_Emp_UpdateSettleAmt]");
+            return new EmployeeReportPageDAL().EmployeeYesterdayWorkPendingReport(mobj, "[dbo].[usp_Emp_YesterdayPendingworkbyEmp_AJS]");
 
         }
 
@@ -436,6 +436,10 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().SchdulepageReport(mobj, "[dbo].[usp_UpdateDisplayScdularReport_AJS]");
 
+        }
+        public ArrayList Yesterday48hoursSerives(int? Empid, int? pagefrom, int? pageto)
+        {
+            return new EmployeeReportPageDAL().Yesterday48hoursSerives(Empid, pagefrom, pageto, "[dbo].[Usp_Emp_YesterDay48HoursNoUpdateInfo]");
         }
     }
 

@@ -134,6 +134,8 @@ namespace WebapiApplication.ML
         public string TicketOwnerIDAmt_2 { set; get; }
         public int? MrkTicketVerified { set; get; }
         public int? Markedted { set; get; }
+
+        public int? intRegionID { set; get; }
         //public string TotalAmount_Ticket { set; get; }
 
 

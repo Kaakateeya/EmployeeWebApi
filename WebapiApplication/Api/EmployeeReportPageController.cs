@@ -811,5 +811,12 @@ namespace WebapiApplication.Api
         {
             return this.IEmployeeReport.SchdulepageReport(mobj);
         }
+
+        //// 
+
+        public ArrayList getYesterday48hoursSerives(int? Empid, int? pagefrom, int? pageto)
+        {
+            return this.IEmployeeReport.Yesterday48hoursSerives(Empid, pagefrom, pageto);
+        }
     }
 }

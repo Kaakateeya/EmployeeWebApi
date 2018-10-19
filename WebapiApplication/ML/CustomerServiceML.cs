@@ -267,6 +267,14 @@ namespace WebapiApplication.ML
         public string FromRemDate { get; set; }
 
         public int? RowID { get; set; }
+
+        public string EmpName { get; set; }
+
+        public int? ExpressInterestID { get; set; }
+
+        public int? ServicePending_EmpID { get; set; }
+
+        public string ServicePending_EmpName { get; set; }
     }
 
     public class SearchML
@@ -289,11 +297,11 @@ namespace WebapiApplication.ML
         public string strregion { get; set; }
 
 
-          public int? intViewPoint { get; set; }
-          public int? intBackSear { get; set; }
-          public int? intFowardSear { get; set; }
+        public int? intViewPoint { get; set; }
+        public int? intBackSear { get; set; }
+        public int? intFowardSear { get; set; }
 
-     
+
     }
 
     public class EmployeeMarketingTicketResponse
@@ -713,6 +721,10 @@ namespace WebapiApplication.ML
 
 
         public bool? FollowupStatus { get; set; }
+
+        public int intExpressIntID { get; set; }
+
+        public int intPendingEmpID { get; set; }
     }
 
     public class IncomingOutgoing
