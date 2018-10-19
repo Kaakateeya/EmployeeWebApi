@@ -24,6 +24,7 @@ namespace WebapiApplication.Api
         {
             CutomerEducationdetails customerEducation = Cedetails["customerEducation"].ToObject<CutomerEducationdetails>();
             UpdatePersonaldetails customerpersonaldetails = Cedetails["customerpersonaldetails"].ToObject<UpdatePersonaldetails>();
+            customerEducation.Passofyear = customerEducation.Passofyear != 0 ? customerEducation.Passofyear : null;
             List<CutomerEducationdetails> listEdu = new List<CutomerEducationdetails>();
             listEdu.Add(customerEducation);
             customerpersonaldetails.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.createEducationdataTable(), listEdu);
@@ -206,7 +207,7 @@ namespace WebapiApplication.Api
             //}
             //else
             //{
-                return this.ICustomerpersonalupdate.Emplanding_counts_Admin(ecount);
+            return this.ICustomerpersonalupdate.Emplanding_counts_Admin(ecount);
             //}
         }
 
@@ -276,7 +277,7 @@ namespace WebapiApplication.Api
 
         public int getPhotoPassword([FromUri]Int64? CustID, [FromUri]int? ipassword)
         {
-            return this.ICustomerpersonalupdate.PhotoPassword(CustID, ipassword); 
+            return this.ICustomerpersonalupdate.PhotoPassword(CustID, ipassword);
         }
 
         public int AstroDetailsUpdateDelete([FromBody]AstroUploadDelete astroupdate)

@@ -441,6 +441,12 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().Yesterday48hoursSerives(Empid, pagefrom, pageto, "[dbo].[Usp_Emp_YesterDay48HoursNoUpdateInfo]");
         }
+
+        public ArrayList EmployeeYesterdayWorkPendingReportNew([FromBody]ystryPending mobj)
+        {
+            return new EmployeeReportPageDAL().EmployeeYesterdayWorkPendingReport(mobj, "[dbo].[usp_Emp_YesterdayPendingworkbyEmp_Analysis_AJS]");
+
+        }
     }
 
 }

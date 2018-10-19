@@ -818,5 +818,12 @@ namespace WebapiApplication.Api
         {
             return this.IEmployeeReport.Yesterday48hoursSerives(Empid, pagefrom, pageto);
         }
+        // 15_10_2018_new team heads Report
+        public ArrayList EmployeeYesterdayWorkPendingReportNew([FromBody]ystryPending mobj)
+        {
+            return this.IEmployeeReport.EmployeeYesterdayWorkPendingReportNew(mobj);
+        }
+
+
     }
 }
