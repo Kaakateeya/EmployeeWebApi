@@ -7906,7 +7906,7 @@ namespace WebapiApplication.DAL
 
                 parm[1] = new SqlParameter("@purposepoint", SqlDbType.VarChar);
                 parm[1].Value = mobj.Purposepoint;
-                parm[2] = new SqlParameter("@timeperiod", SqlDbType.Int);
+                parm[2] = new SqlParameter("@timeperiod", SqlDbType.VarChar);
                 parm[2].Value = mobj.Timeperiod;
 
                 parm[3] = new SqlParameter("@spname", SqlDbType.VarChar);
