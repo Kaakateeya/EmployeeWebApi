@@ -447,6 +447,10 @@ namespace WebapiApplication.Implement
             return new EmployeeReportPageDAL().EmployeeYesterdayWorkPendingReport(mobj, "[dbo].[usp_Emp_YesterdayPendingworkbyEmp_Analysis_AJS]");
 
         }
+        public ArrayList ThreeDaysPendingReport(int? Empid, int? pagefrom, int? pageto)
+        {
+            return new EmployeeReportPageDAL().Yesterday48hoursSerives(Empid, pagefrom, pageto, "[dbo].[Usp_Emp_YesterDayMatchFollowUpInfo_3Days]");
+        }
     }
 
 }

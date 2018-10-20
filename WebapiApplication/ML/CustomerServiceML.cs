@@ -1147,7 +1147,7 @@ namespace WebapiApplication.ML
     {
         public string Schdulename { set; get; }
         public string Purposepoint { set; get; }
-        public int? Timeperiod { set; get; }
+        public string Timeperiod { set; get; }
         public string Spname { set; get; }
         public int? iflag { set; get; }
         public long? scdularId { set; get; }

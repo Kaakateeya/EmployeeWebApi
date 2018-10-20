@@ -824,6 +824,13 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.EmployeeYesterdayWorkPendingReportNew(mobj);
         }
 
+        // 
+
+        // 19_10_2018_new team heads Report
+        public ArrayList getThreeDaysPendingReport(int? Empid, int? pagefrom, int? pageto)
+        {
+            return this.IEmployeeReport.ThreeDaysPendingReport(Empid, pagefrom, pageto);
+        }
 
     }
 }
