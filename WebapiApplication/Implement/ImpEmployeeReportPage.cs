@@ -451,6 +451,11 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().Yesterday48hoursSerives(Empid, pagefrom, pageto, "[dbo].[Usp_Emp_YesterDayMatchFollowUpInfo_3Days]");
         }
+
+        public ArrayList EmpMatchFollowupandMarketingHistory(int? intFollowupStatus, int? intCallStatus, int? intNoOfDays, int? intEmpID)
+        {
+            return new EmployeeReportPageDAL().EmpMatchFollowupandMarketingHistory(intFollowupStatus, intCallStatus, intNoOfDays, intEmpID, "[dbo].[usp_Emp_MatchFollowupandMarketingHistory_AJS]");
+        }
     }
 
 }
