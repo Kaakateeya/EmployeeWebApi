@@ -302,6 +302,8 @@ namespace WebapiApplication.ML
         public int? intFowardSear { get; set; }
 
 
+
+        public int? intMyInterest { get; set; }
     }
 
     public class EmployeeMarketingTicketResponse

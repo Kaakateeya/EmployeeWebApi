@@ -523,6 +523,8 @@ namespace WebapiApplication.Interfaces
         ArrayList ThreeDaysPendingReport(int? Empid, int? pagefrom, int? pageto);
 
         ArrayList EmpMatchFollowupandMarketingHistory(int? intFollowupStatus, int? intCallStatus, int? intNoOfDays, int? intEmpID);
+
+        ArrayList MatchfollowupSlideShowResult_New(SearchML Mobj);
     }
 
     public interface ISmallPages

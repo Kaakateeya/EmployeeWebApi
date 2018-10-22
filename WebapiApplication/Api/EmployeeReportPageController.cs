@@ -837,5 +837,13 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.EmpMatchFollowupandMarketingHistory(intFollowupStatus, intCallStatus, intNoOfDays, intEmpID);
         }
 
+        // 22_10_2018 Matchfollowup New Page
+        public ArrayList MatchfollowupSlideShowResult_New([FromBody]SearchML Mobj)
+        {
+            Mobj.ProfileOwner = Commonclass.getTableData(Mobj.strProfileOwner, "owner");
+            Mobj.ProfileOwnerBranch = Commonclass.getTableData(Mobj.strProfileOwnerBranch, "branch");
+            Mobj.region = Commonclass.getTableData(Mobj.strregion, "region");
+            return this.IEmployeeReport.MatchfollowupSlideShowResult_New(Mobj);
+        }
     }
 }
