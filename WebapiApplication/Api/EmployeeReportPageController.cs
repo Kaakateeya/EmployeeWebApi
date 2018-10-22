@@ -845,5 +845,12 @@ namespace WebapiApplication.Api
             Mobj.region = Commonclass.getTableData(Mobj.strregion, "region");
             return this.IEmployeeReport.MatchfollowupSlideShowResult_New(Mobj);
         }
+        //22_10_2018_matchfollowupNew Page Counts
+
+        public ArrayList getMatchfollowupCounts(int? intFollowupStatus, int? intCallStatus, int? intNoOfDays, int? intEmpID)
+        {
+            return this.IEmployeeReport.MatchfollowupCounts(intFollowupStatus, intCallStatus, intNoOfDays, intEmpID);
+        }
+
     }
 }

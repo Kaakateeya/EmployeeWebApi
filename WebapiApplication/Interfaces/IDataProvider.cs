@@ -525,6 +525,8 @@ namespace WebapiApplication.Interfaces
         ArrayList EmpMatchFollowupandMarketingHistory(int? intFollowupStatus, int? intCallStatus, int? intNoOfDays, int? intEmpID);
 
         ArrayList MatchfollowupSlideShowResult_New(SearchML Mobj);
+
+        ArrayList MatchfollowupCounts(int? intFollowupStatus, int? intCallStatus, int? intNoOfDays, int? intEmpID);
     }
 
     public interface ISmallPages

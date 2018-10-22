@@ -460,6 +460,12 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().MatchfollowupSlideShowResult_New(Mobj, "[dbo].[Usp_Select_OneSideInterst_MySide_NewDesign]");
         }
+
+
+        public ArrayList MatchfollowupCounts(int? intFollowupStatus, int? intCallStatus, int? intNoOfDays, int? intEmpID)
+        {
+            return new EmployeeReportPageDAL().MatchfollowupCounts(intFollowupStatus, "[dbo].[Usp_Select_OneSideInterst_MySide_NewDesign]");
+        }
     }
 
 }
