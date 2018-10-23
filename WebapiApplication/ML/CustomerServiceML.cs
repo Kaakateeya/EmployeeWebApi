@@ -1153,6 +1153,17 @@ namespace WebapiApplication.ML
         public long? scdularId { set; get; }
     }
 
+    // teamheadinfo
+    public class Teamheadinfo
+    {
+        public string Regions { set; get; }
+        public string Branchs { set; get; }
+        public string ProfileOwner { set; get; }
+        public string Generalprocess { set; get; }
+        public string Marketingprocess { set; get; }
+        public string MatchFollowupprocess { set; get; }
+   }
+
     public class ystryPending
     {
         public int? strRegional { set; get; }

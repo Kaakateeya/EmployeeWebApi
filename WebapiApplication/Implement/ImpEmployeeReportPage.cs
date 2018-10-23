@@ -437,6 +437,15 @@ namespace WebapiApplication.Implement
             return new EmployeeReportPageDAL().SchdulepageReport(mobj, "[dbo].[usp_UpdateDisplayScdularReport_AJS]");
 
         }
+        // teamheadinfo
+
+        public ArrayList Teamheadinfo([FromBody]Teamheadinfo mobj)
+        {
+            return new EmployeeReportPageDAL().TeamheadReport(mobj, "[dbo].[usp_Emp_TeamLeadAllDetails_NewDesign]");
+
+        }
+        // teamheadinfoend
+
         public ArrayList Yesterday48hoursSerives(int? Empid, int? pagefrom, int? pageto)
         {
             return new EmployeeReportPageDAL().Yesterday48hoursSerives(Empid, pagefrom, pageto, "[dbo].[Usp_Emp_YesterDay48HoursNoUpdateInfo]");
