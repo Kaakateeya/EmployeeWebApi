@@ -515,8 +515,6 @@ namespace WebapiApplication.Interfaces
 
         ArrayList SchdulepageReport(schdulepageinfo mobj);
 
-        ArrayList TeamheadReport(Teamheadinfo mobj);
-
         ArrayList Yesterday48hoursSerives(int? Empid, int? pagefrom, int? pageto);
 
         ArrayList EmployeeYesterdayWorkPendingReportNew(ystryPending mobj);
@@ -529,6 +527,9 @@ namespace WebapiApplication.Interfaces
         ArrayList MatchfollowupSlideShowResult_New(SearchML Mobj);
 
         ArrayList MatchfollowupCounts(int? intEmpID);
+
+
+        ArrayList TeamheadReport(Teamheadinfo mobj);
     }
 
     public interface ISmallPages

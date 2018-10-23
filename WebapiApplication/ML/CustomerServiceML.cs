@@ -1158,7 +1158,8 @@ namespace WebapiApplication.ML
     // teamheadinfo
     public class Teamheadinfo
     {
-        public string Regions { set; get; }
+        public int? EmpType { set; get; }
+        public int? Regions { set; get; }
         public string Branchs { set; get; }
         public string ProfileOwner { set; get; }
         public string Generalprocess { set; get; }

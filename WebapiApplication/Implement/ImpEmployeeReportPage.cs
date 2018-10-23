@@ -439,9 +439,9 @@ namespace WebapiApplication.Implement
         }
         // teamheadinfo
 
-        public ArrayList Teamheadinfo([FromBody]Teamheadinfo mobj)
+        public ArrayList TeamheadReport(Teamheadinfo mobj)
         {
-            return new EmployeeReportPageDAL().TeamheadReport(mobj, "[dbo].[usp_Emp_TeamLeadAllDetails_NewDesign]");
+            return new EmployeeReportPageDAL().TeamheadReport(mobj,"[dbo].[usp_Emp_TeamLeadAllDetails_NewDesign]");
 
         }
         // teamheadinfoend
