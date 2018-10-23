@@ -462,9 +462,9 @@ namespace WebapiApplication.Implement
         }
 
 
-        public ArrayList MatchfollowupCounts(int? intFollowupStatus, int? intCallStatus, int? intNoOfDays, int? intEmpID)
+        public ArrayList MatchfollowupCounts(int? intEmpID)
         {
-            return new EmployeeReportPageDAL().MatchfollowupCounts(intFollowupStatus, "[dbo].[Usp_Select_OneSideInterst_MySide_NewDesign]");
+            return new EmployeeReportPageDAL().MatchfollowupCounts(intEmpID, "[dbo].[Usp_Select_EmpMatchFollowup_Count]");
         }
     }
 

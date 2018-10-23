@@ -526,7 +526,7 @@ namespace WebapiApplication.Interfaces
 
         ArrayList MatchfollowupSlideShowResult_New(SearchML Mobj);
 
-        ArrayList MatchfollowupCounts(int? intFollowupStatus, int? intCallStatus, int? intNoOfDays, int? intEmpID);
+        ArrayList MatchfollowupCounts(int? intEmpID);
     }
 
     public interface ISmallPages

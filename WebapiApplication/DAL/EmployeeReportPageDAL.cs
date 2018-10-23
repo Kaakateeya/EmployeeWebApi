@@ -8287,9 +8287,28 @@ namespace WebapiApplication.DAL
             return arrayList;
         }
 
-        public ArrayList MatchfollowupCounts(int? intFollowupStatus, string p)
+        public ArrayList MatchfollowupCounts(int? intEmpID, string spName)
         {
-            throw new NotImplementedException();
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[2];
+                parm[0] = new SqlParameter("@fromEmpid", SqlDbType.Int);
+                parm[0].Value = intEmpID;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
         }
     }
 }

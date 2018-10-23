@@ -847,9 +847,9 @@ namespace WebapiApplication.Api
         }
         //22_10_2018_matchfollowupNew Page Counts
 
-        public ArrayList getMatchfollowupCounts(int? intFollowupStatus, int? intCallStatus, int? intNoOfDays, int? intEmpID)
+        public ArrayList getMatchfollowupCounts(int? intEmpID)
         {
-            return this.IEmployeeReport.MatchfollowupCounts(intFollowupStatus, intCallStatus, intNoOfDays, intEmpID);
+            return this.IEmployeeReport.MatchfollowupCounts(intEmpID);
         }
 
     }
