@@ -761,6 +761,8 @@ namespace WebapiApplication.DAL
                             sh.NoOfChildren = reader["NoOfChildren"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfChildren")) : inull;
                             sh.OnlyChild = reader["OnlyChild"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("OnlyChild")) : inull;
                             sh.LastService = reader["LastService"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastService")) : Snull;
+                            sh.ProfileOwner = reader["ProfileOwner"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileOwner")) : Snull;
+                            sh.ProfileOwnerContactNo = reader["ProfileOwnerContactNo"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileOwnerContactNo")) : Snull;
                         }
                         details.Add(sh);
                     }
@@ -884,6 +886,8 @@ namespace WebapiApplication.DAL
                             sh.NoOfChildren = reader["NoOfChildren"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("NoOfChildren")) : inull;
                             sh.OnlyChild = reader["OnlyChild"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("OnlyChild")) : inull;
                             sh.LastService = reader["LastService"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("LastService")) : Snull;
+                            sh.ProfileOwner = reader["ProfileOwner"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileOwner")) : Snull;
+                            sh.ProfileOwnerContactNo = reader["ProfileOwnerContactNo"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileOwnerContactNo")) : Snull;
                         }
                         details.Add(sh);
                     }

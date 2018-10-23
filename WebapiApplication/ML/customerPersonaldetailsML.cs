@@ -1341,6 +1341,10 @@ namespace WebapiApplication.ML
         public int? OnlyChild { get; set; }
 
         public string LastService { get; set; }
+
+        public string ProfileOwner { get; set; }
+
+        public string ProfileOwnerContactNo { get; set; }
     }
 
     public class EmployeeSearch
