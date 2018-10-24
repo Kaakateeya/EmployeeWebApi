@@ -8351,7 +8351,7 @@ namespace WebapiApplication.DAL
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
 
-        public int userProfileForgotPassword(string userName, string spName)
+        public int UserProfileForgotPassword(string userName, string spName)
         {
             int Status = 0;
             SqlDataReader reader = null;

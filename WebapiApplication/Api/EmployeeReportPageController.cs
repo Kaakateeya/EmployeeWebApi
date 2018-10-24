@@ -862,9 +862,9 @@ namespace WebapiApplication.Api
         // forgat Password New Design
 
 
-        public int getuserProfileForgotPassword(string userName)
+        public int getUserProfileForgotPassword(string userName)
         {
-            return this.IEmployeeReport.userProfileForgotPassword(userName);
+            return this.IEmployeeReport.UserProfileForgotPassword(userName);
         }
 
     }

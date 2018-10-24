@@ -531,7 +531,9 @@ namespace WebapiApplication.Interfaces
 
         ArrayList TeamheadReport(Teamheadinfo mobj);
 
-        int userProfileForgotPassword(string userName);
+       
+
+        int UserProfileForgotPassword(string userName);
     }
 
     public interface ISmallPages
