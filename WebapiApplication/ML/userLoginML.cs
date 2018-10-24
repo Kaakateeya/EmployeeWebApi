@@ -75,6 +75,8 @@ namespace WebapiApplication.ML
 
 
         public int? Dashboard_Status { get; set; }
+
+        public string UserID { get; set; }
     }
     public class MenuItem
     {
