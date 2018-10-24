@@ -8326,18 +8326,18 @@ namespace WebapiApplication.DAL
                 SqlParameter[] parm = new SqlParameter[10];
                 parm[0] = new SqlParameter("@intEmpType", SqlDbType.Int);
                 parm[0].Value = mobj.EmpType;
-                parm[0] = new SqlParameter("@intRegionID", SqlDbType.Int);
-                parm[0].Value = mobj.Regions;
-                parm[0] = new SqlParameter("@strBranchIds", SqlDbType.VarChar);
-                parm[0].Value = mobj.Branchs;
-                parm[0] = new SqlParameter("@strEmpIds", SqlDbType.VarChar);
-                parm[0].Value = mobj.ProfileOwner;
-                parm[0] = new SqlParameter("@strProfGeneral", SqlDbType.VarChar);
-                parm[0].Value = mobj.Generalprocess;
-                parm[0] = new SqlParameter("@strMarketing", SqlDbType.VarChar);
-                parm[0].Value = mobj.Marketingprocess;
-                parm[0] = new SqlParameter("@srMatchFollowup", SqlDbType.VarChar);
-                parm[0].Value = mobj.MatchFollowupprocess;
+                parm[1] = new SqlParameter("@intRegionID", SqlDbType.Int);
+                parm[1].Value = mobj.Regions;
+                parm[2] = new SqlParameter("@strBranchIds", SqlDbType.VarChar);
+                parm[2].Value = mobj.Branchs;
+                parm[3] = new SqlParameter("@strEmpIds", SqlDbType.VarChar);
+                parm[3].Value = mobj.ProfileOwner;
+                parm[4] = new SqlParameter("@strProfGeneral", SqlDbType.VarChar);
+                parm[4].Value = mobj.Generalprocess;
+                parm[5] = new SqlParameter("@strMarketing", SqlDbType.VarChar);
+                parm[5].Value = mobj.Marketingprocess;
+                parm[6] = new SqlParameter("@srMatchFollowup", SqlDbType.VarChar);
+                parm[6].Value = mobj.MatchFollowupprocess;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)
