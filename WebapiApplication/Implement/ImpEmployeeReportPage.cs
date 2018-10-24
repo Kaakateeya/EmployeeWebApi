@@ -475,6 +475,11 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().MatchfollowupCounts(intEmpID, "[dbo].[Usp_Select_EmpMatchFollowup_Count]");
         }
+        public int userProfileForgotPassword(string userName)
+        {
+            return new EmployeeReportPageDAL().userProfileForgotPassword(userName, "[dbo].[Usp_Cust_ResetForgotPassword_AJS]");
+        }
+        
     }
 
 }
