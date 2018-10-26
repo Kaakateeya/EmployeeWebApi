@@ -460,11 +460,14 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().Yesterday48hoursSerives(Empid, pagefrom, pageto, "[dbo].[Usp_Emp_YesterDayMatchFollowUpInfo_3Days]");
         }
-
-        public ArrayList EmpMatchFollowupandMarketingHistory(int? intFollowupStatus, int? intCallStatus, int? intNoOfDays, int? intEmpID)
+        //EmpMatchFollowupandMarketingHistory start
+     
+        public ArrayList EmpMatchFollowupandMarketingHistory([FromBody]employeematchfollowupinfo mobj)
         {
-            return new EmployeeReportPageDAL().EmpMatchFollowupandMarketingHistory(intFollowupStatus, intCallStatus, intNoOfDays, intEmpID, "[dbo].[usp_Emp_MatchFollowupandMarketingHistory_AJS]");
+            return new EmployeeReportPageDAL().EmpMatchFollowupandMarketingHistory(mobj, "[dbo].[usp_Emp_MatchFollowupandMarketingHistory_AJSS]");
+
         }
+        // EmpMatchFollowupandMarketingHistory end
         public ArrayList MatchfollowupSlideShowResult_New([FromBody]SearchML Mobj)
         {
             return new EmployeeReportPageDAL().MatchfollowupSlideShowResult_New(Mobj, "[dbo].[Usp_Select_OneSideInterst_MySide_NewDesign]");

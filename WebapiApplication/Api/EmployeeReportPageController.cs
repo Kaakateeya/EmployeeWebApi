@@ -838,10 +838,11 @@ namespace WebapiApplication.Api
         {
             return this.IEmployeeReport.ThreeDaysPendingReport(Empid, pagefrom, pageto);
         }
-        // 20_10_2018_new team heads Report
-        public ArrayList getEmpMatchFollowupandMarketingHistory(int? intFollowupStatus, int? intCallStatus, int? intNoOfDays, int? intEmpID)
+        // 20_10_2018_new EmpMatchFollowupandMarketingHistory
+      
+               public ArrayList EmpMatchFollowupandMarketingHistory([FromBody]employeematchfollowupinfo mobj)
         {
-            return this.IEmployeeReport.EmpMatchFollowupandMarketingHistory(intFollowupStatus, intCallStatus, intNoOfDays, intEmpID);
+            return this.IEmployeeReport.EmpMatchFollowupandMarketingHistory(mobj);
         }
 
         // 22_10_2018 Matchfollowup New Page

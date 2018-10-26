@@ -8092,35 +8092,7 @@ namespace WebapiApplication.DAL
             return arrayList;
         }
 
-        public ArrayList EmpMatchFollowupandMarketingHistory(int? intFollowupStatus, int? intCallStatus, int? intNoOfDays, int? intEmpID, string spName)
-        {
-            DataSet ds = new DataSet();
-            SqlConnection connection = new SqlConnection();
-            connection = SQLHelper.GetSQLConnection();
-            connection.Open();
-            try
-            {
-                SqlParameter[] parm = new SqlParameter[6];
-                parm[0] = new SqlParameter("@intFollowupStatus", SqlDbType.Int);
-                parm[0].Value = intFollowupStatus;
-                parm[1] = new SqlParameter("@intCallStatus", SqlDbType.Int);
-                parm[1].Value = intCallStatus;
-                parm[2] = new SqlParameter("@intNoOfDays", SqlDbType.Int);
-                parm[2].Value = intNoOfDays;
-                parm[3] = new SqlParameter("@intEmpID", SqlDbType.Int);
-                parm[3].Value = intEmpID;
-                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
-            }
-            catch (Exception EX)
-            {
-                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return Commonclass.convertdataTableToArrayListTable(ds);
-        }
+     
 
         public ArrayList MatchfollowupSlideShowResult_New(SearchML Mobj, string spName)
         {
@@ -8350,5 +8322,36 @@ namespace WebapiApplication.DAL
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
-    }
+
+        public ArrayList EmpMatchFollowupandMarketingHistory(employeematchfollowupinfo mobj, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[6];
+                parm[0] = new SqlParameter("@intFollowupStatus", SqlDbType.Int);
+                parm[0].Value = mobj.intFollowupStatus;
+                parm[1] = new SqlParameter("@intCallStatus", SqlDbType.Int);
+                parm[1].Value = mobj.intCallStatus;
+                parm[2] = new SqlParameter("@intNoOfDays", SqlDbType.Int);
+                parm[2].Value = mobj.intNoOfDays;
+                parm[3] = new SqlParameter("@intEmpID", SqlDbType.Int);
+                parm[3].Value = mobj.intEmpID;
+               
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+      }
 }

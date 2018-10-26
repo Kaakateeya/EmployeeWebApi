@@ -1166,6 +1166,15 @@ namespace WebapiApplication.ML
         public string Marketingprocess { set; get; }
         public string MatchFollowupprocess { set; get; }
    }
+    // EmpMatchFollowupandMarketingHistory
+    public class employeematchfollowupinfo
+    {
+        public int? intFollowupStatus { set; get; }
+        public int? intCallStatus { set; get; }
+        public int? intNoOfDays { set; get; }
+        public int? intEmpID { set; get; }
+      
+    }
 
     public class ystryPending
     {
