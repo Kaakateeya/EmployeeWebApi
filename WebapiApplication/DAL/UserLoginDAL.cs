@@ -190,6 +190,7 @@ namespace WebapiApplication.DAL
                         empDetails.EmpPhotoPath = !string.IsNullOrEmpty(dtLogin.Rows[0]["EmpPhotoPath"].ToString()) ? dtLogin.Rows[0]["EmpPhotoPath"].ToString() : null;
 
                         empDetails.Dashboard_Status = !string.IsNullOrEmpty(dtLogin.Rows[0]["Dashboard_Status"].ToString()) ? Convert.ToInt32(dtLogin.Rows[0]["Dashboard_Status"]) : intNull;
+                        empDetails.UserID = (dtLogin.Rows[0]["UserID"].ToString());
                     }
                     else
                     {

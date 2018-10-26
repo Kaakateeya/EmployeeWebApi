@@ -860,5 +860,13 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.MatchfollowupCounts(intEmpID);
         }
 
+        // forgat Password New Design
+
+
+        public int getUserProfileForgotPassword(string userName)
+        {
+            return this.IEmployeeReport.UserProfileForgotPassword(userName);
+        }
+
     }
 }
