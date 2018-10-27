@@ -464,7 +464,7 @@ namespace WebapiApplication.Implement
      
         public ArrayList EmpMatchFollowupandMarketingHistory([FromBody]employeematchfollowupinfo mobj)
         {
-            return new EmployeeReportPageDAL().EmpMatchFollowupandMarketingHistory(mobj, "[dbo].[usp_Emp_MatchFollowupandMarketingHistory_AJSS]");
+            return new EmployeeReportPageDAL().EmpMatchFollowupandMarketingHistory(mobj, "[dbo].[usp_Emp_MatchFollowupandMarketingHistory_AJS]");
 
         }
         // EmpMatchFollowupandMarketingHistory end

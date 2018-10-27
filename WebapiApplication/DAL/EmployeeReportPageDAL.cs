@@ -8310,6 +8310,10 @@ namespace WebapiApplication.DAL
                 parm[5].Value = mobj.Marketingprocess;
                 parm[6] = new SqlParameter("@srMatchFollowup", SqlDbType.VarChar);
                 parm[6].Value = mobj.MatchFollowupprocess;
+                parm[6] = new SqlParameter("@istartIndex", SqlDbType.Int);
+                parm[6].Value = mobj.istartIndex;
+                parm[6] = new SqlParameter("@iEndIndex", SqlDbType.Int);
+                parm[6].Value = mobj.iEndIndex;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)
@@ -8340,6 +8344,10 @@ namespace WebapiApplication.DAL
                 parm[2].Value = mobj.intNoOfDays;
                 parm[3] = new SqlParameter("@intEmpID", SqlDbType.Int);
                 parm[3].Value = mobj.intEmpID;
+                parm[4] = new SqlParameter("@istartindex", SqlDbType.Int);
+                parm[4].Value = mobj.istartindex;
+                parm[5] = new SqlParameter("@iendIndex", SqlDbType.Int);
+                parm[5].Value = mobj.iendIndex;
 
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }

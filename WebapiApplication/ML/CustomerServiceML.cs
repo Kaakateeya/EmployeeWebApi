@@ -1165,6 +1165,8 @@ namespace WebapiApplication.ML
         public string Generalprocess { set; get; }
         public string Marketingprocess { set; get; }
         public string MatchFollowupprocess { set; get; }
+        public int? istartIndex { set; get; }
+        public int? iEndIndex { set; get; }
    }
     // EmpMatchFollowupandMarketingHistory
     public class employeematchfollowupinfo
@@ -1173,7 +1175,8 @@ namespace WebapiApplication.ML
         public int? intCallStatus { set; get; }
         public int? intNoOfDays { set; get; }
         public int? intEmpID { set; get; }
-      
+        public int? istartindex { set; get; }
+        public int? iendIndex { set; get; }
     }
 
     public class ystryPending
