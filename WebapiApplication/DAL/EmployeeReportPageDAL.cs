@@ -2571,6 +2571,9 @@ namespace WebapiApplication.DAL
                 parm[5].Value = Mobj.pagefrom;
                 parm[6] = new SqlParameter("@pageto", SqlDbType.Int);
                 parm[6].Value = Mobj.pageto;
+
+                parm[7] = new SqlParameter("@strProfileFNameLName", SqlDbType.VarChar);
+                parm[7].Value = Mobj.strProfileFNameLName;
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spname, parm);
                 int count = reader.FieldCount;
 
@@ -8310,10 +8313,10 @@ namespace WebapiApplication.DAL
                 parm[5].Value = mobj.Marketingprocess;
                 parm[6] = new SqlParameter("@srMatchFollowup", SqlDbType.VarChar);
                 parm[6].Value = mobj.MatchFollowupprocess;
-                parm[6] = new SqlParameter("@istartIndex", SqlDbType.Int);
-                parm[6].Value = mobj.istartIndex;
-                parm[6] = new SqlParameter("@iEndIndex", SqlDbType.Int);
-                parm[6].Value = mobj.iEndIndex;
+                parm[7] = new SqlParameter("@istartIndex", SqlDbType.Int);
+                parm[7].Value = mobj.istartIndex;
+                parm[8] = new SqlParameter("@iEndIndex", SqlDbType.Int);
+                parm[8].Value = mobj.iEndIndex;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)

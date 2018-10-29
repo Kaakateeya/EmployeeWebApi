@@ -991,6 +991,8 @@ namespace WebapiApplication.ML
         public int pageto { get; set; }
 
         public string intApplicationStatus { get; set; }
+
+        public string strProfileFNameLName { get; set; }
     }
 
     public class SettledDeletedML
