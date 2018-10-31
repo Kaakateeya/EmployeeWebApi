@@ -8300,7 +8300,7 @@ namespace WebapiApplication.DAL
             connection.Open();
             try
             {
-                SqlParameter[] parm = new SqlParameter[10];
+                SqlParameter[] parm = new SqlParameter[11];
                 parm[0] = new SqlParameter("@intEmpType", SqlDbType.Int);
                 parm[0].Value = mobj.EmpType;
                 parm[1] = new SqlParameter("@intRegionID", SqlDbType.Int);
@@ -8319,6 +8319,8 @@ namespace WebapiApplication.DAL
                 parm[7].Value = mobj.istartIndex;
                 parm[8] = new SqlParameter("@iEndIndex", SqlDbType.Int);
                 parm[8].Value = mobj.iEndIndex;
+                parm[9] = new SqlParameter("@TeamHeadId", SqlDbType.Int);
+                parm[9].Value = mobj.TeamHeadId;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)
