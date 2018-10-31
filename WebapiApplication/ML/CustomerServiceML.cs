@@ -1169,7 +1169,7 @@ namespace WebapiApplication.ML
         public string Marketingprocess { set; get; }
         public string MatchFollowupprocess { set; get; }
         public int? istartIndex { set; get; }
-        public int? TeamHeadId { set; get; }
+       // public int? TeamHeadId { set; get; }
         public int? iEndIndex { set; get; }
    }
     // EmpMatchFollowupandMarketingHistory

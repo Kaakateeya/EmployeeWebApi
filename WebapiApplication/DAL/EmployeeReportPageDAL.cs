@@ -8319,8 +8319,8 @@ namespace WebapiApplication.DAL
                 parm[7].Value = mobj.istartIndex;
                 parm[8] = new SqlParameter("@iEndIndex", SqlDbType.Int);
                 parm[8].Value = mobj.iEndIndex;
-                parm[9] = new SqlParameter("@TeamHeadId", SqlDbType.Int);
-                parm[9].Value = mobj.TeamHeadId;
+              //  parm[9] = new SqlParameter("@TeamHeadId", SqlDbType.Int);
+               // parm[9].Value = mobj.TeamHeadId;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)
