@@ -1127,7 +1127,8 @@ namespace WebapiApplication.ML
         public int? startindex { set; get; }
         public int? endindex { set; get; }
 
-        public int? intchkNotdata { get; set; }
+        public string intchkNotdata { get; set; }
+
     }
     public class compareprofiles
     {

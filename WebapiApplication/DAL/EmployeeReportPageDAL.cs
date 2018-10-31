@@ -6876,7 +6876,7 @@ namespace WebapiApplication.DAL
             connection.Open();
             try
             {
-                SqlParameter[] parm = new SqlParameter[12];
+                SqlParameter[] parm = new SqlParameter[13];
                 parm[0] = new SqlParameter("@intProfileID", SqlDbType.VarChar);
                 parm[0].Value = Mobj.strprofileID;
                 parm[1] = new SqlParameter("@intCategId", SqlDbType.VarChar);
@@ -6891,12 +6891,14 @@ namespace WebapiApplication.DAL
                 parm[5].Value = Mobj.strBranchID;
                 parm[6] = new SqlParameter("@strProfileOwn", SqlDbType.VarChar);
                 parm[6].Value = Mobj.strProfileOwn;
-                parm[7] = new SqlParameter("@intchkNotdata", SqlDbType.Int);
+                parm[7] = new SqlParameter("@intchkNotdata", SqlDbType.VarChar);
                 parm[7].Value = Mobj.intchkNotdata;
                 parm[8] = new SqlParameter("@pagefrom", SqlDbType.Int);
                 parm[8].Value = Mobj.startindex;
                 parm[9] = new SqlParameter("@pageto", SqlDbType.Int);
                 parm[9].Value = Mobj.endindex;
+                //parm[10] = new SqlParameter("@strNodataType", SqlDbType.VarChar);
+                //parm[10].Value = Mobj.strNodataType;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)
@@ -8411,6 +8413,34 @@ namespace WebapiApplication.DAL
 
             }
             return Status;
+        }
+
+        public ArrayList TeamleadBranches(string strvalename, int? strflg, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[3];
+                parm[0] = new SqlParameter("@strValueName", SqlDbType.VarChar);
+                parm[0].Value = strvalename;
+                parm[1] = new SqlParameter("@strVFlag", SqlDbType.Int);
+                parm[1].Value = strflg;
+
+
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
         }
     }
 }

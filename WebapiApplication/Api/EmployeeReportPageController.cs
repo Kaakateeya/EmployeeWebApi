@@ -868,5 +868,13 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.UserProfileForgotPassword(userName);
         }
 
+        // team lead branch
+
+
+        public ArrayList getTeamleadBranches(string strvalename,int? strflg)
+        {
+            return this.IEmployeeReport.TeamleadBranches(strvalename, strflg);
+        }
+
     }
 }

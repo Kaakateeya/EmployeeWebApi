@@ -482,6 +482,10 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().UserProfileForgotPassword(userName, "[dbo].[Usp_Cust_ResetForgotPassword_AJS]");
         }
+        public ArrayList TeamleadBranches(string strvalename, int? strflg)
+        {
+            return new EmployeeReportPageDAL().TeamleadBranches(strvalename, strflg, "[dbo].[Dropdown_filling_TeamHeadsandBranches]");
+        }
         
     }
 

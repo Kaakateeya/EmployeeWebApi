@@ -535,6 +535,8 @@ namespace WebapiApplication.Interfaces
        
 
         int UserProfileForgotPassword(string userName);
+
+        ArrayList TeamleadBranches(string strvalename, int? strflg);
     }
 
     public interface ISmallPages
