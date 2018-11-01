@@ -873,7 +873,7 @@ namespace WebapiApplication.Api
 
         public ArrayList getTeamleadBranches(string strvalename,int? strflg)
         {
-            return this.IEmployeeReport.TeamleadBranches(strvalename, strflg);
+            return this.IEmployeeReport.TeamleadBranches(strvalename,strflg);
         }
 
     }

@@ -8315,12 +8315,13 @@ namespace WebapiApplication.DAL
                 parm[5].Value = mobj.Marketingprocess;
                 parm[6] = new SqlParameter("@srMatchFollowup", SqlDbType.VarChar);
                 parm[6].Value = mobj.MatchFollowupprocess;
-                parm[7] = new SqlParameter("@istartIndex", SqlDbType.Int);
-                parm[7].Value = mobj.istartIndex;
-                parm[8] = new SqlParameter("@iEndIndex", SqlDbType.Int);
-                parm[8].Value = mobj.iEndIndex;
-              //  parm[9] = new SqlParameter("@TeamHeadId", SqlDbType.Int);
-               // parm[9].Value = mobj.TeamHeadId;
+                parm[7] = new SqlParameter("@strTeamhead", SqlDbType.VarChar);
+                parm[7].Value = mobj.Teamhead;
+                parm[8] = new SqlParameter("@istartIndex", SqlDbType.Int);
+                parm[8].Value = mobj.istartIndex;
+                parm[9] = new SqlParameter("@iEndIndex", SqlDbType.Int);
+                parm[9].Value = mobj.iEndIndex;
+            
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)
@@ -8417,7 +8418,7 @@ namespace WebapiApplication.DAL
             return Status;
         }
 
-        public ArrayList TeamleadBranches(string strvalename, int? strflg, string spName)
+        public ArrayList TeamleadBranches(string strvalename, int? strflg,  string spName)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection();
@@ -8430,7 +8431,7 @@ namespace WebapiApplication.DAL
                 parm[0].Value = strvalename;
                 parm[1] = new SqlParameter("@strVFlag", SqlDbType.Int);
                 parm[1].Value = strflg;
-
+               
 
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
