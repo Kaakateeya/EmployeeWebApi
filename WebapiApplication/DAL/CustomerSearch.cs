@@ -541,7 +541,7 @@ namespace WebapiApplication.DAL
 
         // Employee Searches
 
-        public GetPrimaryDataCustomerResponse GetPrimaryInformationDal(int? CustID, int? EmpID, string spName)
+        public GetPrimaryDataCustomerResponse GetPrimaryInformationDal(int? CustID, int? EmpID, int? SearchType, string spName)
         {
             GetPrimaryDataCustomerResponse sh = new GetPrimaryDataCustomerResponse();
             SqlDataReader reader;
@@ -560,6 +560,9 @@ namespace WebapiApplication.DAL
 
                 parm[1] = new SqlParameter("@empid", SqlDbType.Int);
                 parm[1].Value = EmpID;
+
+                parm[2] = new SqlParameter("@intSearchType", SqlDbType.Int);
+                parm[2].Value = SearchType;
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
 
                 if (reader.HasRows)

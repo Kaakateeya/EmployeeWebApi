@@ -727,6 +727,8 @@ namespace WebapiApplication.ML
         public int intExpressIntID { get; set; }
 
         public int intPendingEmpID { get; set; }
+
+        public int? intFromTicketStatus { get; set; }
     }
 
     public class IncomingOutgoing

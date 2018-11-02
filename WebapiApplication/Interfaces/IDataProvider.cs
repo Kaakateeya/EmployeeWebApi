@@ -54,7 +54,7 @@ namespace WebapiApplication.Interfaces
         List<QuicksearchResultML> CustomerProfileIDSavedSearch(ProfileIDSearch primaryInfo, DataTable dtTableValues);
         List<SearchResultSaveEditML> SearchResultSaveEdit(long? Cust_ID, string SaveSearchName, int? iEditDelete);
         List<QuicksearchResultML> CustomerHomePageSearch(CustomerHomePageSearch search);
-        GetPrimaryDataCustomerResponse PrimaryCustomerDataResponse(int? CustID, int? EmpID);
+        GetPrimaryDataCustomerResponse PrimaryCustomerDataResponse(int? CustID, int? EmpID, int? SearchType);
         List<slideshowNew> ShowDataForEmployeeGeneral(EmployeeSearch employeesearch);
         List<slideshowNew> ShowDataForEmployeeAdvanceSearch(EmployeeSearch employeesearch);
 

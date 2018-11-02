@@ -26,7 +26,7 @@ namespace WebapiApplication.Implement
        
         //Employee Search Pages
 
-        public GetPrimaryDataCustomerResponse PrimaryCustomerDataResponse(int? CustID, int? EmpID) { return new CustomerSearch().GetPrimaryInformationDal(CustID, EmpID, "[dbo].[usp_GetCustomerinfo_Forsearches_NewDesign]"); }
+        public GetPrimaryDataCustomerResponse PrimaryCustomerDataResponse(int? CustID, int? EmpID, int? SearchType) { return new CustomerSearch().GetPrimaryInformationDal(CustID, EmpID, SearchType, "[dbo].[usp_GetCustomerinfo_Forsearches_NewDesign]"); }
         public List<slideshowNew> ShowDataForEmployeeGeneral(EmployeeSearch employeesearch) { return new CustomerSearch().GetShowDataForGeneral(employeesearch, "[dbo].[usp_get_SearchResultSet1_Test_Profor_NewDesign]"); }
 
 

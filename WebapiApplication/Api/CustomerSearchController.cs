@@ -67,9 +67,9 @@ namespace WebapiApplication.Api
 
         // Employee Searches
 
-        public GetPrimaryDataCustomerResponse getPrimaryCustomerDataResponse(string ProfileID, int? EmpID)
+        public GetPrimaryDataCustomerResponse getPrimaryCustomerDataResponse(string ProfileID, int? EmpID, int? SearchType)
         {
-            return this.ICustomerSearch.PrimaryCustomerDataResponse(Commonclass.GetProfileIDCustID(10, Convert.ToString(ProfileID)), EmpID);
+            return this.ICustomerSearch.PrimaryCustomerDataResponse(Commonclass.GetProfileIDCustID(10, Convert.ToString(ProfileID)), EmpID, SearchType);
         }
 
         public List<slideshowNew> ShowDataForEmployeeGeneral([FromBody]JObject CgetDetails)

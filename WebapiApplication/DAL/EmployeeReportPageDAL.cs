@@ -1303,7 +1303,7 @@ namespace WebapiApplication.DAL
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
 
-            SqlParameter[] parm = new SqlParameter[15];
+            SqlParameter[] parm = new SqlParameter[16];
             SqlDataReader drReader = null;
             try
             {
@@ -1336,6 +1336,9 @@ namespace WebapiApplication.DAL
                 parm[12].Value = Mobj.intExpressIntID;
                 parm[13] = new SqlParameter("@intPendingEmpID", SqlDbType.Int);
                 parm[13].Value = Mobj.intPendingEmpID;
+
+                parm[14] = new SqlParameter("@intFromTicketStatus", SqlDbType.Int);
+                parm[14].Value = Mobj.intFromTicketStatus;
 
                 drReader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (string.Compare(System.DBNull.Value.ToString(), parm[11].Value.ToString()).Equals(0))
@@ -8097,7 +8100,7 @@ namespace WebapiApplication.DAL
             return arrayList;
         }
 
-     
+
 
         public ArrayList MatchfollowupSlideShowResult_New(SearchML Mobj, string spName)
         {
@@ -8321,7 +8324,7 @@ namespace WebapiApplication.DAL
                 parm[8].Value = mobj.istartIndex;
                 parm[9] = new SqlParameter("@iEndIndex", SqlDbType.Int);
                 parm[9].Value = mobj.iEndIndex;
-            
+
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)
@@ -8418,7 +8421,7 @@ namespace WebapiApplication.DAL
             return Status;
         }
 
-        public ArrayList TeamleadBranches(string strvalename, int? strflg,  string spName)
+        public ArrayList TeamleadBranches(string strvalename, int? strflg, string spName)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection();
@@ -8431,7 +8434,7 @@ namespace WebapiApplication.DAL
                 parm[0].Value = strvalename;
                 parm[1] = new SqlParameter("@strVFlag", SqlDbType.Int);
                 parm[1].Value = strflg;
-               
+
 
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
