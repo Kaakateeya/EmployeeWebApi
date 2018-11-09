@@ -1307,7 +1307,7 @@ namespace WebapiApplication.DAL
             SqlDataReader drReader = null;
             try
             {
-                parm[0] = new SqlParameter("@CallType", SqlDbType.Int);
+                parm[0] = new SqlParameter("@CallType", SqlDbType.VarChar);
                 parm[0].Value = Mobj.CallType;
                 parm[1] = new SqlParameter("@RelationID", SqlDbType.Int);
                 parm[1].Value = Mobj.RelationID;

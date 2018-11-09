@@ -709,7 +709,7 @@ namespace WebapiApplication.ML
     public class TicketCallHistory
     {
 
-        public int? CallType { get; set; }
+        public string CallType { get; set; }
         public string RelationName { get; set; }
         public int? CallResult { get; set; }
         public string PhoneNum { get; set; }
