@@ -818,6 +818,12 @@ namespace WebapiApplication.Api
        {
             return this.IEmployeeReport.TeamheadReport(mobj);
        }
+       // strickers page report
+
+       public ArrayList StrickersReport([FromBody]strickerspageinfo mobj)
+       {
+           return this.IEmployeeReport.StrickersReport(mobj);
+       }
 
         //// 
 

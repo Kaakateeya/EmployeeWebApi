@@ -8337,6 +8337,36 @@ namespace WebapiApplication.DAL
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
+        // strickers page start
+        public ArrayList StrickersReport(strickerspageinfo mobj, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[6];
+                parm[0] = new SqlParameter("@BranchId", SqlDbType.Int);
+                parm[0].Value = mobj.BranchId;
+                parm[1] = new SqlParameter("@Region", SqlDbType.Int);
+                parm[1].Value = mobj.Region;
+                parm[2] = new SqlParameter("@ApplicationStatus", SqlDbType.Int);
+                parm[2].Value = mobj.ApplicationStatus;
+               
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+        // strickers page end
 
         public ArrayList EmpMatchFollowupandMarketingHistory(employeematchfollowupinfo mobj, string spName)
         {

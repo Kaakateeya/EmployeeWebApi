@@ -532,7 +532,7 @@ namespace WebapiApplication.Interfaces
 
         ArrayList TeamheadReport(Teamheadinfo mobj);
 
-       
+        ArrayList StrickersReport(strickerspageinfo mobj);
 
         int UserProfileForgotPassword(string userName);
 

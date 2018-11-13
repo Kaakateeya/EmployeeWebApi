@@ -1174,6 +1174,15 @@ namespace WebapiApplication.ML
         public int? istartIndex { set; get; }
         public int? iEndIndex { set; get; }
    }
+
+    // strickers page
+    public class strickerspageinfo
+    {
+        public int? BranchId { set; get; }
+        public int? Region { set; get; }
+        public int? ApplicationStatus { set; get; }
+    }
+
     // EmpMatchFollowupandMarketingHistory
     public class employeematchfollowupinfo
     {

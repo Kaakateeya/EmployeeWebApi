@@ -445,6 +445,12 @@ namespace WebapiApplication.Implement
 
         }
         // teamheadinfoend
+        // strickerspage start
+        public ArrayList StrickersReport(strickerspageinfo mobj)
+        {
+            return new EmployeeReportPageDAL().StrickersReport(mobj, "[dbo].[Usp_Stickers_Print_AJS]");
+        }
+        // strickerspage end
 
         public ArrayList Yesterday48hoursSerives(int? Empid, int? pagefrom, int? pageto)
         {
