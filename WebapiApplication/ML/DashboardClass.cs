@@ -298,6 +298,8 @@ namespace WebapiApplication.ML
         public string ToEmail { get; set; }
 
         public long? Toticketid { get; set; }
+
+        public int? ExpressInterestID { get; set; }
     }
 
     public class MarketingTicketResponse

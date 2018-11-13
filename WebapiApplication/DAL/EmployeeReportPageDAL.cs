@@ -1118,6 +1118,9 @@ namespace WebapiApplication.DAL
 
                                 //
                                 sh.Toticketid = reader["Toticketid"] != DBNull.Value ? Convert.ToInt64(reader["Toticketid"]) : Lnull;
+
+                                sh.ExpressInterestID = reader["ExpressInterestID"] != DBNull.Value ? Convert.ToInt32(reader["ExpressInterestID"]) : inull;
+
                             }
                             else
                             {
