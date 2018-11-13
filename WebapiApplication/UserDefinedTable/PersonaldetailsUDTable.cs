@@ -841,7 +841,6 @@ namespace WebapiApplication.UserDefinedTable
             dtGeneralsearch.Columns.Add("Divorce_NoofChild");
             dtGeneralsearch.Columns.Add("Divorce_Service");
             dtGeneralsearch.Columns.Add("MembershipTypeID");
-            dtGeneralsearch.Columns.Add("HighConfidential");
             return dtGeneralsearch;
         }
 
@@ -971,7 +970,7 @@ namespace WebapiApplication.UserDefinedTable
 
             dtAdvancesearch.Columns.Add("Divorce_NoofChild");
             dtAdvancesearch.Columns.Add("Divorce_Service");
-            dtAdvancesearch.Columns.Add("HighConfidential");
+           
             return dtAdvancesearch;
         }
 

@@ -1422,7 +1422,7 @@ namespace WebapiApplication.ML
         public string Divorce_Service { set; get; }
         public string MembershipTypeID { set; get; }
 
-        public string HighConfidential { set; get; }
+     
 
 
     }
@@ -1554,7 +1554,7 @@ namespace WebapiApplication.ML
         //29_12_2017 added by lakshmi
         public string Divorce_NoofChild { set; get; }
         public string Divorce_Service { set; get; }
-        public string HighConfidential { set; get; }
+      
     }
 
     //property details

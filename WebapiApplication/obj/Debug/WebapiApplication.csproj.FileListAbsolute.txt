@@ -294,4 +294,3 @@ D:\empwebapi\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.Membership.Op
 D:\empwebapi\EmployeeWebApi\WebapiApplication\bin\Microsoft.AspNet.FriendlyUrls.xml
 D:\empwebapi\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.dll
 D:\empwebapi\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.pdb
-D:\empwebapi\EmployeeWebApi\WebapiApplication\obj\Debug\WebapiApplication.csprojResolveAssemblyReference.cache
