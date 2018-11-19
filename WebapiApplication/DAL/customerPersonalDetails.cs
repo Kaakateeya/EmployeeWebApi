@@ -2532,10 +2532,10 @@ namespace WebapiApplication.DAL
                         profileplay.photocount = (reader["photocount"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("photocount")) : iNull;
                         //profileplay.PD = (reader["PD"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("PD")) : iNull;
                         //profileplay.DPD = (reader["DPD"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("DPD")) : iNull;
-                       // profileplay.lnkView = (reader["lnkView"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("lnkView")) : iNull;
-                       // profileplay.notview = (reader["notview"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("notview")) : iNull;
-                       // profileplay.bothinterst = (reader["bothinterst"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("bothinterst")) : iNull;
-                       // profileplay.OppI = (reader["OppI"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("OppI")) : iNull;
+                        // profileplay.lnkView = (reader["lnkView"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("lnkView")) : iNull;
+                        // profileplay.notview = (reader["notview"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("notview")) : iNull;
+                        // profileplay.bothinterst = (reader["bothinterst"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("bothinterst")) : iNull;
+                        // profileplay.OppI = (reader["OppI"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("OppI")) : iNull;
                         profileplay.custid = (reader["custid"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("custid")) : iNull;
                         profileplay.OWNER = (reader["OWNER"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("OWNER")) : null;
                         profileplay.HoroPhotoName = (reader["HoroPhotoName"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("HoroPhotoName")) : null;
@@ -2567,6 +2567,9 @@ namespace WebapiApplication.DAL
                         profileplay.Gender = (reader["Gender"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("Gender")) : null;
                         profileplay.PaidStatus = (reader["PaidStatus"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PaidStatus")) : null;
                         profileplay.ProfileStatus = (reader["ProfileStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ProfileStatus")) : iNull;
+                        // 19_11_2018 
+                        profileplay.WeblastLogin = (reader["WeblastLogin"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("WeblastLogin")) : null;
+                        profileplay.ProfileStatusType = (reader["ProfileStatusType"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileStatusType")) : null;
                         arrayList.Add(profileplay);
                     }
                 }
