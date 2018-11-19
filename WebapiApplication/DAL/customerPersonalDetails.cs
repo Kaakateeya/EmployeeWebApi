@@ -2568,7 +2568,7 @@ namespace WebapiApplication.DAL
                         profileplay.PaidStatus = (reader["PaidStatus"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("PaidStatus")) : null;
                         profileplay.ProfileStatus = (reader["ProfileStatus"]) != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("ProfileStatus")) : iNull;
                         // 19_11_2018 
-                        //profileplay.WeblastLogin = (reader["WeblastLogin"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("WeblastLogin")) : null;
+                        profileplay.WeblastLogin = (reader["WeblastLogin"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("WeblastLogin")) : null;
                         profileplay.ProfileStatusType = (reader["ProfileStatusType"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("ProfileStatusType")) : null;
                         arrayList.Add(profileplay);
                     }
