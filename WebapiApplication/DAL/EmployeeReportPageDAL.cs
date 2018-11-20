@@ -1216,6 +1216,11 @@ namespace WebapiApplication.DAL
 
                             Marketing.NoDatafound = reader["NoDatafound"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("NoDatafound"))) : null;
 
+                            Marketing.EmpID = reader["EmpID"] != DBNull.Value ? (reader.GetInt64(reader.GetOrdinal("EmpID"))) : iLong;
+
+                            Marketing.IsPrimaryCon = reader["IsPrimaryCon"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("IsPrimaryCon"))) : null;
+                            Marketing.FatherCon = reader["FatherCon"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("FatherCon"))) : null;
+                            Marketing.MotherCon = reader["MotherCon"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("MotherCon"))) : null;
 
 
                         }

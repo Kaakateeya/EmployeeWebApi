@@ -1691,7 +1691,7 @@ namespace WebapiApplication.ML
 
         public  string ProfileStatusType { get; set; }
 
-        public DateTime? WeblastLogin { get; set; }
+        public string WeblastLogin { get; set; }
     }
 
     public class SettlementPaidBalanceDetailsMl

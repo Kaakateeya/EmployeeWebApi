@@ -400,6 +400,14 @@ namespace WebapiApplication.ML
         public string SettleAmt { get; set; }
 
         public string NoDatafound { get; set; }
+
+        public long? EmpID { get; set; }
+
+        public string MotherCon { get; set; }
+
+        public string FatherCon { get; set; }
+
+        public string IsPrimaryCon { get; set; }
     }
     public class MarketingTicketResponseHistory
     {
