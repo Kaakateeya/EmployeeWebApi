@@ -1219,8 +1219,8 @@ namespace WebapiApplication.DAL
                             Marketing.EmpID = reader["EmpID"] != DBNull.Value ? (reader.GetInt64(reader.GetOrdinal("EmpID"))) : iLong;
 
                             Marketing.IsPrimaryCon = reader["IsPrimaryCon"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("IsPrimaryCon"))) : null;
-                            Marketing.FatherCon = reader["FatherCon"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("FatherCon"))) : null;
-                            Marketing.MotherCon = reader["MotherCon"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("MotherCon"))) : null;
+                            Marketing.FatherCon = reader["FatherCon"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("FatherCon"))) : Snull;
+                            Marketing.MotherCon = reader["MotherCon"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("MotherCon"))) : Snull;
 
 
                         }
