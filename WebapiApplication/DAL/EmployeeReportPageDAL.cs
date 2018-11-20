@@ -7933,11 +7933,14 @@ namespace WebapiApplication.DAL
                 parm[3] = new SqlParameter("@spname", SqlDbType.VarChar);
                 parm[3].Value = mobj.Spname;
 
-                parm[4] = new SqlParameter("@iflag", SqlDbType.Int);
-                parm[4].Value = mobj.iflag;
+                parm[4] = new SqlParameter("@Runstatus", SqlDbType.VarChar);
+                parm[4].Value = mobj.Runstatus;
 
-                parm[5] = new SqlParameter("@scdularId", SqlDbType.BigInt);
-                parm[5].Value = mobj.scdularId;
+                parm[5] = new SqlParameter("@iflag", SqlDbType.Int);
+                parm[5].Value = mobj.iflag;
+
+                parm[6] = new SqlParameter("@scdularId", SqlDbType.BigInt);
+                parm[6].Value = mobj.scdularId;
 
 
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);

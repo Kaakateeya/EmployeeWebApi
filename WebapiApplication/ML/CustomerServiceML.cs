@@ -1156,6 +1156,7 @@ namespace WebapiApplication.ML
         public string Purposepoint { set; get; }
         public string Timeperiod { set; get; }
         public string Spname { set; get; }
+        public string Runstatus { set; get; }
         public int? iflag { set; get; }
         public long? scdularId { set; get; }
     }
