@@ -492,7 +492,10 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().TeamleadBranches(strvalename, strflg, "[dbo].[Dropdown_filling_TeamHeadsandBranches]");
         }
-        
+        public int? KaakateeyaAgentCalling([FromBody]kakagentCall Mobj)
+        {
+            return new EmployeeReportPageDAL().KaakateeyaAgentCalling(Mobj, "[dbo].[Dropdown_filling_TeamHeadsandBranches]");
+        }
     }
 
 }

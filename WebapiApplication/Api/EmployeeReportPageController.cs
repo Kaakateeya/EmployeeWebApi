@@ -882,5 +882,11 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.TeamleadBranches(strvalename,strflg);
         }
 
+        //  07_12_2018_ kaakateeya agent calling
+
+        public int? KaakateeyaAgentCalling([FromBody]kakagentCall Mobj)
+        {
+            return this.IEmployeeReport.KaakateeyaAgentCalling(Mobj);
+        }
     }
 }

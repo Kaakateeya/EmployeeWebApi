@@ -537,6 +537,8 @@ namespace WebapiApplication.Interfaces
         int UserProfileForgotPassword(string userName);
 
         ArrayList TeamleadBranches(string strvalename, int? strflg);
+
+        int? KaakateeyaAgentCalling(kakagentCall Mobj);
     }
 
     public interface ISmallPages

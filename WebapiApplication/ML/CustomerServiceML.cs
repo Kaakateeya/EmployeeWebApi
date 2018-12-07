@@ -1156,7 +1156,7 @@ namespace WebapiApplication.ML
         public string Purposepoint { set; get; }
         public string Timeperiod { set; get; }
         public string Spname { set; get; }
-       // public string Runstatus { set; get; }
+        // public string Runstatus { set; get; }
         public int? iflag { set; get; }
         public long? scdularId { set; get; }
     }
@@ -1174,7 +1174,7 @@ namespace WebapiApplication.ML
         public string Teamhead { set; get; }
         public int? istartIndex { set; get; }
         public int? iEndIndex { set; get; }
-   }
+    }
 
     // strickers page
     public class strickerspageinfo
@@ -1200,6 +1200,14 @@ namespace WebapiApplication.ML
         public int? strRegional { set; get; }
         public string strBranch { set; get; }
         public string strProfileowner { set; get; }
+    }
+    public class kakagentCall
+    {
+        public long? AgentNumber { get; set; }
+        public long? CustomerNumber { get; set; }
+        public string callid { set; get; }
+        public string StatusMessages { set; get; }
+        public int? StatusId { get; set; }
     }
 
 }

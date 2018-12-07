@@ -8489,5 +8489,48 @@ namespace WebapiApplication.DAL
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
+
+        public int? KaakateeyaAgentCalling(kakagentCall Mobj, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[10];
+            int? intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@AgentNumber", SqlDbType.BigInt);
+                parm[0].Value = Mobj.AgentNumber;
+                parm[1] = new SqlParameter("@CustomerNumber", SqlDbType.BigInt);
+                parm[1].Value = Mobj.CustomerNumber;
+                parm[2] = new SqlParameter("@callid", SqlDbType.VarChar);
+                parm[2].Value = Mobj.callid;
+                parm[3] = new SqlParameter("@StatusMessages", SqlDbType.VarChar);
+                parm[3].Value = Mobj.StatusMessages;
+                parm[4] = new SqlParameter("@StatusId", SqlDbType.Int);
+                parm[4].Value = Mobj.StatusId;
+                parm[5] = new SqlParameter("@intStatus", SqlDbType.Int);
+                parm[5].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[7].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[7].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return intStatus;
+        }
     }
 }
