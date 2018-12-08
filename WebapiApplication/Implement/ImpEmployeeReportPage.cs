@@ -494,7 +494,11 @@ namespace WebapiApplication.Implement
         }
         public int? KaakateeyaAgentCalling([FromBody]kakagentCall Mobj)
         {
-            return new EmployeeReportPageDAL().KaakateeyaAgentCalling(Mobj, "[dbo].[Dropdown_filling_TeamHeadsandBranches]");
+            return new EmployeeReportPageDAL().KaakateeyaAgentCalling(Mobj, "[dbo].[usp_insert_kakAgentCallingHistory]");
+        }
+        public int? ProfileStatustoActive(string BrideProfileId, string GroomProfileId)
+        {
+            return new EmployeeReportPageDAL().ProfileStatustoActive(BrideProfileId, GroomProfileId, "[dbo].[usp_update_ProfileidStatustoActive_AJS]");
         }
     }
 

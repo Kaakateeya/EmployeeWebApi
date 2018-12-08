@@ -888,5 +888,10 @@ namespace WebapiApplication.Api
         {
             return this.IEmployeeReport.KaakateeyaAgentCalling(Mobj);
         }
+        public int? getProfileStatustoActive(string BrideProfileId, string GroomProfileId)
+        {
+            return this.IEmployeeReport.ProfileStatustoActive(BrideProfileId, GroomProfileId);
+        }
+
     }
 }

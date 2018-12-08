@@ -539,6 +539,8 @@ namespace WebapiApplication.Interfaces
         ArrayList TeamleadBranches(string strvalename, int? strflg);
 
         int? KaakateeyaAgentCalling(kakagentCall Mobj);
+
+        int? ProfileStatustoActive(string BrideProfileId, string GroomProfileId);
     }
 
     public interface ISmallPages

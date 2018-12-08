@@ -408,6 +408,14 @@ namespace WebapiApplication.ML
         public string FatherCon { get; set; }
 
         public string IsPrimaryCon { get; set; }
+
+        public int? isemailverified { get; set; }
+
+        public int? ismobileverified { get; set; }
+
+        public string mobileverifieddate { get; set; }
+
+        public string emailverifieddate { get; set; }
     }
     public class MarketingTicketResponseHistory
     {

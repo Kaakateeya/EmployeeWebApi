@@ -1223,6 +1223,14 @@ namespace WebapiApplication.DAL
                             Marketing.MotherCon = reader["MotherCon"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("MotherCon"))) : Snull;
 
 
+                            Marketing.isemailverified = reader["isemailverified"] != DBNull.Value ? (reader.GetInt32(reader.GetOrdinal("isemailverified"))) : iNULLs;
+                            Marketing.ismobileverified = reader["ismobileverified"] != DBNull.Value ? (reader.GetInt32(reader.GetOrdinal("ismobileverified"))) : iNULLs;
+
+                            Marketing.mobileverifieddate = reader["mobileverifieddate"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("mobileverifieddate"))) : Snull;
+                            Marketing.emailverifieddate = reader["emailverifieddate"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("emailverifieddate"))) : Snull;
+
+
+
                         }
                         details.Add(Marketing);
                     }
@@ -8364,7 +8372,7 @@ namespace WebapiApplication.DAL
                 parm[1].Value = mobj.Region;
                 parm[2] = new SqlParameter("@ApplicationStatus", SqlDbType.Int);
                 parm[2].Value = mobj.ApplicationStatus;
-               
+
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
             catch (Exception EX)
@@ -8513,13 +8521,50 @@ namespace WebapiApplication.DAL
                 parm[5].Direction = ParameterDirection.Output;
                 DataSet ds = new DataSet();
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[7].Value.ToString()).Equals(0))
+                if (string.Compare(System.DBNull.Value.ToString(), parm[5].Value.ToString()).Equals(0))
                 {
                     intStatus = 0;
                 }
                 else
                 {
-                    intStatus = Convert.ToInt32(parm[7].Value);
+                    intStatus = Convert.ToInt32(parm[5].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return intStatus;
+        }
+
+        public int? ProfileStatustoActive(string BrideProfileId, string GroomProfileId, string spname)
+        {
+            SqlParameter[] parm = new SqlParameter[4];
+            int? intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@BrideProfileId", SqlDbType.BigInt);
+                parm[0].Value = BrideProfileId;
+                parm[1] = new SqlParameter("@GroomProfileId", SqlDbType.BigInt);
+                parm[1].Value = GroomProfileId;
+                parm[2] = new SqlParameter("@intStatus", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[2].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[2].Value);
                 }
             }
             catch (Exception EX)
