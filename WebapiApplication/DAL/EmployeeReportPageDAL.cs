@@ -1229,8 +1229,12 @@ namespace WebapiApplication.DAL
                             Marketing.mobileverifieddate = reader["mobileverifieddate"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("mobileverifieddate"))) : Snull;
                             Marketing.emailverifieddate = reader["emailverifieddate"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("emailverifieddate"))) : Snull;
 
+                            Marketing.PaidSatus = reader["PaidSatus"] != DBNull.Value ? (reader.GetInt32(reader.GetOrdinal("PaidSatus"))) : iNULLs;
 
 
+                            Marketing.mobilecountyid = reader["mobilecountyid"] != DBNull.Value ? (reader.GetInt32(reader.GetOrdinal("mobilecountyid"))) : iNULLs;
+                            Marketing.countrycode = reader["countrycode"] != DBNull.Value ? (reader.GetString(reader.GetOrdinal("countrycode"))) : null;
+                            Marketing.custfamilyID = reader["custfamilyID"] != DBNull.Value ? (reader.GetInt64(reader.GetOrdinal("custfamilyID"))) : iLong;
                         }
                         details.Add(Marketing);
                     }

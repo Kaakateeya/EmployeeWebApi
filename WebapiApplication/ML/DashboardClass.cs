@@ -416,6 +416,14 @@ namespace WebapiApplication.ML
         public string mobileverifieddate { get; set; }
 
         public string emailverifieddate { get; set; }
+
+        public int? PaidSatus { get; set; }
+
+        public int? mobilecountyid { get; set; }
+
+        public string countrycode { get; set; }
+
+        public long? custfamilyID { get; set; }
     }
     public class MarketingTicketResponseHistory
     {
