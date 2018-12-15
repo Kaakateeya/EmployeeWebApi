@@ -8408,10 +8408,12 @@ namespace WebapiApplication.DAL
                 parm[2].Value = mobj.intNoOfDays;
                 parm[3] = new SqlParameter("@intEmpID", SqlDbType.Int);
                 parm[3].Value = mobj.intEmpID;
-                parm[4] = new SqlParameter("@istartindex", SqlDbType.Int);
-                parm[4].Value = mobj.istartindex;
-                parm[5] = new SqlParameter("@iendIndex", SqlDbType.Int);
-                parm[5].Value = mobj.iendIndex;
+                parm[4] = new SqlParameter("@intVoiceCallType", SqlDbType.Int);
+                parm[4].Value = mobj.intVoiceCallType;
+                parm[5] = new SqlParameter("@istartindex", SqlDbType.Int);
+                parm[5].Value = mobj.istartindex;
+                parm[6] = new SqlParameter("@iendIndex", SqlDbType.Int);
+                parm[6].Value = mobj.iendIndex;
 
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }

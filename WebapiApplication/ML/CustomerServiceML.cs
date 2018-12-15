@@ -1191,6 +1191,7 @@ namespace WebapiApplication.ML
         public int? intCallStatus { set; get; }
         public int? intNoOfDays { set; get; }
         public int? intEmpID { set; get; }
+        public int? intVoiceCallType { set; get; }
         public int? istartindex { set; get; }
         public int? iendIndex { set; get; }
     }
