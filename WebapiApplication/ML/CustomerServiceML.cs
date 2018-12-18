@@ -1194,6 +1194,10 @@ namespace WebapiApplication.ML
         public int? intVoiceCallType { set; get; }
         public int? istartindex { set; get; }
         public int? iendIndex { set; get; }
+        public DateTime? dtfromDate { set; get; }
+        public DateTime? dtTodate { set; get; }
+        public string iapplicationStatus { set; get; }
+        public int? iCalltype { set; get; }
     }
 
     public class ystryPending

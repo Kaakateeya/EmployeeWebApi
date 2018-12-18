@@ -8391,6 +8391,8 @@ namespace WebapiApplication.DAL
         }
         // strickers page end
 
+
+
         public ArrayList EmpMatchFollowupandMarketingHistory(employeematchfollowupinfo mobj, string spName)
         {
             DataSet ds = new DataSet();
@@ -8399,7 +8401,7 @@ namespace WebapiApplication.DAL
             connection.Open();
             try
             {
-                SqlParameter[] parm = new SqlParameter[6];
+                SqlParameter[] parm = new SqlParameter[13];
                 parm[0] = new SqlParameter("@intFollowupStatus", SqlDbType.Int);
                 parm[0].Value = mobj.intFollowupStatus;
                 parm[1] = new SqlParameter("@intCallStatus", SqlDbType.Int);
@@ -8414,9 +8416,19 @@ namespace WebapiApplication.DAL
                 parm[5].Value = mobj.istartindex;
                 parm[6] = new SqlParameter("@iendIndex", SqlDbType.Int);
                 parm[6].Value = mobj.iendIndex;
-
+                parm[7] = new SqlParameter("@dtfromDate", SqlDbType.DateTime);
+                parm[7].Value = mobj.dtfromDate;
+                parm[8] = new SqlParameter("@dtTodate", SqlDbType.DateTime);
+                parm[8].Value = mobj.dtTodate;
+                parm[9] = new SqlParameter("@iapplicationStatus", SqlDbType.VarChar);
+                parm[9].Value = mobj.iapplicationStatus;
+                parm[10] = new SqlParameter("@iCalltype", SqlDbType.Int);
+                parm[10].Value = mobj.iCalltype;
+             
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+              
             }
+              
             catch (Exception EX)
             {
                 Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
