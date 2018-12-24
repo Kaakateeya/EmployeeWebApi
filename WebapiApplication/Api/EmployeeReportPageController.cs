@@ -850,6 +850,11 @@ namespace WebapiApplication.Api
         {
             return this.IEmployeeReport.EmpMatchFollowupandMarketingHistory(mobj);
         }
+         // Accountsdetailspage     
+               public ArrayList Accountsdetailspage([FromBody]accountspageinfo mobj)
+               {
+                   return this.IEmployeeReport.Accountsdetailspage(mobj);
+               }
 
         // 22_10_2018 Matchfollowup New Page
         public ArrayList MatchfollowupSlideShowResult_New([FromBody]SearchML Mobj)

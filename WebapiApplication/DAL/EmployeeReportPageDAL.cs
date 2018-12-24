@@ -8440,6 +8440,45 @@ namespace WebapiApplication.DAL
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
 
+        // Accountsdetailspage 
+        public ArrayList Accountsdetailspage(accountspageinfo mobj, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[13];
+                parm[0] = new SqlParameter("@idate", SqlDbType.Int);
+                parm[0].Value = mobj.idate;
+                parm[1] = new SqlParameter("@iTypeofPayment", SqlDbType.VarChar);
+                parm[1].Value = mobj.iTypeofPayment;
+                parm[2] = new SqlParameter("@ibankName", SqlDbType.VarChar);
+                parm[2].Value = mobj.ibankName;
+                parm[3] = new SqlParameter("@iAmount", SqlDbType.Int);
+                parm[3].Value = mobj.iAmount;
+                parm[4] = new SqlParameter("@v_Beneficiaryname", SqlDbType.VarChar);
+                parm[4].Value = mobj.v_Beneficiaryname;
+                parm[5] = new SqlParameter("@ibranchName", SqlDbType.Int);
+                parm[5].Value = mobj.ibranchName;
+                parm[6] = new SqlParameter("@v_Description", SqlDbType.VarChar);
+                parm[6].Value = mobj.v_Description;
+               ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+
+            }
+
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
 
         public int UserProfileForgotPassword(string userName, string spName)
         {

@@ -1200,6 +1200,18 @@ namespace WebapiApplication.ML
         public int? iCalltype { set; get; }
     }
 
+    // Accountsdetailspage 
+    public class accountspageinfo
+    {
+        public int? idate { set; get; }
+        public string iTypeofPayment { set; get; }
+        public string ibankName { set; get; }
+        public int? iAmount { set; get; }
+        public string v_Beneficiaryname { set; get; }
+        public int? ibranchName { set; get; }
+        public string v_Description { set; get; }
+    }
+
     public class ystryPending
     {
         public int? strRegional { set; get; }
