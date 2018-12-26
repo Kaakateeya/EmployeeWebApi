@@ -481,6 +481,13 @@ namespace WebapiApplication.Implement
 
         }
 
+        // viewdetailspage  
+        public ArrayList Viewdetailspage([FromBody]viewpageinfo mobj)
+        {
+            return new EmployeeReportPageDAL().Viewdetailspage(mobj, "[dbo].[usp_InsertAccountDetails_Report_AJS]");
+
+        }
+
         public ArrayList MatchfollowupSlideShowResult_New([FromBody]SearchML Mobj)
         {
             return new EmployeeReportPageDAL().MatchfollowupSlideShowResult_New(Mobj, "[dbo].[Usp_Select_OneSideInterst_MySide_NewDesign]");

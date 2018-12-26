@@ -1208,8 +1208,20 @@ namespace WebapiApplication.ML
         public string ibankName { set; get; }
         public int? iAmount { set; get; }
         public string v_Beneficiaryname { set; get; }
-        public int? ibranchName { set; get; }
+        public string ibranchName { set; get; }
         public string v_Description { set; get; }
+        public int? iflag { set; get; }
+    }
+
+    // viewdetailspage 
+    public class viewpageinfo
+    {
+        public int? datefrom { set; get; }
+        public int? dateTo { set; get; }
+        public int? typeofPayment { set; get; }
+        public string bankName { set; get; }
+        public string Branchname { set; get; }
+        public int? iflag { set; get; }
     }
 
     public class ystryPending

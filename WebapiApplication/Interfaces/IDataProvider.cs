@@ -527,6 +527,8 @@ namespace WebapiApplication.Interfaces
 
         ArrayList Accountsdetailspage(accountspageinfo mobj);
 
+        ArrayList Viewdetailspage(viewpageinfo mobj);
+
         ArrayList MatchfollowupSlideShowResult_New(SearchML Mobj);
 
         ArrayList MatchfollowupCounts(int? intEmpID);

@@ -8460,12 +8460,50 @@ namespace WebapiApplication.DAL
                 parm[3].Value = mobj.iAmount;
                 parm[4] = new SqlParameter("@v_Beneficiaryname", SqlDbType.VarChar);
                 parm[4].Value = mobj.v_Beneficiaryname;
-                parm[5] = new SqlParameter("@ibranchName", SqlDbType.Int);
+                parm[5] = new SqlParameter("@ibranchName", SqlDbType.VarChar);
                 parm[5].Value = mobj.ibranchName;
                 parm[6] = new SqlParameter("@v_Description", SqlDbType.VarChar);
                 parm[6].Value = mobj.v_Description;
+                parm[7] = new SqlParameter("@iflag", SqlDbType.Int);
+                parm[7].Value = mobj.iflag;
                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
 
+            }
+
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+        // viewdetailspage 
+        public ArrayList Viewdetailspage(viewpageinfo mobj, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[13];
+                parm[0] = new SqlParameter("@datefrom", SqlDbType.Int);
+                parm[0].Value = mobj.datefrom;
+                parm[1] = new SqlParameter("@dateTo", SqlDbType.Int);
+                parm[1].Value = mobj.dateTo;
+                parm[2] = new SqlParameter("@typeofPayment", SqlDbType.Int);
+                parm[2].Value = mobj.typeofPayment;
+                parm[3] = new SqlParameter("@bankName", SqlDbType.VarChar);
+                parm[3].Value = mobj.bankName;
+                parm[4] = new SqlParameter("@Branchname", SqlDbType.VarChar);
+                parm[4].Value = mobj.Branchname;
+                parm[5] = new SqlParameter("@iflag", SqlDbType.Int);
+                parm[5].Value = mobj.iflag;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
 
             catch (Exception EX)

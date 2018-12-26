@@ -855,6 +855,12 @@ namespace WebapiApplication.Api
                {
                    return this.IEmployeeReport.Accountsdetailspage(mobj);
                }
+         
+        // viewdetailspage     
+               public ArrayList Viewdetailspage([FromBody]viewpageinfo mobj)
+        {
+            return this.IEmployeeReport.Viewdetailspage(mobj);
+        }
 
         // 22_10_2018 Matchfollowup New Page
         public ArrayList MatchfollowupSlideShowResult_New([FromBody]SearchML Mobj)
