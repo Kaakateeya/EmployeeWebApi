@@ -8709,21 +8709,21 @@ namespace WebapiApplication.DAL
             connection.Open();
             try
             {
-                parm[0] = new SqlParameter("@DateTime", SqlDbType.DateTime);
-                parm[0].Value = (mobj.exceluploaddate);
-                parm[1] = new SqlParameter("@GroomProfileId", SqlDbType.Structured);
-                parm[1].Value = ToDataTable(mobj.exceluploaddatelist);
-                parm[2] = new SqlParameter("@intStatus", SqlDbType.Int);
-                parm[2].Direction = ParameterDirection.Output;
+                //parm[0] = new SqlParameter("@DateTime", SqlDbType.DateTime);
+                //parm[0].Value = (mobj.exceluploaddate);
+                parm[0] = new SqlParameter("@Emp_InsertVoiceRecordinginfo", SqlDbType.Structured);
+                parm[0].Value = ToDataTable(mobj.exceluploaddatelist);
+                parm[1] = new SqlParameter("@intStatus", SqlDbType.Int);
+                parm[1].Direction = ParameterDirection.Output;
                 DataSet ds = new DataSet();
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
-                if (string.Compare(System.DBNull.Value.ToString(), parm[2].Value.ToString()).Equals(0))
+                if (string.Compare(System.DBNull.Value.ToString(), parm[1].Value.ToString()).Equals(0))
                 {
                     intStatus = 0;
                 }
                 else
                 {
-                    intStatus = Convert.ToInt32(parm[2].Value);
+                    intStatus = Convert.ToInt32(parm[1].Value);
                 }
             }
             catch (Exception EX)
