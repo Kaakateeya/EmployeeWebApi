@@ -8711,7 +8711,7 @@ namespace WebapiApplication.DAL
             {
                 //parm[0] = new SqlParameter("@DateTime", SqlDbType.DateTime);
                 //parm[0].Value = (mobj.exceluploaddate);
-                parm[0] = new SqlParameter("@Emp_InsertVoiceRecordinginfo", SqlDbType.Structured);
+                parm[0] = new SqlParameter("@TblDetails", SqlDbType.Structured);
                 parm[0].Value = ToDataTable(mobj.exceluploaddatelist);
                 parm[1] = new SqlParameter("@intStatus", SqlDbType.Int);
                 parm[1].Direction = ParameterDirection.Output;
