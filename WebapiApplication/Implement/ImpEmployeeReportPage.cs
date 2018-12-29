@@ -514,6 +514,10 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().ProfileStatustoActive(BrideProfileId, GroomProfileId, "[dbo].[usp_update_ProfileidStatustoActive_AJS]");
         }
+        public int? MarketingMatchfollowupCompare([FromBody]fileuploadexcel obj)
+        {
+            return new EmployeeReportPageDAL().MarketingMatchfollowupCompare(obj, "[dbo].[Usp_Emp_InsertVoiceRecordinginfo]");
+        }
     }
 
 }

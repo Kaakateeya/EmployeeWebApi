@@ -8672,5 +8672,43 @@ namespace WebapiApplication.DAL
             }
             return intStatus;
         }
+
+        public int? MarketingMatchfollowupCompare(fileuploadexcel mobj, string spname)
+        {
+           
+            SqlParameter[] parm = new SqlParameter[4];
+            int? intStatus = 0;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                parm[0] = new SqlParameter("@DateTime", SqlDbType.DateTime);
+                parm[0].Value = mobj.exceluploaddate;
+                parm[1] = new SqlParameter("@GroomProfileId", SqlDbType.Structured);
+                parm[1].Value = mobj.exceluploaddatelist;
+                parm[2] = new SqlParameter("@intStatus", SqlDbType.Int);
+                parm[2].Direction = ParameterDirection.Output;
+                DataSet ds = new DataSet();
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spname, parm);
+                if (string.Compare(System.DBNull.Value.ToString(), parm[2].Value.ToString()).Equals(0))
+                {
+                    intStatus = 0;
+                }
+                else
+                {
+                    intStatus = Convert.ToInt32(parm[2].Value);
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spname, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return intStatus;
+        }
     }
 }

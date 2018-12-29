@@ -8,7 +8,7 @@ using WebapiApplication.Interfaces;
 using WebapiApplication.ML;
 using WebapiApplication.UserDefinedTable;
 using WebapiApplication.ServiceReference1;
-
+using Newtonsoft.Json.Linq;
 namespace WebapiApplication.Api
 {
     public class EmployeeReportPageController : ApiController
@@ -902,6 +902,13 @@ namespace WebapiApplication.Api
         public int? getProfileStatustoActive(string BrideProfileId, string GroomProfileId)
         {
             return this.IEmployeeReport.ProfileStatustoActive(BrideProfileId, GroomProfileId);
+        }
+
+        //////////////29-12-2018
+
+        public int? MarketingMatchfollowupCompare([FromBody]fileuploadexcel obj)
+        {
+            return this.IEmployeeReport.MarketingMatchfollowupCompare(obj);
         }
 
     }

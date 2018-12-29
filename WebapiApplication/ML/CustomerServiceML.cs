@@ -1238,6 +1238,27 @@ namespace WebapiApplication.ML
         public string StatusMessages { set; get; }
         public int? StatusId { get; set; }
     }
+    public class exceldata{
+
+          public string SalesExecutive { set; get; }
+          public string CallerName { set; get; }
+          public string CallerNumber { set; get; }
+          public string CallStatus { set; get; }
+          public int Duration { set; get; }
+          public string CallType { set; get; }
+          public string note { set; get; }
+          public string Status { set; get; }
+          public DateTime? CreatedDate { set; get; }
+      
+    }
+
+
+    public class fileuploadexcel
+    {
+        public DateTime? exceluploaddate { get; set; }
+        public List<exceldata> exceluploaddatelist { get; set; }
+      
+    }
 
 }
 
