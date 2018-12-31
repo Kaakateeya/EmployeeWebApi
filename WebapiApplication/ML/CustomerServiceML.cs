@@ -729,6 +729,7 @@ namespace WebapiApplication.ML
         public int intPendingEmpID { get; set; }
 
         public int? intFromTicketStatus { get; set; }
+        public int? VoiceCallType { get; set; }
     }
 
     public class IncomingOutgoing
@@ -744,6 +745,7 @@ namespace WebapiApplication.ML
         public int? DisplayStatus { get; set; }
         public long? TicketID { get; set; }
         public long? EmpID { get; set; }
+        public int? VoiceCallType { get; set; }
     }
 
 
@@ -1218,7 +1220,7 @@ namespace WebapiApplication.ML
     {
         public int? datefrom { set; get; }
         public int? dateTo { set; get; }
-        public int? typeofPayment { set; get; }
+        public string typeofPayment { set; get; }
         public string bankName { set; get; }
         public string Branchname { set; get; }
         public int? iflag { set; get; }

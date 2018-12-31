@@ -1359,6 +1359,8 @@ namespace WebapiApplication.DAL
 
                 parm[14] = new SqlParameter("@intFromTicketStatus", SqlDbType.Int);
                 parm[14].Value = Mobj.intFromTicketStatus;
+                parm[15] = new SqlParameter("@VoiceCallType", SqlDbType.Int);
+                parm[15].Value = Mobj.VoiceCallType;
 
                 drReader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (string.Compare(System.DBNull.Value.ToString(), parm[11].Value.ToString()).Equals(0))
@@ -1384,7 +1386,7 @@ namespace WebapiApplication.DAL
 
         public int Insertout_incomingcallData(IncomingOutgoing Mobj, string spName)
         {
-            SqlParameter[] parm = new SqlParameter[13];
+            SqlParameter[] parm = new SqlParameter[20];
             int intStatus = 0;
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
@@ -1418,6 +1420,9 @@ namespace WebapiApplication.DAL
                 parm[11].Direction = ParameterDirection.Output;
                 parm[12] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
                 parm[12].Direction = ParameterDirection.Output;
+                parm[13] = new SqlParameter("@VoiceCallType", SqlDbType.Int);
+                parm[13].Value = Mobj.VoiceCallType;
+
                 SqlDataReader drReader = null;
                 drReader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
 
@@ -8495,7 +8500,7 @@ namespace WebapiApplication.DAL
                 parm[0].Value = mobj.datefrom;
                 parm[1] = new SqlParameter("@dateTo", SqlDbType.Int);
                 parm[1].Value = mobj.dateTo;
-                parm[2] = new SqlParameter("@typeofPayment", SqlDbType.Int);
+                parm[2] = new SqlParameter("@typeofPayment", SqlDbType.VarChar);
                 parm[2].Value = mobj.typeofPayment;
                 parm[3] = new SqlParameter("@bankName", SqlDbType.VarChar);
                 parm[3].Value = mobj.bankName;
