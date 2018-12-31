@@ -545,6 +545,9 @@ namespace WebapiApplication.Interfaces
         int? KaakateeyaAgentCalling(kakagentCall Mobj);
 
         int? ProfileStatustoActive(string BrideProfileId, string GroomProfileId);
+
+
+        int? MarketingMatchfollowupCompare(fileuploadexcel obj);
     }
 
     public interface ISmallPages

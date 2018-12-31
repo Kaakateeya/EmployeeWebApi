@@ -11,8 +11,7 @@ namespace WebapiApplication.Api
     public class DBController : ApiController
     {
         private readonly IuserLogin IuserLogin;
-        public DBController()
-            : base()
+        public DBController(): base()
         {
             this.IuserLogin = new ImpUserlogin();
         }
