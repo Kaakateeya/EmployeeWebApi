@@ -1224,6 +1224,7 @@ namespace WebapiApplication.ML
         public string bankName { set; get; }
         public string Branchname { set; get; }
         public int? iflag { set; get; }
+        public int? Paidstatus { set; get; }
     }
 
     public class ystryPending

@@ -8509,6 +8509,8 @@ namespace WebapiApplication.DAL
                 parm[4].Value = mobj.Branchname;
                 parm[5] = new SqlParameter("@iflag", SqlDbType.Int);
                 parm[5].Value = mobj.iflag;
+                parm[6] = new SqlParameter("@Paidstatus", SqlDbType.Int);
+                parm[6].Value = mobj.Paidstatus;
                 ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
             }
 
