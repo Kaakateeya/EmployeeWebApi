@@ -8743,5 +8743,33 @@ namespace WebapiApplication.DAL
             }
             return intStatus;
         }
+
+        public ArrayList MarketingTicketHistoryCompareSelect(int? intBranchID, DateTime? dtDateofRecording, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[3];
+                parm[0] = new SqlParameter("@intBranchID", SqlDbType.Int);
+                parm[0].Value = intBranchID;
+                parm[1] = new SqlParameter("@dtDateofRecording", SqlDbType.DateTime);
+                parm[1].Value = dtDateofRecording;
+
+
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
     }
 }
