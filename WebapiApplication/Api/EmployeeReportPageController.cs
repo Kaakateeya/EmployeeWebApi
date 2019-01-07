@@ -911,5 +911,16 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.MarketingMatchfollowupCompare(obj);
         }
 
+        /// <summary>
+        /// ////////      05_01_2019 
+
+        /// </summary>
+        /// <param name="obj"></param>
+
+        public ArrayList getMarketingTicketHistoryCompareSelect(int? intBranchID, DateTime? dtDateofRecording)
+        {
+            return this.IEmployeeReport.MarketingTicketHistoryCompareSelect(intBranchID, dtDateofRecording);
+        }
+
     }
 }

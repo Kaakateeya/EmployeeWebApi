@@ -518,6 +518,10 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().MarketingMatchfollowupCompare(obj, "[dbo].[Usp_Emp_InsertVoiceRecordinginfo]");
         }
+        public ArrayList MarketingTicketHistoryCompareSelect(int? intBranchID, DateTime? dtDateofRecording)
+        {
+            return new EmployeeReportPageDAL().MarketingTicketHistoryCompareSelect(intBranchID, dtDateofRecording, "[dbo].[usp_Emp_TicketsandMatchFollowupswithRecoring]");
+        }
     }
 
 }

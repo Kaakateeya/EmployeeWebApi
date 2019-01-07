@@ -548,6 +548,8 @@ namespace WebapiApplication.Interfaces
 
 
         int? MarketingMatchfollowupCompare(fileuploadexcel obj);
+
+        ArrayList MarketingTicketHistoryCompareSelect(int? intBranchID, DateTime? dtDateofRecording);
     }
 
     public interface ISmallPages
