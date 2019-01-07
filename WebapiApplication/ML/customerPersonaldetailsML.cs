@@ -1778,6 +1778,8 @@ namespace WebapiApplication.ML
         public int? intEmpID { set; get; }
         public bool? isSlide { get; set; }
         public int? genderID { get; set; }
+        public int? Paidstatus { get; set; }
+        public string caste { get; set; }
     }
     public class HoroGeneration
     {

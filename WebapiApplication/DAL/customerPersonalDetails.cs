@@ -2080,7 +2080,7 @@ namespace WebapiApplication.DAL
         public ArrayList Search_ViewEditProfile(ViewEditProfileSearch Mobj, string spName)
         {
             ArrayList arrayList = new ArrayList();
-            SqlParameter[] parm = new SqlParameter[12];
+            SqlParameter[] parm = new SqlParameter[16];
             SqlDataReader reader;
             Int64? intNull = null;
             int? iNull = null;
@@ -2118,6 +2118,10 @@ namespace WebapiApplication.DAL
                 parm[10].Direction = ParameterDirection.Output;
                 parm[11] = new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000);
                 parm[11].Direction = ParameterDirection.Output;
+                parm[12] = new SqlParameter("@Paidstatus", SqlDbType.Int);
+                parm[12].Value = Mobj.Paidstatus;
+                parm[13] = new SqlParameter("@caste", SqlDbType.VarChar);
+                parm[13].Value = Mobj.caste;
 
                 reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, spName, parm);
                 if (Mobj.isSlide == false)
