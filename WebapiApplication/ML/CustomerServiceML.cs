@@ -1226,6 +1226,7 @@ namespace WebapiApplication.ML
         public int? iflag { set; get; }
         public int? Paidstatus { set; get; }
         public string TobePaid { set; get; }
+        public string Region { set; get; }
     }
 
     public class ystryPending
