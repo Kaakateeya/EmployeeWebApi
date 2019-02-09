@@ -1666,6 +1666,12 @@ namespace WebapiApplication.UserDefinedTable
             dtCreate.Columns.Add("C_ContactDetails");
             dtCreate.Columns.Add("C_PINCode");
 
+            dtCreate.Columns.Add("Pr_PropertyFrom");
+            dtCreate.Columns.Add("Pr_PropertyTo");
+            dtCreate.Columns.Add("Pr_EduAll");
+            dtCreate.Columns.Add("Pr_ProfAll");
+            dtCreate.Columns.Add("Pr_Merit");
+
             return dtCreate;
 
         }

@@ -1266,7 +1266,11 @@ namespace WebapiApplication.ML
         public string C_ContactDetails { get; set; }
         public string C_PINCode { get; set; }
 
-
+        public string Pr_PropertyFrom { get; set; }
+        public string Pr_PropertyTo { get; set; }
+        public string Pr_EduAll { get; set; }
+        public string Pr_ProfAll { get; set; }
+        public string Pr_Merit { get; set; }
     }
 
     public class MasterData
