@@ -2742,6 +2742,61 @@ namespace WebapiApplication.DAL
             }
             return nodata;
         }
+
+        /// <summary>
+        /// Add Personalinteraction button 
+        /// </summary>
+        /// <param name="CustId"></param>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        /// 
+        public ArrayList getPersonalinteractionMatchFollowup(int? CustId, string sp)
+        {
+            SqlParameter[] parm = new SqlParameter[2];
+            SqlDataReader reader;
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            string strval = string.Empty;
+            int? inull = null;
+            PersonalinteractionMatchFollowup PersonalInteraction = null;
+            ArrayList arrayList = new ArrayList();
+            try
+            {
+                parm[0] = new SqlParameter("@CustID", SqlDbType.Int);
+                parm[0].Value = CustId;
+
+                reader = SQLHelper.ExecuteReader(connection, CommandType.StoredProcedure, sp, parm);
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        PersonalInteraction = new PersonalinteractionMatchFollowup();
+                        {
+                            PersonalInteraction.CustId = reader["CustId"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("CustId")) : inull;
+                            PersonalInteraction.CreatedDate = reader["CreatedDate"] != DBNull.Value ? reader["CreatedDate"].ToString() : null;
+                            PersonalInteraction.EnteredbyEmpID = reader["EnteredbyEmpID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("EnteredbyEmpID")) : inull;
+                            PersonalInteraction.Empdetails = reader["Empdetails"] != DBNull.Value ? reader["Empdetails"].ToString() : null;
+                            arrayList.Add(PersonalInteraction);
+                        }
+                    }
+                }
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(sp, Convert.ToString(EX.Message), Convert.ToInt32(CustId), null, null);
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+            return arrayList;
+        }
+
+
+
     }
 }
 

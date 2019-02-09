@@ -80,5 +80,7 @@ namespace WebapiApplication.Implement
         public ViewProfileInputInbit InbitdataInfo(string ProfileID, int? empid) { return new StaticPagesDAL().InbitdataInfo(ProfileID, empid, "[dbo].[usp_getInBitInformation_NewDesign]"); }
         public NoDataFoundDisplay NoDataFoundDisplay(string ProfileID) { return new StaticPagesDAL().NoDataFoundDisplay(ProfileID, "[dbo].[usp_Profile_NoDataFound]"); }
         public int brokerEmailMobilenumberexists(int? iflagEmailmobile, string EmailMobile) { return new StaticPagesDAL().EmailMobilenumberexists(iflagEmailmobile, EmailMobile, "[dbo].[usp_EmailMobilenumberexists_BrokerProfiles]"); }
+
+        public ArrayList getPersonalinteractionMatchFollowup(int? CustId) { return new StaticPagesDAL().getPersonalinteractionMatchFollowup(CustId, "[dbo].[getPersonalinteractionMatchFollowup]"); }
     }
 }

@@ -841,6 +841,14 @@ namespace WebapiApplication.UserDefinedTable
             dtGeneralsearch.Columns.Add("Divorce_NoofChild");
             dtGeneralsearch.Columns.Add("Divorce_Service");
             dtGeneralsearch.Columns.Add("MembershipTypeID");
+
+            //Add StarLanguage by  Asha  23/01/2019
+
+            dtGeneralsearch.Columns.Add("StarLanguageID");
+            dtGeneralsearch.Columns.Add("StarLanguageText");
+            dtGeneralsearch.Columns.Add("StarsID");
+            dtGeneralsearch.Columns.Add("StarsText");
+
             return dtGeneralsearch;
         }
 
@@ -1654,6 +1662,9 @@ namespace WebapiApplication.UserDefinedTable
             dtCreate.Columns.Add("Caste_All");
             dtCreate.Columns.Add("Qualification_All");
             dtCreate.Columns.Add("Profession_All");
+
+            dtCreate.Columns.Add("C_ContactDetails");
+            dtCreate.Columns.Add("C_PINCode");
 
             return dtCreate;
 

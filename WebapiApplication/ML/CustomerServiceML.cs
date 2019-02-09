@@ -275,6 +275,11 @@ namespace WebapiApplication.ML
         public int? ServicePending_EmpID { get; set; }
 
         public string ServicePending_EmpName { get; set; }
+
+        public string FromlastService { set; get; }
+
+        public string TolastService { set; get; }
+
     }
 
     public class SearchML
@@ -1050,6 +1055,7 @@ namespace WebapiApplication.ML
         public DateTime? EndDate { set; get; }
 
     }
+
     public class ViewProfileInputInbit
     {
 
@@ -1061,10 +1067,19 @@ namespace WebapiApplication.ML
         public string Email { get; set; }
         public string EIsVerified { get; set; }
         public string BitInfo { set; get; }
-
-
         public string CustID { get; set; }
     }
+
+    public class PersonalinteractionMatchFollowup
+    {
+        public Int64? CustId { set; get; }
+        public string CreatedDate { set; get; }
+        public Int64? EnteredbyEmpID { set; get; }
+        public string Empdetails { set; get; }
+
+    }
+
+
 
     public class assignprofiles
     {
@@ -1243,18 +1258,19 @@ namespace WebapiApplication.ML
         public string StatusMessages { set; get; }
         public int? StatusId { get; set; }
     }
-    public class exceldata{
+    public class exceldata
+    {
 
-          public string SalesExecutive { set; get; }
-          public string CallerName { set; get; }
-          public string CallerNumber { set; get; }
-          public string CallStatus { set; get; }
-          public int Duration { set; get; }
-          public string CallType { set; get; }
-          public string note { set; get; }
-          public string Status { set; get; }
-          public DateTime? CreatedDate { set; get; }
-      
+        public string SalesExecutive { set; get; }
+        public string CallerName { set; get; }
+        public string CallerNumber { set; get; }
+        public string CallStatus { set; get; }
+        public int Duration { set; get; }
+        public string CallType { set; get; }
+        public string note { set; get; }
+        public string Status { set; get; }
+        public DateTime? CreatedDate { set; get; }
+
     }
 
 
@@ -1262,7 +1278,7 @@ namespace WebapiApplication.ML
     {
         public DateTime? exceluploaddate { get; set; }
         public List<exceldata> exceluploaddatelist { get; set; }
-      
+
     }
 
 }

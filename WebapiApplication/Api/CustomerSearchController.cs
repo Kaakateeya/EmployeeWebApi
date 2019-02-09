@@ -20,6 +20,7 @@ namespace WebapiApplication.Api
             this.ICustomerSearch = new ImpCustomerSearch();
         }
 
+     
         public PrimaryInformationMl getPartnerpreferencedetails(int? CustID, int? EmpID, Int64? searchresultID)
         {
             return this.ICustomerSearch.Partnerpreferencedetails_CustomerSearch(CustID, EmpID, searchresultID);

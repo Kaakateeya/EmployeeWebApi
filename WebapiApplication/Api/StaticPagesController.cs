@@ -314,6 +314,13 @@ namespace WebapiApplication.Api
             return this.ISuccessStories.InbitdataInfo(ProfileID, empid);
         }
 
+        //matchfollowup button
+        public ArrayList getPersonalinteractionMatchFollowup(int? CustId)
+        {
+            return this.ISuccessStories.getPersonalinteractionMatchFollowup(CustId);
+        }
+
+
         public NoDataFoundDisplay getNoDataFoundDisplay(string ProfileID)
         {
             return this.ISuccessStories.NoDataFoundDisplay(ProfileID);

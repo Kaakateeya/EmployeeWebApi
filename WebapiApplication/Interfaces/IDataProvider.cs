@@ -209,6 +209,8 @@ namespace WebapiApplication.Interfaces
         NoDataFoundDisplay NoDataFoundDisplay(string ProfileID);
 
         int brokerEmailMobilenumberexists(int? iflagEmailmobile, string EmailMobile);
+
+        ArrayList getPersonalinteractionMatchFollowup(int? CustId);
     }
     public interface IDependency
     {

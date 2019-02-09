@@ -1261,6 +1261,12 @@ namespace WebapiApplication.ML
         public string Caste_All { get; set; }
         public string Qualification_All { get; set; }
         public string Profession_All { get; set; }
+
+        //Add 05_02_2019
+        public string C_ContactDetails { get; set; }
+        public string C_PINCode { get; set; }
+
+
     }
 
     public class MasterData

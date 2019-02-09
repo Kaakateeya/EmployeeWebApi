@@ -1421,7 +1421,11 @@ namespace WebapiApplication.ML
         public string Divorce_NoofChild { set; get; }
         public string Divorce_Service { set; get; }
         public string MembershipTypeID { set; get; }
-
+        //Add generalsearch--------Star
+        public string StarLanguageID { set; get; }
+        public string StarLanguageText { set; get; }
+        public string StarsID { set; get; }
+        public string StarsText { set; get; }
      
 
 
