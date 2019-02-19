@@ -211,6 +211,7 @@ namespace WebapiApplication.Interfaces
         int brokerEmailMobilenumberexists(int? iflagEmailmobile, string EmailMobile);
 
         ArrayList getPersonalinteractionMatchFollowup(int? CustId);
+
     }
     public interface IDependency
     {
