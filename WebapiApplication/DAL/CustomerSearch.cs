@@ -912,5 +912,54 @@ namespace WebapiApplication.DAL
             status = 1;
             return details;
         }
+
+        public int getSearchPersonalvisit(string profileID, int? Relationship, int empID,string spName)
+        {
+            int iStatus = 0;
+            DataSet ds = new DataSet();
+            SqlParameter[] param = new SqlParameter[10];
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+
+            string strVal = null;
+            int? iValue = null;
+
+          
+            try
+            {
+                param[0] = new SqlParameter("@i_CustID", SqlDbType.Int);
+                param[0].Value = iValue;
+
+                param[1] = new SqlParameter("@CategoryID", SqlDbType.Int);
+                param[1].Value = iValue;
+
+                param[2] = new SqlParameter("@RelationShipID", SqlDbType.VarChar);
+                param[2].Value = Relationship;
+
+                param[3] = new SqlParameter("@RelationShipName", SqlDbType.VarChar);
+                param[3].Value = strVal;
+
+
+                param[4] = new SqlParameter("@ProfileID", SqlDbType.VarChar);
+                param[4].Value = profileID;
+
+                param[5] = new SqlParameter("@EmpID", SqlDbType.Int);
+                param[5].Value = empID;
+
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, param);
+                iStatus = 1;
+            }
+            catch (Exception ex)
+            {
+                iStatus = 0;
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(ex.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return iStatus;
+        }
     }
 }

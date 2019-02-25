@@ -62,6 +62,9 @@ namespace WebapiApplication.Interfaces
         List<slideshowNew> ShowDataForEmployeeGeneral_Nocastebar(EmployeeSearch employeesearch);
 
         List<slideshowNew> ShowDataForEmployeeAdvanceSearch_Nocastebar(EmployeeSearch employeesearch);
+
+        int getSearchPersonalvisit(string profileID, int? Relationship, int empID);
+
     }
     public interface ICustomerPersonaldetails
     {
@@ -213,6 +216,7 @@ namespace WebapiApplication.Interfaces
         ArrayList getPersonalinteractionMatchFollowup(int? CustId);
 
     }
+
     public interface IDependency
     {
         List<CountryDependency> getCountryDependency(string dependencyName, string dependencyValue, string spname);

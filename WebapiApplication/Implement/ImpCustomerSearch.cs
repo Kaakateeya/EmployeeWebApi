@@ -23,7 +23,7 @@ namespace WebapiApplication.Implement
         public List<QuicksearchResultML> CustomerAdvanceGeneralandSavedSearch(PrimaryInformationMl primaryInfo, DataTable dtTableValues) { return new CustomerSearch().CustomerGeneralandAdvancedSavedSearch(primaryInfo, dtTableValues, "[dbo].[usp_AdvSearch_Customer]", "@dtAdvsearch", "[dbo].[usp_Customers_GeneralSearch_Perfor]"); }
         public List<QuicksearchResultML> CustomerProfileIDSavedSearch(ProfileIDSearch primaryInfo, DataTable dtTableValues) { return new CustomerSearch().CustomerProfileIDSavedSearch(primaryInfo, dtTableValues, "[dbo].[usp_ProfileIDsearch_Customer]", "@dtProfileIDsearch", "[dbo].[usp_Customers_ProfileSearch_Profor]"); }
         public List<SearchResultSaveEditML> SearchResultSaveEdit(long? Cust_ID, string SaveSearchName, int? iEditDelete) { return new CustomerSearch().SearchResultSaveEdit(Cust_ID, SaveSearchName, iEditDelete, "[dbo].[usp_SearchResultSaveEdit]"); }
-       
+
         //Employee Search Pages
 
         public GetPrimaryDataCustomerResponse PrimaryCustomerDataResponse(int? CustID, int? EmpID, int? SearchType) { return new CustomerSearch().GetPrimaryInformationDal(CustID, EmpID, SearchType, "[dbo].[usp_GetCustomerinfo_Forsearches_NewDesign]"); }
@@ -35,7 +35,12 @@ namespace WebapiApplication.Implement
 
         public List<slideshowNew> ShowDataForEmployeeAdvanceSearch(EmployeeSearch employeesearch) { return new CustomerSearch().GetShowDataForAdvanced(employeesearch, "[dbo].[usp_get_AdvancedSearchResultSet1_Test_Profor_NewDesign]"); }
         public List<slideshowNew> ShowDataForEmployeeAdvanceSearch_Nocastebar(EmployeeSearch employeesearch) { return new CustomerSearch().GetShowDataForAdvanced(employeesearch, "[dbo].[usp_get_AdvancedSearchResultSet1_CasteNoBar_NewDesign]"); }
-  
-        
+
+        public int getSearchPersonalvisit(string profileID, int? Relationship, int empID)
+        {
+            return new CustomerSearch().getSearchPersonalvisit(profileID, Relationship, empID, "[dbo].[InsertInBitInformation_NewDesign]");
+        }
+
+
     }
 }

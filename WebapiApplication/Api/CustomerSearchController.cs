@@ -20,7 +20,7 @@ namespace WebapiApplication.Api
             this.ICustomerSearch = new ImpCustomerSearch();
         }
 
-     
+
         public PrimaryInformationMl getPartnerpreferencedetails(int? CustID, int? EmpID, Int64? searchresultID)
         {
             return this.ICustomerSearch.Partnerpreferencedetails_CustomerSearch(CustID, EmpID, searchresultID);
@@ -113,5 +113,14 @@ namespace WebapiApplication.Api
             employeesearch.dtTableValues = Commonclass.returnListDatatable(PersonaldetailsUDTables.dtcreateDatatableShowDataForEmployeeAdvanceSearch(), lstAdvance);
             return this.ICustomerSearch.ShowDataForEmployeeAdvanceSearch_Nocastebar(employeesearch);
         }
+
+        public int getSearchPersonalvisit(string profileID, int? Relationship, int empID)
+        {
+            return this.ICustomerSearch.getSearchPersonalvisit(profileID, Relationship,empID);
+        }
+
+
+
+
     }
 }

@@ -118,7 +118,7 @@ namespace WebapiApplication.DAL
         {
             SqlParameter[] parm = new SqlParameter[4];
             int intStatus = 0;
-            string strErrorMsg = "";
+         //   string strErrorMsg = "";
             SqlConnection connection = new SqlConnection();
             connection = SQLHelper.GetSQLConnection();
             connection.Open();
@@ -137,12 +137,12 @@ namespace WebapiApplication.DAL
                 if (string.Compare(System.DBNull.Value.ToString(), Convert.ToString(parm[2].Value)).Equals(0))
                 {
                     intStatus = 0;
-                    strErrorMsg = "";
+                   // strErrorMsg = "";
                 }
                 else
                 {
                     intStatus = Convert.ToInt32(parm[2].Value);
-                    strErrorMsg = "";
+                    //strErrorMsg = "";
                 }
             }
             catch (Exception EX)
