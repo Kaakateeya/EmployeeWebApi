@@ -1076,6 +1076,7 @@ namespace WebapiApplication.ML
         public string CreatedDate { set; get; }
         public Int64? EnteredbyEmpID { set; get; }
         public string Empdetails { set; get; }
+        public string relationName { set; get; }
 
     }
 

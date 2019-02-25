@@ -2778,6 +2778,7 @@ namespace WebapiApplication.DAL
                             PersonalInteraction.CreatedDate = reader["CreatedDate"] != DBNull.Value ? reader["CreatedDate"].ToString() : null;
                             PersonalInteraction.EnteredbyEmpID = reader["EnteredbyEmpID"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("EnteredbyEmpID")) : inull;
                             PersonalInteraction.Empdetails = reader["Empdetails"] != DBNull.Value ? reader["Empdetails"].ToString() : null;
+                            PersonalInteraction.relationName = reader["relationName"] != DBNull.Value ? reader["relationName"].ToString() : null;
                             arrayList.Add(PersonalInteraction);
                         }
                     }
