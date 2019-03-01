@@ -1271,6 +1271,8 @@ namespace WebapiApplication.ML
         public string Pr_EduAll { get; set; }
         public string Pr_ProfAll { get; set; }
         public string Pr_Merit { get; set; }
+
+        public string C_ProfileID { get; set; }
     }
 
     public class MasterData

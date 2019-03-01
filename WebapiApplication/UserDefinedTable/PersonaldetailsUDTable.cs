@@ -1671,6 +1671,7 @@ namespace WebapiApplication.UserDefinedTable
             dtCreate.Columns.Add("Pr_EduAll");
             dtCreate.Columns.Add("Pr_ProfAll");
             dtCreate.Columns.Add("Pr_Merit");
+            dtCreate.Columns.Add("C_ProfileID");
 
             return dtCreate;
 
