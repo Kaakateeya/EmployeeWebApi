@@ -8284,7 +8284,7 @@ namespace WebapiApplication.DAL
 
                             Binterest.FromlastService = (reader["FromlastService"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("FromlastService")) : null;
                             Binterest.TolastService = (reader["TolastService"]) != DBNull.Value ? reader.GetString(reader.GetOrdinal("TolastService")) : null;
-
+                            Binterest.MatchfollwupStatus = (reader["MatchfollwupStatus"]) != DBNull.Value ? reader.GetInt64(reader.GetOrdinal("MatchfollwupStatus")) : Lnull;
 
                             arrayList.Add(Binterest);
                         }

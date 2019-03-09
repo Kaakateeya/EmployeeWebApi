@@ -280,6 +280,8 @@ namespace WebapiApplication.ML
 
         public string TolastService { set; get; }
 
+
+        public long? MatchfollwupStatus { get; set; }
     }
 
     public class SearchML
