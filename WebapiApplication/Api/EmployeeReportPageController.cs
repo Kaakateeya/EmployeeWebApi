@@ -876,7 +876,13 @@ namespace WebapiApplication.Api
         {
             return this.IEmployeeReport.MatchfollowupCounts(intEmpID);
         }
+        //keywordsearch address
 
+        public ArrayList getKeywordsearchaddress(string CustIDs)
+        {
+            return this.IEmployeeReport.Keywordsearchaddress(CustIDs);
+        }
+        //
         // forgat Password New Design
 
 
