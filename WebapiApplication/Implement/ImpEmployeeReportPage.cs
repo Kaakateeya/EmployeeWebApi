@@ -498,6 +498,12 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().MatchfollowupCounts(intEmpID, "[dbo].[Usp_Select_EmpMatchFollowup_Count]");
         }
+        //
+        public ArrayList Keywordsearchaddress(string CustIDs)
+        {
+            return new EmployeeReportPageDAL().Keywordsearchaddress(CustIDs, "[dbo].[Usp_KeywordsearchAddress]");
+        }
+        //
         public int UserProfileForgotPassword(string userName)
         {
             return new EmployeeReportPageDAL().UserProfileForgotPassword(userName, "[dbo].[Usp_Cust_ResetForgotPassword_AJS]");

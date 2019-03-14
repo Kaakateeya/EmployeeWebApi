@@ -540,6 +540,7 @@ namespace WebapiApplication.Interfaces
 
         ArrayList MatchfollowupCounts(int? intEmpID);
 
+        ArrayList Keywordsearchaddress(string CustIDs);
 
         ArrayList TeamheadReport(Teamheadinfo mobj);
 
