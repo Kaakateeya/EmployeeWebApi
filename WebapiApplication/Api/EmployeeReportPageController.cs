@@ -878,11 +878,7 @@ namespace WebapiApplication.Api
         }
         //keywordsearch address
 
-        public ArrayList getKeywordsearchaddress(string CustIDs)
-        {
-            return this.IEmployeeReport.Keywordsearchaddress(CustIDs);
-        }
-        //
+       
         // forgat Password New Design
 
 
@@ -917,6 +913,7 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.MarketingMatchfollowupCompare(obj);
         }
 
+
         /// <summary>
         /// ////////      05_01_2019 
 
@@ -927,6 +924,13 @@ namespace WebapiApplication.Api
         {
             return this.IEmployeeReport.MarketingTicketHistoryCompareSelect(intBranchID, dtDateofRecording);
         }
+
+
+        public ArrayList getKeywordSearchAddressPrint(string CustIDs)
+        {
+            return this.IEmployeeReport.KeywordSearchAddressPrint(CustIDs);
+        }
+       
 
     }
 }

@@ -540,7 +540,7 @@ namespace WebapiApplication.Interfaces
 
         ArrayList MatchfollowupCounts(int? intEmpID);
 
-        ArrayList Keywordsearchaddress(string CustIDs);
+      
 
         ArrayList TeamheadReport(Teamheadinfo mobj);
 
@@ -558,6 +558,8 @@ namespace WebapiApplication.Interfaces
         int? MarketingMatchfollowupCompare(fileuploadexcel obj);
 
         ArrayList MarketingTicketHistoryCompareSelect(int? intBranchID, DateTime? dtDateofRecording);
+
+        ArrayList KeywordSearchAddressPrint(string CustIDs);
     }
 
     public interface ISmallPages

@@ -441,7 +441,7 @@ namespace WebapiApplication.Implement
 
         public ArrayList TeamheadReport(Teamheadinfo mobj)
         {
-            return new EmployeeReportPageDAL().TeamheadReport(mobj,"[dbo].[usp_Emp_TeamLeadAllDetails_NewDesign]");
+            return new EmployeeReportPageDAL().TeamheadReport(mobj, "[dbo].[usp_Emp_TeamLeadAllDetails_NewDesign]");
 
         }
         // teamheadinfoend
@@ -467,13 +467,13 @@ namespace WebapiApplication.Implement
             return new EmployeeReportPageDAL().Yesterday48hoursSerives(Empid, pagefrom, pageto, "[dbo].[Usp_Emp_YesterDayMatchFollowUpInfo_3Days]");
         }
         //EmpMatchFollowupandMarketingHistory
-     
+
         public ArrayList EmpMatchFollowupandMarketingHistory([FromBody]employeematchfollowupinfo mobj)
         {
             return new EmployeeReportPageDAL().EmpMatchFollowupandMarketingHistory(mobj, "[dbo].[usp_Emp_MatchFollowupandMarketingHistory_AJS]");
 
         }
-        
+
         // Accountsdetailspage  
         public ArrayList Accountsdetailspage([FromBody]accountspageinfo mobj)
         {
@@ -498,12 +498,7 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().MatchfollowupCounts(intEmpID, "[dbo].[Usp_Select_EmpMatchFollowup_Count]");
         }
-        //
-        public ArrayList Keywordsearchaddress(string CustIDs)
-        {
-            return new EmployeeReportPageDAL().Keywordsearchaddress(CustIDs, "[dbo].[Usp_KeywordsearchAddress]");
-        }
-        //
+
         public int UserProfileForgotPassword(string userName)
         {
             return new EmployeeReportPageDAL().UserProfileForgotPassword(userName, "[dbo].[Usp_Cust_ResetForgotPassword_AJS]");
@@ -528,6 +523,12 @@ namespace WebapiApplication.Implement
         {
             return new EmployeeReportPageDAL().MarketingTicketHistoryCompareSelect(intBranchID, dtDateofRecording, "[dbo].[usp_Emp_TicketsandMatchFollowupswithRecoring]");
         }
+
+        public ArrayList KeywordSearchAddressPrint(string CustIds)
+        {
+            return new EmployeeReportPageDAL().KeywordSearchAddressPrint(CustIds, "[dbo].[Usp_KeywordsearchAddress]");
+        }
+
     }
 
 }

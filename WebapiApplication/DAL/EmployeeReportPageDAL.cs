@@ -8327,32 +8327,7 @@ namespace WebapiApplication.DAL
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
-        //
-        public ArrayList Keywordsearchaddress(string CustIDs, string spName)
-        {
-            DataSet ds = new DataSet();
-            SqlConnection connection = new SqlConnection();
-            connection = SQLHelper.GetSQLConnection();
-            connection.Open();
-            try
-            {
-                SqlParameter[] parm = new SqlParameter[2];
-                parm[0] = new SqlParameter("@CustIDs", SqlDbType.VarChar);
-                parm[0].Value = CustIDs;
-                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
-            }
-            catch (Exception EX)
-            {
-                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return Commonclass.convertdataTableToArrayListTable(ds);
-        }
-
-        //
+      
 
 
         public ArrayList TeamheadReport(Teamheadinfo mobj, string spName)
@@ -8806,5 +8781,37 @@ namespace WebapiApplication.DAL
             }
             return Commonclass.convertdataTableToArrayListTable(ds);
         }
+
+     
+        public ArrayList KeywordSearchAddressPrint(string CustIDs, string spName)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection();
+            connection = SQLHelper.GetSQLConnection();
+            connection.Open();
+            try
+            {
+                SqlParameter[] parm = new SqlParameter[2];
+                parm[0] = new SqlParameter("@CustIDs", SqlDbType.VarChar);
+                parm[0].Value = CustIDs;
+                ds = SQLHelper.ExecuteDataset(connection, CommandType.StoredProcedure, spName, parm);
+            }
+            catch (Exception EX)
+            {
+                Commonclass.ApplicationErrorLog(spName, Convert.ToString(EX.Message), null, null, null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Commonclass.convertdataTableToArrayListTable(ds);
+        }
+
+
+
+
+
+
+
     }
 }
