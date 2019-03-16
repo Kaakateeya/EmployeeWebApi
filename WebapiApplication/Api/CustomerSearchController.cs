@@ -114,7 +114,14 @@ namespace WebapiApplication.Api
             return this.ICustomerSearch.ShowDataForEmployeeAdvanceSearch_Nocastebar(employeesearch);
         }
 
-        public int getSearchPersonalvisit(string profileID, int? Relationship, int empID)
+        /// <summary>
+        /// keyword address and print binding
+        /// </summary>
+        /// <param name="profileID"></param>
+        /// <param name="Relationship"></param>
+        /// <param name="empID"></param>
+        /// <returns></returns>
+        public int getSearchPersonalvisit(string profileID, int? Relationship, int empID)   
         {
             return this.ICustomerSearch.getSearchPersonalvisit(profileID, Relationship,empID);
         }

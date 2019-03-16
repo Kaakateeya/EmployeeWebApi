@@ -925,7 +925,11 @@ namespace WebapiApplication.Api
             return this.IEmployeeReport.MarketingTicketHistoryCompareSelect(intBranchID, dtDateofRecording);
         }
 
-
+        /// <summary>
+        /// add address Add keywordsearch.........
+        /// </summary>
+        /// <param name="CustIDs"></param>
+        /// <returns></returns>
         public ArrayList getKeywordSearchAddressPrint(string CustIDs)
         {
             return this.IEmployeeReport.KeywordSearchAddressPrint(CustIDs);
